@@ -1,0 +1,4 @@
+[functions.commerce]
+# Authentication is checked by server/api.mjs for every protected route.
+# Webhooks verify their signature and recheck the provider's status API.
+verify_jwt = false

@@ -17,9 +17,13 @@ The backend already runs at Supabase Edge Function commerce. Do not upload servi
 
 ## Before opening customer accounts/payments
 
-After Pages deploys, verify the actual production URL and add only that exact origin to the commerce Edge CORS allowlist, preserving the existing ChatGPT Site origin. Until then, the new hostname cannot call the account API. Preview deployment origins are not enabled automatically.
+The commerce Edge CORS allowlist includes https://pelautjagomesin.pages.dev and the existing ChatGPT Site origin. Preview deployment origins are not enabled automatically. Authentication and entitlement checks still apply to both storefronts.
 
 Update Supabase Auth redirect settings for the confirmed URL; complete SMTP/email confirmation testing. Checkout remains closed until Midtrans configuration and payment tests are complete.
+
+Store Sandbox credentials only in Supabase Edge Function Secrets: `MIDTRANS_SERVER_KEY`, `MIDTRANS_CLIENT_KEY`, and `MIDTRANS_SIGNATURE_KEY` (the Midtrans Signature Secret Key). Since October 2026, the notification signature key is separate from newly generated Server Keys. Webhook signatures use the Signature Secret Key; requests to Midtrans use the Server Key. A valid signature is followed by a server-to-server status check before access is granted. Missing credentials keep checkout unavailable. Leave `CHECKOUT_ENABLED=false` until setup and sandbox validation are complete, and `MIDTRANS_ENV=sandbox` throughout testing.
+
+Configure the Midtrans Sandbox payment notification URL as `https://vkljhkzbuomcwqnsiope.supabase.co/functions/v1/commerce/webhook`. No real-money test is required. Do not change catalog prices to create a test transaction; use an explicitly isolated sandbox test flow.
 
 Only Shinko GJ Simulator is public. MAN, Tanabe, and Alfa Laval HTML files under dist are catalog pages, not premium simulators. Premium source files are not included in this branch and are served from private Supabase Storage only after authorization.
 

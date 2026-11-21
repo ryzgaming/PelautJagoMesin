@@ -30,7 +30,7 @@ export function verifiedStatus(data,order){
 export async function handleApi(request,env,fetcher=fetch){
   try {
     const url=new URL(request.url),path=url.pathname.replace(/\/$/,'');
-    if(path==='/api/config'&&request.method==='GET')return response({authReady:!!(env.SUPABASE_URL&&env.SUPABASE_ANON_KEY),supabaseUrl:env.SUPABASE_URL||null,anonKey:env.SUPABASE_ANON_KEY||null,checkoutEnabled:env.CHECKOUT_ENABLED==='true'&&!!(env.MIDTRANS_SERVER_KEY&&env.MIDTRANS_CLIENT_KEY&&env.SUPABASE_SERVICE_ROLE_KEY),paymentEnvironment:env.MIDTRANS_ENV==='production'?'production':'sandbox',clientKey:env.MIDTRANS_CLIENT_KEY||null});
+    if(path==='/api/config'&&request.method==='GET')return response({authReady:!!(env.SUPABASE_URL&&env.SUPABASE_ANON_KEY),supabaseUrl:env.SUPABASE_URL||null,anonKey:env.SUPABASE_ANON_KEY||null,checkoutEnabled:env.CHECKOUT_ENABLED==='true'&&!!(env.MIDTRANS_SERVER_KEY&&env.MIDTRANS_SIGNATURE_KEY&&env.MIDTRANS_CLIENT_KEY&&env.SUPABASE_SERVICE_ROLE_KEY),paymentEnvironment:env.MIDTRANS_ENV==='production'?'production':'sandbox',clientKey:env.MIDTRANS_CLIENT_KEY||null});
     if(request.method==='POST'&&path!=='/api/webhook'){
       const origin=request.headers.get('origin');
       if(!origin||origin!==(env.APP_ORIGIN||url.origin))fail(403,'INVALID_ORIGIN');
@@ -68,7 +68,7 @@ export async function handleApi(request,env,fetcher=fetch){
       return response({email:u.email,orders,access,admin:!!admins.length});
     }
     if(path==='/api/checkout'&&request.method==='POST'){
-      if(env.CHECKOUT_ENABLED!=='true')fail(503,'CHECKOUT_CLOSED');required(env,['MIDTRANS_SERVER_KEY','MIDTRANS_CLIENT_KEY']);
+      if(env.CHECKOUT_ENABLED!=='true')fail(503,'CHECKOUT_CLOSED');required(env,['MIDTRANS_SERVER_KEY','MIDTRANS_SIGNATURE_KEY','MIDTRANS_CLIENT_KEY']);
       const u=await user(),b=await body();if(typeof b.productId!=='string')fail(400,'INVALID_PRODUCT');
       const result=await rpc('prepare_order',{p_user_id:u.id,p_product_id:b.productId,p_email:u.email});
       const order=Array.isArray(result)?result[0]:result;if(!order?.id)fail(502,'DATABASE_ERROR');
@@ -80,8 +80,8 @@ export async function handleApi(request,env,fetcher=fetch){
       return response({token:snap.token,orderId:order.id});
     }
     if(path==='/api/webhook'&&request.method==='POST'){
-      required(env,['MIDTRANS_SERVER_KEY']);const b=await body();
-      if(!(await verifySignature(b,env.MIDTRANS_SERVER_KEY)))fail(401,'INVALID_SIGNATURE');
+      required(env,['MIDTRANS_SERVER_KEY','MIDTRANS_SIGNATURE_KEY']);const b=await body();
+      if(!(await verifySignature(b,env.MIDTRANS_SIGNATURE_KEY)))fail(401,'INVALID_SIGNATURE');
       // Notification status is NOT signed. Always query Midtrans before granting access.
       return response({ok:true,result:await reconcile(b.order_id)});
     }

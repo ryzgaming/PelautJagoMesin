@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { handleEdge, SITE_ORIGIN } from '../server/edge.mjs';
+import { handleEdge, SITE_ORIGIN, PAGES_ORIGIN } from '../server/edge.mjs';
 
 const env={SUPABASE_URL:'https://project.supabase.co',SUPABASE_ANON_KEY:'public-test',SUPABASE_SERVICE_ROLE_KEY:'private-test',CHECKOUT_ENABLED:'false'};
 const bomb=async()=>{throw Error('Unexpected network request');};
@@ -38,4 +38,16 @@ test('Route rewriting preserves body and origin checks for both gateway path for
   }
   assert.equal((await handleEdge(request('access',{method:'POST',body:'{}'}),env,bomb)).status,403);
   assert.equal((await handleEdge(request('me',{method:'DELETE'}),env,bomb)).status,405);
+});
+test('Cloudflare and original storefront both receive exact CORS and authenticated POST checks',async()=>{
+  for(const origin of [SITE_ORIGIN,PAGES_ORIGIN]){
+    const preflight=await handleEdge(request('access',{method:'OPTIONS',headers:{Origin:origin}}),env,bomb);
+    assert.equal(preflight.status,204);assert.equal(preflight.headers.get('access-control-allow-origin'),origin);
+    const access=await handleEdge(request('access',{method:'POST',headers:{Origin:origin},body:'{}'}),env,bomb);
+    assert.equal(access.status,401);assert.equal(access.headers.get('access-control-allow-origin'),origin);
+  }
+  for(const origin of [PAGES_ORIGIN+'.evil.example','https://preview.pelautjagomesin.pages.dev','null']){
+    const r=await handleEdge(request('config',{headers:{Origin:origin}}),env,bomb);
+    assert.equal(r.status,403);assert.equal(r.headers.get('access-control-allow-origin'),null);
+  }
 });

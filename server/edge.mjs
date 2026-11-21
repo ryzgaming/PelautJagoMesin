@@ -1,19 +1,21 @@
 import { handleApi } from './api.mjs';
 
 export const SITE_ORIGIN = 'https://pelaut-jago-mesin.violetblackbird16.chatgpt.site';
+export const PAGES_ORIGIN = 'https://pelautjagomesin.pages.dev';
 
 // Supabase verifies user sessions inside handleApi and webhook signatures separately.
 // Public config/catalog and CORS preflights do not require an end-user JWT.
 export async function handleEdge(request, env, fetcher = fetch) {
-  const allowedOrigin = env.APP_ORIGIN || SITE_ORIGIN;
+  const allowedOrigins = new Set([SITE_ORIGIN, PAGES_ORIGIN, ...(env.APP_ORIGIN ? [env.APP_ORIGIN] : [])]);
   const origin = request.headers.get('origin');
+  const allowedOrigin = allowedOrigins.has(origin) ? origin : (env.APP_ORIGIN || SITE_ORIGIN);
   const headers = new Headers({ 'Vary': 'Origin', 'Cache-Control': 'no-store' });
   if (origin === allowedOrigin) {
     headers.set('Access-Control-Allow-Origin', allowedOrigin);
     headers.set('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
     headers.set('Access-Control-Allow-Headers', 'authorization, content-type, apikey, x-client-info');
   }
-  if (origin && origin !== allowedOrigin) {
+  if (origin && !allowedOrigins.has(origin)) {
     return Response.json({ error: 'INVALID_ORIGIN' }, { status: 403, headers });
   }
   if (request.method === 'OPTIONS') return new Response(null, { status: origin ? 204 : 403, headers });

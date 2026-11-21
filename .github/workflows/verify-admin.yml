@@ -1,0 +1,27 @@
+name: Verify storefront and admin access
+on:
+  push:
+    branches:
+      - chatgpt/admin-owner-access
+  pull_request:
+    branches:
+      - cloudflare-store
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Install
+        run: npm ci
+      - name: Unit tests
+        run: npm test
+      - name: Build verification
+        run: npm run build

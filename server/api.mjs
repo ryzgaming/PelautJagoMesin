@@ -93,7 +93,13 @@ export async function handleApi(request,env,fetcher=fetch){
       const u=await user(),b=await body();if(typeof b.productId!=='string')fail(400,'INVALID_PRODUCT');
       const p=(await db('products?id=eq.'+encodeURIComponent(b.productId)+'&active=eq.true&select=id,is_free,storage_path'))[0];if(!p)fail(404,'PRODUCT_NOT_FOUND');
       if(p.is_free)return response({url:'/shinko-gj-sim.html'});
-      const access=await db('entitlements?user_id=eq.'+encodeURIComponent(u.id)+'&product_id=eq.'+encodeURIComponent(p.id)+'&select=product_id');if(!access.length)fail(403,'PURCHASE_REQUIRED');
+      const access=await db('entitlements?user_id=eq.'+encodeURIComponent(u.id)+'&product_id=eq.'+encodeURIComponent(p.id)+'&select=product_id');
+      if(!access.length){
+        // Grant paid workspaces to verified admins without creating purchases.
+        // Never trust a role, email, or flag supplied by the browser.
+        const admins=await db('admins?user_id=eq.'+encodeURIComponent(u.id)+'&select=user_id');
+        if(!admins.length)fail(403,'PURCHASE_REQUIRED');
+      }
       if(!p.storage_path)fail(503,'PRODUCT_FILE_NOT_READY');
       const r=await fetcher(env.SUPABASE_URL+'/storage/v1/object/authenticated/premium/'+p.storage_path.split('/').map(encodeURIComponent).join('/'),{headers:{apikey:env.SUPABASE_SERVICE_ROLE_KEY,Authorization:'Bearer '+env.SUPABASE_SERVICE_ROLE_KEY}});
       if(!r.ok)fail(503,'PRODUCT_FILE_NOT_READY');

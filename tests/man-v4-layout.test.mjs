@@ -6,10 +6,8 @@ const html=await readFile('dist/man-v4-review.html','utf8');
 const js=await readFile('dist/assets/man-v4.js','utf8');
 const css=await readFile('dist/assets/man-v4.css','utf8');
 
-test('MAN workspace V4 contains accessible protected 3D viewport',()=>{
-  assert.match(html,/MAN L23\/30H Mk3/);
-  assert.match(html,/sandbox="allow-scripts"/);
-  assert.match(html,/iframe[^>]*id="v4-engine"/);
+test('MAN V4 review entry redirects to the real protected simulator workspace',()=>{
+  assert.match(html,/workspace\.html\?product=man-l2330h/);
   assert.doesNotMatch(html,/WebGLRenderer|THREE\.Scene|<canvas/);
   assert.match(js,/api\('access',\{productId:machineId\},true\)/);
   assert.match(js,/frame\.srcdoc=embedded/);

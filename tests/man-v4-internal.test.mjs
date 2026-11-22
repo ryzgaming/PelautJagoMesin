@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {injectManV4,MAN_V4_REVIEW_ORIGIN} from '../server/man-v4-internal.mjs';
+import {injectManV4,MAN_V4_REVIEW_ORIGIN,MAN_V4_PRODUCTION_ORIGIN} from '../server/man-v4-internal.mjs';
 import {handleApi} from '../server/api.mjs';
 
 const ORIGINAL='<!doctype html><html lang="id"><head><meta charset="utf-8"></head><body><div id="app">Original MAN model</div><script>window.__pp={parts:[]};</script></body></html>';
@@ -48,9 +48,19 @@ test('authorized admin receives MAN V4 internal UI at exact preview origin',asyn
   assert.match(html,/Original MAN model/);
   assert.match(res.headers.get('content-security-policy'),/sandbox allow-scripts/);
 });
-test('production administrator keeps original internal MAN UI until approval',async()=>{
-  const origin='https://pelautjagomesin.pages.dev';
+test('production administrator receives MAN V4 from inside the protected simulator',async()=>{
+  const origin=MAN_V4_PRODUCTION_ORIGIN;
   const s=stub({admin:true});
+  const res=await handleApi(request(origin),env(origin),s.fetcher);
+  assert.equal(res.status,200);
+  const text=await res.text();
+  assert.match(text,/man-v4-native-css/);
+  assert.match(text,/man-v4-native-js/);
+  assert.match(text,/Original MAN model/);
+});
+test('ordinary purchaser on production still receives unchanged simulator UI',async()=>{
+  const origin=MAN_V4_PRODUCTION_ORIGIN;
+  const s=stub({admin:false,entitled:true});
   const res=await handleApi(request(origin),env(origin),s.fetcher);
   assert.equal(res.status,200);
   assert.equal(await res.text(),ORIGINAL);

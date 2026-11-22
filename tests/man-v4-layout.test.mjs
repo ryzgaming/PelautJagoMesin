@@ -34,3 +34,13 @@ test('responsive layout, reduced motion and safe model controls',()=>{
   assert.match(js,/e\.source!==parent\|\|e\.origin!==expectedOrigin/);
   assert.match(js,/window\.__pp/);
 });
+
+test('only authenticated V4 MAN activates full-screen mobile host',async()=>{
+  const host=await readFile('dist/assets/workspace.js','utf8');
+  const outerStyle=await readFile('dist/assets/site.css','utf8');
+  assert.match(host,/id==='man-l2330h'&&html\.includes\('id="man-v4-native-css"'\)/);
+  assert.match(host,/document\.body\.classList\.toggle\('v4-workspace-host'/);
+  assert.match(outerStyle,/body\.v4-workspace-host \.workspace-frame\{[^}]*height:100dvh/);
+  assert.match(outerStyle,/body\.v4-workspace-host \.workspace-header\{display:none!important\}/);
+  assert.match(outerStyle,/body\.v4-workspace-host \.site-header/);
+});

@@ -1,4 +1,4 @@
-import {injectManV4,MAN_V4_REVIEW_ORIGIN} from './man-v4-internal.mjs';
+import {injectManV4,MAN_V4_REVIEW_ORIGIN,MAN_V4_PRODUCTION_ORIGIN} from './man-v4-internal.mjs';
 const PUBLIC_FIELDS='id,title,category,description,price_idr,is_free,active';
 export class ApiError extends Error { constructor(status,code){ super(code);this.status=status; } }
 const fail=(status,code)=>{throw new ApiError(status,code)};
@@ -95,9 +95,9 @@ export async function handleApi(request,env,fetcher=fetch){
       const p=(await db('products?id=eq.'+encodeURIComponent(b.productId)+'&active=eq.true&select=id,is_free,storage_path'))[0];if(!p)fail(404,'PRODUCT_NOT_FOUND');
       if(p.is_free)return response({url:'/shinko-gj-sim.html'});
       const access=await db('entitlements?user_id=eq.'+encodeURIComponent(u.id)+'&product_id=eq.'+encodeURIComponent(p.id)+'&select=product_id');
-      // Preview the internal MAN UI only for a server-verified admin, at an exact
-      // Cloudflare preview origin. Other users and production keep the old UI.
-      const manV4Review=p.id==='man-l2330h'&&env.APP_ORIGIN===MAN_V4_REVIEW_ORIGIN;
+      // Apply MAN V4 internally to server-verified administrators only on exact
+      // approved Orang Mesin domains. Paid customers still receive the original UI.
+      const manV4Review=p.id==='man-l2330h'&&[MAN_V4_REVIEW_ORIGIN,MAN_V4_PRODUCTION_ORIGIN].includes(env.APP_ORIGIN);
       let admins=[];
       if(!access.length||manV4Review){
         // Grant paid workspaces to verified admins without creating purchases.

@@ -2,6 +2,7 @@ import {manV4Styles} from './man-v4-styles.mjs';
 import {manV4Runtime} from './man-v4-runtime.mjs';
 
 export const MAN_V4_REVIEW_ORIGIN = 'https://chatgpt-man-workspace-v4-ui.pelautjagomesin.pages.dev';
+export const MAN_V4_PRODUCTION_ORIGIN = 'https://pelautjagomesin.pages.dev';
 
 /**
  * Add the redesign INSIDE the authenticated MAN simulator HTML.

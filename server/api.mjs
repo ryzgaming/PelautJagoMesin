@@ -1,3 +1,4 @@
+import {injectManV4,MAN_V4_REVIEW_ORIGIN} from './man-v4-internal.mjs';
 const PUBLIC_FIELDS='id,title,category,description,price_idr,is_free,active';
 export class ApiError extends Error { constructor(status,code){ super(code);this.status=status; } }
 const fail=(status,code)=>{throw new ApiError(status,code)};
@@ -94,17 +95,23 @@ export async function handleApi(request,env,fetcher=fetch){
       const p=(await db('products?id=eq.'+encodeURIComponent(b.productId)+'&active=eq.true&select=id,is_free,storage_path'))[0];if(!p)fail(404,'PRODUCT_NOT_FOUND');
       if(p.is_free)return response({url:'/shinko-gj-sim.html'});
       const access=await db('entitlements?user_id=eq.'+encodeURIComponent(u.id)+'&product_id=eq.'+encodeURIComponent(p.id)+'&select=product_id');
-      if(!access.length){
+      // Preview the internal MAN UI only for a server-verified admin, at an exact
+      // Cloudflare preview origin. Other users and production keep the old UI.
+      const manV4Review=p.id==='man-l2330h'&&env.APP_ORIGIN===MAN_V4_REVIEW_ORIGIN;
+      let admins=[];
+      if(!access.length||manV4Review){
         // Grant paid workspaces to verified admins without creating purchases.
         // Never trust a role, email, or flag supplied by the browser.
-        const admins=await db('admins?user_id=eq.'+encodeURIComponent(u.id)+'&select=user_id');
-        if(!admins.length)fail(403,'PURCHASE_REQUIRED');
+        admins=await db('admins?user_id=eq.'+encodeURIComponent(u.id)+'&select=user_id');
       }
+      if(!access.length&&!admins.length)fail(403,'PURCHASE_REQUIRED');
       if(!p.storage_path)fail(503,'PRODUCT_FILE_NOT_READY');
       const r=await fetcher(env.SUPABASE_URL+'/storage/v1/object/authenticated/premium/'+p.storage_path.split('/').map(encodeURIComponent).join('/'),{headers:{apikey:env.SUPABASE_SERVICE_ROLE_KEY,Authorization:'Bearer '+env.SUPABASE_SERVICE_ROLE_KEY}});
       if(!r.ok)fail(503,'PRODUCT_FILE_NOT_READY');
       // Return only after server-side entitlement check. Caller uses an opaque sandbox iframe.
-      return new Response(await r.text(),{headers:{'Content-Type':'text/html; charset=utf-8','Cache-Control':'private, no-store','X-Content-Type-Options':'nosniff','Content-Security-Policy':"sandbox allow-scripts; default-src 'none'; script-src 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src data: https:; connect-src 'none'"}});
+      const original=await r.text();
+      const secured=manV4Review&&admins.length?injectManV4(original):original;
+      return new Response(secured,{headers:{'Content-Type':'text/html; charset=utf-8','Cache-Control':'private, no-store','X-Content-Type-Options':'nosniff','Content-Security-Policy':"sandbox allow-scripts; default-src 'none'; script-src 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src data: https:; connect-src 'none'"}});
     }
     if(path==='/api/admin'&&request.method==='GET'){
       await admin();return response({products:await db('products?select=*&order=price_idr.asc'),customers:await db('profiles?select=id,email,display_name,blocked,created_at&order=created_at.desc&limit=200'),orders:await db('orders?select=id,user_id,product_id,amount_idr,status,created_at&order=created_at.desc&limit=200')});

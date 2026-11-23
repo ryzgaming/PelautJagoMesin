@@ -29,6 +29,9 @@ export const onRequest: PagesFunction = async ({request, next}) => {
   if (status !== 200) return document ? login(status) : Response.json({error:errorText(status)},{status,headers:{...privateHeaders,"X-Alur-Access":"denied"}});
   const original = await next();
   const result = new Response(original.body,original);
+  if (/^\/alur\/assets\/mcp\.worker-[a-zA-Z0-9_-]+\.js$/.test(path)) {
+    result.headers.set("Content-Security-Policy","default-src 'none'; connect-src https:; script-src 'self'");
+  }
   result.headers.set("Cache-Control",privateHeaders["Cache-Control"]);
   result.headers.append("Vary","Cookie");
   result.headers.set("X-Robots-Tag",privateHeaders["X-Robots-Tag"]);

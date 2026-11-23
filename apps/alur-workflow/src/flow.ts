@@ -1,12 +1,13 @@
 import {fieldLabels, pluginById, renderMessage, type Field, type RunFields} from "./plugins.ts";
 
-export type Kind = `robot-${string}` | "trigger" | "condition" | "confirm" | "review";
+import {customKind,directoryByKind,validServer,type DirectoryKind} from "./directory.ts";
+export type Kind = DirectoryKind | `robot-${string}` | "trigger" | "condition" | "confirm" | "review";
 export type Step = {id:string, kind:Kind, name:string, x:number, y:number, field:Field, operator:"filled"|"empty"|"equals", value:string, message:string};
 export type Port = "out" | "yes" | "no";
 export type Edge = {from:string, port:Port, to:string};
 export type Graph = {id:string, name:string, revision:number, nodes:Step[], edges:Edge[]};
 export const baseLabels = {trigger:"Formulir masuk",condition:"Kondisi",confirm:"Kirim konfirmasi",review:"Tandai untuk review"};
-export function label(kind:Kind) { return pluginById.get(kind)?.name ?? baseLabels[kind as keyof typeof baseLabels]; }
+export function label(kind:Kind) { return directoryByKind.get(kind)?.name ?? pluginById.get(kind)?.name ?? baseLabels[kind as keyof typeof baseLabels]; }
 export function branches(kind:Kind) { return kind==="condition" || !!pluginById.get(kind)?.check; }
 export function usesNotes(g:Graph) {
   return g.nodes.some(n => n.field==="catatan" || n.message.includes("{catatan}"));
@@ -25,7 +26,8 @@ export function validate(g:Graph,run=false) {
   if(!g||!id(g.id)||typeof g.name!=="string"||!g.name.trim()||g.name.length>80||!Number.isInteger(g.revision)||g.revision<0||!Array.isArray(g.nodes)||!Array.isArray(g.edges)||g.nodes.length>80||g.edges.length>160) throw Error("Data workflow tidak valid.");
   const ids=new Set<string>();
   for(const n of g.nodes){
-    if(!id(n.id)||ids.has(n.id)||(!Object.hasOwn(baseLabels,n.kind)&&!pluginById.has(n.kind))||!Number.isFinite(n.x)||!Number.isFinite(n.y)||typeof n.name!=="string"||!n.name.trim()||n.name.length>80||!Object.hasOwn(fieldLabels,n.field)||!["filled","empty","equals"].includes(n.operator)||typeof n.value!=="string"||n.value.length>400||typeof n.message!=="string"||n.message.length>1000) throw Error("Periksa konfigurasi langkah.");
+    if(!id(n.id)||ids.has(n.id)||(!Object.hasOwn(baseLabels,n.kind)&&!pluginById.has(n.kind)&&!directoryByKind.has(n.kind))||!Number.isFinite(n.x)||!Number.isFinite(n.y)||typeof n.name!=="string"||!n.name.trim()||n.name.length>80||!Object.hasOwn(fieldLabels,n.field)||!["filled","empty","equals"].includes(n.operator)||typeof n.value!=="string"||n.value.length>400||typeof n.message!=="string"||n.message.length>1000) throw Error("Periksa konfigurasi langkah.");
+    if(n.kind===customKind&&!validServer(n.value)) throw Error("Periksa URL HTTPS server MCP.");
     ids.add(n.id);
   }
   const triggers=g.nodes.filter(n=>n.kind==="trigger");
@@ -51,7 +53,9 @@ export function validate(g:Graph,run=false) {
     if(run && branches(n.kind) && (!ports.has(n.id+"/yes")||!ports.has(n.id+"/no"))) throw Error("Hubungkan kedua cabang kondisi, Ya dan Tidak.");
   }
 }
-export function execute(g:Graph,data:{email:string,nama:string,catatan?:string}) {
+export type ConnectorRequest={id:string,kind:Kind,name:string,server?:string,task:string,openUrl:string,source:string};
+export type ConnectorAnswers=Record<string,string>;
+export function execute(g:Graph,data:{email:string,nama:string,catatan?:string},answers:ConnectorAnswers={}) {
   validate(g,true);
   const fields: RunFields={nama:data.nama,email:data.email,catatan:data.catatan??"",hasil:""};
   let n:Step|undefined=g.nodes.find(n=>n.kind==="trigger");
@@ -59,7 +63,18 @@ export function execute(g:Graph,data:{email:string,nama:string,catatan?:string})
   let confirmation="", review="";
   while(n) {
     let port:Port="out",detail="Formulir diterima";
-    if(n.kind==="condition") {
+    const entry=directoryByKind.get(n.kind);
+    if(entry) {
+      if(!Object.hasOwn(answers,n.id)) {
+        const pending:ConnectorRequest={id:n.id,kind:n.kind,name:n.name,server:n.kind===customKind?n.value:entry.server,
+          task:renderMessage(n.message,fields),openUrl:entry.openUrl,source:entry.source};
+        return {trace,confirmation,review,hasil:fields.hasil,pending};
+      }
+      const answer=answers[n.id];
+      if(typeof answer!=="string"||!answer.trim()||answer.length>8000) throw Error("Hasil konektor harus berisi 1–8.000 karakter.");
+      fields.hasil=answer;
+      detail="Hasil diteruskan: "+answer.slice(0,180);
+    } else if(n.kind==="condition") {
       const v=fields[n.field].trim();
       const ok=n.operator==="filled"?!!v:n.operator==="empty"?!v:v===n.value;
       port=ok?"yes":"no";detail=ok?"Cabang Ya":"Cabang Tidak";
@@ -84,5 +99,5 @@ export function execute(g:Graph,data:{email:string,nama:string,catatan?:string})
     const target=g.edges.find(e=>e.from===n!.id&&e.port===port)?.to;
     n=g.nodes.find(s=>s.id===target);
   }
-  return {trace,confirmation,review,hasil:fields.hasil};
+  return {trace,confirmation,review,hasil:fields.hasil,pending:null};
 }

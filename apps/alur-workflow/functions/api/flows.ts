@@ -23,9 +23,9 @@ export const onRequest:PagesFunction=async ({request:req})=>{
  if(!rows.length)return json({error:"Versi cloud telah berubah. Buka kembali workflow terbaru."},409);return json(g)}
  if(!["test","submit"].includes(b.action))return json({error:"Aksi tidak tersedia."},400);
  const graph=b.action==="test"?b.graph:await get(String(b.id));
- const data={email:String(b.data?.email??"").slice(0,400),nama:String(b.data?.nama??"").slice(0,400)};
+ const data={catatan:String(b.data?.catatan??"").slice(0,4000),email:String(b.data?.email??"").slice(0,400),nama:String(b.data?.nama??"").slice(0,400)};
  const result=execute(graph,data);
- await request("alur_runs",{},"POST",{flow_id:graph.id,mode:b.action==="test"?"test":"live",trace:result.trace,result:{...data,confirmation:result.confirmation,review:result.review}});
+ await request("alur_runs",{},"POST",{flow_id:graph.id,mode:b.action==="test"?"test":"live",trace:result.trace,result:{...data,hasil:result.hasil,confirmation:result.confirmation,review:result.review}});
  return json(result);
  }catch(e){return e instanceof Response?e:json({error:e instanceof Error?e.message:"Permintaan gagal."},400)}
 };

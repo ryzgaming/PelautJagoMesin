@@ -76,7 +76,9 @@ function initialize(){
   var search=make('input','om-assembly-search');
   search.type='search';search.placeholder='Cari nomor atau nama subkomponen';
   search.setAttribute('aria-label','Cari subkomponen');
-  control.append(desc,search,chips);
+  var subparts=make('details','om-assembly-subparts');
+  subparts.append(make('summary','','▤ Cari subkomponen'),desc,search,chips);
+  control.append(subparts);
 
   var actions=make('section','om-assembly-actions');
   actions.id='om-assembly-actions';actions.hidden=true;
@@ -84,7 +86,7 @@ function initialize(){
   var toolbar=make('div','om-assembly-toolbar');
   var prev=button('← Tingkat sebelumnya',function(){setLevel(level-1);},'om-assembly-quiet');
   var levelInfo=make('span','om-assembly-level','Rakitan utuh');
-  var next=button('Urai tingkat ini →',function(){setLevel(level+1);},'om-assembly-primary');
+  var next=button('Urai ↗',function(){setLevel(level+1);},'om-assembly-primary');
   prev.id='om-assembly-prev';next.id='om-assembly-next';
   toolbar.append(prev,levelInfo,next);
   var bottom=make('div','om-assembly-bottom');
@@ -110,7 +112,13 @@ function initialize(){
   status.setAttribute('aria-live','polite');
   toggles.append(togglePins,colorBtn);
   var footnote=make('p','om-assembly-note','Warna mesin mengikuti skema cat dan material pada model yang tersedia; tidak otomatis menjadi bukti warna asli pabrikan.');
-  actions.append(toolbar,bottom,toggles,status,footnote);
+  var essentials=make('div','om-assembly-essentials');
+  essentials.append(next,reassemble,togglePins);
+  var settings=make('details','om-assembly-more');
+  var settingsBody=make('div','om-assembly-more-body');
+  settingsBody.append(prev,levelInfo,scale,showAll,colorBtn,footnote);
+  settings.append(make('summary','','⋯ Pengaturan rakitan'),settingsBody);
+  actions.append(essentials,status,settings);
   center.insertBefore(control,stage);
   stage.after(actions);
 

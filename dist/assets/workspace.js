@@ -18,8 +18,8 @@ async function open() {
       await ready;
       const html = await api('access', {productId:id}, true);
       // Inline the shared presentation inside the existing opaque sandbox.
-      const [css, script] = await Promise.all([studioAsset('studio.css'), studioAsset('studio.js')]);
-      const presentation = '<style>' + css + '</style><script>' + script + '</script>';
+      const [css, diagram, script] = await Promise.all([studioAsset('studio.css'), studioAsset('assembly-diagram.js'), studioAsset('studio.js')]);
+      const presentation = '<style>' + css + '</style><script>' + diagram + '</script><script>' + script + '</script>';
       const end = html.toLowerCase().lastIndexOf('</body>');
       frame.setAttribute('sandbox', 'allow-scripts');
       frame.srcdoc = end < 0 ? html + presentation : html.slice(0,end) + presentation + html.slice(end);

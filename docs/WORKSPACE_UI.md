@@ -7,9 +7,9 @@ Keputusan pemilik, 24 November 2026 (Asia/Jakarta): gunakan **konsep nomor 2 —
 - Canvas/model 3D mengisi viewport penuh; tidak ditempatkan dalam kartu dashboard. Gunakan tinggi viewport dinamis dan perhitungkan safe area HP.
 - Tema graphite gelap, permukaan panel sedikit lebih terang, teks terang, aksen teal untuk kontrol aktif dan seleksi. Jangan bergantung pada warna saja untuk menandakan state.
 - Bar atas menampilkan nama mesin dan tautan kembali ke katalog.
-- Navigasi utama hanya berisi **Sistem** dan **Pengoperasian** di bagian bawah. Panel mulai tertutup. Memilih mode membuka panel terkait, dan tombol tutup mengembalikan ruang ke model.
+- Navigasi bawah berurutan **Eksplor keseluruhan**, **Sistem**, **Pengoperasian**. Eksplor keseluruhan menjadi tampilan awal dengan mesin utuh dan panel tertutup. Sistem serta Pengoperasian membuka materi masing-masing.
 - Sistem membuka simulasi sistem milik model. Jika mesin hanya memiliki materi susunan komponen, gunakan daftar komponen beserta penjelasannya. Pengoperasian membuka petunjuk serta kontrol operasi yang tersedia pada mesin tersebut.
-- Saat pelanggan mengetuk komponen utama yang memiliki data isi, tampilkan **Eksplor rakitan** di luar canvas. Aksi itu mengisolasi komponen terpilih dan membuka daftar bagian dari rakitan yang sama. Kembali memulihkan mode Sistem.
+- Saat pelanggan mengetuk komponen utama yang memiliki data isi, tampilkan **Eksplor rakitan** di luar canvas. Aksi itu mengisolasi komponen terpilih dan membuka daftar bagian dari rakitan yang sama. Rakitan dibuka terurai dengan nomor penunjuk yang terhubung ke bagian 3D dan daftar bernama. Tampilkan nomor katalog dan jumlah sesuai model, tandai item yang baru tersedia di katalog, dan sediakan Rapatkan/Uraikan. Jarak pisah adalah ilustrasi. Kembali memulihkan mode asal.
 - Kendalikan kamera langsung melalui model. Daftar mode tambahan dan toolbar inspeksi terpisah disembunyikan dari tampilan pelanggan.
 
 ## HP dan desktop

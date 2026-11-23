@@ -27,7 +27,11 @@
   footer.append(dock);
   root.append(footer);
 
-  const modes = [[system, 'Sistem'], [operation, 'Pengoperasian']];
+  const whole = document.createElement('button');
+  whole.type = 'button';
+  whole.append(document.createElement('span'));
+  let activeMode = whole;
+  const modes = [[whole, 'Eksplor keseluruhan'], [system, 'Sistem'], [operation, 'Pengoperasian']];
   for (const [button, label] of modes) {
     button.querySelector('span').textContent = label;
     button.title = label;
@@ -35,6 +39,14 @@
     button.setAttribute('aria-controls', 'shop');
     dock.append(button); // Keep the model's existing mode handler and simulation state.
     button.addEventListener('click', () => {
+      activeMode = button;
+      if (button === whole) {
+        learn.click();
+        close.click();
+        byId('bReset').click();
+        activeMode = whole; // The legacy system viewer may share the learn handler.
+      }
+      syncPanel();
       byId('pbody').scrollTop = 0;
     });
   }
@@ -99,6 +111,7 @@
 
   function leaveAssembly() {
     if (!assemblyView) return;
+    assemblyView.disposeDiagram?.();
     if (assemblyView.isolatedByUs && isolate.getAttribute('aria-pressed') === 'true') isolate.click();
     byId('bReset')?.click();
     assemblyView = null;
@@ -112,14 +125,17 @@
       position: model.camera.position.clone(),
       target: model.controls.target.clone(),
       wasOpen: !root.classList.contains('nopanel'),
-      previousMode: byId('m-' + root.dataset.mode),
+      previousMode: activeMode,
       isolatedByUs: isolate.getAttribute('aria-pressed') !== 'true'
     };
     learn.click();
     assemblyView = snapshot;
+    activeMode = snapshot.previousMode;
     part.li.click();
+    assemblyView.disposeDiagram?.();
     if (assemblyView.isolatedByUs) isolate.click();
     root.classList.add('studio-assembly');
+    snapshot.disposeDiagram = window.openAssemblyDiagram(model, part, byId('stage'), byId('pbody'));
     // Frame the selected geometry using the smaller viewport dimension.
     requestAnimationFrame(() => {
       if (assemblyView !== snapshot) return;
@@ -162,9 +178,9 @@
   const readouts = [...stage.querySelectorAll('.plhud, #discl, .pumpnote')];
   close.click();
   function syncPanel() {
-    const inSystem = root.dataset.mode !== 'op';
+    const inSystem = activeMode !== operation;
     backLabel.hidden = !assemblyView;
-    close.setAttribute('aria-label', assemblyView ? 'Kembali ke sistem' : 'Tutup panel');
+    close.setAttribute('aria-label', assemblyView ? 'Kembali ke ' + activeMode.textContent.toLowerCase() : 'Tutup panel');
     root.classList.toggle('studio-system', inSystem);
     // Keep instrument readings and model notices available outside the canvas.
     for (const item of readouts) {
@@ -172,7 +188,8 @@
       if (item.parentElement !== container) container.prepend(item);
     }
     for (const [button, label] of modes) {
-      const active = button === system ? inSystem : !inSystem;
+      const active = button === activeMode;
+      button.setAttribute('aria-current', active ? 'page' : 'false');
       button.setAttribute('aria-expanded', String(active && !root.classList.contains('nopanel')));
       if (active) byId('pTitle').textContent = assemblyView ? 'Eksplor rakitan' : label;
     }
@@ -183,7 +200,7 @@
     attributes:true, attributeFilter:['class','data-mode']
   });
   close.addEventListener('click', () => {
-    (root.dataset.mode === 'op' ? operation : system).focus();
+    activeMode.focus();
   });
   document.addEventListener('keydown', event => {
     if (event.key === 'Escape' && !root.classList.contains('nopanel')) close.click();

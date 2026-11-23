@@ -10,13 +10,13 @@ export const MAN_V4_PRODUCTION_ORIGIN = 'https://pelautjagomesin.pages.dev';
  * The original premium simulator remains private in Supabase Storage.
  * This module contains only UI CSS and JS, no private 3D geometry.
  */
-export function injectManV4(html) {
+export function injectManV4(html,{compact=false}={}) {
   if(typeof html!=='string')throw new TypeError('MAN HTML must be a string');
   if(!/<\/head\s*>/i.test(html)||!/<\/body\s*>/i.test(html))throw new Error('MAN_HTML_INVALID');
   if(html.includes('id="man-v4-native-css"'))return html;
   // Avoid accidental HTML script termination if a future UI string changes.
-  const css=(manV4Styles+'\n'+manV4CompactStyles).replace(/<\/style/gi,'<\\/style');
-  const js=(manV4Runtime+'\n'+manV4CompactRuntime).replace(/<\/script/gi,'<\\/script');
+  const css=(manV4Styles+(compact?'\n'+manV4CompactStyles:'')).replace(/<\/style/gi,'<\\/style');
+  const js=(manV4Runtime+(compact?'\n'+manV4CompactRuntime:'')).replace(/<\/script/gi,'<\\/script');
   const head=html.search(/<\/head\s*>/i);
   let out=html.slice(0,head)+'<style id="man-v4-native-css">'+css+'</style>'+html.slice(head);
   const end=out.toLowerCase().lastIndexOf('</body>');

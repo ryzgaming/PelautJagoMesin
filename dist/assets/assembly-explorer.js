@@ -70,7 +70,7 @@ function initialize(){
   }
   choose.append(assemblyLabel,picker);
   control.append(heading,choose);
-  var desc=make('p','om-assembly-desc','Pilih rakitan untuk memeriksa kelompok dan komponennya. Penguraian ini merupakan visualisasi, bukan urutan servis.');
+  var desc=make('p','om-assembly-desc','Pilih rakitan untuk memeriksa komponennya. Tingkat 1 membuka komponen utama; tingkat 2 membuka bagian yang lebih kecil jika tersedia. Bukan urutan servis.');
   var chips=make('div','om-assembly-parts');
   chips.setAttribute('aria-label','Pilih subkomponen rakitan');
   var search=make('input','om-assembly-search');
@@ -169,23 +169,23 @@ function initialize(){
     setStatus('Rakitan '+(p.en||p.idn||p.key)+' dipilih. Tekan Urai tingkat ini untuk membuka susunan visual.');
   }
   function setLevel(n){
-    level=Math.max(0,Math.min(4,Math.trunc(Number(n)||0)));
-    if(typeof api.setExLvl==='function')api.setExLvl(level===0?2:level);
+    level=Math.max(0,Math.min(2,Math.trunc(Number(n)||0)));
+    if(typeof api.setExLvl==='function')api.setExLvl(level===0?2:(level===1?3:4));
     if(typeof api.setOne==='function')api.setOne(null);
     selectedRow=null;
     setExplode(level===0?0:0.86);
     range.value=level===0?'0':'86';
     levelInfo.textContent=level===0?'Rakitan utuh':'Terurai · tingkat '+level;
-    prev.disabled=level===0;next.disabled=level===4;
+    prev.disabled=level===0;next.disabled=level===2;
     syncChips();syncState();
     setStatus(level===0?'Rakitan dalam posisi terpasang.':'Tingkat '+level+' menampilkan struktur visual berdasarkan data model; bukan urutan servis resmi.');
   }
   range.addEventListener('input',function(){
     setExplode(Number(range.value)/100);
     if(Number(range.value)>0&&level===0){
-      level=2;
-      if(typeof api.setExLvl==='function')api.setExLvl(2);
-      levelInfo.textContent='Terurai · tingkat 2';
+      level=1;
+      if(typeof api.setExLvl==='function')api.setExLvl(3);
+      levelInfo.textContent='Terurai · tingkat 1';
       prev.disabled=false;next.disabled=false;
     }
   });

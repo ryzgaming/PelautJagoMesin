@@ -29,7 +29,11 @@ Only Shinko GJ Simulator is public. MAN, Tanabe, and Alfa Laval HTML files under
 
 The old main branch and its public history are unchanged. They still contain old downloadable model files; this release does not make those historical copies private.
 
+## Alur workflow
+
+The storefront links to Alur at `/alur/`. From the repository root, run `npm ci` and `npm run build` to generate the editor and form alongside the existing storefront in `dist`. Cloudflare Pages bundles `functions/alur/api` for Alur login, cloud workflows and execution history. For a local Pages preview, run `npx wrangler pages dev dist` after building. Alur uses the same Supabase account credentials as the storefront with its own scoped session cookies.
+
 ## Validation
 
-npm run build checks frontend syntax and premium source exclusion.
+npm run build checks frontend syntax and premium source exclusion, then builds Alur.
 npm test runs API, origin, and database authorization tests after installing locked development dependencies.

@@ -4,7 +4,7 @@
 
 - Sebelum membuat atau mengubah workspace mesin, baca [Standar Workspace Studio Gelap](docs/WORKSPACE_UI.md) dan [memori proyek](docs/PROJECT_MEMORY.md).
 - Keputusan pemilik: **konsep nomor 2 — Studio Gelap** adalah format wajib untuk semua workspace mesin yang sudah dibuat maupun mesin baru pada sesi berikutnya. Terapkan melalui komponen/aset UI bersama jika memungkinkan.
-- Workspace 3D memenuhi viewport, tema graphite gelap dengan aksen teal, toolbar mengambang di bawah, panel komponen/informasi dapat ditutup dan awalnya tertutup. Sesuaikan kontrol untuk HP dan desktop.
+- Workspace 3D memenuhi viewport, tema graphite gelap dengan aksen teal, navigasi mengambang di bawah hanya berisi **Sistem** dan **Pengoperasian**, panel komponen/informasi dapat ditutup dan awalnya tertutup. Sesuaikan kontrol untuk HP dan desktop.
 - Ketentuan ini mengatur workspace mesin, bukan UI Alur, dashboard, geometri, atau hak akses. Pertahankan batas publik/premium dan penanda ketidakpastian model.
 - Catat cakupan implementasi dan hasil uji per mesin. Standar yang terdokumentasi tidak berarti seluruh mesin sudah dimigrasi. Jangan mengganti arah desain ini tanpa arahan baru pemilik.
 

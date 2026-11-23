@@ -6,38 +6,28 @@
 }
 .studio .center, .studio .center #stage {position:absolute; inset:0; margin:0; padding:0; width:100%; height:100%; min-height:0; max-height:none; border:0; border-radius:0}
 .studio .center #stage {background:radial-gradient(ellipse at 52% 42%,#3c4448,#22272b 70%,#191d20);box-shadow:none}
-.studio .topbar,.studio .modebar,.studio #shop,.studio .studio-dock,.studio #ctrl,.studio .studio-explode {
+.studio .topbar,.studio #shop,.studio .studio-dock {
   position:absolute; z-index:10; background:var(--glass); border:1px solid var(--line);
   border-radius:14px; box-shadow:0 6px 20px #0004; margin:0;
 }
-.studio .topbar {left:max(8px,env(safe-area-inset-left)); top:max(6px,env(safe-area-inset-top)); width:fit-content; max-width:calc(100% - 78px); height:50px; padding:3px 8px; gap:8px; flex-wrap:nowrap}
+.studio .topbar {left:max(8px,env(safe-area-inset-left)); top:max(6px,env(safe-area-inset-top)); width:fit-content; max-width:calc(100% - 78px); height:50px; padding:3px 14px; gap:8px; flex-wrap:nowrap}
 .studio .brand h1 {font-size:clamp(14px,2vw,18px);overflow:hidden;text-overflow:ellipsis}
-.studio .topbar .stats {width:auto;order:0}
-.studio .modebar {left:8px; top:68px; bottom:auto; width:76px; max-height:calc(100% - 152px); display:flex; flex-flow:column nowrap; overflow:auto; padding:4px; gap:2px}
-.studio.nomenu .modebar {display:none}
-.studio .modebar .mode {flex:none;min-width:0;min-height:44px;padding:4px 2px}
+.studio :is(.modebar, .stats, #ctrl, #bMenu, #bPanel, #bLand, #oriHint, #bQuiz, #selchip) {display:none!important}
 .studio #shop {top:68px;right:8px;bottom:82px;width:min(var(--pw,370px),52vw);overflow:hidden}
 .studio #pbody {min-height:0;overflow:auto; overscroll-behavior:contain}
-.studio .studio-dock,.studio #ctrl,.studio .studio-explode {left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:4px;padding:5px;max-width:calc(100% - 16px);width:max-content}
-.studio .studio-dock {bottom:var(--gap);z-index:12}
-.studio #ctrl,.studio .studio-explode {bottom:calc(var(--gap) + 65px);z-index:13;overflow-x:auto;flex-wrap:nowrap}
-.studio .studio-explode {width:min(330px,90vw);padding:8px 14px}
-.studio .studio-explode input {min-width:0;flex:1;accent-color:var(--accent)}
+.studio .studio-dock {left:50%;transform:translateX(-50%);bottom:var(--gap);z-index:12;display:flex;gap:4px;padding:5px;width:min(290px,calc(100% - 16px))}
 .studio .btn.cb {min-width:44px;min-height:44px}
-.studio .studio-dock button {flex:1;min-width:44px;padding:4px 8px;background:transparent;border-color:transparent}
+.studio .studio-dock button {flex:1;min-width:44px;flex-direction:row;gap:7px;padding:4px 8px;font-size:13px;background:transparent;border-color:transparent}
 .studio .studio-dock button:is([aria-pressed=true],[aria-expanded=true]) {background:#193936;border-color:var(--accent);color:var(--accent)}
 .studio .studio-dock svg {width:19px;height:19px}
-.studio .hint,.studio .selchip {bottom:82px}
-.studio .shophud,.studio .plhud,.studio .legend,.studio .pumpnote {top:68px;bottom:auto;left:96px;max-height:calc(100% - 150px);overflow:auto}
-.studio.nomenu :is(.shophud,.plhud,.legend,.pumpnote) {left:8px}
-.studio .orihint {position:absolute;right:8px;top:64px;z-index:5;max-width:min(340px,90vw)}
+.studio .hint {bottom:82px}
+.studio .shophud,.studio .plhud,.studio .legend,.studio .pumpnote {top:68px;bottom:auto;left:8px;max-height:calc(100% - 150px);overflow:auto}
 .studio .btn.primary {background:var(--accent);color:var(--accent-ink)}
 .studio :focus-visible {outline:2px solid var(--accent);outline-offset:-2px}
 @media (max-width:760px) {
-  .studio .topbar .stats,.studio .topbar .eyebrow {display:none}
-  .studio .studio-dock {width:min(420px,calc(100% - 12px));gap:0}
-  .studio .studio-dock button {padding:3px 1px;font-size:10px}
-  .studio .modebar {z-index:11}
+  .studio .topbar .eyebrow {display:none}
+  .studio .studio-dock {gap:2px}
+  .studio .studio-dock button {padding:5px;font-size:13px}
 }
 @media (max-width:760px) and (orientation:portrait) {
   .studio #shop {left:4px;right:4px;top:auto;bottom:76px;width:auto;height:min(48dvh,480px)}

@@ -6,12 +6,10 @@ Keputusan pemilik, 24 November 2026 (Asia/Jakarta): gunakan **konsep nomor 2 —
 
 - Canvas/model 3D mengisi viewport penuh; tidak ditempatkan dalam kartu dashboard. Gunakan tinggi viewport dinamis dan perhitungkan safe area HP.
 - Tema graphite gelap, permukaan panel sedikit lebih terang, teks terang, aksen teal untuk kontrol aktif dan seleksi. Jangan bergantung pada warna saja untuk menandakan state.
-- Bar atas ringkas: kembali, merek/nama model mesin, bantuan dan kontrol layar penuh bila didukung browser. Layar penuh browser bersifat opsional; canvas tetap memenuhi viewport tanpa izin fullscreen.
-- Toolbar utama mengambang di bawah: **Komponen, Potongan, Bongkar, Animasi, Reset**. Tampilkan hanya fitur yang benar-benar didukung model; jangan membuat tombol seolah berfungsi jika datanya belum ada.
-- Rail alat di samping boleh digunakan untuk akses tambahan. Hindari duplikasi kontrol yang memenuhi layar.
-- Panel daftar/pencarian komponen dan informasi komponen **tertutup saat awal**; muncul atas tindakan pengguna dan selalu punya tombol tutup. Pemilihan komponen menyorot objek yang tepat dan membuka informasi terkait.
-- Kontrol kamera/orientasi ringkas di sudut bila tersedia. Slider bongkar hanya muncul ketika mode tersebut aktif. Status mode utuh/potongan/bongkar harus jelas.
-- Reset mengembalikan kamera dan state tampilan ke baseline yang ditetapkan model; pertahankan pemetaan ID komponen dan kemampuan kembali ke assembly.
+- Bar atas menampilkan nama mesin dan tautan kembali ke katalog.
+- Navigasi utama hanya berisi **Sistem** dan **Pengoperasian** di bagian bawah. Panel mulai tertutup. Memilih mode membuka panel terkait, dan tombol tutup mengembalikan ruang ke model.
+- Sistem membuka simulasi sistem milik model. Jika mesin hanya memiliki materi susunan komponen, gunakan daftar komponen beserta penjelasannya. Pengoperasian membuka petunjuk serta kontrol operasi yang tersedia pada mesin tersebut.
+- Kendalikan kamera langsung melalui model. Daftar mode tambahan dan toolbar inspeksi terpisah disembunyikan dari tampilan pelanggan.
 
 ## HP dan desktop
 
@@ -32,6 +30,6 @@ Keputusan pemilik, 24 November 2026 (Asia/Jakarta): gunakan **konsep nomor 2 —
 
 1. Inventarisasi semua entry point workspace dan fitur tiap mesin; catat cakupan migrasi, termasuk yang belum diuji.
 2. Simpan dan lihat screenshot sebelum/sesudah dengan mesin, kamera, pose, dan viewport sama. Periksa desktop, HP portrait, serta landscape melalui browser; bedakan emulasi dari HP nyata.
-3. Uji panel buka/tutup, pencarian/seleksi, fokus kamera, mode yang didukung, slider bongkar, animasi/pause, dan reset berulang. Pastikan state komponen tidak bergeser setelah reset.
+3. Uji panel buka/tutup, pencarian/seleksi, fokus kamera, mode yang didukung, peralihan Sistem/Pengoperasian, Start/Stop, dan tutup panel. Pastikan state komponen tidak bergeser setelah reset.
 4. Periksa overflow, target sentuh, fokus keyboard, label panjang, safe area, dan kegagalan WebGL/aset. Jalankan pemeriksaan repo yang relevan.
 5. Laporkan implementasi, pengujian, dan deployment secara terpisah. Dokumen atau mockup saja tidak membuktikan UI sudah diterapkan.

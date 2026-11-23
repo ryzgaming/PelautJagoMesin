@@ -9,18 +9,11 @@
   <script type="module" src="assets/workspace.js"></script>
 </head>
 <body class="workspace-page">
-  <details class="workspace-menu">
-    <summary aria-label="Menu workspace">Menu</summary>
-    <nav aria-label="Navigasi workspace">
-      <a class="btn" href="/#catalog" data-i18n="navCatalog">Katalog</a>
-      <button id="language" class="language">ID / EN</button>
-      <button class="btn subtle" data-account data-i18n="account">Akun saya</button>
-      <p id="workspace-note"></p>
-    </nav>
-  </details>
+  <a class="workspace-back btn" href="/#catalog" data-i18n="navCatalog">Katalog</a>
   <main>
     <section class="workspace-loading">
       <h1 id="workspace-title">Workspace 3D</h1>
+      <p id="workspace-note"></p>
       <div id="workspace-status" role="status">Memuat workspace…</div>
     </section>
     <iframe id="workspace-frame" title="Workspace 3D mesin kapal" allow="fullscreen" hidden></iframe>

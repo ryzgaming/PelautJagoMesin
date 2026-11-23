@@ -1,1 +1,11 @@
-{"name":"alur-workflow","pages_build_output_dir":"./dist","compatibility_date":"2026-05-01"}
+{
+  "name": "quiet-resonance-dc4d",
+  "main": ".wrangler/alur-worker/index.js",
+  "compatibility_date": "2026-05-01",
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS",
+    "not_found_handling": "single-page-application",
+    "run_worker_first": ["/api/*"]
+  }
+}

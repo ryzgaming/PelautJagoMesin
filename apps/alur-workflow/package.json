@@ -6,10 +6,10 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc --noEmit && vite build",
-    "deploy": "npm run build && wrangler pages deploy dist",
+    "deploy": "npm run build && wrangler pages deploy dist --project-name alur-workflow",
     "test": "node --experimental-strip-types --test tests/*.mjs",
     "build:workers": "npm run build && wrangler pages functions build --outdir .wrangler/alur-worker",
-    "deploy:workers": "wrangler deploy --config wrangler.workers.jsonc"
+    "deploy:workers": "wrangler deploy"
   },
   "dependencies": {
     "react": "19.2.6",

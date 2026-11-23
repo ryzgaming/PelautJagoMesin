@@ -22,6 +22,9 @@ async function open() {
       if (html.includes('function select(p,focus,sub)') && !html.includes('clearSelection:function')) {
         html = html.replace('window.__pp={', 'window.__pp={clearSelection:function(){select(null,false,null);},');
       }
+      if (html.includes('function placeMeshes(dt)') && !html.includes('setOverviewPose:')) {
+        html = html.replace('window.__pp={', 'window.__pp={setOverviewPose:function(spread){exLvl=spread?1:2;ex.cur=ex.tgt=spread?1:0;$("ex").value=ex.cur;placeMeshes(0);},');
+      }
       // Inline the shared presentation inside the existing opaque sandbox.
       const [css, diagram, script] = await Promise.all([studioAsset('studio.css'), studioAsset('assembly-diagram.js'), studioAsset('studio.js')]);
       const presentation = '<style>' + css + '</style><script>' + diagram + '</script><script>' + script + '</script>';

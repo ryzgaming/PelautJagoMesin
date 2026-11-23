@@ -30,8 +30,9 @@
   const whole = document.createElement('button');
   whole.type = 'button';
   whole.append(document.createElement('span'));
+  const xray = whole.cloneNode(true);
   let activeMode = whole;
-  const modes = [[whole, 'Eksplor keseluruhan'], [system, 'Sistem'], [operation, 'Pengoperasian']];
+  const modes = [[whole, 'Eksplor keseluruhan'], [system, 'Sistem'], [operation, 'Pengoperasian'], [xray, 'X-ray']];
   for (const [button, label] of modes) {
     button.querySelector('span').textContent = label;
     button.title = label;
@@ -40,17 +41,17 @@
     dock.append(button); // Keep the model's existing mode handler and simulation state.
     button.addEventListener('click', () => {
       activeMode = button;
-      if (button === whole) {
-        learn.click();
+      if (button === whole || button === xray) {
+        model.shop.setTab('learn');
         close.click();
-        for (const id of ['bXray', 'bSection', 'bIso']) {
+        for (const id of ['bSection', 'bIso']) {
           const control = byId(id);
           if (control?.getAttribute('aria-pressed') === 'true') control.click();
         }
         model?.clearSelection?.();
         byId('bReset').click();
+        applyInspectionPose(button);
         scheduleOverviewFit();
-        activeMode = whole; // The legacy system viewer may share the learn handler.
       }
       syncPanel();
       byId('pbody').scrollTop = 0;
@@ -86,6 +87,13 @@
   const isolate = byId('bIso');
   const model = window.__pp;
   const parts = model?.parts || [];
+  const initialZoomLimit = model?.controls.maxDistance;
+  function applyInspectionPose(mode) {
+    if (mode !== whole && mode !== xray) model.controls.maxDistance = initialZoomLimit;
+    model.setOverviewPose(mode === whole);
+    const control = byId('bXray');
+    if ((control.getAttribute('aria-pressed') === 'true') !== (mode === xray)) control.click();
+  }
   const explore = document.createElement('button');
   explore.type = 'button';
   explore.className = 'btn studio-explore';
@@ -130,10 +138,12 @@
       part,
       position: model.camera.position.clone(),
       target: model.controls.target.clone(),
+      zoomLimit: model.controls.maxDistance,
       wasOpen: !root.classList.contains('nopanel'),
       previousMode: activeMode,
       isolatedByUs: isolate.getAttribute('aria-pressed') !== 'true'
     };
+    applyInspectionPose(null);
     learn.click();
     assemblyView = snapshot;
     activeMode = snapshot.previousMode;
@@ -164,15 +174,23 @@
   });
 
   // Release isolation before the simulator handles a navigation click.
-  for (const [button] of modes) button.addEventListener('click', leaveAssembly, true);
+  for (const [button] of modes) button.addEventListener('click', () => {
+    leaveAssembly();
+    if ((activeMode === whole || activeMode === xray) && (button === system || button === operation)) {
+      applyInspectionPose(null);
+      byId('bReset').click();
+    }
+  }, true);
   close.addEventListener('click', event => {
     if (!assemblyView) return;
     event.stopImmediatePropagation();
-    const {previousMode, wasOpen, position, target} = assemblyView;
+    const {previousMode, wasOpen, position, target, zoomLimit} = assemblyView;
     leaveAssembly();
     // Back preserves the original pick and camera. An explicit Overview click resets both.
-    if (previousMode !== whole) previousMode?.click();
+    if (previousMode === whole || previousMode === xray) applyInspectionPose(previousMode);
+    else previousMode?.click();
     if (!wasOpen) close.click();
+    model.controls.maxDistance = zoomLimit;
     model.camera.position.copy(position);
     model.controls.target.copy(target);
     model.controls.update();
@@ -184,7 +202,7 @@
   // Fit visible machine geometry in camera coordinates. Room, pipe diagrams and
   // presentation helpers must not enlarge the overview bounds.
   function fitOverview() {
-    if (!model || activeMode !== whole || assemblyView || selectedPart()) return;
+    if (!model || (activeMode !== whole && activeMode !== xray) || assemblyView || selectedPart()) return;
     const {camera, controls} = model;
     const aspect = stage.clientWidth / stage.clientHeight;
     if (!Number.isFinite(aspect) || aspect <= 0) return;
@@ -222,6 +240,8 @@
       distance = Math.max(distance, point.z + Math.abs(point.x)/(vertical*aspect),
         point.z + Math.abs(point.y)/vertical);
     }
+    // Tall screens can need a wider zoom range to show separated assemblies.
+    controls.maxDistance = Math.max(initialZoomLimit, distance);
     controls.target.copy(center).applyMatrix4(camera.matrixWorld);
     camera.position.set(0,0,distance).applyQuaternion(camera.quaternion).add(controls.target);
     controls.update();
@@ -232,12 +252,14 @@
     fitFrame = requestAnimationFrame(fitOverview);
   }
   if (window.ResizeObserver) new ResizeObserver(scheduleOverviewFit).observe(stage);
+  applyInspectionPose(whole);
   scheduleOverviewFit();
 
   const readouts = [...stage.querySelectorAll('.plhud, #discl, .pumpnote')];
   close.click();
   function syncPanel() {
     const inSystem = activeMode !== operation;
+    root.classList.toggle('studio-overview', activeMode === whole && !assemblyView);
     backLabel.hidden = !assemblyView;
     close.setAttribute('aria-label', assemblyView ? 'Kembali ke ' + activeMode.textContent.toLowerCase() : 'Tutup panel');
     root.classList.toggle('studio-system', inSystem);

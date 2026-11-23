@@ -68,7 +68,14 @@
   .studio-system #shop {grid-area:3 / 1;width:100%;height:min(33dvh,330px)}
   .studio-system .studio-footer {grid-area:4 / 1}
 }
-.studio .studio-dock {width:min(385px,calc(100% - 12px))}
+.studio .studio-dock {width:min(480px,calc(100% - 12px))}
+.studio-overview .center #stage {background:#0b0e11}
+.studio-overview #pins {display:none}
+.studio-overview:has(.studio-selection[hidden]) #gl {filter:grayscale(1) brightness(.85)}
+@media (max-width:520px) {
+  .studio .studio-dock button {flex-direction:column;gap:2px;padding:4px 2px;font-size:12px;white-space:normal;line-height:1.15}
+  .studio .studio-dock svg {display:none}
+}
 .studio .studio-dock button[aria-current=false] {background:transparent;color:var(--ink);border-color:transparent;box-shadow:none}
 .studio .studio-dock button[aria-current=page] {background:#193936;border-color:var(--accent);color:var(--accent)}
 .studio-assembly #pins {display:none}

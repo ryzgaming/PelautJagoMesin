@@ -34,3 +34,37 @@
 }
 @media (prefers-reduced-motion:reduce) { .studio *, .studio *::after {animation-duration:0s!important;transition-duration:0s!important} }
 .studio #discl {top:68px!important;width:min(520px,calc(100% - 32px));border-color:var(--line)!important}
+
+/* Give the camera its own rectangle. ResizeObserver in PelautSim reframes the canvas. */
+#simroot.studio-system {
+  display:grid;
+  grid-template: auto minmax(0,1fr) auto / minmax(0,1fr) auto;
+}
+.studio-system .topbar {position:static;grid-area:1 / 1 / 2 / -1;margin:5px 8px;height:44px}
+.studio-system .center {position:relative;grid-area:2 / 1;inset:auto;width:100%;height:100%}
+.studio-system #shop {
+  position:relative;grid-area:2 / 2;inset:auto;width:clamp(250px,32vw,420px);height:100%;
+  border-radius:12px;min-height:0;
+}
+.studio-system .studio-footer {
+  grid-area:3 / 1 / 4 / -1;display:flex;align-items:center;justify-content:center;
+  flex-wrap:wrap;gap:6px 16px;padding:5px 8px var(--gap);background:#171d20;
+}
+.studio-system .studio-dock {position:static;transform:none}
+.studio-selection {display:flex;align-items:center;justify-content:center;gap:8px;min-width:0}
+.studio-selection span {overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:min(42vw,24ch);font-size:13px}
+.studio-explore {min-height:44px;border-color:var(--accent);color:var(--accent)}
+.studio-system #stage :is(.hint,.tip,.legend,.plhud,.pumpnote,.shophud,.slabel:not(.acn)) {display:none!important}
+.studio-system #pbody > :is(.plhud,#discl,.pumpnote) {
+  position:static!important;transform:none!important;width:auto;max-width:100%;max-height:none;flex:none;
+}
+.studio-assembly #pbody > :is(.plhud,.pumpnote) {display:none!important}
+.studio-assembly :is(#shopBody,#treeWrap,#learnMore,#bQuiz) {display:none!important}
+.studio-assembly #detail {display:block}
+.studio-assembly #bClose {display:inline-flex;flex-direction:row;gap:5px}
+.studio-assembly #bClose .ico {display:none}
+@media (max-width:760px) and (orientation:portrait) {
+  #simroot.studio-system {grid-template: auto minmax(0,1fr) auto auto / minmax(0,1fr)}
+  .studio-system #shop {grid-area:3 / 1;width:100%;height:min(33dvh,330px)}
+  .studio-system .studio-footer {grid-area:4 / 1}
+}

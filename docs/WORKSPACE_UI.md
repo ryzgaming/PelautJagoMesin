@@ -9,11 +9,12 @@ Keputusan pemilik, 24 November 2026 (Asia/Jakarta): gunakan **konsep nomor 2 —
 - Bar atas menampilkan nama mesin dan tautan kembali ke katalog.
 - Navigasi utama hanya berisi **Sistem** dan **Pengoperasian** di bagian bawah. Panel mulai tertutup. Memilih mode membuka panel terkait, dan tombol tutup mengembalikan ruang ke model.
 - Sistem membuka simulasi sistem milik model. Jika mesin hanya memiliki materi susunan komponen, gunakan daftar komponen beserta penjelasannya. Pengoperasian membuka petunjuk serta kontrol operasi yang tersedia pada mesin tersebut.
+- Saat pelanggan mengetuk komponen utama yang memiliki data isi, tampilkan **Eksplor rakitan** di luar canvas. Aksi itu mengisolasi komponen terpilih dan membuka daftar bagian dari rakitan yang sama. Kembali memulihkan mode Sistem.
 - Kendalikan kamera langsung melalui model. Daftar mode tambahan dan toolbar inspeksi terpisah disembunyikan dari tampilan pelanggan.
 
 ## HP dan desktop
 
-- Desktop: panel menjadi overlay samping yang dapat ditutup; model tetap mendapat area dominan.
+- Di Sistem, sediakan area tersendiri untuk canvas, panel, indikator dan navigasi. Panel Sistem atau rakitan berada di samping canvas saat layar lebar, atau di bawahnya pada HP tegak. Menutup panel memperluas canvas.
 - HP portrait: gunakan panel bawah yang dapat ditutup dengan tinggi terbatas dan isi scroll; toolbar tidak terpotong dan tombol mudah disentuh (target sekitar 44 CSS px).
 - HP landscape: batasi tinggi bar dan panel agar canvas tetap dapat dipakai; hindari tabrakan dengan safe area, label, atau toolbar.
 - Pertahankan orbit, zoom/pinch, pan sesuai kemampuan viewer; sediakan pemilihan via daftar untuk komponen kecil, petunjuk singkat, label kontrol, fokus keyboard terlihat, dan reduced motion bila ada animasi UI.

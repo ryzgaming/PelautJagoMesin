@@ -22,7 +22,10 @@
   const dock = document.createElement('nav');
   dock.className = 'studio-dock';
   dock.setAttribute('aria-label', 'Mode workspace');
-  root.append(dock);
+  const footer = document.createElement('footer');
+  footer.className = 'studio-footer';
+  footer.append(dock);
+  root.append(footer);
 
   const modes = [[system, 'Sistem'], [operation, 'Pengoperasian']];
   for (const [button, label] of modes) {
@@ -56,20 +59,131 @@
   }
 
   const close = byId('bClose');
+  const backLabel = document.createElement('span');
+  backLabel.textContent = 'Kembali';
+  backLabel.hidden = true;
+  close.append(backLabel);
+  const detail = byId('detail');
+  const learn = byId('m-learn');
+  const isolate = byId('bIso');
+  const model = window.__pp;
+  const parts = model?.parts || [];
+  const explore = document.createElement('button');
+  explore.type = 'button';
+  explore.className = 'btn studio-explore';
+  explore.textContent = 'Eksplor rakitan';
+  explore.hidden = true;
+  const context = document.createElement('div');
+  context.className = 'studio-selection';
+  const partName = document.createElement('span');
+  context.append(partName, explore);
+  context.hidden = true;
+  footer.prepend(context);
+
+  let assemblyView = null;
+  function selectedPart() {
+    return parts.find(part => part.li?.getAttribute('aria-pressed') === 'true');
+  }
+  function syncSelection() {
+    const part = selectedPart();
+    if (assemblyView && !part) {
+      assemblyView.part.li.click();
+      return;
+    }
+    const available = !assemblyView && root.dataset.mode !== 'op' &&
+      part?.rows?.length > 0 && learn && isolate;
+    context.hidden = explore.hidden = !available;
+    partName.textContent = available ? (part.idn || part.en) : '';
+  }
+  if (detail) new MutationObserver(syncSelection).observe(detail, {childList:true});
+
+  function leaveAssembly() {
+    if (!assemblyView) return;
+    if (assemblyView.isolatedByUs && isolate.getAttribute('aria-pressed') === 'true') isolate.click();
+    byId('bReset')?.click();
+    assemblyView = null;
+    root.classList.remove('studio-assembly');
+  }
+  explore.addEventListener('click', () => {
+    const part = selectedPart();
+    if (!part?.rows?.length || assemblyView) return;
+    const snapshot = {
+      part,
+      position: model.camera.position.clone(),
+      target: model.controls.target.clone(),
+      wasOpen: !root.classList.contains('nopanel'),
+      previousMode: byId('m-' + root.dataset.mode),
+      isolatedByUs: isolate.getAttribute('aria-pressed') !== 'true'
+    };
+    learn.click();
+    assemblyView = snapshot;
+    part.li.click();
+    if (assemblyView.isolatedByUs) isolate.click();
+    root.classList.add('studio-assembly');
+    // Frame the selected geometry using the smaller viewport dimension.
+    requestAnimationFrame(() => {
+      if (assemblyView !== snapshot) return;
+      const sphere = new THREE.Sphere();
+      const bounds = new THREE.Box3().setFromObject(part.group);
+      if (bounds.isEmpty()) return;
+      bounds.getBoundingSphere(sphere);
+      const {camera, controls} = model;
+      const direction = camera.position.clone().sub(controls.target).normalize();
+      const vertical = camera.fov * Math.PI / 360;
+      const angle = Math.min(vertical, Math.atan(Math.tan(vertical) * camera.aspect));
+      const distance = Math.min(controls.maxDistance,
+        Math.max(controls.minDistance, 1.15 * sphere.radius / Math.sin(angle)));
+      controls.target.copy(sphere.center);
+      camera.position.copy(sphere.center).addScaledVector(direction, distance);
+      controls.update();
+    });
+    byId('pbody').scrollTop = 0;
+    syncPanel();
+    close.focus();
+  });
+
+  // Release isolation before the simulator handles a navigation click.
+  for (const [button] of modes) button.addEventListener('click', leaveAssembly, true);
+  close.addEventListener('click', event => {
+    if (!assemblyView) return;
+    event.stopImmediatePropagation();
+    const {previousMode, wasOpen, position, target} = assemblyView;
+    leaveAssembly();
+    previousMode?.click();
+    if (!wasOpen) close.click();
+    model.camera.position.copy(position);
+    model.controls.target.copy(target);
+    model.controls.update();
+    syncPanel();
+    (explore.hidden ? system : explore).focus();
+  }, true);
+
+  const stage = byId('stage');
+  const readouts = [...stage.querySelectorAll('.plhud, #discl, .pumpnote')];
   close.click();
   function syncPanel() {
-    for (const [button, label] of modes) {
-      const active = button.getAttribute('aria-pressed') === 'true';
-      button.setAttribute('aria-expanded', String(active && !root.classList.contains('nopanel')));
-      if (active) byId('pTitle').textContent = label;
+    const inSystem = root.dataset.mode !== 'op';
+    backLabel.hidden = !assemblyView;
+    close.setAttribute('aria-label', assemblyView ? 'Kembali ke sistem' : 'Tutup panel');
+    root.classList.toggle('studio-system', inSystem);
+    // Keep instrument readings and model notices available outside the canvas.
+    for (const item of readouts) {
+      const container = inSystem ? byId('pbody') : stage;
+      if (item.parentElement !== container) container.prepend(item);
     }
+    for (const [button, label] of modes) {
+      const active = button === system ? inSystem : !inSystem;
+      button.setAttribute('aria-expanded', String(active && !root.classList.contains('nopanel')));
+      if (active) byId('pTitle').textContent = assemblyView ? 'Eksplor rakitan' : label;
+    }
+    syncSelection();
   }
   syncPanel();
   new MutationObserver(syncPanel).observe(root, {
-    attributes: true, attributeFilter: ['class', 'data-mode']
+    attributes:true, attributeFilter:['class','data-mode']
   });
   close.addEventListener('click', () => {
-    (dock.querySelector('[aria-pressed="true"]') || system).focus();
+    (root.dataset.mode === 'op' ? operation : system).focus();
   });
   document.addEventListener('keydown', event => {
     if (event.key === 'Escape' && !root.classList.contains('nopanel')) close.click();

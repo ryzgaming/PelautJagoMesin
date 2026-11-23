@@ -2,11 +2,12 @@ import { handleApi } from './api.mjs';
 
 export const SITE_ORIGIN = 'https://pelaut-jago-mesin.violetblackbird16.chatgpt.site';
 export const PAGES_ORIGIN = 'https://pelautjagomesin.pages.dev';
+export const MAN_V4_REVIEW_ORIGIN = 'https://chatgpt-man-workspace-v4-ui.pelautjagomesin.pages.dev';
 
 // Supabase verifies user sessions inside handleApi and webhook signatures separately.
 // Public config/catalog and CORS preflights do not require an end-user JWT.
 export async function handleEdge(request, env, fetcher = fetch) {
-  const allowedOrigins = new Set([SITE_ORIGIN, PAGES_ORIGIN, ...(env.APP_ORIGIN ? [env.APP_ORIGIN] : [])]);
+  const allowedOrigins = new Set([SITE_ORIGIN, PAGES_ORIGIN, MAN_V4_REVIEW_ORIGIN, ...(env.APP_ORIGIN ? [env.APP_ORIGIN] : [])]);
   const origin = request.headers.get('origin');
   const allowedOrigin = allowedOrigins.has(origin) ? origin : (env.APP_ORIGIN || SITE_ORIGIN);
   const headers = new Headers({ 'Vary': 'Origin', 'Cache-Control': 'no-store' });

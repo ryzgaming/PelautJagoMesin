@@ -1,0 +1,74 @@
+
+/* Assembly Explorer — shared across Pelaut Jago Mesin simulators */
+#simroot .om-assembly-launch{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:42px;padding:9px 13px;border:1px solid #a6cc7d;border-radius:9px;background:#b7ee7621;color:#b9f38b;font:700 12px Inter,system-ui,sans-serif;cursor:pointer;white-space:nowrap;flex-shrink:0}
+#simroot .om-assembly-launch[aria-expanded="true"]{background:#B7EE76;color:#10170d;border-color:#B7EE76}
+#simroot.om-assembly-mode .om-assembly-control,#simroot.om-assembly-mode .om-assembly-actions{display:flex!important;flex-direction:column;gap:9px;border:1px solid #34474c;background:linear-gradient(135deg,#101b23,#172126);border-radius:12px;padding:12px;color:#e9f0eb;min-width:0;flex:none}
+#simroot.om-assembly-mode .om-assembly-control[hidden],#simroot.om-assembly-mode .om-assembly-actions[hidden]{display:none!important}
+#simroot .om-assembly-control[hidden],#simroot .om-assembly-actions[hidden]{display:none!important}
+#simroot .om-assembly-head{display:flex;align-items:center;gap:14px;justify-content:space-between}
+#simroot .om-assembly-back{background:#263239;border:1px solid #48605e;color:#ecf2ee;border-radius:8px;padding:8px 10px;min-height:39px;cursor:pointer;font:600 11px Inter,system-ui,sans-serif}
+#simroot .om-assembly-title{flex:1}
+#simroot .om-assembly-title strong{display:block;font:700 16px 'Space Grotesk',Inter,sans-serif}
+#simroot .om-assembly-title small{color:#94a6af;font:500 10px Inter,sans-serif;display:block;margin-top:3px}
+#simroot .om-assembly-choose{display:flex;gap:10px;align-items:center;min-width:0}
+#simroot .om-assembly-choose label{font-weight:600;font-size:11px;flex-shrink:0}
+#simroot .om-assembly-choose select{display:block;flex:1;min-width:0;background:#17232c;color:#e5eeec;border:1px solid #3d4e56;border-radius:9px;min-height:42px;padding:8px 9px;font:600 12px Inter,sans-serif}
+#simroot .om-assembly-desc{color:#a4b8bc;font:500 11px/1.5 Inter,sans-serif;margin:0}
+#simroot .om-assembly-search{display:block;min-height:34px;padding:7px 9px;background:#0d171f;color:#e2f0ea;border:1px solid #354b50;border-radius:8px;font:500 11px Inter,sans-serif}
+#simroot .om-assembly-parts{display:flex;gap:6px;max-height:72px;overflow:auto;flex-wrap:wrap;align-content:flex-start;scrollbar-width:thin}
+#simroot .om-assembly-chip{padding:7px 8px;border:1px solid #42545b;border-radius:7px;background:#243038;color:#c9d9d9;min-height:34px;text-align:left;font:600 10px Inter,sans-serif;cursor:pointer}
+#simroot .om-assembly-chip[aria-pressed=true]{color:#0e180b;background:#B7EE76;border-color:#B7EE76}
+#simroot .om-assembly-placeholder{font-size:11px;color:#9aaab2}
+#simroot .om-assembly-toolbar{display:flex;align-items:center;justify-content:space-between;gap:8px}
+#simroot .om-assembly-level{font:700 12px Inter,sans-serif;color:#b5ee82;text-align:center;white-space:nowrap}
+#simroot .om-assembly-toolbar button,#simroot .om-assembly-bottom button,#simroot .om-assembly-toggles button{border-radius:8px;padding:8px 11px;font:700 11px Inter,sans-serif;min-height:42px;white-space:nowrap;cursor:pointer}
+#simroot .om-assembly-toolbar button:disabled{opacity:.45;cursor:not-allowed}
+#simroot .om-assembly-quiet{background:#203039;color:#dce8e6;border:1px solid #42565c}
+#simroot .om-assembly-primary{background:#B7EE76;color:#10170d;border:1px solid #B7EE76}
+#simroot .om-assembly-bottom{display:flex;align-items:center;gap:9px}
+#simroot .om-assembly-range-label{display:flex;align-items:center;gap:8px;flex:1;min-width:0;color:#a7bbc2;font-size:10px}
+#simroot .om-assembly-range{width:100%;min-width:60px;accent-color:#B7EE76;cursor:pointer}
+#simroot .om-assembly-toggles{display:flex;gap:8px;flex-wrap:wrap}
+#simroot .om-assembly-toggles button[aria-pressed=true]{border-color:#B7EE76;color:#d5ffb7}
+#simroot .om-assembly-status{color:#c7dec5;font-size:10px;line-height:1.5;margin:0;min-height:16px}
+#simroot .om-assembly-note{margin:0;color:#82959b;font:500 10px/1.5 Inter,sans-serif}
+#simroot.om-assembly-numbers-hidden .pins .pin,#simroot.om-assembly-numbers-hidden #leaders{display:none!important}
+#simroot.om-assembly-mode .center{overflow-x:hidden}
+#simroot.om-assembly-mode .center .stage{min-height:270px}
+@media(max-width:850px){
+#simroot.om-assembly-mode .om-assembly-control,#simroot.om-assembly-mode .om-assembly-actions{margin:0 0 7px;padding:12px 10px}
+#simroot .om-assembly-launch{min-height:40px}
+#simroot .om-assembly-head{flex-wrap:wrap}
+#simroot .om-assembly-bottom{flex-wrap:wrap}
+#simroot .om-assembly-bottom button{min-height:44px}
+#simroot .om-assembly-toolbar{flex-wrap:wrap}
+#simroot .om-assembly-toolbar button{flex:1}
+#simroot .om-assembly-level{order:-1;flex-basis:100%;text-align:left;padding-bottom:3px}
+#simroot .om-assembly-parts{max-height:122px}
+#simroot .om-assembly-choose{flex-wrap:wrap}
+#simroot .om-assembly-choose select{flex-basis:70%}
+}
+@media(max-width:420px){
+#simroot .om-assembly-toolbar button,#simroot .om-assembly-bottom button,#simroot .om-assembly-toggles button{font-size:10px;padding:8px}
+#simroot .om-assembly-title strong{font-size:15px}
+}
+@media(prefers-reduced-motion:reduce){#simroot .om-assembly-chip{transition:none!important}}
+
+
+/* Calm assembly controls: only three frequent actions are visible. */
+#simroot.v4-compact .om-assembly-launch{display:none!important}
+#simroot .om-assembly-subparts,#simroot .om-assembly-more{border:1px solid #354950;border-radius:9px;background:#152329;min-width:0}
+#simroot .om-assembly-subparts>summary,#simroot .om-assembly-more>summary{display:block;list-style:none;cursor:pointer;padding:9px 11px;color:#c5d7d1;font:600 11px Inter,sans-serif}
+#simroot .om-assembly-subparts>summary::-webkit-details-marker,#simroot .om-assembly-more>summary::-webkit-details-marker{display:none}
+#simroot .om-assembly-subparts[open],#simroot .om-assembly-more[open]{padding-bottom:9px}
+#simroot .om-assembly-subparts[open]>.om-assembly-desc,#simroot .om-assembly-subparts[open]>.om-assembly-search,#simroot .om-assembly-subparts[open]>.om-assembly-parts{margin:8px 10px;max-width:calc(100% - 20px)}
+#simroot .om-assembly-subparts[open]>.om-assembly-parts{max-height:150px}
+#simroot .om-assembly-essentials{display:grid;grid-template-columns:1fr 1fr 1fr;gap:7px}
+#simroot .om-assembly-essentials button{border-radius:9px;min-height:43px;padding:8px 9px;font:700 11px Inter,sans-serif;white-space:normal;text-align:center;cursor:pointer}
+#simroot .om-assembly-essentials button:disabled{opacity:.46}
+#simroot .om-assembly-more-body{display:flex;align-items:center;flex-wrap:wrap;gap:8px;padding:7px 10px}
+#simroot .om-assembly-more-body .om-assembly-range-label{flex:1;min-width:170px}
+#simroot .om-assembly-more-body .om-assembly-note{flex:1 0 100%}
+#simroot .om-assembly-status{font:500 10px/1.5 Inter,sans-serif;min-height:0;margin:0}
+#simroot .om-assembly-essentials .om-assembly-primary{background:#B7EE76;color:#15200e;border-color:#B7EE76}
+@media(max-width:420px){#simroot .om-assembly-essentials{gap:4px}#simroot .om-assembly-essentials button{font-size:10px;padding:8px 5px}}

@@ -19,3 +19,13 @@
 .trace small,.robot-output,.form-page .success{white-space:pre-wrap;overflow-wrap:anywhere}
 .robot-output{font:inherit}
 @media(max-width:600px){.catalog-grid{grid-template-columns:1fr}.catalog-tools{grid-template-columns:1fr}.catalog-modal .modal-head{margin-bottom:12px}}
+
+.directory-bar{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;margin:12px 0;font-size:14px}
+.connector-run{display:grid;gap:12px}
+.connector-run code{overflow-wrap:anywhere}
+.connector-run details{border:1px solid var(--border);padding:10px;border-radius:8px}
+.connector-run summary{cursor:pointer}
+.connector-run pre{max-height:15rem;overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere}
+.service-mark{background:#fff;border-color:#d8d8dd}
+.service-mark img{display:block;border-radius:5px;object-fit:contain}
+.panel .plugin-help code{overflow-wrap:anywhere}

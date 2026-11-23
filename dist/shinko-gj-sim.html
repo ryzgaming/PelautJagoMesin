@@ -477,7 +477,7 @@ details.more>:last-child{margin-bottom:10px}
 .catalog-fallback .fallback-count{color:var(--muted);font-size:12px;font-weight:400}
 .catalog-fallback .fallback-actions button{font:inherit;padding:8px 12px;border-radius:8px;border:1px solid var(--line);background:var(--surface2);color:var(--ink);cursor:pointer}
 @media(max-width:760px){.catalog-fallback .fallback-grid{grid-template-columns:1fr}}
-</style><link rel="stylesheet" href="assets/simulator-theme.css"><script>if(new URLSearchParams(location.search).get("hero")==="1")document.documentElement.classList.add("om-hero");</script></head><body><div id="app"></div><script src="assets/three.min.js"></script><script src="assets/OrbitControls.js"></script><script>window.PV_STANDALONE=true;</script><script>/* Mesin simulator (turunan dari public/viewer/engine.js) untuk model berantarmuka simulator permesinan.
+</style><link rel="stylesheet" href="assets/simulator-theme.css"><script>if(new URLSearchParams(location.search).get("hero")==="1")document.documentElement.classList.add("om-hero");</script><link rel="stylesheet" href="assets/assembly-explorer.css"></head><body><div id="app"></div><script src="assets/three.min.js"></script><script src="assets/OrbitControls.js"></script><script>window.PV_STANDALONE=true;</script><script>/* Mesin simulator (turunan dari public/viewer/engine.js) untuk model berantarmuka simulator permesinan.
    Disalin agar model asli dan mesin bersamanya tidak berubah. Model memanggil PelautSim.setup(config), E.part(...), lalu E.start().
    Perbedaan dengan mesin bersama: tata letak simulator (status atas, toolbar mode kiri, panel kanan, kontrol bawah),
    pohon komponen, dan tanpa modul perpipaan/aliran. */
@@ -2967,4 +2967,4 @@ part({key:"base",no:11,anchor:[4.15,0.15,2.1],ex:[0,-1.4,0]},function(K){
 });
 E.start();
 })();
-</script><script src="assets/hero-bridge.js"></script></body></html>
+</script><script src="assets/hero-bridge.js"></script><script src="assets/assembly-explorer.js" defer></script></body></html>

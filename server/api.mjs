@@ -113,7 +113,7 @@ export async function handleApi(request,env,fetcher=fetch){
       if(!r.ok)fail(503,'PRODUCT_FILE_NOT_READY');
       // Return only after server-side entitlement check. Caller uses an opaque sandbox iframe.
       const original=await r.text();
-      const manHtml=manV4Review&&admins.length?injectManV4(original):original;
+      const manHtml=manV4Review&&admins.length?injectManV4(original,{compact:env.APP_ORIGIN===MAN_V4_REVIEW_ORIGIN}):original;
       const secured=assemblyReview&&admins.length?injectAssemblyExplorer(manHtml):manHtml;
       return new Response(secured,{headers:{'Content-Type':'text/html; charset=utf-8','Cache-Control':'private, no-store','X-Content-Type-Options':'nosniff','Content-Security-Policy':"sandbox allow-scripts; default-src 'none'; script-src 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src data: https:; connect-src 'none'"}});
     }

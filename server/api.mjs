@@ -1,4 +1,5 @@
 import {injectManV4,MAN_V4_REVIEW_ORIGIN,MAN_V4_PRODUCTION_ORIGIN} from './man-v4-internal.mjs';
+import {injectAssemblyExplorer} from './assembly-explorer.mjs';
 const PUBLIC_FIELDS='id,title,category,description,price_idr,is_free,active';
 export class ApiError extends Error { constructor(status,code){ super(code);this.status=status; } }
 const fail=(status,code)=>{throw new ApiError(status,code)};
@@ -98,8 +99,10 @@ export async function handleApi(request,env,fetcher=fetch){
       // Apply MAN V4 internally to server-verified administrators only on exact
       // approved Orang Mesin domains. Paid customers still receive the original UI.
       const manV4Review=p.id==='man-l2330h'&&[MAN_V4_REVIEW_ORIGIN,MAN_V4_PRODUCTION_ORIGIN].includes(env.APP_ORIGIN);
+      // Assembly explorer is a preview-only admin capability for existing premium machines.
+      const assemblyReview=env.APP_ORIGIN===MAN_V4_REVIEW_ORIGIN&&['man-l2330h','tanabe-h74','alfa-laval-mab206s'].includes(p.id);
       let admins=[];
-      if(!access.length||manV4Review){
+      if(!access.length||manV4Review||assemblyReview){
         // Grant paid workspaces to verified admins without creating purchases.
         // Never trust a role, email, or flag supplied by the browser.
         admins=await db('admins?user_id=eq.'+encodeURIComponent(u.id)+'&select=user_id');
@@ -110,7 +113,8 @@ export async function handleApi(request,env,fetcher=fetch){
       if(!r.ok)fail(503,'PRODUCT_FILE_NOT_READY');
       // Return only after server-side entitlement check. Caller uses an opaque sandbox iframe.
       const original=await r.text();
-      const secured=manV4Review&&admins.length?injectManV4(original):original;
+      const manHtml=manV4Review&&admins.length?injectManV4(original):original;
+      const secured=assemblyReview&&admins.length?injectAssemblyExplorer(manHtml):manHtml;
       return new Response(secured,{headers:{'Content-Type':'text/html; charset=utf-8','Cache-Control':'private, no-store','X-Content-Type-Options':'nosniff','Content-Security-Policy':"sandbox allow-scripts; default-src 'none'; script-src 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src data: https:; connect-src 'none'"}});
     }
     if(path==='/api/admin'&&request.method==='GET'){

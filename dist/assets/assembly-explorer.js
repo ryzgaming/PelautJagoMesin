@@ -99,7 +99,7 @@ function initialize(){
   scale.append(range);
   bottom.append(reassemble,scale,showAll);
   var toggles=make('div','om-assembly-toggles');
-  var togglePins=button('Nomor: Sembunyi',function(){showPins=!showPins;syncState();},'om-assembly-quiet');
+  var togglePins=button('Tampilkan nomor',function(){showPins=!showPins;syncState();},'om-assembly-quiet');
   togglePins.id='om-assembly-pins';
   togglePins.setAttribute('aria-pressed','false');
   var colorBtn=button('Warna: Mesin',function(){
@@ -118,7 +118,7 @@ function initialize(){
   function syncState(){
     setPressed(pinsButton,showPins);
     root.classList.toggle('om-assembly-numbers-hidden',!showPins);
-    togglePins.textContent=showPins?'Nomor: Tampilkan':'Nomor: Sembunyi';
+    togglePins.textContent=showPins?'Sembunyikan nomor':'Tampilkan nomor';
     togglePins.setAttribute('aria-pressed',String(showPins));
     if(matButton)setPressed(matButton,colorMode==='material');
     colorBtn.textContent=colorMode==='engine'?'Warna: Mesin':'Warna: Material';

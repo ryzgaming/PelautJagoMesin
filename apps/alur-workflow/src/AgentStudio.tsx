@@ -16,7 +16,7 @@ import { api, ApiError } from "./api";
 import { alurBase } from "./paths";
 import "./agent-studio.css";
 
-const stages = [
+export const stages = [
   {
     name: "Bukti & inventaris",
     hint: "Sumber, varian, dan identitas komponen",
@@ -379,7 +379,7 @@ export default function AgentStudio({
       <div className="agent-intro">
         <div>
           <p className="agent-eyebrow">ORANG MESIN · RUANG PRODUKSI</p>
-          <h1 id="agent-title">Agen mesin</h1>
+          <h1 id="agent-title">Proyek lokal</h1>
           <p>
             Sepuluh peran mengolah sumber mesin menjadi model untuk Anda review.
           </p>

@@ -38,9 +38,17 @@ The storefront links to Alur at `/alur/`. From the repository root, run `npm ci`
 npm run build checks frontend syntax and premium source exclusion, then builds Alur.
 npm test runs API, origin, and database authorization tests after installing locked development dependencies.
 
-### Produksi mesin dari Alur
+### Pembuatan mesin otomatis
 
-Buka [panel Agen mesin](https://pelautjagomesin.pages.dev/alur/?mode=agen). Panel ini menghubungkan satu akun Alur dengan proyek lokal pada komputer pekerja. Komputer itu membutuhkan Python, Codex CLI yang sudah login, Blender, paket produksi Orang Mesin, dan job yang sudah diinisialisasi dengan sumber untuk model yang dipilih. Paket produksi dan skrip pekerja bisa diakses dari panel.
+Buka [Agen Mesin](https://pelautjagomesin.pages.dev/alur/?mode=agen) dengan akun pemilik, isi **merek** dan **nama atau model mesin**, lalu kirim. Setiap permintaan memulai sesi produksi privat. Pengiriman ulang permintaan yang sama memakai ID yang sama agar tidak membuat pekerjaan ganda. Setelah sesi selesai, pengajuan baru untuk mesin yang sama membuat revisi baru.
+
+Alur mencari kandidat dokumen awal saat permintaan masuk. Worker cloud terjadwal memeriksa antrean setiap 10 menit, mengambil pekerjaan, memeriksa varian dan sumber, lalu mengoordinasikan agen bukti, lima spesialis sistem, dua pembuat model, integrator, dan QA. Bila rujukan belum mendukung bentuk mesin, sesi menunjukkan bukti yang masih dibutuhkan. Setelah QA, tautan review privat tersedia pada sesi.
+
+Memori kerja tiap peran tersimpan sebagai catatan per sesi dan per revisi. Catatan mencakup temuan, rujukan, keputusan, dan pertanyaan terbuka. Sebelum memulai kembali atau merevisi mesin, worker membaca catatan sesi dan riwayat mesin di akun yang sama. Data yang masih berupa estimasi perlu diperiksa kembali sebelum dipakai untuk bentuk atau ukuran. Panduan worker dan pemulihan sesi tersedia di [runbook produksi](apps/alur-workflow/worker/README.md).
+
+### Mode proyek lokal
+
+Buka [panel Agen mesin](https://pelautjagomesin.pages.dev/alur/?mode=agen). Pilih **Proyek lokal** untuk menghubungkan satu akun Alur dengan proyek lokal pada komputer pekerja. Komputer itu membutuhkan Python, Codex CLI yang sudah login, Blender, paket produksi Orang Mesin, dan job yang sudah diinisialisasi dengan sumber untuk model yang dipilih. Paket produksi dan skrip pekerja bisa diakses dari panel.
 
 1. Siapkan manual, parts catalog, diagram sistem dan foto di folder sumber mesin. Gunakan perintah `production.py init` dari README toolkit untuk membuat job baru.
 2. Jalankan perintah runner yang ditampilkan panel di komputer pekerja. Pilih kode proyek singkat, misalnya `yanmar-6aym-wet`, dan masuk dengan akun Alur yang akan dipakai pada HP. Biarkan runner aktif saat ada pekerjaan.

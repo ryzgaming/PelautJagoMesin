@@ -30,7 +30,9 @@ export async function api(
   if (
     r.status === 401 &&
     again &&
-    (path.startsWith("flows") || path.startsWith("agent-jobs"))
+    (path.startsWith("flows") ||
+      path.startsWith("agent-jobs") ||
+      path.startsWith("machines"))
   ) {
     refreshing ??= api("session", { action: "refresh" }, false)
       .then(

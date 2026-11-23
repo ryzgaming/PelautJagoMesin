@@ -26,6 +26,8 @@ jobs:
       - name: Alur workflow tests
         run: npm run test --workspace alur-workflow
       - name: Alur runner tests
-        run: python3 -m unittest discover -s apps/alur-workflow/tests -p test_runner.py
+        run: python3 -m unittest discover -s apps/alur-workflow/tests -p 'test_*.py'
+      - name: Hosted agent memory tests
+        run: python3 -m unittest discover -s apps/alur-workflow/worker
       - name: Build verification
         run: npm run build

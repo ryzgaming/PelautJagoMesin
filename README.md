@@ -37,3 +37,22 @@ The storefront links to Alur at `/alur/`. From the repository root, run `npm ci`
 
 npm run build checks frontend syntax and premium source exclusion, then builds Alur.
 npm test runs API, origin, and database authorization tests after installing locked development dependencies.
+
+### Produksi mesin dari Alur
+
+Buka [panel Agen mesin](https://pelautjagomesin.pages.dev/alur/?mode=agen). Panel ini menghubungkan satu akun Alur dengan proyek lokal pada komputer pekerja. Komputer itu membutuhkan Python, Codex CLI yang sudah login, Blender, paket produksi Orang Mesin, dan job yang sudah diinisialisasi dengan sumber untuk model yang dipilih. Paket produksi dan skrip pekerja bisa diakses dari panel.
+
+1. Siapkan manual, parts catalog, diagram sistem dan foto di folder sumber mesin. Gunakan perintah `production.py init` dari README toolkit untuk membuat job baru.
+2. Jalankan perintah runner yang ditampilkan panel di komputer pekerja. Pilih kode proyek singkat, misalnya `yanmar-6aym-wet`, dan masuk dengan akun Alur yang akan dipakai pada HP. Biarkan runner aktif saat ada pekerjaan.
+   Contoh setelah mengunduh `runner.py` dan mengekstrak toolkit:
+
+   ```bash
+   python3 runner.py --toolkit ./orang-mesin-production --project ./jobs/yanmar-6aym-wet --project-key yanmar-6aym-wet
+   ```
+
+3. Dari HP atau desktop, buka **Agen mesin**, masuk, lalu antrekan produksi memakai kode proyek yang sama. Kode menentukan folder yang sudah dipilih di komputer pekerja. Status antre berarti pekerjaan masih menunggu runner.
+4. Ikuti tahap bukti, lima spesialis alur, model luar dan internal, integrasi, lalu QA. Sesudah selesai, buka hasil review pada komputer pekerja. Pemilik memeriksa hasil sebelum membuat keputusan katalog.
+
+Browser menyimpan permintaan melalui Pages Functions dan kebijakan akses akun di Supabase. Runner mengambil pekerjaan dengan koneksi keluar dan memanggil scheduler toolkit dengan opsi `--system-flows`. Dashboard menerima status peran dan hasil akhir pekerjaan. Berkas sumber, log rinci, dan model hasil produksi berada di komputer pekerja.
+
+Skema antrean tersedia di [agent-jobs.sql](apps/alur-workflow/supabase/agent-jobs.sql). Untuk instalasi baru, terapkan skema pada proyek Supabase yang dipakai Alur, lalu gunakan skrip build Cloudflare Pages yang sudah ada.

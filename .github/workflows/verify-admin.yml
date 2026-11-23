@@ -23,5 +23,9 @@ jobs:
         run: npm ci
       - name: Unit tests
         run: npm test
+      - name: Alur workflow tests
+        run: npm run test --workspace alur-workflow
+      - name: Alur runner tests
+        run: python3 -m unittest discover -s apps/alur-workflow/tests -p test_runner.py
       - name: Build verification
         run: npm run build

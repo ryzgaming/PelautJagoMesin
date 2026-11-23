@@ -19,11 +19,13 @@ test('shared assembly assets stay identical between private and public simulator
  assert.doesNotMatch(publicJs,/SUPABASE_SERVICE_ROLE_KEY|premium-source\//);
 });
 test('assembly explorer uses existing machine geometries and controls, not fabricated models',()=>{
- for(const needle of ['window.__pp','api.parts','setExLvl','api.setOne','bPins','bMat','bIso','#stage','Pasang kembali','Tampilkan nomor','Sembunyikan nomor'])
+ for(const needle of ['window.__pp','api.parts','setExLvl','api.setOne','bPins','bMat','bIso',"getElementById('stage')",'Pasang kembali','Tampilkan nomor','Sembunyikan nomor'])
    assert(assemblyExplorerRuntime.includes(needle),needle);
  assert.match(assemblyExplorerRuntime,/om-assembly-numbers-hidden/);
  assert.match(assemblyExplorerStyles,/#leaders\{display:none!important\}/);
  assert.match(assemblyExplorerRuntime,/colorMode==='engine'/);
+ assert.match(assemblyExplorerRuntime,/api.setExLvl\(level===0\?2:\(level===1\?3:4\)\)/);
+ assert.match(assemblyExplorerRuntime,/next.disabled=level===2/);
  assert.doesNotMatch(assemblyExplorerRuntime,/BoxGeometry|CylinderGeometry|new THREE\./);
 });
 test('injection is idempotent and preserves original protected simulator',()=>{

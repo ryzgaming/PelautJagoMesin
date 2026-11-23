@@ -3,5 +3,37 @@ const frame=document.querySelector('#workspace-frame'),status=document.querySele
 const id=new URLSearchParams(location.search).get('product')||'shinko-gj-sim';
 function translateWorkspace(){document.querySelector('#workspace-note').textContent=tr('Workspace 3D · Model edukasi dengan estimasi visual · Materi teknis sumber dalam bahasa Indonesia','3D workspace · Educational model with visual estimates · Source technical material is in Indonesian');}
 translateWorkspace();document.addEventListener('om-language',translateWorkspace);
-async function open(){document.querySelector('#workspace-title').textContent=fallbackProducts.find(p=>p.id===id)?.title||id;if(id==='shinko-gj-sim'){frame.src='shinko-gj-sim.html';frame.hidden=false;return;}await ready;try{const html=await api('access',{productId:id},true);frame.setAttribute('sandbox','allow-scripts');frame.srcdoc=html;frame.hidden=false;}catch(e){status.className='notice';status.textContent=errorMessage(e);const b=document.createElement('button');b.className='btn';b.textContent=tr('Masuk ke akun','Sign in');b.onclick=showAccount;status.append(document.createElement('br'),b);}}
+async function studioAsset(name) {
+  const response = await fetch('assets/' + name);
+  if (!response.ok) throw new Error('Workspace Studio gagal dimuat.');
+  return response.text();
+}
+
+async function open() {
+  document.querySelector('#workspace-title').textContent = fallbackProducts.find(p => p.id === id)?.title || id;
+  try {
+    if (id === 'shinko-gj-sim') {
+      frame.src = 'shinko-gj-sim.html';
+    } else {
+      await ready;
+      const html = await api('access', {productId:id}, true);
+      // Inline the shared presentation inside the existing opaque sandbox.
+      const [css, script] = await Promise.all([studioAsset('studio.css'), studioAsset('studio.js')]);
+      const presentation = '<style>' + css + '</style><script>' + script + '</script>';
+      const end = html.toLowerCase().lastIndexOf('</body>');
+      frame.setAttribute('sandbox', 'allow-scripts');
+      frame.srcdoc = end < 0 ? html + presentation : html.slice(0,end) + presentation + html.slice(end);
+    }
+    frame.hidden = false;
+    document.querySelector('.workspace-loading').hidden = true;
+  } catch (error) {
+    status.className = 'notice';
+    status.textContent = errorMessage(error);
+    const login = document.createElement('button');
+    login.className = 'btn';
+    login.textContent = tr('Masuk ke akun','Sign in');
+    login.onclick = showAccount;
+    status.append(document.createElement('br'), login);
+  }
+}
 open();

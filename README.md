@@ -31,7 +31,7 @@ The old main branch and its public history are unchanged. They still contain old
 
 ## Alur workflow
 
-The storefront links to Alur at `/alur/`. From the repository root, run `npm ci` and `npm run build` to generate the editor and form alongside the existing storefront in `dist`. Cloudflare Pages bundles `functions/alur/api` for Alur login, cloud workflows and execution history. For a local Pages preview, run `npx wrangler pages dev dist` after building. Alur uses the same Supabase account credentials as the storefront with its own scoped session cookies.
+Only verified administrators may open Alur from the Admin control room at `/alur/`. From the repository root, run `npm ci` and `npm run build` to generate the editor and form alongside the existing storefront in `dist`. Cloudflare Pages bundles `functions/alur/api` for Alur login, cloud workflows and execution history. For a local Pages preview, run `npx wrangler pages dev dist` after building. Alur uses the same Supabase account credentials as the storefront with its own scoped session cookies.
 
 ## Validation
 
@@ -62,5 +62,7 @@ Buka [panel Agen mesin](https://pelautjagomesin.pages.dev/alur/?mode=agen). Pili
 4. Ikuti tahap bukti, lima spesialis alur, model luar dan internal, integrasi, lalu QA. Sesudah selesai, buka hasil review pada komputer pekerja. Pemilik memeriksa hasil sebelum membuat keputusan katalog.
 
 Browser menyimpan permintaan melalui Pages Functions dan kebijakan akses akun di Supabase. Runner mengambil pekerjaan dengan koneksi keluar dan memanggil scheduler toolkit dengan opsi `--system-flows`. Dashboard menerima status peran dan hasil akhir pekerjaan. Berkas sumber, log rinci, dan model hasil produksi berada di komputer pekerja.
+
+Untuk instalasi baru, jalankan skema commerce terlebih dahulu, kemudian `apps/alur-workflow/supabase/admin-access.sql`, lalu skema Alur. Fitur afiliasi menggunakan `supabase/migrations/202611240001_affiliates.sql`. Nominal ditetapkan di Admin → Komisi afiliasi.
 
 Skema antrean tersedia di [agent-jobs.sql](apps/alur-workflow/supabase/agent-jobs.sql). Untuk instalasi baru, terapkan skema pada proyek Supabase yang dipakai Alur, lalu gunakan skrip build Cloudflare Pages yang sudah ada.

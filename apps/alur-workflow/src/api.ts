@@ -44,6 +44,7 @@ export async function api(
       });
     if (await refreshing) return api(path, body, false, signal);
   }
+  if (r.headers.get("X-Alur-Access") === "denied" && (r.status === 401 || r.status === 403)) window.location.reload();
   if (!r.headers.get("content-type")?.includes("application/json"))
     throw new ApiError("Layanan cloud belum terhubung.", r.status);
   const j = (await r.json()) as Record<string, any>;

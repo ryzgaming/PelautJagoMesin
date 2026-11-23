@@ -28,6 +28,9 @@ before(async () => {
     create function auth.uid() returns uuid language sql as $$select nullif(current_setting('request.jwt.claim.sub',true),'')::uuid$$;
     grant usage on schema auth to authenticated;`);
   await db.query('insert into auth.users values($1),($2)',[uid,other]);
+  await db.exec('create table public.admins(user_id uuid primary key); insert into public.admins select id from auth.users;');
+  await db.exec('create table public.profiles(id uuid primary key, blocked boolean default false); insert into public.profiles(id) select id from auth.users');
+  await db.exec(await readFile('apps/alur-workflow/supabase/admin-access.sql','utf8'));
   await db.exec(migration);
 });
 beforeEach(async () => { await db.exec('reset role; truncate public.alur_agent_jobs cascade;'); });

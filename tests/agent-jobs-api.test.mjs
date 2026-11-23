@@ -143,6 +143,9 @@ test('agent API consumes actual compiled SQL JSON return and owner-isolated rows
       $$select nullif(current_setting('request.jwt.claim.sub',true),'')::uuid$$;
     grant usage on schema auth to authenticated;`);
   await db.query('insert into auth.users values ($1),($2)', [ownerA, ownerB]);
+  await db.exec('create table public.admins(user_id uuid primary key); insert into public.admins select id from auth.users;');
+  await db.exec('create table public.profiles(id uuid primary key, blocked boolean default false); insert into public.profiles(id) select id from auth.users');
+  await db.exec(await readFile('apps/alur-workflow/supabase/admin-access.sql','utf8'));
   await db.exec(await readFile('apps/alur-workflow/supabase/agent-jobs.sql', 'utf8'));
   await db.exec('set role authenticated');
   // This fixture models PostgREST's verified-JWT context, while executing real SQL/RLS.

@@ -163,6 +163,8 @@ test('machines API consumes real SQL, isolates owners and recalls only matching 
     create table public.admins(user_id uuid primary key references auth.users(id));`);
   await db.query('insert into auth.users values($1),($2)', [owner, other]);
   await db.query('insert into public.admins values($1)', [owner]);
+  await db.exec('create table public.profiles(id uuid primary key, blocked boolean default false); insert into public.profiles(id) select id from auth.users');
+  await db.exec(await readFile('apps/alur-workflow/supabase/admin-access.sql','utf8'));
   await db.exec(await readFile('apps/alur-workflow/supabase/machine-sessions.sql', 'utf8'));
   t.mock.method(globalThis, 'fetch', async (address, options) => {
     await db.exec('reset role');
@@ -188,7 +190,7 @@ test('machines API consumes real SQL, isolates owners and recalls only matching 
   const first = (await created.json()).session;
   assert.equal((await (await call(req('POST'))).json()).session.id, first.id);
   const otherRequest = req('GET', {headers: {cookie: 'alur_access=user-b'}});
-  assert.deepEqual(await (await call(otherRequest)).json(), {account_id: other, sessions: []});
+  assert.equal((await call(otherRequest)).status, 403);
   assert.equal((await call(req('GET', {query: '?id='+first.id, headers: {cookie: 'alur_access=user-b'}}))).status, 404);
   assert.equal((await call(req('POST', {headers: {cookie: 'alur_access=user-b'}}))).status, 403);
 

@@ -58,7 +58,7 @@ create or replace function alur_agent_private.enqueue_job(p_project_key text, p_
 returns jsonb language plpgsql security definer set search_path = '' as $$
 declare v_owner uuid := auth.uid(); v_job public.alur_agent_jobs%rowtype;
 begin
-  if v_owner is null then raise exception 'Authentication required' using errcode = '42501'; end if;
+  if not alur_access_private.is_admin() then raise exception 'Authentication required' using errcode = '42501'; end if;
   if p_project_key is null or char_length(p_project_key) not between 1 and 64
      or p_project_key !~ '^[a-z0-9]+(-[a-z0-9]+)*$' or p_request_id is null then
     raise exception 'Invalid project key or request ID' using errcode = '22023';
@@ -82,7 +82,7 @@ create or replace function alur_agent_private.claim_job(p_project_key text, p_cl
 returns jsonb language plpgsql security definer set search_path = '' as $$
 declare v_owner uuid := auth.uid(); v_job public.alur_agent_jobs%rowtype;
 begin
-  if v_owner is null then raise exception 'Authentication required' using errcode = '42501'; end if;
+  if not alur_access_private.is_admin() then raise exception 'Authentication required' using errcode = '42501'; end if;
   if p_project_key is null or char_length(p_project_key) not between 1 and 64
     or p_project_key !~ '^[a-z0-9]+(-[a-z0-9]+)*$' or p_claim_token is null then
     raise exception 'Invalid project key or claim token' using errcode = '22023';
@@ -110,7 +110,7 @@ create or replace function alur_agent_private.update_job(p_job_id uuid, p_claim_
 returns jsonb language plpgsql security definer set search_path = '' as $$
 declare v_owner uuid := auth.uid(); v_job public.alur_agent_jobs%rowtype; v_key text; v_value jsonb;
 begin
-  if v_owner is null then raise exception 'Authentication required' using errcode = '42501'; end if;
+  if not alur_access_private.is_admin() then raise exception 'Authentication required' using errcode = '42501'; end if;
   if p_job_id is null or p_claim_token is null or p_status is null or p_status not in ('running','review','failed')
     or not alur_agent_private.valid_progress(p_progress) or p_note is null
     or (p_status = 'running' and p_note not in ('running','runner_claimed'))
@@ -164,4 +164,7 @@ revoke all on function public.alur_enqueue_agent_job(text,uuid), public.alur_cla
 grant execute on function public.alur_enqueue_agent_job(text,uuid), public.alur_claim_agent_job(text,uuid),
   public.alur_update_agent_job(uuid,uuid,text,jsonb,text) to authenticated;
 -- A crashed runner remains running. Never automatically reclaim, expire or requeue.
+drop policy if exists alur_admin_required on public.alur_agent_jobs;
+create policy alur_admin_required on public.alur_agent_jobs as restrictive for all to authenticated
+ using ((select alur_access_private.is_admin())) with check ((select alur_access_private.is_admin()));
 commit;

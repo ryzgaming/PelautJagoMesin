@@ -22,7 +22,9 @@ const leads={provider:'Internet Archive',status:'found',items:[{url:'https://arc
 
 before(async()=>{
  db=new PGlite();await db.exec(`create role anon;create role authenticated;create role service_role bypassrls;create schema auth;create table auth.users(id uuid primary key);create function auth.uid() returns uuid language sql as $$select nullif(current_setting('request.jwt.claim.sub',true),'')::uuid$$;grant usage on schema auth to authenticated;create table public.admins(user_id uuid primary key references auth.users(id));alter table public.admins enable row level security;revoke all on public.admins from public,anon,authenticated;`);
- await db.query('insert into auth.users values($1),($2),($3)',[owner,other,stranger]);await db.query('insert into public.admins values($1),($2)',[owner,other]);await db.exec(migration);
+ await db.query('insert into auth.users values($1),($2),($3)',[owner,other,stranger]);await db.query('insert into public.admins values($1),($2)',[owner,other]);await db.exec('create table public.profiles(id uuid primary key, blocked boolean default false); insert into public.profiles(id) select id from auth.users');
+  await db.exec(await readFile('apps/alur-workflow/supabase/admin-access.sql','utf8'));
+  await db.exec(migration);
 });
 beforeEach(async()=>{await db.exec('reset role;truncate public.alur_machine_sessions cascade;');});
 after(async()=>{await db.close();});
@@ -134,7 +136,7 @@ test('worker owner validation and lease bounds reject strangers and malformed ca
  for(const seconds of [null,0,29,3601])await assert.rejects(claim(owner,randomUUID(),seconds),/Invalid lease/);
  const s=await create(),c=await claim();await assert.rejects(checkpoint(s.id,randomUUID()),/Lease lost/);
  await db.query('delete from public.admins where user_id=$1',[owner]);
- try{await assert.rejects(checkpoint(s.id,c.claim_token),/unavailable/);await as(owner,()=>assert.rejects(enqueue('MAN','L23/30H'),/Owner access required/));assert.equal((await as(owner,()=>detail(s.id))).session.id,s.id);}finally{await db.query('insert into public.admins values($1)',[owner]);}
+ try{await assert.rejects(checkpoint(s.id,c.claim_token),/unavailable/);await as(owner,()=>assert.rejects(enqueue('MAN','L23/30H'),/Owner access required/));await as(owner,()=>assert.rejects(detail(s.id),{code:'42501'}));}finally{await db.query('insert into public.admins values($1)',[owner]);}
 });
 
 // Latest per-session checkpoint is authoritative about evidence status: a superseded

@@ -157,7 +157,7 @@ returns jsonb language plpgsql security definer set search_path='' as $$
 declare v_owner uuid:=auth.uid(); v_brand text:=alur_machine_private.normalized_name(p_brand);
  v_model text:=alur_machine_private.normalized_name(p_model); v_key text; v_session public.alur_machine_sessions%rowtype;
 begin
- if v_owner is null or not exists(select 1 from public.admins where user_id=v_owner) then
+ if not alur_access_private.is_admin() then
   raise exception 'Owner access required' using errcode='42501'; end if;
  if v_brand is null or pg_catalog.char_length(v_brand) not between 1 and 80
   or v_model is null or pg_catalog.char_length(v_model) not between 1 and 120 or p_request_id is null
@@ -181,7 +181,7 @@ create or replace function alur_machine_private.save_source_leads(p_session_id u
 returns jsonb language plpgsql security definer set search_path='' as $$
 declare v_owner uuid:=auth.uid(); v_session public.alur_machine_sessions%rowtype;
 begin
- if v_owner is null or not exists(select 1 from public.admins where user_id=v_owner) then raise exception 'Owner access required' using errcode='42501'; end if;
+ if not alur_access_private.is_admin() then raise exception 'Owner access required' using errcode='42501'; end if;
  if not alur_machine_private.valid_leads(p_leads) then raise exception 'Invalid source leads' using errcode='22023'; end if;
  select * into v_session from public.alur_machine_sessions where id=p_session_id and owner_id=v_owner for update;
  if not found then raise exception 'Session unavailable' using errcode='42501'; end if;
@@ -219,7 +219,7 @@ create or replace function alur_machine_private.list_sessions()
 returns jsonb language plpgsql stable security definer set search_path='' as $$
 declare v_owner uuid:=auth.uid(); v_sessions jsonb;
 begin
- if v_owner is null then raise exception 'Authentication required' using errcode='42501'; end if;
+ if not alur_access_private.is_admin() then raise exception 'Authentication required' using errcode='42501'; end if;
  select coalesce(pg_catalog.jsonb_agg(alur_machine_private.safe_session(x) order by x.created_at desc,x.id desc),'[]'::jsonb)
  into v_sessions from (select * from public.alur_machine_sessions where owner_id=v_owner order by created_at desc,id desc limit 50) x;
  return pg_catalog.jsonb_build_object('account_id',v_owner,'sessions',v_sessions);
@@ -228,7 +228,7 @@ create or replace function alur_machine_private.get_session(p_session_id uuid)
 returns jsonb language plpgsql stable security definer set search_path='' as $$
 declare v_session public.alur_machine_sessions%rowtype;
 begin
- if auth.uid() is null then raise exception 'Authentication required' using errcode='42501'; end if;
+ if not alur_access_private.is_admin() then raise exception 'Authentication required' using errcode='42501'; end if;
  select * into v_session from public.alur_machine_sessions where id=p_session_id and owner_id=auth.uid();
  if not found then raise exception 'Session unavailable' using errcode='42501'; end if;
  return alur_machine_private.memory_envelope(v_session);
@@ -359,4 +359,10 @@ revoke all on function public.alur_enqueue_machine_session(text,text,uuid),publi
  public.alur_list_machine_sessions(),public.alur_get_machine_session(uuid) from public,anon,authenticated,service_role;
 grant execute on function public.alur_enqueue_machine_session(text,text,uuid),public.alur_save_source_leads(uuid,jsonb),
  public.alur_list_machine_sessions(),public.alur_get_machine_session(uuid) to authenticated;
+drop policy if exists alur_admin_required on public.alur_machine_sessions;
+create policy alur_admin_required on public.alur_machine_sessions as restrictive for all to authenticated
+ using ((select alur_access_private.is_admin())) with check ((select alur_access_private.is_admin()));
+drop policy if exists alur_admin_required on public.alur_machine_memory;
+create policy alur_admin_required on public.alur_machine_memory as restrictive for all to authenticated
+ using ((select alur_access_private.is_admin())) with check ((select alur_access_private.is_admin()));
 commit;

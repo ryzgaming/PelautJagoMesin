@@ -32,6 +32,9 @@ class AgentJobRaceTests(unittest.TestCase):
           create function auth.uid() returns uuid language sql as $$select nullif(current_setting('request.jwt.claim.sub',true),'')::uuid$$;
           grant usage on schema auth to authenticated;
           insert into auth.users values ('{OWNER}');""", check=True)
+        cls.sql("create table public.admins(user_id uuid primary key); insert into public.admins select id from auth.users",check=True)
+        cls.sql("create table public.profiles(id uuid primary key,blocked boolean default false); insert into public.profiles(id) select id from auth.users",check=True)
+        cls.sql((ROOT/'apps/alur-workflow/supabase/admin-access.sql').read_text(),check=True)
         cls.sql((ROOT/'apps/alur-workflow/supabase/agent-jobs.sql').read_text(),check=True)
 
     @classmethod

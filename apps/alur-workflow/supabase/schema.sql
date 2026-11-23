@@ -19,4 +19,10 @@ create policy alur_add_flows on public.alur_flows for insert to authenticated wi
 create policy alur_edit_flows on public.alur_flows for update to authenticated using(owner_id=(select auth.uid())) with check(owner_id=(select auth.uid()));
 create policy alur_read_runs on public.alur_runs for select to authenticated using(owner_id=(select auth.uid()));
 create policy alur_add_runs on public.alur_runs for insert to authenticated with check(owner_id=(select auth.uid()));
+drop policy if exists alur_admin_required on public.alur_flows;
+create policy alur_admin_required on public.alur_flows as restrictive for all to authenticated
+ using ((select alur_access_private.is_admin())) with check ((select alur_access_private.is_admin()));
+drop policy if exists alur_admin_required on public.alur_runs;
+create policy alur_admin_required on public.alur_runs as restrictive for all to authenticated
+ using ((select alur_access_private.is_admin())) with check ((select alur_access_private.is_admin()));
 commit;

@@ -18,10 +18,11 @@ test('compact MAN UI is syntactically valid and retains original premium model',
   assert.doesNotMatch(manV4CompactRuntime,/WebGLRenderer|fetch\s*\(|service.role|new THREE\./i);
 });
 test('one panel at a time; full controls are preserved inside More',()=>{
-  for(const key of ['data-compact-panel','openPanel','closeAll','closeAssembly','v4-compact-more','v4-compact-advanced','v4-compact-native','modebar','v4-view-modes']){
+  for(const key of ['dataset.compactPanel','openPanel','closeAll','closeAssembly','v4-compact-more','v4-compact-advanced','v4-compact-native','modebar']){
     assert(manV4CompactRuntime.includes(key),key);
   }
   assert.match(manV4CompactStyles, /data-compact-panel=components/);
+  assert.match(manV4CompactStyles, /v4-view-modes/);
   assert.match(manV4CompactStyles, /data-compact-panel=systems/);
   assert.match(manV4CompactStyles, /@media\(max-width:850px\)/);
   assert.match(manV4CompactStyles, /#simroot\.v4-mounted\.v4-compact \.ctrl\{display:none!important\}/);

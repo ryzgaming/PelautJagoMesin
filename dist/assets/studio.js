@@ -43,7 +43,13 @@
       if (button === whole) {
         learn.click();
         close.click();
+        for (const id of ['bXray', 'bSection', 'bIso']) {
+          const control = byId(id);
+          if (control?.getAttribute('aria-pressed') === 'true') control.click();
+        }
+        model?.clearSelection?.();
         byId('bReset').click();
+        scheduleOverviewFit();
         activeMode = whole; // The legacy system viewer may share the learn handler.
       }
       syncPanel();
@@ -132,7 +138,6 @@
     assemblyView = snapshot;
     activeMode = snapshot.previousMode;
     part.li.click();
-    assemblyView.disposeDiagram?.();
     if (assemblyView.isolatedByUs) isolate.click();
     root.classList.add('studio-assembly');
     snapshot.disposeDiagram = window.openAssemblyDiagram(model, part, byId('stage'), byId('pbody'));
@@ -165,7 +170,8 @@
     event.stopImmediatePropagation();
     const {previousMode, wasOpen, position, target} = assemblyView;
     leaveAssembly();
-    previousMode?.click();
+    // Back preserves the original pick and camera. An explicit Overview click resets both.
+    if (previousMode !== whole) previousMode?.click();
     if (!wasOpen) close.click();
     model.camera.position.copy(position);
     model.controls.target.copy(target);
@@ -175,6 +181,59 @@
   }, true);
 
   const stage = byId('stage');
+  // Fit visible machine geometry in camera coordinates. Room, pipe diagrams and
+  // presentation helpers must not enlarge the overview bounds.
+  function fitOverview() {
+    if (!model || activeMode !== whole || assemblyView || selectedPart()) return;
+    const {camera, controls} = model;
+    const aspect = stage.clientWidth / stage.clientHeight;
+    if (!Number.isFinite(aspect) || aspect <= 0) return;
+    const points = [];
+    const bounds = new THREE.Box3();
+    controls.update();
+    camera.updateMatrixWorld();
+    for (const part of parts) {
+      if (!part.group.visible) continue;
+      part.group.updateWorldMatrix(true, true);
+      for (const mesh of part.meshes) {
+        if (!mesh.visible) continue;
+        const geometry = mesh.geometry;
+        if (!geometry.boundingBox) geometry.computeBoundingBox();
+        const box = geometry.boundingBox;
+        if (box.isEmpty()) continue;
+        for (const x of [box.min.x, box.max.x]) {
+          for (const y of [box.min.y, box.max.y]) {
+            for (const z of [box.min.z, box.max.z]) {
+              const point = new THREE.Vector3(x,y,z).applyMatrix4(mesh.matrixWorld)
+                .applyMatrix4(camera.matrixWorldInverse);
+              bounds.expandByPoint(point);
+              points.push(point);
+            }
+          }
+        }
+      }
+    }
+    if (!points.length) return;
+    const center = bounds.getCenter(new THREE.Vector3());
+    const vertical = Math.tan(camera.getEffectiveFOV() * Math.PI / 360) * 0.90;
+    let distance = controls.minDistance;
+    for (const point of points) {
+      point.sub(center);
+      distance = Math.max(distance, point.z + Math.abs(point.x)/(vertical*aspect),
+        point.z + Math.abs(point.y)/vertical);
+    }
+    controls.target.copy(center).applyMatrix4(camera.matrixWorld);
+    camera.position.set(0,0,distance).applyQuaternion(camera.quaternion).add(controls.target);
+    controls.update();
+  }
+  let fitFrame;
+  function scheduleOverviewFit() {
+    cancelAnimationFrame(fitFrame);
+    fitFrame = requestAnimationFrame(fitOverview);
+  }
+  if (window.ResizeObserver) new ResizeObserver(scheduleOverviewFit).observe(stage);
+  scheduleOverviewFit();
+
   const readouts = [...stage.querySelectorAll('.plhud, #discl, .pumpnote')];
   close.click();
   function syncPanel() {

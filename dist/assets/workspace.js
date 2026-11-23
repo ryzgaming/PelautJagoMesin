@@ -16,7 +16,12 @@ async function open() {
       frame.src = 'shinko-gj-sim.html';
     } else {
       await ready;
-      const html = await api('access', {productId:id}, true);
+      let html = await api('access', {productId:id}, true);
+      // Bridge the archived PelautSim engine versions served from private storage.
+      // Keep the selection reset inside the same closure as the native picking handler.
+      if (html.includes('function select(p,focus,sub)') && !html.includes('clearSelection:function')) {
+        html = html.replace('window.__pp={', 'window.__pp={clearSelection:function(){select(null,false,null);},');
+      }
       // Inline the shared presentation inside the existing opaque sandbox.
       const [css, diagram, script] = await Promise.all([studioAsset('studio.css'), studioAsset('assembly-diagram.js'), studioAsset('studio.js')]);
       const presentation = '<style>' + css + '</style><script>' + diagram + '</script><script>' + script + '</script>';

@@ -23,7 +23,16 @@ async function open() {
         html = html.replace('window.__pp={', 'window.__pp={clearSelection:function(){select(null,false,null);},');
       }
       if (html.includes('function placeMeshes(dt)') && !html.includes('setOverviewPose:')) {
-        html = html.replace('window.__pp={', 'window.__pp={setOverviewPose:function(spread){exLvl=spread?1:2;ex.cur=ex.tgt=spread?1:0;$("ex").value=ex.cur;placeMeshes(0);},');
+        html = html.replace('window.__pp={', 'window.__pp={setOverviewPose:function(spread){exLvl=spread?1:2;ex.cur=ex.tgt=Number(spread);$("ex").value=ex.cur;placeMeshes(0);},');
+      }
+      // The archived generators store exterior paint separately from metal and seals.
+      if (id === 'alfa-laval-mab206s') {
+        html = html.replace('function mats(K){return {pt:K.M(0x6f8f7e,',
+          'function mats(K,paint=0x245395){return {pt:K.M(paint,');
+        html = html.replace(/(part\(\{key:"ccover"[^\n]+?var m=mats\(K)\)/, '$1,0xd7d9cc)');
+      }
+      if (id === 'man-l2330h') {
+        html = html.replaceAll('0x5cb84c', '0x369568').replaceAll('0x4fa443', '0x33825d');
       }
       // Inline the shared presentation inside the existing opaque sandbox.
       const [css, diagram, script] = await Promise.all([studioAsset('studio.css'), studioAsset('assembly-diagram.js'), studioAsset('studio.js')]);

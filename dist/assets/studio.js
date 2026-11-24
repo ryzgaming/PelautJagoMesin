@@ -27,6 +27,26 @@
   footer.append(dock);
   root.append(footer);
 
+  const slider = byId('ex');
+  const spreadControl = slider.closest('.exwrap');
+  const spreadOutput = document.createElement('output');
+  spreadOutput.htmlFor = slider.id;
+  const label = spreadControl.querySelector('label');
+  label.textContent = 'Jarak urai';
+  const assembled = document.createElement('small');
+  assembled.textContent = 'Terpasang';
+  const exploded = document.createElement('small');
+  exploded.textContent = 'Terurai penuh';
+  spreadControl.classList.add('studio-spread');
+  spreadControl.replaceChildren(label, spreadOutput, slider, assembled, exploded);
+  footer.prepend(spreadControl);
+  let overviewAmount = 0.5;
+  slider.addEventListener('input', () => {
+    overviewAmount = slider.valueAsNumber;
+    setOverviewSpread(overviewAmount);
+    scheduleOverviewFit();
+  });
+
   const whole = document.createElement('button');
   whole.type = 'button';
   whole.append(document.createElement('span'));
@@ -49,7 +69,7 @@
         }
         model?.clearSelection?.();
         byId('bReset').click();
-        setOverviewSpread(true);
+        setOverviewSpread(overviewAmount);
         scheduleOverviewFit();
       }
       syncPanel();
@@ -90,9 +110,12 @@
   const model = window.__pp;
   const parts = model?.parts || [];
   const initialZoomLimit = model?.controls.maxDistance;
-  function setOverviewSpread(spread) {
-    if (!spread) model.controls.maxDistance = initialZoomLimit;
-    model.setOverviewPose(spread);
+  function setOverviewSpread(amount) {
+    if (!amount) model.controls.maxDistance = initialZoomLimit;
+    model.setOverviewPose(amount);
+    const percent = Math.round(amount * 100) + '%';
+    spreadOutput.value = percent;
+    slider.setAttribute('aria-valuetext', percent);
   }
   const explore = document.createElement('button');
   explore.type = 'button';
@@ -143,7 +166,7 @@
       previousMode: activeMode,
       isolatedByUs: isolate.getAttribute('aria-pressed') !== 'true'
     };
-    setOverviewSpread(false);
+    setOverviewSpread(0);
     learn.click();
     assemblyView = snapshot;
     activeMode = snapshot.previousMode;
@@ -177,7 +200,7 @@
   for (const [button] of modes) button.addEventListener('click', () => {
     leaveAssembly();
     if (activeMode === whole && (button === system || button === operation)) {
-      setOverviewSpread(false);
+      setOverviewSpread(0);
       byId('bReset').click();
     }
   }, true);
@@ -187,7 +210,7 @@
     const {previousMode, wasOpen, position, target, zoomLimit} = assemblyView;
     leaveAssembly();
     // Back preserves the original pick and camera. An explicit Overview click resets both.
-    if (previousMode === whole) setOverviewSpread(true);
+    if (previousMode === whole) setOverviewSpread(overviewAmount);
     else previousMode?.click();
     if (!wasOpen) close.click();
     model.controls.maxDistance = zoomLimit;
@@ -252,7 +275,7 @@
     fitFrame = requestAnimationFrame(fitOverview);
   }
   if (window.ResizeObserver) new ResizeObserver(scheduleOverviewFit).observe(stage);
-  setOverviewSpread(false);
+  setOverviewSpread(0);
   scheduleOverviewFit();
 
   const readouts = [...stage.querySelectorAll('.plhud, #discl, .pumpnote')];

@@ -1302,7 +1302,7 @@ function frame(){
 }
 function setOverviewPose(spread){
   exLvl=spread?1:2;
-  ex.cur=ex.tgt=spread?1:0;
+  ex.cur=ex.tgt=Number(spread);
   $("ex").value=ex.cur;
   placeMeshes(0);
 }
@@ -2518,7 +2518,7 @@ function buildMotor(K,g){
   var al=g.mat==="al",paint=g.paint||(al?0x8a9096:0x5d6b77);
   var mt=K.M(paint,"na",{metalness:al?0.45:0.25,roughness:al?0.45:0.62}),dk=K.M(0x2a333b,"na",{metalness:0.3,roughness:0.7}),
       sh=K.M(0xc8d0d6,"na",{metalness:0.85,roughness:0.25}),bolt=K.M(0x9aa3aa,"na",{metalness:0.8,roughness:0.3}),
-      pd=K.M(0x3d464e,"na",{metalness:0.2,roughness:0.75}),plate=K.M(0xd6dbde,"na",{metalness:0.6,roughness:0.35}),rub=K.M(0x15181b,"na",{roughness:0.9,metalness:0});
+      pd=K.M(g===MOTOR_BASE?PAINT:0x3d464e,"na",{metalness:0.2,roughness:0.75}),plate=K.M(0xd6dbde,"na",{metalness:0.6,roughness:0.35}),rub=K.M(0x15181b,"na",{roughness:0.9,metalness:0});
   var H=g.H/100,D=g.D/100,E=g.E/100,A=g.A/100,B=g.B/100,C=(g.C||(g.H>=160?108:89))/100;
   var rf=g.HC?g.HC/200:H*0.99,finH=al?0.12:0.16,rc=rf-finH,x0=5.95,xs=x0+E,fy=SH-H;
   var Ltot=(g.L||(g.H>=160?600:500))/100,xEnd=x0+Ltot,lf=Math.max(0.55,rf*0.48),xf0=xs+0.28,xf1=xEnd-lf-0.06,Lf=Math.max(1.2,xf1-xf0),xc=xf0+Lf/2;
@@ -2570,7 +2570,8 @@ function buildMotor(K,g){
   else K.add(new T.BoxGeometry(pl,Math.max(0.04,ph),pw),pd,px,0.3+Math.max(0.04,ph)/2,0);
   K.tag(null);
 }
-var MOTOR_BASE={H:132,D:38,E:80,A:216,B:178,C:89,L:null,HD:null,mat:"ci"};
+var PAINT=0x698d83; /* Shinko GJ catalog, pp. 23–24: painted exterior. */
+var MOTOR_BASE={paint:PAINT,H:132,D:38,E:80,A:216,B:178,C:89,L:null,HD:null,mat:"ci"};
 var ABB_SRC='<a href="https://library.e.abb.com/public/833c42cc056142d7a5444041132b03a7/9AKK107424%20EN%2003-2021%20PPM%20IE4.pdf" target="_blank" rel="noopener">ABB, Process performance IE4 cast iron motors, product note 9AKK107424 (03-2021)</a>: tabel 400 V 50 Hz dan tabel dimensi';
 var WEG_SRC='<a href="https://static.weg.net/medias/downloadcenter/hf9/hd0/WEG-w22-severe-process-european-market-50058022-brochure-english-web.pdf" target="_blank" rel="noopener">WEG, W22 Severe Process IE3, Cod. 50058022 Rev. 01 (06/2023)</a>: tabel IV pole 400 V dan tabel dimensi';
 var SIE_SRC='<a href="https://cache.industry.siemens.com/dl/files/197/109749197/att_955119/v1/simotics-gp-sd-xp-dp-catalogue-d-81-1-en-2018.pdf" target="_blank" rel="noopener">Siemens, SIMOTICS katalog D 81.1 (05/2018)</a>, hlm. 2/13 (seri 1LE1003, 4 kutub). Dimensi pasang menurut IEC 60072 (pernyataan katalog)';
@@ -2861,7 +2862,7 @@ var E=PelautSim.setup({
 });
 if(!E)return;
 var T=E.T,SH=E.SH,HALF=E.HALF,part=E.part;
-var PAINT=0x5f9a8a;
+
 function boltRing(K,mat,x,rad,n,r,len,off){for(var i=0;i<n;i++){var a=(i+(off||0))/n*Math.PI*2;K.cylX(r,len,mat,x,SH+Math.cos(a)*rad,Math.sin(a)*rad,null,8);}}
 
 /* 1: casing */
@@ -2930,7 +2931,7 @@ part({key:"stuffing",no:6,anchor:[3.0,SH+0.6,0.4],ex:[1.8,0,0],hidden:true},func
 });
 /* 7: bearing housing */
 part({key:"bearing",no:7,anchor:[4.1,SH+0.9,0.3],ex:[3.4,0,0],shell:true,section:true,xray:true},function(K){
-  var mt=K.M(0x41505c,"fc",{side:T.DoubleSide}),rg=K.M(0xb9c2ca,"steel",{metalness:0.85,roughness:0.2}),bl=K.M(0xe3e8ec,"steel",{metalness:0.9,roughness:0.15});
+  var mt=K.M(PAINT,"fc",{side:T.DoubleSide}),rg=K.M(0xb9c2ca,"steel",{metalness:0.85,roughness:0.2}),bl=K.M(0xe3e8ec,"steel",{metalness:0.9,roughness:0.15});
   K.cylX(0.88,1.5,mt,4.15,SH,0,null,40);
   K.add(new T.BoxGeometry(1.3,SH-0.85,1.5),mt,4.15,0.3+(SH-0.85-0.3)/2,0);
   [3.7,4.65].forEach(function(x,i){
@@ -2944,7 +2945,7 @@ part({key:"bearing",no:7,anchor:[4.1,SH+0.9,0.3],ex:[3.4,0,0],shell:true,section
 /* 8: coupling */
 part({key:"coupling",no:8,anchor:[5.55,SH+1.0,0.3],ex:[5.2,0,0],spin:true},function(K){
   var mt=K.M(0x5f666c,"fc",{metalness:0.4}),rb=K.M(0x1c1e20,"nbr",{roughness:0.9,metalness:0}),bt=K.M(0x8c8070,"steel",{metalness:0.6}),
-      cv=K.M(0x7d8c96,"na",{side:T.DoubleSide,metalness:0.2,roughness:0.6});
+      cv=K.M(PAINT,"na",{side:T.DoubleSide,metalness:0.2,roughness:0.6});
   K.tag("49");K.cylX(0.7,0.5,mt,5.2,SH,0,null,36);K.cylX(1.0,0.2,mt,5.55,SH,0,null,48);
   K.tag("50");K.cylX(1.0,0.2,mt,5.8,SH,0,null,48);K.cylX(0.7,0.5,mt,6.15,SH,0,null,36);
   for(var i=0;i<6;i++){var a=(i+0.5)/6*Math.PI*2,y=SH+Math.cos(a)*0.78,z=Math.sin(a)*0.78;
@@ -2966,7 +2967,7 @@ part({key:"gauges",no:9,anchor:[4.7,SH+2.4,-1.15],ex:[3.4,1.5,0]},function(K){
 part({key:"motor",no:10,anchor:[7.4,SH+1.35,0.3],ex:[8.5,0,0]},function(K){buildMotor(K,MOTOR_BASE);});
 /* 11: baseplate (aksesori standar) */
 part({key:"base",no:11,anchor:[4.15,0.15,2.1],ex:[0,-1.4,0]},function(K){
-  var mt=K.M(0x3d464e,"na",{metalness:0.2,roughness:0.75}),bm=K.M(0x9aa3aa,"na",{metalness:0.6});
+  var mt=K.M(PAINT,"na",{metalness:0.2,roughness:0.75}),bm=K.M(0x9aa3aa,"na",{metalness:0.6});
   K.add(new T.BoxGeometry(9.1,0.3,4.65),mt,4.15,0.15,0);
   [-2.2,2.2].forEach(function(z){K.add(new T.BoxGeometry(9.1,0.25,0.15),mt,4.15,0.4,z);});
   [[-3.05,-2.125],[-3.05,2.125],[3.05,-2.125],[3.05,2.125]].forEach(function(a){K.add(new T.CylinderGeometry(0.095,0.095,0.1,10),bm,4.15+a[0],0.33,a[1]);});

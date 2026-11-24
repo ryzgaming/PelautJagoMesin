@@ -72,7 +72,17 @@
 .studio .studio-dock {width:min(480px,calc(100% - 12px))}
 .studio-overview .center #stage {background:#0b0e11}
 .studio-overview #pins {display:none}
-.studio-overview:has(.studio-selection[hidden]) #gl {filter:grayscale(1) brightness(.85)}
+.studio .studio-spread {display:none}
+.studio-overview .studio-spread {
+  display:grid;grid-template-columns:1fr auto;gap:3px 8px;flex:1 1 240px;min-width:0;max-width:420px;
+  padding:8px 14px;border-radius:12px;background:var(--surface);color:var(--ink)
+}
+.studio-spread label {font-size:14px;font-weight:650}
+.studio-spread output {color:var(--accent);font-variant-numeric:tabular-nums}
+.studio-spread input {grid-column:1 / -1;width:100%;height:28px;margin:0;accent-color:var(--accent)}
+.studio-spread small {font-size:12px;color:var(--muted)}
+.studio-spread small:last-child {text-align:right}
+@media (max-width:520px) { .studio-overview .studio-spread {flex-basis:100%} }
 @media (max-width:520px) {
   .studio .studio-dock button {flex-direction:column;gap:2px;padding:4px 2px;font-size:12px;white-space:normal;line-height:1.15}
   .studio .studio-dock svg {display:none}

@@ -32,3 +32,14 @@ Chromium memeriksa posisi mesh, batas kanvas, empat tombol, pemulihan posisi dan
 **UI-007 · 24 November 2026.** Workspace dimulai dengan mesin terpasang. Tampilan terurai pada gambar HP pemilik muncul saat pelanggan mengetuk Eksplor keseluruhan. Kembali dari detail rakitan memulihkan posisi yang terlihat sebelum detail dibuka. [Shinko di Chromium pada viewport HP, sebelum dan sesudah diketuk](design/eksplor-keseluruhan-ketuk.webp).
 
 **UI-008 · 24 November 2026.** Gunakan tombol X-ray asli PelautSim di posisi keempat. Transparansi dapat dinyalakan atau dimatikan saat melihat mesin terpasang, mesin terurai, sistem, pengoperasian, dan detail rakitan. Pilihan tetap berlaku saat pengguna berpindah tampilan. [Shinko pada HP, X-ray mati dan menyala dalam Eksplor keseluruhan](design/xray-eksplor.webp).
+
+**UI-009 · 24 November 2026.** Penggeser Jarak urai menggunakan posisi rakitan utama dari model. Saat baru dibuka nilainya 50%, lalu mengikuti pilihan pengguna hingga workspace ditutup. Tampilan awal, Sistem dan Pengoperasian memperlihatkan mesin terpasang. Pada Eksplor keseluruhan, cat dan logam terlihat berwarna.
+
+Acuan cat adalah tampilan produk per seri. Warna layar merupakan perkiraan visual dan dapat berbeda menurut pencahayaan atau pengecatan unit di kapal.
+
+- Shinko GJ memakai hijau laut muda pada rumah pompa, rumah bearing, pelindung kopling, motor bawaan dan dudukan. [Katalog GJ, halaman 23](https://www.shinkohir.co.jp/pdf/catalog2026/Centrifugal_Pumps_GJ.pdf)
+- MAN L23/30H Mk. 3 memakai hijau pada permukaan blok bercat. [Lembar produk GenSet, halaman 1](https://www.man-es.com/docs/default-source/document-sync-archive/man-l23-30h-mk-3genset-eng.pdf)
+- Tanabe H-74 mempertahankan hijau muda dan tutup gelap dari palet seri H. [Foto produk seri H](https://www.tanacomp.co.jp/en/product/detail/id/c3-6)
+- Alfa Laval memakai biru pada rangka dan putih gading pada collecting cover. [Lembar produk MAB 206, halaman 1](https://assets.alfalaval.com/documents/p24bbda1b/alfa-laval-product-leaflet-mab-206-separator-product-leaflets-en-gb.pdf)
+
+Chromium menguji keempat mesin pada viewport desktop, HP tegak dan HP mendatar, termasuk 0%, 25%, 50%, 73%, 100%, X-ray, serta kembali dari detail rakitan. Mesin premium diuji dengan salinan simulator pada respons akses lokal. [Contoh Shinko pada 50%](design/jarak-urai-shinko.webp)

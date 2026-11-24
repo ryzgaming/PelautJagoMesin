@@ -1,5 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import {runInNewContext} from 'node:vm';
 import {preparePremiumWorkspace, studioFiles} from '../dist/assets/premium-workspace.js';
 
 const assets = Object.fromEntries(studioFiles.map(name => [name, '/* ' + name + ' */']));
@@ -23,4 +24,27 @@ test('archived HTML fragments still receive the shared theme and viewer', () => 
   const html = preparePremiumWorkspace('<main id="simroot"></main>', 'tanabe-h74', assets);
   assert.match(html, /^<style>/);
   assert.ok(html.indexOf('studio.js') > html.indexOf('</main>'));
+});
+
+test('authorized legacy viewer opens its own catalog when 3D is unavailable', () => {
+  const legacy = `<script id="engine">function start(cfg,T){
+    var renderer;
+    try{renderer=new T.WebGLRenderer({});}
+    catch(e){stage.insertAdjacentHTML("beforeend",'<div class="nogl">WebGL</div>');return null;}
+    return renderer;
+  }</script>`;
+  const prepared = preparePremiumWorkspace(legacy, 'tanabe-h74', assets);
+  const source = prepared.match(/<script id="engine">([\s\S]*?)<\/script>/)[1];
+  const inventory = {title: 'Test machine', data: {shaft: {rows: []}}};
+  const calls = [];
+  const start = runInNewContext(source + '; start', {
+    window: {showMachineCatalog: (cfg, reason) => calls.push({cfg, reason})}
+  });
+  assert.equal(start(inventory, undefined), null);
+  assert.equal(start(inventory, {OrbitControls: class {}, WebGLRenderer: class {
+    constructor() { throw new Error('WebGL unavailable'); }
+  }}), null);
+  assert.deepEqual(calls.map(call => call.cfg), [inventory, inventory]);
+  assert.match(calls[0].reason, /Pustaka 3D/);
+  assert.match(calls[1].reason, /WebGL/);
 });

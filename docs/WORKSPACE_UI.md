@@ -16,7 +16,7 @@ Keputusan pemilik, 24 November 2026 (Asia/Jakarta): gunakan **konsep nomor 2 —
 
 ## HP dan desktop
 
-- Di Sistem, sediakan area tersendiri untuk canvas, panel, indikator dan navigasi. Panel Sistem atau rakitan berada di samping canvas saat layar lebar, atau di bawahnya pada HP tegak. Menutup panel memperluas canvas.
+- Di Sistem, Pengoperasian dan detail rakitan, beri canvas, panel dan navigasi ruang tersendiri. Tempatkan panel beserta indikatornya di samping canvas pada layar lebar dan di bawah canvas pada HP tegak. Menutup panel memperluas canvas.
 - HP portrait: gunakan panel bawah yang dapat ditutup dengan tinggi terbatas dan isi scroll; toolbar tidak terpotong dan tombol mudah disentuh (target sekitar 44 CSS px).
 - HP landscape: batasi tinggi bar dan panel agar canvas tetap dapat dipakai; hindari tabrakan dengan safe area, label, atau toolbar.
 - Pertahankan orbit, zoom/pinch, pan sesuai kemampuan viewer; sediakan pemilihan via daftar untuk komponen kecil, petunjuk singkat, label kontrol, fokus keyboard terlihat, dan reduced motion bila ada animasi UI.
@@ -38,3 +38,9 @@ Keputusan pemilik, 24 November 2026 (Asia/Jakarta): gunakan **konsep nomor 2 —
 3. Uji panel buka/tutup, pencarian/seleksi, fokus kamera, mode yang didukung, peralihan Sistem/Pengoperasian, Start/Stop, dan tutup panel. Pastikan state komponen tidak bergeser setelah reset.
 4. Periksa overflow, target sentuh, fokus keyboard, label panjang, safe area, dan kegagalan WebGL/aset. Jalankan pemeriksaan repo yang relevan.
 5. Laporkan implementasi, pengujian, dan deployment secara terpisah. Dokumen atau mockup saja tidak membuktikan UI sudah diterapkan.
+
+Untuk simulator katalog, jalankan `npm run dev`, lalu jalankan pengujian Chromium berikut dari root repo. Pasang Playwright di lingkungan QA. Arahkan `QA_PREMIUM_DIR` ke direktori privat yang memuat HTML masing-masing simulator dengan nama `<product-id>.html`. Tes membaca daftar produk dari katalog dan membuka setiap workspace pada tiga ukuran layar.
+
+```sh
+QA_PREMIUM_DIR=/path/to/private-fixtures QA_CHROMIUM=/usr/bin/chromium node tests/browser/machine-workspaces.cjs
+```

@@ -69,6 +69,7 @@
     button.setAttribute('aria-controls', 'shop');
     dock.append(button); // Keep the model's existing mode handler and simulation state.
     button.addEventListener('click', () => {
+      const modeChanged = activeMode !== button;
       activeMode = button;
       if (button === whole) {
         model.shop.setTab('learn');
@@ -83,6 +84,7 @@
         scheduleOverviewFit();
       }
       syncPanel();
+      if (modeChanged && button !== whole) schedulePanelFit(button);
       byId('pbody').scrollTop = 0;
     });
   }
@@ -222,6 +224,7 @@
     if (previousMode === whole) setOverviewSpread(overviewAmount);
     else previousMode?.click();
     if (!wasOpen) close.click();
+    cancelAnimationFrame(panelFitFrame);
     model.controls.maxDistance = zoomLimit;
     model.camera.position.copy(position);
     model.controls.target.copy(target);
@@ -233,8 +236,7 @@
   const stage = byId('stage');
   // Fit visible machine geometry in camera coordinates. Room, pipe diagrams and
   // presentation helpers must not enlarge the overview bounds.
-  function fitOverview() {
-    if (!model || activeMode === system || activeMode === operation || assemblyView || selectedPart()) return;
+  function fitMachine() {
     const {camera, controls} = model;
     const aspect = stage.clientWidth / stage.clientHeight;
     if (!Number.isFinite(aspect) || aspect <= 0) return;
@@ -281,13 +283,30 @@
   let fitFrame;
   function scheduleOverviewFit() {
     cancelAnimationFrame(fitFrame);
-    fitFrame = requestAnimationFrame(fitOverview);
+    fitFrame = requestAnimationFrame(() => {
+      if ((activeMode === whole || !activeMode) && !assemblyView && !selectedPart()) fitMachine();
+    });
   }
+  let panelFitFrame;
+  function schedulePanelFit(button) {
+    cancelAnimationFrame(panelFitFrame);
+    // Let the native mode and canvas resize handlers finish choosing their camera.
+    panelFitFrame = requestAnimationFrame(() => {
+      panelFitFrame = requestAnimationFrame(() => {
+        if (activeMode !== button || assemblyView || selectedPart()) return;
+        const installationVisible = airInstallation?.visible || model.plant?.visible() || model.sep?.visible();
+        if (button === operation || !installationVisible) fitMachine();
+      });
+    });
+  }
+  model.controls.addEventListener('start', () => cancelAnimationFrame(panelFitFrame));
   if (window.ResizeObserver) new ResizeObserver(scheduleOverviewFit).observe(stage);
   setOverviewSpread(0);
   scheduleOverviewFit();
 
   const readouts = [...stage.querySelectorAll('.plhud, #discl, .pumpnote')];
+  // Instruments and notices share the scrollable panel in every mode.
+  byId('pbody').prepend(...readouts);
   close.click();
   function syncPanel() {
     const inSystem = activeMode !== operation;
@@ -298,11 +317,6 @@
     backLabel.hidden = !assemblyView;
     close.setAttribute('aria-label', assemblyView ? 'Kembali ke ' + (activeMode?.textContent.toLowerCase() || 'mesin terpasang') : 'Tutup panel');
     root.classList.toggle('studio-system', inSystem);
-    // Keep instrument readings and model notices available outside the canvas.
-    for (const item of readouts) {
-      const container = inSystem ? byId('pbody') : stage;
-      if (item.parentElement !== container) container.prepend(item);
-    }
     for (const [button, label] of modes) {
       const active = button === activeMode;
       button.setAttribute('aria-current', active ? 'page' : 'false');

@@ -1,5 +1,8 @@
 ( function () {
 
+	// Leave startup to the component catalog when the Three.js asset is unavailable.
+	if ( typeof THREE === 'undefined' ) return;
+
 	// Unlike TrackballControls, it maintains the "up" direction object.up (+Y by default).
 	//
 	//    Orbit - left mouse / touch: one-finger move

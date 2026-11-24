@@ -5,10 +5,22 @@ const id=new URLSearchParams(location.search).get('product')||'shinko-gj-sim';
 function translateWorkspace(){document.querySelector('#workspace-note').textContent=tr('Workspace 3D · Model edukasi dengan estimasi visual · Materi teknis sumber dalam bahasa Indonesia','3D workspace · Educational model with visual estimates · Source technical material is in Indonesian');}
 translateWorkspace();document.addEventListener('om-language',translateWorkspace);
 async function studioAsset(name) {
-  const response = await fetch('assets/' + name);
-  if (!response.ok) throw new Error('Workspace Studio gagal dimuat.');
-  return response.text();
+  try {
+    const response = await fetch('assets/' + name);
+    if (!response.ok) throw new Error('Workspace Studio gagal dimuat.');
+    return await response.text();
+  } catch (error) {
+    // The authorized engine can still show its inventory without the renderer.
+    if (name === 'three.min.js' || name === 'OrbitControls.js') return '';
+    throw error;
+  }
 }
+
+window.addEventListener('message', event => {
+  if (event.origin === 'null' && event.source === frame.contentWindow && event.data === 'retry-machine-workspace') {
+    location.reload();
+  }
+});
 
 async function open() {
   document.querySelector('#workspace-title').textContent = fallbackProducts.find(p => p.id === id)?.title || id;

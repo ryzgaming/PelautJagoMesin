@@ -4,9 +4,16 @@ window.openAssemblyDiagram = function (model, part, stage, panel) {
   const box = new T.Box3().setFromObject(part.group);
   const size = box.getSize(new T.Vector3());
   const span = Math.max(size.x, size.y, size.z, 0.01);
-  const rows = part.rows.map((row, i) => ({
-    row, index:i, meshes:part.meshes.filter(mesh => mesh.userData.no === row[0])
-  }));
+  function visibleInAssembly(mesh) {
+    for (let object = mesh; object && object !== part.group; object = object.parent) {
+      if (!object.visible) return false;
+    }
+    return true;
+  }
+  const rows = part.rows.map((row, index) => {
+    const geometry = part.meshes.filter(mesh => mesh.userData.no === row[0]);
+    return {row, index, modeled:geometry.length > 0, meshes:geometry.filter(visibleInAssembly)};
+  });
   const mapped = rows.filter(entry => entry.meshes.length);
   const poses = [];
   for (const [order, entry] of mapped.entries()) {
@@ -48,6 +55,10 @@ window.openAssemblyDiagram = function (model, part, stage, panel) {
   sheet.append(heading, note, toggle, list);
   panel.prepend(sheet);
   const markers = [];
+  const quantityLabels = {
+    ilustrasi: 'Jumlah pada model', dihitung: 'Jumlah dari gambar',
+    interpretasi: 'Jumlah perkiraan', referensi: 'Jumlah dari referensi'
+  };
   for (const entry of rows) {
     const {row,index,meshes} = entry;
     const li = document.createElement('li');
@@ -55,8 +66,16 @@ window.openAssemblyDiagram = function (model, part, stage, panel) {
     if (meshes.length) control.type = 'button';
     control.textContent = row[1];
     const meta = document.createElement('small');
-    const catalog = /^[–—]/.test(String(row[0])) ? 'No. katalog belum tersedia' : 'No. katalog ' + row[0];
-    meta.textContent = catalog + ' · Jumlah ' + row[2] + (meshes.length ? '' : ' · Data katalog');
+    const status = model.rowStatus?.(part, row) || {};
+    const modelNumber = status.nomor === 'model' || status.nomor === 'model-resmi' || part.meta?.[row[0]]?.n === 'model';
+    const sourceLabel = modelNumber ? 'No. posisi model' : model.cfg?.nosLabel || 'No. referensi';
+    const identifier = /^[–—]/.test(String(row[0])) ? 'Nomor belum tersedia'
+      : sourceLabel + ' ' + row[0];
+    const quantity = status.jumlah === 'belum' || /^[–—]$/.test(String(row[2]))
+      ? 'Jumlah belum tersedia' : (quantityLabels[status.jumlah] || 'Jumlah') + ' ' + row[2];
+    const labels = [identifier, quantity];
+    if (!meshes.length) labels.push(entry.modeled ? 'Tersembunyi pada tampilan ini' : 'Data katalog');
+    meta.textContent = labels.join(' · ');
     li.append(control, meta);
     list.append(li);
     if (!meshes.length) continue;

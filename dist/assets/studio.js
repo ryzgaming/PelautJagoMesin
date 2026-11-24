@@ -9,8 +9,18 @@
       document.documentElement.classList.contains('om-hero')) return;
 
   root.classList.add('studio');
-  const room = window.__pp?.room?.group;
+  const model = window.__pp;
+  const room = model?.room?.group || model?.scene.getObjectByName('room');
   if (room) room.visible = false;
+  const airInstallation = model?.air?.sysGroup;
+  const gensetRoom = window.__genset?.env;
+  function hideGensetRoom() {
+    if (!gensetRoom?.visible()) return;
+    const toggle = byId('envTog');
+    if (toggle) toggle.click(); // Keep the model's own environment control in sync.
+    else gensetRoom.setVisible(false);
+  }
+  hideGensetRoom();
   if (window === window.top) {
     const back = document.createElement('a');
     back.className = 'btn cb';
@@ -107,7 +117,6 @@
   const detail = byId('detail');
   const learn = byId('m-learn');
   const isolate = byId('bIso');
-  const model = window.__pp;
   const parts = model?.parts || [];
   const initialZoomLimit = model?.controls.maxDistance;
   function setOverviewSpread(amount) {
@@ -282,6 +291,9 @@
   close.click();
   function syncPanel() {
     const inSystem = activeMode !== operation;
+    const showingSystem = activeMode === system && !assemblyView;
+    if (airInstallation) airInstallation.visible = showingSystem;
+    if (!showingSystem) hideGensetRoom();
     root.classList.toggle('studio-overview', activeMode === whole && !assemblyView);
     backLabel.hidden = !assemblyView;
     close.setAttribute('aria-label', assemblyView ? 'Kembali ke ' + (activeMode?.textContent.toLowerCase() || 'mesin terpasang') : 'Tutup panel');

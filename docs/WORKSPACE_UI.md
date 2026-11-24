@@ -25,6 +25,8 @@ Keputusan pemilik, 24 November 2026 (Asia/Jakarta): gunakan **konsep nomor 2 —
 ## Cakupan implementasi
 
 - Berlaku untuk mesin publik, premium, dan mesin baru; penyesuaian UI tidak mengubah izin akses atau mempublikasikan sumber premium.
+- Shinko GJ adalah acuan visual. Pada tampilan awal, Eksplor keseluruhan dan Eksplor rakitan, tampilkan hanya mesin dan komponen miliknya. Tampilkan instalasi pendukung yang bisa dipelajari saat Sistem dibuka.
+- Simulator premium harus memakai tema, runtime 3D, navigasi dan diagram yang sama dengan Shinko setelah pemeriksaan akses. Singkirkan lapisan presentasi lama sebelum skripnya dijalankan, termasuk saat respons admin membawa viewer tambahan. Perbarui pratinjau katalog dari workspace yang sama.
 - Gunakan stylesheet/komponen/template bersama yang sesuai stack repo. Mesin baru wajib memakai standar ini; migrasikan mesin lama tanpa menghilangkan fitur yang sudah bekerja.
 - saVRee adalah patokan pengalaman viewer pembelajaran (komponen, potongan, bongkar, animasi), bukan sumber model, aset, logo, atau salinan tampilan.
 - Referensi visual: [papan konsep](design/workspace-concepts.png), **kuadran kanan atas nomor 2**. Bagian lain pada papan tidak dipilih. Geometri pompa pada ilustrasi bukan sumber teknik dan bukan target penggantian model mesin.

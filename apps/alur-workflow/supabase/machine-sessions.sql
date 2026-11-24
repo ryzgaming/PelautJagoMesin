@@ -152,13 +152,29 @@ begin
  return true;
 end $$;
 
-create or replace function alur_machine_private.enqueue_session(p_brand text,p_model text,p_request_id uuid)
+-- Catalog revisions share the existing queue, ownership, leases and session history.
+alter table public.alur_machine_sessions
+ add column if not exists source_product text,
+ add column if not exists revision_brief text constraint alur_machine_revision_pair check (
+  (source_product is null and revision_brief is null) or
+  (source_product is not null and revision_brief is not null and char_length(trim(revision_brief)) between 1 and 1200)
+ );
+
+create or replace function alur_machine_private.enqueue_task(p_brand text,p_model text,p_request_id uuid,p_product text,p_brief text)
 returns jsonb language plpgsql security definer set search_path='' as $$
 declare v_owner uuid:=auth.uid(); v_brand text:=alur_machine_private.normalized_name(p_brand);
  v_model text:=alur_machine_private.normalized_name(p_model); v_key text; v_session public.alur_machine_sessions%rowtype;
 begin
  if not alur_access_private.is_admin() then
   raise exception 'Owner access required' using errcode='42501'; end if;
+ if p_product is not null then
+  select c.brand, c.model into v_brand, v_model from (values
+   ('shinko-gj-sim','Shinko','GJ 80-25'), ('man-l2330h','MAN','L23/30H Mk3'),
+   ('tanabe-h74','Tanabe','H-74'), ('alfa-laval-mab206s','Alfa Laval','MAB 206S-24')
+  ) as c(product,brand,model) where c.product=p_product;
+  if v_brand is null or p_brief is null or char_length(trim(p_brief)) not between 1 and 1200
+   or p_brief ~ '^[[:space:]]*$' then raise exception 'Invalid revision' using errcode='22023'; end if;
+ elsif p_brief is not null then raise exception 'Missing source product' using errcode='22023'; end if;
  if v_brand is null or pg_catalog.char_length(v_brand) not between 1 and 80
   or v_model is null or pg_catalog.char_length(v_model) not between 1 and 120 or p_request_id is null
   or v_brand ~ '[[:cntrl:]]' or v_model ~ '[[:cntrl:]]' then raise exception 'Invalid machine identity' using errcode='22023'; end if;
@@ -166,17 +182,27 @@ begin
  perform pg_catalog.pg_advisory_xact_lock(pg_catalog.hashtextextended(v_owner::text||':machine-request:'||p_request_id::text,0));
  select * into v_session from public.alur_machine_sessions where owner_id=v_owner and request_id=p_request_id;
  if found then
-  if v_session.machine_key<>v_key then raise exception 'Request identity mismatch' using errcode='22023'; end if;
+  if v_session.machine_key<>v_key or v_session.source_product is distinct from p_product
+   or v_session.revision_brief is distinct from trim(p_brief) then raise exception 'Request identity mismatch' using errcode='22023'; end if;
   return alur_machine_private.safe_session(v_session);
  end if;
  perform pg_catalog.pg_advisory_xact_lock(pg_catalog.hashtextextended(v_owner::text||':machine:'||v_key,0));
  if exists(select 1 from public.alur_machine_sessions where owner_id=v_owner and machine_key=v_key and status in ('queued','running')) then
   raise exception 'Machine already has an active session' using errcode='23505'; end if;
- insert into public.alur_machine_sessions(owner_id,request_id,brand,model,machine_key)
-  values(v_owner,p_request_id,v_brand,v_model,v_key) returning * into v_session;
+ insert into public.alur_machine_sessions(owner_id,request_id,brand,model,machine_key,source_product,revision_brief)
+  values(v_owner,p_request_id,v_brand,v_model,v_key,p_product,trim(p_brief)) returning * into v_session;
  return alur_machine_private.safe_session(v_session);
 end $$;
 
+create or replace function alur_machine_private.enqueue_session(p_brand text,p_model text,p_request_id uuid)
+returns jsonb language sql security definer set search_path='' as $$
+ select alur_machine_private.enqueue_task(p_brand,p_model,p_request_id,null,null);
+$$;
+
+create or replace function public.alur_enqueue_machine_revision(p_product text,p_brief text,p_request_id uuid)
+returns jsonb language sql security invoker set search_path='' as $$
+ select alur_machine_private.enqueue_task(null,null,p_request_id,p_product,p_brief);
+$$;
 create or replace function alur_machine_private.save_source_leads(p_session_id uuid,p_leads jsonb)
 returns jsonb language plpgsql security definer set search_path='' as $$
 declare v_owner uuid:=auth.uid(); v_session public.alur_machine_sessions%rowtype;
@@ -359,6 +385,11 @@ revoke all on function public.alur_enqueue_machine_session(text,text,uuid),publi
  public.alur_list_machine_sessions(),public.alur_get_machine_session(uuid) from public,anon,authenticated,service_role;
 grant execute on function public.alur_enqueue_machine_session(text,text,uuid),public.alur_save_source_leads(uuid,jsonb),
  public.alur_list_machine_sessions(),public.alur_get_machine_session(uuid) to authenticated;
+revoke all on function alur_machine_private.enqueue_task(text,text,uuid,text,text),
+ public.alur_enqueue_machine_revision(text,text,uuid) from public,anon,service_role;
+grant execute on function alur_machine_private.enqueue_task(text,text,uuid,text,text),
+ public.alur_enqueue_machine_revision(text,text,uuid) to authenticated;
+
 drop policy if exists alur_admin_required on public.alur_machine_sessions;
 create policy alur_admin_required on public.alur_machine_sessions as restrictive for all to authenticated
  using ((select alur_access_private.is_admin())) with check ((select alur_access_private.is_admin()));

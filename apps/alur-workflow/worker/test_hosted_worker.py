@@ -55,6 +55,14 @@ class HostedWorkerTests(unittest.TestCase):
         worker.prepare(self.root, self.packet)
         self.assertEqual((folder / "roles/internals/result.txt").read_text(), "keep")
 
+    def test_revision_is_delivered_to_each_role(self):
+        self.claim.update(source_product="tanabe-h74", revision_brief="Periksa panel di HP.")
+        folder = worker.prepare(self.root, self.packet)
+        for role in worker.ROLES:
+            task = json.loads((folder / "roles" / role / "context.json").read_text())["revision_task"]
+            self.assertEqual(task["workspace"], "/workspace?product=tanabe-h74")
+            self.assertEqual(task["brief"], "Periksa panel di HP.")
+
     def test_history_must_be_same_owner_machine_and_session(self):
         mutations = ((("history", "account_id"), uid()), (("history", "previous_sessions", 0, "machine_key"), "other"),
                      (("history", "previous_memory", 0, "session_id"), uid()),

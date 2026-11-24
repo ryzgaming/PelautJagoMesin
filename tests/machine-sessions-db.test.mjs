@@ -153,3 +153,21 @@ test('canonical memory does not resurrect retracted checkpoint within a reviewed
  assert.equal(view.canonical_memory.find(m=>m.role==='qa').session_id,later.id);
  assert.equal(await scalar('select count(*)::int from public.alur_machine_memory where session_id=$1 and role=$2',[later.id,'evidence']),2);
 });
+
+test('catalog revision deduplicates by request and machine, keeps the brief on the worker claim', async () => {
+ const request = randomUUID();
+ const revise = (product, brief) => scalar('select public.alur_enqueue_machine_revision($1,$2,$3)', [product, brief, request]);
+ await as(stranger, () => assert.rejects(revise('tanabe-h74', 'Cek panel'), /access required/));
+ await as(owner, () => assert.rejects(revise('unknown', 'Cek panel'), /Invalid revision/));
+ await as(owner, () => assert.rejects(revise('tanabe-h74', '   '), /Invalid revision/));
+ const session = await as(owner, () => revise('tanabe-h74', 'Cek panel'));
+ assert.equal(session.model, 'H-74');
+ assert.deepEqual(session, await as(owner, () => revise('tanabe-h74', 'Cek panel')));
+ await as(owner, () => assert.rejects(revise('tanabe-h74', 'Cek rakitan'), /mismatch/));
+ await as(owner, () => assert.rejects(enqueue('Tanabe','H-74'), /active session/));
+ await as(other, () => assert.rejects(detail(session.id), /unavailable/));
+ const claimed = await claim();
+ assert.equal(claimed.session.id, session.id);
+ assert.equal(claimed.session.source_product, 'tanabe-h74');
+ assert.equal(claimed.session.revision_brief, 'Cek panel');
+});

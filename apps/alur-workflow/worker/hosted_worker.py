@@ -179,6 +179,16 @@ def prepare(root, packet):
     # No lease/claim secret in files opened by subagents. Keep display strings separate from paths.
     dest = root / owner / session_id
     shared = {k: claim[k] for k in ("id", "machine_key", "brand", "model", "source_leads") if k in claim}
+    revision = None
+    if claim.get("source_product"):
+        product = claim["source_product"]
+        brief = claim.get("revision_brief")
+        if (product not in {"shinko-gj-sim", "man-l2330h", "tanabe-h74", "alfa-laval-mab206s"}
+                or not isinstance(brief, str) or not 1 <= len(brief.strip()) <= 1200
+                or any(history["session"].get(key) != claim.get(key) for key in ("source_product", "revision_brief"))):
+            raise ValueError("Tugas revisi tidak cocok dengan sesi.")
+        revision = {"source_product": product, "workspace": "/workspace?product=" + product, "brief": brief}
+        shared["revision_task"] = revision
     shared["previous_sessions"] = [{k: r[k] for k in ("id", "status", "updated_at") if k in r}
                                    for r in history["previous_sessions"]]
     shared.update(sections)
@@ -189,6 +199,8 @@ def prepare(root, packet):
                    "own_checkpoint": next((r for r in sections["memory"] if r["role"] == role), None),
                    "previous_attempt": next((r for r in sections["previous_memory"] if r["role"] == role), None),
                    "canonical": next((r for r in sections["canonical_memory"] if r["role"] == role), None)}
+        if revision:
+            context["revision_task"] = revision
         save(dest / "roles" / role / "context.json", context)
     return dest
 

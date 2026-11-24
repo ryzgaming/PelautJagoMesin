@@ -1,4 +1,5 @@
 import {url, apiKey} from "../config";
+import {revisionProducts} from "../../src/revision-products";
 import {cookie} from "./session";
 import {discoverSourceLeads} from "../source-leads";
 
@@ -56,6 +57,7 @@ function session(value: unknown) {
   return {id: id(row.id), request_id: id(row.request_id), brand: text(row.brand, 80), model: text(row.model, 120),
     machine_key: text(row.machine_key, 500), status: choice(row.status, STATUS),
     created_at: text(row.created_at, 80), updated_at: text(row.updated_at, 80),
+    ...(row.source_product == null ? {} : {source_product: text(row.source_product, 80), revision_brief: text(row.revision_brief, 1200)}),
     result_url: safeResultUrl(row.result_url), source_leads: sourceLeads(row.source_leads)};
 }
 function memory(value: unknown) {
@@ -103,7 +105,7 @@ async function readBody(request: Request) {
     while (true) {
       const {value, done} = await reader.read(); if (done) break;
       size += value.byteLength;
-      if (size > 4096) { await reader.cancel(); throw json({error: "Isi permintaan terlalu besar."}, 413); }
+      if (size > 8192) { await reader.cancel(); throw json({error: "Isi permintaan terlalu besar."}, 413); }
       body += decoder.decode(value, {stream: true});
     }
     return JSON.parse(body + decoder.decode()) as unknown;
@@ -131,14 +133,25 @@ export const onRequest: PagesFunction = async context => {
       const body = await readBody(request);
       if (!body || typeof body !== "object" || Array.isArray(body)) return json({error: "Isi merek dan model mesin."}, 400);
       const row = body as Record<string, unknown>;
-      const brand = typeof row.brand === "string" ? row.brand.trim().replace(/\s+/g, " ") : "";
-      const model = typeof row.model === "string" ? row.model.trim().replace(/\s+/g, " ") : "";
-      if (Object.keys(row).some(key => !["brand", "model", "request_id"].includes(key)) ||
-          !brand || Array.from(brand).length > 80 || !model || Array.from(model).length > 120 ||
-          /[\u0000-\u001f\u007f]/.test(brand + model) || typeof row.request_id !== "string" || !UUID.test(row.request_id)) {
-        return json({error: "Gunakan merek 1–80 karakter, model 1–120 karakter, dan request_id UUID."}, 400);
+      if ("source_product" in row || "revision_brief" in row) {
+        const brief = typeof row.revision_brief === "string" ? row.revision_brief.trim() : "";
+        if (Object.keys(row).some(key => !["source_product", "revision_brief", "request_id"].includes(key)) ||
+            !revisionProducts.some(product => product.id === row.source_product) || !brief || Array.from(brief).length > 1200 ||
+            typeof row.request_id !== "string" || !UUID.test(row.request_id)) {
+          return json({error: "Pilih mesin katalog dan isi tugas revisi (maksimal 1200 karakter)."}, 400);
+        }
+        rpc = "alur_enqueue_machine_revision";
+        payload = {p_product: row.source_product, p_brief: brief, p_request_id: row.request_id};
+      } else {
+        const brand = typeof row.brand === "string" ? row.brand.trim().replace(/\s+/g, " ") : "";
+        const model = typeof row.model === "string" ? row.model.trim().replace(/\s+/g, " ") : "";
+        if (Object.keys(row).some(key => !["brand", "model", "request_id"].includes(key)) ||
+            !brand || Array.from(brand).length > 80 || !model || Array.from(model).length > 120 ||
+            /[\u0000-\u001f\u007f]/.test(brand + model) || typeof row.request_id !== "string" || !UUID.test(row.request_id)) {
+          return json({error: "Gunakan merek 1–80 karakter, model 1–120 karakter, dan request_id UUID."}, 400);
+        }
+        rpc = "alur_enqueue_machine_session"; payload = {p_brand: brand, p_model: model, p_request_id: row.request_id};
       }
-      rpc = "alur_enqueue_machine_session"; payload = {p_brand: brand, p_model: model, p_request_id: row.request_id};
     }
     const response = await fetch(url + "/rest/v1/rpc/" + rpc, {
       method: request.method, headers: {apikey: apiKey, Authorization: "Bearer " + token, "Content-Type": "application/json"},

@@ -599,3 +599,16 @@
     font-size: 22px;
   }
 }
+
+.machine-revision-field { grid-column: 1 / -1; }
+.machine-revision-field select, .machine-revision-field textarea {
+  width: 100%;
+  margin-top: 6px;
+  padding: 12px;
+  font: inherit;
+  color: inherit;
+  background: #15151f;
+  border: 1px solid #595467;
+  border-radius: 8px;
+}
+.machine-brief { white-space: pre-wrap; overflow-wrap: anywhere; }

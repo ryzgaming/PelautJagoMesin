@@ -43,7 +43,7 @@ test('machines input rejects owner/command injection, invalid identifiers and ov
     assert.equal((await call(req('POST', {raw: JSON.stringify(body)}))).status, 400);
   }
   assert.equal((await call(req('POST', {raw: '{broken'}))).status, 400);
-  assert.equal((await call(req('POST', {raw: 'x'.repeat(4097)}))).status, 413);
+  assert.equal((await call(req('POST', {raw: 'x'.repeat(8193)}))).status, 413);
   assert.equal((await call(req('POST', {headers: {'content-type': 'text/plain'}}))).status, 415);
   for (const id of ['', 'other-account', 'id&owner_id=other']) assert.equal((await call(req('GET', {query: '?id='+encodeURIComponent(id)}))).status, 400);
 });
@@ -216,4 +216,20 @@ test('machines API consumes real SQL, isolates owners and recalls only matching 
   assert.equal(data.previous_memory[0].summary, 'Updated fixture gap');
   assert.deepEqual(data.canonical_memory, []); assert.deepEqual(data.memory, []);
   assert(!JSON.stringify(data).includes('claim_token')); assert(!JSON.stringify(data).includes('owner_id'));
+});
+
+test('revision uses the catalog RPC, preserves the brief and rejects arbitrary sources', async t => {
+ const body = {source_product: 'man-l2330h', revision_brief: 'Cek panel Sistem', request_id: requestId};
+ const mock = t.mock.method(globalThis, 'fetch', async (url, options) => {
+   assert.equal(new URL(url).pathname, '/rest/v1/rpc/alur_enqueue_machine_revision');
+   assert.deepEqual(JSON.parse(options.body), {p_product: body.source_product, p_brief: body.revision_brief, p_request_id: requestId});
+   return Response.json(base({...body, brand: 'MAN', model: 'L23/30H Mk3'}));
+ });
+ const response = await call(req('POST', {body}));
+ assert.equal(response.status, 202);
+ assert.equal((await response.json()).session.revision_brief, body.revision_brief);
+ for (const bad of [{source_product: 'other'}, {revision_brief: ' '}, {owner_id: owner}, {model: 'different'}]) {
+   assert.equal((await call(req('POST', {body: {...body, ...bad}}))).status, 400);
+ }
+ assert.equal(mock.mock.callCount(), 1);
 });

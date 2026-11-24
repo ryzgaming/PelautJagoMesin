@@ -40,7 +40,7 @@ npm test runs API, origin, and database authorization tests after installing loc
 
 ### Pembuatan mesin otomatis
 
-Buka [Agen Mesin](https://pelautjagomesin.pages.dev/alur/?mode=agen) dengan akun pemilik, isi **merek** dan **nama atau model mesin**, lalu kirim. Setiap permintaan memulai sesi produksi privat. Pengiriman ulang permintaan yang sama memakai ID yang sama agar tidak membuat pekerjaan ganda. Setelah sesi selesai, pengajuan baru untuk mesin yang sama membuat revisi baru.
+Buka [Agen Mesin](https://pelautjagomesin.pages.dev/alur/?mode=agen) dengan akun pemilik, isi **merek** dan **nama atau model mesin**, lalu kirim. Untuk mengoreksi simulator yang sudah tersedia, pilih **Revisi mesin** dengan model asal dari katalog, isi **Tugas revisi untuk agen**, lalu pilih **Kirim revisi**. Setiap agen menerima tautan model dan tugas yang sama. Setiap permintaan memulai sesi produksi privat. Pengiriman ulang permintaan yang sama memakai ID yang sama agar tidak membuat pekerjaan ganda. Setelah sesi selesai, pengajuan baru untuk mesin yang sama membuat revisi baru.
 
 Alur mencari kandidat dokumen awal saat permintaan masuk. Worker cloud terjadwal memeriksa antrean setiap 10 menit, mengambil pekerjaan, memeriksa varian dan sumber, lalu mengoordinasikan agen bukti, lima spesialis sistem, dua pembuat model, integrator, dan QA. Bila rujukan belum mendukung bentuk mesin, sesi menunjukkan bukti yang masih dibutuhkan. Setelah QA, tautan review privat tersedia pada sesi.
 

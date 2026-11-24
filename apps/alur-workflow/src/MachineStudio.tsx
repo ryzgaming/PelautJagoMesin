@@ -14,6 +14,7 @@ import {
   RefreshCw,
 } from "lucide-react";
 import { api, ApiError } from "./api";
+import { revisionProducts, workspaceBrief } from "./revision-products";
 import { stages } from "./AgentStudio";
 import "./machine-studio.css";
 
@@ -46,6 +47,8 @@ type MachineSession = {
   brand: string;
   model: string;
   machine_key: string;
+  revision_brief?: string;
+  source_product?: string;
   status: SessionStatus;
   created_at: string;
   updated_at: string;
@@ -64,7 +67,7 @@ type Detail = {
   canonical_memory: Memory[];
   previous_memory: Memory[];
 };
-type Pending = { brand: string; model: string; request_id: string };
+type Pending = Pick<MachineSession, "brand" | "model" | "request_id" | "source_product" | "revision_brief">;
 const statusLabels: Record<SessionStatus, string> = {
   queued: "Dalam antrean",
   running: "Agen sedang bekerja",
@@ -314,6 +317,11 @@ export default function MachineStudio({
 }) {
   const [brand, setBrand] = useState(""),
     [model, setModel] = useState("");
+  const [productId, setProductId] = useState("");
+  const [brief, setBrief] = useState(workspaceBrief);
+  const product = revisionProducts.find(item => item.id === productId);
+  const currentBrand = product?.brand ?? brand;
+  const currentModel = product?.model ?? model;
   const [owner, setOwner] = useState<string | null>(null),
     [sessions, setSessions] = useState<MachineSession[]>([]),
     [selected, setSelected] = useState<string | null>(null),
@@ -357,16 +365,17 @@ export default function MachineStudio({
     (session) =>
       ["queued", "running"].includes(session.status) &&
       session.brand.trim().toLocaleLowerCase() ===
-        brand.trim().toLocaleLowerCase() &&
+        currentBrand.trim().toLocaleLowerCase() &&
       session.model.trim().toLocaleLowerCase() ===
-        model.trim().toLocaleLowerCase(),
+        currentModel.trim().toLocaleLowerCase(),
   );
   const resultUrl = safeResult(current?.result_url);
   const validForm =
-    !!brand.trim() &&
-    !!model.trim() &&
-    brand.trim().length <= 80 &&
-    model.trim().length <= 120;
+    (!product || !!brief.trim()) &&
+    !!currentBrand.trim() &&
+    !!currentModel.trim() &&
+    currentBrand.trim().length <= 80 &&
+    currentModel.trim().length <= 120;
   const stale =
     current?.status === "running" &&
     now - new Date(current.updated_at).getTime() > 180000;
@@ -382,6 +391,8 @@ export default function MachineStudio({
     ownerRef.current = null;
     selectedRef.current = null;
     pending.current = null;
+    setProductId("");
+    setBrief(workspaceBrief);
     setOwner(null);
     setSessions([]);
     setSelected(null);
@@ -400,6 +411,8 @@ export default function MachineStudio({
       setSelected(null);
       selectedRef.current = null;
       setDetail(null);
+      setProductId("");
+      setBrief(workspaceBrief);
       setBrand("");
       setModel("");
       setSubmitError("");
@@ -413,6 +426,8 @@ export default function MachineStudio({
       pending.current = readPending(account);
       if (pending.current) {
         const saved = pending.current;
+        setProductId(saved.source_product || "");
+        setBrief(saved.revision_brief || workspaceBrief);
         setBrand((value) => value || saved.brand);
         setModel((value) => value || saved.model);
         setNotice(
@@ -623,16 +638,18 @@ export default function MachineStudio({
     }
     if (activeSame) {
       setSelected(activeSame.id);
-      setNotice("Mesin ini sudah ada dalam antrean.");
+      setNotice(product ? "Mesin ini masih memiliki sesi aktif. Tugas revisi baru belum dikirim." : "Mesin ini sudah ada dalam antrean.");
       return;
     }
     const account = ownerRef.current,
       generation = epoch.current;
-    const input = { brand: brand.trim(), model: model.trim() };
+    const input = { brand: currentBrand.trim(), model: currentModel.trim(), source_product: product?.id, revision_brief: product ? brief.trim() : undefined };
     if (
       !pending.current ||
       pending.current.brand !== input.brand ||
-      pending.current.model !== input.model
+      pending.current.model !== input.model ||
+      pending.current.source_product !== input.source_product ||
+      pending.current.revision_brief !== input.revision_brief
     )
       pending.current = { ...input, request_id: crypto.randomUUID() };
     const payload = { ...pending.current };
@@ -646,7 +663,8 @@ export default function MachineStudio({
     setSubmitError("");
     setNotice("");
     try {
-      const response = await api("machines", payload, true, controller.signal);
+      const request = product ? {source_product: payload.source_product, revision_brief: payload.revision_brief, request_id: payload.request_id} : payload;
+      const response = await api("machines", request, true, controller.signal);
       const session = sessionRecord(response.session);
       if (
         !alive.current ||
@@ -753,11 +771,13 @@ export default function MachineStudio({
     }
   }
   function prepareRevision(session: MachineSession) {
+    setProductId(session.source_product ?? "");
+    setBrief(session.revision_brief ?? workspaceBrief);
     setBrand(session.brand);
     setModel(session.model);
     setSubmitError("");
     setNotice(
-      "Identitas mesin disalin. Tekan Buat mesin untuk membuat sesi berikutnya dengan memori yang tersedia.",
+      session.source_product ? "Periksa tugas revisi lalu kirim." : "Identitas mesin disalin. Tekan Buat mesin untuk membuat sesi berikutnya dengan memori yang tersedia.",
     );
     brandInput.current?.focus();
     brandInput.current?.scrollIntoView({ behavior: "smooth", block: "center" });
@@ -771,10 +791,9 @@ export default function MachineStudio({
       <div className="machine-top">
         <div>
           <p className="agent-eyebrow">ORANG MESIN · PRODUKSI OTOMATIS</p>
-          <h1 id="machine-title">Mesin apa yang ingin Anda buat?</h1>
+          <h1 id="machine-title">Produksi dan revisi mesin</h1>
           <p>
-            Masukkan merek dan model. Agen mencari sumber dan mencatat
-            pekerjaannya per sesi.
+            Pilih mesin katalog untuk revisi, atau masukkan merek dan model untuk membuat mesin.
           </p>
         </div>
         <button className="machine-local-link" type="button" onClick={onLocal}>
@@ -788,7 +807,20 @@ export default function MachineStudio({
           void create();
         }}
       >
-        <div>
+        <div className="machine-revision-field">
+          <label htmlFor="revision-source">Jenis sesi dan model asal</label>
+          <select id="revision-source" value={productId} disabled={submitting} onChange={event => {setProductId(event.target.value); setNotice(""); setSubmitError("");}}>
+            <option value="">Buat mesin baru</option>
+            <optgroup label="Revisi mesin katalog">
+              {revisionProducts.map(item => <option key={item.id} value={item.id}>Revisi mesin · {item.brand} {item.model}</option>)}
+            </optgroup>
+          </select>
+        </div>
+        {product ? <div className="machine-revision-field">
+          <label htmlFor="revision-brief">Tugas revisi untuk agen</label>
+          <textarea id="revision-brief" rows={3} maxLength={1200} required disabled={submitting}
+            value={brief} onChange={event => setBrief(event.target.value)} />
+        </div> : <><div>
           <label htmlFor="machine-brand">Merek</label>
           <input
             ref={brandInput}
@@ -815,6 +847,7 @@ export default function MachineStudio({
             disabled={submitting}
           />
         </div>
+        </>}
         <button
           className="primary"
           type="submit"
@@ -827,7 +860,7 @@ export default function MachineStudio({
           ) : (
             <Plus size={18} />
           )}{" "}
-          {submitting ? "Mengirim…" : "Buat mesin"}
+          {submitting ? "Mengirim…" : product ? "Kirim revisi" : "Buat mesin"}
         </button>
         <div className="machine-form-feedback">
           {!authReady ? (
@@ -907,7 +940,7 @@ export default function MachineStudio({
                   <span>
                     <strong>{session.brand}</strong>
                     <span>{session.model}</span>
-                    <small>{stamp(session.created_at)}</small>
+                    <small>{session.source_product && "Revisi · "}{stamp(session.created_at)}</small>
                   </span>
                   <span
                     className={`machine-status-dot ${session.status}`}
@@ -949,7 +982,7 @@ export default function MachineStudio({
               <section className="agent-card machine-session">
                 <div className="machine-session-heading">
                   <div>
-                    <p className="agent-eyebrow">SESI PRODUKSI</p>
+                    <p className="agent-eyebrow">{current.source_product ? "SESI REVISI" : "SESI PRODUKSI"}</p>
                     <h2>
                       {current.brand} <span>{current.model}</span>
                     </h2>
@@ -961,6 +994,11 @@ export default function MachineStudio({
                     {statusLabels[current.status]}
                   </span>
                 </div>
+                {current.source_product && <div>
+                  <a href={"/workspace?product=" + encodeURIComponent(current.source_product)}>Buka model asal</a>
+                  <h3>Tugas revisi</h3>
+                  <p className="machine-brief">{current.revision_brief}</p>
+                </div>}
                 <p>{statusText[current.status]}</p>
                 <dl className="agent-metadata">
                   <div>

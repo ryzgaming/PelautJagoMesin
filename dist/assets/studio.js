@@ -21,7 +21,7 @@
 
   const dock = document.createElement('nav');
   dock.className = 'studio-dock';
-  dock.setAttribute('aria-label', 'Mode workspace');
+  dock.setAttribute('aria-label', 'Mode dan tampilan mesin');
   const footer = document.createElement('footer');
   footer.className = 'studio-footer';
   footer.append(dock);
@@ -30,9 +30,8 @@
   const whole = document.createElement('button');
   whole.type = 'button';
   whole.append(document.createElement('span'));
-  const xray = whole.cloneNode(true);
   let activeMode = null; // The machine starts assembled until a mode is chosen.
-  const modes = [[whole, 'Eksplor keseluruhan'], [system, 'Sistem'], [operation, 'Pengoperasian'], [xray, 'X-ray']];
+  const modes = [[whole, 'Eksplor keseluruhan'], [system, 'Sistem'], [operation, 'Pengoperasian']];
   for (const [button, label] of modes) {
     button.querySelector('span').textContent = label;
     button.title = label;
@@ -41,7 +40,7 @@
     dock.append(button); // Keep the model's existing mode handler and simulation state.
     button.addEventListener('click', () => {
       activeMode = button;
-      if (button === whole || button === xray) {
+      if (button === whole) {
         model.shop.setTab('learn');
         close.click();
         for (const id of ['bSection', 'bIso']) {
@@ -50,13 +49,16 @@
         }
         model?.clearSelection?.();
         byId('bReset').click();
-        applyInspectionPose(button);
+        setOverviewSpread(true);
         scheduleOverviewFit();
       }
       syncPanel();
       byId('pbody').scrollTop = 0;
     });
   }
+
+  // Keep the native toggle and its pressed state available in every mode.
+  dock.append(byId('bXray'));
 
   const list = byId('plist');
   if (system.id === 'm-learn' && list) {
@@ -88,11 +90,9 @@
   const model = window.__pp;
   const parts = model?.parts || [];
   const initialZoomLimit = model?.controls.maxDistance;
-  function applyInspectionPose(mode) {
-    if (mode !== whole && mode !== xray) model.controls.maxDistance = initialZoomLimit;
-    model.setOverviewPose(mode === whole);
-    const control = byId('bXray');
-    if ((control.getAttribute('aria-pressed') === 'true') !== (mode === xray)) control.click();
+  function setOverviewSpread(spread) {
+    if (!spread) model.controls.maxDistance = initialZoomLimit;
+    model.setOverviewPose(spread);
   }
   const explore = document.createElement('button');
   explore.type = 'button';
@@ -143,7 +143,7 @@
       previousMode: activeMode,
       isolatedByUs: isolate.getAttribute('aria-pressed') !== 'true'
     };
-    applyInspectionPose(null);
+    setOverviewSpread(false);
     learn.click();
     assemblyView = snapshot;
     activeMode = snapshot.previousMode;
@@ -176,8 +176,8 @@
   // Release isolation before the simulator handles a navigation click.
   for (const [button] of modes) button.addEventListener('click', () => {
     leaveAssembly();
-    if ((activeMode === whole || activeMode === xray) && (button === system || button === operation)) {
-      applyInspectionPose(null);
+    if (activeMode === whole && (button === system || button === operation)) {
+      setOverviewSpread(false);
       byId('bReset').click();
     }
   }, true);
@@ -187,7 +187,7 @@
     const {previousMode, wasOpen, position, target, zoomLimit} = assemblyView;
     leaveAssembly();
     // Back preserves the original pick and camera. An explicit Overview click resets both.
-    if (previousMode === whole || previousMode === xray) applyInspectionPose(previousMode);
+    if (previousMode === whole) setOverviewSpread(true);
     else previousMode?.click();
     if (!wasOpen) close.click();
     model.controls.maxDistance = zoomLimit;
@@ -252,7 +252,7 @@
     fitFrame = requestAnimationFrame(fitOverview);
   }
   if (window.ResizeObserver) new ResizeObserver(scheduleOverviewFit).observe(stage);
-  applyInspectionPose(null);
+  setOverviewSpread(false);
   scheduleOverviewFit();
 
   const readouts = [...stage.querySelectorAll('.plhud, #discl, .pumpnote')];

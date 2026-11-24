@@ -20,6 +20,7 @@
 .studio .studio-dock button {flex:1;min-width:44px;flex-direction:row;gap:7px;padding:4px 8px;font-size:13px;background:transparent;border-color:transparent}
 .studio .studio-dock button:is([aria-pressed=true],[aria-expanded=true]) {background:#193936;border-color:var(--accent);color:var(--accent)}
 .studio .studio-dock svg {width:19px;height:19px}
+.studio .studio-dock #bXray[aria-pressed=true] span {text-decoration:underline;text-underline-offset:3px}
 .studio .hint {bottom:82px}
 .studio .shophud,.studio .plhud,.studio .legend,.studio .pumpnote {top:68px;bottom:auto;left:8px;max-height:calc(100% - 150px);overflow:auto}
 .studio .btn.primary {background:var(--accent);color:var(--accent-ink)}

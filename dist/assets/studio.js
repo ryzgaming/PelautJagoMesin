@@ -31,7 +31,7 @@
   whole.type = 'button';
   whole.append(document.createElement('span'));
   const xray = whole.cloneNode(true);
-  let activeMode = whole;
+  let activeMode = null; // The machine starts assembled until a mode is chosen.
   const modes = [[whole, 'Eksplor keseluruhan'], [system, 'Sistem'], [operation, 'Pengoperasian'], [xray, 'X-ray']];
   for (const [button, label] of modes) {
     button.querySelector('span').textContent = label;
@@ -202,7 +202,7 @@
   // Fit visible machine geometry in camera coordinates. Room, pipe diagrams and
   // presentation helpers must not enlarge the overview bounds.
   function fitOverview() {
-    if (!model || (activeMode !== whole && activeMode !== xray) || assemblyView || selectedPart()) return;
+    if (!model || activeMode === system || activeMode === operation || assemblyView || selectedPart()) return;
     const {camera, controls} = model;
     const aspect = stage.clientWidth / stage.clientHeight;
     if (!Number.isFinite(aspect) || aspect <= 0) return;
@@ -252,7 +252,7 @@
     fitFrame = requestAnimationFrame(fitOverview);
   }
   if (window.ResizeObserver) new ResizeObserver(scheduleOverviewFit).observe(stage);
-  applyInspectionPose(whole);
+  applyInspectionPose(null);
   scheduleOverviewFit();
 
   const readouts = [...stage.querySelectorAll('.plhud, #discl, .pumpnote')];
@@ -261,7 +261,7 @@
     const inSystem = activeMode !== operation;
     root.classList.toggle('studio-overview', activeMode === whole && !assemblyView);
     backLabel.hidden = !assemblyView;
-    close.setAttribute('aria-label', assemblyView ? 'Kembali ke ' + activeMode.textContent.toLowerCase() : 'Tutup panel');
+    close.setAttribute('aria-label', assemblyView ? 'Kembali ke ' + (activeMode?.textContent.toLowerCase() || 'mesin terpasang') : 'Tutup panel');
     root.classList.toggle('studio-system', inSystem);
     // Keep instrument readings and model notices available outside the canvas.
     for (const item of readouts) {
@@ -272,8 +272,9 @@
       const active = button === activeMode;
       button.setAttribute('aria-current', active ? 'page' : 'false');
       button.setAttribute('aria-expanded', String(active && !root.classList.contains('nopanel')));
-      if (active) byId('pTitle').textContent = assemblyView ? 'Eksplor rakitan' : label;
+      if (active) byId('pTitle').textContent = label;
     }
+    if (assemblyView) byId('pTitle').textContent = 'Eksplor rakitan';
     syncSelection();
   }
   syncPanel();
@@ -281,7 +282,7 @@
     attributes:true, attributeFilter:['class','data-mode']
   });
   close.addEventListener('click', () => {
-    activeMode.focus();
+    (activeMode || whole).focus();
   });
   document.addEventListener('keydown', event => {
     if (event.key === 'Escape' && !root.classList.contains('nopanel')) close.click();

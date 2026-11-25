@@ -3,9 +3,11 @@ import {Plus} from "lucide-react";
 import {Mark,typeName} from "./canvas";
 import {label,type Kind} from "./flow";
 import {customKind,directory,validServer} from "./directory";
+import {agentKind,agents,divisionByKey} from "./organization";
 
-const groups=["Konektor populer","Plugin Claude Code","Google Workspace","Langkah dasar"];
+const groups=["Agen Orang Mesin","Konektor populer","Plugin Claude Code","Google Workspace","Langkah dasar"];
 const items=[
+  ...agents.map(a=>({kind:agentKind(a) as Kind,name:a.name,group:"Agen Orang Mesin",help:divisionByKey.get(a.division)!.short+" · "+a.mission,publisher:undefined})),
   ...directory.map(p=>({kind:`claude-${p.slug}` as Kind,name:p.name,group:p.group,help:p.help,publisher:p.publisher})),
   ...(["condition","confirm","review"] as const).map(kind=>({kind,name:label(kind),group:"Langkah dasar",help:typeName(kind),publisher:undefined}))
 ];
@@ -23,7 +25,7 @@ export default function StepCatalog({add}:{add:(kind:Kind,custom?:{name:string,v
     <button className="primary" disabled={!name.trim()||!validServer(server.trim())}>Tambahkan ke alur</button>
   </form>;
   return <div className="catalog"><div className="catalog-tools">
-    <label>Cari konektor atau plugin<input type="search" placeholder="Google Drive, Gmail, Slack…" value={query} onChange={e=>setQuery(e.target.value)}/></label>
+    <label>Cari agent, konektor, atau plugin<input type="search" placeholder="Agent, Google Drive, Gmail…" value={query} onChange={e=>setQuery(e.target.value)}/></label>
     <label>Kategori<select value={group} onChange={e=>setGroup(e.target.value)}>
     <option value="">Semua kategori</option>{groups.map(g=><option key={g}>{g}</option>)}</select></label></div>
     <div className="directory-bar"><a href="https://claude.com/marketplace/connectors-plugins" rel="noreferrer" target="_blank">Direktori resmi Claude</a>

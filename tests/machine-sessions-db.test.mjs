@@ -227,3 +227,33 @@ test('Codex and Claude share the queue: worker is recorded and an expired worker
  await create(owner, 'Tanabe', 'H-74');
  assert.equal((await claim(owner)).session.worker, null);
 });
+
+test('Claude is primary: Codex waits while Claude checks in, takes abandoned work, and takes over when Claude is gone', async () => {
+ const claimAs = (worker, token = randomUUID()) => scalar('select alur_machine_private.claim_session_as($1,$2,900,$3)', [owner, token, worker]);
+ const expire = token => db.query("update alur_machine_private.leases set expires_at=clock_timestamp()-interval '1 second' where claim_token=$1", [token]);
+ await db.exec('truncate alur_machine_private.worker_checkins');
+ // No Claude check-in yet (e.g. Claude quota exhausted since setup): Codex may work.
+ const first = await create(owner, 'Yanmar', '6AYM-WET');
+ const codexFirst = await claimAs('codex'); assert.equal(codexFirst.session.id, first.id);
+ // Claude checks in (its claim on an empty-for-it queue still records presence).
+ assert.equal(await claimAs('claude'), null);
+ assert.equal(await scalar("select count(*)::int from alur_machine_private.worker_checkins where worker='claude'"), 1);
+ // While Claude is alive, Codex leaves queued work for Claude.
+ const second = await create(owner, 'Caterpillar', '3512C');
+ assert.equal(await claimAs('codex'), null);
+ const claude = await claimAs('claude'); assert.equal(claude.session.id, second.id); assert.equal(claude.session.worker, 'claude');
+ // Claude stops mid-run (quota ran out): its lease lapses and Codex takes over that session.
+ await checkpoint(second.id, claude.claim_token, 'evidence', documented);
+ await expire(claude.claim_token);
+ const rescue = await claimAs('codex'); assert.equal(rescue.session.id, second.id); assert.equal(rescue.session.worker, 'codex');
+ // Claude has been silent for more than 75 minutes: Codex takes queued work too.
+ const third = await create(owner, 'Tanabe', 'H-74');
+ assert.equal(await claimAs('codex'), null);
+ await db.exec("update alur_machine_private.worker_checkins set seen_at=clock_timestamp()-interval '76 minutes'");
+ assert.equal((await claimAs('codex')).session.id, third.id);
+ // Claude returns and is primary again for new work.
+ const fourth = await create(owner, 'Shinko', 'GJ 80-25');
+ assert.equal((await claimAs('claude')).session.id, fourth.id);
+ assert.equal(await claimAs('codex'), null);
+ assert.equal(await scalar("select has_table_privilege('authenticated','alur_machine_private.worker_checkins','SELECT')"), false);
+});

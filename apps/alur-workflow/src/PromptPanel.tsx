@@ -1,7 +1,7 @@
 import {useState} from "react";
 import {TriangleAlert,X} from "lucide-react";
 import {type Graph,type Step} from "./flow";
-import {promptMax,promptWarnings,splitPrompt,taskMax} from "./prompt-router";
+import {promptMax,promptRules,promptWarnings,splitPrompt,taskMax} from "./prompt-router";
 
 const id=(n:number)=>n.toLocaleString("id-ID");
 /** Panel Agent prompt dan Pembagi tugas: pratinjau pembagian tugas serta peringatan merah. */
@@ -15,12 +15,14 @@ export default function PromptPanel({g,node,edit}:{g:Graph,node:Step,edit:(chang
     else{if(!value)setCut(null);edit({message:value});}
   }
   const tasks=node.kind==="prompt"?splitPrompt(node.message).length:0;
+  const rules=node.kind==="prompt"?promptRules(node.message):[];
   return <>
     {node.kind==="prompt"?<label>Prompt<textarea className="prompt-input" rows={10} value={node.message} onChange={e=>write(e.target.value)}
       placeholder={"Satu tugas per baris, misalnya:\nKumpulkan parts catalog dan manual OEM\nSusun daftar komponen bertingkat\nBuat simulasi sistem bahan bakar"}/>
       <small className={"prompt-count"+(node.message.length>=promptMax?" full":"")}>{id(node.message.length)} / {id(promptMax)} karakter · {info?.dropped.length?id(tasks)+" dari "+id(tasks+info.dropped.length):id(tasks)} tugas</small>
-      <small>Prompt besar boleh ditempel langsung; judul (#) dan label bagian yang diakhiri titik dua tidak dihitung sebagai tugas. Kosongkan untuk memakai Catatan dari formulir. Tulis nama agent (misalnya "Simulator") untuk menunjuk langsung.</small></label>
+      <small>Prompt besar boleh ditempel langsung; judul (# atau HURUF KAPITAL), label bagian yang diakhiri titik dua, dan tanda chat tidak dihitung sebagai tugas; isi daftar pendek digabung dengan labelnya. Kosongkan untuk memakai Catatan dari formulir. Tulis nama agent (misalnya "Simulator") untuk menunjuk langsung.</small></label>
     :<p className="plugin-help">Pembagi tugas memecah prompt dari langkah sebelumnya per baris atau kalimat, lalu menyerahkan setiap tugas hanya ke agent tersambung yang paling cocok. Agent yang tidak mendapat tugas dilewati.</p>}
+    {rules.length>0&&<p className="prompt-note">{id(rules.length)} aturan umum (diawali "Jangan", "Hindari", dan sejenisnya) berlaku untuk semua agent, jadi tidak dibagikan sebagai tugas.</p>}
     {cut&&<div className="prompt-warning" role="alert"><h3><TriangleAlert size={15}/>Sebagian prompt tidak tertulis<button className="warning-close" aria-label="Tutup peringatan" onClick={e=>{e.preventDefault();setCut(null)}}><X size={14}/></button></h3>
       <p>{id(cut.chars)} karakter terakhir terpotong karena melewati batas {id(promptMax)} karakter. Bagian yang hilang dimulai dari:</p>
       <blockquote>“{cut.from}{cut.chars>160?"…":""}”</blockquote>

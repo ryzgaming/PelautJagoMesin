@@ -112,3 +112,48 @@ test('prompt 50.000 karakter dengan ratusan tugas pendek terbaca seluruhnya', as
   assert.equal(w.router.unmatched.length, 0);
   assert.ok(performance.now() - started < 3000, 'tetap cepat');
 });
+
+test('daftar pendek digabung dengan labelnya; tanda chat, judul kapital, tautan, dan keterangan tidak dihitung', () => {
+  const text = ['[26/11/2026 20:45] Rxyzッ: MASTER PROMPT — DRCE UNIVERSAL', 'Project: Orang Mesin — Pelaut Jago Mesin', 'https://github.com/ryzgaming/PelautJagoMesin.git',
+    'PROJECT CONTEXT', 'Tujuan proyek adalah platform pembelajaran permesinan yang realistis.',
+    'UNIVERSAL APPLICABILITY', 'Terapkan pada mesin berikut:', '- Boiler', '- Winch', '- Steering Gear',
+    '[26/11/2026 20:45] Rxyzッ: Platform video:', '- YouTube', '- Vimeo', '- TikTok',
+    'Level A — Complete machine search', '- Complete machine', '- Complete overhaul',
+    'Buat model 3D blok silinder.', 'Simulator: rapikan tampilan'].join('\n');
+  assert.deepEqual(splitPrompt(text), [
+    'Terapkan pada mesin berikut: Boiler, Winch, Steering Gear',
+    'Platform video: YouTube, Vimeo, TikTok',
+    'Level A — Complete machine search: Complete machine, Complete overhaul',
+    'Buat model 3D blok silinder',
+    'Simulator: rapikan tampilan']);
+});
+
+test('kata yang hanya mirip awalannya tidak dianggap cocok ("complete" bukan "compliance")', () => {
+  const nodes = ['tax-compliance','production-pipeline'].map(id => ({id, kind:'agen-'+id, name:id, message:''}));
+  const r = routePrompt('Complete overhaul and complete disassembly', nodes);
+  assert.ok(!r.tasks.some(t => t.targets.includes('tax-compliance')), JSON.stringify(r));
+});
+
+test('hasil uji memuat daftar lengkap tugas per agent untuk laporan', async () => {
+  const {reportMarkdown} = await import('../src/report.ts');
+  const prompt = 'Susun daftar komponen bertingkat dengan part number\nBuat model 3D blok silinder\nBuat model 3D kepala silinder\nHitung pajak penjualan bulan ini';
+  const r = execute(graph(prompt), {nama:'',email:'',catatan:''});
+  const model = r.assignments.find(a => a.id === 'modeling-3d');
+  assert.deepEqual(model.tasks, ['Buat model 3D blok silinder','Buat model 3D kepala silinder']);
+  assert.ok(r.assignments.some(a => a.id === 'parts-inventory'));
+  {
+    const md = reportMarkdown('Uji', new Date(0), r.assignments, r.warnings, []);
+    assert.match(md, /## 3D Modeling \(2 tugas\)\n\n1\. Buat model 3D blok silinder\n2\. Buat model 3D kepala silinder/);
+    assert.match(md, /## Tidak cocok dengan agent mana pun\n\n- Hitung pajak penjualan bulan ini/);
+  }
+});
+
+test('kalimat larangan menjadi aturan umum, bukan tugas atau lowongan', async () => {
+  const {promptRules} = await import('../src/prompt-router.ts');
+  const text = 'Buat model 3D blok silinder\nJangan menghapus atau menimpa aturan yang telah tersedia.\nHindari bentuk generik';
+  assert.deepEqual(splitPrompt(text), ['Buat model 3D blok silinder']);
+  assert.deepEqual(promptRules(text), ['Jangan menghapus atau menimpa aturan yang telah tersedia','Hindari bentuk generik']);
+  const r = execute(graph(text), {nama:'',email:'',catatan:''});
+  assert.deepEqual(r.rules, promptRules(text));
+  assert.deepEqual(r.warnings, []);
+});

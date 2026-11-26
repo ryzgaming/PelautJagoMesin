@@ -22,6 +22,7 @@ import {
 import { roleProgress, splitMachine, type Progress } from "./production-status";
 import StageProgress from "./StageProgress";
 import WorkerQuota from "./WorkerQuota";
+import ActivityFeed from "./ActivityFeed";
 import "./home.css";
 
 type Worker = "claude" | "codex";
@@ -335,6 +336,18 @@ export default function HomeStudio({
                 </span>
               </span>
             </button>
+          )}
+
+          {focus && focus.session.status !== "queued" && (
+            <section className="agent-card home-activity">
+              <ActivityFeed
+                key={focus.session.id}
+                sessionId={focus.session.id}
+                running={focus.session.status === "running"}
+                limit={5}
+                title={focus.session.status === "running" ? "Aktivitas langsung" : "Aktivitas terakhir"}
+              />
+            </section>
           )}
 
           {workers && (

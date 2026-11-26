@@ -585,3 +585,141 @@
   border-top: 1px solid var(--line, #33313d);
   padding-top: 16px;
 }
+
+/* Aktivitas langsung */
+.activity-feed {
+  display: grid;
+  gap: 10px;
+}
+.activity-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+.activity-head strong {
+  font-size: 16px;
+}
+.activity-live {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #9ae3d1;
+  font-size: 13px;
+  font-weight: 600;
+}
+.activity-live i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #6fc6a8;
+  animation: activity-pulse 1.6s ease-in-out infinite;
+}
+@keyframes activity-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 #6fc6a880;
+  }
+  50% {
+    box-shadow: 0 0 0 6px #6fc6a800;
+  }
+}
+.activity-quiet {
+  color: #a9a6b5;
+  font-size: 13px;
+}
+.activity-empty {
+  margin: 0;
+  color: #b6b3c2;
+  font-size: 14px;
+}
+.activity-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  position: relative;
+}
+.activity-list li {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: 10px;
+  padding: 7px 0;
+  position: relative;
+}
+.activity-list li:not(:last-child)::before {
+  content: "";
+  position: absolute;
+  left: 13.5px;
+  top: 34px;
+  bottom: -6px;
+  width: 1px;
+  background: #33323f;
+}
+.activity-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  display: grid;
+  place-items: center;
+  background: #23222d;
+  border: 1px solid #33323f;
+  color: #c9c6d4;
+}
+.activity-list li.activity-now .activity-icon {
+  color: #9ae3d1;
+  border-color: #35615b;
+  background: #183331;
+}
+.activity-list li.open .activity-icon,
+.activity-list li.search .activity-icon {
+  color: #a9c7ff;
+}
+.activity-list li.write .activity-icon {
+  color: #bdce86;
+}
+.activity-list li.model .activity-icon {
+  color: var(--accent);
+}
+.activity-list li.check .activity-icon {
+  color: #e6b778;
+}
+.activity-body {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+  padding-top: 4px;
+}
+.activity-text {
+  font-size: 14px;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+.activity-list li.activity-now .activity-text {
+  color: var(--text);
+  font-weight: 600;
+}
+.activity-body small {
+  color: #a9a6b5;
+  font-size: 12px;
+}
+.activity-body a {
+  color: var(--accent);
+  text-decoration: none;
+}
+.activity-more {
+  justify-self: start;
+  font-size: 13px;
+  color: var(--accent);
+  padding: 4px 0;
+}
+.home-activity {
+  margin: 0;
+}
+.machine-session .activity-feed {
+  margin: 4px 0 18px;
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: #171720;
+}

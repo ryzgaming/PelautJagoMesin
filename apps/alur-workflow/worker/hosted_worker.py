@@ -13,6 +13,7 @@ from uuid import UUID
 
 ROLES = ("evidence", "fuel", "freshwater", "seawater", "lubrication", "intake-exhaust",
          "exterior", "internals", "integrator", "qa")
+ACTIVITY = ("search", "open", "read", "think", "write", "model", "check", "info")
 # Function, argument order and cast names are code. Values are encoded only as JSON data.
 RPC = {
     "claim": ("claim_session", (("owner_id", "uuid"), ("claim_token", "uuid"), ("lease_seconds", "integer"))),
@@ -20,6 +21,8 @@ RPC = {
                                       ("worker", "text"))),
     "heartbeat": ("heartbeat_session", (("session_id", "uuid"), ("claim_token", "uuid"), ("lease_seconds", "integer"))),
     "history": ("read_prior_memory", (("session_id", "uuid"),)),
+    "log": ("log_activity", (("session_id", "uuid"), ("claim_token", "uuid"), ("kind", "text"),
+                             ("message", "text"), ("url", "text"))),
     "checkpoint": ("write_checkpoint", (("session_id", "uuid"), ("claim_token", "uuid"), ("role", "text"),
                     ("summary", "text"), ("sources", "jsonb"), ("decisions", "jsonb"),
                     ("open_questions", "jsonb"), ("status", "text"))),
@@ -38,6 +41,18 @@ def sql(operation, data):
         data.setdefault("result_url", None)
     if operation == "claim_as" and data.get("worker") not in ("codex", "claude"):
         raise ValueError("Worker harus codex atau claude.")
+    if operation == "log":
+        data.setdefault("url", None)
+        message, url = data.get("message"), data.get("url")
+        if data.get("kind") not in ACTIVITY:
+            raise ValueError("Jenis aktivitas: " + ", ".join(ACTIVITY))
+        if not isinstance(message, str) or not message.strip():
+            raise ValueError("Pesan aktivitas kosong.")
+        # Satu baris pendek untuk dashboard; potong, bukan tolak.
+        data["message"] = " ".join(message.split())[:200]
+        if url is not None and (not isinstance(url, str) or not url.startswith("https://") or len(url) > 500
+                                or any(c.isspace() or c in '<>"' for c in url)):
+            data["url"] = None
     if data.keys() != {key for key, _ in fields}:
         raise ValueError("Argumen RPC tidak sesuai kontrak.")
     for key, kind in fields:

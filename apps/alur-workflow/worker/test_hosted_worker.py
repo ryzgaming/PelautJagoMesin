@@ -112,6 +112,25 @@ class HostedWorkerTests(unittest.TestCase):
         with self.assertRaises(KeyError):
             worker.sql("anything", {})
 
+    def test_activity_log_is_short_safe_and_encoded(self):
+        token = uid()
+        query = worker.sql("log", {"session_id": self.sid, "claim_token": token, "kind": "open",
+                                    "message": "  Membuka\nmanual  " + "x" * 300, "url": "https://cat.com/3512c"})
+        self.assertIn("alur_machine_private.log_activity(", query)
+        packed = json.loads(bytes.fromhex(re.search(r"decode\('([0-9a-f]+)'", query).group(1)))
+        self.assertTrue(packed["message"].startswith("Membuka manual x"))
+        self.assertEqual(len(packed["message"]), 200)
+        self.assertEqual(packed["url"], "https://cat.com/3512c")
+        for bad in ("http://cat.com", "javascript:alert(1)", "https://a.b/<x>"):
+            q = worker.sql("log", {"session_id": self.sid, "claim_token": token, "kind": "open", "message": "x", "url": bad})
+            self.assertIsNone(json.loads(bytes.fromhex(re.search(r"decode\('([0-9a-f]+)'", q).group(1)))["url"])
+        no_url = worker.sql("log", {"session_id": self.sid, "claim_token": token, "kind": "think", "message": "Menimbang"})
+        self.assertIn("log_activity(", no_url)
+        with self.assertRaises(ValueError):
+            worker.sql("log", {"session_id": self.sid, "claim_token": token, "kind": "hack", "message": "x"})
+        with self.assertRaises(ValueError):
+            worker.sql("log", {"session_id": self.sid, "claim_token": token, "kind": "info", "message": "  "})
+
     def test_manifest_changes_when_bytes_change(self):
         (self.root / "index.html").write_text("<canvas></canvas>")
         glb(self.root / "machine.glb")

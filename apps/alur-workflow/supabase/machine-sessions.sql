@@ -639,7 +639,8 @@ returns jsonb language sql immutable set search_path='' as $$
   'parts',greatest(1,ceil(pg_catalog.char_length(p_body)/16000.0)::integer));
 $$;
 
--- Peralihan dari versi pertama (brief di kolom sesi): pindahkan isinya ke tabel privat lalu hapus kolomnya.
+-- Peralihan dari versi pertama (brief di kolom sesi flow_brief): salin isinya ke tabel privat. Kolom lama
+-- dibiarkan (tidak dihapus agar migrasi tidak destruktif), tidak lagi ditulis dan tidak ikut di safe_session.
 do $$
 declare v_row record; v_body text; v_sha text;
 begin
@@ -649,14 +650,12 @@ begin
    insert into alur_machine_private.flow_briefs(session_id,brief,body,sha256) values(v_row.id,v_row.flow_brief,v_body,v_sha) on conflict do nothing;
    update public.alur_machine_sessions set flow_brief_info=alur_machine_private.brief_info(v_row.flow_brief,v_body,v_sha) where id=v_row.id;
   end loop;
-  alter table public.alur_machine_sessions drop constraint if exists alur_machine_flow_brief_valid;
-  alter table public.alur_machine_sessions drop column flow_brief;
  end if;
 end $$;
 
--- Ringkasan brief kini kolom biasa, jadi safe_session kembali ke bentuk asalnya.
+-- Ringkasan brief kini kolom biasa; kolom lama flow_brief (bila masih ada) tidak pernah dikembalikan.
 create or replace function alur_machine_private.safe_session(p_session public.alur_machine_sessions)
-returns jsonb language sql immutable set search_path='' as $$ select pg_catalog.to_jsonb(p_session)-'owner_id'; $$;
+returns jsonb language sql immutable set search_path='' as $$ select pg_catalog.to_jsonb(p_session)-'owner_id'-'flow_brief'; $$;
 
 create or replace function alur_machine_private.enqueue_flow(p_brand text,p_model text,p_request_id uuid,p_brief jsonb)
 returns jsonb language plpgsql security definer set search_path='' as $$
@@ -685,7 +684,12 @@ $$;
 
 -- TRUSTED CONNECTOR ONLY: satu bagian (16.000 karakter) teks brief untuk pekerja yang memegang lease aktif.
 -- Pekerja menyambung semua bagian lalu mencocokkan SHA-256 dengan flow_brief_info.sha256.
-drop function if exists alur_machine_private.read_flow_brief(uuid,uuid);
+-- Versi lama tanpa nomor bagian sudah tidak dipakai; tetap ada tetapi selalu menolak dengan petunjuk.
+create or replace function alur_machine_private.read_flow_brief(p_session_id uuid,p_claim_token uuid)
+returns jsonb language plpgsql set search_path='' as $$
+begin
+ raise exception 'Use read_flow_brief(session_id, claim_token, part)' using errcode='22023';
+end $$;
 create or replace function alur_machine_private.read_flow_brief(p_session_id uuid,p_claim_token uuid,p_part integer)
 returns jsonb language plpgsql set search_path='' as $$
 declare v_session public.alur_machine_sessions%rowtype; v_brief alur_machine_private.flow_briefs%rowtype; v_parts integer; v_text text;
@@ -702,7 +706,8 @@ end $$;
 
 revoke all on function alur_machine_private.brief_text(jsonb,integer),alur_machine_private.valid_flow_brief(jsonb),
  alur_machine_private.brief_info(jsonb,text,text),alur_machine_private.enqueue_flow(text,text,uuid,jsonb),
- alur_machine_private.read_flow_brief(uuid,uuid,integer),public.alur_enqueue_machine_flow(text,text,uuid,jsonb)
+ alur_machine_private.read_flow_brief(uuid,uuid,integer),alur_machine_private.read_flow_brief(uuid,uuid),
+ public.alur_enqueue_machine_flow(text,text,uuid,jsonb)
  from public,anon,authenticated,service_role;
 grant execute on function alur_machine_private.enqueue_flow(text,text,uuid,jsonb),public.alur_enqueue_machine_flow(text,text,uuid,jsonb)
  to authenticated;

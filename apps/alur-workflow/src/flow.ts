@@ -2,7 +2,7 @@ import {fieldLabels, pluginById, renderMessage, type Field, type RunFields} from
 
 import {customKind,directoryByKind,validServer,type DirectoryKind} from "./directory.ts";
 import {agentByKind,type AgentKind} from "./organization.ts";
-import {hrdKind,promptKind,routerKind,routePrompt,routerTargets,hrdRouters} from "./prompt-router.ts";
+import {droppedTasks,hrdKind,promptKind,promptMax,routerKind,routePrompt,routerTargets,hrdRouters,taskMax} from "./prompt-router.ts";
 import {review as hrdReview,type Vacancy} from "./hrd.ts";
 export type Kind = DirectoryKind | AgentKind | `robot-${string}` | "trigger" | "condition" | "confirm" | "review" | "prompt" | "router" | "hrd";
 export type Step = {id:string, kind:Kind, name:string, x:number, y:number, field:Field, operator:"filled"|"empty"|"equals", value:string, message:string};
@@ -33,7 +33,7 @@ export function validate(g:Graph,run=false) {
   if(!g||!id(g.id)||typeof g.name!=="string"||!g.name.trim()||g.name.length>80||!Number.isInteger(g.revision)||g.revision<0||!Array.isArray(g.nodes)||!Array.isArray(g.edges)||g.nodes.length>80||g.edges.length>160) throw Error("Data workflow tidak valid.");
   const ids=new Set<string>();
   for(const n of g.nodes){
-    if(!id(n.id)||ids.has(n.id)||(!Object.hasOwn(baseLabels,n.kind)&&!pluginById.has(n.kind)&&!directoryByKind.has(n.kind)&&!agentByKind.has(n.kind))||!Number.isFinite(n.x)||!Number.isFinite(n.y)||typeof n.name!=="string"||!n.name.trim()||n.name.length>80||!Object.hasOwn(fieldLabels,n.field)||!["filled","empty","equals"].includes(n.operator)||typeof n.value!=="string"||n.value.length>400||typeof n.message!=="string"||n.message.length>1000) throw Error("Periksa konfigurasi langkah.");
+    if(!id(n.id)||ids.has(n.id)||(!Object.hasOwn(baseLabels,n.kind)&&!pluginById.has(n.kind)&&!directoryByKind.has(n.kind)&&!agentByKind.has(n.kind))||!Number.isFinite(n.x)||!Number.isFinite(n.y)||typeof n.name!=="string"||!n.name.trim()||n.name.length>80||!Object.hasOwn(fieldLabels,n.field)||!["filled","empty","equals"].includes(n.operator)||typeof n.value!=="string"||n.value.length>400||typeof n.message!=="string"||n.message.length>(n.kind===promptKind?promptMax:1000)) throw Error("Periksa konfigurasi langkah.");
     if(n.kind===customKind&&!validServer(n.value)) throw Error("Periksa URL HTTPS server MCP.");
     ids.add(n.id);
   }
@@ -96,7 +96,7 @@ export function execute(g:Graph,data:{email:string,nama:string,catatan?:string},
     } else if(n.kind===promptKind) {
       const prompt=renderMessage(n.message,fields).trim()||fields.catatan.trim();
       if(!prompt) throw Error(n.name+" — tulis prompt terlebih dahulu.");
-      if(prompt.length>8000) throw Error(n.name+" — prompt melebihi 8.000 karakter.");
+      if(prompt.length>promptMax) throw Error(n.name+" — prompt melebihi "+promptMax.toLocaleString("id-ID")+" karakter.");
       fields.hasil=prompt;
       detail="Prompt diterima: "+prompt.slice(0,180);
     } else if(n.kind===hrdKind) {
@@ -113,6 +113,8 @@ export function execute(g:Graph,data:{email:string,nama:string,catatan?:string},
       const routing=routePrompt(fields.hasil||fields.catatan,targets);
       for(const a of routing.tasks) for(const id of a.targets) assigned.set(id,[...(assigned.get(id)??[]),a.task]);
       for(const t of routing.unmatched) warnings.push("Tidak ada agent yang cocok untuk: "+t);
+      const dropped=droppedTasks(fields.hasil||fields.catatan);
+      if(dropped.length) warnings.push("Tidak terbaca: "+dropped.length+" tugas setelah tugas ke-"+taskMax+" tidak dibagikan, mulai dari \""+dropped[0].slice(0,120)+"\"");
       only=new Set(routing.tasks.flatMap(a=>a.targets));
       detail=routing.tasks.length+" tugas dibagikan ke "+only.size+" agent"+(routing.unmatched.length?" · "+routing.unmatched.length+" tidak cocok":"");
     } else if(n.kind==="condition") {

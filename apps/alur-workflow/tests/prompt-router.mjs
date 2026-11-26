@@ -60,3 +60,38 @@ test('Pembagi tugas tanpa agent tersambung diberi peringatan dan menolak dijalan
   assert.match(promptWarnings(g).router.note, /Belum ada agent/);
   assert.throws(() => execute(g, {nama:'',email:'',catatan:''}), /hubungkan ke setidaknya satu agent/);
 });
+
+test('prompt besar (hingga 50.000 karakter) diterima, dibagikan, dan tetap cepat', async () => {
+  const {promptMax} = await import('../src/prompt-router.ts');
+  const lines = ['# Rencana produksi Caterpillar 3512C', 'Konteks:', 'Mesin induk kapal tunda, 16 silinder.',
+    '1. Susun daftar komponen bertingkat dengan part number', '2. Buat model 3D blok silinder', '- Periksa firing order dan timing katup',
+    '**Atur urutan bongkar pasang dan exploded view**', '```', 'Hitung pajak penjualan bulan ini'];
+  let big = lines.join('\n');
+  while (big.length < 30000) big += '\nCatatan tambahan nomor ' + big.length + ' untuk tim produksi agar membaca manual OEM dengan teliti.';
+  assert.ok(big.length >= 30000 && big.length < promptMax);
+  const g = graph(big);
+  validate(g, true);
+  const tasks = splitPrompt(big);
+  assert.ok(!tasks.includes('Rencana produksi Caterpillar 3512C') && !tasks.includes('Konteks'), 'judul dan label tidak dihitung');
+  assert.ok(tasks.includes('Atur urutan bongkar pasang dan exploded view'));
+  const started = performance.now();
+  const r = execute(g, {nama:'',email:'',catatan:''});
+  promptWarnings(g);
+  assert.ok(performance.now() - started < 3000, 'pembagian prompt besar harus cepat');
+  for (const id of ['parts-inventory','modeling-3d','diesel-specialist','assembly-kinematics']) assert.ok(r.trace.some(t => t.id === id), id);
+  const tooBig = graph('x'.repeat(promptMax + 1));
+  assert.throws(() => validate(tooBig), /Periksa konfigurasi langkah/);
+});
+
+test('tugas di atas batas dilaporkan sebagai tidak terbaca, bukan hilang diam-diam', async () => {
+  const {taskMax,droppedTasks} = await import('../src/prompt-router.ts');
+  const lines = Array.from({length: taskMax + 12}, (_, i) => 'Buat model 3D komponen nomor ' + (i + 1));
+  const text = lines.join('\n');
+  assert.equal(splitPrompt(text).length, taskMax);
+  assert.equal(droppedTasks(text).length, 12);
+  assert.equal(droppedTasks(text)[0], 'Buat model 3D komponen nomor ' + (taskMax + 1));
+  const g = graph(text);
+  assert.equal(promptWarnings(g).prompt.dropped.length, 12);
+  const r = execute(g, {nama:'',email:'',catatan:''});
+  assert.ok(r.warnings.some(w => /^Tidak terbaca: 12 tugas/.test(w)));
+});

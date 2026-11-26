@@ -32,17 +32,29 @@ export function Canvas({g,select,selected,update,add,notify,trace,organization,b
  const tx=(dims.w-920*scale)/2+pan.x,ty=(dims.h-462*scale)/2+pan.y;
  const limit=(n:number)=>Math.max(.2,Math.min(2.5,n));
  const fitRef=useRef(()=>{});
+ // Roda mouse memperbesar/memperkecil di titik kursor; geser horizontal touchpad menggeser kanvas.
+ const live=useRef({zoom,pan,scale,tx,ty,dims});live.current={zoom,pan,scale,tx,ty,dims};
+ useEffect(()=>{const el=area.current;if(!el)return;
+  const wheel=(e:WheelEvent)=>{if((e.target as Element).closest?.('.canvas-tools,.zoom,.wirehint'))return;e.preventDefault();
+   const s=live.current,unit=e.deltaMode===1?16:e.deltaMode===2?s.dims.h:1,dx=e.deltaX*unit,dy=e.deltaY*unit;
+   if(!e.ctrlKey&&Math.abs(dx)>Math.abs(dy)){P({x:s.pan.x-dx,y:s.pan.y});return;}
+   const z=limit(s.zoom*Math.exp(-Math.max(-120,Math.min(120,dy))*(e.ctrlKey?.01:.0015)));if(z===s.zoom)return;
+   const r=el.getBoundingClientRect(),cx=e.clientX-r.left,cy=e.clientY-r.top,k=s.scale/s.zoom*z;
+   const wx=(cx-s.tx)/s.scale,wy=(cy-s.ty)/s.scale;
+   Z(z);P({x:cx-wx*k-(s.dims.w-920*k)/2,y:cy-wy*k-(s.dims.h-462*k)/2});};
+  el.addEventListener('wheel',wheel,{passive:false});return()=>el.removeEventListener('wheel',wheel);},[]);
  function fit(){const xs=g.nodes.map(n=>n.x),ys=g.nodes.map(n=>n.y);const x=Math.min(...xs)-20,y=Math.min(...ys)-20,w=Math.max(...xs)+236-x,h=Math.max(...ys)+110-y;
  const z=limit(Math.min((dims.w-35)/w,(dims.h-145)/h,1.18)/(scale/zoom));Z(z);P({x:(460-x-w/2)*(scale/zoom)*z,y:(231-y-h/2)*(scale/zoom)*z});}
  fitRef.current=fit;
- function start(e:PE,id:string|null){if(e.button!==0||wire)return;const n=g.nodes.find(i=>i.id===id);drag.current={id:hand?null:id,x:e.clientX,y:e.clientY,startX:n&&!hand?n.x:pan.x,startY:n&&!hand?n.y:pan.y,moved:false};e.currentTarget.setPointerCapture(e.pointerId);}
+ function start(e:PE,id:string|null){if(e.button===1){e.preventDefault();e.stopPropagation();drag.current={id:null,x:e.clientX,y:e.clientY,startX:pan.x,startY:pan.y,moved:false};area.current?.setPointerCapture(e.pointerId);return;}
+ if(e.button!==0||wire)return;const n=g.nodes.find(i=>i.id===id);drag.current={id:hand?null:id,x:e.clientX,y:e.clientY,startX:n&&!hand?n.x:pan.x,startY:n&&!hand?n.y:pan.y,moved:false};e.currentTarget.setPointerCapture(e.pointerId);}
  function move(e:PE){const d=drag.current;if(!d)return;const dx=e.clientX-d.x,dy=e.clientY-d.y;if(Math.abs(dx)+Math.abs(dy)<4&&!d.moved)return;d.moved=true;
  if(!d.id)P({x:d.startX+dx,y:d.startY+dy});else update({...g,nodes:g.nodes.map(n=>n.id===d.id?{...n,x:d.startX+dx/scale,y:d.startY+dy/scale}:n)});}
  function end(){const d=drag.current;if(d?.id&&!d.moved)select(d.id);drag.current=null;}
  function connect(to:string,source=wire){if(!source)return;const many=fansOut(g.nodes.find(n=>n.id===source.from)?.kind??"trigger");const graph={...g,edges:[...g.edges.filter(e=>!(e.from===source.from&&e.port===source.port&&(!many||e.to===to))),{...source,to}]};
  try{validate(graph);update(graph);notify("Langkah terhubung.");W(null)}catch(e){notify((e as Error).message);W(null)}}
  const offset=(p:Port)=>p==="yes"?31:p==="no"?63:47;
- return <div className={'canvas'+(hand?' hand':'')} ref={area} onPointerDown={e=>start(e,null)} onPointerMove={move} onPointerUp={end} onPointerCancel={()=>{drag.current=null}}>
+ return <div className={'canvas'+(hand?' hand':'')} ref={area} onMouseDown={e=>{if(e.button===1)e.preventDefault()}} onPointerDown={e=>start(e,null)} onPointerMove={move} onPointerUp={end} onPointerCancel={()=>{drag.current=null}}>
  <div className="canvas-tools" onPointerDown={e=>e.stopPropagation()}><button className="secondary add" onClick={add}><Plus size={17}/> Langkah</button>{organization&&<button className="secondary add org-button" title="Template dan workflow saya" aria-label="Template dan workflow saya" onClick={organization}><Users size={17}/><span>Template</span></button>}{monitor}<div className="toolgroup"><button className={!hand?'active':''} title="Pilih langkah" aria-label="Pilih langkah" onClick={()=>H(false)}><MousePointer2 size={16}/></button><button className={hand?'active':''} title="Geser kanvas" aria-label="Geser kanvas" onClick={()=>H(true)}><Hand size={16}/></button></div></div>
  {wire&&<div className="wirehint" onPointerDown={e=>e.stopPropagation()}>Pilih titik masuk pada langkah tujuan.<button onClick={()=>W(null)} aria-label="Batalkan sambungan"><X size={15}/></button></div>}
  <div className="world" style={{transform:'translate('+tx+'px,'+ty+'px) scale('+scale+')'}}>

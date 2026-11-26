@@ -15,7 +15,9 @@ $$;
 create or replace function alur_machine_private.valid_result_url(p_url text)
 returns boolean language sql immutable set search_path='' as $$
  select p_url is not null and pg_catalog.char_length(p_url)<=1000
-   and p_url ~ '^https://[a-z0-9]([a-z0-9-]*[a-z0-9])?\.violetblackbird16\.chatgpt\.site(/[A-Za-z0-9_./~-]*)?$';
+   and (p_url ~ '^https://[a-z0-9]([a-z0-9-]*[a-z0-9])?\.violetblackbird16\.chatgpt\.site(/[A-Za-z0-9_./~-]*)?$'
+    -- Claude worker: owner-private artifact page published from the scheduled Claude session.
+    or p_url ~ '^https://claude\.ai/artifact/[A-Za-z0-9_-]{8,64}$');
 $$;
 create or replace function alur_machine_private.valid_leads(p_leads jsonb)
 returns boolean language plpgsql immutable set search_path='' as $$
@@ -160,6 +162,11 @@ alter table public.alur_machine_sessions
   (source_product is not null and revision_brief is not null and char_length(trim(revision_brief)) between 1 and 1200)
  );
 
+-- Which hosted worker holds (or last held) the session: Codex automation or Claude scheduled task.
+-- Both poll the same queue; when one stops (e.g. out of tokens) its lease expires and the other resumes.
+alter table public.alur_machine_sessions
+ add column if not exists worker text constraint alur_machine_worker check (worker is null or worker in ('codex','claude'));
+
 create or replace function alur_machine_private.enqueue_task(p_brand text,p_model text,p_request_id uuid,p_product text,p_brief text)
 returns jsonb language plpgsql security definer set search_path='' as $$
 declare v_owner uuid:=auth.uid(); v_brand text:=alur_machine_private.normalized_name(p_brand);
@@ -289,8 +296,20 @@ begin
  update alur_machine_private.leases set revoked_at=clock_timestamp() where session_id=v_session.id and revoked_at is null;
  insert into alur_machine_private.leases(claim_token,session_id,expires_at)
   values(p_claim_token,v_session.id,clock_timestamp()+pg_catalog.make_interval(secs=>p_lease_seconds)) returning * into v_lease;
- update public.alur_machine_sessions set status='running',updated_at=clock_timestamp() where id=v_session.id returning * into v_session;
+ update public.alur_machine_sessions set status='running',worker=null,updated_at=clock_timestamp() where id=v_session.id returning * into v_session;
  return pg_catalog.jsonb_build_object('session',alur_machine_private.safe_session(v_session),'claim_token',p_claim_token,'lease_expires_at',v_lease.expires_at);
+end $$;
+
+-- TRUSTED CONNECTOR ONLY. Same claim, recording which worker took it.
+create or replace function alur_machine_private.claim_session_as(p_owner_id uuid,p_claim_token uuid,p_lease_seconds integer,p_worker text)
+returns jsonb language plpgsql set search_path='' as $$
+declare v_result jsonb; v_session public.alur_machine_sessions%rowtype;
+begin
+ if p_worker is null or p_worker not in ('codex','claude') then raise exception 'Invalid worker' using errcode='22023'; end if;
+ v_result:=alur_machine_private.claim_session(p_owner_id,p_claim_token,p_lease_seconds);
+ if v_result is null then return null; end if;
+ update public.alur_machine_sessions set worker=p_worker where id=(v_result->'session'->>'id')::uuid returning * into v_session;
+ return pg_catalog.jsonb_set(v_result,'{session}',alur_machine_private.safe_session(v_session));
 end $$;
 
 -- Locks the session before checking lease, serializing checkpoints, heartbeat and finish.

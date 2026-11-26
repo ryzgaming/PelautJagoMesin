@@ -61,6 +61,6 @@ export function Monitor({sessions,selected,setSelected,error,enabled}:ReturnType
   if(!sessions.length) return null;
   return <label className="secondary monitor"><Activity size={16} aria-hidden="true"/><span className="sr-only">Pantau produksi</span>
     <select aria-label="Pantau produksi" value={selected??sessions[0].id} onChange={e=>setSelected(e.target.value)}>
-      {sessions.map(s=><option key={s.id} value={s.id}>{s.brand} {s.model} · {statusLabels[s.status]}</option>)}
+      {sessions.map(s=><option key={s.id} value={s.id}>{s.brand} {s.model} · {statusLabels[s.status]}{s.status === "running" && s.worker ? " · " + (s.worker === "claude" ? "Claude" : "Codex") : ""}</option>)}
     </select></label>;
 }

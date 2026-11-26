@@ -12,7 +12,7 @@ const requestId = '33333333-3333-4333-8333-333333333333';
 const previousId = '44444444-4444-4444-8444-444444444444';
 const base = (patch = {}) => ({id: sessionId, request_id: requestId, brand: 'YANMAR', model: '6AYM-WET',
   machine_key: '["yanmar", "6aym-wet"]', status: 'queued', created_at: '2026-11-23T12:00:00Z',
-  updated_at: '2026-11-23T12:00:00Z', result_url: null, source_leads: null, ...patch});
+  updated_at: '2026-11-23T12:00:00Z', result_url: null, source_leads: null, worker: null, ...patch});
 const checkpoint = (patch = {}) => ({session_id: sessionId, role: 'fuel', revision: 1, summary: 'Fixture: routing needs confirmation.',
   sources: [{id: 's1', title: 'Synthetic fixture', url: 'https://www.yanmar.com/example', locator: 'fixture page', evidence_status: 'OBSERVED'}],
   decisions: [{text: 'Retain uncertainty.', evidence_status: 'UNKNOWN', source_ids: ['s1']}],
@@ -256,4 +256,19 @@ test('machines delete validates ids, calls the owner RPC and keeps the reply wit
   t.mock.method(globalThis, 'fetch', async () => Response.json({message: 'denied'}, {status: 403}));
   const denied = await call(req('POST', {body: {delete_ids: [sessionId]}}));
   assert.equal(denied.status, 403); assert.match((await denied.json()).error, /menghapus/);
+});
+
+test('machines report the worker and accept a Claude artifact review link', async t => {
+  const url = 'https://claude.ai/artifact/Q1xgxx4NT7hooorJt3G1BB';
+  t.mock.method(globalThis, 'fetch', async () => Response.json({account_id: owner, sessions: [
+    base({status: 'review', worker: 'claude', result_url: url}), base({id: previousId, worker: 'codex', result_url: url + '#x'})]}));
+  const list = await (await call(req('GET'))).json();
+  assert.equal(list.sessions[0].worker, 'claude'); assert.equal(list.sessions[0].result_url, url);
+  assert.equal(list.sessions[1].worker, 'codex'); assert.equal(list.sessions[1].result_url, null);
+  for (const bad of ['https://claude.ai/artifact/a/../../x', 'https://evil.claude.ai/artifact/abcdefgh', 'http://claude.ai/artifact/abcdefgh']) {
+    t.mock.method(globalThis, 'fetch', async () => Response.json({account_id: owner, sessions: [base({result_url: bad})]}));
+    assert.equal((await (await call(req('GET'))).json()).sessions[0].result_url, null);
+  }
+  t.mock.method(globalThis, 'fetch', async () => Response.json({account_id: owner, sessions: [base({worker: 'gemini'})]}));
+  assert.equal((await call(req('GET'))).status, 503);
 });

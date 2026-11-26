@@ -3,7 +3,7 @@
 export type Tone = "done" | "warn" | "pending" | "na" | "active" | "failed";
 export type Badge = {tone: Tone, label: string};
 type RoleMemory = {role: string, status: string};
-type SessionLike = {status: string};
+type SessionLike = {status: string, worker?: string | null};
 
 // Merek yang namanya lebih dari satu kata. Merek lain dianggap satu kata pertama.
 const multiWordBrands = ["Alfa Laval", "MAN Energy Solutions", "MAN B&W", "Mitsubishi Heavy Industries", "Rolls-Royce Power Systems", "Hyundai Himsen", "Daihatsu Diesel", "Niigata Power Systems"];
@@ -58,7 +58,9 @@ export function productionBadges(session: SessionLike, memory: RoleMemory[]): Re
     const badge = row ? memoryTone[row.status] ?? waiting : waiting;
     for (const node of nodes) perNode.set(node, [...perNode.get(node) ?? [], badge]);
   }
-  const badges: Record<string, Badge> = {direktur: sessionBadges[session.status] ?? waiting};
+  const who = session.worker === "claude" ? "Claude" : session.worker === "codex" ? "Codex" : "";
+  const badges: Record<string, Badge> = {direktur: session.status === "running" && who
+    ? {tone: "active", label: who + " bekerja"} : sessionBadges[session.status] ?? waiting};
   for (const [node, list] of perNode) {
     const done = list.filter(b => b.tone === "done" || b.tone === "na");
     badges[node] = done.length === list.length && list.some(b => b.tone === "done")

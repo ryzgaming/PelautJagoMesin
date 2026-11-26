@@ -7,6 +7,7 @@ const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 const ROLES = new Set(["evidence", "exterior", "internals", "integrator", "qa", "fuel", "freshwater", "seawater", "lubrication", "intake-exhaust"]);
 const EVIDENCE = new Set(["DOCUMENTED", "OBSERVED", "ESTIMATED", "UNKNOWN"]);
 const MEMORY = new Set(["DOCUMENTED", "PARTIAL", "UNVERIFIED", "NOT_APPLICABLE"]);
+const WORKERS = new Set(["codex", "claude"]);
 const STATUS = new Set(["queued", "running", "review", "needs_evidence", "failed"]);
 const json = (body: unknown, status = 200) => Response.json(body, {status,
   headers: {"Cache-Control": "private, no-store", "Vary": "Cookie", "X-Content-Type-Options": "nosniff"}});
@@ -36,7 +37,8 @@ function safeSourceUrl(value: unknown): string | null {
   } catch { return null; }
 }
 function safeResultUrl(value: unknown): string | null {
-  if (typeof value !== "string" || !/^https:\/\/[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.violetblackbird16\.chatgpt\.site(?:\/[A-Za-z0-9_./~-]*)?$/.test(value)) return null;
+  if (typeof value !== "string" || !(/^https:\/\/[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.violetblackbird16\.chatgpt\.site(?:\/[A-Za-z0-9_./~-]*)?$/.test(value) ||
+      /^https:\/\/claude\.ai\/artifact\/[A-Za-z0-9_-]{8,64}$/.test(value))) return null;
   const safe = safeSourceUrl(value); if (!safe) return null;
   const parsed = new URL(safe);
   return !parsed.port && !parsed.search && !parsed.hash ? parsed.href : null;
@@ -58,7 +60,8 @@ function session(value: unknown) {
     machine_key: text(row.machine_key, 500), status: choice(row.status, STATUS),
     created_at: text(row.created_at, 80), updated_at: text(row.updated_at, 80),
     ...(row.source_product == null ? {} : {source_product: text(row.source_product, 80), revision_brief: text(row.revision_brief, 1200)}),
-    result_url: safeResultUrl(row.result_url), source_leads: sourceLeads(row.source_leads)};
+    result_url: safeResultUrl(row.result_url), source_leads: sourceLeads(row.source_leads),
+    worker: row.worker == null ? null : choice(row.worker, WORKERS)};
 }
 function memory(value: unknown) {
   const row = record(value);

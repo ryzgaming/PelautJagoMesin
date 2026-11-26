@@ -199,3 +199,31 @@ test('owner deletes own sessions with memory and leases; live agent work and oth
  // A deleted request id can be reused to queue the machine again.
  assert.equal((await as(owner, () => enqueue('MAN', 'L23/30H', done.request_id))).status, 'queued');
 });
+
+test('Codex and Claude share the queue: worker is recorded and an expired worker is taken over with its memory', async () => {
+ const claimAs = (worker, token = randomUUID()) => scalar('select alur_machine_private.claim_session_as($1,$2,900,$3)', [owner, token, worker]);
+ await assert.rejects(claimAs('gemini'), /Invalid worker/);
+ await assert.rejects(claimAs(null), /Invalid worker/);
+ assert.equal(await claimAs('codex'), null); // empty queue ends the tick
+ assert.equal(await scalar("select has_function_privilege('authenticated','alur_machine_private.claim_session_as(uuid,uuid,integer,text)','EXECUTE')"), false);
+ const s = await create(owner, 'Caterpillar', '3512C');
+ const codex = await claimAs('codex');
+ assert.equal(codex.session.id, s.id); assert.equal(codex.session.worker, 'codex');
+ assert.equal((await as(owner, () => detail(s.id))).session.worker, 'codex');
+ await checkpoint(s.id, codex.claim_token, 'evidence', documented);
+ // Codex runs out of tokens: no heartbeat, the lease lapses. Claude takes over the same session.
+ assert.equal(await claimAs('claude'), null); // still leased to Codex
+ await db.query("update alur_machine_private.leases set expires_at=clock_timestamp()-interval '1 second' where claim_token=$1", [codex.claim_token]);
+ const claude = await claimAs('claude');
+ assert.equal(claude.session.id, s.id); assert.equal(claude.session.worker, 'claude');
+ const history = await scalar('select alur_machine_private.read_prior_memory($1)', [s.id]);
+ assert.deepEqual(history.memory.map(m => m.role), ['evidence']); // Claude resumes from Codex's checkpoint
+ await assert.rejects(checkpoint(s.id, codex.claim_token, 'fuel', documented), /Lease lost/);
+ for (const role of roles.slice(1)) await checkpoint(s.id, claude.claim_token, role, documented);
+ await assert.rejects(finish(s.id, claude.claim_token, 'review', 'https://claude.ai/artifact/../x'), /private review URL/);
+ const done = await finish(s.id, claude.claim_token, 'review', 'https://claude.ai/artifact/Q1xgxx4NT7hooorJt3G1BB');
+ assert.equal(done.status, 'review'); assert.equal(done.result_url, 'https://claude.ai/artifact/Q1xgxx4NT7hooorJt3G1BB');
+ // The legacy claim stays valid and clears a stale worker label.
+ await create(owner, 'Tanabe', 'H-74');
+ assert.equal((await claim(owner)).session.worker, null);
+});

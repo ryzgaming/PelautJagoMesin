@@ -54,6 +54,7 @@ export type MachineSession = {
   created_at: string;
   updated_at: string;
   result_url: string | null;
+  worker?: "codex" | "claude" | null;
   source_leads?: {
     provider: string;
     status: string;
@@ -120,13 +121,14 @@ function safeSource(value: unknown): string | null {
 function safeResult(value: unknown): string | null {
   if (
     typeof value !== "string" ||
-    !/^https:\/\/[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.violetblackbird16\.chatgpt\.site(?:\/[^?#]*)?$/i.test(
+    !(/^https:\/\/[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.violetblackbird16\.chatgpt\.site(?:\/[^?#]*)?$/i.test(
       value,
-    )
+    ) || /^https:\/\/claude\.ai\/artifact\/[A-Za-z0-9_-]{8,64}$/.test(value))
   )
     return null;
   return safeSource(value);
 }
+export const workerLabels = { codex: "Codex (ChatGPT)", claude: "Claude" } as const;
 export function sessionRecord(value: unknown): MachineSession {
   const s = value as MachineSession;
   if (
@@ -141,6 +143,7 @@ export function sessionRecord(value: unknown): MachineSession {
   const leads = s.source_leads;
   return {
     ...s,
+    worker: s.worker === "codex" || s.worker === "claude" ? s.worker : null,
     source_leads:
       leads &&
       Array.isArray(leads.items) &&
@@ -1202,6 +1205,12 @@ export default function MachineStudio({
                 </div>}
                 <p>{statusText[current.status]}</p>
                 <dl className="agent-metadata">
+                  {current.worker && (
+                    <div>
+                      <dt>{current.status === "running" ? "Dikerjakan oleh" : "Terakhir dikerjakan oleh"}</dt>
+                      <dd>{workerLabels[current.worker]}</dd>
+                    </div>
+                  )}
                   <div>
                     <dt>Pembaruan terakhir</dt>
                     <dd>{stamp(current.updated_at)}</dd>

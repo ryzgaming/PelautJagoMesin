@@ -16,6 +16,8 @@ ROLES = ("evidence", "fuel", "freshwater", "seawater", "lubrication", "intake-ex
 # Function, argument order and cast names are code. Values are encoded only as JSON data.
 RPC = {
     "claim": ("claim_session", (("owner_id", "uuid"), ("claim_token", "uuid"), ("lease_seconds", "integer"))),
+    "claim_as": ("claim_session_as", (("owner_id", "uuid"), ("claim_token", "uuid"), ("lease_seconds", "integer"),
+                                      ("worker", "text"))),
     "heartbeat": ("heartbeat_session", (("session_id", "uuid"), ("claim_token", "uuid"), ("lease_seconds", "integer"))),
     "history": ("read_prior_memory", (("session_id", "uuid"),)),
     "checkpoint": ("write_checkpoint", (("session_id", "uuid"), ("claim_token", "uuid"), ("role", "text"),
@@ -30,10 +32,12 @@ def sql(operation, data):
     """Only emit a call to a fixed private function. Free text never becomes SQL syntax."""
     name, fields = RPC[operation]
     data = dict(data)
-    if operation in ("heartbeat", "claim"):
+    if operation in ("heartbeat", "claim", "claim_as"):
         data.setdefault("lease_seconds", 900)
     if operation == "finish":
         data.setdefault("result_url", None)
+    if operation == "claim_as" and data.get("worker") not in ("codex", "claude"):
+        raise ValueError("Worker harus codex atau claude.")
     if data.keys() != {key for key, _ in fields}:
         raise ValueError("Argumen RPC tidak sesuai kontrak.")
     for key, kind in fields:

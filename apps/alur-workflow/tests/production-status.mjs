@@ -43,3 +43,10 @@ test('sesi review dan sesi gagal', () => {
   assert.equal(failed.pemodel.tone, 'failed');
   assert.equal(failed.direktur.label, 'Terhenti');
 });
+
+test('direktur shows which worker is running the session', () => {
+  assert.equal(productionBadges({status: 'running', worker: 'claude'}, []).direktur.label, 'Claude bekerja');
+  assert.equal(productionBadges({status: 'running', worker: 'codex'}, []).direktur.label, 'Codex bekerja');
+  assert.equal(productionBadges({status: 'running', worker: null}, []).direktur.label, 'Sedang bekerja');
+  assert.equal(productionBadges({status: 'review', worker: 'claude'}, []).direktur.label, 'Siap direview');
+});

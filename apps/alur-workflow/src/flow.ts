@@ -1,19 +1,19 @@
 import {fieldLabels, pluginById, renderMessage, type Field, type RunFields} from "./plugins.ts";
 
 import {customKind,directoryByKind,validServer,type DirectoryKind} from "./directory.ts";
-import {agentByKind,type AgentKind} from "./organization.ts";
-import {droppedTasks,hrdKind,promptKind,promptMax,routerKind,routePrompt,routerTargets,hrdRouters,taskMax} from "./prompt-router.ts";
+import {agentByKind,divisionByKey,type AgentKind} from "./organization.ts";
+import {customAgentKind,droppedTasks,hrdKind,promptKind,promptMax,routerKind,routePrompt,routerTargets,hrdRouters,taskMax} from "./prompt-router.ts";
 import {review as hrdReview,type Vacancy} from "./hrd.ts";
-export type Kind = DirectoryKind | AgentKind | `robot-${string}` | "trigger" | "condition" | "confirm" | "review" | "prompt" | "router" | "hrd";
+export type Kind = DirectoryKind | AgentKind | `robot-${string}` | "trigger" | "condition" | "confirm" | "review" | "prompt" | "router" | "hrd" | "custom-agent";
 export type Step = {id:string, kind:Kind, name:string, x:number, y:number, field:Field, operator:"filled"|"empty"|"equals", value:string, message:string};
 export type Port = "out" | "yes" | "no";
 export type Edge = {from:string, port:Port, to:string};
 export type Graph = {id:string, name:string, revision:number, nodes:Step[], edges:Edge[]};
-export const baseLabels = {trigger:"Formulir masuk",condition:"Kondisi",confirm:"Kirim konfirmasi",review:"Tandai untuk review",prompt:"Agent prompt",router:"Pembagi tugas",hrd:"Agent HRD"};
+export const baseLabels = {trigger:"Formulir masuk",condition:"Kondisi",confirm:"Kirim konfirmasi",review:"Tandai untuk review",prompt:"Agent prompt",router:"Pembagi tugas",hrd:"Agent HRD","custom-agent":"Agent baru"};
 export function label(kind:Kind) { return directoryByKind.get(kind)?.name ?? pluginById.get(kind)?.name ?? agentByKind.get(kind)?.short ?? baseLabels[kind as keyof typeof baseLabels]; }
 export function branches(kind:Kind) { return kind==="condition" || !!pluginById.get(kind)?.check; }
 /** Agent dapat mendelegasikan ke beberapa langkah sekaligus, seperti atasan ke stafnya. */
-export function fansOut(kind:Kind) { return agentByKind.has(kind) || kind===routerKind; }
+export function fansOut(kind:Kind) { return agentByKind.has(kind) || kind===routerKind || kind===customAgentKind; }
 /** Label kolom catatan bila pemicu meminta formulir satu kolom (misalnya "Merk dan tipe mesin"). */
 export function singleField(g:Graph) { const t=g.nodes.find(n=>n.kind==="trigger"); return t?.field==="catatan"&&t.value.trim()?t.value.trim():""; }
 export function usesNotes(g:Graph) {
@@ -33,8 +33,9 @@ export function validate(g:Graph,run=false) {
   if(!g||!id(g.id)||typeof g.name!=="string"||!g.name.trim()||g.name.length>80||!Number.isInteger(g.revision)||g.revision<0||!Array.isArray(g.nodes)||!Array.isArray(g.edges)||g.nodes.length>80||g.edges.length>160) throw Error("Data workflow tidak valid.");
   const ids=new Set<string>();
   for(const n of g.nodes){
-    if(!id(n.id)||ids.has(n.id)||(!Object.hasOwn(baseLabels,n.kind)&&!pluginById.has(n.kind)&&!directoryByKind.has(n.kind)&&!agentByKind.has(n.kind))||!Number.isFinite(n.x)||!Number.isFinite(n.y)||typeof n.name!=="string"||!n.name.trim()||n.name.length>80||!Object.hasOwn(fieldLabels,n.field)||!["filled","empty","equals"].includes(n.operator)||typeof n.value!=="string"||n.value.length>400||typeof n.message!=="string"||n.message.length>(n.kind===promptKind?promptMax:1000)) throw Error("Periksa konfigurasi langkah.");
+    if(!id(n.id)||ids.has(n.id)||(!Object.hasOwn(baseLabels,n.kind)&&!pluginById.has(n.kind)&&!directoryByKind.has(n.kind)&&!agentByKind.has(n.kind))||!Number.isFinite(n.x)||!Number.isFinite(n.y)||typeof n.name!=="string"||!n.name.trim()||n.name.length>80||!Object.hasOwn(fieldLabels,n.field)||!["filled","empty","equals"].includes(n.operator)||typeof n.value!=="string"||n.value.length>400||typeof n.message!=="string"||n.message.length>(n.kind===promptKind?promptMax:n.kind===customAgentKind?2000:1000)) throw Error("Periksa konfigurasi langkah.");
     if(n.kind===customKind&&!validServer(n.value)) throw Error("Periksa URL HTTPS server MCP.");
+    if(n.kind===customAgentKind&&n.value&&!divisionByKey.has(n.value)) throw Error("Periksa divisi Agent baru.");
     ids.add(n.id);
   }
   const triggers=g.nodes.filter(n=>n.kind==="trigger");
@@ -93,6 +94,10 @@ export function execute(g:Graph,data:{email:string,nama:string,catatan?:string},
       const task=given?[given.join("; "),own].filter(Boolean).join(" — "):own;
       if(task) fields.hasil=task;
       detail="Diserahkan ke "+agent.name+": "+(task||agent.mission).slice(0,180);
+    } else if(n.kind===customAgentKind) {
+      const task=given?given.join("; "):(n.message.match(/^- (.+)$/m)?.[1]??n.name);
+      fields.hasil=task;
+      detail="Diserahkan ke "+n.name+" (agent baru): "+task.slice(0,180);
     } else if(n.kind===promptKind) {
       const prompt=renderMessage(n.message,fields).trim()||fields.catatan.trim();
       if(!prompt) throw Error(n.name+" — tulis prompt terlebih dahulu.");

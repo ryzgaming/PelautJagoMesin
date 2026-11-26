@@ -33,8 +33,12 @@ test('rekrut otomatis memasang agent di bawah Pembagi tugas lalu tugasnya dibagi
   assert.equal(hrdPlan(g,'hrd').hires.length, 0, 'tidak merekrut dua kali');
   const r = execute(g, {nama:'',email:'',catatan:''});
   assert.ok(r.trace.some(t => t.id === 'hrd-tax-compliance' && /pajak/.test(t.detail)));
-  assert.deepEqual(r.recruit.map(v => v.task), ['Masak makan siang untuk kru']);
-  assert.match(r.trace.find(t => t.id === 'hrd').detail, /Mencari 1 agent baru/);
+  assert.deepEqual(r.recruit, [], 'lowongan sudah menjadi Agent baru');
+  assert.match(r.trace.find(t => t.id === 'hrd').detail, /Semua tugas sudah punya agent/);
+  // Tanpa rekrut otomatis, waktu dijalankan HRD tetap melaporkan agent yang dicari.
+  const raw = execute(graph(prompt), {nama:'',email:'',catatan:''});
+  assert.deepEqual(raw.recruit.map(v => v.task), ['Masak makan siang untuk kru']);
+  assert.match(raw.trace.find(t => t.id === 'hrd').detail, /Mencari 1 agent baru/);
 });
 
 test('mode manual tidak menambah agent kecuali diminta', () => {
@@ -54,4 +58,35 @@ test('agent yang sudah ada di bagan disambungkan, bukan digandakan', () => {
 test('profil lowongan menebak divisi dari kata petunjuk', () => {
   assert.equal(vacancy('Buat kampanye TikTok untuk alumni').division, 'Growth & Marketing');
   assert.equal(vacancy('Masak nasi goreng').division, 'Belum ditentukan');
+});
+
+test('lowongan otomatis menjadi Agent baru yang menerima tugasnya', () => {
+  const {graph:g, added, created} = applyHiring(graph(prompt));
+  assert.deepEqual(added, ['Tax & Compliance','Performance Ads']);
+  assert.equal(created.length, 1);
+  const made = g.nodes.find(n => n.kind === 'custom-agent');
+  assert.equal(made.name, created[0]);
+  assert.match(made.message, /^Misi: /);
+  assert.match(made.message, /^- Masak makan siang untuk kru$/m);
+  assert.ok(g.edges.some(e => e.from === 'router' && e.to === made.id));
+  validate(g, true);
+  const plan = hrdPlan(g, 'hrd');
+  assert.equal(plan.vacancies.length, 0, 'tidak ada lowongan tersisa');
+  assert.equal(applyHiring(g).created.length, 0, 'tidak membuat dua kali');
+  const r = execute(g, {nama:'',email:'',catatan:''});
+  assert.deepEqual(r.warnings, []);
+  assert.match(r.trace.find(t => t.id === made.id).detail, /agent baru.*Masak makan siang/);
+});
+
+test('Agent baru tidak merebut tugas lain lewat baris aturan dan atasan', () => {
+  const {graph:g} = applyHiring(graph(prompt + '\nCatat setiap halaman dokumen sumber'));
+  const made = g.nodes.filter(n => n.kind === 'custom-agent');
+  const r = execute(g, {nama:'',email:'',catatan:''});
+  for (const m of made) assert.ok(!/halaman dokumen/.test(r.trace.find(t => t.id === m.id)?.detail ?? '') || /^Spesialis Halaman/.test(m.name), m.name);
+});
+
+test('divisi Agent baru harus dikenal', () => {
+  const {graph:g} = applyHiring(graph(prompt));
+  g.nodes.find(n => n.kind === 'custom-agent').value = 'bukan-divisi';
+  assert.throws(() => validate(g), /divisi Agent baru/);
 });

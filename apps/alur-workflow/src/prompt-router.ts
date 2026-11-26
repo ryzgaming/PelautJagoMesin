@@ -7,6 +7,10 @@ import {pluginById} from "./plugins.ts";
 export const promptKind = "prompt";
 export const routerKind = "router";
 export const hrdKind = "hrd";
+/** Agent baru buatan Agent HRD (atau pengguna); kartu perannya tersimpan di pesan langkah. */
+export const customAgentKind = "custom-agent";
+/** Bagian kartu Agent baru yang dipakai untuk mencocokkan tugas (tanpa atasan dan aturan umum). */
+export function customAgentProfile(message:string) { return message.split(/\n\s*(?:Melapor ke|Aturan)\s*:/)[0]; }
 /** Batas panjang prompt di Agent prompt (karakter). Cukup untuk menempelkan prompt besar. */
 export const promptMax = 50000;
 /** Batas jumlah tugas yang dibagikan dari satu prompt. */
@@ -68,7 +72,7 @@ const threshold = 1.5;
 function describe(n:Node) {
   const agent = agentByKind.get(n.kind);
   const strong = [n.name, agent?.name ?? "", agent?.short ?? ""].join(" ");
-  const body = [n.message, agent ? profile(agent) : "", directoryByKind.get(n.kind)?.help ?? "", pluginById.get(n.kind)?.help ?? ""].join(" ");
+  const body = [n.kind === customAgentKind ? customAgentProfile(n.message) : n.message, agent ? profile(agent) : "", directoryByKind.get(n.kind)?.help ?? "", pluginById.get(n.kind)?.help ?? ""].join(" ");
   const key = n.kind + "\u0000" + n.name + "\u0000" + n.message, cached = profiles.get(key);
   if (cached) return {...cached, id:n.id};
   const made = {id:n.id, label:[n.name, agent?.name, agent?.short].filter((s):s is string => !!s && s.length >= 4).map(s => s.toLocaleLowerCase("id")), strong:bag(strong), body:bag(body)};
@@ -152,7 +156,7 @@ export function hrdRouters(g:G, id:string) {
 /** Peringatan merah per langkah untuk editor: tugas di Agent prompt yang tidak cocok dengan agent mana pun. */
 export function promptWarnings(g:G) {
   const out:Record<string,{unmatched:string[], note:string, routing:Routing|null, dropped:string[]}> = {};
-  const allAgents = g.nodes.filter(n => agentByKind.has(n.kind));
+  const allAgents = g.nodes.filter(n => agentByKind.has(n.kind) || n.kind === customAgentKind);
   for (const n of g.nodes) {
     if (n.kind === routerKind) {
       const targets = routerTargets(g, n.id);

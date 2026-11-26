@@ -1,0 +1,110 @@
+// Agent HRD: melengkapi bagan dengan agent Orang Mesin yang dibutuhkan prompt, dan membuka
+// lowongan (beserta profil agent yang dicari) bila tidak ada satu pun agent yang sanggup.
+import {accuracyStandards,agentKind,agents,divisions,type Agent,type Division} from "./organization.ts";
+import {hrdKind,hrdRouters,routePrompt,routerTargets,splitPrompt,upstreamPrompts,variantsOf,verbs,weight,words,type Link,type Node} from "./prompt-router.ts";
+
+type G = {nodes:Node[], edges:Link[]};
+export type Vacancy = {task:string, title:string, division:string, reportsTo:string, summary:string, skills:string[], duties:string[], rules:string[]};
+export type Hire = {agent:Agent, tasks:string[], existing?:string};
+export type HrdPlan = {routers:Node[], hires:Hire[], vacancies:Vacancy[], note:string, auto:boolean};
+
+const orgNodes = agents.map(a => ({id:a.id, kind:agentKind(a), name:a.short, message:""}));
+// Kata petunjuk divisi; bila tidak ada, divisi ditebak dari kartu peran yang paling mirip.
+const hints:Record<string,string> = Object.fromEntries(Object.entries({
+  growth:"iklan promosi pemasaran marketing konten video sosial media facebook instagram tiktok youtube seo kampanye brand merek logo",
+  sales:"jual penjualan klien prospek kemitraan mitra proposal tender b2b perusahaan",
+  cs:"pelanggan keluhan dukungan komunitas refund siswa pelajar member",
+  finance:"pajak keuangan biaya anggaran gaji kontrak hukum legal vendor rekrut kru tiket perjalanan pembelian akuntansi faktur",
+  produk:"aplikasi website situs kode server database 3d model animasi ui fitur",
+  kurikulum:"manual materi modul kurikulum pelajaran kuis teknis kapal mesin",
+  qa:"audit keamanan kualitas bug pengujian",
+  eksekutif:"strategi rencana laporan prioritas okr data dashboard",
+}).flatMap(([key, list]) => list.split(" ").map(w => [w, key])));
+const title = (w:string) => w.length <= 3 && /\d/.test(w) ? w.toUpperCase() : w[0].toLocaleUpperCase("id") + w.slice(1);
+
+function divisionFor(task:string):{division:Division|null, strength:number} {
+  let best:Division|null = null, strength = 0;
+  const terms = words(task), votes = new Map<string,number>();
+  for (const w of terms) if (hints[w] && !verbs.has(w)) votes.set(hints[w], (votes.get(hints[w]) ?? 0) + 1);
+  const voted = [...votes].sort((a, b) => b[1] - a[1])[0];
+  if (voted) return {division: divisions.find(d => d.key === voted[0]) ?? null, strength: voted[1] * 10};
+  for (const d of divisions) for (const a of agents.filter(x => x.division === d.key)) {
+    const body = new Set(words([a.name, a.mission, ...a.tasks, ...a.outputs].join(" ")).flatMap(variantsOf));
+    const value = terms.filter(w => !verbs.has(w)).reduce((sum, w) => sum + (variantsOf(w).some(v => body.has(v)) ? weight(w) : 0), 0);
+    if (value > strength) { strength = value; best = d; }
+  }
+  return {division: strength >= 1 ? best : null, strength};
+}
+
+/** Profil agent yang perlu direkrut untuk tugas yang belum bisa dikerjakan siapa pun. */
+export function vacancy(task:string):Vacancy {
+  const first = task.trim().split(/\s+/)[0]?.toLocaleLowerCase("id") ?? "";
+  const topic = words(task).filter((w, i) => !(i === 0 && w === first && (verbs.has(w) || /kan$/.test(w))));
+  const name = "Spesialis " + (topic.slice(0, 2).map(title).join(" ") || "Tugas Baru");
+  const {division} = divisionFor(task);
+  const lead = division && agents.find(a => a.division === division.key && a.lead);
+  const reportsTo = lead ? lead.name : "Orchestrator (Chief of Staff)";
+  const where = division ? "di divisi " + division.name : "di divisi yang belum ditentukan (diputuskan Orchestrator bersama pemilik)";
+  return {task, title:name, division:division?.name ?? "Belum ditentukan", reportsTo,
+    summary:"Dibutuhkan agent " + name + " " + where + " yang mampu: " + task.charAt(0).toLocaleLowerCase("id") + task.slice(1) + ". Melapor ke " + reportsTo + ".",
+    skills:topic.slice(0, 5).map(title),
+    duties:["Mengerjakan: " + task, "Menyerahkan hasil beserta sumbernya ke " + reportsTo, "Melaporkan celah data, bukan menebak"],
+    rules:[accuracyStandards[0], ...(division ? ["Dilarang: " + division.forbidden[0].charAt(0).toLocaleLowerCase("id") + division.forbidden[0].slice(1)] : [])]};
+}
+
+/** Tinjau prompt terhadap agent yang sudah ada: siapa yang harus direkrut dari organisasi, dan lowongan apa yang dibuka. */
+export function review(text:string, targets:Node[], present:Node[] = []) {
+  const {unmatched} = routePrompt(text, targets);
+  const hires = new Map<string,Hire>(), vacancies:Vacancy[] = [];
+  for (const task of unmatched) {
+    const id = routePrompt(task, orgNodes, 1, true).tasks[0]?.targets[0];
+    const agent = id ? agents.find(a => a.id === id) : undefined;
+    if (!agent) { vacancies.push(vacancy(task)); continue; }
+    const hire = hires.get(agent.id) ?? {agent, tasks:[], existing:present.find(n => n.kind === agentKind(agent))?.id};
+    hire.tasks.push(task); hires.set(agent.id, hire);
+  }
+  return {hires:[...hires.values()], vacancies};
+}
+
+export function hrdPlan(g:G, id:string):HrdPlan {
+  const node = g.nodes.find(n => n.id === id)!;
+  const routers = hrdRouters(g, id), prompts = upstreamPrompts(g, id);
+  const text = prompts.map(p => p.message).join("\n");
+  const auto = (node as Node & {value?:string}).value !== "manual";
+  if (!prompts.length) return {routers, hires:[], vacancies:[], auto, note:"Sambungkan Agent HRD setelah Agent prompt agar bisa membaca kebutuhan prompt."};
+  if (!routers.length) return {routers, hires:[], vacancies:[], auto, note:"Sambungkan Agent HRD ke Pembagi tugas; agent baru akan dipasang di bawah Pembagi tugas."};
+  if (!splitPrompt(text).length) return {routers, hires:[], vacancies:[], auto, note:"Prompt masih kosong."};
+  const targets = routers.flatMap(r => routerTargets(g, r.id));
+  return {routers, ...review(text, targets, g.nodes.filter(n => !targets.some(t => t.id === n.id))), auto, note:""};
+}
+export function hrdPlans(g:G) {
+  return Object.fromEntries(g.nodes.filter(n => n.kind === hrdKind).map(n => [n.id, hrdPlan(g, n.id)])) as Record<string,HrdPlan>;
+}
+
+type Full = {nodes:(Node & {x:number, y:number})[], edges:(Link & {port:string})[]};
+/** Pasang agent yang dibutuhkan di bawah Pembagi tugas. Tanpa `only`, hanya Agent HRD dengan rekrut otomatis yang dijalankan. */
+export function applyHiring<T extends Full>(g:T, only?:string):{graph:T, added:string[]} {
+  let graph = g; const added:string[] = [];
+  for (const [id, plan] of Object.entries(hrdPlans(g))) {
+    if ((only ? id !== only : !plan.auto) || !plan.hires.length) continue;
+    const router = graph.nodes.find(n => n.id === plan.routers[0].id)!;
+    const nodes = [...graph.nodes], edges = [...graph.edges];
+    const kids = edges.filter(e => e.from === router.id).map(e => nodes.find(n => n.id === e.to)!).filter(Boolean);
+    let y = kids.length ? Math.max(...kids.map(n => n.y)) + 110 : router.y;
+    const x = kids.length ? kids[0].x : router.x + 300;
+    for (const hire of plan.hires) {
+      if (nodes.length >= 80) break;
+      let target = hire.existing;
+      if (!target) {
+        target = "hrd-" + hire.agent.id;
+        while (nodes.some(n => n.id === target)) target += "-1";
+        nodes.push({kind:agentKind(hire.agent), id:target, x, y, name:hire.agent.short, field:"email", operator:"filled", value:"", message:""} as T["nodes"][number]);
+        y += 110;
+      }
+      if (!edges.some(e => e.from === router.id && e.to === target)) edges.push({from:router.id, port:"out", to:target} as T["edges"][number]);
+      added.push(hire.agent.short);
+    }
+    graph = {...graph, nodes, edges};
+  }
+  return {graph, added};
+}

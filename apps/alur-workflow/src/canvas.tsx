@@ -1,16 +1,18 @@
 "use client";
 import {useEffect,useState,useRef,type PointerEvent as PE,type ReactNode} from "react";
 import {type Badge} from "./production-status";
-import {Zap,GitBranch,Mail,ClipboardList,Plus,Minus,Scan,MousePointer2,Hand,Layers,Check,X,Bot,Type,ListChecks,Calculator,Gauge,Plug,Puzzle,Compass,BookOpenCheck,Boxes,ShieldCheck,Megaphone,Handshake,Headset,Landmark,Users} from "lucide-react";
+import {Zap,GitBranch,Mail,ClipboardList,Plus,Minus,Scan,MousePointer2,Hand,Layers,Check,X,Bot,Type,ListChecks,Calculator,Gauge,Plug,Puzzle,Compass,BookOpenCheck,Boxes,ShieldCheck,Megaphone,Handshake,Headset,Landmark,Users,MessageSquareText,Split,TriangleAlert,UserSearch} from "lucide-react";
 import {type Graph,type Kind,type Step,type Port,validate,branches,fansOut} from "./flow";
 import {pluginById} from "./plugins";
 import {directoryByKind} from "./directory";
 import {agentByKind,divisionByKey,type DivisionKey} from "./organization";
+import {promptWarnings} from "./prompt-router";
+import {hrdPlans} from "./hrd";
 const divisionIcons:Record<DivisionKey,typeof Zap>={eksekutif:Compass,kurikulum:BookOpenCheck,produk:Boxes,qa:ShieldCheck,growth:Megaphone,sales:Handshake,cs:Headset,finance:Landmark};
 function agentLabel(kind:Kind){const agent=agentByKind.get(kind);return agent&&divisionByKey.get(agent.division)!.short+(agent.lead?" · Lead":"")+" · Fase "+agent.phase;}
-const icons={trigger:Zap,condition:GitBranch,confirm:Mail,review:ClipboardList};
-const categories={trigger:"Pemicu",condition:"Logika",confirm:"Aksi",review:"Aksi"};
-const types={trigger:"Pemicu formulir",condition:"Percabangan",confirm:"Konfirmasi formulir",review:"Antrean review"};
+const icons={trigger:Zap,condition:GitBranch,confirm:Mail,review:ClipboardList,prompt:MessageSquareText,router:Split,hrd:UserSearch};
+const categories={trigger:"Pemicu",condition:"Logika",confirm:"Aksi",review:"Aksi",prompt:"Agen · Penerima prompt",router:"Agen · Pembagi tugas",hrd:"Agen · Rekrutmen"};
+const types={trigger:"Pemicu formulir",condition:"Percabangan",confirm:"Konfirmasi formulir",review:"Antrean review",prompt:"Penerima prompt",router:"Pembagi tugas",hrd:"Rekrutmen agent"};
 const groupIcons = {"Teks":Type,"Daftar":ListChecks,"Pemeriksaan":GitBranch,"Angka":Calculator,"Satuan mesin":Gauge,"Robot laporan":Bot};
 export function typeName(kind:Kind) { const agent=agentByKind.get(kind); return directoryByKind.get(kind)?.group ?? pluginById.get(kind)?.group ?? (agent&&divisionByKey.get(agent.division)!.name) ?? types[kind as keyof typeof types]; }
 function theme(kind:Kind) { const agent=agentByKind.get(kind); if(agent) return "agent div-"+agent.division; return directoryByKind.has(kind) ? "robot" : pluginById.has(kind) ? (branches(kind)?"condition":"robot") : kind; }
@@ -54,6 +56,7 @@ export function Canvas({g,select,selected,update,add,notify,trace,organization,b
  function connect(to:string,source=wire){if(!source)return;const many=fansOut(g.nodes.find(n=>n.id===source.from)?.kind??"trigger");const graph={...g,edges:[...g.edges.filter(e=>!(e.from===source.from&&e.port===source.port&&(!many||e.to===to))),{...source,to}]};
  try{validate(graph);update(graph);notify("Langkah terhubung.");W(null)}catch(e){notify((e as Error).message);W(null)}}
  const offset=(p:Port)=>p==="yes"?31:p==="no"?63:47;
+ const warnings=promptWarnings(g),hiring=hrdPlans(g);
  return <div className={'canvas'+(hand?' hand':'')} ref={area} onMouseDown={e=>{if(e.button===1)e.preventDefault()}} onPointerDown={e=>start(e,null)} onPointerMove={move} onPointerUp={end} onPointerCancel={()=>{drag.current=null}}>
  <div className="canvas-tools" onPointerDown={e=>e.stopPropagation()}><button className="secondary add" onClick={add}><Plus size={17}/> Langkah</button>{organization&&<button className="secondary add org-button" title="Template dan workflow saya" aria-label="Template dan workflow saya" onClick={organization}><Users size={17}/><span>Template</span></button>}{monitor}<div className="toolgroup"><button className={!hand?'active':''} title="Pilih langkah" aria-label="Pilih langkah" onClick={()=>H(false)}><MousePointer2 size={16}/></button><button className={hand?'active':''} title="Geser kanvas" aria-label="Geser kanvas" onClick={()=>H(true)}><Hand size={16}/></button></div></div>
  {wire&&<div className="wirehint" onPointerDown={e=>e.stopPropagation()}>Pilih titik masuk pada langkah tujuan.<button onClick={()=>W(null)} aria-label="Batalkan sambungan"><X size={15}/></button></div>}
@@ -61,9 +64,9 @@ export function Canvas({g,select,selected,update,add,notify,trace,organization,b
  <svg className="lines" aria-hidden="true">{g.edges.map(e=>{const a=g.nodes.find(n=>n.id===e.from),b=g.nodes.find(n=>n.id===e.to);if(!a||!b)return null;
  const x=a.x+218,y=a.y+offset(e.port),ex=b.x,ey=b.y+47,m=Math.max(40,Math.abs(ex-x)*.55),mid=(x+ex)/2,my=(y+ey)/2,yes=e.port==="yes";
  return <g key={e.from+e.port+e.to}><path className={trace.includes(a.id)&&trace.includes(b.id)?"lit":""} d={'M '+x+' '+y+' C '+(x+m)+' '+y+', '+(ex-m)+' '+ey+', '+ex+' '+ey}/>{e.port!=="out"&&<g transform={'translate('+mid+' '+my+')'}><rect x={yes?-16:-23} y="-11" width={yes?32:46} height="22" rx="9"/><text y="4" textAnchor="middle">{yes?"Ya":"Tidak"}</text></g>}</g>})}</svg>
- {g.nodes.map(n=><div key={n.id} role="button" tabIndex={0} aria-label={n.name} className={['node',theme(n.kind),selected===n.id?'selected':'',trace.includes(n.id)?'executed':''].join(' ')} style={{left:n.x,top:n.y}} onKeyDown={e=>{if(e.target===e.currentTarget&&e.key==="Enter")select(n.id)}} onPointerDown={e=>{e.stopPropagation();start(e,n.id)}}>
+ {g.nodes.map(n=><div key={n.id} role="button" tabIndex={0} aria-label={n.name} className={['node',theme(n.kind),selected===n.id?'selected':'',trace.includes(n.id)?'executed':'',warnings[n.id]?.unmatched.length||warnings[n.id]?.note||hiring[n.id]?.vacancies.length?'warned':''].join(' ')} style={{left:n.x,top:n.y}} onKeyDown={e=>{if(e.target===e.currentTarget&&e.key==="Enter")select(n.id)}} onPointerDown={e=>{e.stopPropagation();start(e,n.id)}}>
  <div className="node-inner"><Mark kind={n.kind}/><div><small>{directoryByKind.get(n.kind)?.group ?? pluginById.get(n.kind)?.group ?? agentLabel(n.kind) ?? categories[n.kind as keyof typeof categories]}</small><strong>{n.name}</strong></div></div>
- {trace.includes(n.id)&&<span className="ran"><Check size={12}/></span>}{badges?.[n.id]&&<span className={"job-badge "+badges[n.id].tone}>{badges[n.id].label}</span>}
+ {trace.includes(n.id)&&<span className="ran"><Check size={12}/></span>}{badges?.[n.id]?<span className={"job-badge "+badges[n.id].tone}>{badges[n.id].label}</span>:warnings[n.id]?.unmatched.length?<span className="job-badge failed prompt-warn" title={warnings[n.id].unmatched.join("\n")}><TriangleAlert size={11}/>{warnings[n.id].unmatched.length} tugas tidak cocok</span>:hiring[n.id]?.vacancies.length?<span className="job-badge failed prompt-warn" title={hiring[n.id].vacancies.map(v=>v.summary).join("\n")}><UserSearch size={11}/>Mencari {hiring[n.id].vacancies.length} agent</span>:hiring[n.id]?.hires.length?<span className="job-badge warn prompt-hire" title={hiring[n.id].hires.map(h=>h.agent.name).join("\n")}><UserSearch size={11}/>{hiring[n.id].hires.length} agent siap direkrut</span>:warnings[n.id]?.note&&n.kind==="router"?<span className="job-badge failed prompt-warn" title={warnings[n.id].note}><TriangleAlert size={11}/>Belum ada agent</span>:null}
  {n.kind!=="trigger"&&<button className={'socket inlet'+(wire?' target':'')} data-in={n.id} aria-label={'Hubungkan ke '+n.name} onPointerDown={e=>e.stopPropagation()} onClick={()=>wire?connect(n.id):notify("Pilih titik keluar langkah asal terlebih dahulu.")}/>}
  {(branches(n.kind)?["yes","no"]:["out"]).map(p=><button key={p} className={'socket outlet'+(wire?.from===n.id&&wire?.port===p?' armed':'')} aria-label={'Sambungkan '+n.name+' '+p} style={{top:offset(p as Port)}} onPointerDown={e=>{e.stopPropagation();W({from:n.id,port:p as Port});e.currentTarget.setPointerCapture(e.pointerId)}} onPointerUp={e=>{e.stopPropagation();const t=document.elementFromPoint(e.clientX,e.clientY)?.closest('[data-in]')?.getAttribute('data-in');if(t)connect(t,{from:n.id,port:p as Port})}} onClick={e=>{if(e.detail===0)W({from:n.id,port:p as Port})}}/>)}
  </div>)}</div>

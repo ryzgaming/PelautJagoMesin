@@ -2,20 +2,22 @@ import {fieldLabels, pluginById, renderMessage, type Field, type RunFields} from
 
 import {customKind,directoryByKind,validServer,type DirectoryKind} from "./directory.ts";
 import {agentByKind,type AgentKind} from "./organization.ts";
-export type Kind = DirectoryKind | AgentKind | `robot-${string}` | "trigger" | "condition" | "confirm" | "review";
+import {hrdKind,promptKind,routerKind,routePrompt,routerTargets,hrdRouters} from "./prompt-router.ts";
+import {review as hrdReview,type Vacancy} from "./hrd.ts";
+export type Kind = DirectoryKind | AgentKind | `robot-${string}` | "trigger" | "condition" | "confirm" | "review" | "prompt" | "router" | "hrd";
 export type Step = {id:string, kind:Kind, name:string, x:number, y:number, field:Field, operator:"filled"|"empty"|"equals", value:string, message:string};
 export type Port = "out" | "yes" | "no";
 export type Edge = {from:string, port:Port, to:string};
 export type Graph = {id:string, name:string, revision:number, nodes:Step[], edges:Edge[]};
-export const baseLabels = {trigger:"Formulir masuk",condition:"Kondisi",confirm:"Kirim konfirmasi",review:"Tandai untuk review"};
+export const baseLabels = {trigger:"Formulir masuk",condition:"Kondisi",confirm:"Kirim konfirmasi",review:"Tandai untuk review",prompt:"Agent prompt",router:"Pembagi tugas",hrd:"Agent HRD"};
 export function label(kind:Kind) { return directoryByKind.get(kind)?.name ?? pluginById.get(kind)?.name ?? agentByKind.get(kind)?.short ?? baseLabels[kind as keyof typeof baseLabels]; }
 export function branches(kind:Kind) { return kind==="condition" || !!pluginById.get(kind)?.check; }
 /** Agent dapat mendelegasikan ke beberapa langkah sekaligus, seperti atasan ke stafnya. */
-export function fansOut(kind:Kind) { return agentByKind.has(kind); }
+export function fansOut(kind:Kind) { return agentByKind.has(kind) || kind===routerKind; }
 /** Label kolom catatan bila pemicu meminta formulir satu kolom (misalnya "Merk dan tipe mesin"). */
 export function singleField(g:Graph) { const t=g.nodes.find(n=>n.kind==="trigger"); return t?.field==="catatan"&&t.value.trim()?t.value.trim():""; }
 export function usesNotes(g:Graph) {
-  return g.nodes.some(n => (n.kind!=="trigger"&&n.field==="catatan") || n.message.includes("{catatan}")) || !!singleField(g);
+  return g.nodes.some(n => (n.kind!=="trigger"&&n.field==="catatan") || n.message.includes("{catatan}") || (n.kind===promptKind&&!n.message.trim())) || !!singleField(g);
 }
 export function step(kind:Kind,id:string,x:number,y:number):Step {
   const plugin=pluginById.get(kind);
@@ -64,19 +66,22 @@ export function execute(g:Graph,data:{email:string,nama:string,catatan?:string},
   validate(g,true);
   const fields: RunFields={nama:data.nama,email:data.email,catatan:data.catatan??"",hasil:""};
   const stack:Step[]=[g.nodes.find(n=>n.kind==="trigger")!], done=new Set<string>();
-  const trace:{id:string,name:string,detail:string}[]=[];
+  const trace:{id:string,name:string,detail:string}[]=[], warnings:string[]=[], recruit:Vacancy[]=[], hires:string[]=[];
+  const assigned=new Map<string,string[]>();
   let confirmation="", review="";
   while(stack.length) {
     const n=stack.pop()!;
     if(done.has(n.id)) continue;
     done.add(n.id);
-    let port:Port="out",detail="Formulir diterima";
+    let port:Port="out",detail="Formulir diterima",only:Set<string>|null=null;
+    const given=assigned.get(n.id);
+    if(given) fields.hasil=given.join("\n");
     const entry=directoryByKind.get(n.kind);
     if(entry) {
       if(!Object.hasOwn(answers,n.id)) {
         const pending:ConnectorRequest={id:n.id,kind:n.kind,name:n.name,server:n.kind===customKind?n.value:entry.server,
-          task:renderMessage(n.message,fields),openUrl:entry.openUrl,source:entry.source};
-        return {trace,confirmation,review,hasil:fields.hasil,pending};
+          task:renderMessage(n.message,fields)||(given?given.join("\n"):""),openUrl:entry.openUrl,source:entry.source};
+        return {trace,confirmation,review,hasil:fields.hasil,warnings,recruit,hires,pending};
       }
       const answer=answers[n.id];
       if(typeof answer!=="string"||!answer.trim()||answer.length>8000) throw Error("Hasil konektor harus berisi 1–8.000 karakter.");
@@ -84,9 +89,32 @@ export function execute(g:Graph,data:{email:string,nama:string,catatan?:string},
       detail="Hasil diteruskan: "+answer.slice(0,180);
     } else if(agentByKind.has(n.kind)) {
       const agent=agentByKind.get(n.kind)!;
-      const task=renderMessage(n.message,fields).trim();
+      const own=renderMessage(n.message,fields).trim();
+      const task=given?[given.join("; "),own].filter(Boolean).join(" — "):own;
       if(task) fields.hasil=task;
       detail="Diserahkan ke "+agent.name+": "+(task||agent.mission).slice(0,180);
+    } else if(n.kind===promptKind) {
+      const prompt=renderMessage(n.message,fields).trim()||fields.catatan.trim();
+      if(!prompt) throw Error(n.name+" — tulis prompt terlebih dahulu.");
+      if(prompt.length>8000) throw Error(n.name+" — prompt melebihi 8.000 karakter.");
+      fields.hasil=prompt;
+      detail="Prompt diterima: "+prompt.slice(0,180);
+    } else if(n.kind===hrdKind) {
+      const routers=hrdRouters(g,n.id);
+      const targets=routers.flatMap(r=>routerTargets(g,r.id));
+      const r=hrdReview(fields.hasil||fields.catatan,targets,g.nodes.filter(x=>!targets.some(t=>t.id===x.id)));
+      for(const h of r.hires) if(!hires.includes(h.agent.short)) hires.push(h.agent.short);
+      for(const v of r.vacancies) if(!recruit.some(x=>x.task===v.task)) recruit.push(v);
+      detail=!routers.length?"Belum tersambung ke Pembagi tugas":!r.hires.length&&!r.vacancies.length?"Semua tugas sudah punya agent":
+        [r.hires.length?"Perlu ditambahkan ke bagan: "+r.hires.map(h=>h.agent.short).join(", "):"",r.vacancies.length?"Mencari "+r.vacancies.length+" agent baru: "+r.vacancies.map(v=>v.title).join(", "):""].filter(Boolean).join(" · ");
+    } else if(n.kind===routerKind) {
+      const targets=routerTargets(g,n.id);
+      if(!targets.length) throw Error(n.name+" — hubungkan ke setidaknya satu agent pelaksana.");
+      const routing=routePrompt(fields.hasil||fields.catatan,targets);
+      for(const a of routing.tasks) for(const id of a.targets) assigned.set(id,[...(assigned.get(id)??[]),a.task]);
+      for(const t of routing.unmatched) warnings.push("Tidak ada agent yang cocok untuk: "+t);
+      only=new Set(routing.tasks.flatMap(a=>a.targets));
+      detail=routing.tasks.length+" tugas dibagikan ke "+only.size+" agent"+(routing.unmatched.length?" · "+routing.unmatched.length+" tidak cocok":"");
     } else if(n.kind==="condition") {
       const v=fields[n.field].trim();
       const ok=n.operator==="filled"?!!v:n.operator==="empty"?!v:v===n.value;
@@ -109,8 +137,8 @@ export function execute(g:Graph,data:{email:string,nama:string,catatan?:string},
       } catch(error) { throw Error(n.name+" — "+(error as Error).message); }
     }
     trace.push({id:n.id,name:n.name,detail});
-    const next=g.edges.filter(e=>e.from===n.id&&e.port===port).slice(0,fansOut(n.kind)?undefined:1);
+    const next=g.edges.filter(e=>e.from===n.id&&e.port===port&&(!only||only.has(e.to))).slice(0,fansOut(n.kind)?undefined:1);
     for(const e of next.reverse()) { const s=g.nodes.find(x=>x.id===e.to); if(s) stack.push(s); }
   }
-  return {trace,confirmation,review,hasil:fields.hasil,pending:null};
+  return {trace,confirmation,review,hasil:fields.hasil,warnings,recruit,hires,pending:null};
 }

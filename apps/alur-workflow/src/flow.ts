@@ -13,8 +13,6 @@ export type Graph = {id:string, name:string, revision:number, nodes:Step[], edge
 export const baseLabels = {trigger:"Formulir masuk",condition:"Kondisi",confirm:"Kirim konfirmasi",review:"Tandai untuk review",prompt:"Agent prompt",router:"Pembagi tugas",hrd:"Agent HRD",struktur:"Agent Struktur","custom-agent":"Agent baru"};
 export function label(kind:Kind) { return directoryByKind.get(kind)?.name ?? pluginById.get(kind)?.name ?? agentByKind.get(kind)?.short ?? baseLabels[kind as keyof typeof baseLabels]; }
 export function branches(kind:Kind) { return kind==="condition" || !!pluginById.get(kind)?.check; }
-/** Agent dapat mendelegasikan ke beberapa langkah sekaligus, seperti atasan ke stafnya. */
-export function fansOut(kind:Kind) { return agentByKind.has(kind) || kind===routerKind || kind===customAgentKind; }
 /** Label kolom catatan bila pemicu meminta formulir satu kolom (misalnya "Merk dan tipe mesin"). */
 export function singleField(g:Graph) { const t=g.nodes.find(n=>n.kind==="trigger"); return t?.field==="catatan"&&t.value.trim()?t.value.trim():""; }
 export function usesNotes(g:Graph) {
@@ -44,7 +42,7 @@ export function validate(g:Graph,run=false) {
   const ports=new Set<string>();
   for(const e of g.edges) {
     const n=g.nodes.find(x=>x.id===e.from);
-    const key=e.from+"/"+e.port+(n&&fansOut(n.kind)?"/"+e.to:"");
+    const key=e.from+"/"+e.port+"/"+e.to;
     if(!n||!ids.has(e.to)||e.to===triggers[0].id||!(branches(n.kind)?["yes","no"]:["out"]).includes(e.port)||ports.has(key)) throw Error("Sambungan tidak valid.");
     ports.add(key);
   }
@@ -59,7 +57,7 @@ export function validate(g:Graph,run=false) {
   if(run && (seen.size!==g.nodes.length||g.nodes.length<2)) throw Error("Hubungkan semua langkah ke pemicu sebelum menjalankan alur.");
   for(const n of g.nodes) {
     walk(n.id);
-    if(run && branches(n.kind) && (!ports.has(n.id+"/yes")||!ports.has(n.id+"/no"))) throw Error("Hubungkan kedua cabang kondisi, Ya dan Tidak.");
+    if(run && branches(n.kind) && (!g.edges.some(e=>e.from===n.id&&e.port==="yes")||!g.edges.some(e=>e.from===n.id&&e.port==="no"))) throw Error("Hubungkan kedua cabang kondisi, Ya dan Tidak.");
   }
 }
 export type ConnectorRequest={id:string,kind:Kind,name:string,server?:string,task:string,openUrl:string,source:string};
@@ -68,7 +66,8 @@ export type Assignment={id:string,name:string,tasks:string[]};
 export function execute(g:Graph,data:{email:string,nama:string,catatan?:string},answers:ConnectorAnswers={}) {
   validate(g,true);
   const fields: RunFields={nama:data.nama,email:data.email,catatan:data.catatan??"",hasil:""};
-  const stack:Step[]=[g.nodes.find(n=>n.kind==="trigger")!], done=new Set<string>();
+  // Tiap langkah menerima hasil langkah sebelumnya; cabang bersaudara masing-masing mendapat hasil yang sama.
+  const stack:{n:Step,hasil:string}[]=[{n:g.nodes.find(n=>n.kind==="trigger")!,hasil:""}], done=new Set<string>();
   const trace:{id:string,name:string,detail:string}[]=[], warnings:string[]=[], rules:string[]=[], recruit:Vacancy[]=[], hires:string[]=[], prompts:string[]=[];
   const assigned=new Map<string,string[]>();
   // Struktur bercabang: anggota tim Pembagi tugas, dan yang aktif (punya tugas sendiri atau di cabangnya).
@@ -80,9 +79,10 @@ export function execute(g:Graph,data:{email:string,nama:string,catatan?:string},
   };
   let confirmation="", review="";
   while(stack.length) {
-    const n=stack.pop()!;
+    const {n,hasil}=stack.pop()!;
     if(done.has(n.id)) continue;
     done.add(n.id);
+    fields.hasil=hasil;
     let port:Port="out",detail="Formulir diterima",only:Set<string>|null=null;
     const given=assigned.get(n.id);
     if(given) fields.hasil=given.join("\n");
@@ -162,8 +162,8 @@ export function execute(g:Graph,data:{email:string,nama:string,catatan?:string},
       } catch(error) { throw Error(n.name+" — "+(error as Error).message); }
     }
     trace.push({id:n.id,name:n.name,detail});
-    const next=g.edges.filter(e=>e.from===n.id&&e.port===port&&(!only||only.has(e.to))&&!(team.has(n.id)&&team.has(e.to)&&!active.has(e.to))).slice(0,fansOut(n.kind)?undefined:1);
-    for(const e of next.reverse()) { const s=g.nodes.find(x=>x.id===e.to); if(s) stack.push(s); }
+    const next=g.edges.filter(e=>e.from===n.id&&e.port===port&&(!only||only.has(e.to))&&!(team.has(n.id)&&team.has(e.to)&&!active.has(e.to)));
+    for(const e of next.reverse()) { const s=g.nodes.find(x=>x.id===e.to); if(s) stack.push({n:s,hasil:fields.hasil}); }
   }
   // Daftar lengkap tugas per agent untuk laporan uji (detail di jejak eksekusi dipotong).
   const assignments:Assignment[]=trace.filter(t=>assigned.has(t.id)).map(t=>({id:t.id,name:t.name,tasks:assigned.get(t.id)!}));

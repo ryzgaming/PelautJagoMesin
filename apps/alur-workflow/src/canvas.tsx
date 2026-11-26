@@ -2,7 +2,7 @@
 import {useEffect,useMemo,useState,useRef,type PointerEvent as PE,type ReactNode} from "react";
 import {type Badge} from "./production-status";
 import {Zap,GitBranch,Mail,ClipboardList,Plus,Minus,Scan,MousePointer2,Hand,Layers,Check,X,Bot,Type,ListChecks,Calculator,Gauge,Plug,Puzzle,Compass,BookOpenCheck,Boxes,ShieldCheck,Megaphone,Handshake,Headset,Landmark,Users,MessageSquareText,Split,TriangleAlert,UserSearch,UserPlus,Network} from "lucide-react";
-import {type Graph,type Kind,type Step,type Port,validate,branches,fansOut} from "./flow";
+import {type Graph,type Kind,type Step,type Port,validate,branches} from "./flow";
 import {pluginById} from "./plugins";
 import {directoryByKind} from "./directory";
 import {agentByKind,divisionByKey,type DivisionKey} from "./organization";
@@ -53,7 +53,7 @@ export function Canvas({g,select,selected,update,add,notify,trace,organization,b
  function move(e:PE){const d=drag.current;if(!d)return;const dx=e.clientX-d.x,dy=e.clientY-d.y;if(Math.abs(dx)+Math.abs(dy)<4&&!d.moved)return;d.moved=true;
  if(!d.id)P({x:d.startX+dx,y:d.startY+dy});else update({...g,nodes:g.nodes.map(n=>n.id===d.id?{...n,x:d.startX+dx/scale,y:d.startY+dy/scale}:n)});}
  function end(){const d=drag.current;if(d?.id&&!d.moved)select(d.id);drag.current=null;}
- function connect(to:string,source=wire){if(!source)return;const many=fansOut(g.nodes.find(n=>n.id===source.from)?.kind??"trigger");const graph={...g,edges:[...g.edges.filter(e=>!(e.from===source.from&&e.port===source.port&&(!many||e.to===to))),{...source,to}]};
+ function connect(to:string,source=wire){if(!source)return;const graph={...g,edges:[...g.edges.filter(e=>!(e.from===source.from&&e.port===source.port&&e.to===to)),{...source,to}]};
  try{validate(graph);update(graph);notify("Langkah terhubung.");W(null)}catch(e){notify((e as Error).message);W(null)}}
  const offset=(p:Port)=>p==="yes"?31:p==="no"?63:47;
  // Dihitung ulang hanya saat bagan berubah, bukan saat kanvas digeser atau diperbesar.

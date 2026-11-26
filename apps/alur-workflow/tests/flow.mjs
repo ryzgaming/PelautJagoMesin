@@ -20,3 +20,15 @@ test('bagan boleh berisi sampai 300 langkah dan 600 sambungan', async () => {
   tooMany.edges = [];
   assert.throws(() => validate(tooMany), /tidak valid/);
 });
+
+test('langkah biasa dapat bercabang ke beberapa langkah; tiap cabang menerima hasil yang sama', async () => {
+  const {execute} = await import('../src/flow.ts');
+  const t = step('trigger','start',0,0), a = step('robot-watch','a',1,0), b = step('confirm','b',2,0), c = step('review','c',2,1), d = step('review','d',3,0);
+  a.message = 'Halo {nama}'; b.message = 'B: {hasil}'; c.message = 'C: {hasil}';
+  const g = {id:'cabang',name:'Cabang',revision:0,nodes:[t,a,b,c,d],edges:[{from:'start',port:'out',to:'a'},{from:'a',port:'out',to:'b'},{from:'a',port:'out',to:'c'},{from:'b',port:'out',to:'d'},{from:'c',port:'out',to:'d'}]};
+  validate(g, true);
+  const r = execute(g, {email:'a@b.co', nama:'Rina'});
+  assert.deepEqual(r.trace.map(x => x.id), ['start','a','b','d','c']);
+  assert.equal(r.confirmation, 'B: Halo Rina');
+  assert.equal(r.review, 'C: Halo Rina');
+});

@@ -47,3 +47,6 @@
 .vacancy{margin:0 0 12px;padding:12px 14px;border:1px solid #c54b4b;border-left-width:4px;background:#2a1418;border-radius:9px;font-size:13px;line-height:1.45;color:#ffc9c9}.vacancy h4{margin:0 0 4px;color:#ff6b6b;font-size:14px;display:flex;align-items:center;gap:6px}.vacancy p{margin:0 0 6px;color:#ffc9c9}.vacancy ul{margin:4px 0 0;padding-left:18px}.vacancy small{color:#ff9a9a;display:block;margin-top:6px}
 .hire-list{margin:0 0 16px;padding:0;list-style:none;font-size:13px}.hire-list li{padding:8px 0;border-bottom:1px solid var(--border)}.hire-list small{display:block;color:var(--muted)}
 .vacancy-head{font-size:13px;color:#ff6b6b;margin:6px 0 8px}
+.prompt-input{min-height:220px;max-height:60vh;font-size:14px}.prompt-count{display:block;margin:6px 0 4px;color:var(--muted);font-variant-numeric:tabular-nums}
+.prompt-count.full{color:#ff6b6b;font-weight:650}.prompt-warning blockquote{margin:6px 0;padding:6px 10px;border-left:3px solid #c54b4b;background:#1f0f12;color:#ffc9c9;white-space:pre-wrap;overflow-wrap:anywhere;max-height:120px;overflow:auto}.prompt-warning p+p{margin-top:6px}.warning-close{margin-left:auto;padding:2px;color:#ff8a8a}
+label>.prompt-warning{display:block;margin-top:8px;font-weight:500}

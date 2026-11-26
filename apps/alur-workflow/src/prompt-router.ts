@@ -7,6 +7,10 @@ import {pluginById} from "./plugins.ts";
 export const promptKind = "prompt";
 export const routerKind = "router";
 export const hrdKind = "hrd";
+/** Batas panjang prompt di Agent prompt (karakter). Cukup untuk menempelkan prompt besar. */
+export const promptMax = 50000;
+/** Batas jumlah tugas yang dibagikan dari satu prompt. */
+export const taskMax = 300;
 export type Node = {id:string, kind:string, name:string, message:string};
 export type Link = {from:string, to:string};
 type G = {nodes:Node[], edges:Link[]};
@@ -42,13 +46,17 @@ export function words(text:string) {
     .filter(w => (w.length >= 3 || /\d/.test(w)) && !stop.has(w) && !/^\d+$/.test(w)))];
 }
 
-/** Pecah prompt per baris, titik koma, atau kalimat; tanda butir dan nomor urut dibuang. */
-export function splitPrompt(text:string) {
+/** Pecah prompt per baris, titik koma, atau kalimat; tanda butir, nomor urut, judul Markdown, dan label bagian ("Konteks:") dibuang. */
+export function splitPrompt(text:string, limit = taskMax) {
   return text.split(/\r?\n|;|(?<=[.!?])\s+(?=[\p{Lu}\d])/u)
-    .map(t => t.replace(/^\s*(?:[-*•–]|\d+[.)]|[a-z][.)])\s*/u, "").replace(/[.!?]+$/, "").trim())
+    .filter(t => !/^\s*(?:#{1,6}\s|```|---+\s*$|===+\s*$)/.test(t) && !/:\s*$/.test(t))
+    .map(t => t.replace(/\*\*|__|`/g, "").replace(/^\s*(?:[-*•–]|\d+[.)]|[a-z][.)])\s*/u, "").replace(/^\s*\[[ xX]\]\s*/, "").replace(/[.!?]+$/, "").trim())
     .filter(t => words(t).length > 0)
-    .slice(0, 40);
+    .filter((t, i, all) => all.indexOf(t) === i)
+    .slice(0, limit);
 }
+/** Tugas yang tidak ikut dibagikan karena melewati batas jumlah tugas. */
+export function droppedTasks(text:string) { return splitPrompt(text, Infinity).slice(taskMax); }
 
 const profile = (a:Agent) => [a.name, a.short, a.mission, ...a.tasks, ...a.outputs].join(" ");
 // Kata yang muncul di banyak kartu peran (misalnya "mesin") bernilai kecil.
@@ -61,15 +69,26 @@ function describe(n:Node) {
   const agent = agentByKind.get(n.kind);
   const strong = [n.name, agent?.name ?? "", agent?.short ?? ""].join(" ");
   const body = [n.message, agent ? profile(agent) : "", directoryByKind.get(n.kind)?.help ?? "", pluginById.get(n.kind)?.help ?? ""].join(" ");
-  const set = (s:string) => new Set(words(s).flatMap(variants));
-  return {id:n.id, label:[n.name, agent?.name, agent?.short].filter((s):s is string => !!s && s.length >= 4).map(s => s.toLocaleLowerCase("id")), strong:set(strong), body:set(body)};
+  const key = n.kind + "\u0000" + n.name + "\u0000" + n.message, cached = profiles.get(key);
+  if (cached) return {...cached, id:n.id};
+  const made = {id:n.id, label:[n.name, agent?.name, agent?.short].filter((s):s is string => !!s && s.length >= 4).map(s => s.toLocaleLowerCase("id")), strong:bag(strong), body:bag(body)};
+  if (profiles.size > 500) profiles.clear();
+  profiles.set(key, made);
+  return made;
+}
+// Profil disimpan sementara agar prompt besar tetap cepat dihitung ulang saat mengetik.
+type Bag = {all:Set<string>, pre:Set<string>};
+const profiles = new Map<string,{id:string,label:string[],strong:Bag,body:Bag}>();
+function bag(s:string):Bag {
+  const all = new Set(words(s).flatMap(variants));
+  return {all, pre:new Set([...all].filter(w => w.length >= 5).map(w => w.slice(0, 5)))};
 }
 type Profile = ReturnType<typeof describe>;
-function hit(set:Set<string>, w:string) {
-  return variants(w).some(v => set.has(v) || (v.length >= 5 && [...set].some(s => s.length >= 5 && s.slice(0, 5) === v.slice(0, 5))));
+function hit(set:Bag, w:string) {
+  return variants(w).some(v => set.all.has(v) || (v.length >= 5 && set.pre.has(v.slice(0, 5))));
 }
-function exact(set:Set<string>, w:string) {
-  return set.has(w) || (w.length >= 5 && [...set].some(s => s.length >= 5 && s.slice(0, 5) === w.slice(0, 5)));
+function exact(set:Bag, w:string) {
+  return set.all.has(w) || (w.length >= 5 && set.pre.has(w.slice(0, 5)));
 }
 function score(task:string, p:Profile, strict = false) {
   const lower = task.toLocaleLowerCase("id");
@@ -132,20 +151,20 @@ export function hrdRouters(g:G, id:string) {
 
 /** Peringatan merah per langkah untuk editor: tugas di Agent prompt yang tidak cocok dengan agent mana pun. */
 export function promptWarnings(g:G) {
-  const out:Record<string,{unmatched:string[], note:string, routing:Routing|null}> = {};
+  const out:Record<string,{unmatched:string[], note:string, routing:Routing|null, dropped:string[]}> = {};
   const allAgents = g.nodes.filter(n => agentByKind.has(n.kind));
   for (const n of g.nodes) {
     if (n.kind === routerKind) {
       const targets = routerTargets(g, n.id);
       const sources = upstreamPrompts(g, n.id);
       const routing = routePrompt(sources.map(s => s.message).join("\n"), targets);
-      out[n.id] = {unmatched:targets.length ? routing.unmatched : [], routing:targets.length ? routing : null,
+      out[n.id] = {unmatched:targets.length ? routing.unmatched : [], routing:targets.length ? routing : null, dropped:droppedTasks(sources.map(s => s.message).join("\n")),
         note:targets.length ? "" : "Belum ada agent tersambung. Hubungkan titik keluar Pembagi tugas ke agent pelaksana."};
     } else if (n.kind === promptKind) {
       const routers = downstreamRouters(g, n.id);
       const targets = routers.length ? routers.flatMap(r => routerTargets(g, r.id)) : allAgents;
       const routing = routePrompt(n.message, targets);
-      out[n.id] = {unmatched:targets.length ? routing.unmatched : splitPrompt(n.message), routing,
+      out[n.id] = {unmatched:targets.length ? routing.unmatched : splitPrompt(n.message), routing, dropped:droppedTasks(n.message),
         note:!n.message.trim() ? "Tulis prompt di sini; satu tugas per baris." : !targets.length ? "Belum ada agent di bagan ini yang bisa menerima tugas." : routers.length ? "" : "Sambungkan ke Pembagi tugas agar tugas dibagikan otomatis."};
     }
   }

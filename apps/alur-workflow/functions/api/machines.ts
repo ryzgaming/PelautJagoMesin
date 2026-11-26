@@ -97,6 +97,14 @@ function envelope(value: unknown, requestedId: string | null) {
     canonical_memory: canonical, previous_memory: previousMemory};
 }
 
+function deletion(value: unknown, requested: string[]) {
+  const data = record(value), wanted = new Set(requested);
+  const list = (field: unknown) => items(field, 50).map(value => id(value).toLowerCase());
+  const deleted = list(data.deleted), busy = list(data.busy);
+  if ([...deleted, ...busy].some(value => !wanted.has(value)) || deleted.some(value => busy.includes(value))) throw new Error("Unexpected deletion scope");
+  return {deleted, busy};
+}
+
 async function readBody(request: Request) {
   if (!request.body) throw json({error: "Isi permintaan tidak valid."}, 400);
   const reader = request.body.getReader(), decoder = new TextDecoder("utf-8", {fatal: true});
@@ -124,7 +132,7 @@ export const onRequest: PagesFunction = async context => {
   const incoming = new URL(request.url), requestedId = incoming.searchParams.get("id");
   if (request.method === "POST" && request.headers.get("origin") !== incoming.origin) return json({error: "Permintaan tidak valid."}, 403);
   try {
-    let rpc: string, payload: unknown;
+    let rpc: string, payload: unknown, deleting: string[] | null = null;
     if (request.method === "GET") {
       if (requestedId !== null && !UUID.test(requestedId)) return json({error: "ID sesi tidak valid."}, 400);
       rpc = requestedId ? "alur_get_machine_session?" + new URLSearchParams({p_session_id: requestedId}) : "alur_list_machine_sessions";
@@ -133,7 +141,16 @@ export const onRequest: PagesFunction = async context => {
       const body = await readBody(request);
       if (!body || typeof body !== "object" || Array.isArray(body)) return json({error: "Isi merek dan model mesin."}, 400);
       const row = body as Record<string, unknown>;
-      if ("source_product" in row || "revision_brief" in row) {
+      if ("delete_ids" in row) {
+        const ids = row.delete_ids;
+        if (Object.keys(row).length !== 1 || !Array.isArray(ids) || !ids.length || ids.length > 50 ||
+            ids.some(value => typeof value !== "string" || !UUID.test(value)) ||
+            new Set(ids.map(value => (value as string).toLowerCase())).size !== ids.length) {
+          return json({error: "Pilih 1–50 sesi yang akan dihapus."}, 400);
+        }
+        deleting = ids.map(value => (value as string).toLowerCase());
+        rpc = "alur_delete_machine_sessions"; payload = {p_ids: deleting};
+      } else if ("source_product" in row || "revision_brief" in row) {
         const brief = typeof row.revision_brief === "string" ? row.revision_brief.trim() : "";
         if (Object.keys(row).some(key => !["source_product", "revision_brief", "request_id"].includes(key)) ||
             !revisionProducts.some(product => product.id === row.source_product) || !brief || Array.from(brief).length > 1200 ||
@@ -160,13 +177,14 @@ export const onRequest: PagesFunction = async context => {
     if (!response.ok) {
       if (response.status === 401) return json({error: "Sesi berakhir. Silakan masuk kembali."}, 401);
       if (response.status === 403 && request.method === "GET" && requestedId) return json({error: "Sesi mesin tidak ditemukan."}, 404);
-      if (response.status === 403) return json({error: "Akses pemilik diperlukan untuk membuat mesin."}, 403);
+      if (response.status === 403) return json({error: deleting ? "Akses pemilik diperlukan untuk menghapus sesi." : "Akses pemilik diperlukan untuk membuat mesin."}, 403);
       if (response.status === 409) return json({error: "Masih ada produksi aktif untuk mesin ini. Buka riwayatnya."}, 409);
       if (response.status === 400) return json({error: "Permintaan produksi tidak dapat diterima."}, 400);
       return unavailable();
     }
     const data: unknown = await response.json();
     if (request.method === "GET") return json(envelope(data, requestedId));
+    if (deleting) return json(deletion(data, deleting));
     const created = session(data);
     if (created.status === "queued" && created.source_leads === null && typeof context.waitUntil === "function") {
       context.waitUntil(discoverSourceLeads(created, token));

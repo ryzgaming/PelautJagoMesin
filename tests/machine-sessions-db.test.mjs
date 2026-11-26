@@ -171,3 +171,31 @@ test('catalog revision deduplicates by request and machine, keeps the brief on t
  assert.equal(claimed.session.source_product, 'tanabe-h74');
  assert.equal(claimed.session.revision_brief, 'Cek panel');
 });
+
+test('owner deletes own sessions with memory and leases; live agent work and other owners are untouched', async () => {
+ const del = ids => scalar('select public.alur_delete_machine_sessions($1::uuid[])', [ids]);
+ const {session: done} = await complete(owner, 'MAN', 'L23/30H'), queued = await create();
+ const live = await create(owner, 'Tanabe', 'H-74');
+ const running = await claim(owner); assert.equal(running.session.id, queued.id); // oldest queued is claimed first
+ await checkpoint(running.session.id, running.claim_token, 'fuel', unverified);
+ const foreign = await create(other, 'Alfa Laval', 'MAB 206S-24');
+ // Stranger (non-admin) and anonymous callers cannot delete.
+ await as(stranger, () => assert.rejects(del([done.id]), /Owner access required/));
+ await db.exec('set role anon'); try { await assert.rejects(del([done.id]), /permission denied/); } finally { await db.exec('reset role'); }
+ for (const bad of [[], Array.from({length: 51}, () => randomUUID()), [done.id, null]])
+  await as(owner, () => assert.rejects(del(bad), /Invalid session list/));
+ const result = await as(owner, () => del([done.id, live.id, running.session.id, foreign.id, randomUUID()]));
+ assert.deepEqual(result.deleted.sort(), [done.id, live.id].sort());
+ assert.deepEqual(result.busy, [running.session.id]);
+ assert.equal(await scalar('select count(*)::int from public.alur_machine_sessions where id=any($1::uuid[])', [[done.id, live.id]]), 0);
+ assert.equal(await scalar('select count(*)::int from public.alur_machine_memory where session_id=$1', [done.id]), 0);
+ assert.equal(await scalar('select count(*)::int from public.alur_machine_sessions where id=$1', [foreign.id]), 1);
+ // The agent can still finish the busy session; after its lease expires it can be deleted.
+ await checkpoint(running.session.id, running.claim_token, 'qa', unverified);
+ await db.query('update alur_machine_private.leases set expires_at=clock_timestamp()-interval \'1 second\' where claim_token=$1', [running.claim_token]);
+ assert.deepEqual((await as(owner, () => del([running.session.id]))).deleted, [running.session.id]);
+ assert.equal(await scalar('select count(*)::int from alur_machine_private.leases where session_id=$1', [running.session.id]), 0);
+ await assert.rejects(checkpoint(running.session.id, running.claim_token, 'qa', unverified), /Session unavailable/);
+ // A deleted request id can be reused to queue the machine again.
+ assert.equal((await as(owner, () => enqueue('MAN', 'L23/30H', done.request_id))).status, 'queued');
+});

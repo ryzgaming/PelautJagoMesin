@@ -233,3 +233,27 @@ test('revision uses the catalog RPC, preserves the brief and rejects arbitrary s
  }
  assert.equal(mock.mock.callCount(), 1);
 });
+
+test('machines delete validates ids, calls the owner RPC and keeps the reply within the request', async t => {
+  t.mock.method(globalThis, 'fetch', bomb);
+  for (const body of [{delete_ids: []}, {delete_ids: 'x'}, {delete_ids: ['bad']}, {delete_ids: [sessionId, sessionId.toUpperCase()]},
+    {delete_ids: Array.from({length: 51}, (_, i) => `00000000-0000-4000-8000-${String(i).padStart(12, '0')}`)},
+    {delete_ids: [sessionId], owner_id: owner}]) {
+    assert.equal((await call(req('POST', {body}))).status, 400);
+  }
+  assert.equal((await call(req('POST', {body: {delete_ids: [sessionId]}, headers: {origin: 'https://evil.example'}}))).status, 403);
+  const calls = [];
+  t.mock.method(globalThis, 'fetch', async (url, options) => {
+    calls.push({url, options}); return Response.json({deleted: [sessionId], busy: [previousId]});
+  });
+  const ok = await call(req('POST', {body: {delete_ids: [sessionId.toUpperCase(), previousId]}}));
+  assert.equal(ok.status, 200); assert.deepEqual(await ok.json(), {deleted: [sessionId], busy: [previousId]});
+  assert.match(calls[0].url, /\/rest\/v1\/rpc\/alur_delete_machine_sessions$/);
+  assert.deepEqual(JSON.parse(calls[0].options.body), {p_ids: [sessionId, previousId]});
+  // An upstream reply that names a session the caller did not ask for is rejected.
+  t.mock.method(globalThis, 'fetch', async () => Response.json({deleted: [requestId], busy: []}));
+  assert.equal((await call(req('POST', {body: {delete_ids: [sessionId]}}))).status, 503);
+  t.mock.method(globalThis, 'fetch', async () => Response.json({message: 'denied'}, {status: 403}));
+  const denied = await call(req('POST', {body: {delete_ids: [sessionId]}}));
+  assert.equal(denied.status, 403); assert.match((await denied.json()).error, /menghapus/);
+});

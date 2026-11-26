@@ -12,6 +12,7 @@ import {
   LogIn,
   Plus,
   RefreshCw,
+  Trash2,
 } from "lucide-react";
 import { api, ApiError } from "./api";
 import { revisionProducts, workspaceBrief } from "./revision-products";
@@ -228,6 +229,38 @@ function readPending(owner: string): Pending | null {
   }
 }
 
+function ConfirmDelete({
+  count,
+  busy,
+  onYes,
+  onNo,
+}: {
+  count: number;
+  busy: boolean;
+  onYes: () => void;
+  onNo: () => void;
+}) {
+  return (
+    <div className="machine-confirm" role="alertdialog" aria-labelledby="machine-confirm-title">
+      <p>
+        <strong id="machine-confirm-title">Hapus {count} sesi?</strong> Catatan
+        agent ikut terhapus, jadi sesi berikutnya untuk mesin yang sama tidak
+        bisa lagi memakainya. Sesi yang masih antre ikut dibatalkan. Tindakan
+        ini tidak bisa dibatalkan.
+      </p>
+      <div>
+        <button type="button" className="machine-danger" onClick={onYes} disabled={busy}>
+          {busy ? <LoaderCircle size={15} className="agent-spin" /> : <Trash2 size={15} />}
+          Ya, hapus
+        </button>
+        <button type="button" className="secondary" onClick={onNo} disabled={busy}>
+          Batal
+        </button>
+      </div>
+    </div>
+  );
+}
+
 function MemoryContent({ memory }: { memory: Memory }) {
   return (
     <div className="machine-memory-content">
@@ -335,6 +368,11 @@ export default function MachineStudio({
     [submitError, setSubmitError] = useState(""),
     [notice, setNotice] = useState(""),
     [checkedAt, setCheckedAt] = useState<number | null>(null),
+    [picking, setPicking] = useState(false),
+    [picked, setPicked] = useState<string[]>([]),
+    [confirm, setConfirm] = useState<{ ids: string[]; from: "list" | "detail" } | null>(null),
+    [removing, setRemoving] = useState(false),
+    [historyNotice, setHistoryNotice] = useState(""),
     [now, setNow] = useState(Date.now());
   const alive = useRef(true),
     signedRef = useRef(signed),
@@ -344,6 +382,7 @@ export default function MachineStudio({
     epoch = useRef(0),
     pending = useRef<Pending | null>(null),
     submitLock = useRef(false),
+    deleteLock = useRef(false),
     listLock = useRef(false),
     detailLock = useRef(false),
     controllers = useRef(new Set<AbortController>()),
@@ -402,6 +441,10 @@ export default function MachineStudio({
     setDetailError("");
     setLoading(false);
     setDetailLoading(false);
+    setPicking(false);
+    setPicked([]);
+    setConfirm(null);
+    setHistoryNotice("");
   }, []);
   const adoptOwner = useCallback((account: string) => {
     if (ownerRef.current && ownerRef.current !== account) {
@@ -770,6 +813,69 @@ export default function MachineStudio({
       }
     }
   }
+  async function removeSessions(ids: string[]) {
+    if (deleteLock.current || !ids.length || !signedRef.current) return;
+    deleteLock.current = true;
+    setRemoving(true);
+    setError("");
+    setHistoryNotice("");
+    const generation = epoch.current,
+      controller = new AbortController();
+    controllers.current.add(controller);
+    try {
+      const response = await api("machines", { delete_ids: ids }, true, controller.signal);
+      if (
+        !Array.isArray(response.deleted) ||
+        !Array.isArray(response.busy) ||
+        [...response.deleted, ...response.busy].some((value) => typeof value !== "string")
+      )
+        throw Error("Hasil penghapusan belum dapat dibaca.");
+      if (!alive.current || controller.signal.aborted || generation !== epoch.current) return;
+      const gone = new Set((response.deleted as string[]).map((value) => value.toLowerCase())),
+        busy = (response.busy as string[]).length;
+      const removed = sessions.filter((session) => gone.has(session.id.toLowerCase())),
+        rest = sessions.filter((session) => !gone.has(session.id.toLowerCase()));
+      if (
+        ownerRef.current &&
+        pending.current &&
+        removed.some((session) => session.request_id === pending.current?.request_id)
+      ) {
+        clearPending(ownerRef.current);
+        pending.current = null;
+      }
+      setSessions(rest);
+      if (selectedRef.current && gone.has(selectedRef.current.toLowerCase())) {
+        const next = rest[0]?.id || null;
+        setSelected(next);
+        selectedRef.current = next;
+        setDetail(null);
+      }
+      setPicked([]);
+      setPicking(false);
+      setConfirm(null);
+      setHistoryNotice(
+        (gone.size ? gone.size + " sesi dihapus." : "Tidak ada sesi yang dihapus.") +
+          (busy
+            ? " " + busy + " sesi sedang dikerjakan agent sehingga tidak dihapus. Coba lagi setelah selesai."
+            : ""),
+      );
+      // A list request started before the delete could bring removed rows back.
+      listController.current?.abort();
+      listController.current = null;
+      listLock.current = false;
+      void loadSessions();
+    } catch (e) {
+      if (alive.current && !controller.signal.aborted && generation === epoch.current)
+        setError(handleAuth(e));
+    } finally {
+      controllers.current.delete(controller);
+      deleteLock.current = false;
+      if (alive.current) setRemoving(false);
+    }
+  }
+  function togglePicked(id: string) {
+    setPicked((list) => (list.includes(id) ? list.filter((value) => value !== id) : [...list, id]));
+  }
   function prepareRevision(session: MachineSession) {
     setProductId(session.source_product ?? "");
     setBrief(session.revision_brief ?? workspaceBrief);
@@ -901,18 +1007,70 @@ export default function MachineStudio({
         >
           <div className="agent-section-heading">
             <h2 id="machine-history-title">Sesi mesin</h2>
-            <button
-              type="button"
-              aria-label="Muat ulang sesi mesin"
-              onClick={() => {
-                void loadSessions();
-                if (selected) void loadDetail(selected);
-              }}
-              disabled={!signed || loading}
-            >
-              <RefreshCw size={16} className={loading ? "agent-spin" : ""} />
-            </button>
+            <span className="machine-history-actions">
+              {signed && sessions.length > 0 && (
+                <button
+                  type="button"
+                  className="secondary"
+                  aria-pressed={picking}
+                  onClick={() => {
+                    setPicking(!picking);
+                    setPicked([]);
+                    setConfirm(null);
+                  }}
+                  disabled={removing}
+                >
+                  {picking ? "Selesai" : "Pilih"}
+                </button>
+              )}
+              <button
+                type="button"
+                aria-label="Muat ulang sesi mesin"
+                onClick={() => {
+                  void loadSessions();
+                  if (selected) void loadDetail(selected);
+                }}
+                disabled={!signed || loading}
+              >
+                <RefreshCw size={16} className={loading ? "agent-spin" : ""} />
+              </button>
+            </span>
           </div>
+          {historyNotice && (
+            <p className="machine-notice" role="status">
+              {historyNotice}
+            </p>
+          )}
+          {picking && (
+            <div className="machine-pick-bar">
+              <button
+                type="button"
+                className="secondary"
+                onClick={() =>
+                  setPicked(picked.length === sessions.length ? [] : sessions.map((session) => session.id))
+                }
+                disabled={removing}
+              >
+                {picked.length === sessions.length ? "Batal pilih semua" : "Pilih semua"}
+              </button>
+              <button
+                type="button"
+                className="machine-danger"
+                onClick={() => setConfirm({ ids: picked, from: "list" })}
+                disabled={!picked.length || removing}
+              >
+                <Trash2 size={15} /> Hapus ({picked.length})
+              </button>
+            </div>
+          )}
+          {confirm?.from === "list" && (
+            <ConfirmDelete
+              count={confirm.ids.length}
+              busy={removing}
+              onYes={() => void removeSessions(confirm.ids)}
+              onNo={() => setConfirm(null)}
+            />
+          )}
           {error && (
             <p className="machine-error" role="alert">
               {error}
@@ -934,8 +1092,11 @@ export default function MachineStudio({
               <li key={session.id}>
                 <button
                   type="button"
-                  aria-current={selected === session.id ? "true" : undefined}
-                  onClick={() => setSelected(session.id)}
+                  aria-current={!picking && selected === session.id ? "true" : undefined}
+                  aria-pressed={picking ? picked.includes(session.id) : undefined}
+                  className={picking ? "picking" : undefined}
+                  onClick={() => (picking ? togglePicked(session.id) : setSelected(session.id))}
+                  disabled={picking && removing}
                 >
                   <span>
                     <strong>{session.brand}</strong>
@@ -949,6 +1110,14 @@ export default function MachineStudio({
                   <span className="sr-only">
                     {statusLabels[session.status]}
                   </span>
+                  {picking && (
+                    <span
+                      className={"machine-check" + (picked.includes(session.id) ? " on" : "")}
+                      aria-hidden="true"
+                    >
+                      {picked.includes(session.id) && <Check size={12} />}
+                    </span>
+                  )}
                 </button>
               </li>
             ))}
@@ -987,13 +1156,33 @@ export default function MachineStudio({
                       {current.brand} <span>{current.model}</span>
                     </h2>
                   </div>
-                  <span
-                    className={`agent-pill ${current.status}`}
-                    role="status"
-                  >
-                    {statusLabels[current.status]}
+                  <span className="machine-session-actions">
+                    <span
+                      className={`agent-pill ${current.status}`}
+                      role="status"
+                    >
+                      {statusLabels[current.status]}
+                    </span>
+                    <button
+                      type="button"
+                      className="machine-icon-danger"
+                      aria-label={"Hapus sesi " + current.brand + " " + current.model}
+                      title="Hapus sesi"
+                      onClick={() => setConfirm({ ids: [current.id], from: "detail" })}
+                      disabled={removing}
+                    >
+                      <Trash2 size={16} />
+                    </button>
                   </span>
                 </div>
+                {confirm?.from === "detail" && confirm.ids[0] === current.id && (
+                  <ConfirmDelete
+                    count={1}
+                    busy={removing}
+                    onYes={() => void removeSessions(confirm.ids)}
+                    onNo={() => setConfirm(null)}
+                  />
+                )}
                 {current.source_product && <div>
                   <a href={"/workspace?product=" + encodeURIComponent(current.source_product)}>Buka model asal</a>
                   <h3>Tugas revisi</h3>

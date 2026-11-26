@@ -1,5 +1,6 @@
 "use client";
-import {useEffect,useState,useRef,type PointerEvent as PE} from "react";
+import {useEffect,useState,useRef,type PointerEvent as PE,type ReactNode} from "react";
+import {type Badge} from "./production-status";
 import {Zap,GitBranch,Mail,ClipboardList,Plus,Minus,Scan,MousePointer2,Hand,Layers,Check,X,Bot,Type,ListChecks,Calculator,Gauge,Plug,Puzzle,Compass,BookOpenCheck,Boxes,ShieldCheck,Megaphone,Handshake,Headset,Landmark,Users} from "lucide-react";
 import {type Graph,type Kind,type Step,type Port,validate,branches,fansOut} from "./flow";
 import {pluginById} from "./plugins";
@@ -21,7 +22,7 @@ export function Mark({kind}:{kind:Kind}) {
  const Icon=agent?divisionIcons[agent.division]:entry?(entry.group==="Plugin Claude Code"?Puzzle:Plug):plugin?groupIcons[plugin.group]:icons[kind as keyof typeof icons];
  return <span className={'mark '+theme(kind)}><Icon size={22}/></span>
 }
-export function Canvas({g,select,selected,update,add,notify,trace,organization}:{g:Graph,select:(id:string)=>void,selected:string|null,update:(g:Graph)=>void,add:()=>void,notify:(s:string)=>void,trace:string[],organization?:()=>void}){
+export function Canvas({g,select,selected,update,add,notify,trace,organization,badges,monitor}:{g:Graph,select:(id:string)=>void,selected:string|null,update:(g:Graph)=>void,add:()=>void,notify:(s:string)=>void,trace:string[],organization?:()=>void,badges?:Record<string,Badge>,monitor?:ReactNode}){
  const area=useRef<HTMLDivElement>(null),[dims,size]=useState({w:1000,h:660}),[zoom,Z]=useState(1),[pan,P]=useState({x:0,y:0}),[hand,H]=useState(false);
  const [wire,W]=useState<{from:string,port:Port}|null>(null);
  const drag=useRef<{id:string|null,x:number,y:number,startX:number,startY:number,moved:boolean}|null>(null);
@@ -42,7 +43,7 @@ export function Canvas({g,select,selected,update,add,notify,trace,organization}:
  try{validate(graph);update(graph);notify("Langkah terhubung.");W(null)}catch(e){notify((e as Error).message);W(null)}}
  const offset=(p:Port)=>p==="yes"?31:p==="no"?63:47;
  return <div className={'canvas'+(hand?' hand':'')} ref={area} onPointerDown={e=>start(e,null)} onPointerMove={move} onPointerUp={end} onPointerCancel={()=>{drag.current=null}}>
- <div className="canvas-tools" onPointerDown={e=>e.stopPropagation()}><button className="secondary add" onClick={add}><Plus size={17}/> Langkah</button>{organization&&<button className="secondary add org-button" title="Template dan workflow saya" aria-label="Template dan workflow saya" onClick={organization}><Users size={17}/><span>Template</span></button>}<div className="toolgroup"><button className={!hand?'active':''} title="Pilih langkah" aria-label="Pilih langkah" onClick={()=>H(false)}><MousePointer2 size={16}/></button><button className={hand?'active':''} title="Geser kanvas" aria-label="Geser kanvas" onClick={()=>H(true)}><Hand size={16}/></button></div></div>
+ <div className="canvas-tools" onPointerDown={e=>e.stopPropagation()}><button className="secondary add" onClick={add}><Plus size={17}/> Langkah</button>{organization&&<button className="secondary add org-button" title="Template dan workflow saya" aria-label="Template dan workflow saya" onClick={organization}><Users size={17}/><span>Template</span></button>}{monitor}<div className="toolgroup"><button className={!hand?'active':''} title="Pilih langkah" aria-label="Pilih langkah" onClick={()=>H(false)}><MousePointer2 size={16}/></button><button className={hand?'active':''} title="Geser kanvas" aria-label="Geser kanvas" onClick={()=>H(true)}><Hand size={16}/></button></div></div>
  {wire&&<div className="wirehint" onPointerDown={e=>e.stopPropagation()}>Pilih titik masuk pada langkah tujuan.<button onClick={()=>W(null)} aria-label="Batalkan sambungan"><X size={15}/></button></div>}
  <div className="world" style={{transform:'translate('+tx+'px,'+ty+'px) scale('+scale+')'}}>
  <svg className="lines" aria-hidden="true">{g.edges.map(e=>{const a=g.nodes.find(n=>n.id===e.from),b=g.nodes.find(n=>n.id===e.to);if(!a||!b)return null;
@@ -50,7 +51,7 @@ export function Canvas({g,select,selected,update,add,notify,trace,organization}:
  return <g key={e.from+e.port+e.to}><path className={trace.includes(a.id)&&trace.includes(b.id)?"lit":""} d={'M '+x+' '+y+' C '+(x+m)+' '+y+', '+(ex-m)+' '+ey+', '+ex+' '+ey}/>{e.port!=="out"&&<g transform={'translate('+mid+' '+my+')'}><rect x={yes?-16:-23} y="-11" width={yes?32:46} height="22" rx="9"/><text y="4" textAnchor="middle">{yes?"Ya":"Tidak"}</text></g>}</g>})}</svg>
  {g.nodes.map(n=><div key={n.id} role="button" tabIndex={0} aria-label={n.name} className={['node',theme(n.kind),selected===n.id?'selected':'',trace.includes(n.id)?'executed':''].join(' ')} style={{left:n.x,top:n.y}} onKeyDown={e=>{if(e.target===e.currentTarget&&e.key==="Enter")select(n.id)}} onPointerDown={e=>{e.stopPropagation();start(e,n.id)}}>
  <div className="node-inner"><Mark kind={n.kind}/><div><small>{directoryByKind.get(n.kind)?.group ?? pluginById.get(n.kind)?.group ?? agentLabel(n.kind) ?? categories[n.kind as keyof typeof categories]}</small><strong>{n.name}</strong></div></div>
- {trace.includes(n.id)&&<span className="ran"><Check size={12}/></span>}
+ {trace.includes(n.id)&&<span className="ran"><Check size={12}/></span>}{badges?.[n.id]&&<span className={"job-badge "+badges[n.id].tone}>{badges[n.id].label}</span>}
  {n.kind!=="trigger"&&<button className={'socket inlet'+(wire?' target':'')} data-in={n.id} aria-label={'Hubungkan ke '+n.name} onPointerDown={e=>e.stopPropagation()} onClick={()=>wire?connect(n.id):notify("Pilih titik keluar langkah asal terlebih dahulu.")}/>}
  {(branches(n.kind)?["yes","no"]:["out"]).map(p=><button key={p} className={'socket outlet'+(wire?.from===n.id&&wire?.port===p?' armed':'')} aria-label={'Sambungkan '+n.name+' '+p} style={{top:offset(p as Port)}} onPointerDown={e=>{e.stopPropagation();W({from:n.id,port:p as Port});e.currentTarget.setPointerCapture(e.pointerId)}} onPointerUp={e=>{e.stopPropagation();const t=document.elementFromPoint(e.clientX,e.clientY)?.closest('[data-in]')?.getAttribute('data-in');if(t)connect(t,{from:n.id,port:p as Port})}} onClick={e=>{if(e.detail===0)W({from:n.id,port:p as Port})}}/>)}
  </div>)}</div>

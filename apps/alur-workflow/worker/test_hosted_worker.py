@@ -63,34 +63,68 @@ class HostedWorkerTests(unittest.TestCase):
             self.assertEqual(task["workspace"], "/workspace?product=tanabe-h74")
             self.assertEqual(task["brief"], "Periksa panel di HP.")
 
-    def test_flow_brief_is_required_and_delivered_to_each_role(self):
-        brief = {"version": 1, "flow_id": "bagan-1", "flow_name": "DRCE", "prompt": "MASTER PROMPT",
+    def brief_parts(self, brief, size=40):
+        """Tiru read_flow_brief: teks brief dipotong per bagian, digest dihitung server."""
+        text = json.dumps(brief, ensure_ascii=False)
+        chunks = [text[i:i + size] for i in range(0, len(text), size)]
+        digest = worker.sha256_text(text)
+        info = {"flow_name": brief["flow_name"], "tasks": len(brief["tasks"]), "rules": len(brief["rules"]),
+                "sha256": digest, "parts": len(chunks)}
+        parts = [{"part": i, "parts": len(chunks), "sha256": digest, "text": c, "part_sha256": worker.sha256_text(c)}
+                 for i, c in enumerate(chunks)]
+        return info, parts
+
+    def test_flow_brief_parts_are_verified_and_delivered_to_each_role(self):
+        brief = {"version": 1, "flow_id": "bagan-1", "flow_name": "DRCE", "prompt": "MASTER PROMPT — standar ✓",
                  "tasks": [{"task": "Buat model 3D blok silinder", "agents": ["3D Modeling"]}],
                  "rules": ["Jangan menebak part number"], "unmatched": []}
-        self.claim["flow_brief_info"] = {"flow_name": "DRCE", "tasks": 1, "rules": 1}
+        info, parts = self.brief_parts(brief)
+        self.claim["flow_brief_info"] = info
+        self.packet["history"]["session"] = dict(self.claim)
+        save = lambda part: worker.save_brief_part(self.root, {"owner_id": self.owner, "session_id": self.sid, "result": part})
         with self.assertRaisesRegex(ValueError, "belum dibaca"):
             worker.prepare(self.root, self.packet)
-        with self.assertRaisesRegex(ValueError, "tidak cocok"):
-            worker.prepare(self.root, dict(self.packet, flow_brief=dict(brief, rules=[])))
-        folder = worker.prepare(self.root, dict(self.packet, flow_brief=brief))
+        with self.assertRaisesRegex(ValueError, "rusak"):
+            save(dict(parts[0], text=parts[0]["text"][:-1]))
+        with self.assertRaisesRegex(ValueError, "tidak dikenal"):
+            save(dict(parts[0], extra=1))
+        for part in reversed(parts[1:]):
+            self.assertEqual(save(part)["missing"], list(range(part["part"])))
+        self.assertEqual(save(parts[0])["missing"], [])
+        with self.assertRaisesRegex(ValueError, "tidak lagi dikirim"):
+            worker.prepare(self.root, dict(self.packet, flow_brief=brief))
+        self.packet["history"]["session"] = dict(self.claim, flow_brief_info=None)
+        with self.assertRaisesRegex(ValueError, "klaim dan riwayat berbeda"):
+            worker.prepare(self.root, self.packet)
+        self.packet["history"]["session"] = dict(self.claim)
+        folder = worker.prepare(self.root, self.packet)
         self.assertEqual(json.loads((folder / "flow-brief.json").read_text()), brief)
         shared = json.loads((folder / "context.json").read_text())["flow_brief"]
-        self.assertEqual((shared["file"], shared["tasks"], shared["rules"]), ("flow-brief.json", 1, 1))
+        self.assertEqual((shared["file"], shared["tasks"], shared["rules"], shared["sha256"]),
+                         ("flow-brief.json", 1, 1, info["sha256"]))
         for role in worker.ROLES:
             ref = json.loads((folder / "roles" / role / "context.json").read_text())["flow_brief"]
             self.assertEqual(ref["file"], "../../flow-brief.json")
-            self.assertEqual(ref["sha256"], shared["sha256"])
+            self.assertEqual(ref["sha256"], info["sha256"])
+        # Bagian yang cocok sendiri tetapi berasal dari brief lain ditolak oleh digest server.
+        forged = "Z" + parts[0]["text"][1:]
+        worker.save(folder / "brief-parts" / "part-000.json", dict(parts[0], text=forged, part_sha256=worker.sha256_text(forged)))
+        with self.assertRaisesRegex(ValueError, "tidak utuh|tidak cocok"):
+            worker.prepare(self.root, self.packet)
+        # Klaim tanpa ringkasan brief tidak boleh melewatkan brief yang dimiliki sesi.
         del self.claim["flow_brief_info"]
-        with self.assertRaisesRegex(ValueError, "tidak memiliki brief"):
-            worker.prepare(self.root, dict(self.packet, flow_brief=brief))
+        with self.assertRaisesRegex(ValueError, "klaim dan riwayat berbeda"):
+            worker.prepare(self.root, self.packet)
 
     def test_flow_brief_rpc_is_fixed_and_encoded(self):
         sid, token = uid(), uid()
-        query = worker.sql("brief", {"session_id": sid, "claim_token": token})
-        self.assertIn("alur_machine_private.read_flow_brief((v->>'session_id')::uuid,(v->>'claim_token')::uuid)", query)
+        query = worker.sql("brief", {"session_id": sid, "claim_token": token, "part": 2})
+        self.assertIn("alur_machine_private.read_flow_brief((v->>'session_id')::uuid,(v->>'claim_token')::uuid,(v->>'part')::integer)", query)
         self.assertNotIn(sid, query)
-        with self.assertRaises(ValueError):
-            worker.sql("brief", {"session_id": sid})
+        for bad in ({"session_id": sid, "claim_token": token}, {"session_id": sid, "claim_token": token, "part": -1},
+                    {"session_id": sid, "claim_token": token, "part": "1"}, {"session_id": sid, "claim_token": token, "part": True}):
+            with self.assertRaises(ValueError):
+                worker.sql("brief", bad)
 
     def test_history_must_be_same_owner_machine_and_session(self):
         mutations = ((("history", "account_id"), uid()), (("history", "previous_sessions", 0, "machine_key"), "other"),

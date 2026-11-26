@@ -1,11 +1,11 @@
 import {useMemo,useRef,useState} from "react";
 import {ArrowRight,Factory} from "lucide-react";
 import {api,ApiError} from "./api";
-import {buildBrief,type FlowBrief} from "./production-brief";
+import {briefBytes,briefLimits,buildBrief,validBrief,type FlowBrief} from "./production-brief";
 import {splitMachine} from "./production-status";
 import type {Graph} from "./flow";
 
-type Result={assignments?:{name:string,tasks:string[]}[],rules?:string[],warnings?:string[]};
+type Result={assignments?:{name:string,tasks:string[]}[],rules?:string[],warnings?:string[],prompts?:string[]};
 const id=(n:number)=>n.toLocaleString("id-ID");
 
 /**
@@ -18,7 +18,8 @@ export default function FlowProduce({graph,result,machine,notes,signed,onLogin,o
   const [busy,setBusy]=useState(false),[error,setError]=useState("");
   const brief:FlowBrief=useMemo(()=>buildBrief(graph,result,notes),[graph,result,notes]);
   const request=useRef<{key:string,id:string}|null>(null);
-  const valid=!!brand.trim()&&!!model.trim()&&brand.trim().length<=80&&model.trim().length<=120&&brief.tasks.length>0;
+  const size=useMemo(()=>briefBytes(brief),[brief]),tooBig=size>briefLimits.bytes,ok=useMemo(()=>validBrief(brief),[brief]);
+  const valid=!!brand.trim()&&!!model.trim()&&brand.trim().length<=80&&model.trim().length<=120&&brief.tasks.length>0&&ok;
   async function send(e:React.FormEvent){
     e.preventDefault();
     if(!valid||busy)return;
@@ -44,6 +45,8 @@ export default function FlowProduce({graph,result,machine,notes,signed,onLogin,o
       <label>Merk<input required maxLength={80} value={brand} onChange={e=>setBrand(e.target.value)} placeholder="Caterpillar"/></label>
       <label>Tipe<input required maxLength={120} value={model} onChange={e=>setModel(e.target.value)} placeholder="3512C"/></label>
     </div>
+    {tooBig?<p className="prompt-warning" role="alert">Brief terlalu besar ({id(Math.ceil(size/1024))} KB, maksimal {id(briefLimits.bytes/1000)} KB). Persingkat prompt di bagan, lalu jalankan Uji alur lagi.</p>
+      :!ok&&<p className="prompt-warning" role="alert">Brief bagan ini tidak dapat dikirim (ada tugas atau aturan yang terlalu panjang). Persingkat prompt, lalu jalankan Uji alur lagi.</p>}
     {error&&<p className="prompt-warning" role="alert">{error}</p>}
     {signed?<button className="primary" disabled={!valid||busy}>{busy?"Mengirim…":"Kirim ke produksi"}<ArrowRight size={16}/></button>
       :<button type="button" className="primary" onClick={onLogin}>Masuk untuk mengirim ke produksi</button>}

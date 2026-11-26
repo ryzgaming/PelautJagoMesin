@@ -320,3 +320,43 @@ test('aktivitas langsung: hanya pemegang lease menulis, pemilik membaca, aman da
  await db.query('delete from public.alur_machine_sessions where id=$1',[s.id]);
  assert.equal(await scalar('select count(*)::int from alur_machine_private.activity'),0);
 });
+
+test('brief bagan: hanya pemilik mengirim, isi privat, dibaca pemegang lease per bagian dengan digest server', async () => {
+ const {createHash} = await import('node:crypto');
+ const sha = s => createHash('sha256').update(s, 'utf8').digest('hex');
+ const tasks = Array.from({length: 1500}, (_, i) => ({task: `Periksa komponen nomor ${i} — kepala silinder ✓ ${'ä'.repeat(20)}`, agents: ['Modeler']}));
+ const brief = {version: 1, flow_id: 'f1', flow_name: 'Bagan DRCE', prompt: 'Standar DRCE ' + 'é'.repeat(30000), tasks, rules: ['Jangan menebak dimensi'], unmatched: ['Tugas tanpa agent']};
+ const send = (b, request = randomUUID()) => scalar('select public.alur_enqueue_machine_flow($1,$2,$3,$4::jsonb)', ['Caterpillar', '3512C', request, JSON.stringify(b)]);
+ await as(stranger, () => assert.rejects(send(brief), /Owner access required/));
+ for (const bad of [{...brief, flow_name: '\t'}, {...brief, flow_name: 'x'.repeat(121)}, {...brief, tasks: []}, {...brief, extra: 1}, {...brief, rules: [' ']}])
+  await as(owner, () => assert.rejects(send(bad), /Invalid flow brief/));
+ const request = randomUUID();
+ const s = await as(owner, () => send(brief, request));
+ assert.equal('flow_brief' in s, false);
+ assert.equal(s.flow_brief_info.flow_name, 'Bagan DRCE'); assert.equal(s.flow_brief_info.tasks, 1500); assert.equal(s.flow_brief_info.rules, 1);
+ assert.match(s.flow_brief_info.sha256, /^[0-9a-f]{64}$/); assert.ok(s.flow_brief_info.parts > 1);
+ assert.equal((await as(owner, () => send(brief, request))).id, s.id);
+ await as(owner, () => assert.rejects(send({...brief, rules: []}, request), /identity mismatch/));
+ // Isi brief tidak terjangkau browser, baik lewat tabel maupun fungsi baca.
+ assert.equal(await scalar("select has_table_privilege('authenticated','alur_machine_private.flow_briefs','SELECT')"), false);
+ assert.equal(await scalar("select has_function_privilege('authenticated','alur_machine_private.read_flow_brief(uuid,uuid,integer)','EXECUTE')"), false);
+ const c = await claim();
+ assert.deepEqual(c.session.flow_brief_info, s.flow_brief_info);
+ const history = await scalar('select alur_machine_private.read_prior_memory($1)', [s.id]);
+ assert.deepEqual(history.session.flow_brief_info, s.flow_brief_info); assert.equal('flow_brief' in history.session, false);
+ const read = (part, token = c.claim_token) => scalar('select alur_machine_private.read_flow_brief($1,$2,$3)', [s.id, token, part]);
+ await assert.rejects(read(0, randomUUID()), /Lease lost/);
+ await assert.rejects(read(s.flow_brief_info.parts), /out of range/);
+ let text = '';
+ for (let i = 0; i < s.flow_brief_info.parts; i++) {
+  const part = await read(i);
+  assert.equal(part.parts, s.flow_brief_info.parts); assert.equal(part.sha256, s.flow_brief_info.sha256); assert.equal(part.part_sha256, sha(part.text));
+  text += part.text;
+ }
+ assert.equal(sha(text), s.flow_brief_info.sha256);
+ assert.deepEqual(JSON.parse(text), brief);
+ // Heartbeat tidak memeriksa ulang brief; hapus sesi ikut menghapus brief.
+ await scalar('select alur_machine_private.heartbeat_session($1,$2,900)', [s.id, c.claim_token]);
+ await db.query('delete from public.alur_machine_sessions where id=$1', [s.id]);
+ assert.equal(await scalar('select count(*)::int from alur_machine_private.flow_briefs'), 0);
+});

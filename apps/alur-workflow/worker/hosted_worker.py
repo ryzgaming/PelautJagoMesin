@@ -21,7 +21,7 @@ RPC = {
                                       ("worker", "text"))),
     "heartbeat": ("heartbeat_session", (("session_id", "uuid"), ("claim_token", "uuid"), ("lease_seconds", "integer"))),
     "history": ("read_prior_memory", (("session_id", "uuid"),)),
-    "brief": ("read_flow_brief", (("session_id", "uuid"), ("claim_token", "uuid"))),
+    "brief": ("read_flow_brief", (("session_id", "uuid"), ("claim_token", "uuid"), ("part", "integer"))),
     "log": ("log_activity", (("session_id", "uuid"), ("claim_token", "uuid"), ("kind", "text"),
                              ("message", "text"), ("url", "text"))),
     "checkpoint": ("write_checkpoint", (("session_id", "uuid"), ("claim_token", "uuid"), ("role", "text"),
@@ -40,6 +40,8 @@ def sql(operation, data):
         data.setdefault("lease_seconds", 900)
     if operation == "finish":
         data.setdefault("result_url", None)
+    if operation == "brief" and (type(data.get("part")) is not int or not 0 <= data["part"] < BRIEF_MAX_PARTS):
+        raise ValueError("Bagian brief harus bilangan bulat 0 atau lebih.")
     if operation == "claim_as" and data.get("worker") not in ("codex", "claude"):
         raise ValueError("Worker harus codex atau claude.")
     if operation == "log":
@@ -155,24 +157,71 @@ def manifest(directory):
 
 
 BRIEF_KEYS = {"version", "flow_id", "flow_name", "prompt", "tasks", "rules", "unmatched"}
+BRIEF_PART_KEYS = {"part", "parts", "sha256", "part_sha256", "text"}
+BRIEF_MAX_PARTS = 64
+INFO_KEYS = {"flow_name", "tasks", "rules", "sha256", "parts"}
 
 
-def flow_brief(claim, brief):
-    """Brief Bagan wajib dibaca bila sesi memilikinya, dan harus cocok dengan ringkasan di sesi."""
+def sha256_text(text):
+    return hashlib.sha256(text.encode("utf-8")).hexdigest()
+
+
+def brief_dir(root, owner_id, session_id):
+    return Path(root) / str(UUID(owner_id)) / str(UUID(session_id)) / "brief-parts"
+
+
+def save_brief_part(root, packet):
+    """Simpan satu hasil RPC brief setelah digest bagiannya cocok. Bagian yang rusak ditolak, baca ulang."""
+    part = packet["result"]
+    if not isinstance(part, dict) or set(part) != BRIEF_PART_KEYS or not isinstance(part["text"], str):
+        raise ValueError("Hasil RPC brief tidak dikenal; salin field result apa adanya.")
+    index, parts = part["part"], part["parts"]
+    if type(index) is not int or type(parts) is not int or not 0 <= index < parts <= BRIEF_MAX_PARTS:
+        raise ValueError("Nomor bagian brief tidak valid.")
+    if sha256_text(part["text"]) != part["part_sha256"]:
+        raise ValueError(f"Bagian {index} rusak saat disalin (digest berbeda). Baca ulang bagian ini.")
+    folder = brief_dir(root, packet["owner_id"], packet["session_id"])
+    save(folder / f"part-{index:03d}.json", part)
+    missing = [i for i in range(parts) if not (folder / f"part-{i:03d}.json").exists()]
+    return {"part": index, "parts": parts, "missing": missing}
+
+
+def flow_brief(dest, claim, history_session):
+    """Brief Bagan wajib dibaca utuh bila sesi memilikinya: semua bagian ada dan digest cocok dengan server."""
     info = claim.get("flow_brief_info")
+    if info != history_session.get("flow_brief_info"):
+        raise ValueError("Ringkasan brief bagan di klaim dan riwayat berbeda; salin session dari balasan claim apa adanya.")
+    folder = dest / "brief-parts"
     if info is None:
-        if brief is not None:
+        if folder.exists():
             raise ValueError("Sesi ini tidak memiliki brief bagan.")
-        return None
+        return None, None
+    if (not isinstance(info, dict) or set(info) != INFO_KEYS or type(info["parts"]) is not int
+            or not 1 <= info["parts"] <= BRIEF_MAX_PARTS):
+        raise ValueError("Ringkasan brief bagan tidak dikenal.")
+    text = []
+    for i in range(info["parts"]):
+        path = folder / f"part-{i:03d}.json"
+        if not path.exists():
+            raise ValueError(f"Bagian brief {i} belum dibaca (jalankan sql brief lalu brief-part).")
+        part = json.loads(path.read_text(encoding="utf-8"))
+        if (part.get("part") != i or part.get("parts") != info["parts"] or part.get("sha256") != info["sha256"]
+                or sha256_text(part.get("text", "")) != part.get("part_sha256")):
+            raise ValueError(f"Bagian brief {i} tidak cocok; baca ulang bagian ini.")
+        text.append(part["text"])
+    text = "".join(text)
+    if sha256_text(text) != info["sha256"]:
+        raise ValueError("Brief bagan tidak utuh (digest server berbeda).")
+    brief = json.loads(text)
     if not isinstance(brief, dict) or set(brief) != BRIEF_KEYS or brief.get("version") != 1:
-        raise ValueError("Brief bagan belum dibaca (jalankan operasi sql brief) atau formatnya tidak dikenal.")
+        raise ValueError("Format brief bagan tidak dikenal.")
     tasks, rules = brief["tasks"], brief["rules"]
     if (not isinstance(tasks, list) or not isinstance(rules, list) or not isinstance(brief["prompt"], str)
-            or brief["flow_name"] != info.get("flow_name") or len(tasks) != info.get("tasks") or len(rules) != info.get("rules")
+            or brief["flow_name"] != info["flow_name"] or len(tasks) != info["tasks"] or len(rules) != info["rules"]
             or any(not isinstance(t, dict) or set(t) != {"task", "agents"} or not isinstance(t["task"], str)
                    or not isinstance(t["agents"], list) for t in tasks)):
         raise ValueError("Brief bagan tidak cocok dengan sesi.")
-    return brief
+    return brief, info["sha256"]
 
 
 def prepare(root, packet):
@@ -230,13 +279,14 @@ def prepare(root, packet):
             raise ValueError("Tugas revisi tidak cocok dengan sesi.")
         revision = {"source_product": product, "workspace": "/workspace?product=" + product, "brief": brief}
         shared["revision_task"] = revision
-    brief = flow_brief(claim, packet.get("flow_brief"))
+    if "flow_brief" in packet:
+        raise ValueError("Brief bagan tidak lagi dikirim di packet; simpan setiap bagian dengan brief-part.")
+    brief, digest = flow_brief(dest, claim, history["session"])
     if brief:
         # Isi lengkap di berkas terpisah agar context.json tetap kecil; setiap peran membacanya.
         save(dest / "flow-brief.json", brief)
-        encoded = json.dumps(brief, sort_keys=True, ensure_ascii=False, separators=(",", ":")).encode()
         shared["flow_brief"] = {"file": "flow-brief.json", "flow_name": brief["flow_name"], "tasks": len(brief["tasks"]),
-                                "rules": len(brief["rules"]), "sha256": hashlib.sha256(encoded).hexdigest()}
+                                "rules": len(brief["rules"]), "sha256": digest}
     shared["previous_sessions"] = [{k: r[k] for k in ("id", "status", "updated_at") if k in r}
                                    for r in history["previous_sessions"]]
     shared.update(sections)
@@ -263,6 +313,8 @@ def main():
     sql_cmd.add_argument("operation", choices=RPC)
     prep = command.add_parser("prepare", help="Tulis input memori untuk 10 peran dari claim dan riwayat.")
     prep.add_argument("root", type=Path, help="Root privat worker di luar checkout.")
+    part = command.add_parser("brief-part", help="Simpan satu bagian brief bagan dari hasil RPC brief (JSON via stdin).")
+    part.add_argument("root", type=Path, help="Root privat worker yang sama dengan prepare.")
     check = command.add_parser("manifest", help="Hash HTML, model GLB dan seluruh aset review.")
     check.add_argument("review", type=Path)
     args = parser.parse_args()
@@ -270,6 +322,8 @@ def main():
         print(json.dumps(RPC))
     elif args.action == "sql":
         print(sql(args.operation, json.load(sys.stdin)))
+    elif args.action == "brief-part":
+        print(json.dumps(save_brief_part(args.root, json.load(sys.stdin))))
     elif args.action == "prepare":
         print(prepare(args.root, json.load(sys.stdin)))
     else:

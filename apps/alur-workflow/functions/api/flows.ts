@@ -29,7 +29,7 @@ export const onRequest:PagesFunction=async ({request:req})=>{
  if(typeof answers!=="object" || Array.isArray(answers))return json({error:"Hasil konektor tidak valid."},400);
  const result=execute(graph,data,answers);
  if(result.pending)return json(result);
- await request("alur_runs",{},"POST",{flow_id:graph.id,mode:b.action==="test"?"test":"live",trace:result.trace,result:{...data,hasil:result.hasil,confirmation:result.confirmation,review:result.review,warnings:result.warnings,recruit:result.recruit.map(v=>v.title)}});
+ await request("alur_runs",{},"POST",{flow_id:graph.id,mode:b.action==="test"?"test":"live",trace:result.trace,result:{...data,hasil:result.hasil,confirmation:result.confirmation,review:result.review,warnings:result.warnings,recruit:result.recruit.map(v=>v.title),assignments:result.assignments,rules:result.rules}});
  return json(result);
  }catch(e){return e instanceof Response?e:json({error:e instanceof Error?e.message:"Permintaan gagal."},400)}
 };

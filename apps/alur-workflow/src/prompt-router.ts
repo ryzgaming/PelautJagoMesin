@@ -50,20 +50,79 @@ export function words(text:string) {
     .filter(w => (w.length >= 3 || /\d/.test(w)) && !stop.has(w) && !/^\d+$/.test(w)))];
 }
 
-/** Pecah prompt per baris, titik koma, atau kalimat; tanda butir, nomor urut, judul Markdown, dan label bagian ("Konteks:") dibuang. */
-export function splitPrompt(text:string, limit = taskMax) {
+// Penanda pesan chat yang ikut tersalin, misalnya "[26/11/2026 20:45] Nama:" atau "26/11/26 20.45 - Nama:".
+const chatStamp = /^\s*(?:\[\d{1,2}[/.-]\d{1,2}[/.-]\d{2,4},?\s+\d{1,2}[:.]\d{2}(?:[:.]\d{2})?\]|\d{1,2}[/.-]\d{1,2}[/.-]\d{2,4},?\s+\d{1,2}[:.]\d{2}\s+-)\s*[^:\n]{1,40}:\s*/u;
+// Kata pembuka perintah selain daftar kata kerja: "Jangan …", "Gunakan …", juga perintah bahasa Inggris.
+const orders = new Set(("jangan tolong mohon harap silakan pastikan usahakan hindari mulai lanjutkan simulasikan cuci siram sewa pilih antar masak ganti bongkar rakit "+
+  "gambar ukur baca tonton unduh unggah simpan hapus pakai ikuti tentukan lihat telusuri "+
+  "create build make use find check search write design model simulate review ensure verify add avoid do don't never always").split(" "));
+const contextLabels = /^(?:konteks|latar belakang|catatan|keterangan|informasi|info|context|project context|background|notes?|about|tentang)$/iu;
+/** Kalimat perintah: diawali kata kerja ("Buat …", "Gunakan …", "Jangan …"). */
+export function isOrder(text:string) {
+  const first = text.toLocaleLowerCase("id").match(/[\p{L}']+/u)?.[0] ?? "";
+  return verbs.has(first) || orders.has(first) || (first.length >= 6 && /(?:kan|lah)$/.test(first));
+}
+const clean = (t:string) => t.replace(/\*\*|__|`/g, "").replace(/^\s*(?:[-*•–]|\d+[.)]|[a-z][.)])\s+/u, "").replace(/^\s*\[[ xX]\]\s*/, "").trim();
+const heading = (t:string) => /^\s*#{1,6}\s/.test(t) || (/\p{Lu}{2}/u.test(t) && !/\p{Ll}/u.test(t) && words(t).length > 0);
+// Isi daftar: tanpa kata perintah dan pendek (maks. 5 kata setelah "Label:", 3 kata di bawah judul, 2 kata tanpa keduanya).
+const short = (t:string, list:boolean, section:boolean) => !isOrder(t) && t.split(/\s+/).length <= (list ? 5 : section ? 3 : 2);
+
+/**
+ * Pecah prompt menjadi tugas. Satu baris, titik koma, atau kalimat perintah menjadi satu tugas.
+ * Judul (Markdown "#" atau HURUF KAPITAL), label bagian ("Sumber:"), penanda chat, dan tautan saja tidak dihitung.
+ * Isi daftar yang pendek (misalnya "YouTube", "Vimeo") digabung dengan labelnya menjadi satu tugas:
+ * "Sumber video: YouTube, Vimeo". Keterangan "Label: isi" tanpa perintah dan isi bagian konteks dianggap konteks.
+ */
+export function splitPrompt(text:string, limit = taskMax) { return parse(text).tasks.slice(0, limit); }
+/** Aturan umum di prompt ("Jangan …", "Hindari …"): berlaku untuk semua agent, jadi tidak dibagikan sebagai tugas. */
+export function promptRules(text:string) { return parse(text).rules; }
+const ruleWords = /^(?:jangan|hindari|dilarang|tidak boleh|never|don't|do not|avoid)\b/iu;
+function parse(text:string) {
   let all = splits.get(text);
   if (!all) {
-    all = [...new Set(text.split(/\r?\n|;|(?<=[.!?])\s+(?=[\p{Lu}\d])/u)
-      .filter(t => !/^\s*(?:#{1,6}\s|```|---+\s*$|===+\s*$)/.test(t) && !/:\s*$/.test(t))
-      .map(t => t.replace(/\*\*|__|`/g, "").replace(/^\s*(?:[-*•–]|\d+[.)]|[a-z][.)])\s*/u, "").replace(/^\s*\[[ xX]\]\s*/, "").replace(/[.!?]+$/, "").trim())
-      .filter(t => words(t).length > 0))];
+    const out:string[] = [], rules:string[] = [];
+    // section: judul terakhir; list: label "…:" terakhir, berlaku sampai ada tugas biasa.
+    // lead: frasa tanpa perintah (misalnya "Level A — Complete machine search") yang mungkin menjadi judul daftar berikutnya.
+    let section = "", list = "", items:string[] = [], owner = "", lead = "";
+    const settle = () => { if (lead) out.push(lead); lead = ""; };
+    const flush = () => {
+      if (items.length && !contextLabels.test(owner)) {
+        for (let i = 0; i < items.length; i += 30) {
+          const part = items.slice(i, i + 30).join(", ");
+          out.push(owner ? owner + ": " + part : part);
+        }
+      }
+      items = [];
+    };
+    for (const raw of text.split(/\r?\n/)) {
+      const line = raw.replace(chatStamp, "");
+      if (!line.trim() || /^\s*(?:```|---+\s*$|===+\s*$)/.test(line)) continue;
+      if (heading(line)) { flush(); settle(); section = clean(line.replace(/^\s*#{1,6}\s*/, "")).replace(/[:.]+$/, "").trim(); list = ""; continue; }
+      const body = clean(line);
+      if (/:\s*$/.test(body)) { flush(); settle(); list = body.replace(/:\s*$/, "").trim(); continue; }
+      for (const piece of body.split(/;|(?<=[.!?])\s+(?=[\p{Lu}\d])/u)) {
+        const t = clean(piece).replace(/[.!?]+$/, "").trim();
+        if (!words(t).length || /^(?:https?:\/\/|www\.)\S+$/i.test(t)) continue;
+        if (lead && short(t, true, true) && !/:/.test(t)) { flush(); list = lead; lead = ""; }
+        const label = list || section;
+        if (short(t, !!list, !!section) && !/:/.test(t)) { if (owner !== label) flush(); owner = label; items.push(t); continue; }
+        flush(); settle(); list = "";
+        const meta = t.match(/^([^:]{1,40}):\s+(.+)$/u);
+        // "Standard: Universal …" hanya keterangan; "Simulator: rapikan tampilan" tetap tugas.
+        if (meta && !isOrder(meta[2]) && !isOrder(meta[1]) && !meta[2].includes(",")) continue;
+        if (ruleWords.test(t)) { rules.push(t); continue; }
+        if (contextLabels.test(section) && !isOrder(t)) continue;
+        if (!isOrder(t) && t.split(/\s+/).length <= 8) lead = t; else out.push(t);
+      }
+    }
+    flush(); settle();
+    all = {tasks:[...new Set(out)], rules:[...new Set(rules)]};
     remember(splits, text, all);
   }
-  return all.slice(0, limit);
+  return all;
 }
 // Hasil pemecahan dan pembagian disimpan sementara: editor menghitung ulang setiap kali bagan berubah.
-const splits = new Map<string,string[]>();
+const splits = new Map<string,{tasks:string[], rules:string[]}>();
 function remember<K,V>(cache:Map<K,V>, key:K, value:V) { if (cache.size >= 20) cache.delete(cache.keys().next().value as K); cache.set(key, value); }
 /** Tugas yang tidak ikut dibagikan karena melewati batas jumlah tugas. */
 export function droppedTasks(text:string) { return splitPrompt(text, Infinity).slice(taskMax); }
@@ -89,14 +148,16 @@ function describe(n:Node) {
 }
 // Profil disimpan sementara agar prompt besar tetap cepat dihitung ulang saat mengetik.
 type Bag = {all:Set<string>, pre:Set<string>};
+// Awalan kata untuk padanan longgar: 5 huruf untuk kata pendek, 6 huruf untuk kata panjang ("complete" ≠ "compliance").
+const stem = (w:string) => w.slice(0, w.length >= 8 ? 6 : 5);
 const profiles = new Map<string,{id:string,lines:Set<string>,label:string[],strong:Bag,body:Bag}>();
 function bag(s:string):Bag {
   const all = new Set(words(s).flatMap(variants));
-  return {all, pre:new Set([...all].filter(w => w.length >= 5).map(w => w.slice(0, 5)))};
+  return {all, pre:new Set([...all].filter(w => w.length >= 5).flatMap(w => [w.slice(0, 5), w.slice(0, 6)]))};
 }
 type Profile = ReturnType<typeof describe>;
 function exact(set:Bag, w:string) {
-  return set.all.has(w) || (w.length >= 5 && set.pre.has(w.slice(0, 5)));
+  return set.all.has(w) || (w.length >= 5 && set.pre.has(stem(w)));
 }
 /** Kata-kata sebuah tugas beserta bobotnya, dihitung sekali per tugas (bukan per agent). */
 type Term = {forms:string[], word:string, value:number, main:boolean};
@@ -108,7 +169,7 @@ function terms(task:string):Term[] {
   });
 }
 function has(set:Bag, forms:string[]) {
-  return forms.some(v => set.all.has(v) || (v.length >= 5 && set.pre.has(v.slice(0, 5))));
+  return forms.some(v => set.all.has(v) || (v.length >= 5 && set.pre.has(stem(v))));
 }
 function score(task:string, lower:string, list:Term[], p:Profile, strict = false) {
   // Tugas yang tertulis persis di kartu Agent baru selalu diserahkan ke agent itu.

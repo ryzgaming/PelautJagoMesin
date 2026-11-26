@@ -2,7 +2,7 @@ import {fieldLabels, pluginById, renderMessage, type Field, type RunFields} from
 
 import {customKind,directoryByKind,validServer,type DirectoryKind} from "./directory.ts";
 import {agentByKind,divisionByKey,type AgentKind} from "./organization.ts";
-import {customAgentKind,droppedTasks,hrdKind,promptKind,promptMax,routerKind,routePrompt,routerTargets,hrdRouters,taskMax} from "./prompt-router.ts";
+import {customAgentKind,droppedTasks,promptRules,hrdKind,promptKind,promptMax,routerKind,routePrompt,routerTargets,hrdRouters,taskMax} from "./prompt-router.ts";
 import {review as hrdReview,type Vacancy} from "./hrd.ts";
 export type Kind = DirectoryKind | AgentKind | `robot-${string}` | "trigger" | "condition" | "confirm" | "review" | "prompt" | "router" | "hrd" | "custom-agent";
 export type Step = {id:string, kind:Kind, name:string, x:number, y:number, field:Field, operator:"filled"|"empty"|"equals", value:string, message:string};
@@ -63,11 +63,12 @@ export function validate(g:Graph,run=false) {
 }
 export type ConnectorRequest={id:string,kind:Kind,name:string,server?:string,task:string,openUrl:string,source:string};
 export type ConnectorAnswers=Record<string,string>;
+export type Assignment={id:string,name:string,tasks:string[]};
 export function execute(g:Graph,data:{email:string,nama:string,catatan?:string},answers:ConnectorAnswers={}) {
   validate(g,true);
   const fields: RunFields={nama:data.nama,email:data.email,catatan:data.catatan??"",hasil:""};
   const stack:Step[]=[g.nodes.find(n=>n.kind==="trigger")!], done=new Set<string>();
-  const trace:{id:string,name:string,detail:string}[]=[], warnings:string[]=[], recruit:Vacancy[]=[], hires:string[]=[];
+  const trace:{id:string,name:string,detail:string}[]=[], warnings:string[]=[], rules:string[]=[], recruit:Vacancy[]=[], hires:string[]=[];
   const assigned=new Map<string,string[]>();
   let confirmation="", review="";
   while(stack.length) {
@@ -82,7 +83,7 @@ export function execute(g:Graph,data:{email:string,nama:string,catatan?:string},
       if(!Object.hasOwn(answers,n.id)) {
         const pending:ConnectorRequest={id:n.id,kind:n.kind,name:n.name,server:n.kind===customKind?n.value:entry.server,
           task:renderMessage(n.message,fields)||(given?given.join("\n"):""),openUrl:entry.openUrl,source:entry.source};
-        return {trace,confirmation,review,hasil:fields.hasil,warnings,recruit,hires,pending};
+        return {trace,confirmation,review,hasil:fields.hasil,warnings,recruit,hires,assignments:[] as Assignment[],rules,pending};
       }
       const answer=answers[n.id];
       if(typeof answer!=="string"||!answer.trim()||answer.length>8000) throw Error("Hasil konektor harus berisi 1–8.000 karakter.");
@@ -118,6 +119,7 @@ export function execute(g:Graph,data:{email:string,nama:string,catatan?:string},
       const routing=routePrompt(fields.hasil||fields.catatan,targets);
       for(const a of routing.tasks) for(const id of a.targets) assigned.set(id,[...(assigned.get(id)??[]),a.task]);
       for(const t of routing.unmatched) warnings.push("Tidak ada agent yang cocok untuk: "+t);
+      for(const r of promptRules(fields.hasil||fields.catatan)) if(!rules.includes(r)) rules.push(r);
       const dropped=droppedTasks(fields.hasil||fields.catatan);
       if(dropped.length) warnings.push("Tidak terbaca: "+dropped.length+" tugas setelah tugas ke-"+taskMax+" tidak dibagikan, mulai dari \""+dropped[0].slice(0,120)+"\"");
       only=new Set(routing.tasks.flatMap(a=>a.targets));
@@ -147,5 +149,7 @@ export function execute(g:Graph,data:{email:string,nama:string,catatan?:string},
     const next=g.edges.filter(e=>e.from===n.id&&e.port===port&&(!only||only.has(e.to))).slice(0,fansOut(n.kind)?undefined:1);
     for(const e of next.reverse()) { const s=g.nodes.find(x=>x.id===e.to); if(s) stack.push(s); }
   }
-  return {trace,confirmation,review,hasil:fields.hasil,warnings,recruit,hires,pending:null};
+  // Daftar lengkap tugas per agent untuk laporan uji (detail di jejak eksekusi dipotong).
+  const assignments:Assignment[]=trace.filter(t=>assigned.has(t.id)).map(t=>({id:t.id,name:t.name,tasks:assigned.get(t.id)!}));
+  return {trace,confirmation,review,hasil:fields.hasil,warnings,recruit,hires,assignments,rules,pending:null};
 }

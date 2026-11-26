@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 import { Bot, LogIn, LogOut, RefreshCw, Save, Sparkles } from "lucide-react";
 import { api, ApiError } from "./api";
 import "./settings.css";
+import WorkerQuota from "./WorkerQuota";
 
 type Worker = "claude" | "codex";
 type Settings = {
@@ -36,15 +37,6 @@ const pick = (s: Settings): Settings => ({
   codex_enabled: s.codex_enabled,
   takeover_minutes: s.takeover_minutes,
 });
-function ago(value: string | null, now: number) {
-  if (!value) return "Belum pernah aktif";
-  const minutes = Math.max(0, Math.round((now - new Date(value).getTime()) / 60000));
-  if (minutes < 1) return "Aktif baru saja";
-  if (minutes < 60) return `Aktif ${minutes} menit lalu`;
-  const hours = Math.round(minutes / 60);
-  if (hours < 48) return `Aktif ${hours} jam lalu`;
-  return `Aktif ${Math.round(hours / 24)} hari lalu`;
-}
 type StartMode = "beranda" | "agen" | "editor";
 /** Halaman pembuka tersimpan; Beranda bila belum pernah dipilih. */
 export function readStart(): StartMode {
@@ -211,7 +203,8 @@ export default function SettingsStudio({
                   const key = worker === "claude" ? "claude_enabled" : "codex_enabled";
                   const on = draft[key];
                   return (
-                    <div className="settings-worker" key={worker}>
+                    <div className="settings-worker-block" key={worker}>
+                    <div className="settings-worker">
                       <div>
                         <strong>
                           {names[worker]}
@@ -220,8 +213,7 @@ export default function SettingsStudio({
                           </span>
                         </strong>
                         <small>
-                          {ago(view.workers[worker], now)}
-                          {worker === "claude" ? " · jadwal tiap jam menit ke-40" : " · automasi di ChatGPT"}
+                          {worker === "claude" ? "Jadwal tiap jam menit ke-40" : "Automasi di ChatGPT"}
                         </small>
                       </div>
                       <label className="settings-switch">
@@ -234,6 +226,16 @@ export default function SettingsStudio({
                         <span className="sr-only">{names[worker]} aktif</span>
                         <em>{on ? "Aktif" : "Dijeda"}</em>
                       </label>
+                    </div>
+                    <WorkerQuota
+                      worker={worker}
+                      settings={view.settings}
+                      checkin={view.workers[worker]}
+                      sessions={view.active.map((a) => ({ ...a, updated_at: a.updated_at ?? "", status: "running" }))}
+                      now={now}
+                      countToday={false}
+                      compact
+                    />
                     </div>
                   );
                 })}

@@ -185,7 +185,6 @@
 
 /* Mesin yang dipantau */
 .home-focus,
-.home-workers,
 .home-recent li button {
   font: inherit;
   color: inherit;
@@ -197,8 +196,7 @@
   display: grid;
   gap: 14px;
 }
-.home-focus:hover,
-.home-workers:hover {
+.home-focus:hover {
   border-color: #5a5868;
 }
 .home-focus-head {
@@ -231,49 +229,6 @@
   align-items: center;
   gap: 4px;
   color: var(--accent);
-}
-
-/* Pekerja */
-.home-workers {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-}
-.home-worker {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  min-width: 0;
-}
-.home-worker > svg {
-  flex: none;
-  color: #80cfb7;
-}
-.home-worker.paused > svg {
-  color: #8a8796;
-}
-.home-worker > span {
-  display: grid;
-  gap: 2px;
-  min-width: 0;
-}
-.home-worker strong {
-  font-size: 15px;
-}
-.home-worker em {
-  font-style: normal;
-  font-size: 11px;
-  font-weight: 600;
-  padding: 2px 7px;
-  margin-left: 4px;
-  border-radius: 20px;
-  background: #2f2a3a;
-  color: #cdc2e4;
-  vertical-align: 1px;
-}
-.home-worker small {
-  color: #b6b3c2;
-  font-size: 13px;
 }
 
 /* Daftar terbaru */
@@ -447,9 +402,6 @@
   .home-new-row {
     flex-direction: column;
   }
-  .home-workers {
-    grid-template-columns: 1fr;
-  }
 }
 
 /* Menu bawah untuk HP */
@@ -505,8 +457,7 @@
 .machine-session .stage-progress {
   margin: 14px 0 16px;
 }
-.home-focus,
-.home-workers {
+.home-focus {
   padding: 18px;
   justify-content: stretch;
   justify-items: stretch;
@@ -516,4 +467,121 @@
   .studio:not(:has(.agent-studio)) > header .header-actions .primary {
     white-space: nowrap;
   }
+}
+
+/* Pekerja & token */
+.worker-quota-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.worker-quota {
+  display: grid;
+  gap: 6px;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: #191923;
+  min-width: 0;
+}
+.worker-quota-head {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  flex-wrap: wrap;
+}
+.worker-quota-head > svg {
+  color: var(--accent);
+}
+.worker-quota-head strong {
+  font-size: 15px;
+}
+.worker-quota-head em {
+  font-style: normal;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 7px;
+  border-radius: 20px;
+  background: #2f2a3a;
+  color: #cdc2e4;
+}
+.worker-quota-state {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+}
+.worker-quota-state i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #8a8796;
+}
+.worker-quota.ok .worker-quota-state,
+.worker-quota.busy .worker-quota-state {
+  color: #9ae3d1;
+}
+.worker-quota.ok .worker-quota-state i,
+.worker-quota.busy .worker-quota-state i {
+  background: #6fc6a8;
+}
+.worker-quota.warn {
+  border-color: #6b5233;
+  background: #241d16;
+}
+.worker-quota.warn .worker-quota-state {
+  color: #f0c98a;
+}
+.worker-quota.warn .worker-quota-state i {
+  background: #e6b778;
+}
+.worker-quota.off .worker-quota-state,
+.worker-quota.idle .worker-quota-state {
+  color: #b6b3c2;
+}
+.worker-quota small {
+  color: #b6b3c2;
+  font-size: 13px;
+}
+.worker-quota a {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  width: fit-content;
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+}
+.worker-quota-note {
+  margin: 10px 0 0;
+  color: #a9a6b5;
+  font-size: 12px;
+  line-height: 1.45;
+}
+@media (max-width: 640px) {
+  .worker-quota-list {
+    grid-template-columns: 1fr;
+  }
+}
+.worker-quota.compact {
+  margin-top: 0;
+  padding: 10px 12px;
+}
+.worker-quota.compact .worker-quota-state {
+  margin-left: 0;
+}
+.settings-worker-block {
+  border-top: 1px solid var(--line, #33313d);
+  padding: 2px 0 14px;
+}
+.settings-worker-block .settings-worker {
+  border: 0;
+  margin: 0;
+}
+.settings-worker-block + .settings-field {
+  border-top: 1px solid var(--line, #33313d);
+  padding-top: 16px;
 }

@@ -38,3 +38,12 @@
 .produce{border-top:1px solid var(--border);margin-top:20px;padding-top:16px}.produce h3{margin:0 0 6px;font-size:15px}.produce .pair{display:grid;grid-template-columns:1fr 1.4fr;gap:10px}
 @media (max-width:760px){.monitor select{max-width:150px}}
 .monitor{margin:0;font-size:13px;color:#dcd9e4}.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.prompt{--node:#7cc4ff;--tint:#1f3042}.router{--node:#f6c76a;--tint:#3a3120}.node.warned{border-color:#ff6b6b;box-shadow:0 0 0 3px #ff6b6b22,0 8px 20px #0003}.job-badge.prompt-warn{display:inline-flex;align-items:center;gap:4px;color:#ff8a8a;border-color:#c54b4b;background:#2a1418}
+.route-plan{margin:4px 0 18px;font-size:13px}.route-plan ul{margin:0;padding:0;list-style:none}.route-plan li{padding:8px 0;border-bottom:1px solid var(--border);color:#d6d3df;line-height:1.4}.route-plan li small{display:block;color:#8addba;margin-top:3px}.route-plan h3,.prompt-warning h3{font-size:13px;margin:0 0 6px}
+.prompt-warning{margin:4px 0 18px;padding:12px 14px;border:1px solid #c54b4b;background:#2a1418;border-radius:9px;color:#ff8a8a;font-size:13px;line-height:1.45}.prompt-warning h3{display:flex;align-items:center;gap:6px;color:#ff6b6b}.prompt-warning ul{margin:6px 0 0;padding-left:18px}.prompt-warning p{margin:0;color:#ff8a8a}.prompt-note{font-size:13px;color:var(--muted);margin:0 0 14px}
+.trace-warnings{margin-top:16px}
+.hrd{--node:#f59ac8;--tint:#3b2433}.job-badge.prompt-hire{display:inline-flex;align-items:center;gap:4px}
+.hrd-toggle{display:flex;align-items:center;gap:10px;font-weight:500}.hrd-toggle input{width:auto;margin:0}
+.vacancy{margin:0 0 12px;padding:12px 14px;border:1px solid #c54b4b;border-left-width:4px;background:#2a1418;border-radius:9px;font-size:13px;line-height:1.45;color:#ffc9c9}.vacancy h4{margin:0 0 4px;color:#ff6b6b;font-size:14px;display:flex;align-items:center;gap:6px}.vacancy p{margin:0 0 6px;color:#ffc9c9}.vacancy ul{margin:4px 0 0;padding-left:18px}.vacancy small{color:#ff9a9a;display:block;margin-top:6px}
+.hire-list{margin:0 0 16px;padding:0;list-style:none;font-size:13px}.hire-list li{padding:8px 0;border-bottom:1px solid var(--border)}.hire-list small{display:block;color:var(--muted)}
+.vacancy-head{font-size:13px;color:#ff6b6b;margin:6px 0 8px}

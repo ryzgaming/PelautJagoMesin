@@ -7,6 +7,9 @@ import {agentKind,agents,divisionByKey} from "./organization";
 
 const groups=["Agen Orang Mesin","Konektor populer","Plugin Claude Code","Google Workspace","Langkah dasar"];
 const items=[
+  {kind:"prompt" as Kind,name:"Agent prompt",group:"Langkah dasar",help:"Penerima prompt · Menerima perintah tertulis; satu tugas per baris",publisher:undefined},
+  {kind:"router" as Kind,name:"Pembagi tugas",group:"Langkah dasar",help:"Pembagi tugas · Memilah prompt dan menyerahkan tiap tugas ke agent yang cocok",publisher:undefined},
+  {kind:"hrd" as Kind,name:"Agent HRD",group:"Langkah dasar",help:"Rekrutmen · Menambahkan agent yang dibutuhkan prompt dan membuka lowongan bila belum ada",publisher:undefined},
   ...agents.map(a=>({kind:agentKind(a) as Kind,name:a.name,group:"Agen Orang Mesin",help:divisionByKey.get(a.division)!.short+" · "+a.mission,publisher:undefined})),
   ...directory.map(p=>({kind:`claude-${p.slug}` as Kind,name:p.name,group:p.group,help:p.help,publisher:p.publisher})),
   ...(["condition","confirm","review"] as const).map(kind=>({kind,name:label(kind),group:"Langkah dasar",help:typeName(kind),publisher:undefined}))

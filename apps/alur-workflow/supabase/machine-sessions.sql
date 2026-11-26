@@ -396,4 +396,29 @@ create policy alur_admin_required on public.alur_machine_sessions as restrictive
 drop policy if exists alur_admin_required on public.alur_machine_memory;
 create policy alur_admin_required on public.alur_machine_memory as restrictive for all to authenticated
  using ((select alur_access_private.is_admin())) with check ((select alur_access_private.is_admin()));
+
+-- Owner deletes own sessions (memory, leases cascade). A session an agent is actively
+-- working on (running with a live lease) is reported busy and kept, never yanked mid-lease.
+create or replace function alur_machine_private.delete_sessions(p_ids uuid[])
+returns jsonb language plpgsql security definer set search_path='' as $$
+declare v_owner uuid:=auth.uid(); v_busy uuid[]; v_deleted uuid[];
+begin
+ if not alur_access_private.is_admin() then raise exception 'Owner access required' using errcode='42501'; end if;
+ if p_ids is null or pg_catalog.cardinality(p_ids) not between 1 and 50 or pg_catalog.array_position(p_ids,null) is not null
+  then raise exception 'Invalid session list' using errcode='22023'; end if;
+ -- Same row lock the worker takes in lock_claim/claim_session; id order avoids deadlocks.
+ perform 1 from public.alur_machine_sessions where owner_id=v_owner and id=any(p_ids) order by id for update;
+ select coalesce(pg_catalog.array_agg(s.id order by s.id),'{}') into v_busy from public.alur_machine_sessions s
+  where s.owner_id=v_owner and s.id=any(p_ids) and s.status='running' and exists(select 1 from alur_machine_private.leases l
+   where l.session_id=s.id and l.revoked_at is null and l.expires_at>clock_timestamp());
+ with gone as (delete from public.alur_machine_sessions s where s.owner_id=v_owner and s.id=any(p_ids)
+   and not (s.id=any(v_busy)) returning s.id)
+ select coalesce(pg_catalog.array_agg(id order by id),'{}') into v_deleted from gone;
+ return pg_catalog.jsonb_build_object('deleted',pg_catalog.to_jsonb(v_deleted),'busy',pg_catalog.to_jsonb(v_busy));
+end $$;
+create or replace function public.alur_delete_machine_sessions(p_ids uuid[])
+returns jsonb language sql security invoker set search_path='' as $$ select alur_machine_private.delete_sessions(p_ids); $$;
+revoke all on function alur_machine_private.delete_sessions(uuid[]),public.alur_delete_machine_sessions(uuid[])
+ from public,anon,authenticated,service_role;
+grant execute on function alur_machine_private.delete_sessions(uuid[]),public.alur_delete_machine_sessions(uuid[]) to authenticated;
 commit;

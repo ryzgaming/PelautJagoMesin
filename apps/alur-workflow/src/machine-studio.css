@@ -612,3 +612,103 @@
   border-radius: 8px;
 }
 .machine-brief { white-space: pre-wrap; overflow-wrap: anywhere; }
+
+/* Hapus sesi */
+.machine-history-actions,
+.machine-session-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: none;
+}
+.machine-pick-bar {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+.machine-pick-bar button {
+  font-size: 12px;
+  min-height: 38px;
+  padding: 8px 10px;
+}
+.machine-danger {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #ffd6d3;
+  background: #5a2a30;
+  border: 1px solid #8a4550;
+}
+.machine-danger:hover:not(:disabled) {
+  background: #6e3139;
+}
+.machine-danger:disabled {
+  opacity: 0.5;
+}
+.machine-icon-danger {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  color: var(--muted);
+  border: 1px solid transparent;
+  border-radius: 8px;
+  background: transparent;
+}
+.machine-icon-danger:hover:not(:disabled) {
+  color: #ffc0bd;
+  border-color: #70434e;
+  background: #42252d;
+}
+.machine-confirm {
+  margin: 0 0 14px;
+  padding: 12px 13px;
+  border-radius: 8px;
+  border: 1px solid #70434e;
+  background: #2e1d22;
+}
+.machine-session .machine-confirm {
+  margin-top: 14px;
+}
+.machine-confirm p {
+  margin: 0 0 10px;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #f0d4d2;
+}
+.machine-confirm strong {
+  color: #ffd6d3;
+}
+.machine-confirm > div {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.machine-confirm button {
+  font-size: 13px;
+  min-height: 38px;
+  padding: 8px 12px;
+}
+.machine-history > ul > li > button.picking {
+  align-items: center;
+}
+.machine-check {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+  border: 1.5px solid #76604c;
+  color: #1b1410;
+}
+.machine-check.on {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+.machine-history > ul > li > button[aria-pressed="true"] {
+  border-color: #8a4550;
+  background: #42252d55;
+}

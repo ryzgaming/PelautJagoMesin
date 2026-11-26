@@ -307,20 +307,42 @@ returns jsonb language sql set search_path='' as $$
  select alur_machine_private.claim_candidate(p_owner_id,p_claim_token,p_lease_seconds,false);
 $$;
 
--- Worker priority: Claude is primary, Codex is backup. Every Claude claim (even on an empty queue)
--- records a check-in. While Claude checked in within the last 75 minutes (hourly schedule + grace),
--- Codex may only take over sessions a worker abandoned mid-run (lease lapsed). Otherwise Codex
--- takes everything until Claude checks in again.
+-- Worker priority, set by the owner in Alur > Pengaturan. Default: Claude primary, Codex backup.
+-- Every claim records the worker's check-in. While the primary is enabled and checked in within
+-- takeover_minutes, the backup may only take over sessions abandoned mid-run (lease lapsed).
+-- Otherwise the backup takes everything until the primary checks in again. A paused worker gets null.
 create table if not exists alur_machine_private.worker_checkins (
  worker text primary key check (worker in ('codex','claude')),
  seen_at timestamptz not null
 );
 alter table alur_machine_private.worker_checkins enable row level security;
 revoke all on alur_machine_private.worker_checkins from public,anon,authenticated,service_role;
+create table if not exists alur_machine_private.worker_settings (
+ id boolean primary key default true check (id),
+ primary_worker text not null default 'claude' check (primary_worker in ('codex','claude')),
+ claude_enabled boolean not null default true,
+ codex_enabled boolean not null default true,
+ takeover_minutes integer not null default 75 check (takeover_minutes between 15 and 1440),
+ updated_at timestamptz not null default clock_timestamp()
+);
+insert into alur_machine_private.worker_settings(id) values(true) on conflict (id) do nothing;
+alter table alur_machine_private.worker_settings enable row level security;
+revoke all on alur_machine_private.worker_settings from public,anon,authenticated,service_role;
+create or replace function alur_machine_private.worker_enabled(p_worker text)
+returns boolean language sql stable set search_path='' as $$
+ select coalesce((select case p_worker when 'claude' then claude_enabled when 'codex' then codex_enabled end
+  from alur_machine_private.worker_settings where id),true);
+$$;
+create or replace function alur_machine_private.primary_worker()
+returns text language sql stable set search_path='' as $$
+ select coalesce((select primary_worker from alur_machine_private.worker_settings where id),'claude');
+$$;
 create or replace function alur_machine_private.primary_alive()
 returns boolean language sql stable set search_path='' as $$
- select exists(select 1 from alur_machine_private.worker_checkins
-  where worker='claude' and seen_at>clock_timestamp()-interval '75 minutes');
+ select alur_machine_private.worker_enabled(alur_machine_private.primary_worker()) and exists(
+  select 1 from alur_machine_private.worker_checkins c where c.worker=alur_machine_private.primary_worker()
+   and c.seen_at>clock_timestamp()-pg_catalog.make_interval(mins=>coalesce(
+    (select takeover_minutes from alur_machine_private.worker_settings where id),75)));
 $$;
 
 -- TRUSTED CONNECTOR ONLY. Same claim, recording which worker took it.
@@ -329,12 +351,11 @@ returns jsonb language plpgsql set search_path='' as $$
 declare v_result jsonb; v_session public.alur_machine_sessions%rowtype;
 begin
  if p_worker is null or p_worker not in ('codex','claude') then raise exception 'Invalid worker' using errcode='22023'; end if;
- if p_worker='claude' then
-  insert into alur_machine_private.worker_checkins(worker,seen_at) values('claude',clock_timestamp())
-   on conflict (worker) do update set seen_at=excluded.seen_at;
- end if;
+ insert into alur_machine_private.worker_checkins(worker,seen_at) values(p_worker,clock_timestamp())
+  on conflict (worker) do update set seen_at=excluded.seen_at;
+ if not alur_machine_private.worker_enabled(p_worker) then return null; end if;
  v_result:=alur_machine_private.claim_candidate(p_owner_id,p_claim_token,p_lease_seconds,
-  p_worker='codex' and alur_machine_private.primary_alive());
+  p_worker<>alur_machine_private.primary_worker() and alur_machine_private.primary_alive());
  if v_result is null then return null; end if;
  update public.alur_machine_sessions set worker=p_worker where id=(v_result->'session'->>'id')::uuid returning * into v_session;
  return pg_catalog.jsonb_set(v_result,'{session}',alur_machine_private.safe_session(v_session));
@@ -468,4 +489,54 @@ returns jsonb language sql security invoker set search_path='' as $$ select alur
 revoke all on function alur_machine_private.delete_sessions(uuid[]),public.alur_delete_machine_sessions(uuid[])
  from public,anon,authenticated,service_role;
 grant execute on function alur_machine_private.delete_sessions(uuid[]),public.alur_delete_machine_sessions(uuid[]) to authenticated;
+
+-- Alur > Pengaturan: owner reads and changes worker settings; sees check-ins and own queue.
+create or replace function alur_machine_private.settings_envelope()
+returns jsonb language sql stable set search_path='' as $$
+ select pg_catalog.jsonb_build_object(
+  'settings',(select pg_catalog.jsonb_build_object('primary_worker',primary_worker,'claude_enabled',claude_enabled,
+    'codex_enabled',codex_enabled,'takeover_minutes',takeover_minutes,'updated_at',updated_at)
+    from alur_machine_private.worker_settings where id),
+  'workers',pg_catalog.jsonb_build_object(
+    'claude',(select seen_at from alur_machine_private.worker_checkins where worker='claude'),
+    'codex',(select seen_at from alur_machine_private.worker_checkins where worker='codex')),
+  'primary_alive',alur_machine_private.primary_alive(),
+  'queue',(select pg_catalog.jsonb_build_object(
+    'queued',count(*) filter (where status='queued'),'running',count(*) filter (where status='running'),
+    'review',count(*) filter (where status='review'),'needs_evidence',count(*) filter (where status='needs_evidence'),
+    'failed',count(*) filter (where status='failed'))
+    from public.alur_machine_sessions where owner_id=auth.uid()),
+  'active',coalesce((select pg_catalog.jsonb_agg(pg_catalog.jsonb_build_object('id',id,'brand',brand,'model',model,
+    'worker',worker,'updated_at',updated_at) order by updated_at desc)
+    from (select * from public.alur_machine_sessions where owner_id=auth.uid() and status='running'
+     order by updated_at desc limit 5) x),'[]'::jsonb));
+$$;
+create or replace function alur_machine_private.get_settings()
+returns jsonb language plpgsql stable security definer set search_path='' as $$
+begin
+ if not alur_access_private.is_admin() then raise exception 'Owner access required' using errcode='42501'; end if;
+ return alur_machine_private.settings_envelope();
+end $$;
+create or replace function alur_machine_private.save_settings(p_primary text,p_claude boolean,p_codex boolean,p_takeover integer)
+returns jsonb language plpgsql security definer set search_path='' as $$
+begin
+ if not alur_access_private.is_admin() then raise exception 'Owner access required' using errcode='42501'; end if;
+ if p_primary is null or p_primary not in ('codex','claude') or p_claude is null or p_codex is null
+  or p_takeover is null or p_takeover not between 15 and 1440 then raise exception 'Invalid settings' using errcode='22023'; end if;
+ insert into alur_machine_private.worker_settings(id,primary_worker,claude_enabled,codex_enabled,takeover_minutes,updated_at)
+  values(true,p_primary,p_claude,p_codex,p_takeover,clock_timestamp())
+  on conflict (id) do update set primary_worker=excluded.primary_worker,claude_enabled=excluded.claude_enabled,
+   codex_enabled=excluded.codex_enabled,takeover_minutes=excluded.takeover_minutes,updated_at=excluded.updated_at;
+ return alur_machine_private.settings_envelope();
+end $$;
+create or replace function public.alur_get_production_settings()
+returns jsonb language sql stable security invoker set search_path='' as $$ select alur_machine_private.get_settings(); $$;
+create or replace function public.alur_save_production_settings(p_primary text,p_claude boolean,p_codex boolean,p_takeover integer)
+returns jsonb language sql security invoker set search_path='' as $$ select alur_machine_private.save_settings(p_primary,p_claude,p_codex,p_takeover); $$;
+revoke all on function alur_machine_private.settings_envelope(),alur_machine_private.get_settings(),
+ alur_machine_private.save_settings(text,boolean,boolean,integer),public.alur_get_production_settings(),
+ public.alur_save_production_settings(text,boolean,boolean,integer),alur_machine_private.worker_enabled(text),
+ alur_machine_private.primary_worker() from public,anon,authenticated,service_role;
+grant execute on function alur_machine_private.get_settings(),alur_machine_private.save_settings(text,boolean,boolean,integer),
+ public.alur_get_production_settings(),public.alur_save_production_settings(text,boolean,boolean,integer) to authenticated;
 commit;

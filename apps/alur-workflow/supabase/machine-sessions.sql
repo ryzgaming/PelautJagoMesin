@@ -585,4 +585,92 @@ returns jsonb language sql stable security invoker set search_path='' as $$ sele
 revoke all on function alur_machine_private.log_activity(uuid,uuid,text,text,text),alur_machine_private.get_activity(uuid,bigint),
  public.alur_get_machine_activity(uuid,bigint) from public,anon,authenticated,service_role;
 grant execute on function alur_machine_private.get_activity(uuid,bigint),public.alur_get_machine_activity(uuid,bigint) to authenticated;
+
+-- Brief produksi dari Bagan Alur: prompt pemilik (mis. standar DRCE), pembagian tugas per agent bagan,
+-- aturan umum dan tugas tanpa agent. Disimpan pada sesi antrean yang sama; daftar sesi hanya memuat
+-- ringkasannya (flow_brief_info), isi lengkap dibaca pekerja yang memegang lease lewat read_flow_brief.
+alter table public.alur_machine_sessions add column if not exists flow_brief jsonb;
+
+create or replace function alur_machine_private.valid_flow_brief(p jsonb)
+returns boolean language plpgsql immutable set search_path='' as $$
+declare v_item jsonb;
+begin
+ if p is null or pg_catalog.jsonb_typeof(p) is distinct from 'object' or pg_catalog.octet_length(p::text)>600000 then return false; end if;
+ if (select pg_catalog.array_agg(k order by k) from pg_catalog.jsonb_object_keys(p) as k)
+   is distinct from array['flow_id','flow_name','prompt','rules','tasks','unmatched','version']::text[] then return false; end if;
+ if p->'version' is distinct from '1'::jsonb
+  or pg_catalog.jsonb_typeof(p->'flow_id') is distinct from 'string' or pg_catalog.char_length(pg_catalog.btrim(p->>'flow_id')) not between 1 and 80
+  or pg_catalog.jsonb_typeof(p->'flow_name') is distinct from 'string' or pg_catalog.char_length(pg_catalog.btrim(p->>'flow_name')) not between 1 and 120
+  or pg_catalog.jsonb_typeof(p->'prompt') is distinct from 'string' or pg_catalog.char_length(pg_catalog.btrim(p->>'prompt')) not between 1 and 50000
+  or pg_catalog.jsonb_typeof(p->'tasks') is distinct from 'array' or pg_catalog.jsonb_array_length(p->'tasks') not between 1 and 2000
+  or pg_catalog.jsonb_typeof(p->'rules') is distinct from 'array' or pg_catalog.jsonb_array_length(p->'rules')>500
+  or pg_catalog.jsonb_typeof(p->'unmatched') is distinct from 'array' or pg_catalog.jsonb_array_length(p->'unmatched')>2000 then return false; end if;
+ for v_item in select x from pg_catalog.jsonb_array_elements(p->'tasks') as x loop
+  if pg_catalog.jsonb_typeof(v_item) is distinct from 'object'
+   or (select pg_catalog.array_agg(k order by k) from pg_catalog.jsonb_object_keys(v_item) as k) is distinct from array['agents','task']::text[]
+   or pg_catalog.jsonb_typeof(v_item->'task') is distinct from 'string' or pg_catalog.char_length(pg_catalog.btrim(v_item->>'task')) not between 1 and 2000
+   or pg_catalog.jsonb_typeof(v_item->'agents') is distinct from 'array' or pg_catalog.jsonb_array_length(v_item->'agents')>3
+   or exists(select 1 from pg_catalog.jsonb_array_elements(v_item->'agents') as a
+     where pg_catalog.jsonb_typeof(a) is distinct from 'string' or pg_catalog.char_length(pg_catalog.btrim(a#>>'{}')) not between 1 and 80) then return false; end if;
+ end loop;
+ if exists(select 1 from pg_catalog.jsonb_array_elements(p->'rules') as r
+    where pg_catalog.jsonb_typeof(r) is distinct from 'string' or pg_catalog.char_length(pg_catalog.btrim(r#>>'{}')) not between 1 and 2000)
+  or exists(select 1 from pg_catalog.jsonb_array_elements(p->'unmatched') as u
+    where pg_catalog.jsonb_typeof(u) is distinct from 'string' or pg_catalog.char_length(pg_catalog.btrim(u#>>'{}')) not between 1 and 2000) then return false; end if;
+ return true;
+end $$;
+
+do $$ begin
+ if not exists(select 1 from pg_catalog.pg_constraint where conname='alur_machine_flow_brief_valid') then
+  alter table public.alur_machine_sessions add constraint alur_machine_flow_brief_valid
+   check (flow_brief is null or alur_machine_private.valid_flow_brief(flow_brief));
+ end if;
+end $$;
+
+-- Isi brief tidak ikut di daftar/riwayat sesi; cukup nama bagan dan jumlah tugas/aturan.
+create or replace function alur_machine_private.safe_session(p_session public.alur_machine_sessions)
+returns jsonb language sql immutable set search_path='' as $$
+ select (pg_catalog.to_jsonb(p_session)-'owner_id'-'flow_brief')||pg_catalog.jsonb_build_object('flow_brief_info',
+  case when p_session.flow_brief is null then null else pg_catalog.jsonb_build_object(
+   'flow_name',p_session.flow_brief->>'flow_name',
+   'tasks',pg_catalog.jsonb_array_length(p_session.flow_brief->'tasks'),
+   'rules',pg_catalog.jsonb_array_length(p_session.flow_brief->'rules')) end);
+$$;
+
+create or replace function alur_machine_private.enqueue_flow(p_brand text,p_model text,p_request_id uuid,p_brief jsonb)
+returns jsonb language plpgsql security definer set search_path='' as $$
+declare v_created jsonb; v_session public.alur_machine_sessions%rowtype;
+begin
+ if not alur_access_private.is_admin() then raise exception 'Owner access required' using errcode='42501'; end if;
+ if not alur_machine_private.valid_flow_brief(p_brief) then raise exception 'Invalid flow brief' using errcode='22023'; end if;
+ v_created:=alur_machine_private.enqueue_task(p_brand,p_model,p_request_id,null,null);
+ select * into v_session from public.alur_machine_sessions where id=(v_created->>'id')::uuid and owner_id=auth.uid() for update;
+ if not found then raise exception 'Session unavailable' using errcode='42501'; end if;
+ if v_session.flow_brief is null then
+  -- Permintaan ulang yang sama boleh, tetapi brief tidak ditempel ke sesi yang sudah berjalan.
+  if v_session.status<>'queued' then raise exception 'Request identity mismatch' using errcode='22023'; end if;
+  update public.alur_machine_sessions set flow_brief=p_brief,updated_at=clock_timestamp() where id=v_session.id returning * into v_session;
+ elsif v_session.flow_brief<>p_brief then raise exception 'Request identity mismatch' using errcode='22023'; end if;
+ return alur_machine_private.safe_session(v_session);
+end $$;
+create or replace function public.alur_enqueue_machine_flow(p_brand text,p_model text,p_request_id uuid,p_brief jsonb)
+returns jsonb language sql security invoker set search_path='' as $$
+ select alur_machine_private.enqueue_flow(p_brand,p_model,p_request_id,p_brief);
+$$;
+
+-- TRUSTED CONNECTOR ONLY: brief lengkap untuk pekerja yang memegang lease aktif.
+create or replace function alur_machine_private.read_flow_brief(p_session_id uuid,p_claim_token uuid)
+returns jsonb language plpgsql set search_path='' as $$
+declare v_session public.alur_machine_sessions%rowtype;
+begin
+ v_session:=alur_machine_private.lock_claim(p_session_id,p_claim_token);
+ return v_session.flow_brief;
+end $$;
+
+revoke all on function alur_machine_private.valid_flow_brief(jsonb),alur_machine_private.enqueue_flow(text,text,uuid,jsonb),
+ alur_machine_private.read_flow_brief(uuid,uuid),public.alur_enqueue_machine_flow(text,text,uuid,jsonb)
+ from public,anon,authenticated,service_role;
+grant execute on function alur_machine_private.enqueue_flow(text,text,uuid,jsonb),public.alur_enqueue_machine_flow(text,text,uuid,jsonb)
+ to authenticated;
+
 commit;

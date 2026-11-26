@@ -59,6 +59,8 @@ export type MachineSession = {
   updated_at: string;
   result_url: string | null;
   worker?: "codex" | "claude" | null;
+  /** Ringkasan brief dari Bagan (prompt, pembagian tugas, aturan) yang dibaca pekerja. */
+  flow_brief_info?: { flow_name: string; tasks: number; rules: number } | null;
   source_leads?: {
     provider: string;
     status: string;
@@ -148,6 +150,11 @@ export function sessionRecord(value: unknown): MachineSession {
   return {
     ...s,
     worker: s.worker === "codex" || s.worker === "claude" ? s.worker : null,
+    flow_brief_info:
+      s.flow_brief_info && typeof s.flow_brief_info.flow_name === "string" &&
+      Number.isInteger(s.flow_brief_info.tasks) && Number.isInteger(s.flow_brief_info.rules)
+        ? s.flow_brief_info
+        : null,
     source_leads:
       leads &&
       Array.isArray(leads.items) &&
@@ -1221,6 +1228,11 @@ export default function MachineStudio({
                     onNo={() => setConfirm(null)}
                   />
                 )}
+                {current.flow_brief_info && <div>
+                  <h3>Brief dari bagan</h3>
+                  <p className="machine-brief">{current.flow_brief_info.flow_name}: {current.flow_brief_info.tasks.toLocaleString("id-ID")} tugas
+                    {current.flow_brief_info.rules ? ", " + current.flow_brief_info.rules.toLocaleString("id-ID") + " aturan umum" : ""}. Pekerja mengikuti prompt dan pembagian tugas ini di setiap peran.</p>
+                </div>}
                 {current.source_product && <div>
                   <a href={"/workspace?product=" + encodeURIComponent(current.source_product)}>Buka model asal</a>
                   <h3>Tugas revisi</h3>

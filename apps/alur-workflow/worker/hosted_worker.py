@@ -21,6 +21,7 @@ RPC = {
                                       ("worker", "text"))),
     "heartbeat": ("heartbeat_session", (("session_id", "uuid"), ("claim_token", "uuid"), ("lease_seconds", "integer"))),
     "history": ("read_prior_memory", (("session_id", "uuid"),)),
+    "brief": ("read_flow_brief", (("session_id", "uuid"), ("claim_token", "uuid"))),
     "log": ("log_activity", (("session_id", "uuid"), ("claim_token", "uuid"), ("kind", "text"),
                              ("message", "text"), ("url", "text"))),
     "checkpoint": ("write_checkpoint", (("session_id", "uuid"), ("claim_token", "uuid"), ("role", "text"),
@@ -153,6 +154,27 @@ def manifest(directory):
     return {"sha256": hashlib.sha256(encoded).hexdigest(), "files": files, "models": models}
 
 
+BRIEF_KEYS = {"version", "flow_id", "flow_name", "prompt", "tasks", "rules", "unmatched"}
+
+
+def flow_brief(claim, brief):
+    """Brief Bagan wajib dibaca bila sesi memilikinya, dan harus cocok dengan ringkasan di sesi."""
+    info = claim.get("flow_brief_info")
+    if info is None:
+        if brief is not None:
+            raise ValueError("Sesi ini tidak memiliki brief bagan.")
+        return None
+    if not isinstance(brief, dict) or set(brief) != BRIEF_KEYS or brief.get("version") != 1:
+        raise ValueError("Brief bagan belum dibaca (jalankan operasi sql brief) atau formatnya tidak dikenal.")
+    tasks, rules = brief["tasks"], brief["rules"]
+    if (not isinstance(tasks, list) or not isinstance(rules, list) or not isinstance(brief["prompt"], str)
+            or brief["flow_name"] != info.get("flow_name") or len(tasks) != info.get("tasks") or len(rules) != info.get("rules")
+            or any(not isinstance(t, dict) or set(t) != {"task", "agents"} or not isinstance(t["task"], str)
+                   or not isinstance(t["agents"], list) for t in tasks)):
+        raise ValueError("Brief bagan tidak cocok dengan sesi.")
+    return brief
+
+
 def prepare(root, packet):
     """Create repeatable private handoffs for every role, including unconfirmed earlier work."""
     owner = str(UUID(packet["owner_id"]))
@@ -208,6 +230,13 @@ def prepare(root, packet):
             raise ValueError("Tugas revisi tidak cocok dengan sesi.")
         revision = {"source_product": product, "workspace": "/workspace?product=" + product, "brief": brief}
         shared["revision_task"] = revision
+    brief = flow_brief(claim, packet.get("flow_brief"))
+    if brief:
+        # Isi lengkap di berkas terpisah agar context.json tetap kecil; setiap peran membacanya.
+        save(dest / "flow-brief.json", brief)
+        encoded = json.dumps(brief, sort_keys=True, ensure_ascii=False, separators=(",", ":")).encode()
+        shared["flow_brief"] = {"file": "flow-brief.json", "flow_name": brief["flow_name"], "tasks": len(brief["tasks"]),
+                                "rules": len(brief["rules"]), "sha256": hashlib.sha256(encoded).hexdigest()}
     shared["previous_sessions"] = [{k: r[k] for k in ("id", "status", "updated_at") if k in r}
                                    for r in history["previous_sessions"]]
     shared.update(sections)
@@ -220,6 +249,8 @@ def prepare(root, packet):
                    "canonical": next((r for r in sections["canonical_memory"] if r["role"] == role), None)}
         if revision:
             context["revision_task"] = revision
+        if brief:
+            context["flow_brief"] = dict(shared["flow_brief"], file="../../flow-brief.json")
         save(dest / "roles" / role / "context.json", context)
     return dest
 

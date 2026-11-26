@@ -157,3 +157,22 @@ test('kalimat larangan menjadi aturan umum, bukan tugas atau lowongan', async ()
   assert.deepEqual(r.rules, promptRules(text));
   assert.deepEqual(r.warnings, []);
 });
+
+test('brief produksi dari bagan memuat prompt, tugas berurutan, agent, aturan, dan lolos validasi', async () => {
+  const {buildBrief,validBrief,hasPrompt} = await import('../src/production-brief.ts');
+  const prompt = 'Susun daftar komponen bertingkat dengan part number\nBuat model 3D blok silinder\nJangan menebak part number\nHitung pajak penjualan bulan ini';
+  const g = graph(prompt);
+  assert.ok(hasPrompt(g));
+  const r = execute(g, {nama:'Caterpillar 3512C',email:'',catatan:''});
+  const b = buildBrief(g, r);
+  assert.equal(b.prompt, prompt);
+  assert.deepEqual(b.tasks.map(t => t.task), ['Susun daftar komponen bertingkat dengan part number','Buat model 3D blok silinder']);
+  assert.ok(b.tasks[1].agents.includes('3D Modeling'));
+  assert.deepEqual(b.rules, ['Jangan menebak part number']);
+  assert.deepEqual(b.unmatched, ['Hitung pajak penjualan bulan ini']);
+  assert.ok(validBrief(b));
+  assert.ok(!validBrief({...b, extra: 1}));
+  assert.ok(!validBrief({...b, tasks: []}));
+  assert.ok(!validBrief({...b, tasks: [{task: 'x', agents: ['a','b','c','d']}]}));
+  assert.ok(!validBrief({...b, prompt: 'x'.repeat(50001)}));
+});

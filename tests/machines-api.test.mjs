@@ -65,6 +65,31 @@ test('machines POST normalizes names and preserves idempotency ID and safe sessi
   }
 });
 
+test('machines POST from Bagan sends a validated flow brief and returns only its summary', async t => {
+  const brief = {version: 1, flow_id: 'bagan-1', flow_name: 'Caterpillar DRCE', prompt: 'MASTER PROMPT '.repeat(3000),
+    tasks: Array.from({length: 1500}, (_, i) => ({task: 'Buat model 3D komponen nomor ' + i, agents: ['3D Modeling']})),
+    rules: ['Jangan menebak part number'], unmatched: []};
+  const info = {flow_name: 'Caterpillar DRCE', tasks: 1500, rules: 1};
+  const calls = [];
+  t.mock.method(globalThis, 'fetch', async (url, options) => {
+    calls.push({url, options}); return Response.json(base({owner_id: owner, flow_brief_info: info, flow_brief: brief}));
+  });
+  const body = {brand: ' Caterpillar ', model: '3512C', request_id: requestId, flow_brief: brief};
+  assert.ok(JSON.stringify(body).length > 8192);
+  const response = await call(req('POST', {body}));
+  assert.equal(response.status, 202);
+  assert.deepEqual(await response.json(), {session: base({flow_brief_info: info})});
+  assert.equal(new URL(calls[0].url).pathname, '/rest/v1/rpc/alur_enqueue_machine_flow');
+  assert.deepEqual(JSON.parse(calls[0].options.body), {p_brand: 'Caterpillar', p_model: '3512C', p_request_id: requestId, p_brief: brief});
+  t.mock.method(globalThis, 'fetch', bomb);
+  for (const bad of [{...brief, tasks: []}, {...brief, extra: 1}, {...brief, prompt: 'x'.repeat(50001)}, null, 'brief']) {
+    assert.equal((await call(req('POST', {body: {...body, flow_brief: bad}}))).status, 400);
+  }
+  assert.equal((await call(req('POST', {body: {...body, owner_id: owner}}))).status, 400);
+  assert.equal((await call(req('POST', {raw: JSON.stringify({brand: 'A', model: 'M', request_id: requestId, pad: 'x'.repeat(9000)})}))).status, 413);
+  assert.equal((await call(req('POST', {raw: 'x'.repeat(700000)}))).status, 413);
+});
+
 test('machines GET lists bounded own sessions and GET detail preserves separate memory classes', async t => {
   const calls = [];
   t.mock.method(globalThis, 'fetch', async (address, options) => {

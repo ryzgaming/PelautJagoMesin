@@ -63,6 +63,35 @@ class HostedWorkerTests(unittest.TestCase):
             self.assertEqual(task["workspace"], "/workspace?product=tanabe-h74")
             self.assertEqual(task["brief"], "Periksa panel di HP.")
 
+    def test_flow_brief_is_required_and_delivered_to_each_role(self):
+        brief = {"version": 1, "flow_id": "bagan-1", "flow_name": "DRCE", "prompt": "MASTER PROMPT",
+                 "tasks": [{"task": "Buat model 3D blok silinder", "agents": ["3D Modeling"]}],
+                 "rules": ["Jangan menebak part number"], "unmatched": []}
+        self.claim["flow_brief_info"] = {"flow_name": "DRCE", "tasks": 1, "rules": 1}
+        with self.assertRaisesRegex(ValueError, "belum dibaca"):
+            worker.prepare(self.root, self.packet)
+        with self.assertRaisesRegex(ValueError, "tidak cocok"):
+            worker.prepare(self.root, dict(self.packet, flow_brief=dict(brief, rules=[])))
+        folder = worker.prepare(self.root, dict(self.packet, flow_brief=brief))
+        self.assertEqual(json.loads((folder / "flow-brief.json").read_text()), brief)
+        shared = json.loads((folder / "context.json").read_text())["flow_brief"]
+        self.assertEqual((shared["file"], shared["tasks"], shared["rules"]), ("flow-brief.json", 1, 1))
+        for role in worker.ROLES:
+            ref = json.loads((folder / "roles" / role / "context.json").read_text())["flow_brief"]
+            self.assertEqual(ref["file"], "../../flow-brief.json")
+            self.assertEqual(ref["sha256"], shared["sha256"])
+        del self.claim["flow_brief_info"]
+        with self.assertRaisesRegex(ValueError, "tidak memiliki brief"):
+            worker.prepare(self.root, dict(self.packet, flow_brief=brief))
+
+    def test_flow_brief_rpc_is_fixed_and_encoded(self):
+        sid, token = uid(), uid()
+        query = worker.sql("brief", {"session_id": sid, "claim_token": token})
+        self.assertIn("alur_machine_private.read_flow_brief((v->>'session_id')::uuid,(v->>'claim_token')::uuid)", query)
+        self.assertNotIn(sid, query)
+        with self.assertRaises(ValueError):
+            worker.sql("brief", {"session_id": sid})
+
     def test_history_must_be_same_owner_machine_and_session(self):
         mutations = ((("history", "account_id"), uid()), (("history", "previous_sessions", 0, "machine_key"), "other"),
                      (("history", "previous_memory", 0, "session_id"), uid()),

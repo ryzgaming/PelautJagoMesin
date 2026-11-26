@@ -257,3 +257,41 @@ test('Claude is primary: Codex waits while Claude checks in, takes abandoned wor
  assert.equal(await claimAs('codex'), null);
  assert.equal(await scalar("select has_table_privilege('authenticated','alur_machine_private.worker_checkins','SELECT')"), false);
 });
+
+test('Pengaturan: owner switches primary worker, pauses workers and sets takeover time', async () => {
+ const claimAs = (worker, token = randomUUID()) => scalar('select alur_machine_private.claim_session_as($1,$2,900,$3)', [owner, token, worker]);
+ const save = (...a) => scalar('select public.alur_save_production_settings($1,$2,$3,$4)', a);
+ const get = () => scalar('select public.alur_get_production_settings()');
+ await db.exec('truncate alur_machine_private.worker_checkins');
+ await as(owner, () => save('claude', true, true, 75));
+ await as(stranger, () => assert.rejects(get(), /Owner access required/));
+ await as(stranger, () => assert.rejects(save('codex', true, true, 60), /Owner access required/));
+ await db.exec('set role anon'); try { await assert.rejects(get(), /permission denied/); } finally { await db.exec('reset role'); }
+ for (const bad of [['gemini', true, true, 60], ['codex', null, true, 60], ['codex', true, true, 14], ['codex', true, true, 1441]])
+  await as(owner, () => assert.rejects(save(...bad), /Invalid settings/));
+ assert.equal(await scalar("select has_table_privilege('authenticated','alur_machine_private.worker_settings','SELECT')"), false);
+ // Codex primary: Claude becomes the backup and waits while Codex is alive.
+ let view = await as(owner, () => save('codex', true, true, 30));
+ assert.deepEqual([view.settings.primary_worker, view.settings.takeover_minutes], ['codex', 30]);
+ const a = await create(owner, 'Yanmar', '6AYM-WET');
+ assert.equal((await claimAs('codex')).session.id, a.id);
+ const b = await create(owner, 'Tanabe', 'H-74');
+ assert.equal(await claimAs('claude'), null);
+ await db.exec("update alur_machine_private.worker_checkins set seen_at=clock_timestamp()-interval '31 minutes' where worker='codex'");
+ assert.equal((await claimAs('claude')).session.id, b.id);
+ // Pausing a worker: it gets nothing; pausing the primary lets the backup take queued work at once.
+ const c = await create(owner, 'Shinko', 'GJ 80-25');
+ await as(owner, () => save('codex', true, false, 30));
+ await claimAs('codex'); // check-in only
+ assert.equal(await claimAs('codex'), null);
+ assert.equal((await claimAs('claude')).session.id, c.id);
+ await as(owner, () => save('claude', false, true, 75));
+ await create(owner, 'MAN', 'L23/30H');
+ assert.equal(await claimAs('claude'), null);
+ view = await as(owner, get);
+ assert.equal(view.settings.claude_enabled, false); assert.equal(view.primary_alive, false);
+ assert.equal(view.queue.queued, 1); assert.equal(view.queue.running, 3);
+ assert.equal(view.active.length, 3); assert.ok(view.workers.claude && view.workers.codex);
+ assert.equal((await claimAs('codex')).session.brand, 'MAN');
+ await as(owner, () => save('claude', true, true, 75));
+});

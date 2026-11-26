@@ -6,8 +6,10 @@ export const briefLimits = {name: 120, prompt: promptMax, tasks: 2000, task: 200
 export type BriefTask = {task: string, agents: string[]};
 export type FlowBrief = {version: 1, flow_id: string, flow_name: string, prompt: string, tasks: BriefTask[], rules: string[], unmatched: string[]};
 export type FlowBriefInfo = {flow_name: string, tasks: number, rules: number};
+/** Ukuran brief menurut JSON ringkas; database memakai batas sedikit lebih longgar untuk format jsonb. */
+export const briefBytes = (b: FlowBrief) => new TextEncoder().encode(JSON.stringify(b)).length;
 type Graph = {id: string, name: string, nodes: {kind: string, message: string}[]};
-type Result = {assignments?: {name: string, tasks: string[]}[], rules?: string[], warnings?: string[]};
+type Result = {assignments?: {name: string, tasks: string[]}[], rules?: string[], warnings?: string[], prompts?: string[]};
 
 const unmatchedPrefix = "Tidak ada agent yang cocok untuk: ";
 const cut = (s: string, n: number) => Array.from(s).slice(0, n).join("").trim();
@@ -15,9 +17,14 @@ const cut = (s: string, n: number) => Array.from(s).slice(0, n).join("").trim();
 /** Bagan dengan Agent prompt berisi bisa dikirim ke produksi bersama brief-nya. */
 export function hasPrompt(g: Graph) { return g.nodes.some(n => n.kind === promptKind && n.message.trim()); }
 
-/** Susun brief dari bagan dan hasil Uji alur. Urutan tugas mengikuti urutan di prompt. */
+/**
+ * Susun brief dari bagan dan hasil Uji alur. Prompt diambil dari hasil uji (isian seperti {nama} sudah
+ * terisi), sehingga sama persis dengan teks yang dibagi ke agent. Urutan tugas mengikuti urutan di prompt.
+ */
 export function buildBrief(g: Graph, result: Result, notes = ""): FlowBrief {
-  const prompt = cut(g.nodes.filter(n => n.kind === promptKind).map(n => n.message.trim()).filter(Boolean).join("\n\n") || notes, briefLimits.prompt);
+  const rendered = (result.prompts ?? []).map(p => p.trim()).filter(Boolean);
+  const raw = g.nodes.filter(n => n.kind === promptKind).map(n => n.message.trim()).filter(Boolean);
+  const prompt = cut((rendered.length ? rendered : raw).join("\n\n") || notes, briefLimits.prompt);
   const owners = new Map<string, string[]>();
   for (const a of result.assignments ?? []) for (const t of a.tasks) {
     const list = owners.get(t) ?? [];
@@ -45,14 +52,16 @@ export function validBrief(v: unknown): v is FlowBrief {
     b.tasks.every(t => !!t && typeof t === "object" && !Array.isArray(t) && Object.keys(t).sort().join() === "agents,task" &&
       str((t as BriefTask).task, briefLimits.task) && list((t as BriefTask).agents, briefLimits.agents, briefLimits.agent)) &&
     list(b.rules, briefLimits.rules, briefLimits.rule) && list(b.unmatched, briefLimits.tasks, briefLimits.task) &&
-    new TextEncoder().encode(JSON.stringify(b)).length <= briefLimits.bytes;
+    briefBytes(b as FlowBrief) <= briefLimits.bytes;
 }
 
-/** Ringkasan brief yang ditampilkan di daftar sesi mesin (isi lengkap hanya dibaca pekerja). */
+/**
+ * Ringkasan brief yang ditampilkan di daftar sesi mesin (isi lengkap hanya dibaca pekerja).
+ * Ringkasan yang aneh diabaikan, bukan dilempar, agar satu sesi tidak merusak seluruh daftar.
+ */
 export function briefInfo(v: unknown): FlowBriefInfo | null {
-  if (v === null || v === undefined) return null;
-  if (typeof v !== "object" || Array.isArray(v)) throw new Error("Invalid brief info");
+  if (!v || typeof v !== "object" || Array.isArray(v)) return null;
   const b = v as Record<string, unknown>;
-  if (!str(b.flow_name, briefLimits.name) || !Number.isSafeInteger(b.tasks) || !Number.isSafeInteger(b.rules)) throw new Error("Invalid brief info");
-  return {flow_name: b.flow_name as string, tasks: b.tasks as number, rules: b.rules as number};
+  if (!str(b.flow_name, briefLimits.name, true) || !Number.isSafeInteger(b.tasks) || !Number.isSafeInteger(b.rules)) return null;
+  return {flow_name: (b.flow_name as string).trim() || "Bagan", tasks: b.tasks as number, rules: b.rules as number};
 }

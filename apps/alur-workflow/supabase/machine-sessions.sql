@@ -587,70 +587,94 @@ revoke all on function alur_machine_private.log_activity(uuid,uuid,text,text,tex
 grant execute on function alur_machine_private.get_activity(uuid,bigint),public.alur_get_machine_activity(uuid,bigint) to authenticated;
 
 -- Brief produksi dari Bagan Alur: prompt pemilik (mis. standar DRCE), pembagian tugas per agent bagan,
--- aturan umum dan tugas tanpa agent. Disimpan pada sesi antrean yang sama; daftar sesi hanya memuat
--- ringkasannya (flow_brief_info), isi lengkap dibaca pekerja yang memegang lease lewat read_flow_brief.
-alter table public.alur_machine_sessions add column if not exists flow_brief jsonb;
+-- aturan umum dan tugas tanpa agent. Isi lengkap disimpan di tabel privat terpisah (tidak terjangkau REST,
+-- tidak ikut diperiksa ulang pada heartbeat/checkpoint). Sesi hanya membawa ringkasan flow_brief_info
+-- dengan digest SHA-256 server; pekerja pemegang lease membaca isinya per bagian lewat read_flow_brief.
+create or replace function alur_machine_private.brief_text(v jsonb,p_max integer)
+returns boolean language sql immutable set search_path='' as $$
+ select pg_catalog.jsonb_typeof(v)='string' and pg_catalog.char_length(v#>>'{}') between 1 and p_max
+  and pg_catalog.btrim(v#>>'{}',E' \t\n\r\f\u000b   　﻿')<>'';
+$$;
 
 create or replace function alur_machine_private.valid_flow_brief(p jsonb)
 returns boolean language plpgsql immutable set search_path='' as $$
 declare v_item jsonb;
 begin
- if p is null or pg_catalog.jsonb_typeof(p) is distinct from 'object' or pg_catalog.octet_length(p::text)>600000 then return false; end if;
+ -- Batas aplikasi 600.000 byte JSON ringkas; teks jsonb menambah spasi pemisah, jadi batas di sini lebih longgar.
+ if p is null or pg_catalog.jsonb_typeof(p) is distinct from 'object' or pg_catalog.octet_length(p::text)>660000 then return false; end if;
  if (select pg_catalog.array_agg(k order by k) from pg_catalog.jsonb_object_keys(p) as k)
    is distinct from array['flow_id','flow_name','prompt','rules','tasks','unmatched','version']::text[] then return false; end if;
  if p->'version' is distinct from '1'::jsonb
-  or pg_catalog.jsonb_typeof(p->'flow_id') is distinct from 'string' or pg_catalog.char_length(pg_catalog.btrim(p->>'flow_id')) not between 1 and 80
-  or pg_catalog.jsonb_typeof(p->'flow_name') is distinct from 'string' or pg_catalog.char_length(pg_catalog.btrim(p->>'flow_name')) not between 1 and 120
-  or pg_catalog.jsonb_typeof(p->'prompt') is distinct from 'string' or pg_catalog.char_length(pg_catalog.btrim(p->>'prompt')) not between 1 and 50000
+  or not alur_machine_private.brief_text(p->'flow_id',80) or not alur_machine_private.brief_text(p->'flow_name',120)
+  or not alur_machine_private.brief_text(p->'prompt',50000)
   or pg_catalog.jsonb_typeof(p->'tasks') is distinct from 'array' or pg_catalog.jsonb_array_length(p->'tasks') not between 1 and 2000
   or pg_catalog.jsonb_typeof(p->'rules') is distinct from 'array' or pg_catalog.jsonb_array_length(p->'rules')>500
   or pg_catalog.jsonb_typeof(p->'unmatched') is distinct from 'array' or pg_catalog.jsonb_array_length(p->'unmatched')>2000 then return false; end if;
  for v_item in select x from pg_catalog.jsonb_array_elements(p->'tasks') as x loop
   if pg_catalog.jsonb_typeof(v_item) is distinct from 'object'
    or (select pg_catalog.array_agg(k order by k) from pg_catalog.jsonb_object_keys(v_item) as k) is distinct from array['agents','task']::text[]
-   or pg_catalog.jsonb_typeof(v_item->'task') is distinct from 'string' or pg_catalog.char_length(pg_catalog.btrim(v_item->>'task')) not between 1 and 2000
+   or not alur_machine_private.brief_text(v_item->'task',2000)
    or pg_catalog.jsonb_typeof(v_item->'agents') is distinct from 'array' or pg_catalog.jsonb_array_length(v_item->'agents')>3
-   or exists(select 1 from pg_catalog.jsonb_array_elements(v_item->'agents') as a
-     where pg_catalog.jsonb_typeof(a) is distinct from 'string' or pg_catalog.char_length(pg_catalog.btrim(a#>>'{}')) not between 1 and 80) then return false; end if;
+   or exists(select 1 from pg_catalog.jsonb_array_elements(v_item->'agents') as a where not alur_machine_private.brief_text(a,80)) then return false; end if;
  end loop;
- if exists(select 1 from pg_catalog.jsonb_array_elements(p->'rules') as r
-    where pg_catalog.jsonb_typeof(r) is distinct from 'string' or pg_catalog.char_length(pg_catalog.btrim(r#>>'{}')) not between 1 and 2000)
-  or exists(select 1 from pg_catalog.jsonb_array_elements(p->'unmatched') as u
-    where pg_catalog.jsonb_typeof(u) is distinct from 'string' or pg_catalog.char_length(pg_catalog.btrim(u#>>'{}')) not between 1 and 2000) then return false; end if;
+ if exists(select 1 from pg_catalog.jsonb_array_elements(p->'rules') as r where not alur_machine_private.brief_text(r,2000))
+  or exists(select 1 from pg_catalog.jsonb_array_elements(p->'unmatched') as u where not alur_machine_private.brief_text(u,2000)) then return false; end if;
  return true;
 end $$;
 
-do $$ begin
- if not exists(select 1 from pg_catalog.pg_constraint where conname='alur_machine_flow_brief_valid') then
-  alter table public.alur_machine_sessions add constraint alur_machine_flow_brief_valid
-   check (flow_brief is null or alur_machine_private.valid_flow_brief(flow_brief));
+alter table public.alur_machine_sessions add column if not exists flow_brief_info jsonb;
+create table if not exists alur_machine_private.flow_briefs (
+ session_id uuid primary key references public.alur_machine_sessions(id) on delete cascade,
+ brief jsonb not null constraint alur_flow_brief_valid check (alur_machine_private.valid_flow_brief(brief)),
+ body text not null,
+ sha256 text not null check (sha256 ~ '^[0-9a-f]{64}$'),
+ created_at timestamptz not null default clock_timestamp()
+);
+revoke all on alur_machine_private.flow_briefs from public,anon,authenticated,service_role;
+
+create or replace function alur_machine_private.brief_info(p_brief jsonb,p_body text,p_sha256 text)
+returns jsonb language sql immutable set search_path='' as $$
+ select pg_catalog.jsonb_build_object('flow_name',p_brief->>'flow_name','tasks',pg_catalog.jsonb_array_length(p_brief->'tasks'),
+  'rules',pg_catalog.jsonb_array_length(p_brief->'rules'),'sha256',p_sha256,
+  'parts',greatest(1,ceil(pg_catalog.char_length(p_body)/16000.0)::integer));
+$$;
+
+-- Peralihan dari versi pertama (brief di kolom sesi flow_brief): salin isinya ke tabel privat. Kolom lama
+-- dibiarkan (tidak dihapus agar migrasi tidak destruktif), tidak lagi ditulis dan tidak ikut di safe_session.
+do $$
+declare v_row record; v_body text; v_sha text;
+begin
+ if exists(select 1 from information_schema.columns where table_schema='public' and table_name='alur_machine_sessions' and column_name='flow_brief') then
+  for v_row in execute 'select id,flow_brief from public.alur_machine_sessions where flow_brief is not null' loop
+   v_body:=v_row.flow_brief::text; v_sha:=pg_catalog.encode(pg_catalog.sha256(pg_catalog.convert_to(v_body,'UTF8')),'hex');
+   insert into alur_machine_private.flow_briefs(session_id,brief,body,sha256) values(v_row.id,v_row.flow_brief,v_body,v_sha) on conflict do nothing;
+   update public.alur_machine_sessions set flow_brief_info=alur_machine_private.brief_info(v_row.flow_brief,v_body,v_sha) where id=v_row.id;
+  end loop;
  end if;
 end $$;
 
--- Isi brief tidak ikut di daftar/riwayat sesi; cukup nama bagan dan jumlah tugas/aturan.
+-- Ringkasan brief kini kolom biasa; kolom lama flow_brief (bila masih ada) tidak pernah dikembalikan.
 create or replace function alur_machine_private.safe_session(p_session public.alur_machine_sessions)
-returns jsonb language sql immutable set search_path='' as $$
- select (pg_catalog.to_jsonb(p_session)-'owner_id'-'flow_brief')||pg_catalog.jsonb_build_object('flow_brief_info',
-  case when p_session.flow_brief is null then null else pg_catalog.jsonb_build_object(
-   'flow_name',p_session.flow_brief->>'flow_name',
-   'tasks',pg_catalog.jsonb_array_length(p_session.flow_brief->'tasks'),
-   'rules',pg_catalog.jsonb_array_length(p_session.flow_brief->'rules')) end);
-$$;
+returns jsonb language sql immutable set search_path='' as $$ select pg_catalog.to_jsonb(p_session)-'owner_id'-'flow_brief'; $$;
 
 create or replace function alur_machine_private.enqueue_flow(p_brand text,p_model text,p_request_id uuid,p_brief jsonb)
 returns jsonb language plpgsql security definer set search_path='' as $$
-declare v_created jsonb; v_session public.alur_machine_sessions%rowtype;
+declare v_created jsonb; v_session public.alur_machine_sessions%rowtype; v_old jsonb; v_body text; v_sha text;
 begin
  if not alur_access_private.is_admin() then raise exception 'Owner access required' using errcode='42501'; end if;
  if not alur_machine_private.valid_flow_brief(p_brief) then raise exception 'Invalid flow brief' using errcode='22023'; end if;
  v_created:=alur_machine_private.enqueue_task(p_brand,p_model,p_request_id,null,null);
  select * into v_session from public.alur_machine_sessions where id=(v_created->>'id')::uuid and owner_id=auth.uid() for update;
  if not found then raise exception 'Session unavailable' using errcode='42501'; end if;
- if v_session.flow_brief is null then
+ select brief into v_old from alur_machine_private.flow_briefs where session_id=v_session.id;
+ if not found then
   -- Permintaan ulang yang sama boleh, tetapi brief tidak ditempel ke sesi yang sudah berjalan.
   if v_session.status<>'queued' then raise exception 'Request identity mismatch' using errcode='22023'; end if;
-  update public.alur_machine_sessions set flow_brief=p_brief,updated_at=clock_timestamp() where id=v_session.id returning * into v_session;
- elsif v_session.flow_brief<>p_brief then raise exception 'Request identity mismatch' using errcode='22023'; end if;
+  v_body:=p_brief::text; v_sha:=pg_catalog.encode(pg_catalog.sha256(pg_catalog.convert_to(v_body,'UTF8')),'hex');
+  insert into alur_machine_private.flow_briefs(session_id,brief,body,sha256) values(v_session.id,p_brief,v_body,v_sha);
+  update public.alur_machine_sessions set flow_brief_info=alur_machine_private.brief_info(p_brief,v_body,v_sha),updated_at=clock_timestamp()
+   where id=v_session.id returning * into v_session;
+ elsif v_old<>p_brief then raise exception 'Request identity mismatch' using errcode='22023'; end if;
  return alur_machine_private.safe_session(v_session);
 end $$;
 create or replace function public.alur_enqueue_machine_flow(p_brand text,p_model text,p_request_id uuid,p_brief jsonb)
@@ -658,17 +682,32 @@ returns jsonb language sql security invoker set search_path='' as $$
  select alur_machine_private.enqueue_flow(p_brand,p_model,p_request_id,p_brief);
 $$;
 
--- TRUSTED CONNECTOR ONLY: brief lengkap untuk pekerja yang memegang lease aktif.
+-- TRUSTED CONNECTOR ONLY: satu bagian (16.000 karakter) teks brief untuk pekerja yang memegang lease aktif.
+-- Pekerja menyambung semua bagian lalu mencocokkan SHA-256 dengan flow_brief_info.sha256.
+-- Versi lama tanpa nomor bagian sudah tidak dipakai; tetap ada tetapi selalu menolak dengan petunjuk.
 create or replace function alur_machine_private.read_flow_brief(p_session_id uuid,p_claim_token uuid)
 returns jsonb language plpgsql set search_path='' as $$
-declare v_session public.alur_machine_sessions%rowtype;
+begin
+ raise exception 'Use read_flow_brief(session_id, claim_token, part)' using errcode='22023';
+end $$;
+create or replace function alur_machine_private.read_flow_brief(p_session_id uuid,p_claim_token uuid,p_part integer)
+returns jsonb language plpgsql set search_path='' as $$
+declare v_session public.alur_machine_sessions%rowtype; v_brief alur_machine_private.flow_briefs%rowtype; v_parts integer; v_text text;
 begin
  v_session:=alur_machine_private.lock_claim(p_session_id,p_claim_token);
- return v_session.flow_brief;
+ select * into v_brief from alur_machine_private.flow_briefs where session_id=p_session_id;
+ if not found then return null; end if;
+ v_parts:=greatest(1,ceil(pg_catalog.char_length(v_brief.body)/16000.0)::integer);
+ if p_part is null or p_part<0 or p_part>=v_parts then raise exception 'Brief part out of range' using errcode='22023'; end if;
+ v_text:=pg_catalog.substr(v_brief.body,p_part*16000+1,16000);
+ return pg_catalog.jsonb_build_object('part',p_part,'parts',v_parts,'sha256',v_brief.sha256,'text',v_text,
+  'part_sha256',pg_catalog.encode(pg_catalog.sha256(pg_catalog.convert_to(v_text,'UTF8')),'hex'));
 end $$;
 
-revoke all on function alur_machine_private.valid_flow_brief(jsonb),alur_machine_private.enqueue_flow(text,text,uuid,jsonb),
- alur_machine_private.read_flow_brief(uuid,uuid),public.alur_enqueue_machine_flow(text,text,uuid,jsonb)
+revoke all on function alur_machine_private.brief_text(jsonb,integer),alur_machine_private.valid_flow_brief(jsonb),
+ alur_machine_private.brief_info(jsonb,text,text),alur_machine_private.enqueue_flow(text,text,uuid,jsonb),
+ alur_machine_private.read_flow_brief(uuid,uuid,integer),alur_machine_private.read_flow_brief(uuid,uuid),
+ public.alur_enqueue_machine_flow(text,text,uuid,jsonb)
  from public,anon,authenticated,service_role;
 grant execute on function alur_machine_private.enqueue_flow(text,text,uuid,jsonb),public.alur_enqueue_machine_flow(text,text,uuid,jsonb)
  to authenticated;

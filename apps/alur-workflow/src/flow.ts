@@ -68,7 +68,7 @@ export function execute(g:Graph,data:{email:string,nama:string,catatan?:string},
   validate(g,true);
   const fields: RunFields={nama:data.nama,email:data.email,catatan:data.catatan??"",hasil:""};
   const stack:Step[]=[g.nodes.find(n=>n.kind==="trigger")!], done=new Set<string>();
-  const trace:{id:string,name:string,detail:string}[]=[], warnings:string[]=[], rules:string[]=[], recruit:Vacancy[]=[], hires:string[]=[];
+  const trace:{id:string,name:string,detail:string}[]=[], warnings:string[]=[], rules:string[]=[], recruit:Vacancy[]=[], hires:string[]=[], prompts:string[]=[];
   const assigned=new Map<string,string[]>();
   let confirmation="", review="";
   while(stack.length) {
@@ -83,7 +83,7 @@ export function execute(g:Graph,data:{email:string,nama:string,catatan?:string},
       if(!Object.hasOwn(answers,n.id)) {
         const pending:ConnectorRequest={id:n.id,kind:n.kind,name:n.name,server:n.kind===customKind?n.value:entry.server,
           task:renderMessage(n.message,fields)||(given?given.join("\n"):""),openUrl:entry.openUrl,source:entry.source};
-        return {trace,confirmation,review,hasil:fields.hasil,warnings,recruit,hires,assignments:[] as Assignment[],rules,pending};
+        return {trace,confirmation,review,hasil:fields.hasil,warnings,recruit,hires,assignments:[] as Assignment[],rules,prompts,pending};
       }
       const answer=answers[n.id];
       if(typeof answer!=="string"||!answer.trim()||answer.length>8000) throw Error("Hasil konektor harus berisi 1–8.000 karakter.");
@@ -103,7 +103,7 @@ export function execute(g:Graph,data:{email:string,nama:string,catatan?:string},
       const prompt=renderMessage(n.message,fields).trim()||fields.catatan.trim();
       if(!prompt) throw Error(n.name+" — tulis prompt terlebih dahulu.");
       if(prompt.length>promptMax) throw Error(n.name+" — prompt melebihi "+promptMax.toLocaleString("id-ID")+" karakter.");
-      fields.hasil=prompt;
+      fields.hasil=prompt;prompts.push(prompt);
       detail="Prompt diterima: "+prompt.slice(0,180);
     } else if(n.kind===hrdKind) {
       const routers=hrdRouters(g,n.id);
@@ -151,5 +151,5 @@ export function execute(g:Graph,data:{email:string,nama:string,catatan?:string},
   }
   // Daftar lengkap tugas per agent untuk laporan uji (detail di jejak eksekusi dipotong).
   const assignments:Assignment[]=trace.filter(t=>assigned.has(t.id)).map(t=>({id:t.id,name:t.name,tasks:assigned.get(t.id)!}));
-  return {trace,confirmation,review,hasil:fields.hasil,warnings,recruit,hires,assignments,rules,pending:null};
+  return {trace,confirmation,review,hasil:fields.hasil,warnings,recruit,hires,assignments,rules,prompts,pending:null};
 }

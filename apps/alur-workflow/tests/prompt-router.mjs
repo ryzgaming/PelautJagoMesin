@@ -176,3 +176,24 @@ test('brief produksi dari bagan memuat prompt, tugas berurutan, agent, aturan, d
   assert.ok(!validBrief({...b, tasks: [{task: 'x', agents: ['a','b','c','d']}]}));
   assert.ok(!validBrief({...b, prompt: 'x'.repeat(50001)}));
 });
+
+test('brief memakai prompt yang sudah terisi ({nama}) sehingga urutan tugas tetap sesuai prompt', async () => {
+  const {buildBrief,validBrief,briefBytes,briefLimits,briefInfo} = await import('../src/production-brief.ts');
+  const g = graph('Buat model 3D blok silinder {nama}\nSusun daftar komponen bertingkat {nama} dengan part number\nSimulasikan pompa bahan bakar');
+  const r = execute(g, {nama:'Caterpillar 3512C',email:'',catatan:''});
+  const b = buildBrief(g, r);
+  assert.equal(b.prompt.includes('{nama}'), false);
+  assert.ok(b.prompt.includes('Caterpillar 3512C'));
+  const order = b.tasks.map(t => t.task);
+  assert.equal(order[0], 'Buat model 3D blok silinder Caterpillar 3512C');
+  assert.equal(order[1], 'Susun daftar komponen bertingkat Caterpillar 3512C dengan part number');
+  // Ukuran dihitung seperti di server; brief raksasa ditolak dengan jelas sebelum dikirim.
+  const big = {...b, prompt: 'é'.repeat(50000), tasks: Array.from({length: 2000}, (_, i) => ({task: 'ü'.repeat(150) + i, agents: ['A']}))};
+  assert.ok(briefBytes(big) > briefLimits.bytes);
+  assert.equal(validBrief(big), false);
+  // Ringkasan sesi yang aneh tidak merusak daftar mesin.
+  assert.equal(briefInfo({flow_name: '\t', tasks: 1, rules: 0}).flow_name, 'Bagan');
+  assert.equal(briefInfo({flow_name: 5, tasks: 1, rules: 0}), null);
+  assert.equal(briefInfo('x'), null);
+  assert.deepEqual(briefInfo({flow_name: 'DRCE', tasks: 2, rules: 1, sha256: 'a'.repeat(64), parts: 1}), {flow_name: 'DRCE', tasks: 2, rules: 1});
+});

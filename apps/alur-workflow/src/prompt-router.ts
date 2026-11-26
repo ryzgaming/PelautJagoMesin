@@ -14,7 +14,7 @@ export function customAgentProfile(message:string) { return message.split(/\n\s*
 /** Batas panjang prompt di Agent prompt (karakter). Cukup untuk menempelkan prompt besar. */
 export const promptMax = 50000;
 /** Batas jumlah tugas yang dibagikan dari satu prompt. */
-export const taskMax = 300;
+export const taskMax = 2000;
 export type Node = {id:string, kind:string, name:string, message:string};
 export type Link = {from:string, to:string};
 type G = {nodes:Node[], edges:Link[]};
@@ -52,13 +52,19 @@ export function words(text:string) {
 
 /** Pecah prompt per baris, titik koma, atau kalimat; tanda butir, nomor urut, judul Markdown, dan label bagian ("Konteks:") dibuang. */
 export function splitPrompt(text:string, limit = taskMax) {
-  return text.split(/\r?\n|;|(?<=[.!?])\s+(?=[\p{Lu}\d])/u)
-    .filter(t => !/^\s*(?:#{1,6}\s|```|---+\s*$|===+\s*$)/.test(t) && !/:\s*$/.test(t))
-    .map(t => t.replace(/\*\*|__|`/g, "").replace(/^\s*(?:[-*•–]|\d+[.)]|[a-z][.)])\s*/u, "").replace(/^\s*\[[ xX]\]\s*/, "").replace(/[.!?]+$/, "").trim())
-    .filter(t => words(t).length > 0)
-    .filter((t, i, all) => all.indexOf(t) === i)
-    .slice(0, limit);
+  let all = splits.get(text);
+  if (!all) {
+    all = [...new Set(text.split(/\r?\n|;|(?<=[.!?])\s+(?=[\p{Lu}\d])/u)
+      .filter(t => !/^\s*(?:#{1,6}\s|```|---+\s*$|===+\s*$)/.test(t) && !/:\s*$/.test(t))
+      .map(t => t.replace(/\*\*|__|`/g, "").replace(/^\s*(?:[-*•–]|\d+[.)]|[a-z][.)])\s*/u, "").replace(/^\s*\[[ xX]\]\s*/, "").replace(/[.!?]+$/, "").trim())
+      .filter(t => words(t).length > 0))];
+    remember(splits, text, all);
+  }
+  return all.slice(0, limit);
 }
+// Hasil pemecahan dan pembagian disimpan sementara: editor menghitung ulang setiap kali bagan berubah.
+const splits = new Map<string,string[]>();
+function remember<K,V>(cache:Map<K,V>, key:K, value:V) { if (cache.size >= 20) cache.delete(cache.keys().next().value as K); cache.set(key, value); }
 /** Tugas yang tidak ikut dibagikan karena melewati batas jumlah tugas. */
 export function droppedTasks(text:string) { return splitPrompt(text, Infinity).slice(taskMax); }
 
@@ -89,24 +95,30 @@ function bag(s:string):Bag {
   return {all, pre:new Set([...all].filter(w => w.length >= 5).map(w => w.slice(0, 5)))};
 }
 type Profile = ReturnType<typeof describe>;
-function hit(set:Bag, w:string) {
-  return variants(w).some(v => set.all.has(v) || (v.length >= 5 && set.pre.has(v.slice(0, 5))));
-}
 function exact(set:Bag, w:string) {
   return set.all.has(w) || (w.length >= 5 && set.pre.has(w.slice(0, 5)));
 }
-function score(task:string, p:Profile, strict = false) {
-  const lower = task.toLocaleLowerCase("id");
+/** Kata-kata sebuah tugas beserta bobotnya, dihitung sekali per tugas (bukan per agent). */
+type Term = {forms:string[], word:string, value:number, main:boolean};
+function terms(task:string):Term[] {
+  const list = words(task), extra = list.flatMap(w => synonyms[w] ?? []).filter(w => !list.includes(w));
+  return [...list, ...extra].map(w => {
+    const verb = verbs.has(w);
+    return {forms:variants(w), word:w, value:weight(w) * (verb ? .5 : 1), main:!verb && list.includes(w)};
+  });
+}
+function has(set:Bag, forms:string[]) {
+  return forms.some(v => set.all.has(v) || (v.length >= 5 && set.pre.has(v.slice(0, 5))));
+}
+function score(task:string, lower:string, list:Term[], p:Profile, strict = false) {
   // Tugas yang tertulis persis di kartu Agent baru selalu diserahkan ke agent itu.
   if (p.lines.has(task)) return 100;
   const named = p.label.some(l => lower.includes(l));
   let total = named ? 10 : 0, hits = 0, strong = false, specific = false;
-  const terms = words(task), extra = terms.flatMap(w => synonyms[w] ?? []).filter(w => !terms.includes(w));
-  for (const w of [...terms, ...extra]) {
+  for (const t of list) {
     // Padanan dan bentuk dasar ikut menambah nilai, tetapi tidak cukup sendirian (misalnya "pelayaran" ≠ "layar").
-    const verb = verbs.has(w), main = !verb && terms.includes(w), value = weight(w) * (verb ? .5 : 1);
-    if (hit(p.strong, w)) { total += 3 * value; hits++; strong ||= main; }
-    else if (hit(p.body, w)) { total += value; hits++; specific ||= main && value >= 3 && exact(p.body, w); }
+    if (has(p.strong, t.forms)) { total += 3 * t.value; hits++; strong ||= t.main; }
+    else if (has(p.body, t.forms)) { total += t.value; hits++; specific ||= t.main && t.value >= 3 && exact(p.body, t.word); }
   }
   // Satu kata kebetulan sama (misalnya "pasang" pada "bongkar-pasang") belum cukup sebagai kecocokan.
   return named || strong || (specific && !strict) || hits >= 2 ? total : 0;
@@ -115,15 +127,23 @@ function score(task:string, p:Profile, strict = false) {
 /** Bagikan setiap tugas ke kandidat dengan nilai tertinggi (atau yang hampir sama tingginya, maks. 3). */
 /** `strict`: satu kata khas saja belum cukup (dipakai Agent HRD sebelum menambah agent ke bagan). */
 export function routePrompt(text:string, candidates:Node[], most = 3, strict = false):Routing {
-  const profiles = candidates.map(describe), tasks:Assignment[] = [], unmatched:string[] = [];
+  const profiles = candidates.map(describe);
+  const key = [most, strict, ...candidates.map(n => n.id + "\u0000" + n.kind + "\u0000" + n.name + "\u0000" + n.message)].join("\u0001") + "\u0002" + text;
+  const cached = routings.get(key);
+  if (cached) return cached;
+  const tasks:Assignment[] = [], unmatched:string[] = [];
   for (const task of splitPrompt(text)) {
-    const ranked = profiles.map(p => ({id:p.id, value:score(task, p, strict)})).filter(r => r.value >= threshold).sort((a, b) => b.value - a.value);
+    const lower = task.toLocaleLowerCase("id"), list = terms(task);
+    const ranked = profiles.map(p => ({id:p.id, value:score(task, lower, list, p, strict)})).filter(r => r.value >= threshold).sort((a, b) => b.value - a.value);
     const best = ranked[0]?.value ?? 0;
     const targets = ranked.filter(r => r.value >= best * .6).slice(0, most).map(r => r.id);
     if (targets.length) tasks.push({task, targets}); else unmatched.push(task);
   }
-  return {tasks, unmatched};
+  const made = {tasks, unmatched};
+  remember(routings, key, made);
+  return made;
 }
+const routings = new Map<string,Routing>();
 
 const executes = (n:Node) => n.kind !== "trigger" && n.kind !== promptKind && n.kind !== routerKind && n.kind !== hrdKind;
 /** Langkah yang bisa menerima tugas dari Pembagi tugas: semua langkah yang tersambung langsung darinya. */

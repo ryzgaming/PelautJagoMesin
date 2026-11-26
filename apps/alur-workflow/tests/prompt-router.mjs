@@ -84,14 +84,31 @@ test('prompt besar (hingga 50.000 karakter) diterima, dibagikan, dan tetap cepat
 });
 
 test('tugas di atas batas dilaporkan sebagai tidak terbaca, bukan hilang diam-diam', async () => {
-  const {taskMax,droppedTasks} = await import('../src/prompt-router.ts');
-  const lines = Array.from({length: taskMax + 12}, (_, i) => 'Buat model 3D komponen nomor ' + (i + 1));
+  const {taskMax,droppedTasks,promptMax} = await import('../src/prompt-router.ts');
+  const lines = Array.from({length: taskMax + 12}, (_, i) => 'Model 3D no ' + (i + 1));
   const text = lines.join('\n');
   assert.equal(splitPrompt(text).length, taskMax);
   assert.equal(droppedTasks(text).length, 12);
-  assert.equal(droppedTasks(text)[0], 'Buat model 3D komponen nomor ' + (taskMax + 1));
+  assert.equal(droppedTasks(text)[0], 'Model 3D no ' + (taskMax + 1));
+  assert.ok(text.length < promptMax, 'muat dalam satu Agent prompt');
   const g = graph(text);
   assert.equal(promptWarnings(g).prompt.dropped.length, 12);
   const r = execute(g, {nama:'',email:'',catatan:''});
   assert.ok(r.warnings.some(w => /^Tidak terbaca: 12 tugas/.test(w)));
+});
+
+test('prompt 50.000 karakter dengan ratusan tugas pendek terbaca seluruhnya', async () => {
+  const {promptMax,droppedTasks} = await import('../src/prompt-router.ts');
+  const kinds = ['Buat model 3D blok silinder varian ','Periksa firing order silinder ','Susun daftar komponen dengan part number '];
+  let text = '', i = 0;
+  while (text.length < promptMax - 200) text += kinds[i % 3] + (i++) + '\n';
+  const tasks = splitPrompt(text);
+  assert.ok(tasks.length > 1000, 'lebih dari 1.000 tugas');
+  assert.equal(droppedTasks(text).length, 0);
+  const started = performance.now();
+  const g = graph(text);
+  const w = promptWarnings(g);
+  assert.equal(w.prompt.dropped.length, 0);
+  assert.equal(w.router.unmatched.length, 0);
+  assert.ok(performance.now() - started < 3000, 'tetap cepat');
 });

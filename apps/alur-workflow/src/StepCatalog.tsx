@@ -11,6 +11,7 @@ const items=[
   {kind:"router" as Kind,name:"Pembagi tugas",group:"Langkah dasar",help:"Pembagi tugas · Memilah prompt dan menyerahkan tiap tugas ke agent yang cocok",publisher:undefined},
   {kind:"custom-agent" as Kind,name:"Agent baru",group:"Langkah dasar",help:"Agent kustom · Buat agent sendiri bila tidak ada di 57 agent Orang Mesin",publisher:undefined},
   {kind:"hrd" as Kind,name:"Agent HRD",group:"Langkah dasar",help:"Rekrutmen · Menambahkan agent yang dibutuhkan prompt dan membuka lowongan bila belum ada",publisher:undefined},
+  {kind:"struktur" as Kind,name:"Agent Struktur",group:"Langkah dasar",help:"Struktur · Menyusun agent di bawah Pembagi tugas menjadi cabang divisi (kepala → staf) secara otomatis",publisher:undefined},
   ...agents.map(a=>({kind:agentKind(a) as Kind,name:a.name,group:"Agen Orang Mesin",help:divisionByKey.get(a.division)!.short+" · "+a.mission,publisher:undefined})),
   ...directory.map(p=>({kind:`claude-${p.slug}` as Kind,name:p.name,group:p.group,help:p.help,publisher:p.publisher})),
   ...(["condition","confirm","review"] as const).map(kind=>({kind,name:label(kind),group:"Langkah dasar",help:typeName(kind),publisher:undefined}))

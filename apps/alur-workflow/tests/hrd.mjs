@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {hrdPlan,applyHiring,vacancy} from '../src/hrd.ts';
 import {step,validate,execute,label} from '../src/flow.ts';
+import {promptWarnings as promptWarningsOf} from '../src/prompt-router.ts';
 
 function graph(prompt, ids = ['parts-inventory','modeling-3d','diesel-specialist']) {
   const nodes = [step('trigger','start',0,0), step('prompt','prompt',250,0), step('hrd','hrd',500,0), step('router','router',750,0),
@@ -89,4 +90,47 @@ test('divisi Agent baru harus dikenal', () => {
   const {graph:g} = applyHiring(graph(prompt));
   g.nodes.find(n => n.kind === 'custom-agent').value = 'bukan-divisi';
   assert.throws(() => validate(g), /divisi Agent baru/);
+});
+
+test('agent yang sudah ada di atas Pembagi tugas tidak membuat putaran; HRD memasang salinannya', () => {
+  // Seperti bagan Caterpillar: Formulir → Memory & Knowledge → Agent prompt → HRD → Pembagi tugas.
+  const g = graph('Catat keputusan pemilik di memori proyek\nBuat model 3D blok silinder');
+  g.nodes.push(step('agen-memory-knowledge','memori',100,300));
+  g.edges = g.edges.filter(e => !(e.from === 'start' && e.to === 'prompt'));
+  g.edges.push({from:'start',port:'out',to:'memori'},{from:'memori',port:'out',to:'prompt'});
+  validate(g, true);
+  const {graph:next, added} = applyHiring(g);
+  assert.deepEqual(added, ['Memory & Knowledge']);
+  validate(next, true);
+  assert.equal(next.nodes.filter(n => n.kind === 'agen-memory-knowledge').length, 2);
+  assert.equal(hrdPlan(next, 'hrd').hires.length, 0);
+});
+
+test('Agent HRD yang belum disambung tetap membaca Agent prompt dan Pembagi tugas di bagan', () => {
+  const g = graph(prompt);
+  g.edges = g.edges.filter(e => e.from !== 'hrd' && e.to !== 'hrd');
+  g.edges.push({from:'prompt',port:'out',to:'router'});
+  const {graph:next, added, created} = applyHiring(g);
+  assert.deepEqual(added, ['Tax & Compliance','Performance Ads']);
+  assert.equal(created.length, 1);
+  assert.deepEqual(promptWarningsOf(next).prompt.unmatched, []);
+});
+
+test('prompt besar dengan banyak lowongan disatukan per divisi dan semua tugas tertangani', () => {
+  const odd = ['Masak nasi goreng untuk kru','Cuci piring setelah makan','Siram tanaman di kantor','Beli kopi untuk rapat','Antar paket ke kantor pos',
+    'Bersihkan gudang belakang','Pesan tiket pesawat teknisi','Sewa mobil untuk kunjungan','Pilih seragam kru kapal','Atur jadwal piket kebersihan'];
+  const g = graph(odd.join('\n'));
+  const {graph:next, created} = applyHiring(g);
+  const made = next.nodes.filter(n => n.kind === 'custom-agent');
+  assert.ok(made.length <= 9 && made.length >= 1, 'agent dikelompokkan, bukan satu per tugas');
+  assert.ok(made.every(n => n.name.startsWith('Agent Tambahan ')));
+  validate(next, true);
+  assert.deepEqual(promptWarningsOf(next).router.unmatched, []);
+  const r = execute(next, {nama:'',email:'',catatan:''});
+  assert.deepEqual(r.warnings, []);
+  // Tugas baru di prompt ditambahkan ke kartu agent yang sama, bukan agent baru lagi.
+  next.nodes.find(n => n.id === 'prompt').message += '\nCuci gelas di dapur kantor';
+  const again = applyHiring(next);
+  assert.ok(again.graph.nodes.filter(n => n.kind === 'custom-agent').length <= made.length + 1);
+  assert.deepEqual(promptWarningsOf(again.graph).router.unmatched, []);
 });

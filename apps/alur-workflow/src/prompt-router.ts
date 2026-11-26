@@ -75,14 +75,15 @@ function describe(n:Node) {
   const body = [n.kind === customAgentKind ? customAgentProfile(n.message) : n.message, agent ? profile(agent) : "", directoryByKind.get(n.kind)?.help ?? "", pluginById.get(n.kind)?.help ?? ""].join(" ");
   const key = n.kind + "\u0000" + n.name + "\u0000" + n.message, cached = profiles.get(key);
   if (cached) return {...cached, id:n.id};
-  const made = {id:n.id, label:[n.name, agent?.name, agent?.short].filter((s):s is string => !!s && s.length >= 4).map(s => s.toLocaleLowerCase("id")), strong:bag(strong), body:bag(body)};
+  const lines = n.kind === customAgentKind ? new Set(n.message.split("\n").filter(l => l.startsWith("- ")).map(l => l.slice(2).trim())) : new Set<string>();
+  const made = {id:n.id, lines, label:[n.name, agent?.name, agent?.short].filter((s):s is string => !!s && s.length >= 4).map(s => s.toLocaleLowerCase("id")), strong:bag(strong), body:bag(body)};
   if (profiles.size > 500) profiles.clear();
   profiles.set(key, made);
   return made;
 }
 // Profil disimpan sementara agar prompt besar tetap cepat dihitung ulang saat mengetik.
 type Bag = {all:Set<string>, pre:Set<string>};
-const profiles = new Map<string,{id:string,label:string[],strong:Bag,body:Bag}>();
+const profiles = new Map<string,{id:string,lines:Set<string>,label:string[],strong:Bag,body:Bag}>();
 function bag(s:string):Bag {
   const all = new Set(words(s).flatMap(variants));
   return {all, pre:new Set([...all].filter(w => w.length >= 5).map(w => w.slice(0, 5)))};
@@ -96,6 +97,8 @@ function exact(set:Bag, w:string) {
 }
 function score(task:string, p:Profile, strict = false) {
   const lower = task.toLocaleLowerCase("id");
+  // Tugas yang tertulis persis di kartu Agent baru selalu diserahkan ke agent itu.
+  if (p.lines.has(task)) return 100;
   const named = p.label.some(l => lower.includes(l));
   let total = named ? 10 : 0, hits = 0, strong = false, specific = false;
   const terms = words(task), extra = terms.flatMap(w => synonyms[w] ?? []).filter(w => !terms.includes(w));

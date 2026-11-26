@@ -1,7 +1,7 @@
 // Agent HRD: melengkapi bagan dengan agent Orang Mesin yang dibutuhkan prompt, dan membuka
 // lowongan (beserta profil agent yang dicari) bila tidak ada satu pun agent yang sanggup.
 import {accuracyStandards,agentKind,agents,divisions,type Agent,type Division} from "./organization.ts";
-import {customAgentKind,hrdKind,hrdRouters,routePrompt,routerTargets,splitPrompt,upstreamPrompts,variantsOf,verbs,weight,words,type Link,type Node} from "./prompt-router.ts";
+import {customAgentKind,downstreamRouters,hrdKind,hrdRouters,promptKind,routerKind,routePrompt,routerTargets,splitPrompt,upstreamPrompts,variantsOf,verbs,weight,words,type Link,type Node} from "./prompt-router.ts";
 
 type G = {nodes:Node[], edges:Link[]};
 export type Vacancy = {task:string, title:string, division:string, divisionKey:string, reportsTo:string, summary:string, skills:string[], duties:string[], rules:string[]};
@@ -68,7 +68,13 @@ export function review(text:string, targets:Node[], present:Node[] = []) {
 
 export function hrdPlan(g:G, id:string):HrdPlan {
   const node = g.nodes.find(n => n.id === id)!;
-  const routers = hrdRouters(g, id), prompts = upstreamPrompts(g, id);
+  // Agent HRD tetap bekerja walau belum disambung: ia membaca Agent prompt dan Pembagi tugas yang ada di bagan.
+  const loose = !g.edges.some(e => e.to === id);
+  let prompts = upstreamPrompts(g, id);
+  if (!prompts.length && loose) prompts = g.nodes.filter(n => n.kind === promptKind);
+  let routers = hrdRouters(g, id);
+  if (!routers.length) routers = unique(prompts.flatMap(p => downstreamRouters(g, p.id)));
+  if (!routers.length && loose) routers = g.nodes.filter(n => n.kind === routerKind);
   const text = prompts.map(p => p.message).join("\n");
   const auto = (node as Node & {value?:string}).value !== "manual";
   if (!prompts.length) return {routers, hires:[], vacancies:[], auto, note:"Sambungkan Agent HRD setelah Agent prompt agar bisa membaca kebutuhan prompt."};
@@ -77,6 +83,7 @@ export function hrdPlan(g:G, id:string):HrdPlan {
   const targets = routers.flatMap(r => routerTargets(g, r.id));
   return {routers, ...review(text, targets, g.nodes.filter(n => !targets.some(t => t.id === n.id))), auto, note:""};
 }
+const unique = (list:Node[]) => list.filter((n, i) => list.findIndex(x => x.id === n.id) === i);
 export function hrdPlans(g:G) {
   return Object.fromEntries(g.nodes.filter(n => n.kind === hrdKind).map(n => [n.id, hrdPlan(g, n.id)])) as Record<string,HrdPlan>;
 }
@@ -88,8 +95,21 @@ export function customAgentCard(list:Vacancy[]) {
     "Tugas:", ...list.map(x => "- " + x.task),
     "Kemampuan: " + (skills.join(", ") || "-"),
     "Melapor ke: " + v.reportsTo,
-    "Aturan: " + v.rules.join(" ")].join("\n").slice(0, 2000);
+    "Aturan: " + v.rules.join(" ")].join("\n");
 }
+/** Tambahkan tugas ke kartu Agent baru yang sudah ada (sebelum baris Kemampuan). */
+export function appendTasks(message:string, tasks:string[]) {
+  const lines = message.split("\n"), have = new Set(lines.filter(l => l.startsWith("- ")).map(l => l.slice(2)));
+  const fresh = tasks.filter(t => !have.has(t)).map(t => "- " + t);
+  const at = lines.findIndex(l => /^Kemampuan\s*:/.test(l));
+  lines.splice(at < 0 ? lines.length : at, 0, ...fresh);
+  return lines.join("\n");
+}
+const ancestors = (edges:Link[], id:string) => {
+  const seen = new Set<string>(), queue = [id];
+  while (queue.length) { const at = queue.shift()!; for (const e of edges) if (e.to === at && !seen.has(e.from)) { seen.add(e.from); queue.push(e.from); } }
+  return seen;
+};
 
 type Full = {nodes:(Node & {x:number, y:number})[], edges:(Link & {port:string})[]};
 /** Pasang agent yang dibutuhkan di bawah Pembagi tugas. Tanpa `only`, hanya Agent HRD dengan rekrut otomatis yang dijalankan. */
@@ -100,30 +120,51 @@ export function applyHiring<T extends Full>(g:T, only?:string):{graph:T, added:s
     const router = graph.nodes.find(n => n.id === plan.routers[0].id)!;
     const nodes = [...graph.nodes], edges = [...graph.edges];
     const kids = edges.filter(e => e.from === router.id).map(e => nodes.find(n => n.id === e.to)!).filter(Boolean);
-    let y = kids.length ? Math.max(...kids.map(n => n.y)) + 110 : router.y;
-    const x = kids.length ? kids[0].x : router.x + 300;
+    // Kotak baru disusun dalam kolom berisi 8 di kanan Pembagi tugas, agar bagan tetap mudah dibaca.
+    const baseX = kids.length ? Math.min(...kids.map(n => n.x)) : router.x + 300, topY = kids.length ? Math.min(...kids.map(n => n.y)) : router.y;
+    let slot = kids.length, x = 0, y = 0;
+    const place = () => { x = baseX + Math.floor(slot / 8) * 260; y = topY + (slot % 8) * 110; slot++; };
+    const above = ancestors(edges, router.id);
     for (const hire of plan.hires) {
-      if (nodes.length >= 80) break;
-      let target = hire.existing;
+      // Agent yang sudah ada di atas Pembagi tugas tidak boleh disambung lagi (membentuk putaran); pasang salinannya.
+      let target = hire.existing && !above.has(hire.existing) ? hire.existing : undefined;
+      if (!target && nodes.length >= 80) { plan.vacancies.push(...hire.tasks.map(vacancy)); continue; }
       if (!target) {
         target = "hrd-" + hire.agent.id;
         while (nodes.some(n => n.id === target)) target += "-1";
+        place();
         nodes.push({kind:agentKind(hire.agent), id:target, x, y, name:hire.agent.short, field:"email", operator:"filled", value:"", message:""} as T["nodes"][number]);
-        y += 110;
       }
       if (!edges.some(e => e.from === router.id && e.to === target)) edges.push({from:router.id, port:"out", to:target} as T["edges"][number]);
       added.push(hire.agent.short);
     }
     // Lowongan tanpa agent di organisasi: buat Agent baru lengkap dengan kartu perannya.
-    const groups = new Map<string,Vacancy[]>();
+    let groups = new Map<string,Vacancy[]>();
     for (const v of plan.vacancies) groups.set(v.title, [...(groups.get(v.title) ?? []), v]);
+    // Prompt besar dengan banyak lowongan: satukan per divisi agar bagan tidak penuh kotak.
+    if (groups.size > 8) {
+      groups = new Map();
+      for (const v of plan.vacancies) {
+        const short = divisions.find(d => d.key === v.divisionKey)?.short ?? "Umum", name = "Agent Tambahan " + short;
+        groups.set(name, [...(groups.get(name) ?? []), {...v, title:name}]);
+      }
+    }
     for (const [name, list] of groups) {
+      const same = nodes.find(n => n.kind === customAgentKind && n.name === name.slice(0, 80))
+        ?? (nodes.length >= 80 ? [...nodes].reverse().find(n => n.kind === customAgentKind && edges.some(e => e.from === router.id && e.to === n.id)) : undefined);
+      if (same) {
+        const i = nodes.indexOf(same);
+        nodes[i] = {...same, message:appendTasks(same.message, list.map(v => v.task))};
+        if (!edges.some(e => e.from === router.id && e.to === same.id) && !above.has(same.id)) edges.push({from:router.id, port:"out", to:same.id} as T["edges"][number]);
+        created.push(same.name);
+        continue;
+      }
       if (nodes.length >= 80) break;
       const slug = name.toLocaleLowerCase("id").normalize("NFKD").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 60) || "agent";
       let target = "baru-" + slug;
       while (nodes.some(n => n.id === target)) target += "-1";
+      place();
       nodes.push({kind:customAgentKind, id:target, x, y, name:name.slice(0, 80), field:"email", operator:"filled", value:list[0].divisionKey, message:customAgentCard(list)} as T["nodes"][number]);
-      y += 110;
       edges.push({from:router.id, port:"out", to:target} as T["edges"][number]);
       created.push(name);
     }

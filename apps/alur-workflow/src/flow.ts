@@ -1,16 +1,21 @@
 import {fieldLabels, pluginById, renderMessage, type Field, type RunFields} from "./plugins.ts";
 
 import {customKind,directoryByKind,validServer,type DirectoryKind} from "./directory.ts";
-export type Kind = DirectoryKind | `robot-${string}` | "trigger" | "condition" | "confirm" | "review";
+import {agentByKind,type AgentKind} from "./organization.ts";
+export type Kind = DirectoryKind | AgentKind | `robot-${string}` | "trigger" | "condition" | "confirm" | "review";
 export type Step = {id:string, kind:Kind, name:string, x:number, y:number, field:Field, operator:"filled"|"empty"|"equals", value:string, message:string};
 export type Port = "out" | "yes" | "no";
 export type Edge = {from:string, port:Port, to:string};
 export type Graph = {id:string, name:string, revision:number, nodes:Step[], edges:Edge[]};
 export const baseLabels = {trigger:"Formulir masuk",condition:"Kondisi",confirm:"Kirim konfirmasi",review:"Tandai untuk review"};
-export function label(kind:Kind) { return directoryByKind.get(kind)?.name ?? pluginById.get(kind)?.name ?? baseLabels[kind as keyof typeof baseLabels]; }
+export function label(kind:Kind) { return directoryByKind.get(kind)?.name ?? pluginById.get(kind)?.name ?? agentByKind.get(kind)?.short ?? baseLabels[kind as keyof typeof baseLabels]; }
 export function branches(kind:Kind) { return kind==="condition" || !!pluginById.get(kind)?.check; }
+/** Agent dapat mendelegasikan ke beberapa langkah sekaligus, seperti atasan ke stafnya. */
+export function fansOut(kind:Kind) { return agentByKind.has(kind); }
+/** Label kolom catatan bila pemicu meminta formulir satu kolom (misalnya "Merk dan tipe mesin"). */
+export function singleField(g:Graph) { const t=g.nodes.find(n=>n.kind==="trigger"); return t?.field==="catatan"&&t.value.trim()?t.value.trim():""; }
 export function usesNotes(g:Graph) {
-  return g.nodes.some(n => n.field==="catatan" || n.message.includes("{catatan}"));
+  return g.nodes.some(n => (n.kind!=="trigger"&&n.field==="catatan") || n.message.includes("{catatan}")) || !!singleField(g);
 }
 export function step(kind:Kind,id:string,x:number,y:number):Step {
   const plugin=pluginById.get(kind);
@@ -26,7 +31,7 @@ export function validate(g:Graph,run=false) {
   if(!g||!id(g.id)||typeof g.name!=="string"||!g.name.trim()||g.name.length>80||!Number.isInteger(g.revision)||g.revision<0||!Array.isArray(g.nodes)||!Array.isArray(g.edges)||g.nodes.length>80||g.edges.length>160) throw Error("Data workflow tidak valid.");
   const ids=new Set<string>();
   for(const n of g.nodes){
-    if(!id(n.id)||ids.has(n.id)||(!Object.hasOwn(baseLabels,n.kind)&&!pluginById.has(n.kind)&&!directoryByKind.has(n.kind))||!Number.isFinite(n.x)||!Number.isFinite(n.y)||typeof n.name!=="string"||!n.name.trim()||n.name.length>80||!Object.hasOwn(fieldLabels,n.field)||!["filled","empty","equals"].includes(n.operator)||typeof n.value!=="string"||n.value.length>400||typeof n.message!=="string"||n.message.length>1000) throw Error("Periksa konfigurasi langkah.");
+    if(!id(n.id)||ids.has(n.id)||(!Object.hasOwn(baseLabels,n.kind)&&!pluginById.has(n.kind)&&!directoryByKind.has(n.kind)&&!agentByKind.has(n.kind))||!Number.isFinite(n.x)||!Number.isFinite(n.y)||typeof n.name!=="string"||!n.name.trim()||n.name.length>80||!Object.hasOwn(fieldLabels,n.field)||!["filled","empty","equals"].includes(n.operator)||typeof n.value!=="string"||n.value.length>400||typeof n.message!=="string"||n.message.length>1000) throw Error("Periksa konfigurasi langkah.");
     if(n.kind===customKind&&!validServer(n.value)) throw Error("Periksa URL HTTPS server MCP.");
     ids.add(n.id);
   }
@@ -35,7 +40,7 @@ export function validate(g:Graph,run=false) {
   const ports=new Set<string>();
   for(const e of g.edges) {
     const n=g.nodes.find(x=>x.id===e.from);
-    const key=e.from+"/"+e.port;
+    const key=e.from+"/"+e.port+(n&&fansOut(n.kind)?"/"+e.to:"");
     if(!n||!ids.has(e.to)||e.to===triggers[0].id||!(branches(n.kind)?["yes","no"]:["out"]).includes(e.port)||ports.has(key)) throw Error("Sambungan tidak valid.");
     ports.add(key);
   }
@@ -58,10 +63,13 @@ export type ConnectorAnswers=Record<string,string>;
 export function execute(g:Graph,data:{email:string,nama:string,catatan?:string},answers:ConnectorAnswers={}) {
   validate(g,true);
   const fields: RunFields={nama:data.nama,email:data.email,catatan:data.catatan??"",hasil:""};
-  let n:Step|undefined=g.nodes.find(n=>n.kind==="trigger");
+  const stack:Step[]=[g.nodes.find(n=>n.kind==="trigger")!], done=new Set<string>();
   const trace:{id:string,name:string,detail:string}[]=[];
   let confirmation="", review="";
-  while(n) {
+  while(stack.length) {
+    const n=stack.pop()!;
+    if(done.has(n.id)) continue;
+    done.add(n.id);
     let port:Port="out",detail="Formulir diterima";
     const entry=directoryByKind.get(n.kind);
     if(entry) {
@@ -74,6 +82,11 @@ export function execute(g:Graph,data:{email:string,nama:string,catatan?:string},
       if(typeof answer!=="string"||!answer.trim()||answer.length>8000) throw Error("Hasil konektor harus berisi 1–8.000 karakter.");
       fields.hasil=answer;
       detail="Hasil diteruskan: "+answer.slice(0,180);
+    } else if(agentByKind.has(n.kind)) {
+      const agent=agentByKind.get(n.kind)!;
+      const task=renderMessage(n.message,fields).trim();
+      if(task) fields.hasil=task;
+      detail="Diserahkan ke "+agent.name+": "+(task||agent.mission).slice(0,180);
     } else if(n.kind==="condition") {
       const v=fields[n.field].trim();
       const ok=n.operator==="filled"?!!v:n.operator==="empty"?!v:v===n.value;
@@ -96,8 +109,8 @@ export function execute(g:Graph,data:{email:string,nama:string,catatan?:string},
       } catch(error) { throw Error(n.name+" — "+(error as Error).message); }
     }
     trace.push({id:n.id,name:n.name,detail});
-    const target=g.edges.find(e=>e.from===n!.id&&e.port===port)?.to;
-    n=g.nodes.find(s=>s.id===target);
+    const next=g.edges.filter(e=>e.from===n.id&&e.port===port).slice(0,fansOut(n.kind)?undefined:1);
+    for(const e of next.reverse()) { const s=g.nodes.find(x=>x.id===e.to); if(s) stack.push(s); }
   }
   return {trace,confirmation,review,hasil:fields.hasil,pending:null};
 }

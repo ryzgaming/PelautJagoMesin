@@ -1,0 +1,519 @@
+/* Beranda produksi + strip progres 10 tahap */
+.home-studio {
+  max-width: 880px;
+  margin: 0 auto;
+  display: grid;
+  gap: 14px;
+}
+.home-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 12px;
+}
+.home-top h1 {
+  margin: 2px 0 0;
+  font-size: 26px;
+}
+.home-refresh {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--panel);
+  color: var(--text);
+}
+.home-studio .agent-card {
+  margin: 0;
+}
+.home-login {
+  display: grid;
+  gap: 12px;
+  justify-items: start;
+}
+.home-login > svg {
+  color: var(--accent);
+}
+.home-login h2 {
+  margin: 0;
+}
+.home-login p {
+  margin: 0;
+  color: #c9c6d4;
+  line-height: 1.5;
+}
+
+/* Form mesin baru */
+.home-new {
+  display: grid;
+  gap: 10px;
+  border-color: #5a4337;
+  background: linear-gradient(160deg, #241b1d, var(--panel) 65%);
+}
+.home-new > label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  font-size: 16px;
+  margin: 0;
+}
+.home-new > label svg {
+  color: var(--accent);
+}
+.home-new-row {
+  display: flex;
+  gap: 8px;
+}
+.home-new-row input {
+  flex: 1;
+  min-width: 0;
+  min-height: 48px;
+  font-size: 16px;
+}
+.home-new-row .primary {
+  min-height: 48px;
+  padding: 0 18px;
+}
+.home-split {
+  margin: 0;
+  font-size: 14px;
+  color: #c9c6d4;
+}
+.home-split b {
+  color: var(--text);
+}
+.home-split button {
+  border: 0;
+  background: none;
+  color: var(--accent);
+  padding: 0 4px;
+  font: inherit;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.home-pair {
+  margin: 0;
+}
+
+/* Target + hitungan status */
+.home-stats {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr);
+  gap: 14px;
+}
+.home-target {
+  display: grid;
+  gap: 8px;
+  align-content: start;
+}
+.home-target > div:first-child {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  color: #c9c6d4;
+  font-size: 14px;
+}
+.home-target > div:first-child svg {
+  color: var(--accent);
+}
+.home-target strong {
+  font-size: 40px;
+  line-height: 1;
+}
+.home-target strong small {
+  font-size: 16px;
+  color: #c9c6d4;
+  font-weight: 500;
+}
+.home-target > small {
+  color: #b6b3c2;
+  font-size: 13px;
+}
+.home-meter {
+  height: 10px;
+  border-radius: 10px;
+  background: #2a2935;
+  overflow: hidden;
+}
+.home-meter i {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, #ffae7d, #f0d27d);
+  border-radius: inherit;
+}
+.home-counts {
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.home-counts > div {
+  border: 1px solid var(--border);
+  background: var(--panel);
+  border-radius: 14px;
+  padding: 12px 14px;
+  display: grid;
+  gap: 4px;
+}
+.home-counts dt {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: #c9c6d4;
+}
+.home-counts dd {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 700;
+}
+.home-counts .running dt svg {
+  color: #80cfb7;
+}
+.home-counts .review dt svg {
+  color: #bdce86;
+}
+.home-counts .attention dt svg {
+  color: #e6b778;
+}
+.home-counts .queued dt svg {
+  color: #b9b0cf;
+}
+
+/* Mesin yang dipantau */
+.home-focus,
+.home-workers,
+.home-recent li button {
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  width: 100%;
+}
+.home-focus {
+  display: grid;
+  gap: 14px;
+}
+.home-focus:hover,
+.home-workers:hover {
+  border-color: #5a5868;
+}
+.home-focus-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+}
+.home-focus-head > span:first-child {
+  display: grid;
+  gap: 3px;
+  min-width: 0;
+}
+.home-focus-head small {
+  color: #b6b3c2;
+  font-size: 13px;
+}
+.home-focus-head strong {
+  font-size: 19px;
+  overflow-wrap: anywhere;
+}
+.home-focus-foot {
+  display: flex;
+  justify-content: space-between;
+  color: #b6b3c2;
+  font-size: 13px;
+}
+.home-focus-foot span {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--accent);
+}
+
+/* Pekerja */
+.home-workers {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.home-worker {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  min-width: 0;
+}
+.home-worker > svg {
+  flex: none;
+  color: #80cfb7;
+}
+.home-worker.paused > svg {
+  color: #8a8796;
+}
+.home-worker > span {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+.home-worker strong {
+  font-size: 15px;
+}
+.home-worker em {
+  font-style: normal;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 7px;
+  margin-left: 4px;
+  border-radius: 20px;
+  background: #2f2a3a;
+  color: #cdc2e4;
+  vertical-align: 1px;
+}
+.home-worker small {
+  color: #b6b3c2;
+  font-size: 13px;
+}
+
+/* Daftar terbaru */
+.home-recent ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.home-recent li + li {
+  border-top: 1px solid #262531;
+}
+.home-recent li button {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 2px;
+  border: 0;
+  background: none;
+}
+.home-recent li button > span:nth-child(2) {
+  flex: 1;
+  display: grid;
+  gap: 3px;
+  min-width: 0;
+}
+.home-recent li button strong {
+  font-size: 15px;
+}
+.home-recent li button small {
+  color: #b6b3c2;
+  font-size: 13px;
+}
+.home-recent li button > svg {
+  color: #8a8796;
+  flex: none;
+}
+.home-recent .machine-status-dot {
+  width: 10px;
+  height: 10px;
+  margin: 0;
+}
+.home-skeleton {
+  display: grid;
+  gap: 10px;
+}
+.home-skeleton i {
+  height: 46px;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #1c1b26, #262533, #1c1b26);
+  background-size: 200% 100%;
+  animation: home-shimmer 1.4s ease-in-out infinite;
+}
+@keyframes home-shimmer {
+  to {
+    background-position: -200% 0;
+  }
+}
+
+/* Strip progres 10 tahap */
+.stage-progress {
+  display: grid;
+  gap: 8px;
+}
+.stage-progress-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px;
+  font-size: 14px;
+}
+.stage-progress-head span {
+  color: #b6b3c2;
+  font-size: 13px;
+}
+.stage-bar {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 4px;
+}
+.stage-bar li {
+  height: 10px;
+  border-radius: 4px;
+  background: #34333f;
+}
+.stage-bar li.done,
+.stage-legend li.done i {
+  background: #6fc6a8;
+}
+.stage-bar li.na,
+.stage-legend li.na i {
+  background: #4f6b62;
+}
+.stage-bar li.warn,
+.stage-legend li.warn i {
+  background: #e6b778;
+}
+.stage-bar li.failed,
+.stage-legend li.failed i {
+  background: #ec9b9b;
+}
+.stage-legend {
+  list-style: none;
+  margin: 4px 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 6px 14px;
+}
+.stage-legend li {
+  display: grid;
+  grid-template-columns: 10px 1fr;
+  column-gap: 8px;
+  align-items: center;
+  font-size: 13px;
+}
+.stage-legend li i {
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+  background: #34333f;
+}
+.stage-legend li small {
+  grid-column: 2;
+  color: #a9a6b5;
+  font-size: 12px;
+}
+
+/* Kartu hasil 3D di detail mesin */
+.machine-model-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px;
+  border-radius: 14px;
+  border: 1px solid #35615b;
+  background: linear-gradient(140deg, #183331, #15151f 70%);
+  color: var(--text);
+  text-decoration: none;
+  margin: 12px 0;
+}
+.machine-model-card > svg:first-child {
+  flex: none;
+  color: #9ae3d1;
+}
+.machine-model-card span {
+  flex: 1;
+  display: grid;
+  gap: 2px;
+}
+.machine-model-card strong {
+  font-size: 17px;
+}
+.machine-model-card small {
+  color: #b6b3c2;
+  font-size: 13px;
+}
+.machine-model-card > svg:last-child {
+  color: #9ae3d1;
+}
+
+@media (max-width: 640px) {
+  .home-top h1 {
+    font-size: 22px;
+  }
+  .home-stats {
+    grid-template-columns: 1fr;
+  }
+  .home-new-row {
+    flex-direction: column;
+  }
+  .home-workers {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Menu bawah untuk HP */
+.bottom-nav {
+  display: none;
+}
+@media (max-width: 760px) {
+  .bottom-nav {
+    flex: none;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-top: 1px solid var(--border);
+    background: #12121b;
+    padding: 4px 6px calc(4px + env(safe-area-inset-bottom));
+  }
+  .bottom-nav button {
+    display: grid;
+    justify-items: center;
+    gap: 3px;
+    min-height: 54px;
+    padding: 6px 2px;
+    border-radius: 12px;
+    color: #a9a6b5;
+    font-size: 12px;
+    font-weight: 600;
+  }
+  .bottom-nav button[aria-current="page"] {
+    color: var(--accent);
+    background: #2a211c;
+  }
+  .studio > footer,
+  .studio > header .studio-mode-nav {
+    display: none;
+  }
+  /* Menu pindah ke bawah, jadi nama workflow dan tombol editor kembali muat di atas. */
+  .studio:not(:has(.agent-studio)) > header .current,
+  .studio:not(:has(.agent-studio)) > header .badge {
+    display: revert;
+  }
+  .studio:not(:has(.agent-studio)) > header .current {
+    max-width: 38vw;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .studio:not(:has(.agent-studio)) > header .header-actions {
+    margin-left: auto;
+  }
+  .studio:not(:has(.agent-studio)) > header .header-actions .icon {
+    display: inline-flex;
+  }
+}
+.machine-session .stage-progress {
+  margin: 14px 0 16px;
+}
+.home-focus,
+.home-workers {
+  padding: 18px;
+  justify-content: stretch;
+  justify-items: stretch;
+  align-items: start;
+}
+@media (max-width: 760px) {
+  .studio:not(:has(.agent-studio)) > header .header-actions .primary {
+    white-space: nowrap;
+  }
+}

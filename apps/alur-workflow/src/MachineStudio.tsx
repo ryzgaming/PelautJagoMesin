@@ -13,11 +13,14 @@ import {
   Plus,
   RefreshCw,
   Trash2,
+  Box,
 } from "lucide-react";
 import { api, ApiError } from "./api";
 import { revisionProducts, workspaceBrief } from "./revision-products";
 import { stages } from "./AgentStudio";
 import "./machine-studio.css";
+import { roleProgress } from "./production-status";
+import StageProgress from "./StageProgress";
 
 export type SessionStatus =
   "queued" | "running" | "review" | "needs_evidence" | "failed";
@@ -346,7 +349,9 @@ export default function MachineStudio({
   onLogin,
   onAuthExpired,
   onLocal,
+  focus,
 }: {
+  focus?: { id: string; key: number } | null;
   prefill?: { brand: string; model: string; key: number } | null;
   onPrefillUsed?: () => void;
   signed: boolean;
@@ -372,7 +377,7 @@ export default function MachineStudio({
   const currentModel = product?.model ?? model;
   const [owner, setOwner] = useState<string | null>(null),
     [sessions, setSessions] = useState<MachineSession[]>([]),
-    [selected, setSelected] = useState<string | null>(null),
+    [selected, setSelected] = useState<string | null>(focus?.id ?? null),
     [detail, setDetail] = useState<Detail | null>(null);
   const [loading, setLoading] = useState(false),
     [detailLoading, setDetailLoading] = useState(false),
@@ -403,10 +408,22 @@ export default function MachineStudio({
     controllers = useRef(new Set<AbortController>()),
     detailsController = useRef<AbortController | null>(null),
     listController = useRef<AbortController | null>(null),
-    brandInput = useRef<HTMLInputElement | null>(null);
+    brandInput = useRef<HTMLInputElement | null>(null),
+    focusRef = useRef<string | null>(focus?.id ?? null),
+    sessionCard = useRef<HTMLElement | null>(null),
+    scrollTo = useRef<string | null>(focus?.id ?? null);
   signedRef.current = signed;
   authExpired.current = onAuthExpired;
   selectedRef.current = selected;
+  useEffect(() => {
+    // Dari Beranda: gulir langsung ke detail mesin yang diketuk (penting di HP).
+    if (!scrollTo.current || selected !== scrollTo.current || !sessionCard.current) return;
+    scrollTo.current = null;
+    // Gulir wadah halaman saja; scrollIntoView ikut menggeser kerangka aplikasi di HP.
+    const card = sessionCard.current,
+      box = card.closest(".agent-studio");
+    if (box) box.scrollTop += card.getBoundingClientRect().top - box.getBoundingClientRect().top - 12;
+  });
   const current =
     detail?.account_id === owner && detail.session.id === selected
       ? detail.session
@@ -553,6 +570,11 @@ export default function MachineStudio({
         setSelected(recovered.id);
         selectedRef.current = recovered.id;
         setNotice("Permintaan sebelumnya sudah tercatat.");
+      } else if (focusRef.current && rows.some((session) => session.id === focusRef.current)) {
+        // Dibuka dari Beranda: tampilkan mesin yang diketuk.
+        setSelected(focusRef.current);
+        selectedRef.current = focusRef.current;
+        focusRef.current = null;
       } else if (!selectedRef.current) {
         setSelected(rows[0]?.id || null);
         selectedRef.current = rows[0]?.id || null;
@@ -1163,7 +1185,7 @@ export default function MachineStudio({
             </section>
           ) : (
             <>
-              <section className="agent-card machine-session">
+              <section className="agent-card machine-session" ref={sessionCard}>
                 <div className="machine-session-heading">
                   <div>
                     <p className="agent-eyebrow">{current.source_product ? "SESI REVISI" : "SESI PRODUKSI"}</p>
@@ -1204,6 +1226,17 @@ export default function MachineStudio({
                   <p className="machine-brief">{current.revision_brief}</p>
                 </div>}
                 <p>{statusText[current.status]}</p>
+                {resultUrl && (
+                  <a className="machine-model-card" href={resultUrl} target="_blank" rel="noreferrer">
+                    <Box size={30} />
+                    <span>
+                      <strong>Lihat model 3D</strong>
+                      <small>Buka hasil untuk direview di tab baru</small>
+                    </span>
+                    <ExternalLink size={18} />
+                  </a>
+                )}
+                {visibleDetail && <StageProgress progress={roleProgress(visibleDetail.session, visibleDetail.memory)} />}
                 <dl className="agent-metadata">
                   {current.worker && (
                     <div>
@@ -1232,16 +1265,6 @@ export default function MachineStudio({
                   </p>
                 )}
                 <div className="machine-session-actions">
-                  {resultUrl && (
-                    <a
-                      className="primary"
-                      href={resultUrl}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      Buka hasil <ExternalLink size={15} />
-                    </a>
-                  )}
                   {!["queued", "running"].includes(current.status) && (
                     <button
                       className="secondary"

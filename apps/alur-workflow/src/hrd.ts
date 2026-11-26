@@ -1,10 +1,10 @@
 // Agent HRD: melengkapi bagan dengan agent Orang Mesin yang dibutuhkan prompt, dan membuka
 // lowongan (beserta profil agent yang dicari) bila tidak ada satu pun agent yang sanggup.
 import {accuracyStandards,agentKind,agents,divisions,type Agent,type Division} from "./organization.ts";
-import {hrdKind,hrdRouters,routePrompt,routerTargets,splitPrompt,upstreamPrompts,variantsOf,verbs,weight,words,type Link,type Node} from "./prompt-router.ts";
+import {customAgentKind,hrdKind,hrdRouters,routePrompt,routerTargets,splitPrompt,upstreamPrompts,variantsOf,verbs,weight,words,type Link,type Node} from "./prompt-router.ts";
 
 type G = {nodes:Node[], edges:Link[]};
-export type Vacancy = {task:string, title:string, division:string, reportsTo:string, summary:string, skills:string[], duties:string[], rules:string[]};
+export type Vacancy = {task:string, title:string, division:string, divisionKey:string, reportsTo:string, summary:string, skills:string[], duties:string[], rules:string[]};
 export type Hire = {agent:Agent, tasks:string[], existing?:string};
 export type HrdPlan = {routers:Node[], hires:Hire[], vacancies:Vacancy[], note:string, auto:boolean};
 
@@ -45,7 +45,7 @@ export function vacancy(task:string):Vacancy {
   const lead = division && agents.find(a => a.division === division.key && a.lead);
   const reportsTo = lead ? lead.name : "Orchestrator (Chief of Staff)";
   const where = division ? "di divisi " + division.name : "di divisi yang belum ditentukan (diputuskan Orchestrator bersama pemilik)";
-  return {task, title:name, division:division?.name ?? "Belum ditentukan", reportsTo,
+  return {task, title:name, division:division?.name ?? "Belum ditentukan", divisionKey:division?.key ?? "", reportsTo,
     summary:"Dibutuhkan agent " + name + " " + where + " yang mampu: " + task.charAt(0).toLocaleLowerCase("id") + task.slice(1) + ". Melapor ke " + reportsTo + ".",
     skills:topic.slice(0, 5).map(title),
     duties:["Mengerjakan: " + task, "Menyerahkan hasil beserta sumbernya ke " + reportsTo, "Melaporkan celah data, bukan menebak"],
@@ -81,12 +81,22 @@ export function hrdPlans(g:G) {
   return Object.fromEntries(g.nodes.filter(n => n.kind === hrdKind).map(n => [n.id, hrdPlan(g, n.id)])) as Record<string,HrdPlan>;
 }
 
+/** Kartu peran Agent baru dari satu atau beberapa lowongan bernama sama. */
+export function customAgentCard(list:Vacancy[]) {
+  const v = list[0], skills = [...new Set(list.flatMap(x => x.skills))];
+  return ["Misi: mengerjakan " + list.map(x => x.task.charAt(0).toLocaleLowerCase("id") + x.task.slice(1)).join("; ") + ".",
+    "Tugas:", ...list.map(x => "- " + x.task),
+    "Kemampuan: " + (skills.join(", ") || "-"),
+    "Melapor ke: " + v.reportsTo,
+    "Aturan: " + v.rules.join(" ")].join("\n").slice(0, 2000);
+}
+
 type Full = {nodes:(Node & {x:number, y:number})[], edges:(Link & {port:string})[]};
 /** Pasang agent yang dibutuhkan di bawah Pembagi tugas. Tanpa `only`, hanya Agent HRD dengan rekrut otomatis yang dijalankan. */
-export function applyHiring<T extends Full>(g:T, only?:string):{graph:T, added:string[]} {
-  let graph = g; const added:string[] = [];
+export function applyHiring<T extends Full>(g:T, only?:string):{graph:T, added:string[], created:string[]} {
+  let graph = g; const added:string[] = [], created:string[] = [];
   for (const [id, plan] of Object.entries(hrdPlans(g))) {
-    if ((only ? id !== only : !plan.auto) || !plan.hires.length) continue;
+    if ((only ? id !== only : !plan.auto) || (!plan.hires.length && !plan.vacancies.length)) continue;
     const router = graph.nodes.find(n => n.id === plan.routers[0].id)!;
     const nodes = [...graph.nodes], edges = [...graph.edges];
     const kids = edges.filter(e => e.from === router.id).map(e => nodes.find(n => n.id === e.to)!).filter(Boolean);
@@ -104,7 +114,20 @@ export function applyHiring<T extends Full>(g:T, only?:string):{graph:T, added:s
       if (!edges.some(e => e.from === router.id && e.to === target)) edges.push({from:router.id, port:"out", to:target} as T["edges"][number]);
       added.push(hire.agent.short);
     }
+    // Lowongan tanpa agent di organisasi: buat Agent baru lengkap dengan kartu perannya.
+    const groups = new Map<string,Vacancy[]>();
+    for (const v of plan.vacancies) groups.set(v.title, [...(groups.get(v.title) ?? []), v]);
+    for (const [name, list] of groups) {
+      if (nodes.length >= 80) break;
+      const slug = name.toLocaleLowerCase("id").normalize("NFKD").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 60) || "agent";
+      let target = "baru-" + slug;
+      while (nodes.some(n => n.id === target)) target += "-1";
+      nodes.push({kind:customAgentKind, id:target, x, y, name:name.slice(0, 80), field:"email", operator:"filled", value:list[0].divisionKey, message:customAgentCard(list)} as T["nodes"][number]);
+      y += 110;
+      edges.push({from:router.id, port:"out", to:target} as T["edges"][number]);
+      created.push(name);
+    }
     graph = {...graph, nodes, edges};
   }
-  return {graph, added};
+  return {graph, added, created};
 }

@@ -14,7 +14,7 @@ import CustomAgentPanel from "./CustomAgentPanel";
 import {applyHiring} from "./hrd";
 import {validate} from "./flow";
 import {Canvas,Mark,typeName} from "./canvas";
-import {initial,step,usesNotes,singleField,type Graph,type Step,type Kind} from "./flow";
+import {initial,maxSteps,step,usesNotes,singleField,type Graph,type Step,type Kind} from "./flow";
 import {alurBase,alurForm} from "./paths";
 import {api} from "./api";
 import RunForm from "./RunForm";
@@ -86,7 +86,7 @@ export default function App(){
  function open(s:Sheet){M(s);E("");if(s==="library"){keep(g);L(drafts());if(signed)api("flows").then((cloud:{id:string,name:string}[])=>L([...cloud,...drafts().filter(x=>!cloud.some(c=>c.id===x.id))])).catch(e=>E(e.message))}
  if(s==="history"){J([]);if(signed)api("flows?id="+g.id+"&history=1").then(J).catch(e=>E(e.message));else {try{J(JSON.parse(localStorage.getItem("alur.runs."+g.id)||"[]"))}catch{}}}}
  async function save(){if(!signed){keep(g);open("login");return}B(true);try{const saved=await api("flows",{action:"save",graph:g});G(saved);D(false);T("Workflow tersimpan di Supabase.")}catch(e){T((e as Error).message)}finally{B(false)}}
- function add(kind:Kind,custom?:{name:string,value:string}){if(g.nodes.length>=80){T("Maksimum 80 langkah per workflow.");return}const p=step(kind,crypto.randomUUID(),345+(g.nodes.length%3)*42,45+(g.nodes.length%4)*24);if(custom)Object.assign(p,custom);update(kind==="struktur"?spliceStructure(g,p):{...g,nodes:[...g.nodes,p]});S(p.id);MP(true);M(null);Tab("Pengaturan")}
+ function add(kind:Kind,custom?:{name:string,value:string}){if(g.nodes.length>=maxSteps){T("Maksimum "+maxSteps+" langkah per workflow.");return}const p=step(kind,crypto.randomUUID(),345+(g.nodes.length%3)*42,45+(g.nodes.length%4)*24);if(custom)Object.assign(p,custom);update(kind==="struktur"?spliceStructure(g,p):{...g,nodes:[...g.nodes,p]});S(p.id);MP(true);M(null);Tab("Pengaturan")}
  function openTemplate(t:typeof templates[number]){if(drafts().some(d=>d.id===t.id)||rows.some(r=>r.id===t.id)){access(t.id);return}keep(g);const v=t.build();update(v);S(null);MP(false);M(null);T(t.loaded)}
  async function access(id:string){B(true);try{let v=drafts().find(d=>d.id===id);if(signed){try{v=await api("flows?id="+id)}catch(e){if(!v)throw e}}if(!v)throw Error("Workflow tidak ditemukan.");G(v);S(v.nodes[0].id);Tr([]);Rn(null);D(false);M(null)}catch(e){E((e as Error).message)}finally{B(false)}}
  const production=useProductionMonitor(mode==="editor"&&signed&&g.id===productionId);

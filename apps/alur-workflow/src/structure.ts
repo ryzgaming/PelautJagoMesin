@@ -2,14 +2,14 @@
 // bercabang seperti perusahaan: Pembagi tugas → kepala divisi → staf divisi. Saat alur diuji,
 // tugas mengalir turun lewat cabang itu (lihat execute di flow.ts).
 import {agentByKind,agentKind,agents,divisionByKey} from "./organization.ts";
-import {customAgentKind,delegates,hrdRouters,routerKind,routerTargets,structureKind} from "./prompt-router.ts";
+import {customAgentKind,delegates,hrdRouters,maxSteps,routerKind,routerTargets,structureKind} from "./prompt-router.ts";
 import {layoutTree,type TreeNode} from "./org-tree.ts";
 import {type Step} from "./flow.ts";
 
 /** Kepala cabang yang dipasang Agent Struktur memakai awalan ini (boleh dilepas lagi bila tidak diperlukan). */
 export const structurePrefix = "struktur-";
 const order = ["eksekutif","kurikulum","produk","qa","growth","sales","cs","finance"];
-const maxNodes = 80;
+const maxNodes = maxSteps;
 
 type Node = Step;
 type Link = {from:string, port:string, to:string};

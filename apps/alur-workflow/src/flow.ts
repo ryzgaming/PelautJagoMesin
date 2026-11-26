@@ -2,7 +2,8 @@ import {fieldLabels, pluginById, renderMessage, type Field, type RunFields} from
 
 import {customKind,directoryByKind,validServer,type DirectoryKind} from "./directory.ts";
 import {agentByKind,divisionByKey,type AgentKind} from "./organization.ts";
-import {customAgentKind,delegates,droppedTasks,promptRules,hrdKind,promptKind,promptMax,routerKind,routePrompt,routerTargets,hrdRouters,structureKind,taskMax} from "./prompt-router.ts";
+import {customAgentKind,delegates,droppedTasks,promptRules,hrdKind,promptKind,promptMax,routerKind,routePrompt,routerTargets,hrdRouters,structureKind,taskMax,maxSteps,maxEdges} from "./prompt-router.ts";
+export {maxSteps,maxEdges};
 import {review as hrdReview,type Vacancy} from "./hrd.ts";
 export type Kind = DirectoryKind | AgentKind | `robot-${string}` | "trigger" | "condition" | "confirm" | "review" | "prompt" | "router" | "hrd" | "struktur" | "custom-agent";
 export type Step = {id:string, kind:Kind, name:string, x:number, y:number, field:Field, operator:"filled"|"empty"|"equals", value:string, message:string};
@@ -30,7 +31,7 @@ export function initial():Graph {
 }
 export function validate(g:Graph,run=false) {
   const id=(s:unknown)=>typeof s==="string" && /^[a-zA-Z0-9_-]{1,80}$/.test(s);
-  if(!g||!id(g.id)||typeof g.name!=="string"||!g.name.trim()||g.name.length>80||!Number.isInteger(g.revision)||g.revision<0||!Array.isArray(g.nodes)||!Array.isArray(g.edges)||g.nodes.length>80||g.edges.length>160) throw Error("Data workflow tidak valid.");
+  if(!g||!id(g.id)||typeof g.name!=="string"||!g.name.trim()||g.name.length>80||!Number.isInteger(g.revision)||g.revision<0||!Array.isArray(g.nodes)||!Array.isArray(g.edges)||g.nodes.length>maxSteps||g.edges.length>maxEdges) throw Error("Data workflow tidak valid.");
   const ids=new Set<string>();
   for(const n of g.nodes){
     if(!id(n.id)||ids.has(n.id)||(!Object.hasOwn(baseLabels,n.kind)&&!pluginById.has(n.kind)&&!directoryByKind.has(n.kind)&&!agentByKind.has(n.kind))||!Number.isFinite(n.x)||!Number.isFinite(n.y)||typeof n.name!=="string"||!n.name.trim()||n.name.length>80||!Object.hasOwn(fieldLabels,n.field)||!["filled","empty","equals"].includes(n.operator)||typeof n.value!=="string"||n.value.length>400||typeof n.message!=="string"||n.message.length>(n.kind===promptKind?promptMax:n.kind===customAgentKind?promptMax:1000)) throw Error("Periksa konfigurasi langkah.");

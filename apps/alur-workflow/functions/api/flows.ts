@@ -18,7 +18,7 @@ export const onRequest:PagesFunction=async ({request:req})=>{
  }
  if(req.method!=="POST"||req.headers.get("origin")!==u.origin)return json({error:"Permintaan tidak valid."},403);
  const raw=await req.text();if(raw.length>900000)return json({error:"Workflow terlalu besar."},413);const b=JSON.parse(raw);
- if(b.action==="save"){if(raw.length>150000)return json({error:"Workflow terlalu besar."},413);const g=b.graph as Graph;validate(g);const rev=g.revision;g.revision++;const row={id:g.id,name:g.name,graph:g,revision:g.revision,updated:new Date().toISOString()};
+ if(b.action==="save"){if(raw.length>900000)return json({error:"Workflow terlalu besar."},413);const g=b.graph as Graph;validate(g);const rev=g.revision;g.revision++;const row={id:g.id,name:g.name,graph:g,revision:g.revision,updated:new Date().toISOString()};
  const rows=rev===0?await request("alur_flows",{},"POST",row):await request("alur_flows",{id:"eq."+g.id,revision:"eq."+rev},"PATCH",row);
  if(!rows.length)return json({error:"Versi cloud telah berubah. Buka kembali workflow terbaru."},409);return json(g)}
  if(!["test","submit"].includes(b.action))return json({error:"Aksi tidak tersedia."},400);

@@ -1,7 +1,7 @@
 // Agent HRD: melengkapi bagan dengan agent Orang Mesin yang dibutuhkan prompt, dan membuka
 // lowongan (beserta profil agent yang dicari) bila tidak ada satu pun agent yang sanggup.
 import {accuracyStandards,agentKind,agents,divisions,type Agent,type Division} from "./organization.ts";
-import {customAgentKind,downstreamRouters,hrdKind,hrdRouters,promptKind,routerKind,routePrompt,routerTargets,splitPrompt,upstreamPrompts,variantsOf,verbs,weight,words,type Link,type Node} from "./prompt-router.ts";
+import {customAgentKind,downstreamRouters,hrdKind,hrdRouters,maxSteps,promptKind,routerKind,routePrompt,routerTargets,splitPrompt,upstreamPrompts,variantsOf,verbs,weight,words,type Link,type Node} from "./prompt-router.ts";
 
 type G = {nodes:Node[], edges:Link[]};
 export type Vacancy = {task:string, title:string, division:string, divisionKey:string, reportsTo:string, summary:string, skills:string[], duties:string[], rules:string[]};
@@ -128,7 +128,7 @@ export function applyHiring<T extends Full>(g:T, only?:string):{graph:T, added:s
     for (const hire of plan.hires) {
       // Agent yang sudah ada di atas Pembagi tugas tidak boleh disambung lagi (membentuk putaran); pasang salinannya.
       let target = hire.existing && !above.has(hire.existing) ? hire.existing : undefined;
-      if (!target && nodes.length >= 80) { plan.vacancies.push(...hire.tasks.map(vacancy)); continue; }
+      if (!target && nodes.length >= maxSteps) { plan.vacancies.push(...hire.tasks.map(vacancy)); continue; }
       if (!target) {
         target = "hrd-" + hire.agent.id;
         while (nodes.some(n => n.id === target)) target += "-1";
@@ -151,7 +151,7 @@ export function applyHiring<T extends Full>(g:T, only?:string):{graph:T, added:s
     }
     for (const [name, list] of groups) {
       const same = nodes.find(n => n.kind === customAgentKind && n.name === name.slice(0, 80))
-        ?? (nodes.length >= 80 ? [...nodes].reverse().find(n => n.kind === customAgentKind && edges.some(e => e.from === router.id && e.to === n.id)) : undefined);
+        ?? (nodes.length >= maxSteps ? [...nodes].reverse().find(n => n.kind === customAgentKind && edges.some(e => e.from === router.id && e.to === n.id)) : undefined);
       if (same) {
         const i = nodes.indexOf(same);
         nodes[i] = {...same, message:appendTasks(same.message, list.map(v => v.task))};
@@ -159,7 +159,7 @@ export function applyHiring<T extends Full>(g:T, only?:string):{graph:T, added:s
         created.push(same.name);
         continue;
       }
-      if (nodes.length >= 80) break;
+      if (nodes.length >= maxSteps) break;
       const slug = name.toLocaleLowerCase("id").normalize("NFKD").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 60) || "agent";
       let target = "baru-" + slug;
       while (nodes.some(n => n.id === target)) target += "-1";

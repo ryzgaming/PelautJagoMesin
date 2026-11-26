@@ -7,6 +7,8 @@ import {pluginById} from "./plugins.ts";
 export const promptKind = "prompt";
 export const routerKind = "router";
 export const hrdKind = "hrd";
+/** Agent Struktur: menata agent dari Agent HRD menjadi cabang divisi (kepala → staf). */
+export const structureKind = "struktur";
 /** Agent baru buatan Agent HRD (atau pengguna); kartu perannya tersimpan di pesan langkah. */
 export const customAgentKind = "custom-agent";
 /** Bagian kartu Agent baru yang dipakai untuk mencocokkan tugas (tanpa atasan dan aturan umum). */
@@ -206,10 +208,26 @@ export function routePrompt(text:string, candidates:Node[], most = 3, strict = f
 }
 const routings = new Map<string,Routing>();
 
-const executes = (n:Node) => n.kind !== "trigger" && n.kind !== promptKind && n.kind !== routerKind && n.kind !== hrdKind;
-/** Langkah yang bisa menerima tugas dari Pembagi tugas: semua langkah yang tersambung langsung darinya. */
+const executes = (n:Node) => n.kind !== "trigger" && n.kind !== promptKind && n.kind !== routerKind && n.kind !== hrdKind && n.kind !== structureKind;
+/** Agent yang bisa menjadi atasan dalam struktur bercabang (meneruskan tugas ke stafnya). */
+export const delegates = (n:{kind:string}) => agentByKind.has(n.kind) || n.kind === customAgentKind;
+/**
+ * Tim sebuah Pembagi tugas: langkah yang tersambung langsung, ditambah staf di bawah agent
+ * (struktur bercabang: Pembagi tugas → kepala divisi → staf). Semua anggota bisa menerima tugas.
+ */
 export function routerTargets(g:G, id:string) {
-  return g.edges.filter(e => e.from === id).map(e => g.nodes.find(n => n.id === e.to)).filter((n):n is Node => !!n && executes(n));
+  const out:Node[] = [], seen = new Set([id]), queue = [id];
+  while (queue.length) {
+    const at = queue.shift()!, top = at === id;
+    for (const e of g.edges) {
+      if (e.from !== at || seen.has(e.to)) continue;
+      const n = g.nodes.find(x => x.id === e.to);
+      if (!n || !(top ? executes(n) : delegates(n))) continue;
+      seen.add(n.id); out.push(n);
+      if (delegates(n)) queue.push(n.id);
+    }
+  }
+  return out;
 }
 
 const near = (g:G, id:string, up:boolean) => g.edges.filter(e => (up ? e.to : e.from) === id).map(e => g.nodes.find(n => n.id === (up ? e.from : e.to))).filter((n):n is Node => !!n);
@@ -218,16 +236,16 @@ export function upstreamPrompts(g:G, id:string) {
   const out:Node[] = [], seen = new Set([id]), queue = [id];
   while (queue.length) for (const n of near(g, queue.shift()!, true)) {
     if (seen.has(n.id)) continue; seen.add(n.id);
-    if (n.kind === promptKind) out.push(n); else if (n.kind === hrdKind || n.kind === routerKind) queue.push(n.id);
+    if (n.kind === promptKind) out.push(n); else if (n.kind === hrdKind || n.kind === routerKind || n.kind === structureKind) queue.push(n.id);
   }
   return out;
 }
-/** Pembagi tugas di hilir sebuah langkah, menembus Agent HRD. */
+/** Pembagi tugas di hilir sebuah langkah, menembus Agent HRD dan Agent Struktur. */
 export function downstreamRouters(g:G, id:string) {
   const out:Node[] = [], seen = new Set([id]), queue = [id];
   while (queue.length) for (const n of near(g, queue.shift()!, false)) {
     if (seen.has(n.id)) continue; seen.add(n.id);
-    if (n.kind === routerKind) out.push(n); else if (n.kind === hrdKind) queue.push(n.id);
+    if (n.kind === routerKind) out.push(n); else if (n.kind === hrdKind || n.kind === structureKind) queue.push(n.id);
   }
   return out;
 }

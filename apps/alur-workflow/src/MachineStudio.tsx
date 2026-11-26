@@ -19,9 +19,9 @@ import { revisionProducts, workspaceBrief } from "./revision-products";
 import { stages } from "./AgentStudio";
 import "./machine-studio.css";
 
-type SessionStatus =
+export type SessionStatus =
   "queued" | "running" | "review" | "needs_evidence" | "failed";
-type EvidenceStatus =
+export type EvidenceStatus =
   "DOCUMENTED" | "PARTIAL" | "UNVERIFIED" | "NOT_APPLICABLE";
 type Source = {
   id: string;
@@ -31,7 +31,7 @@ type Source = {
   evidence_status: string;
 };
 type Decision = { text: string; evidence_status: string; source_ids: string[] };
-type Memory = {
+export type Memory = {
   session_id: string;
   role: string;
   revision: number;
@@ -42,7 +42,7 @@ type Memory = {
   status: EvidenceStatus;
   written_at: string;
 };
-type MachineSession = {
+export type MachineSession = {
   id: string;
   request_id: string;
   brand: string;
@@ -60,7 +60,7 @@ type MachineSession = {
     items: { url: string; title: string }[];
   } | null;
 };
-type Detail = {
+export type Detail = {
   account_id: string;
   session: MachineSession;
   memory: Memory[];
@@ -69,7 +69,7 @@ type Detail = {
   previous_memory: Memory[];
 };
 type Pending = Pick<MachineSession, "brand" | "model" | "request_id" | "source_product" | "revision_brief">;
-const statusLabels: Record<SessionStatus, string> = {
+export const statusLabels: Record<SessionStatus, string> = {
   queued: "Dalam antrean",
   running: "Agen sedang bekerja",
   review: "Siap Anda review",
@@ -127,7 +127,7 @@ function safeResult(value: unknown): string | null {
     return null;
   return safeSource(value);
 }
-function sessionRecord(value: unknown): MachineSession {
+export function sessionRecord(value: unknown): MachineSession {
   const s = value as MachineSession;
   if (
     !s ||
@@ -189,7 +189,7 @@ function memoryRecord(value: unknown): Memory {
     throw Error("Catatan agen belum dapat dibaca. Muat ulang sesi.");
   return m;
 }
-function detailRecord(value: unknown): Detail {
+export function detailRecord(value: unknown): Detail {
   const d = value as Detail;
   if (
     !d ||
@@ -336,12 +336,16 @@ function MemoryContent({ memory }: { memory: Memory }) {
 }
 
 export default function MachineStudio({
+  prefill,
+  onPrefillUsed,
   signed,
   authReady,
   onLogin,
   onAuthExpired,
   onLocal,
 }: {
+  prefill?: { brand: string; model: string; key: number } | null;
+  onPrefillUsed?: () => void;
   signed: boolean;
   authReady: boolean;
   onLogin: () => void;
@@ -353,6 +357,14 @@ export default function MachineStudio({
   const [productId, setProductId] = useState("");
   const [brief, setBrief] = useState(workspaceBrief);
   const product = revisionProducts.find(item => item.id === productId);
+  useEffect(() => {
+    if (!prefill) return;
+    setProductId("");
+    setBrand(prefill.brand);
+    setModel(prefill.model);
+    setNotice("Merk dan tipe dari bagan Produksi mesin 3D sudah diisi. Periksa sekali lagi, lalu kirim ke antrean.");
+    onPrefillUsed?.();
+  }, [prefill?.key]);
   const currentBrand = product?.brand ?? brand;
   const currentModel = product?.model ?? model;
   const [owner, setOwner] = useState<string | null>(null),

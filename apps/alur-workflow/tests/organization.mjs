@@ -45,9 +45,16 @@ test('template kanvas memuat semua agent, valid, dan bisa diuji jalan', () => {
   assert.equal(result.pending, null);
   assert.equal(result.trace.length, 58);
   assert.match(result.trace[1].detail, /Orchestrator/);
-  const rows = new Map();
-  for (const n of g.nodes.slice(1)) rows.set(n.y, (rows.get(n.y) || 0) + 1);
-  assert.equal(rows.size, 8, 'satu baris per divisi');
+  const children = id => g.edges.filter(e => e.from === id).map(e => e.to);
+  assert.deepEqual(children('arahan-pemilik'), ['agen-orchestrator']);
+  const leads = agents.filter(a => a.lead && a.division !== 'eksekutif').map(a => 'agen-' + a.id);
+  for (const id of leads) assert.ok(children('agen-orchestrator').includes(id), id + ' melapor ke Orchestrator');
+  for (const a of agents.filter(a => !a.lead && a.division !== 'eksekutif')) {
+    const boss = g.edges.find(e => e.to === 'agen-' + a.id).from;
+    assert.equal(agentByKind.get(g.nodes.find(n => n.id === boss).kind).division, a.division, a.id + ' melapor ke kepala divisinya');
+  }
+  const x = new Map(g.nodes.map(n => [n.id, n.x]));
+  for (const e of g.edges) assert.ok(x.get(e.to) > x.get(e.from), 'bawahan selalu di kanan atasan');
 });
 
 test('tugas agent diteruskan sebagai hasil ke langkah berikutnya', () => {
@@ -57,11 +64,9 @@ test('tugas agent diteruskan sebagai hasil ke langkah berikutnya', () => {
   const confirm = step('confirm', 'akhir', 0, 0);
   confirm.message = '{hasil}';
   const g2 = {...g, nodes: [...g.nodes, confirm], edges: [...g.edges.filter(e => e.from !== oem.id), {from: oem.id, port: 'out', to: 'akhir'}]};
-  const kept = new Set(['akhir']);
-  for (let id = 'arahan-pemilik'; id; id = g2.edges.find(e => e.from === id)?.to) kept.add(id);
-  g2.nodes = g2.nodes.filter(n => kept.has(n.id));
-  g2.edges = g2.edges.filter(e => kept.has(e.from) && kept.has(e.to));
-  assert.equal(execute(g2, {nama: 'A', email: '', catatan: 'Tanabe H-74'}).confirmation, 'Kumpulkan parts catalog Tanabe H-74');
+  const run = execute(g2, {nama: 'A', email: '', catatan: 'Tanabe H-74'});
+  assert.equal(run.confirmation, 'Kumpulkan parts catalog Tanabe H-74');
+  assert.equal(run.trace.length, 59);
 });
 
 test('jenis agent tidak dikenal ditolak', () => {

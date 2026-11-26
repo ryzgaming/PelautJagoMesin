@@ -4,7 +4,7 @@ import MachineStudio from "./MachineStudio";
 function workspaceMode(){const value=new URLSearchParams(window.location.search).get("mode");return value==="editor"||value==="lokal"?value:"agen";}
 import {Play,ChevronRight,ChevronDown,X,Workflow,Save,Clock3,SlidersHorizontal,Plus,ExternalLink,Trash2,Link2,Check,GitBranch,FolderOpen,LogIn,Unplug,Users} from "lucide-react";
 import {Canvas,Mark,typeName} from "./canvas";
-import {initial,step,usesNotes,type Graph,type Step,type Kind} from "./flow";
+import {initial,step,usesNotes,singleField,type Graph,type Step,type Kind} from "./flow";
 import {alurBase,alurForm} from "./paths";
 import {api} from "./api";
 import RunForm from "./RunForm";
@@ -13,10 +13,10 @@ import StepCatalog from "./StepCatalog";
 import {fieldLabels,pluginById} from "./plugins";
 import {agentByKind} from "./organization";
 import {organizationGraph,organizationId} from "./organization-graph";
-import {production3512cGraph,production3512cId} from "./production-3512c";
+import {productionGraph,productionId} from "./production-machine";
 const templates=[
- {id:organizationId,name:"Organisasi 57 agent",help:"8 divisi agent Orang Mesin, tersambung di kanvas",build:organizationGraph,loaded:"Organisasi 57 agent dimuat. Ketuk kotak agent untuk melihat kartu perannya."},
- {id:production3512cId,name:"Produksi CAT 3512C",help:"Propulsi standar IMO II · 37 langkah · 4 gerbang QA",build:production3512cGraph,loaded:"Alur produksi CAT 3512C dimuat. Ketuk langkah untuk melihat tugas tiap agent, lalu Uji alur."},
+ {id:organizationId,name:"Organisasi 57 agent",help:"Bagan lengkap: Orchestrator → 7 kepala divisi → staf",build:organizationGraph,loaded:"Organisasi 57 agent dimuat. Ketuk kotak agent untuk melihat kartu perannya."},
+ {id:productionId,name:"Produksi mesin 3D",help:"Cukup tulis merk dan tipe · Direktur → 4 divisi → staf",build:productionGraph,loaded:"Bagan produksi mesin 3D dimuat. Ketuk Uji alur, lalu tulis merk dan tipe mesin."},
 ];
 const templateIds=new Set(templates.map(t=>t.id));
 import AgentCard from "./AgentCard";
@@ -78,7 +78,7 @@ export default function App(){
  <p className="plugin-help">{entry.group==="Plugin Claude Code"?"Jalankan plugin di Claude Code, lalu masukkan hasil saat alur meminta.":"Saat alur berjalan, pilih alat MCP atau teruskan hasil dari Claude."}</p></>:agent?<><AgentCard agent={agent}/><label>Tugas untuk agent ini<textarea value={n.message} onChange={e=>edit({message:e.target.value})} maxLength={1000} placeholder="Misalnya, kumpulkan parts catalog untuk {catatan}"/><small>{templateHint}</small></label></>:plugin?<><p className="plugin-help">{plugin.help}</p>
  {plugin.template===undefined?<FieldSelect node={n} edit={edit}/>:<label>Format laporan<textarea value={n.message} maxLength={1000} onChange={e=>edit({message:e.target.value})}/></label>}
  {plugin.parameter&&<label>{plugin.parameter.label}<textarea maxLength={400} value={n.value} onChange={e=>edit({value:e.target.value})}/></label>}
- <p className="plugin-help">{plugin.template&&templateHint+" "}{plugin.check?"Hubungkan cabang Ya dan Tidak.":"Langkah berikutnya dapat membaca kolom Hasil robot terakhir."}</p></>:n.kind==="trigger"?<div className="info"><p>Formulir memuat kolom nama dan email{usesNotes(g)?", serta catatan":""}. Simpan workflow untuk membukanya.</p>{g.revision>0&&<a href={alurForm+"?id="+encodeURIComponent(g.id)} target="_blank" rel="noreferrer">Buka formulir <ExternalLink size={14}/></a>}</div>:<label>{n.kind==="confirm"?"Pesan pada halaman konfirmasi":"Catatan review"}<textarea value={n.message} maxLength={1000} onChange={e=>edit({message:e.target.value})}/><small>{templateHint}</small></label>}</>:<div className="connections">{g.edges.filter(e=>e.from===n.id||e.to===n.id).map(e=><div key={e.from+e.port}><span>{g.nodes.find(x=>x.id===(e.to===n.id?e.from:e.to))?.name}<small>{e.to===n.id?"Masuk":e.port==="out"?"Keluar":e.port==="yes"?"Cabang Ya":"Cabang Tidak"}</small></span><button aria-label="Putus sambungan" onClick={()=>update({...g,edges:g.edges.filter(x=>x!==e)})}><Unplug size={16}/></button></div>)}<p>Hubungkan titik keluar ke titik masuk di kanvas.</p></div>}</div>
+ <p className="plugin-help">{plugin.template&&templateHint+" "}{plugin.check?"Hubungkan cabang Ya dan Tidak.":"Langkah berikutnya dapat membaca kolom Hasil robot terakhir."}</p></>:n.kind==="trigger"?<div className="info"><p>{singleField(g)?"Formulir hanya meminta satu kolom: "+singleField(g)+".":"Formulir memuat kolom nama dan email"+(usesNotes(g)?", serta catatan":"")+"."} Simpan workflow untuk membukanya.</p>{g.revision>0&&<a href={alurForm+"?id="+encodeURIComponent(g.id)} target="_blank" rel="noreferrer">Buka formulir <ExternalLink size={14}/></a>}</div>:<label>{n.kind==="confirm"?"Pesan pada halaman konfirmasi":"Catatan review"}<textarea value={n.message} maxLength={1000} onChange={e=>edit({message:e.target.value})}/><small>{templateHint}</small></label>}</>:<div className="connections">{g.edges.filter(e=>e.from===n.id||e.to===n.id).map(e=><div key={e.from+e.port+e.to}><span>{g.nodes.find(x=>x.id===(e.to===n.id?e.from:e.to))?.name}<small>{e.to===n.id?"Masuk":e.port==="out"?"Keluar":e.port==="yes"?"Cabang Ya":"Cabang Tidak"}</small></span><button aria-label="Putus sambungan" onClick={()=>update({...g,edges:g.edges.filter(x=>x!==e)})}><Unplug size={16}/></button></div>)}<p>Hubungkan titik keluar ke titik masuk di kanvas.</p></div>}</div>
  {n.kind!=="trigger"&&<div className="panel-foot"><button onClick={()=>{update({...g,nodes:g.nodes.filter(x=>x.id!==n.id),edges:g.edges.filter(e=>e.from!==n.id&&e.to!==n.id)});S(null);MP(false)}}><Trash2 size={15}/>Hapus langkah</button></div>}</aside>}</div>
  {mode==="agen"&&<MachineStudio signed={signed} authReady={authReady} onLogin={()=>open("login")} onAuthExpired={()=>A(false)} onLocal={()=>switchMode("lokal")}/>}
  {mode==="lokal"&&<AgentStudio signed={signed} authReady={authReady} onLogin={()=>open("login")} onAuthExpired={()=>A(false)}/>}

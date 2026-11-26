@@ -1,6 +1,6 @@
 import {useState} from "react";
 import ConnectorRun from "./ConnectorRun";
-import {execute,usesNotes,type ConnectorAnswers,type ConnectorRequest,type Graph} from "./flow";
+import {execute,singleField,usesNotes,type ConnectorAnswers,type ConnectorRequest,type Graph} from "./flow";
 import {api} from "./api";
 
 type Input={nama:string,email:string,catatan:string};
@@ -21,9 +21,10 @@ export default function RunForm({graph,mode,cloud,onComplete,onStart}:{graph:Gra
   return <>{error&&<p role="alert" className="error">{error}</p>}
     {pending?<><ConnectorRun key={pending.id} request={pending} busy={busy} accept={v=>run({...answers,[pending.id]:v})}/>
     <button type="button" disabled={busy} onClick={()=>{setPending(null);setAnswers({});setError("")}}>Kembali ke formulir</button></>:<form onSubmit={e=>{e.preventDefault();onStart?.();run({})}}>
+      {singleField(graph)?<label>{singleField(graph)}<input required value={data.catatan} maxLength={400} placeholder="Misalnya, Caterpillar 3512C" onChange={e=>setData({...data,catatan:e.target.value})}/></label>:<>
       <label>Nama<input value={data.nama} maxLength={400} autoComplete="name" onChange={e=>setData({...data,nama:e.target.value})}/></label>
       <label>Email<input type={mode==="test"?"text":"email"} value={data.email} maxLength={400} autoComplete="email" onChange={e=>setData({...data,email:e.target.value})}/></label>
-      {usesNotes(graph)&&<label>Catatan<textarea maxLength={4000} value={data.catatan} onChange={e=>setData({...data,catatan:e.target.value})}/></label>}
+      {usesNotes(graph)&&<label>Catatan<textarea maxLength={4000} value={data.catatan} onChange={e=>setData({...data,catatan:e.target.value})}/></label>}</>}
       <button className="primary" disabled={busy}>{busy?"Memproses…":mode==="test"?"Jalankan uji":"Kirim formulir"}</button>
     </form>}
   </>

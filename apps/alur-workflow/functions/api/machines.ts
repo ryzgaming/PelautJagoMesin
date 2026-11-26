@@ -1,5 +1,6 @@
 import {url, apiKey} from "../config";
 import {revisionProducts} from "../../src/revision-products";
+import {briefInfo, briefLimits, validBrief} from "../../src/production-brief";
 import {cookie} from "./session";
 import {discoverSourceLeads} from "../source-leads";
 
@@ -61,7 +62,10 @@ function session(value: unknown) {
     created_at: text(row.created_at, 80), updated_at: text(row.updated_at, 80),
     ...(row.source_product == null ? {} : {source_product: text(row.source_product, 80), revision_brief: text(row.revision_brief, 1200)}),
     result_url: safeResultUrl(row.result_url), source_leads: sourceLeads(row.source_leads),
-    worker: row.worker == null ? null : choice(row.worker, WORKERS)};
+    worker: row.worker == null ? null : choice(row.worker, WORKERS), ...flowInfo(row.flow_brief_info)};
+}
+function flowInfo(value: unknown) {
+  const info = briefInfo(value); return info ? {flow_brief_info: info} : {};
 }
 function memory(value: unknown) {
   const row = record(value);
@@ -108,6 +112,8 @@ function deletion(value: unknown, requested: string[]) {
   return {deleted, busy};
 }
 
+// Brief dari bagan bisa memuat prompt 50.000 karakter dan 2.000 tugas; permintaan lain tetap kecil.
+const BODY_MAX = briefLimits.bytes + 8192, SMALL_BODY = 8192;
 async function readBody(request: Request) {
   if (!request.body) throw json({error: "Isi permintaan tidak valid."}, 400);
   const reader = request.body.getReader(), decoder = new TextDecoder("utf-8", {fatal: true});
@@ -116,10 +122,14 @@ async function readBody(request: Request) {
     while (true) {
       const {value, done} = await reader.read(); if (done) break;
       size += value.byteLength;
-      if (size > 8192) { await reader.cancel(); throw json({error: "Isi permintaan terlalu besar."}, 413); }
+      if (size > BODY_MAX) { await reader.cancel(); throw json({error: "Isi permintaan terlalu besar."}, 413); }
       body += decoder.decode(value, {stream: true});
     }
-    return JSON.parse(body + decoder.decode()) as unknown;
+    body += decoder.decode();
+    let parsed: unknown;
+    try { parsed = JSON.parse(body); } catch { throw json(size > SMALL_BODY ? {error: "Isi permintaan terlalu besar."} : {error: "Isi permintaan tidak valid."}, size > SMALL_BODY ? 413 : 400); }
+    if (size > SMALL_BODY && !(parsed && typeof parsed === "object" && "flow_brief" in parsed)) throw json({error: "Isi permintaan terlalu besar."}, 413);
+    return parsed;
   } catch (error) {
     throw error instanceof Response ? error : json({error: "Isi permintaan tidak valid."}, 400);
   } finally { reader.releaseLock(); }
@@ -153,6 +163,17 @@ export const onRequest: PagesFunction = async context => {
         }
         deleting = ids.map(value => (value as string).toLowerCase());
         rpc = "alur_delete_machine_sessions"; payload = {p_ids: deleting};
+      } else if ("flow_brief" in row) {
+        const brand = typeof row.brand === "string" ? row.brand.trim().replace(/\s+/g, " ") : "";
+        const model = typeof row.model === "string" ? row.model.trim().replace(/\s+/g, " ") : "";
+        if (Object.keys(row).some(key => !["brand", "model", "request_id", "flow_brief"].includes(key)) ||
+            !brand || Array.from(brand).length > 80 || !model || Array.from(model).length > 120 ||
+            /[\u0000-\u001f\u007f]/.test(brand + model) || typeof row.request_id !== "string" || !UUID.test(row.request_id)) {
+          return json({error: "Gunakan merek 1–80 karakter, model 1–120 karakter, dan request_id UUID."}, 400);
+        }
+        if (!validBrief(row.flow_brief)) return json({error: "Brief bagan tidak valid. Jalankan Uji alur lagi lalu kirim ulang."}, 400);
+        rpc = "alur_enqueue_machine_flow";
+        payload = {p_brand: brand, p_model: model, p_request_id: row.request_id, p_brief: row.flow_brief};
       } else if ("source_product" in row || "revision_brief" in row) {
         const brief = typeof row.revision_brief === "string" ? row.revision_brief.trim() : "";
         if (Object.keys(row).some(key => !["source_product", "revision_brief", "request_id"].includes(key)) ||

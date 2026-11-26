@@ -27,6 +27,7 @@ Titik masuk untuk satu eksekusi automasi Codex. Pengguna mengirim merek dan mode
 | `claim_as` | `owner_id,claim_token,lease_seconds,worker` |
 | `claim` | `owner_id,claim_token,lease_seconds` (lama, tanpa label pekerja) |
 | `heartbeat` | `session_id,claim_token,lease_seconds` |
+| `log` | `session_id,claim_token,kind,message,url` (url boleh tidak ada) |
 | `history` | `session_id` |
 | `checkpoint` | `session_id,claim_token,role,summary,sources,decisions,open_questions,status` |
 | `finish` | `session_id,claim_token,status,result_url` |
@@ -105,6 +106,23 @@ Dengan toolkit tersedia, gunakan prompt dan validator lokal sebagai kontrak pera
 - Perbarui lease. Gunakan `save_version_and_deploy_private` (atau save dan private deploy sesuai skill); poll hingga hasil sukses. Gunakan URL literal dari native result dan cek owner-private tetap berlaku. Pada respons hilang/interrupt, lanjutkan versi/deploy yang tercatat. Hindari duplikasi Site atau rilis ke katalog. Jika pemilik/audience atau hash tidak bisa dipastikan, tahan tautan dan simpan gap pada `needs_evidence`.
 - `finish(review, result_url)` hanya setelah *sepuluh* checkpoint peran yang benar-benar dijalankan, model HTML/GLB terverifikasi, QA dan URL privat berhasil dikonfirmasi. Jika artefak masih memiliki kekurangan edukasional, catat pada memori QA dan review untuk keputusan manusia. `finish(needs_evidence, null)` untuk bukti/varian atau akses review belum cukup; simpan hasil sebagian dan sumber yang sudah dicoba serta satu pertanyaan terbuka konkret pada checkpoint terakhir peran terkait. `finish(failed, null)` untuk kerusakan operasional yang tidak dapat dipulihkan selama sesi, beserta langkah pemulihan. Pada worker yang terputus keras, checkpoint awal/berkala menjadi dasar worker berikut ketika lease habis. Jangan menutup sesi dengan klaim review berdasarkan manifest saja.
 
+## Aktivitas langsung di dashboard
+
+Pemilik memantau pekerjaan lewat **Aktivitas langsung** di Alur (Beranda dan detail mesin), mirip daftar langkah saat Claude mengerjakan tugas. Kirim satu baris `log` setiap kali memulai langkah yang terlihat, selama memegang lease. Ini wajib untuk Codex dan Claude.
+
+| `kind` | Kapan | Contoh `message` |
+|---|---|---|
+| `search` | Sebelum pencarian web | `Mencari manual servis Caterpillar 3512C` |
+| `open` | Membuka halaman/unduhan (isi `url`) | `Membuka halaman produk Caterpillar` |
+| `read` | Membaca PDF/gambar/dokumen | `Membaca manual hal. 12–18: sistem bahan bakar` |
+| `think` | Menimbang bukti atau memilih varian | `Membandingkan dua varian 3512C (1600 vs 1800 rpm)` |
+| `write` | Menulis checkpoint | `Menyimpan catatan Bahan bakar (Sebagian)` |
+| `model` | Membangun/ekspor geometri | `Membangun blok mesin dan kepala silinder di Blender` |
+| `check` | QA, manifest, verifikasi | `Memeriksa skala terhadap dimensi resmi` |
+| `info` | Mulai/selesai peran, status lain | `Mulai peran Air laut` |
+
+Aturan: satu kalimat pendek bahasa Indonesia (≤200 karakter, dipotong otomatis), tanpa token, kredensial, path privat atau isi rahasia. `url` hanya untuk halaman publik `https://` yang benar-benar dibuka. Kirim log sebelum langkahnya berjalan, bukan sesudah. Log yang gagal (lease hilang) berarti berhenti seperti heartbeat yang ditolak. Database menyimpan 300 baris terakhir per sesi.
+
 ## Dua pekerja: Codex dan Claude
 
 Antrean yang sama dipantau oleh dua pekerja: automasi Codex (ChatGPT) dan tugas terjadwal Claude. Pekerja mana pun boleh mengambil sesi. Kolom `worker` pada sesi mencatat siapa yang memegang lease terakhir, dan dashboard menampilkannya ("Claude bekerja" / "Codex bekerja").
@@ -122,6 +140,7 @@ Perbedaan dari runbook Codex di atas:
 - **Identitas.** `owner_id` hanya dari konfigurasi tugas terjadwal. Cocokkan dengan `select user_id from public.admins where user_id = '<owner_id>'`. Jangan memilih admin pertama.
 - **Klaim.** `claim_as` dengan `worker: "claude"` di awal setiap tick, juga untuk mencatat kehadiran. Hasil `null` berarti antrean kosong: akhiri sesi dengan satu kalimat, tanpa pekerjaan lain. Setelah satu sesi selesai, klaim lagi sampai antrean kosong atau kuota menipis.
 - **Peran.** Koordinator menjalankan sepuluh peran sesuai urutan "Produksi sepuluh peran", memakai subagen (tool Agent) untuk peran yang bisa paralel (maksimal dua spesialis sistem sekaligus). Setiap subagen hanya menerima packet perannya dari `prepare` dan menulis di folder privat perannya. Koordinator yang menulis checkpoint.
+- **Aktivitas.** Kirim `log` di setiap langkah yang terlihat (cari, buka, baca, timbang, tulis, modelkan, periksa) sesuai bagian "Aktivitas langsung di dashboard". Subagen melaporkan langkahnya ke koordinator, dan koordinator yang mengirim `log`.
 - **Heartbeat.** Sebelum dan sesudah setiap peran, sebelum render/ekspor berat, dan setidaknya setiap lima menit. Bila heartbeat ditolak, berhenti: pekerja lain sudah mengambil alih.
 - **Review privat.** Halaman review (HTML + GLB + aset, mengikuti standar workspace Studio Gelap di `docs/WORKSPACE_UI.md`) dipublikasikan sebagai artifact Claude milik pemilik (`publish_files`, artifact baru bersifat privat). Simpan slug artifact di checkpoint integrator segera setelah dibuat. Saat melanjutkan, terbitkan versi baru pada slug yang sama, jangan buat artifact kedua. `result_url` adalah `https://claude.ai/artifact/<slug>` tanpa fragmen atau query. Jangan membagikan atau membuat artifact publik.
 - **Selesai.** Aturan `finish` sama: `review` hanya setelah sepuluh peran benar-benar berjalan, GLB lolos `manifest` dan QA, dan halaman review terbuka. Bila kuota hampir habis, tulis checkpoint terakhir yang jujur lalu berhenti tanpa `finish`. Lease akan habis dan pekerja berikutnya melanjutkan.

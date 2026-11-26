@@ -295,3 +295,28 @@ test('Pengaturan: owner switches primary worker, pauses workers and sets takeove
  assert.equal((await claimAs('codex')).session.brand, 'MAN');
  await as(owner, () => save('claude', true, true, 75));
 });
+
+test('aktivitas langsung: hanya pemegang lease menulis, pemilik membaca, aman dan terbatas', async () => {
+ const s=await create(),c=await claim(owner);
+ const log=(token,kind,message,url=null)=>scalar('select alur_machine_private.log_activity($1,$2,$3,$4,$5)',[s.id,token,kind,message,url]);
+ const read=(after=0)=>scalar('select public.alur_get_machine_activity($1,$2)',[s.id,after]);
+ const first=await log(c.claim_token,'search','Mencari manual YANMAR 6AYM-WET');
+ await log(c.claim_token,'open','Membuka halaman produk','https://www.yanmar.com/marine/6aym');
+ for(const [kind,message,url] of [['hack','x',null],['open','',null],['open','x'.repeat(201),null],['open','x','http://insecure.example'],['open','x','javascript:alert(1)'],['open','x','https://a.example/<script>']])
+  await assert.rejects(log(c.claim_token,kind,message,url),/Invalid activity/);
+ await assert.rejects(log(randomUUID(),'info','Bukan pemegang lease'),/Lease lost/);
+ assert.equal(await scalar("select has_function_privilege('authenticated','alur_machine_private.log_activity(uuid,uuid,text,text,text)','EXECUTE')"),false);
+ assert.equal(await scalar("select has_table_privilege('authenticated','alur_machine_private.activity','SELECT')"),false);
+ await as(owner,async()=>{
+  const all=await read();assert.deepEqual(all.items.map(i=>i.kind),['open','search']);assert.equal(all.items[1].message,'Mencari manual YANMAR 6AYM-WET');
+  assert.equal(all.items[0].url,'https://www.yanmar.com/marine/6aym');
+  assert.deepEqual((await read(first.id)).items.map(i=>i.kind),['open']);
+ });
+ await as(other,()=>assert.rejects(read(),/Session unavailable/));
+ await as(stranger,()=>assert.rejects(read(),/Owner access required/));
+ for(let i=0;i<310;i++)await log(c.claim_token,'info','Langkah '+i);
+ assert.equal(await scalar('select count(*)::int from alur_machine_private.activity where session_id=$1',[s.id]),300);
+ await as(owner,async()=>assert.equal((await read()).items.length,50));
+ await db.query('delete from public.alur_machine_sessions where id=$1',[s.id]);
+ assert.equal(await scalar('select count(*)::int from alur_machine_private.activity'),0);
+});

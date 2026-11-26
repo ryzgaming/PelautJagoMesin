@@ -21,6 +21,7 @@ import { stages } from "./AgentStudio";
 import "./machine-studio.css";
 import { roleProgress } from "./production-status";
 import StageProgress from "./StageProgress";
+import ActivityFeed from "./ActivityFeed";
 
 export type SessionStatus =
   "queued" | "running" | "review" | "needs_evidence" | "failed";
@@ -1237,6 +1238,12 @@ export default function MachineStudio({
                   </a>
                 )}
                 {visibleDetail && <StageProgress progress={roleProgress(visibleDetail.session, visibleDetail.memory)} />}
+                {current.status !== "queued" && <ActivityFeed
+                  key={current.id}
+                  sessionId={current.id}
+                  running={current.status === "running"}
+                  title={current.status === "running" ? "Aktivitas langsung" : "Aktivitas agen"}
+                />}
                 <dl className="agent-metadata">
                   {current.worker && (
                     <div>

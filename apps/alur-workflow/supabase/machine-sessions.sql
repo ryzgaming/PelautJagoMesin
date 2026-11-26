@@ -539,4 +539,50 @@ revoke all on function alur_machine_private.settings_envelope(),alur_machine_pri
  alur_machine_private.primary_worker() from public,anon,authenticated,service_role;
 grant execute on function alur_machine_private.get_settings(),alur_machine_private.save_settings(text,boolean,boolean,integer),
  public.alur_get_production_settings(),public.alur_save_production_settings(text,boolean,boolean,integer) to authenticated;
+-- Aktivitas langsung: baris langkah pendek yang dikirim pekerja selama memegang lease
+-- ("Mencari manual…", "Membuka https://…"). Tanpa rahasia, maksimal 200 karakter, 300 baris terakhir per sesi.
+create table if not exists alur_machine_private.activity (
+ id bigint generated always as identity primary key,
+ session_id uuid not null references public.alur_machine_sessions(id) on delete cascade,
+ at timestamptz not null default clock_timestamp(),
+ worker text check(worker is null or worker in ('codex','claude')),
+ kind text not null check(kind in ('search','open','read','think','write','model','check','info')),
+ message text not null check(char_length(btrim(message)) between 1 and 200),
+ url text check(url is null or (char_length(url)<=500 and url ~ '^https://[^[:space:]<>"]+$'))
+);
+create index if not exists alur_machine_activity_session on alur_machine_private.activity(session_id,id desc);
+alter table alur_machine_private.activity enable row level security;
+revoke all on alur_machine_private.activity from public,anon,authenticated,service_role;
+-- TRUSTED CONNECTOR ONLY: hanya pemegang lease sesi yang boleh menulis aktivitas.
+create or replace function alur_machine_private.log_activity(p_session_id uuid,p_claim_token uuid,p_kind text,p_message text,p_url text default null)
+returns jsonb language plpgsql set search_path='' as $$
+declare v_session public.alur_machine_sessions%rowtype; v_id bigint; v_cut bigint;
+begin
+ if p_kind is null or p_kind not in ('search','open','read','think','write','model','check','info')
+  or p_message is null or pg_catalog.char_length(pg_catalog.btrim(p_message)) not between 1 and 200
+  or (p_url is not null and (pg_catalog.char_length(p_url)>500 or p_url !~ '^https://[^[:space:]<>"]+$'))
+  then raise exception 'Invalid activity' using errcode='22023'; end if;
+ v_session:=alur_machine_private.lock_claim(p_session_id,p_claim_token);
+ insert into alur_machine_private.activity(session_id,worker,kind,message,url)
+  values(p_session_id,v_session.worker,p_kind,pg_catalog.btrim(p_message),p_url) returning id into v_id;
+ select id into v_cut from alur_machine_private.activity where session_id=p_session_id order by id desc offset 300 limit 1;
+ if v_cut is not null then delete from alur_machine_private.activity where session_id=p_session_id and id<=v_cut; end if;
+ return pg_catalog.jsonb_build_object('id',v_id);
+end $$;
+create or replace function alur_machine_private.get_activity(p_session_id uuid,p_after bigint)
+returns jsonb language plpgsql stable security definer set search_path='' as $$
+begin
+ if not alur_access_private.is_admin() then raise exception 'Owner access required' using errcode='42501'; end if;
+ if not exists(select 1 from public.alur_machine_sessions where id=p_session_id and owner_id=auth.uid())
+  then raise exception 'Session unavailable' using errcode='42501'; end if;
+ return pg_catalog.jsonb_build_object('session_id',p_session_id,'items',coalesce((select pg_catalog.jsonb_agg(
+   pg_catalog.jsonb_build_object('id',id,'at',at,'worker',worker,'kind',kind,'message',message,'url',url) order by id desc)
+   from (select * from alur_machine_private.activity where session_id=p_session_id and id>coalesce(p_after,0)
+    order by id desc limit 50) x),'[]'::jsonb));
+end $$;
+create or replace function public.alur_get_machine_activity(p_session_id uuid,p_after bigint)
+returns jsonb language sql stable security invoker set search_path='' as $$ select alur_machine_private.get_activity(p_session_id,p_after); $$;
+revoke all on function alur_machine_private.log_activity(uuid,uuid,text,text,text),alur_machine_private.get_activity(uuid,bigint),
+ public.alur_get_machine_activity(uuid,bigint) from public,anon,authenticated,service_role;
+grant execute on function alur_machine_private.get_activity(uuid,bigint),public.alur_get_machine_activity(uuid,bigint) to authenticated;
 commit;

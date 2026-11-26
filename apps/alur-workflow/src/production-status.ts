@@ -69,3 +69,35 @@ export function productionBadges(session: SessionLike, memory: RoleMemory[]): Re
   }
   return badges;
 }
+
+/** Urutan 10 peran produksi, sama dengan urutan kerja di runbook pekerja. */
+export const roleOrder = [
+  {key: "evidence", name: "Bukti"},
+  {key: "fuel", name: "Bahan bakar"},
+  {key: "freshwater", name: "Air tawar"},
+  {key: "seawater", name: "Air laut"},
+  {key: "lubrication", name: "Pelumasan"},
+  {key: "intake-exhaust", name: "Udara & gas buang"},
+  {key: "exterior", name: "Eksterior"},
+  {key: "internals", name: "Internal"},
+  {key: "integrator", name: "Integrator"},
+  {key: "qa", name: "QA"},
+] as const;
+export type RoleStep = {key: string, name: string, tone: Tone, label: string};
+export type Progress = {steps: RoleStep[], done: number, partial: number, waiting: number, percent: number};
+
+/** Status tiap peran (checkpoint terakhir) untuk strip progres 10 tahap. */
+export function roleProgress(session: SessionLike, memory: RoleMemory[]): Progress {
+  const latest = new Map<string, RoleMemory>();
+  for (const row of memory) latest.set(row.role, row);
+  const waiting: Badge = session.status === "failed" ? {tone: "failed", label: "Terhenti"}
+    : session.status === "running" ? {tone: "pending", label: "Menunggu giliran"} : {tone: "pending", label: "Belum mulai"};
+  const steps = roleOrder.map(role => {
+    const row = latest.get(role.key);
+    const badge = row ? memoryTone[row.status] ?? waiting : waiting;
+    return {key: role.key, name: role.name, tone: badge.tone, label: badge.label};
+  });
+  const done = steps.filter(s => s.tone === "done" || s.tone === "na").length;
+  const partial = steps.filter(s => s.tone === "warn").length;
+  return {steps, done, partial, waiting: steps.length - done - partial, percent: Math.round(done / steps.length * 100)};
+}

@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {splitMachine,productionBadges,roleNodes} from '../src/production-status.ts';
+import {splitMachine,productionBadges,roleNodes,roleProgress,roleOrder} from '../src/production-status.ts';
 import {productionGraph} from '../src/production-machine.ts';
 
 test('merk dan tipe dipisah dari satu kolom', () => {
@@ -49,4 +49,22 @@ test('direktur shows which worker is running the session', () => {
   assert.equal(productionBadges({status: 'running', worker: 'codex'}, []).direktur.label, 'Codex bekerja');
   assert.equal(productionBadges({status: 'running', worker: null}, []).direktur.label, 'Sedang bekerja');
   assert.equal(productionBadges({status: 'review', worker: 'claude'}, []).direktur.label, 'Siap direview');
+});
+
+test('progres 10 tahap memakai checkpoint terakhir tiap peran', () => {
+  assert.deepEqual(roleOrder.map(r => r.key).sort(), Object.keys(roleNodes).sort());
+  const empty = roleProgress({status: 'queued'}, []);
+  assert.equal(empty.steps.length, 10);
+  assert.deepEqual([empty.done, empty.partial, empty.waiting, empty.percent], [0, 0, 10, 0]);
+  assert.equal(empty.steps[0].label, 'Belum mulai');
+  const p = roleProgress({status: 'running'}, [
+    {role: 'evidence', status: 'PARTIAL'},
+    {role: 'evidence', status: 'DOCUMENTED'},
+    {role: 'fuel', status: 'UNVERIFIED'},
+    {role: 'qa', status: 'NOT_APPLICABLE'},
+  ]);
+  assert.deepEqual([p.done, p.partial, p.waiting, p.percent], [2, 1, 7, 20]);
+  assert.equal(p.steps[0].tone, 'done');
+  assert.equal(p.steps[2].label, 'Menunggu giliran');
+  assert.equal(roleProgress({status: 'failed'}, []).steps[0].tone, 'failed');
 });

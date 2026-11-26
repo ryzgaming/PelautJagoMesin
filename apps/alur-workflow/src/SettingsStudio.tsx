@@ -45,11 +45,14 @@ function ago(value: string | null, now: number) {
   if (hours < 48) return `Aktif ${hours} jam lalu`;
   return `Aktif ${Math.round(hours / 24)} hari lalu`;
 }
-function readStart() {
+type StartMode = "beranda" | "agen" | "editor";
+/** Halaman pembuka tersimpan; Beranda bila belum pernah dipilih. */
+export function readStart(): StartMode {
   try {
-    return localStorage.getItem(startModeKey) === "editor" ? "editor" : "agen";
+    const value = localStorage.getItem(startModeKey);
+    return value === "editor" || value === "agen" ? value : "beranda";
   } catch {
-    return "agen";
+    return "beranda";
   }
 }
 
@@ -134,7 +137,7 @@ export default function SettingsStudio({
       setSaving(false);
     }
   }
-  function chooseStart(mode: "agen" | "editor") {
+  function chooseStart(mode: StartMode) {
     setStart(mode);
     try {
       localStorage.setItem(startModeKey, mode);
@@ -324,8 +327,9 @@ export default function SettingsStudio({
           <div className="settings-segment" role="radiogroup" aria-label="Halaman pembuka">
             {(
               [
-                ["agen", "Agen mesin"],
-                ["editor", "Editor alur"],
+                ["beranda", "Beranda"],
+                ["agen", "Mesin"],
+                ["editor", "Bagan"],
               ] as const
             ).map(([mode, label]) => (
               <button key={mode} type="button" role="radio" aria-checked={start === mode} onClick={() => chooseStart(mode)}>

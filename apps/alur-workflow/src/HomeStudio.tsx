@@ -2,7 +2,6 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import {
   AlertCircle,
   ArrowRight,
-  Bot,
   CheckCircle2,
   Clock3,
   ExternalLink,
@@ -22,6 +21,7 @@ import {
 } from "./MachineStudio";
 import { roleProgress, splitMachine, type Progress } from "./production-status";
 import StageProgress from "./StageProgress";
+import WorkerQuota from "./WorkerQuota";
 import "./home.css";
 
 type Worker = "claude" | "codex";
@@ -338,24 +338,31 @@ export default function HomeStudio({
           )}
 
           {workers && (
-            <button type="button" className="agent-card home-workers" onClick={() => onOpen("atur")}>
-              {(["claude", "codex"] as Worker[])
-                .sort((a) => (a === primary ? -1 : 1))
-                .map((worker) => {
-                  const enabled = worker === "claude" ? workers.settings.claude_enabled : workers.settings.codex_enabled;
-                  return (
-                    <span key={worker} className={"home-worker" + (enabled ? "" : " paused")}>
-                      {worker === "claude" ? <Sparkles size={18} /> : <Bot size={18} />}
-                      <span>
-                        <strong>
-                          {short[worker]} <em>{worker === primary ? "Utama" : "Cadangan"}</em>
-                        </strong>
-                        <small>{enabled ? "Aktif " + ago(workers.workers[worker], now) : "Dijeda"}</small>
-                      </span>
-                    </span>
-                  );
-                })}
-            </button>
+            <section className="agent-card home-workers" aria-labelledby="home-workers-title">
+              <div className="agent-section-heading">
+                <h2 id="home-workers-title">Pekerja & token</h2>
+                <button type="button" className="secondary" onClick={() => onOpen("atur")}>
+                  Atur
+                </button>
+              </div>
+              <div className="worker-quota-list">
+                {(["claude", "codex"] as Worker[])
+                  .sort((a) => (a === primary ? -1 : 1))
+                  .map((worker) => (
+                    <WorkerQuota
+                      key={worker}
+                      worker={worker}
+                      settings={workers.settings}
+                      checkin={workers.workers[worker]}
+                      sessions={rows}
+                      now={now}
+                    />
+                  ))}
+              </div>
+              <p className="worker-quota-note">
+                Sisa token persis hanya terlihat di halaman Usage Claude dan ChatGPT. Status di atas adalah perkiraan dari aktivitas terakhir.
+              </p>
+            </section>
           )}
 
           <section className="agent-card home-recent" aria-labelledby="home-recent-title">

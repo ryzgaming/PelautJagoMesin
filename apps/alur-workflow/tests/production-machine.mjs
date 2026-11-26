@@ -55,11 +55,12 @@ test('order kosong ditahan', () => {
   assert.match(r.review, /Produksi ditahan/);
 });
 
-test('hanya agent yang boleh mendelegasikan ke banyak langkah', () => {
+test('setiap langkah boleh punya banyak sambungan keluar, tapi tidak ganda', () => {
   const g = productionGraph();
   const extra = step('review', 'ekstra', 0, 0);
   assert.doesNotThrow(() => validate({...g, nodes: [...g.nodes, extra], edges: [...g.edges, {from: 'kepala-qa', port: 'out', to: 'ekstra'}]}));
-  assert.throws(() => validate({...g, nodes: [...g.nodes, extra], edges: [...g.edges, {from: 'tahan-order', port: 'out', to: 'ekstra'}, {from: 'laporan', port: 'out', to: 'ekstra'}, {from: 'laporan', port: 'out', to: 'tahan-order'}]}), /Sambungan tidak valid/);
+  assert.doesNotThrow(() => validate({...g, nodes: [...g.nodes, extra], edges: [...g.edges, {from: 'tahan-order', port: 'out', to: 'ekstra'}, {from: 'laporan', port: 'out', to: 'ekstra'}]}));
+  assert.throws(() => validate({...g, nodes: [...g.nodes, extra], edges: [...g.edges, {from: 'laporan', port: 'out', to: 'ekstra'}, {from: 'laporan', port: 'out', to: 'ekstra'}]}), /Sambungan tidak valid/);
   assert.throws(() => validate({...g, edges: [...g.edges, {from: 'kepala-qa', port: 'out', to: 'auditor'}]}), /Sambungan tidak valid/);
 });
 

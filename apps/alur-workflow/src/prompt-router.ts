@@ -17,6 +17,8 @@ export function customAgentProfile(message:string) { return message.split(/\n\s*
 export const promptMax = 50000;
 /** Batas jumlah tugas yang dibagikan dari satu prompt. */
 export const taskMax = 2000;
+/** Batas langkah per bagan (cukup untuk seluruh organisasi beserta cabang Agent Struktur) dan sambungannya. */
+export const maxSteps = 300, maxEdges = 600;
 export type Node = {id:string, kind:string, name:string, message:string};
 export type Link = {from:string, to:string};
 type G = {nodes:Node[], edges:Link[]};

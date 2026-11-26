@@ -268,7 +268,9 @@ begin
 end $$;
 
 -- TRUSTED CONNECTOR ONLY. No authenticated/anonymous/service-role EXECUTE grant.
-create or replace function alur_machine_private.claim_session(p_owner_id uuid,p_claim_token uuid,p_lease_seconds integer default 900)
+-- Shared claim. p_stalled_only limits candidates to running sessions whose lease lapsed
+-- (a worker that stopped mid-run), used for the backup worker while the primary is alive.
+create or replace function alur_machine_private.claim_candidate(p_owner_id uuid,p_claim_token uuid,p_lease_seconds integer,p_stalled_only boolean)
 returns jsonb language plpgsql set search_path='' as $$
 declare v_session public.alur_machine_sessions%rowtype; v_lease alur_machine_private.leases%rowtype;
 begin
@@ -285,7 +287,7 @@ begin
   raise exception 'Claim token expired or already used' using errcode='40001';
  end if;
  select s.* into v_session from public.alur_machine_sessions s where s.owner_id=p_owner_id and
-  (s.status='queued' or (s.status='running' and not exists(select 1 from alur_machine_private.leases l
+  ((s.status='queued' and not p_stalled_only) or (s.status='running' and not exists(select 1 from alur_machine_private.leases l
     where l.session_id=s.id and l.revoked_at is null and l.expires_at>clock_timestamp())))
   order by s.created_at,s.id limit 1 for update of s skip locked;
  if not found then return null; end if;
@@ -300,13 +302,39 @@ begin
  return pg_catalog.jsonb_build_object('session',alur_machine_private.safe_session(v_session),'claim_token',p_claim_token,'lease_expires_at',v_lease.expires_at);
 end $$;
 
+create or replace function alur_machine_private.claim_session(p_owner_id uuid,p_claim_token uuid,p_lease_seconds integer default 900)
+returns jsonb language sql set search_path='' as $$
+ select alur_machine_private.claim_candidate(p_owner_id,p_claim_token,p_lease_seconds,false);
+$$;
+
+-- Worker priority: Claude is primary, Codex is backup. Every Claude claim (even on an empty queue)
+-- records a check-in. While Claude checked in within the last 75 minutes (hourly schedule + grace),
+-- Codex may only take over sessions a worker abandoned mid-run (lease lapsed). Otherwise Codex
+-- takes everything until Claude checks in again.
+create table if not exists alur_machine_private.worker_checkins (
+ worker text primary key check (worker in ('codex','claude')),
+ seen_at timestamptz not null
+);
+alter table alur_machine_private.worker_checkins enable row level security;
+revoke all on alur_machine_private.worker_checkins from public,anon,authenticated,service_role;
+create or replace function alur_machine_private.primary_alive()
+returns boolean language sql stable set search_path='' as $$
+ select exists(select 1 from alur_machine_private.worker_checkins
+  where worker='claude' and seen_at>clock_timestamp()-interval '75 minutes');
+$$;
+
 -- TRUSTED CONNECTOR ONLY. Same claim, recording which worker took it.
 create or replace function alur_machine_private.claim_session_as(p_owner_id uuid,p_claim_token uuid,p_lease_seconds integer,p_worker text)
 returns jsonb language plpgsql set search_path='' as $$
 declare v_result jsonb; v_session public.alur_machine_sessions%rowtype;
 begin
  if p_worker is null or p_worker not in ('codex','claude') then raise exception 'Invalid worker' using errcode='22023'; end if;
- v_result:=alur_machine_private.claim_session(p_owner_id,p_claim_token,p_lease_seconds);
+ if p_worker='claude' then
+  insert into alur_machine_private.worker_checkins(worker,seen_at) values('claude',clock_timestamp())
+   on conflict (worker) do update set seen_at=excluded.seen_at;
+ end if;
+ v_result:=alur_machine_private.claim_candidate(p_owner_id,p_claim_token,p_lease_seconds,
+  p_worker='codex' and alur_machine_private.primary_alive());
  if v_result is null then return null; end if;
  update public.alur_machine_sessions set worker=p_worker where id=(v_result->'session'->>'id')::uuid returning * into v_session;
  return pg_catalog.jsonb_set(v_result,'{session}',alur_machine_private.safe_session(v_session));

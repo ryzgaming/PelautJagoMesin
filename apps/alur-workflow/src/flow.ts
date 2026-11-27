@@ -7,12 +7,13 @@ export {maxSteps,maxEdges};
 import {review as hrdReview,type Vacancy} from "./hrd.ts";
 import {checklist,gathers,packageResults,producerKind,reviewMessage,type Input,type Review} from "./gather.ts";
 export type {Review} from "./gather.ts";
-export type Kind = DirectoryKind | AgentKind | `robot-${string}` | "trigger" | "condition" | "confirm" | "review" | "prompt" | "router" | "hrd" | "struktur" | "custom-agent" | "himpun" | "produksi";
+import {machineKind,machineMax,machinePrompt,withMachine} from "./machine.ts";
+export type Kind = DirectoryKind | AgentKind | `robot-${string}` | "trigger" | "condition" | "confirm" | "review" | "prompt" | "router" | "hrd" | "struktur" | "custom-agent" | "himpun" | "produksi" | "mesin";
 export type Step = {id:string, kind:Kind, name:string, x:number, y:number, field:Field, operator:"filled"|"empty"|"equals", value:string, message:string};
 export type Port = "out" | "yes" | "no";
 export type Edge = {from:string, port:Port, to:string};
 export type Graph = {id:string, name:string, revision:number, nodes:Step[], edges:Edge[]};
-export const baseLabels = {trigger:"Formulir masuk",condition:"Kondisi",confirm:"Kirim konfirmasi",review:"Tandai untuk review",prompt:"Agent prompt",router:"Pembagi tugas",hrd:"Agent HRD",struktur:"Agent Struktur","custom-agent":"Agent baru",himpun:"Penghimpun",produksi:"Agen Produksi"};
+export const baseLabels = {trigger:"Formulir masuk",condition:"Kondisi",confirm:"Kirim konfirmasi",review:"Tandai untuk review",prompt:"Agent prompt",router:"Pembagi tugas",hrd:"Agent HRD",struktur:"Agent Struktur","custom-agent":"Agent baru",himpun:"Penghimpun",produksi:"Agen Produksi",mesin:"Agent Mesin"};
 export function label(kind:Kind) { return directoryByKind.get(kind)?.name ?? pluginById.get(kind)?.name ?? agentByKind.get(kind)?.short ?? baseLabels[kind as keyof typeof baseLabels]; }
 export function branches(kind:Kind) { return kind==="condition" || !!pluginById.get(kind)?.check; }
 /** Label kolom catatan bila pemicu meminta formulir satu kolom (misalnya "Merk dan tipe mesin"). */
@@ -50,6 +51,8 @@ export function validate(g:Graph,run=false) {
   }
   const producers=g.nodes.filter(n=>n.kind===producerKind);
   if(producers.length>1) throw Error("Bagan hanya boleh memiliki satu Agen Produksi.");
+  if(g.nodes.filter(n=>n.kind===machineKind).length>1) throw Error("Bagan hanya boleh memiliki satu Agent Mesin.");
+  if(g.nodes.some(n=>n.kind===machineKind&&n.value.length>machineMax)) throw Error("Nama mesin maksimal "+machineMax+" karakter.");
   if(producers.some(p=>g.edges.some(e=>e.from===p.id))) throw Error("Agen Produksi harus menjadi langkah terakhir; lepas sambungan keluarnya.");
   const visiting=new Set<string>(),seen=new Set<string>();
   function walk(id:string) {
@@ -92,6 +95,9 @@ export function execute(g:Graph,data:{email:string,nama:string,catatan?:string},
   };
   const ran:{id:string,kind:string,name:string,message:string,hasil:string}[]=[];
   let production:{name:string,reviews:Review[]}|null=null;
+  // Mesin yang ditulis di Agent Mesin: tujuan prompt dan konteks setiap agent sesudahnya.
+  let machine="";
+  const forMachine=()=>machine?" untuk "+machine:"";
   const trace:{id:string,name:string,detail:string}[]=[], warnings:string[]=[], rules:string[]=[], recruit:Vacancy[]=[], hires:string[]=[], prompts:string[]=[];
   const assigned=new Map<string,string[]>();
   // Struktur bercabang: anggota tim Pembagi tugas, dan yang aktif (punya tugas sendiri atau di cabangnya).
@@ -116,7 +122,7 @@ export function execute(g:Graph,data:{email:string,nama:string,catatan?:string},
       if(!Object.hasOwn(answers,n.id)) {
         const pending:ConnectorRequest={id:n.id,kind:n.kind,name:n.name,server:n.kind===customKind?n.value:entry.server,
           task:renderMessage(n.message,fields)||(given?given.join("\n"):""),openUrl:entry.openUrl,source:entry.source};
-        return {trace,confirmation,review,hasil:fields.hasil,warnings,recruit,hires,assignments:[] as Assignment[],rules,prompts,production,pending};
+        return {trace,confirmation,review,hasil:fields.hasil,warnings,recruit,hires,assignments:[] as Assignment[],rules,prompts,production,machine,pending};
       }
       const answer=answers[n.id];
       if(typeof answer!=="string"||!answer.trim()||answer.length>8000) throw Error("Hasil konektor harus berisi 1–8.000 karakter.");
@@ -132,25 +138,32 @@ export function execute(g:Graph,data:{email:string,nama:string,catatan?:string},
       const message=reviewMessage(n.name,reviews);
       review=review?review+"\n"+message:message;
       detail=reviews.length?"Memeriksa "+reviews.length+" agent dengan daftar periksa masing-masing · dikirim ke dashboard untuk ditinjau":"Belum ada hasil agent untuk diperiksa";
+    } else if(n.kind===machineKind) {
+      machine=n.value.trim();
+      if(!machine) throw Error(n.name+" — tulis merek dan tipe mesin terlebih dahulu.");
+      fields.hasil=machine;
+      const told=g.nodes.filter(x=>delegates(x)).length;
+      detail="Target mesin: "+machine+" · diberitahukan ke prompt"+(told?" dan "+told+" agent":"");
     } else if(agentByKind.has(n.kind)) {
       const agent=agentByKind.get(n.kind)!;
-      const own=renderMessage(n.message,fields).trim();
+      const own=renderMessage(withMachine(n.message,machine),fields).trim();
       const task=given?[given.join("; "),own].filter(Boolean).join(" — "):own;
       if(task) fields.hasil=task;
-      detail=(team.has(n.id)&&branch(n,task))||"Diserahkan ke "+agent.name+": "+(task||agent.mission).slice(0,180);
+      detail=(team.has(n.id)&&branch(n,task))||"Diserahkan ke "+agent.name+forMachine()+": "+(task||agent.mission).slice(0,180);
     } else if(n.kind===customAgentKind) {
       const task=given?given.join("; "):(n.message.match(/^- (.+)$/m)?.[1]??n.name);
       fields.hasil=task;
-      detail=(team.has(n.id)&&branch(n,task))||"Diserahkan ke "+n.name+" (agent baru): "+task.slice(0,180);
+      detail=(team.has(n.id)&&branch(n,task))||"Diserahkan ke "+n.name+" (agent baru)"+forMachine()+": "+task.slice(0,180);
     } else if(n.kind===structureKind) {
       const heads=hrdRouters(g,n.id).flatMap(r=>routerTargets(g,r.id)).filter(t=>delegates(t)&&g.edges.some(e=>e.from===t.id&&delegates(g.nodes.find(x=>x.id===e.to)??{kind:""})));
       detail=heads.length?"Struktur "+heads.length+" cabang: "+heads.map(h=>h.name).join(", "):"Belum ada cabang; tugas dibagikan langsung ke agent";
     } else if(n.kind===promptKind) {
-      const prompt=renderMessage(n.message,fields).trim()||fields.catatan.trim();
+      // Prompt kosong setelah Agent Mesin memakai tugas produksi standar untuk mesin itu.
+      const prompt=renderMessage(withMachine(n.message,machine),fields).trim()||(machine?machinePrompt(machine):"")||fields.catatan.trim();
       if(!prompt) throw Error(n.name+" — tulis prompt terlebih dahulu.");
       if(prompt.length>promptMax) throw Error(n.name+" — prompt melebihi "+promptMax.toLocaleString("id-ID")+" karakter.");
       fields.hasil=prompt;prompts.push(prompt);
-      detail="Prompt diterima: "+prompt.slice(0,180);
+      detail=(machine?"Prompt untuk membuat "+machine+": ":"Prompt diterima: ")+prompt.slice(0,180);
     } else if(n.kind===hrdKind) {
       const routers=hrdRouters(g,n.id);
       const targets=routers.flatMap(r=>routerTargets(g,r.id));
@@ -205,5 +218,5 @@ export function execute(g:Graph,data:{email:string,nama:string,catatan?:string},
   }
   // Daftar lengkap tugas per agent untuk laporan uji (detail di jejak eksekusi dipotong).
   const assignments:Assignment[]=trace.filter(t=>assigned.has(t.id)).map(t=>({id:t.id,name:t.name,tasks:assigned.get(t.id)!}));
-  return {trace,confirmation,review,hasil:fields.hasil,warnings,recruit,hires,assignments,rules,prompts,production,pending:null as ConnectorRequest|null};
+  return {trace,confirmation,review,hasil:fields.hasil,warnings,recruit,hires,assignments,rules,prompts,production,machine,pending:null as ConnectorRequest|null};
 }

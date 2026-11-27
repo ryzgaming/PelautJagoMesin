@@ -1,6 +1,7 @@
 import {url, apiKey} from "../config";
 import {revisionProducts} from "../../src/revision-products";
 import {briefInfo, briefLimits, validBrief} from "../../src/production-brief";
+import {aiModelById, productionOptions, type ProductionOptions} from "../../src/ai-models";
 import {cookie} from "./session";
 import {discoverSourceLeads} from "../source-leads";
 
@@ -62,7 +63,12 @@ function session(value: unknown) {
     created_at: text(row.created_at, 80), updated_at: text(row.updated_at, 80),
     ...(row.source_product == null ? {} : {source_product: text(row.source_product, 80), revision_brief: text(row.revision_brief, 1200)}),
     result_url: safeResultUrl(row.result_url), source_leads: sourceLeads(row.source_leads),
-    worker: row.worker == null ? null : choice(row.worker, WORKERS), ...flowInfo(row.flow_brief_info)};
+    worker: row.worker == null ? null : choice(row.worker, WORKERS), ...flowInfo(row.flow_brief_info), ...aiOptions(row)};
+}
+/** Opsi Agent produksi; diabaikan bila tidak dikenal, agar satu baris aneh tidak merusak daftar sesi. */
+function aiOptions(row: Record<string, unknown>) {
+  return typeof row.ai_model === "string" && aiModelById.has(row.ai_model) && Number.isInteger(row.budget_usd)
+    ? {ai_model: row.ai_model, budget_usd: row.budget_usd as number} : {};
 }
 function flowInfo(value: unknown) {
   const info = briefInfo(value); return info ? {flow_brief_info: info} : {};
@@ -145,7 +151,7 @@ export const onRequest: PagesFunction = async context => {
   const incoming = new URL(request.url), requestedId = incoming.searchParams.get("id");
   if (request.method === "POST" && request.headers.get("origin") !== incoming.origin) return json({error: "Permintaan tidak valid."}, 403);
   try {
-    let rpc: string, payload: unknown, deleting: string[] | null = null;
+    let rpc: string, payload: unknown, deleting: string[] | null = null, options: ProductionOptions | null = null;
     if (request.method === "GET") {
       if (requestedId !== null && !UUID.test(requestedId)) return json({error: "ID sesi tidak valid."}, 400);
       rpc = requestedId ? "alur_get_machine_session?" + new URLSearchParams({p_session_id: requestedId}) : "alur_list_machine_sessions";
@@ -154,6 +160,11 @@ export const onRequest: PagesFunction = async context => {
       const body = await readBody(request);
       if (!body || typeof body !== "object" || Array.isArray(body)) return json({error: "Isi merek dan model mesin."}, 400);
       const row = body as Record<string, unknown>;
+      if ("production" in row) {
+        if ("delete_ids" in row || "source_product" in row || "revision_brief" in row) return json({error: "Opsi produksi hanya untuk order mesin baru."}, 400);
+        options = productionOptions(row.production);
+        if (!options) return json({error: "Pilih model AI yang tersedia dan batas biaya 1–500 dolar."}, 400);
+      }
       if ("delete_ids" in row) {
         const ids = row.delete_ids;
         if (Object.keys(row).length !== 1 || !Array.isArray(ids) || !ids.length || ids.length > 50 ||
@@ -166,7 +177,7 @@ export const onRequest: PagesFunction = async context => {
       } else if ("flow_brief" in row) {
         const brand = typeof row.brand === "string" ? row.brand.trim().replace(/\s+/g, " ") : "";
         const model = typeof row.model === "string" ? row.model.trim().replace(/\s+/g, " ") : "";
-        if (Object.keys(row).some(key => !["brand", "model", "request_id", "flow_brief"].includes(key)) ||
+        if (Object.keys(row).some(key => !["brand", "model", "request_id", "flow_brief", "production"].includes(key)) ||
             !brand || Array.from(brand).length > 80 || !model || Array.from(model).length > 120 ||
             /[\u0000-\u001f\u007f]/.test(brand + model) || typeof row.request_id !== "string" || !UUID.test(row.request_id)) {
           return json({error: "Gunakan merek 1–80 karakter, model 1–120 karakter, dan request_id UUID."}, 400);
@@ -186,7 +197,7 @@ export const onRequest: PagesFunction = async context => {
       } else {
         const brand = typeof row.brand === "string" ? row.brand.trim().replace(/\s+/g, " ") : "";
         const model = typeof row.model === "string" ? row.model.trim().replace(/\s+/g, " ") : "";
-        if (Object.keys(row).some(key => !["brand", "model", "request_id"].includes(key)) ||
+        if (Object.keys(row).some(key => !["brand", "model", "request_id", "production"].includes(key)) ||
             !brand || Array.from(brand).length > 80 || !model || Array.from(model).length > 120 ||
             /[\u0000-\u001f\u007f]/.test(brand + model) || typeof row.request_id !== "string" || !UUID.test(row.request_id)) {
           return json({error: "Gunakan merek 1–80 karakter, model 1–120 karakter, dan request_id UUID."}, 400);
@@ -209,7 +220,16 @@ export const onRequest: PagesFunction = async context => {
     const data: unknown = await response.json();
     if (request.method === "GET") return json(envelope(data, requestedId));
     if (deleting) return json(deletion(data, deleting));
-    const created = session(data);
+    let created = session(data);
+    if (options && created.status === "queued") {
+      // Opsi disetel sesudah sesi dibuat; kirim ulang dengan request_id sama menyetel nilai yang sama lagi (idempoten).
+      const set = await fetch(url + "/rest/v1/rpc/alur_set_machine_options", {
+        method: "POST", headers: {apikey: apiKey, Authorization: "Bearer " + token, "Content-Type": "application/json"},
+        body: JSON.stringify({p_session_id: created.id, p_ai_model: options.ai_model, p_budget_usd: options.budget_usd}), signal: AbortSignal.timeout(15000),
+      });
+      if (!set.ok) return json({session: created, error: "Sesi dibuat, tetapi model AI dan batas biaya belum tersimpan. Kirim ulang order yang sama."}, 502);
+      created = session(await set.json());
+    }
     if (created.status === "queued" && created.source_leads === null && typeof context.waitUntil === "function") {
       context.waitUntil(discoverSourceLeads(created, token));
     }

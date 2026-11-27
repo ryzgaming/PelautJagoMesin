@@ -356,3 +356,23 @@ test('brief bagan: hanya pemilik mengirim, isi privat, dibaca pemegang lease per
  await db.query('delete from public.alur_machine_sessions where id=$1', [s.id]);
  assert.equal(await scalar('select count(*)::int from alur_machine_private.flow_briefs'), 0);
 });
+
+test('Agent produksi: pemilik menyetel model AI dan batas biaya selama antrean; pekerja membacanya saat klaim', async () => {
+ const set=(id,model,budget)=>scalar('select public.alur_set_machine_options($1,$2,$3)',[id,model,budget]);
+ const s=await create();
+ assert.equal(s.ai_model,null);assert.equal(s.budget_usd,null);
+ await as(other,()=>assert.rejects(set(s.id,'claude-opus-5-5',40),/unavailable/));
+ await as(stranger,()=>assert.rejects(set(s.id,'claude-opus-5-5',40),/Owner access required/));
+ await db.exec('set role anon');try{await assert.rejects(set(s.id,'claude-opus-5-5',40),/permission denied/);}finally{await db.exec('reset role');}
+ await as(owner,async()=>{
+  for(const [m,b] of [['gpt-5',40],['claude-opus-5-5',0],['claude-opus-5-5',501],[null,40],['claude-opus-5-5',null]])await assert.rejects(set(s.id,m,b));
+  const r=await set(s.id,'claude-sonnet-5-5',25);assert.equal(r.ai_model,'claude-sonnet-5-5');assert.equal(r.budget_usd,25);assert.equal('owner_id' in r,false);
+  assert.equal((await set(s.id,'claude-opus-5-5',40)).ai_model,'claude-opus-5-5');
+ });
+ const c=await claim(owner);
+ assert.equal(c.session.id,s.id);assert.equal(c.session.ai_model,'claude-opus-5-5');assert.equal(c.session.budget_usd,40);
+ await as(owner,async()=>{
+  assert.equal((await set(s.id,'claude-opus-5-5',40)).budget_usd,40,'kirim ulang nilai sama setelah mulai tidak gagal');
+  await assert.rejects(set(s.id,'claude-haiku-5-5',40),/already started/);
+ });
+});

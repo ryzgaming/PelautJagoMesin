@@ -297,3 +297,34 @@ test('machines report the worker and accept a Claude artifact review link', asyn
   t.mock.method(globalThis, 'fetch', async () => Response.json({account_id: owner, sessions: [base({worker: 'gemini'})]}));
   assert.equal((await call(req('GET'))).status, 503);
 });
+
+test('Agent produksi: order membawa model AI dan batas biaya yang disetel lewat RPC sesudah sesi dibuat', async t => {
+  const calls = [], production = {ai_model: 'claude-sonnet-5-5', budget_usd: 25};
+  t.mock.method(globalThis, 'fetch', async (url, options) => {
+    calls.push({url, options});
+    return Response.json(new URL(url).pathname.endsWith('alur_set_machine_options') ? base({ai_model: 'claude-sonnet-5-5', budget_usd: 25}) : base());
+  });
+  const response = await call(req('POST', {body: {brand: 'YANMAR', model: '6AYM-WET', request_id: requestId, production}}));
+  assert.equal(response.status, 202);
+  assert.deepEqual(await response.json(), {session: base({ai_model: 'claude-sonnet-5-5', budget_usd: 25})});
+  assert.deepEqual(calls.map(c => new URL(c.url).pathname), ['/rest/v1/rpc/alur_enqueue_machine_session', '/rest/v1/rpc/alur_set_machine_options']);
+  assert.deepEqual(JSON.parse(calls[0].options.body), {p_brand: 'YANMAR', p_model: '6AYM-WET', p_request_id: requestId});
+  assert.deepEqual(JSON.parse(calls[1].options.body), {p_session_id: sessionId, p_ai_model: 'claude-sonnet-5-5', p_budget_usd: 25});
+});
+
+test('Agent produksi: opsi yang tidak dikenal ditolak sebelum jaringan', async t => {
+  t.mock.method(globalThis, 'fetch', bomb);
+  for (const production of [null, {}, {ai_model: 'gpt-5', budget_usd: 25}, {ai_model: 'claude-opus-5-5', budget_usd: 0},
+    {ai_model: 'claude-opus-5-5', budget_usd: 501}, {ai_model: 'claude-opus-5-5', budget_usd: 2.5}, {ai_model: 'claude-opus-5-5', budget_usd: 25, extra: 1}]) {
+    assert.equal((await call(req('POST', {body: {brand: 'YANMAR', model: '6AYM-WET', request_id: requestId, production}}))).status, 400);
+  }
+  assert.equal((await call(req('POST', {body: {source_product: 'x', revision_brief: 'y', request_id: requestId, production: {ai_model: 'claude-opus-5-5', budget_usd: 25}}}))).status, 400);
+});
+
+test('Agent produksi: sesi lama tanpa opsi dan opsi rusak tidak merusak daftar', async t => {
+  t.mock.method(globalThis, 'fetch', async () => Response.json({account_id: owner, sessions: [base(), base({id: previousId, ai_model: 'gpt-x', budget_usd: 3}), base({id: requestId, ai_model: 'claude-opus-5-5', budget_usd: 40})]}));
+  const rows = (await (await call(req('GET'))).json()).sessions;
+  assert.equal(rows[0].ai_model, undefined);
+  assert.equal(rows[1].ai_model, undefined, 'model tak dikenal diabaikan');
+  assert.equal(rows[2].ai_model, 'claude-opus-5-5'); assert.equal(rows[2].budget_usd, 40);
+});

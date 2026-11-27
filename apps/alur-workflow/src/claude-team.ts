@@ -1,6 +1,7 @@
 import {step,type Graph,type Kind} from "./flow.ts";
 import {layoutTree,type TreeNode} from "./org-tree.ts";
 import {productionField} from "./production-machine.ts";
+import {budgetLimits,defaultAiModel} from "./ai-models.ts";
 
 export const claudeTeamId = "tim-produksi-claude";
 import {claudeTeamOrigin} from "./claude-team-origin.ts";
@@ -122,7 +123,9 @@ export function claudeTeamGraph(): Graph {
     "- Terbitkan viewer sebagai artifact privat; labeli pratinjau sampai QA lolos",
     "Keluaran: Satu link viewer dan laporan status bukti untuk pemilik.",
     "Aturan: Token, kredensial, dan query database tidak pernah diberikan ke subagen."].join("\n"),
-    [...claudeRoles.map(r => box("custom-agent", r.id, r.name, card(r), undefined, r.division)),
+    [...claudeRoles.map(r => box("custom-agent", r.id, r.name, card(r),
+      // QA independen menyerahkan hasil ke Agen Produksi (langkah terakhir) yang membawa model AI dan batas biaya order.
+      r.id === "qa-independen" ? [box("produksi", "agen-produksi", "Agen Produksi", String(budgetLimits.initial), undefined, defaultAiModel)] : undefined, r.division)),
      box("confirm","laporan","Laporan ke pemilik",
       "Produksi {catatan} dibuka oleh Tim produksi Claude. Link viewer, status QA, dan daftar gap bukti akan dilaporkan setelah QA independen selesai.")],
     "eksekutif");

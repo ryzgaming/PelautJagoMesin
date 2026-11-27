@@ -12,6 +12,9 @@ test('Tim produksi Claude: Koordinator membawahi 10 subagen dan laporan ke pemil
   const under = id => g.edges.filter(e => e.from === id).map(e => e.to);
   assert.deepEqual(under('koordinator'), [...claudeRoles.map(r => r.id), 'laporan']);
   assert.equal(claudeRoles.length, 10);
+  assert.deepEqual(under('qa-independen'), ['agen-produksi']);
+  const p = g.nodes.find(n => n.id === 'agen-produksi');
+  assert.equal(p.kind, 'produksi'); assert.equal(p.value, 'claude-opus-5-5'); assert.equal(p.message, '40');
   const x = new Map(g.nodes.map(n => [n.id, n.x]));
   for (const e of g.edges) assert.ok(x.get(e.to) > x.get(e.from), 'bawahan selalu di kanan atasan');
 });
@@ -39,6 +42,8 @@ test('formulir hanya meminta merk dan tipe; order berjalan dari bukti sampai QA 
   for (const [a, b] of [['evidence-dokumen', 'dimensi-datum'], ['dimensi-datum', 'exterior-modeler'], ['exterior-modeler', 'integrator'], ['integrator', 'qa-independen']])
     assert.ok(ids.indexOf(a) < ids.indexOf(b), a + ' sebelum ' + b);
   assert.equal(ids.at(-1), 'laporan');
+  assert.ok(ids.indexOf('qa-independen') < ids.indexOf('agen-produksi'));
+  assert.deepEqual(r.production.options, {ai_model: 'claude-opus-5-5', budget_usd: 40});
   assert.match(r.confirmation, /^Produksi Caterpillar 3512C dibuka oleh Tim produksi Claude/);
   assert.match(r.trace.find(t => t.id === 'integrator').detail, /^Diserahkan ke Integrator \(Tim produksi Claude\): /);
 });

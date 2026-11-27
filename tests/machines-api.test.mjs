@@ -298,18 +298,18 @@ test('machines report the worker and accept a Claude artifact review link', asyn
   assert.equal((await call(req('GET'))).status, 503);
 });
 
-test('Agent produksi: order membawa model AI dan batas biaya yang disetel lewat RPC sesudah sesi dibuat', async t => {
-  const calls = [], production = {ai_model: 'claude-sonnet-5-5', budget_usd: 25};
+for (const model of ['claude-sonnet-5-5', 'gpt-6.2-sol', 'gpt-6.2-astra', 'gpt-6.1-terra', 'gpt-6-luna']) test(`Agent produksi: ${model} diteruskan ke RPC dan respons`, async t => {
+  const calls = [], production = {ai_model: model, budget_usd: 25};
   t.mock.method(globalThis, 'fetch', async (url, options) => {
     calls.push({url, options});
-    return Response.json(new URL(url).pathname.endsWith('alur_set_machine_options') ? base({ai_model: 'claude-sonnet-5-5', budget_usd: 25}) : base());
+    return Response.json(new URL(url).pathname.endsWith('alur_set_machine_options') ? base({ai_model: model, budget_usd: 25}) : base());
   });
   const response = await call(req('POST', {body: {brand: 'YANMAR', model: '6AYM-WET', request_id: requestId, production}}));
   assert.equal(response.status, 202);
-  assert.deepEqual(await response.json(), {session: base({ai_model: 'claude-sonnet-5-5', budget_usd: 25})});
+  assert.deepEqual(await response.json(), {session: base({ai_model: model, budget_usd: 25})});
   assert.deepEqual(calls.map(c => new URL(c.url).pathname), ['/rest/v1/rpc/alur_enqueue_machine_session', '/rest/v1/rpc/alur_set_machine_options']);
   assert.deepEqual(JSON.parse(calls[0].options.body), {p_brand: 'YANMAR', p_model: '6AYM-WET', p_request_id: requestId});
-  assert.deepEqual(JSON.parse(calls[1].options.body), {p_session_id: sessionId, p_ai_model: 'claude-sonnet-5-5', p_budget_usd: 25});
+  assert.deepEqual(JSON.parse(calls[1].options.body), {p_session_id: sessionId, p_ai_model: model, p_budget_usd: 25});
 });
 
 test('Agent produksi: opsi yang tidak dikenal ditolak sebelum jaringan', async t => {

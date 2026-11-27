@@ -14,7 +14,9 @@ export default function ProducerPanel({node,edit}:{node:Step,edit:(change:Partia
     {node.value&&<label>Batas biaya per order (dolar AS)<input id="producer-budget" type="number" inputMode="numeric" min={budgetLimits.min} max={budgetLimits.max} step={1}
       value={node.message} onChange={e=>edit({message:e.target.value.replace(/\D/g,"").slice(0,3)})}/>
       <small>{budgetLimits.min}–{budgetLimits.max} dolar. Pekerja berhenti dan menulis checkpoint jujur bila perkiraan pemakaian mendekati batas ini.</small></label>}
-    <div className="branch-info"><Factory size={16}/><div><strong>Biaya API terpisah dari langganan Claude</strong>
-      <p>Harga per 1 juta token input / output dari daftar harga Anthropic (November 2026). Satu produksi mesin seperti Caterpillar 3512C memakai beberapa juta token; jumlah pastinya baru diketahui setelah uji coba.</p></div></div>
+    <div className="branch-info"><Factory size={16}/><div><strong>Estimasi biaya token API</strong>
+      <p>Harga input / output per 1 juta token. GPT memakai tarif Standard untuk konteks pendek; biaya dapat berbeda menurut mode, panjang konteks, cache, dan alat. Langganan ChatGPT atau Claude mengikuti ketentuan layanan masing-masing.</p>
+      <p>Pilihan model berlaku bila tersedia pada pekerja. Model yang tidak tersedia harus dilaporkan, bukan diganti diam-diam.</p>
+      <p><a href="https://developers.openai.com/api/docs/pricing" target="_blank" rel="noreferrer">Harga OpenAI</a> · <a href="https://platform.claude.com/docs/en/about-claude/pricing" target="_blank" rel="noreferrer">Harga Anthropic</a></p></div></div>
   </>;
 }

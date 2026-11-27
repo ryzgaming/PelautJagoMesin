@@ -269,6 +269,16 @@ def prepare(root, packet):
     # No lease/claim secret in files opened by subagents. Keep display strings separate from paths.
     dest = root / owner / session_id
     shared = {k: claim[k] for k in ("id", "machine_key", "brand", "model", "source_leads") if k in claim}
+    production_options = None
+    option_keys = ("ai_model", "budget_usd")
+    if any(history["session"].get(k) != claim.get(k) for k in option_keys):
+        raise ValueError("Opsi produksi tidak cocok dengan riwayat sesi.")
+    if any(claim.get(k) is not None for k in option_keys):
+        model, budget = (claim.get(k) for k in option_keys)
+        if not isinstance(model, str) or not model or type(budget) is not int or not 1 <= budget <= 500:
+            raise ValueError("Opsi produksi tidak valid.")
+        production_options = {"ai_model": model, "budget_usd": budget}
+        shared["production_options"] = production_options
     revision = None
     if claim.get("source_product"):
         product = claim["source_product"]
@@ -299,6 +309,8 @@ def prepare(root, packet):
                    "canonical": next((r for r in sections["canonical_memory"] if r["role"] == role), None)}
         if revision:
             context["revision_task"] = revision
+        if production_options:
+            context["production_options"] = production_options
         if brief:
             context["flow_brief"] = dict(shared["flow_brief"], file="../../flow-brief.json")
         save(dest / "roles" / role / "context.json", context)

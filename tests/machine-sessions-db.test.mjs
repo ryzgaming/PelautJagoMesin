@@ -376,3 +376,20 @@ test('Agent produksi: pemilik menyetel model AI dan batas biaya selama antrean; 
   await assert.rejects(set(s.id,'claude-haiku-5-5',40),/already started/);
  });
 });
+
+// Upgrade dari constraint empat model yang telah terpasang di produksi.
+test('upgrade database menerima seluruh GPT dan meneruskannya ke pekerja tanpa menghapus opsi lama', async () => {
+ await db.exec("alter table public.alur_machine_sessions drop constraint alur_machine_ai_model; alter table public.alur_machine_sessions add constraint alur_machine_ai_model check (ai_model is null or ai_model in ('claude-opus-5-5','claude-fable-5-2','claude-sonnet-5-5','claude-haiku-5-5'))");
+ const old = await create(owner,'Fixture','Claude');
+ await as(owner,()=>scalar('select public.alur_set_machine_options($1,$2,$3)',[old.id,'claude-opus-5-5',40]));
+ await db.exec(migration);
+ assert.equal((await as(owner,()=>detail(old.id))).session.ai_model,'claude-opus-5-5');
+ await db.query('delete from public.alur_machine_sessions where id=$1',[old.id]);
+ for (const model of ['gpt-6.2-sol','gpt-6.2-astra','gpt-6.1-terra','gpt-6-luna']) {
+  const s=await create(owner,'Fixture',model);
+  await as(owner,()=>scalar('select public.alur_set_machine_options($1,$2,$3)',[s.id,model,25]));
+  const claimed=await scalar('select alur_machine_private.claim_session_as($1,$2,900,$3)',[owner,randomUUID(),'codex']);
+  assert.equal(claimed.session.id,s.id);assert.equal(claimed.session.ai_model,model);assert.equal(claimed.session.budget_usd,25);
+  await as(owner,()=>assert.rejects(scalar('select public.alur_set_machine_options($1,$2,$3)',[s.id,'gpt-6.2-astra',50]),/already started/));
+ }
+});

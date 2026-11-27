@@ -63,6 +63,21 @@ class HostedWorkerTests(unittest.TestCase):
             self.assertEqual(task["workspace"], "/workspace?product=tanabe-h74")
             self.assertEqual(task["brief"], "Periksa panel di HP.")
 
+    def test_production_model_and_budget_reach_all_roles(self):
+        for model in ("gpt-6.2-sol", "gpt-6.2-astra", "gpt-6.1-terra", "gpt-6-luna", "claude-opus-5-5"):
+            options = {"ai_model": model, "budget_usd": 25}
+            self.claim.update(options)
+            folder = worker.prepare(self.root, self.packet)
+            self.assertEqual(json.loads((folder / "context.json").read_text())["production_options"], options)
+            for role in worker.ROLES:
+                self.assertEqual(json.loads((folder / "roles" / role / "context.json").read_text())["production_options"], options)
+
+    def test_production_options_must_match_history(self):
+        self.claim.update(ai_model="gpt-6.2-sol", budget_usd=25)
+        self.packet["history"]["session"] = dict(self.claim, ai_model="claude-opus-5-5")
+        with self.assertRaisesRegex(ValueError, "Opsi produksi"):
+            worker.prepare(self.root, self.packet)
+
     def brief_parts(self, brief, size=40):
         """Tiru read_flow_brief: teks brief dipotong per bagian, digest dihitung server."""
         text = json.dumps(brief, ensure_ascii=False)

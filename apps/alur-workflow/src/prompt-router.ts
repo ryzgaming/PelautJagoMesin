@@ -211,7 +211,7 @@ export function routePrompt(text:string, candidates:Node[], most = 3, strict = f
 }
 const routings = new Map<string,Routing>();
 
-const executes = (n:Node) => n.kind !== "trigger" && n.kind !== promptKind && n.kind !== routerKind && n.kind !== hrdKind && n.kind !== structureKind && n.kind !== producerKind && !gathers(n);
+const executes = (n:Node) => n.kind !== "trigger" && n.kind !== promptKind && n.kind !== routerKind && n.kind !== hrdKind && n.kind !== structureKind && n.kind !== producerKind && n.kind !== "mesin" && !gathers(n);
 /** Agent yang bisa menjadi atasan dalam struktur bercabang (meneruskan tugas ke stafnya). */
 export const delegates = (n:{kind:string, name?:string}) => (agentByKind.has(n.kind) || n.kind === customAgentKind) && !gathers({kind:n.kind, name:n.name ?? ""});
 /**

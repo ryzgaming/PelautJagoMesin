@@ -5,12 +5,13 @@ import {agentByKind,divisionByKey,type AgentKind} from "./organization.ts";
 import {customAgentKind,delegates,droppedTasks,promptRules,hrdKind,promptKind,promptMax,routerKind,routePrompt,routerTargets,hrdRouters,structureKind,taskMax,maxSteps,maxEdges} from "./prompt-router.ts";
 export {maxSteps,maxEdges};
 import {review as hrdReview,type Vacancy} from "./hrd.ts";
-export type Kind = DirectoryKind | AgentKind | `robot-${string}` | "trigger" | "condition" | "confirm" | "review" | "prompt" | "router" | "hrd" | "struktur" | "custom-agent";
+import {compilerKind,wordKind,compileBlocks,blocksMarkdown} from "./compile.ts";
+export type Kind = DirectoryKind | AgentKind | `robot-${string}` | "trigger" | "condition" | "confirm" | "review" | "prompt" | "router" | "hrd" | "struktur" | "custom-agent" | "penghimpun" | "word";
 export type Step = {id:string, kind:Kind, name:string, x:number, y:number, field:Field, operator:"filled"|"empty"|"equals", value:string, message:string};
 export type Port = "out" | "yes" | "no";
 export type Edge = {from:string, port:Port, to:string};
 export type Graph = {id:string, name:string, revision:number, nodes:Step[], edges:Edge[]};
-export const baseLabels = {trigger:"Formulir masuk",condition:"Kondisi",confirm:"Kirim konfirmasi",review:"Tandai untuk review",prompt:"Agent prompt",router:"Pembagi tugas",hrd:"Agent HRD",struktur:"Agent Struktur","custom-agent":"Agent baru"};
+export const baseLabels = {trigger:"Formulir masuk",condition:"Kondisi",confirm:"Kirim konfirmasi",review:"Tandai untuk review",prompt:"Agent prompt",router:"Pembagi tugas",hrd:"Agent HRD",struktur:"Agent Struktur","custom-agent":"Agent baru",penghimpun:"Agent Penghimpun",word:"Agent Word"};
 export function label(kind:Kind) { return directoryByKind.get(kind)?.name ?? pluginById.get(kind)?.name ?? agentByKind.get(kind)?.short ?? baseLabels[kind as keyof typeof baseLabels]; }
 export function branches(kind:Kind) { return kind==="condition" || !!pluginById.get(kind)?.check; }
 /** Label kolom catatan bila pemicu meminta formulir satu kolom (misalnya "Merk dan tipe mesin"). */
@@ -77,7 +78,9 @@ export function execute(g:Graph,data:{email:string,nama:string,catatan?:string},
     const down=g.edges.filter(e=>e.from===n.id&&team.has(e.to)&&active.has(e.to)).map(e=>nameOf(e.to));
     return down.length?"Kepala cabang: meneruskan tugas ke "+down.join(", ")+(assigned.has(n.id)?" · tugas sendiri: "+own.slice(0,120):""):"";
   };
-  let confirmation="", review="";
+  let confirmation="", review="", compiled="", word=false;
+  // Hasil semua agent yang sudah menerima tugas sampai langkah ini, untuk Agent Penghimpun dan Agent Word.
+  const gathered=()=>compileBlocks({flow:g.name,when:new Date(),prompts,assignments:[...assigned].map(([id,tasks])=>({id,name:nameOf(id),tasks})),rules,warnings,recruit});
   while(stack.length) {
     const {n,hasil}=stack.pop()!;
     if(done.has(n.id)) continue;
@@ -91,7 +94,7 @@ export function execute(g:Graph,data:{email:string,nama:string,catatan?:string},
       if(!Object.hasOwn(answers,n.id)) {
         const pending:ConnectorRequest={id:n.id,kind:n.kind,name:n.name,server:n.kind===customKind?n.value:entry.server,
           task:renderMessage(n.message,fields)||(given?given.join("\n"):""),openUrl:entry.openUrl,source:entry.source};
-        return {trace,confirmation,review,hasil:fields.hasil,warnings,recruit,hires,assignments:[] as Assignment[],rules,prompts,pending};
+        return {trace,confirmation,review,hasil:fields.hasil,warnings,recruit,hires,assignments:[] as Assignment[],rules,prompts,compiled,word,pending};
       }
       const answer=answers[n.id];
       if(typeof answer!=="string"||!answer.trim()||answer.length>8000) throw Error("Hasil konektor harus berisi 1–8.000 karakter.");
@@ -138,8 +141,18 @@ export function execute(g:Graph,data:{email:string,nama:string,catatan?:string},
       for(const r of promptRules(fields.hasil||fields.catatan)) if(!rules.includes(r)) rules.push(r);
       const dropped=droppedTasks(fields.hasil||fields.catatan);
       if(dropped.length) warnings.push("Tidak terbaca: "+dropped.length+" tugas setelah tugas ke-"+taskMax+" tidak dibagikan, mulai dari \""+dropped[0].slice(0,120)+"\"");
-      only=new Set(g.edges.filter(e=>e.from===n.id&&active.has(e.to)).map(e=>e.to));
+      // Agent Penghimpun dan Agent Word tidak menerima tugas, tetapi selalu jalan untuk merangkum hasil.
+      const output=(id:string)=>{const k=g.nodes.find(x=>x.id===id)?.kind;return k===compilerKind||k===wordKind;};
+      only=new Set(g.edges.filter(e=>e.from===n.id&&(active.has(e.to)||output(e.to))).map(e=>e.to));
       detail=routing.tasks.length+" tugas dibagikan ke "+new Set(routing.tasks.flatMap(a=>a.targets)).size+" agent"+(routing.unmatched.length?" · "+routing.unmatched.length+" tidak cocok":"");
+    } else if(n.kind===compilerKind) {
+      const blocks=gathered(), agents=assigned.size;
+      compiled=blocksMarkdown(blocks); fields.hasil=compiled;
+      detail=agents?"Menghimpun hasil "+agents+" agent menjadi satu prompt tertata ("+compiled.length.toLocaleString("id-ID")+" karakter)":"Belum ada hasil agent untuk dihimpun; letakkan langkah ini setelah Pembagi tugas";
+    } else if(n.kind===wordKind) {
+      const blocks=gathered(), sections=blocks.filter(b=>b.t==="h1").length;
+      word=true; if(!compiled) compiled=blocksMarkdown(blocks);
+      detail="Dokumen Word disiapkan: "+sections+" bagian, "+assigned.size+" agent. Unduh di Laporan pembagian tugas";
     } else if(n.kind==="condition") {
       const v=fields[n.field].trim();
       const ok=n.operator==="filled"?!!v:n.operator==="empty"?!v:v===n.value;
@@ -167,5 +180,5 @@ export function execute(g:Graph,data:{email:string,nama:string,catatan?:string},
   }
   // Daftar lengkap tugas per agent untuk laporan uji (detail di jejak eksekusi dipotong).
   const assignments:Assignment[]=trace.filter(t=>assigned.has(t.id)).map(t=>({id:t.id,name:t.name,tasks:assigned.get(t.id)!}));
-  return {trace,confirmation,review,hasil:fields.hasil,warnings,recruit,hires,assignments,rules,prompts,pending:null};
+  return {trace,confirmation,review,hasil:fields.hasil,warnings,recruit,hires,assignments,rules,prompts,compiled,word,pending:null};
 }

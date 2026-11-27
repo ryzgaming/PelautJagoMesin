@@ -1,6 +1,13 @@
 // Brief produksi dari bagan: prompt, pembagian tugas, dan aturan umum yang ikut masuk antrean
 // produksi mesin, lalu dibaca pekerja Claude/Codex. Dipakai browser (membuat) dan server (memeriksa).
 import {promptKind, promptMax, splitPrompt} from "./prompt-router.ts";
+import {compilerKind, wordKind} from "./compile.ts";
+
+/** Instruksi untuk pekerja produksi bila bagan memuat Agent Penghimpun atau Agent Word. */
+export const outputRules = {
+  [compilerKind]: "Agent Penghimpun: himpun hasil kerja semua peran menjadi satu prompt tertata (tujuan, ringkasan, aturan umum, hasil per peran beserta sumber dan locator, celah, format hasil) dan sertakan di halaman review.",
+  [wordKind]: "Agent Word: serahkan laporan akhir sebagai dokumen Word (.docx) profesional (judul, ringkasan dalam tabel, daftar bernomor, sumber per fakta, header dan nomor halaman) bersama halaman review."
+} as Record<string, string>;
 
 export const briefLimits = {name: 120, prompt: promptMax, tasks: 2000, task: 2000, agents: 3, agent: 80, rules: 500, rule: 2000, bytes: 600000};
 export type BriefTask = {task: string, agents: string[]};
@@ -37,7 +44,8 @@ export function buildBrief(g: Graph, result: Result, notes = ""): FlowBrief {
   const unmatched = (result.warnings ?? []).filter(w => w.startsWith(unmatchedPrefix))
     .map(w => cut(w.slice(unmatchedPrefix.length), briefLimits.task)).slice(0, briefLimits.tasks);
   return {version: 1, flow_id: cut(g.id, 80), flow_name: cut(g.name, briefLimits.name) || "Bagan", prompt,
-    tasks, rules: (result.rules ?? []).slice(0, briefLimits.rules).map(r => cut(r, briefLimits.rule)), unmatched};
+    tasks, rules: [...(result.rules ?? []).slice(0, briefLimits.rules - 2).map(r => cut(r, briefLimits.rule)),
+      ...[compilerKind, wordKind].filter(k => g.nodes.some(n => n.kind === k)).map(k => outputRules[k])], unmatched};
 }
 
 const str = (v: unknown, max: number, empty = false) => typeof v === "string" && (empty || !!v.trim()) && Array.from(v).length <= max && !/[\u0000]/.test(v);

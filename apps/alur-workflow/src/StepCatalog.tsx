@@ -11,6 +11,8 @@ const items=[
   {kind:"router" as Kind,name:"Pembagi tugas",group:"Langkah dasar",help:"Pembagi tugas · Memilah prompt dan menyerahkan tiap tugas ke agent yang cocok",publisher:undefined},
   {kind:"custom-agent" as Kind,name:"Agent baru",group:"Langkah dasar",help:"Agent kustom · Buat agent sendiri bila tidak ada di 57 agent Orang Mesin",publisher:undefined},
   {kind:"hrd" as Kind,name:"Agent HRD",group:"Langkah dasar",help:"Rekrutmen · Menambahkan agent yang dibutuhkan prompt dan membuka lowongan bila belum ada",publisher:undefined},
+  {kind:"penghimpun" as Kind,name:"Agent Penghimpun",group:"Langkah dasar",help:"Penghimpun · Mengumpulkan hasil kerja semua agent menjadi satu prompt tertata dan profesional, siap disalin ke Claude atau Codex",publisher:undefined},
+  {kind:"word" as Kind,name:"Agent Word",group:"Langkah dasar",help:"Dokumen Word · Menyusun hasil alur menjadi berkas Word (.docx) profesional: judul, ringkasan, tabel, daftar bernomor, nomor halaman",publisher:undefined},
   {kind:"struktur" as Kind,name:"Agent Struktur",group:"Langkah dasar",help:"Struktur · Menyusun agent di bawah Pembagi tugas menjadi cabang divisi (kepala → staf) secara otomatis",publisher:undefined},
   ...agents.map(a=>({kind:agentKind(a) as Kind,name:a.name,group:"Agen Orang Mesin",help:divisionByKey.get(a.division)!.short+" · "+a.mission,publisher:undefined})),
   ...directory.map(p=>({kind:`claude-${p.slug}` as Kind,name:p.name,group:p.group,help:p.help,publisher:p.publisher})),

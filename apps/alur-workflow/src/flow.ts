@@ -5,6 +5,7 @@ import {agentByKind,divisionByKey,type AgentKind} from "./organization.ts";
 import {customAgentKind,delegates,droppedTasks,promptRules,hrdKind,promptKind,promptMax,routerKind,routePrompt,routerTargets,hrdRouters,structureKind,taskMax,maxSteps,maxEdges} from "./prompt-router.ts";
 export {maxSteps,maxEdges};
 import {review as hrdReview,type Vacancy} from "./hrd.ts";
+import {claudeTeamOrigin} from "./claude-team-origin.ts";
 import {checklist,gathers,packageResults,producerKind,reviewMessage,type Input,type Review} from "./gather.ts";
 export type {Review} from "./gather.ts";
 import {machineKind,machineMax,machinePrompt,withMachine} from "./machine.ts";
@@ -153,7 +154,7 @@ export function execute(g:Graph,data:{email:string,nama:string,catatan?:string},
     } else if(n.kind===customAgentKind) {
       const task=given?given.join("; "):(n.message.match(/^- (.+)$/m)?.[1]??n.name);
       fields.hasil=task;
-      detail=(team.has(n.id)&&branch(n,task))||"Diserahkan ke "+n.name+" (agent baru)"+forMachine()+": "+task.slice(0,180);
+      detail=(team.has(n.id)&&branch(n,task))||"Diserahkan ke "+n.name+(n.message.startsWith(claudeTeamOrigin)?" (Tim produksi Claude)":" (agent baru)")+forMachine()+": "+task.slice(0,180);
     } else if(n.kind===structureKind) {
       const heads=hrdRouters(g,n.id).flatMap(r=>routerTargets(g,r.id)).filter(t=>delegates(t)&&g.edges.some(e=>e.from===t.id&&delegates(g.nodes.find(x=>x.id===e.to)??{kind:""})));
       detail=heads.length?"Struktur "+heads.length+" cabang: "+heads.map(h=>h.name).join(", "):"Belum ada cabang; tugas dibagikan langsung ke agent";

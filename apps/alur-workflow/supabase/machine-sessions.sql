@@ -346,6 +346,8 @@ returns boolean language sql stable set search_path='' as $$
 $$;
 
 -- TRUSTED CONNECTOR ONLY. Same claim, recording which worker took it.
+-- Owner decision: any enabled worker starts queued work immediately; only a paused worker waits.
+-- Leases still keep two workers off the same session.
 create or replace function alur_machine_private.claim_session_as(p_owner_id uuid,p_claim_token uuid,p_lease_seconds integer,p_worker text)
 returns jsonb language plpgsql set search_path='' as $$
 declare v_result jsonb; v_session public.alur_machine_sessions%rowtype;
@@ -354,8 +356,7 @@ begin
  insert into alur_machine_private.worker_checkins(worker,seen_at) values(p_worker,clock_timestamp())
   on conflict (worker) do update set seen_at=excluded.seen_at;
  if not alur_machine_private.worker_enabled(p_worker) then return null; end if;
- v_result:=alur_machine_private.claim_candidate(p_owner_id,p_claim_token,p_lease_seconds,
-  p_worker<>alur_machine_private.primary_worker() and alur_machine_private.primary_alive());
+ v_result:=alur_machine_private.claim_candidate(p_owner_id,p_claim_token,p_lease_seconds,false);
  if v_result is null then return null; end if;
  update public.alur_machine_sessions set worker=p_worker where id=(v_result->'session'->>'id')::uuid returning * into v_session;
  return pg_catalog.jsonb_set(v_result,'{session}',alur_machine_private.safe_session(v_session));

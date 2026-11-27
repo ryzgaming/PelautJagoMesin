@@ -3,6 +3,7 @@
 import {agentByKind,agents,type Agent} from "./organization.ts";
 import {directoryByKind} from "./directory.ts";
 import {pluginById} from "./plugins.ts";
+import {gathers,producerKind} from "./gather.ts";
 
 export const promptKind = "prompt";
 export const routerKind = "router";
@@ -210,9 +211,9 @@ export function routePrompt(text:string, candidates:Node[], most = 3, strict = f
 }
 const routings = new Map<string,Routing>();
 
-const executes = (n:Node) => n.kind !== "trigger" && n.kind !== promptKind && n.kind !== routerKind && n.kind !== hrdKind && n.kind !== structureKind;
+const executes = (n:Node) => n.kind !== "trigger" && n.kind !== promptKind && n.kind !== routerKind && n.kind !== hrdKind && n.kind !== structureKind && n.kind !== producerKind && !gathers(n);
 /** Agent yang bisa menjadi atasan dalam struktur bercabang (meneruskan tugas ke stafnya). */
-export const delegates = (n:{kind:string}) => agentByKind.has(n.kind) || n.kind === customAgentKind;
+export const delegates = (n:{kind:string, name?:string}) => (agentByKind.has(n.kind) || n.kind === customAgentKind) && !gathers({kind:n.kind, name:n.name ?? ""});
 /**
  * Tim sebuah Pembagi tugas: langkah yang tersambung langsung, ditambah staf di bawah agent
  * (struktur bercabang: Pembagi tugas → kepala divisi → staf). Semua anggota bisa menerima tugas.

@@ -81,7 +81,7 @@ export const roleOrder = [
   {key: "exterior", name: "Eksterior"},
   {key: "internals", name: "Internal"},
   {key: "integrator", name: "Integrator"},
-  {key: "qa", name: "QA"},
+  {key: "qa", name: "Agen Produksi"},
 ] as const;
 export type RoleStep = {key: string, name: string, tone: Tone, label: string};
 export type Progress = {steps: RoleStep[], done: number, partial: number, waiting: number, percent: number};

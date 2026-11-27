@@ -1,7 +1,7 @@
 "use client";
 import {useEffect,useMemo,useState,useRef,type PointerEvent as PE,type ReactNode} from "react";
 import {type Badge} from "./production-status";
-import {Zap,GitBranch,Mail,ClipboardList,Plus,Minus,Scan,MousePointer2,Hand,Layers,Check,X,Bot,Type,ListChecks,Calculator,Gauge,Plug,Puzzle,Compass,BookOpenCheck,Boxes,ShieldCheck,Megaphone,Handshake,Headset,Landmark,Users,MessageSquareText,Split,TriangleAlert,UserSearch,UserPlus,Network} from "lucide-react";
+import {Zap,GitBranch,Mail,ClipboardList,Plus,Minus,Scan,MousePointer2,Hand,Layers,Check,X,Bot,Type,ListChecks,Calculator,Gauge,Plug,Puzzle,Compass,BookOpenCheck,Boxes,ShieldCheck,Megaphone,Handshake,Headset,Landmark,Users,MessageSquareText,Split,TriangleAlert,UserSearch,UserPlus,Network,Combine,ClipboardCheck} from "lucide-react";
 import {type Graph,type Kind,type Step,type Port,validate,branches} from "./flow";
 import {pluginById} from "./plugins";
 import {directoryByKind} from "./directory";
@@ -10,9 +10,9 @@ import {promptWarnings} from "./prompt-router";
 import {hrdPlans} from "./hrd";
 const divisionIcons:Record<DivisionKey,typeof Zap>={eksekutif:Compass,kurikulum:BookOpenCheck,produk:Boxes,qa:ShieldCheck,growth:Megaphone,sales:Handshake,cs:Headset,finance:Landmark};
 function agentLabel(kind:Kind){const agent=agentByKind.get(kind);return agent&&divisionByKey.get(agent.division)!.short+(agent.lead?" · Lead":"")+" · Fase "+agent.phase;}
-const icons={trigger:Zap,condition:GitBranch,confirm:Mail,review:ClipboardList,prompt:MessageSquareText,router:Split,hrd:UserSearch,struktur:Network,"custom-agent":UserPlus};
-const categories={trigger:"Pemicu",condition:"Logika",confirm:"Aksi",review:"Aksi",prompt:"Agen · Penerima prompt",router:"Agen · Pembagi tugas",hrd:"Agen · Rekrutmen",struktur:"Agen · Struktur","custom-agent":"Agen baru"};
-const types={trigger:"Pemicu formulir",condition:"Percabangan",confirm:"Konfirmasi formulir",review:"Antrean review",prompt:"Penerima prompt",router:"Pembagi tugas",hrd:"Rekrutmen agent",struktur:"Penyusun cabang agent","custom-agent":"Agent baru buatan HRD"};
+const icons={trigger:Zap,condition:GitBranch,confirm:Mail,review:ClipboardList,prompt:MessageSquareText,router:Split,hrd:UserSearch,struktur:Network,"custom-agent":UserPlus,himpun:Combine,produksi:ClipboardCheck};
+const categories={trigger:"Pemicu",condition:"Logika",confirm:"Aksi",review:"Aksi",prompt:"Agen · Penerima prompt",router:"Agen · Pembagi tugas",hrd:"Agen · Rekrutmen",struktur:"Agen · Struktur","custom-agent":"Agen baru",himpun:"Agen · Penghimpun",produksi:"Agen · Pemeriksa akhir"};
+const types={trigger:"Pemicu formulir",condition:"Percabangan",confirm:"Konfirmasi formulir",review:"Antrean review",prompt:"Penerima prompt",router:"Pembagi tugas",hrd:"Rekrutmen agent",struktur:"Penyusun cabang agent","custom-agent":"Agent baru buatan HRD",himpun:"Pengumpul hasil agent",produksi:"Pemeriksa akhir & review"};
 const groupIcons = {"Teks":Type,"Daftar":ListChecks,"Pemeriksaan":GitBranch,"Angka":Calculator,"Satuan mesin":Gauge,"Robot laporan":Bot};
 export function typeName(kind:Kind) { const agent=agentByKind.get(kind); return directoryByKind.get(kind)?.group ?? pluginById.get(kind)?.group ?? (agent&&divisionByKey.get(agent.division)!.name) ?? types[kind as keyof typeof types]; }
 function theme(kind:Kind) { const agent=agentByKind.get(kind); if(agent) return "agent div-"+agent.division; return directoryByKind.has(kind) ? "robot" : pluginById.has(kind) ? (branches(kind)?"condition":"robot") : kind; }

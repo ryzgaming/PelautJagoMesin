@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
+import { aiModelById, optionsLabel, type ProductionOptions } from "./ai-models";
 import {
   AlertCircle,
   ArrowRight,
@@ -61,6 +62,9 @@ export type MachineSession = {
   worker?: "codex" | "claude" | null;
   /** Ringkasan brief dari Bagan (prompt, pembagian tugas, aturan) yang dibaca pekerja. */
   flow_brief_info?: { flow_name: string; tasks: number; rules: number } | null;
+  /** Pilihan Agen Produksi: model AI dan batas biaya order ini. */
+  ai_model?: string;
+  budget_usd?: number;
   source_leads?: {
     provider: string;
     status: string;
@@ -75,7 +79,7 @@ export type Detail = {
   canonical_memory: Memory[];
   previous_memory: Memory[];
 };
-type Pending = Pick<MachineSession, "brand" | "model" | "request_id" | "source_product" | "revision_brief">;
+type Pending = Pick<MachineSession, "brand" | "model" | "request_id" | "source_product" | "revision_brief"> & { production?: ProductionOptions | null };
 export const statusLabels: Record<SessionStatus, string> = {
   queued: "Dalam antrean",
   running: "Agen sedang bekerja",
@@ -150,6 +154,8 @@ export function sessionRecord(value: unknown): MachineSession {
   return {
     ...s,
     worker: s.worker === "codex" || s.worker === "claude" ? s.worker : null,
+    ...(typeof s.ai_model === "string" && aiModelById.has(s.ai_model) && Number.isInteger(s.budget_usd)
+      ? { ai_model: s.ai_model, budget_usd: s.budget_usd } : { ai_model: undefined, budget_usd: undefined }),
     flow_brief_info:
       s.flow_brief_info && typeof s.flow_brief_info.flow_name === "string" &&
       Number.isInteger(s.flow_brief_info.tasks) && Number.isInteger(s.flow_brief_info.rules)
@@ -360,7 +366,7 @@ export default function MachineStudio({
   focus,
 }: {
   focus?: { id: string; key: number } | null;
-  prefill?: { brand: string; model: string; key: number } | null;
+  prefill?: { brand: string; model: string; production?: ProductionOptions | null; key: number } | null;
   onPrefillUsed?: () => void;
   signed: boolean;
   authReady: boolean;
@@ -371,6 +377,7 @@ export default function MachineStudio({
   const [brand, setBrand] = useState(""),
     [model, setModel] = useState("");
   const [productId, setProductId] = useState("");
+  const [production, setProduction] = useState<ProductionOptions | null>(null);
   const [brief, setBrief] = useState(workspaceBrief);
   const product = revisionProducts.find(item => item.id === productId);
   useEffect(() => {
@@ -378,7 +385,8 @@ export default function MachineStudio({
     setProductId("");
     setBrand(prefill.brand);
     setModel(prefill.model);
-    setNotice("Merk dan tipe dari bagan Produksi mesin 3D sudah diisi. Periksa sekali lagi, lalu kirim ke antrean.");
+    setProduction(prefill.production ?? null);
+    setNotice("Merk dan tipe dari bagan sudah diisi" + (prefill.production ? ", dengan model AI " + optionsLabel(prefill.production) : "") + ". Periksa sekali lagi, lalu kirim ke antrean.");
     onPrefillUsed?.();
   }, [prefill?.key]);
   const currentBrand = product?.brand ?? brand;
@@ -731,13 +739,15 @@ export default function MachineStudio({
     }
     const account = ownerRef.current,
       generation = epoch.current;
-    const input = { brand: currentBrand.trim(), model: currentModel.trim(), source_product: product?.id, revision_brief: product ? brief.trim() : undefined };
+    const input = { brand: currentBrand.trim(), model: currentModel.trim(), source_product: product?.id, revision_brief: product ? brief.trim() : undefined,
+      production: product ? null : production };
     if (
       !pending.current ||
       pending.current.brand !== input.brand ||
       pending.current.model !== input.model ||
       pending.current.source_product !== input.source_product ||
-      pending.current.revision_brief !== input.revision_brief
+      pending.current.revision_brief !== input.revision_brief ||
+      JSON.stringify(pending.current.production ?? null) !== JSON.stringify(input.production)
     )
       pending.current = { ...input, request_id: crypto.randomUUID() };
     const payload = { ...pending.current };
@@ -751,7 +761,8 @@ export default function MachineStudio({
     setSubmitError("");
     setNotice("");
     try {
-      const request = product ? {source_product: payload.source_product, revision_brief: payload.revision_brief, request_id: payload.request_id} : payload;
+      const request = product ? {source_product: payload.source_product, revision_brief: payload.revision_brief, request_id: payload.request_id}
+        : {brand: payload.brand, model: payload.model, request_id: payload.request_id, ...(payload.production ? {production: payload.production} : {})};
       const response = await api("machines", request, true, controller.signal);
       const session = sessionRecord(response.session);
       if (
@@ -1261,6 +1272,12 @@ export default function MachineStudio({
                     <div>
                       <dt>{current.status === "running" ? "Dikerjakan oleh" : "Terakhir dikerjakan oleh"}</dt>
                       <dd>{workerLabels[current.worker]}</dd>
+                    </div>
+                  )}
+                  {current.ai_model && current.budget_usd !== undefined && (
+                    <div>
+                      <dt>Model AI</dt>
+                      <dd>{optionsLabel({ ai_model: current.ai_model, budget_usd: current.budget_usd })}</dd>
                     </div>
                   )}
                   <div>

@@ -1,21 +1,23 @@
 import {useEffect,useState} from "react";
+import {optionsLabel,type ProductionOptions} from "./ai-models";
 import {Activity,ArrowRight} from "lucide-react";
 import {api} from "./api";
 import {detailRecord,sessionRecord,statusLabels,type MachineSession} from "./MachineStudio";
 import {productionBadges,splitMachine,type Badge} from "./production-status";
 
 /** Ditampilkan setelah Uji alur bagan produksi: meneruskan merk dan tipe ke pipeline Agen mesin. */
-export function ProduceForm({text,onSend}:{text:string,onSend:(m:{brand:string,model:string})=>void}) {
+export function ProduceForm({text,onSend,production=null}:{text:string,onSend:(m:{brand:string,model:string,production:ProductionOptions|null})=>void,production?:ProductionOptions|null}) {
   const first=splitMachine(text);
   const [brand,setBrand]=useState(first.brand),[model,setModel]=useState(first.model);
   const valid=!!brand.trim()&&!!model.trim()&&brand.trim().length<=80&&model.trim().length<=120;
-  return <form className="produce" onSubmit={e=>{e.preventDefault();if(valid)onSend({brand:brand.trim(),model:model.trim()})}}>
+  return <form className="produce" onSubmit={e=>{e.preventDefault();if(valid)onSend({brand:brand.trim(),model:model.trim(),production})}}>
     <h3>Kirim ke produksi</h3>
     <p>Uji alur hanya simulasi pembagian tugas. Untuk membuat model 3D sungguhan, kirim mesin ini ke pipeline Agen mesin. Periksa pemisahan merk dan tipe di bawah.</p>
     <div className="pair">
       <label>Merk<input required maxLength={80} value={brand} onChange={e=>setBrand(e.target.value)}/></label>
       <label>Tipe<input required maxLength={120} value={model} onChange={e=>setModel(e.target.value)}/></label>
     </div>
+    {production&&<p className="prompt-note">Model AI: {optionsLabel(production)} (dari Agen Produksi).</p>}
     <button className="primary" disabled={!valid}>Lanjut ke Agen mesin<ArrowRight size={16}/></button>
   </form>;
 }

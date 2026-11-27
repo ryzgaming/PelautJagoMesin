@@ -5,6 +5,8 @@ import {agentByKind,divisionByKey,type AgentKind} from "./organization.ts";
 import {customAgentKind,delegates,droppedTasks,promptRules,hrdKind,promptKind,promptMax,routerKind,routePrompt,routerTargets,hrdRouters,structureKind,taskMax,maxSteps,maxEdges} from "./prompt-router.ts";
 export {maxSteps,maxEdges};
 import {review as hrdReview,type Vacancy} from "./hrd.ts";
+import {claudeTeamOrigin} from "./claude-team-origin.ts";
+import {aiModelById,budgetLimits,defaultAiModel,optionsLabel,stepOptions,type ProductionOptions} from "./ai-models.ts";
 import {checklist,gathers,packageResults,producerKind,reviewMessage,type Input,type Review} from "./gather.ts";
 export type {Review} from "./gather.ts";
 import {machineKind,machineMax,machinePrompt,withMachine} from "./machine.ts";
@@ -23,6 +25,8 @@ export function usesNotes(g:Graph) {
 }
 export function step(kind:Kind,id:string,x:number,y:number):Step {
   const plugin=pluginById.get(kind);
+  // Agen Produksi baru: model AI di kolom value, batas biaya (dolar) di kolom message. Bagan lama yang kosong = bawaan pekerja.
+  if(kind===producerKind) return {kind,id,x,y,name:label(kind),field:"email",operator:"filled",value:defaultAiModel,message:String(budgetLimits.initial)};
   return {kind,id,x,y,name:label(kind),field:plugin?.field ?? "email",operator:"filled",value:plugin?.parameter?.initial ?? "",
     message:plugin?.template ?? (kind==="confirm"?"Terima kasih, formulir kamu sudah diterima.":kind==="review"?"Perlu ditinjau":"")};
 }
@@ -51,6 +55,8 @@ export function validate(g:Graph,run=false) {
   }
   const producers=g.nodes.filter(n=>n.kind===producerKind);
   if(producers.length>1) throw Error("Bagan hanya boleh memiliki satu Agen Produksi.");
+  if(producers.some(p=>p.value?(!aiModelById.has(p.value)||!/^\d{1,3}$/.test(p.message)||+p.message<budgetLimits.min||+p.message>budgetLimits.max):!!p.message.trim()))
+    throw Error("Agen Produksi: pilih model AI yang tersedia dan batas biaya "+budgetLimits.min+"–"+budgetLimits.max+" dolar.");
   if(g.nodes.filter(n=>n.kind===machineKind).length>1) throw Error("Bagan hanya boleh memiliki satu Agent Mesin.");
   if(g.nodes.some(n=>n.kind===machineKind&&n.value.length>machineMax)) throw Error("Nama mesin maksimal "+machineMax+" karakter.");
   if(producers.some(p=>g.edges.some(e=>e.from===p.id))) throw Error("Agen Produksi harus menjadi langkah terakhir; lepas sambungan keluarnya.");
@@ -94,7 +100,7 @@ export function execute(g:Graph,data:{email:string,nama:string,catatan?:string},
     else for(const out of g.edges.filter(x=>x.from===to.id)) decide(out,false,to,"",ready);
   };
   const ran:{id:string,kind:string,name:string,message:string,hasil:string}[]=[];
-  let production:{name:string,reviews:Review[]}|null=null;
+  let production:{name:string,reviews:Review[],options:ProductionOptions|null}|null=null;
   // Mesin yang ditulis di Agent Mesin: tujuan prompt dan konteks setiap agent sesudahnya.
   let machine="";
   const forMachine=()=>machine?" untuk "+machine:"";
@@ -134,10 +140,12 @@ export function execute(g:Graph,data:{email:string,nama:string,catatan?:string},
       if(missing.length) detail+=" · "+missing.length+" tidak mengirim hasil (tidak mendapat tugas): "+missing.join(", ");
     } else if(n.kind===producerKind) {
       const reviews=ran.map(r=>({id:r.id,name:r.name,checks:checklist(r),hasil:r.hasil}));
-      production={name:n.name,reviews};
+      const options=n.value?stepOptions(n.value,n.message):null;
+      production={name:n.name,reviews,options};
       const message=reviewMessage(n.name,reviews);
       review=review?review+"\n"+message:message;
-      detail=reviews.length?"Memeriksa "+reviews.length+" agent dengan daftar periksa masing-masing · dikirim ke dashboard untuk ditinjau":"Belum ada hasil agent untuk diperiksa";
+      detail=(reviews.length?"Memeriksa "+reviews.length+" agent dengan daftar periksa masing-masing · dikirim ke dashboard untuk ditinjau":"Belum ada hasil agent untuk diperiksa")+
+        (options?" · produksi dengan "+optionsLabel(options):" · model AI mengikuti bawaan pekerja");
     } else if(n.kind===machineKind) {
       machine=n.value.trim();
       if(!machine) throw Error(n.name+" — tulis merek dan tipe mesin terlebih dahulu.");
@@ -153,7 +161,7 @@ export function execute(g:Graph,data:{email:string,nama:string,catatan?:string},
     } else if(n.kind===customAgentKind) {
       const task=given?given.join("; "):(n.message.match(/^- (.+)$/m)?.[1]??n.name);
       fields.hasil=task;
-      detail=(team.has(n.id)&&branch(n,task))||"Diserahkan ke "+n.name+" (agent baru)"+forMachine()+": "+task.slice(0,180);
+      detail=(team.has(n.id)&&branch(n,task))||"Diserahkan ke "+n.name+(n.message.startsWith(claudeTeamOrigin)?" (Tim produksi Claude)":" (agent baru)")+forMachine()+": "+task.slice(0,180);
     } else if(n.kind===structureKind) {
       const heads=hrdRouters(g,n.id).flatMap(r=>routerTargets(g,r.id)).filter(t=>delegates(t)&&g.edges.some(e=>e.from===t.id&&delegates(g.nodes.find(x=>x.id===e.to)??{kind:""})));
       detail=heads.length?"Struktur "+heads.length+" cabang: "+heads.map(h=>h.name).join(", "):"Belum ada cabang; tugas dibagikan langsung ke agent";

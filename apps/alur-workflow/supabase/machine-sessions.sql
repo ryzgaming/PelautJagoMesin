@@ -713,4 +713,38 @@ revoke all on function alur_machine_private.brief_text(jsonb,integer),alur_machi
 grant execute on function alur_machine_private.enqueue_flow(text,text,uuid,jsonb),public.alur_enqueue_machine_flow(text,text,uuid,jsonb)
  to authenticated;
 
+-- Agent produksi (Bagan): pilihan model AI dan batas biaya per order. Kolom ikut di sesi hasil klaim/riwayat
+-- lewat safe_session, sehingga pekerja Claude/Codex bisa membacanya. Daftar model sama dengan src/ai-models.ts.
+alter table public.alur_machine_sessions
+ add column if not exists ai_model text constraint alur_machine_ai_model check (ai_model is null or ai_model in
+  ('claude-opus-5-5','claude-fable-5-2','claude-sonnet-5-5','claude-haiku-5-5')),
+ add column if not exists budget_usd integer constraint alur_machine_budget check (budget_usd is null or budget_usd between 1 and 500);
+
+-- Pemilik menyetel opsi pada sesi miliknya selama masih di antrean. Kirim ulang dengan nilai sama setelah mulai = no-op.
+create or replace function alur_machine_private.set_options(p_session_id uuid,p_ai_model text,p_budget_usd integer)
+returns jsonb language plpgsql security definer set search_path='' as $$
+declare v_session public.alur_machine_sessions%rowtype;
+begin
+ if not alur_access_private.is_admin() then raise exception 'Owner access required' using errcode='42501'; end if;
+ if p_ai_model is null or p_budget_usd is null then raise exception 'Invalid production options' using errcode='22023'; end if;
+ select * into v_session from public.alur_machine_sessions where id=p_session_id and owner_id=auth.uid() for update;
+ if not found then raise exception 'Session unavailable' using errcode='42501'; end if;
+ if v_session.status<>'queued' then
+  if v_session.ai_model is not distinct from p_ai_model and v_session.budget_usd is not distinct from p_budget_usd then
+   return alur_machine_private.safe_session(v_session); end if;
+  raise exception 'Session already started' using errcode='22023';
+ end if;
+ update public.alur_machine_sessions set ai_model=p_ai_model,budget_usd=p_budget_usd,updated_at=clock_timestamp()
+  where id=p_session_id returning * into v_session;
+ return alur_machine_private.safe_session(v_session);
+end $$;
+create or replace function public.alur_set_machine_options(p_session_id uuid,p_ai_model text,p_budget_usd integer)
+returns jsonb language sql security invoker set search_path='' as $$
+ select alur_machine_private.set_options(p_session_id,p_ai_model,p_budget_usd);
+$$;
+revoke all on function alur_machine_private.set_options(uuid,text,integer),public.alur_set_machine_options(uuid,text,integer)
+ from public,anon,authenticated,service_role;
+grant execute on function alur_machine_private.set_options(uuid,text,integer),public.alur_set_machine_options(uuid,text,integer)
+ to authenticated;
+
 commit;

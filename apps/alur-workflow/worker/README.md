@@ -170,6 +170,31 @@ Pemilik memantau pekerjaan lewat **Aktivitas langsung** di Alur (Beranda dan det
 
 Aturan: satu kalimat pendek bahasa Indonesia (≤200 karakter, dipotong otomatis), tanpa token, kredensial, path privat atau isi rahasia. `url` hanya untuk halaman publik `https://` yang benar-benar dibuka. Kirim log sebelum langkahnya berjalan, bukan sesudah. Log yang gagal (lease hilang) berarti berhenti seperti heartbeat yang ditolak. Database menyimpan 300 baris terakhir per sesi.
 
+## Model AI dan batas biaya dari Agen Produksi
+
+Order dari Bagan bisa membawa pilihan pemilik di langkah Agen Produksi. Sesi hasil `claim_as` dan `history` lalu memuat dua kolom:
+
+- `ai_model`: salah satu dari `claude-opus-5-5`, `claude-fable-5-2`, `claude-sonnet-5-5`, `claude-haiku-5-5`. Daftar ini sama dengan `src/ai-models.ts` dan constraint SQL.
+- `budget_usd`: batas biaya order, 1–500 dolar AS.
+
+Bila kedua kolom kosong, pakai bawaan pekerja.
+
+**Pekerja Claude:**
+- Jalankan subagen dengan model yang dipilih: `opus` untuk `claude-opus-5-5`, `fable` untuk `claude-fable-5-2`, `sonnet` untuk `claude-sonnet-5-5`, `haiku` untuk `claude-haiku-5-5`.
+- Koordinator tetap memakai model sesi itu sendiri.
+- Catat pemetaan model ini di `log` saat mulai.
+
+**Pekerja Codex:**
+- Pakai model Claude yang dipilih bila tersedia di lingkungannya.
+- Bila tidak tersedia, kerjakan dengan model sendiri, lalu tulis itu di `log` dan di checkpoint koordinator.
+- Jangan diam-diam mengganti pilihan pemilik.
+
+**Batas biaya:**
+- Setelah setiap subagen selesai, perkirakan biaya dari token yang dilaporkan dan harga model di `src/ai-models.ts`.
+- Tulis perkiraan kumulatif di `log` (`check`).
+- Bila perkiraan mencapai 90% dari `budget_usd`, jangan memulai peran baru. Tulis checkpoint terakhir yang jujur: pekerjaan yang selesai, pekerjaan yang tertunda, dan perkiraan biaya. Lalu `finish(needs_evidence, null)` dengan pertanyaan terbuka "Naikkan batas biaya atau lanjutkan dengan model lebih hemat?".
+- Perkiraan ini bukan tagihan resmi. Sebut begitu di checkpoint.
+
 ## Dua pekerja: Codex dan Claude
 
 Antrean yang sama dipantau oleh dua pekerja: automasi Codex (ChatGPT) dan tugas terjadwal Claude. Pekerja mana pun boleh mengambil sesi. Kolom `worker` pada sesi mencatat siapa yang memegang lease terakhir, dan dashboard menampilkannya ("Claude bekerja" / "Codex bekerja").

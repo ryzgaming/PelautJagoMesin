@@ -716,9 +716,14 @@ grant execute on function alur_machine_private.enqueue_flow(text,text,uuid,jsonb
 -- Agent produksi (Bagan): pilihan model AI dan batas biaya per order. Kolom ikut di sesi hasil klaim/riwayat
 -- lewat safe_session, sehingga pekerja Claude/Codex bisa membacanya. Daftar model sama dengan src/ai-models.ts.
 alter table public.alur_machine_sessions
- add column if not exists ai_model text constraint alur_machine_ai_model check (ai_model is null or ai_model in
-  ('claude-opus-5-5','claude-fable-5-2','claude-sonnet-5-5','claude-haiku-5-5')),
+ add column if not exists ai_model text,
  add column if not exists budget_usd integer constraint alur_machine_budget check (budget_usd is null or budget_usd between 1 and 500);
+
+-- Perbarui juga constraint database lama ketika skrip dijalankan ulang.
+alter table public.alur_machine_sessions drop constraint if exists alur_machine_ai_model;
+alter table public.alur_machine_sessions add constraint alur_machine_ai_model check (ai_model is null or ai_model in
+ ('claude-opus-5-5','claude-fable-5-2','claude-sonnet-5-5','claude-haiku-5-5',
+  'gpt-6.2-sol','gpt-6.2-astra','gpt-6.1-terra','gpt-6-luna'));
 
 -- Pemilik menyetel opsi pada sesi miliknya selama masih di antrean. Kirim ulang dengan nilai sama setelah mulai = no-op.
 create or replace function alur_machine_private.set_options(p_session_id uuid,p_ai_model text,p_budget_usd integer)

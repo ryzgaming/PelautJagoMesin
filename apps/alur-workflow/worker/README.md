@@ -174,20 +174,22 @@ Aturan: satu kalimat pendek bahasa Indonesia (≤200 karakter, dipotong otomatis
 
 Order dari Bagan bisa membawa pilihan pemilik di langkah Agen Produksi. Sesi hasil `claim_as` dan `history` lalu memuat dua kolom:
 
-- `ai_model`: salah satu dari `claude-opus-5-5`, `claude-fable-5-2`, `claude-sonnet-5-5`, `claude-haiku-5-5`. Daftar ini sama dengan `src/ai-models.ts` dan constraint SQL.
+- `ai_model`: salah satu dari `claude-opus-5-5`, `claude-fable-5-2`, `claude-sonnet-5-5`, `claude-haiku-5-5`, `gpt-6.2-sol`, `gpt-6.2-astra`, `gpt-6.1-terra`, `gpt-6-luna`. Daftar ini sama dengan `src/ai-models.ts` dan constraint SQL.
 - `budget_usd`: batas biaya order, 1–500 dolar AS.
 
 Bila kedua kolom kosong, pakai bawaan pekerja.
 
 **Pekerja Claude:**
+- Untuk pilihan GPT, gunakan integrasi GPT hanya jika tersedia dan mendukung ID model persis tersebut. Jika tidak, catat keterbatasan dan akhiri dengan `needs_evidence`; jangan menggantinya dengan Claude.
 - Jalankan subagen dengan model yang dipilih: `opus` untuk `claude-opus-5-5`, `fable` untuk `claude-fable-5-2`, `sonnet` untuk `claude-sonnet-5-5`, `haiku` untuk `claude-haiku-5-5`.
 - Koordinator tetap memakai model sesi itu sendiri.
 - Catat pemetaan model ini di `log` saat mulai.
 
 **Pekerja Codex:**
-- Pakai model Claude yang dipilih bila tersedia di lingkungannya.
-- Bila tidak tersedia, kerjakan dengan model sendiri, lalu tulis itu di `log` dan di checkpoint koordinator.
-- Jangan diam-diam mengganti pilihan pemilik.
+- Untuk pilihan GPT, jalankan subagen dengan ID persis pada `session.ai_model`, bukan nama tampilan atau alias Claude. Periksa daftar model yang tersedia sebelum memulai. Bila tool memerlukan konteks baru untuk mengganti model, kirim packet peran secara eksplisit.
+- Koordinator tetap memakai model sesi itu sendiri; pilihan ini tidak mengganti model koordinator yang sudah berjalan. Catat model koordinator dan model aktual subagen di log/checkpoint.
+- Untuk pilihan Claude, pakai model tersebut hanya bila tersedia di lingkungannya.
+- Bila model pilihan tidak tersedia, simpan checkpoint keterbatasan dan `finish(needs_evidence, null)`; jangan memakai model sendiri sebagai pengganti. Pilihan kosong tetap mengikuti bawaan pekerja.
 
 **Batas biaya:**
 - Setelah setiap subagen selesai, perkirakan biaya dari token yang dilaporkan dan harga model di `src/ai-models.ts`.

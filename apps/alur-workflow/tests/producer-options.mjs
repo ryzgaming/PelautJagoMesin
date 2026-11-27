@@ -39,10 +39,26 @@ test('pilihan model dan batas biaya divalidasi', () => {
 });
 
 test('daftar model dan bentuk opsi sama dengan yang diterima database', () => {
-  assert.deepEqual(aiModels.map(m => m.id), ['claude-opus-5-5','claude-fable-5-2','claude-sonnet-5-5','claude-haiku-5-5']);
+  assert.deepEqual(aiModels.map(m => m.id), ['claude-opus-5-5','claude-fable-5-2','claude-sonnet-5-5','claude-haiku-5-5',
+    'gpt-6.2-sol','gpt-6.2-astra','gpt-6.1-terra','gpt-6-luna']);
   assert.deepEqual(productionOptions({ai_model:'claude-sonnet-5-5', budget_usd:25}), {ai_model:'claude-sonnet-5-5', budget_usd:25});
   for (const bad of [null, {}, {ai_model:'claude-sonnet-5-5'}, {ai_model:'x', budget_usd:5}, {ai_model:'claude-sonnet-5-5', budget_usd:'5'}, {ai_model:'claude-sonnet-5-5', budget_usd:5, x:1}])
     assert.equal(productionOptions(bad), null);
   assert.deepEqual(stepOptions('aneh','999'), {ai_model:defaultAiModel, budget_usd:budgetLimits.initial});
   assert.equal(optionsLabel({ai_model:'claude-fable-5-2', budget_usd:100}), 'Claude Fable 5.2 · batas $100');
+});
+
+test('setiap pilihan GPT bertahan saat bagan disimpan, dimuat, dan dikirim ke produksi', () => {
+  for (const model of aiModels.filter(m => m.id.startsWith('gpt-'))) {
+    const producer = step('produksi','produksi',1400,0);
+    producer.value = model.id; producer.message = '25';
+    const saved = JSON.parse(JSON.stringify(graph(producer)));
+    validate(saved, true);
+    const result = execute(saved, {nama:'',email:'',catatan:'YANMAR 6AYM-WET'});
+    const expected = {ai_model:model.id,budget_usd:25};
+    assert.deepEqual(result.production.options, expected);
+    assert.deepEqual(productionOptions(expected), expected);
+    assert.deepEqual(stepOptions(model.id,'25'), expected);
+    assert.ok(result.trace.at(-1).detail.includes(model.name));
+  }
 });

@@ -5,12 +5,14 @@ import {agentByKind,divisionByKey,type AgentKind} from "./organization.ts";
 import {customAgentKind,delegates,droppedTasks,promptRules,hrdKind,promptKind,promptMax,routerKind,routePrompt,routerTargets,hrdRouters,structureKind,taskMax,maxSteps,maxEdges} from "./prompt-router.ts";
 export {maxSteps,maxEdges};
 import {review as hrdReview,type Vacancy} from "./hrd.ts";
-export type Kind = DirectoryKind | AgentKind | `robot-${string}` | "trigger" | "condition" | "confirm" | "review" | "prompt" | "router" | "hrd" | "struktur" | "custom-agent";
+import {checklist,gathers,packageResults,producerKind,reviewMessage,type Input,type Review} from "./gather.ts";
+export type {Review} from "./gather.ts";
+export type Kind = DirectoryKind | AgentKind | `robot-${string}` | "trigger" | "condition" | "confirm" | "review" | "prompt" | "router" | "hrd" | "struktur" | "custom-agent" | "himpun" | "produksi";
 export type Step = {id:string, kind:Kind, name:string, x:number, y:number, field:Field, operator:"filled"|"empty"|"equals", value:string, message:string};
 export type Port = "out" | "yes" | "no";
 export type Edge = {from:string, port:Port, to:string};
 export type Graph = {id:string, name:string, revision:number, nodes:Step[], edges:Edge[]};
-export const baseLabels = {trigger:"Formulir masuk",condition:"Kondisi",confirm:"Kirim konfirmasi",review:"Tandai untuk review",prompt:"Agent prompt",router:"Pembagi tugas",hrd:"Agent HRD",struktur:"Agent Struktur","custom-agent":"Agent baru"};
+export const baseLabels = {trigger:"Formulir masuk",condition:"Kondisi",confirm:"Kirim konfirmasi",review:"Tandai untuk review",prompt:"Agent prompt",router:"Pembagi tugas",hrd:"Agent HRD",struktur:"Agent Struktur","custom-agent":"Agent baru",himpun:"Penghimpun",produksi:"Agen Produksi"};
 export function label(kind:Kind) { return directoryByKind.get(kind)?.name ?? pluginById.get(kind)?.name ?? agentByKind.get(kind)?.short ?? baseLabels[kind as keyof typeof baseLabels]; }
 export function branches(kind:Kind) { return kind==="condition" || !!pluginById.get(kind)?.check; }
 /** Label kolom catatan bila pemicu meminta formulir satu kolom (misalnya "Merk dan tipe mesin"). */
@@ -46,6 +48,9 @@ export function validate(g:Graph,run=false) {
     if(!n||!ids.has(e.to)||e.to===triggers[0].id||!(branches(n.kind)?["yes","no"]:["out"]).includes(e.port)||ports.has(key)) throw Error("Sambungan tidak valid.");
     ports.add(key);
   }
+  const producers=g.nodes.filter(n=>n.kind===producerKind);
+  if(producers.length>1) throw Error("Bagan hanya boleh memiliki satu Agen Produksi.");
+  if(producers.some(p=>g.edges.some(e=>e.from===p.id))) throw Error("Agen Produksi harus menjadi langkah terakhir; lepas sambungan keluarnya.");
   const visiting=new Set<string>(),seen=new Set<string>();
   function walk(id:string) {
     if(visiting.has(id)) throw Error("Langkah tidak boleh membentuk putaran.");
@@ -67,7 +72,26 @@ export function execute(g:Graph,data:{email:string,nama:string,catatan?:string},
   validate(g,true);
   const fields: RunFields={nama:data.nama,email:data.email,catatan:data.catatan??"",hasil:""};
   // Tiap langkah menerima hasil langkah sebelumnya; cabang bersaudara masing-masing mendapat hasil yang sama.
-  const stack:{n:Step,hasil:string}[]=[{n:g.nodes.find(n=>n.kind==="trigger")!,hasil:""}], done=new Set<string>();
+  // Langkah dengan beberapa sambungan masuk menunggu semua langkah asalnya selesai (atau dilewati),
+  // lalu menerima hasil semuanya sekaligus. Penghimpun dan Agen Produksi bergantung pada aturan ini.
+  const stack:Step[]=[g.nodes.find(n=>n.kind==="trigger")!], done=new Set<string>();
+  const incoming=new Map<string,Edge[]>(), inputs=new Map<string,Input[]>(), fired=new Map<string,boolean>();
+  for(const e of g.edges) incoming.set(e.to,[...(incoming.get(e.to)??[]),e]);
+  const edgeKey=(e:Edge)=>e.from+"/"+e.port+"/"+e.to;
+  const nodeOf=(id:string)=>g.nodes.find(x=>x.id===id)!;
+  // Putuskan satu sambungan (mengalir atau tidak). Langkah tujuan siap setelah semua sambungan masuknya diputuskan;
+  // bila tidak ada yang mengalir, langkah itu dilewati dan sambungan keluarnya ikut tidak mengalir.
+  const decide=(e:Edge,on:boolean,from:Step,hasil:string,ready:Step[])=>{
+    fired.set(edgeKey(e),on);
+    if(on) inputs.set(e.to,[...(inputs.get(e.to)??[]),{id:from.id,name:from.name,hasil}]);
+    const list=incoming.get(e.to)??[];
+    if(!list.every(x=>fired.has(edgeKey(x)))) return;
+    const to=nodeOf(e.to);
+    if(list.some(x=>fired.get(edgeKey(x)))) ready.push(to);
+    else for(const out of g.edges.filter(x=>x.from===to.id)) decide(out,false,to,"",ready);
+  };
+  const ran:{id:string,kind:string,name:string,message:string,hasil:string}[]=[];
+  let production:{name:string,reviews:Review[]}|null=null;
   const trace:{id:string,name:string,detail:string}[]=[], warnings:string[]=[], rules:string[]=[], recruit:Vacancy[]=[], hires:string[]=[], prompts:string[]=[];
   const assigned=new Map<string,string[]>();
   // Struktur bercabang: anggota tim Pembagi tugas, dan yang aktif (punya tugas sendiri atau di cabangnya).
@@ -79,10 +103,11 @@ export function execute(g:Graph,data:{email:string,nama:string,catatan?:string},
   };
   let confirmation="", review="";
   while(stack.length) {
-    const {n,hasil}=stack.pop()!;
+    const n=stack.pop()!;
     if(done.has(n.id)) continue;
     done.add(n.id);
-    fields.hasil=hasil;
+    const received=inputs.get(n.id)??[];
+    fields.hasil=received.length?packageResults(received):"";
     let port:Port="out",detail="Formulir diterima",only:Set<string>|null=null;
     const given=assigned.get(n.id);
     if(given) fields.hasil=given.join("\n");
@@ -91,12 +116,22 @@ export function execute(g:Graph,data:{email:string,nama:string,catatan?:string},
       if(!Object.hasOwn(answers,n.id)) {
         const pending:ConnectorRequest={id:n.id,kind:n.kind,name:n.name,server:n.kind===customKind?n.value:entry.server,
           task:renderMessage(n.message,fields)||(given?given.join("\n"):""),openUrl:entry.openUrl,source:entry.source};
-        return {trace,confirmation,review,hasil:fields.hasil,warnings,recruit,hires,assignments:[] as Assignment[],rules,prompts,pending};
+        return {trace,confirmation,review,hasil:fields.hasil,warnings,recruit,hires,assignments:[] as Assignment[],rules,prompts,production,pending};
       }
       const answer=answers[n.id];
       if(typeof answer!=="string"||!answer.trim()||answer.length>8000) throw Error("Hasil konektor harus berisi 1–8.000 karakter.");
       fields.hasil=answer;
       detail="Hasil diteruskan: "+answer.slice(0,180);
+    } else if(gathers(n)) {
+      const missing=(incoming.get(n.id)??[]).filter(e=>!fired.get(edgeKey(e))).map(e=>nameOf(e.from));
+      detail=received.length>1?"Menghimpun hasil dari "+received.length+" langkah: "+received.map(i=>i.name).join(", "):"Menghimpun hasil dari "+(received[0]?.name??"langkah sebelumnya");
+      if(missing.length) detail+=" · "+missing.length+" tidak mengirim hasil (tidak mendapat tugas): "+missing.join(", ");
+    } else if(n.kind===producerKind) {
+      const reviews=ran.map(r=>({id:r.id,name:r.name,checks:checklist(r),hasil:r.hasil}));
+      production={name:n.name,reviews};
+      const message=reviewMessage(n.name,reviews);
+      review=review?review+"\n"+message:message;
+      detail=reviews.length?"Memeriksa "+reviews.length+" agent dengan daftar periksa masing-masing · dikirim ke dashboard untuk ditinjau":"Belum ada hasil agent untuk diperiksa";
     } else if(agentByKind.has(n.kind)) {
       const agent=agentByKind.get(n.kind)!;
       const own=renderMessage(n.message,fields).trim();
@@ -162,10 +197,13 @@ export function execute(g:Graph,data:{email:string,nama:string,catatan?:string},
       } catch(error) { throw Error(n.name+" — "+(error as Error).message); }
     }
     trace.push({id:n.id,name:n.name,detail});
-    const next=g.edges.filter(e=>e.from===n.id&&e.port===port&&(!only||only.has(e.to))&&!(team.has(n.id)&&team.has(e.to)&&!active.has(e.to)));
-    for(const e of next.reverse()) { const s=g.nodes.find(x=>x.id===e.to); if(s) stack.push({n:s,hasil:fields.hasil}); }
+    if((agentByKind.has(n.kind)||n.kind===customAgentKind)&&!gathers(n)) ran.push({id:n.id,kind:n.kind,name:n.name,message:n.message,hasil:fields.hasil});
+    const flows=(e:Edge)=>e.port===port&&(!only||only.has(e.to))&&!(team.has(n.id)&&team.has(e.to)&&!active.has(e.to));
+    const ready:Step[]=[];
+    for(const e of g.edges.filter(e=>e.from===n.id)) decide(e,flows(e),n,fields.hasil,ready);
+    for(const s of ready.reverse()) stack.push(s);
   }
   // Daftar lengkap tugas per agent untuk laporan uji (detail di jejak eksekusi dipotong).
   const assignments:Assignment[]=trace.filter(t=>assigned.has(t.id)).map(t=>({id:t.id,name:t.name,tasks:assigned.get(t.id)!}));
-  return {trace,confirmation,review,hasil:fields.hasil,warnings,recruit,hires,assignments,rules,prompts,pending:null};
+  return {trace,confirmation,review,hasil:fields.hasil,warnings,recruit,hires,assignments,rules,prompts,production,pending:null as ConnectorRequest|null};
 }

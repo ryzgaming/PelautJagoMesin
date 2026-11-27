@@ -1,6 +1,7 @@
 // Brief produksi dari bagan: prompt, pembagian tugas, dan aturan umum yang ikut masuk antrean
 // produksi mesin, lalu dibaca pekerja Claude/Codex. Dipakai browser (membuat) dan server (memeriksa).
 import {promptKind, promptMax, splitPrompt} from "./prompt-router.ts";
+import {producerKind, producerRule} from "./gather.ts";
 
 export const briefLimits = {name: 120, prompt: promptMax, tasks: 2000, task: 2000, agents: 3, agent: 80, rules: 500, rule: 2000, bytes: 600000};
 export type BriefTask = {task: string, agents: string[]};
@@ -37,7 +38,9 @@ export function buildBrief(g: Graph, result: Result, notes = ""): FlowBrief {
   const unmatched = (result.warnings ?? []).filter(w => w.startsWith(unmatchedPrefix))
     .map(w => cut(w.slice(unmatchedPrefix.length), briefLimits.task)).slice(0, briefLimits.tasks);
   return {version: 1, flow_id: cut(g.id, 80), flow_name: cut(g.name, briefLimits.name) || "Bagan", prompt,
-    tasks, rules: (result.rules ?? []).slice(0, briefLimits.rules).map(r => cut(r, briefLimits.rule)), unmatched};
+    // Agen Produksi di bagan menjadi tugas peran QA pekerja: memeriksa semua peran lalu mengirim ke review pemilik.
+    tasks, rules: [...(g.nodes.some(n => n.kind === producerKind) ? [producerRule] : []),
+      ...(result.rules ?? []).map(r => cut(r, briefLimits.rule))].slice(0, briefLimits.rules), unmatched};
 }
 
 const str = (v: unknown, max: number, empty = false) => typeof v === "string" && (empty || !!v.trim()) && Array.from(v).length <= max && !/[\u0000]/.test(v);

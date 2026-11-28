@@ -1,0 +1,715 @@
+{
+ "id": "EXT-HX",
+ "nama": "Heat exchanger shell-and-tube depan (jacket water / aftercooler, didinginkan air laut)",
+ "node_rakitan": "RAK-HX",
+ "acuan": {
+  "no": 1,
+  "object_ids": [
+   "EXT-HX-SHELL-1"
+  ]
+ },
+ "diagram": {
+  "arah_pandang": [
+   -0.35,
+   -0.4,
+   -0.85
+  ],
+  "atas": [
+   0,
+   1,
+   0
+  ]
+ },
+ "bagian": [
+  {
+   "no": 1,
+   "nama": "Rumah / shell heat exchanger (acuan, tidak bergerak)",
+   "object_ids": [
+    "EXT-HX-SHELL-1"
+   ],
+   "posisi": [
+    {
+     "object_id": "EXT-HX-SHELL-1",
+     "arah": [
+      0,
+      0,
+      0
+     ],
+     "jarak_m": 0.0,
+     "urutan": 0
+    }
+   ],
+   "status": "OBSERVED",
+   "sumber": "P22, P23, P25 (marine: inti bertabung bersirip terlihat di sisi, pelat X di muka depan, selang hitam); D03 hlm. 1 (engine-mounted SW pump and heat exchanger); D01 hlm. 1 gambar Dimensions tampak Front (datum.json)",
+   "fungsi": "menampung bundel tabung dan aliran air pendingin mesin di sisi shell; dudukan ke mesin",
+   "nomor_oem": null,
+   "ukuran": null
+  },
+  {
+   "no": 2,
+   "nama": "Tutup ujung depan (front end cover / bonnet) dengan flens",
+   "object_ids": [
+    "EXT-HX-TUTUPDEPAN-1"
+   ],
+   "posisi": [
+    {
+     "object_id": "EXT-HX-TUTUPDEPAN-1",
+     "arah": [
+      1.0,
+      0.0,
+      0.0
+     ],
+     "jarak_m": 0.33,
+     "urutan": 6
+    }
+   ],
+   "status": "OBSERVED",
+   "sumber": "P23 (muka depan dengan pelat X dan baut tepi); P22",
+   "fungsi": "menutup ruang air laut depan dan mengarahkan aliran balik tabung; dibuka untuk menarik bundel",
+   "nomor_oem": null,
+   "ukuran": null
+  },
+  {
+   "no": 3,
+   "nama": "Tutup ujung belakang (rear end cover / bonnet) dengan flens",
+   "object_ids": [
+    "EXT-HX-TUTUPBELAKANG-1"
+   ],
+   "posisi": [
+    {
+     "object_id": "EXT-HX-TUTUPBELAKANG-1",
+     "arah": [
+      -1.0,
+      0.0,
+      0.0
+     ],
+     "jarak_m": 0.15,
+     "urutan": 5
+    }
+   ],
+   "status": "ILLUSTRATIVE",
+   "sumber": "P22 (ujung belakang gelap di sisi HE); bentuk bonnet tidak terlihat jelas",
+   "fungsi": "menutup ruang air laut belakang (masuk/keluar air laut); menahan anoda seng",
+   "nomor_oem": null,
+   "ukuran": null
+  },
+  {
+   "no": 4,
+   "nama": "Bundel tabung (tube bundle): tube sheet depan dan belakang, tabung, baffle/support plate",
+   "object_ids": [
+    "EXT-HX-BUNDLE-1"
+   ],
+   "posisi": [
+    {
+     "object_id": "EXT-HX-BUNDLE-1",
+     "arah": [
+      1.0,
+      0.0,
+      0.0
+     ],
+     "jarak_m": 0.22,
+     "urutan": 4
+    }
+   ],
+   "status": "ILLUSTRATIVE",
+   "sumber": "P22, P25 (tabung bersirip terlihat di sisi; jumlah dan susunan tabung tidak terbaca)",
+   "fungsi": "memisahkan air laut di dalam tabung dari air pendingin mesin di sisi shell; panas berpindah lewat dinding tabung",
+   "nomor_oem": null,
+   "ukuran": null
+  },
+  {
+   "no": 5,
+   "nama": "Gasket / O-ring flens tutup",
+   "object_ids": [
+    "EXT-HX-GASKET-1",
+    "EXT-HX-GASKET-2",
+    "EXT-HX-GASKET-3"
+   ],
+   "posisi": [
+    {
+     "object_id": "EXT-HX-GASKET-1",
+     "arah": [
+      1.0,
+      0.0,
+      0.0
+     ],
+     "jarak_m": 0.27,
+     "urutan": 3
+    },
+    {
+     "object_id": "EXT-HX-GASKET-2",
+     "arah": [
+      1.0,
+      0.0,
+      0.0
+     ],
+     "jarak_m": 0.3,
+     "urutan": 2
+    },
+    {
+     "object_id": "EXT-HX-GASKET-3",
+     "arah": [
+      -1.0,
+      0.0,
+      0.0
+     ],
+     "jarak_m": 0.07,
+     "urutan": 3
+    }
+   ],
+   "status": "ILLUSTRATIVE",
+   "sumber": "tidak terlihat di foto; perapat flens umum pada heat exchanger shell-and-tube",
+   "fungsi": "merapatkan sambungan flens shell, tube sheet, dan tutup agar air laut dan air pendingin tidak bocor",
+   "nomor_oem": null,
+   "ukuran": null
+  },
+  {
+   "no": 6,
+   "nama": "Baut flens tutup (hex bolt dengan ring)",
+   "object_ids": [
+    "EXT-HX-BAUT-1",
+    "EXT-HX-BAUT-2",
+    "EXT-HX-BAUT-3",
+    "EXT-HX-BAUT-4",
+    "EXT-HX-BAUT-5",
+    "EXT-HX-BAUT-6",
+    "EXT-HX-BAUT-7",
+    "EXT-HX-BAUT-8",
+    "EXT-HX-BAUT-9",
+    "EXT-HX-BAUT-10",
+    "EXT-HX-BAUT-11",
+    "EXT-HX-BAUT-12",
+    "EXT-HX-BAUT-13",
+    "EXT-HX-BAUT-14",
+    "EXT-HX-BAUT-15",
+    "EXT-HX-BAUT-16",
+    "EXT-HX-BAUT-17",
+    "EXT-HX-BAUT-18",
+    "EXT-HX-BAUT-19",
+    "EXT-HX-BAUT-20",
+    "EXT-HX-BAUT-21",
+    "EXT-HX-BAUT-22",
+    "EXT-HX-BAUT-23",
+    "EXT-HX-BAUT-24",
+    "EXT-HX-BAUT-25",
+    "EXT-HX-BAUT-26",
+    "EXT-HX-BAUT-27",
+    "EXT-HX-BAUT-28",
+    "EXT-HX-BAUT-29",
+    "EXT-HX-BAUT-30",
+    "EXT-HX-BAUT-31",
+    "EXT-HX-BAUT-32",
+    "EXT-HX-BAUT-33",
+    "EXT-HX-BAUT-34",
+    "EXT-HX-BAUT-35",
+    "EXT-HX-BAUT-36",
+    "EXT-HX-BAUT-37",
+    "EXT-HX-BAUT-38",
+    "EXT-HX-BAUT-39",
+    "EXT-HX-BAUT-40"
+   ],
+   "posisi": [
+    {
+     "object_id": "EXT-HX-BAUT-1",
+     "arah": [
+      1.0,
+      0.0,
+      0.0
+     ],
+     "jarak_m": 0.45,
+     "urutan": 1
+    },
+    {
+     "object_id": "EXT-HX-BAUT-2",
+     "arah": [
+      1.0,
+      0.0,
+      0.0
+     ],
+     "jarak_m": 0.45,
+     "urutan": 1
+    },
+    {
+     "object_id": "EXT-HX-BAUT-3",
+     "arah": [
+      1.0,
+      0.0,
+      0.0
+     ],
+     "jarak_m": 0.45,
+     "urutan": 1
+    },
+    {
+     "object_id": "EXT-HX-BAUT-4",
+     "arah": [
+      1.0,
+      0.0,
+      0.0
+     ],
+     "jarak_m": 0.45,
+     "urutan": 1
+    },
+    {
+     "object_id": "EXT-HX-BAUT-5",
+     "arah": [
+      1.0,
+      0.0,
+      0.0
+     ],
+     "jarak_m": 0.45,
+     "urutan": 1
+    },
+    {
+     "object_id": "EXT-HX-BAUT-6",
+     "arah": [
+      1.0,
+      0.0,
+      0.0
+     ],
+     "jarak_m": 0.45,
+     "urutan": 1
+    },
+    {
+     "object_id": "EXT-HX-BAUT-7",
+     "arah": [
+      1.0,
+      0.0,
+      0.0
+     ],
+     "jarak_m": 0.45,
+     "urutan": 1
+    },
+    {
+     "object_id": "EXT-HX-BAUT-8",
+     "arah": [
+      1.0,
+      0.0,
+      0.0
+     ],
+     "jarak_m": 0.45,
+     "urutan": 1
+    },
+    {
+     "object_id": "EXT-HX-BAUT-9",
+     "arah": [
+      1.0,
+      0.0,
+      0.0
+     ],
+     "jarak_m": 0.45,
+     "urutan": 1
+    },
+    {
+     "object_id": "EXT-HX-BAUT-10",
+     "arah": [
+      1.0,
+      0.0,
+      0.0
+     ],
+     "jarak_m": 0.45,
+     "urutan": 1
+    },
+    {
+     "object_id": "EXT-HX-BAUT-11",
+     "arah": [
+      1.0,
+      0.0,
+      0.0
+     ],
+     "jarak_m": 0.45,
+     "urutan": 1
+    },
+    {
+     "object_id": "EXT-HX-BAUT-12",
+     "arah": [
+      1.0,
+      0.0,
+      0.0
+     ],
+     "jarak_m": 0.45,
+     "urutan": 1
+    },
+    {
+     "object_id": "EXT-HX-BAUT-13",
+     "arah": [
+      1.0,
+      0.0,
+      0.0
+     ],
+     "jarak_m": 0.45,
+     "urutan": 1
+    },
+    {
+     "object_id": "EXT-HX-BAUT-14",
+     "arah": [
+      1.0,
+      0.0,
+      0.0
+     ],
+     "jarak_m": 0.45,
+     "urutan": 1
+    },
+    {
+     "object_id": "EXT-HX-BAUT-15",
+     "arah": [
+      1.0,
+      0.0,
+      0.0
+     ],
+     "jarak_m": 0.45,
+     "urutan": 1
+    },
+    {
+     "object_id": "EXT-HX-BAUT-16",
+     "arah": [
+      1.0,
+      0.0,
+      0.0
+     ],
+     "jarak_m": 0.45,
+     "urutan": 1
+    },
+    {
+     "object_id": "EXT-HX-BAUT-17",
+     "arah": [
+      1.0,
+      0.0,
+      0.0
+     ],
+     "jarak_m": 0.45,
+     "urutan": 1
+    },
+    {
+     "object_id": "EXT-HX-BAUT-18",
+     "arah": [
+      1.0,
+      0.0,
+      0.0
+     ],
+     "jarak_m": 0.45,
+     "urutan": 1
+    },
+    {
+     "object_id": "EXT-HX-BAUT-19",
+     "arah": [
+      1.0,
+      0.0,
+      0.0
+     ],
+     "jarak_m": 0.45,
+     "urutan": 1
+    },
+    {
+     "object_id": "EXT-HX-BAUT-20",
+     "arah": [
+      1.0,
+      0.0,
+      0.0
+     ],
+     "jarak_m": 0.45,
+     "urutan": 1
+    },
+    {
+     "object_id": "EXT-HX-BAUT-21",
+     "arah": [
+      -1.0,
+      0.0,
+      0.0
+     ],
+     "jarak_m": 0.3,
+     "urutan": 1
+    },
+    {
+     "object_id": "EXT-HX-BAUT-22",
+     "arah": [
+      -1.0,
+      0.0,
+      0.0
+     ],
+     "jarak_m": 0.3,
+     "urutan": 1
+    },
+    {
+     "object_id": "EXT-HX-BAUT-23",
+     "arah": [
+      -1.0,
+      0.0,
+      0.0
+     ],
+     "jarak_m": 0.3,
+     "urutan": 1
+    },
+    {
+     "object_id": "EXT-HX-BAUT-24",
+     "arah": [
+      -1.0,
+      0.0,
+      0.0
+     ],
+     "jarak_m": 0.3,
+     "urutan": 1
+    },
+    {
+     "object_id": "EXT-HX-BAUT-25",
+     "arah": [
+      -1.0,
+      0.0,
+      0.0
+     ],
+     "jarak_m": 0.3,
+     "urutan": 1
+    },
+    {
+     "object_id": "EXT-HX-BAUT-26",
+     "arah": [
+      -1.0,
+      0.0,
+      0.0
+     ],
+     "jarak_m": 0.3,
+     "urutan": 1
+    },
+    {
+     "object_id": "EXT-HX-BAUT-27",
+     "arah": [
+      -1.0,
+      0.0,
+      0.0
+     ],
+     "jarak_m": 0.3,
+     "urutan": 1
+    },
+    {
+     "object_id": "EXT-HX-BAUT-28",
+     "arah": [
+      -1.0,
+      0.0,
+      0.0
+     ],
+     "jarak_m": 0.3,
+     "urutan": 1
+    },
+    {
+     "object_id": "EXT-HX-BAUT-29",
+     "arah": [
+      -1.0,
+      0.0,
+      0.0
+     ],
+     "jarak_m": 0.3,
+     "urutan": 1
+    },
+    {
+     "object_id": "EXT-HX-BAUT-30",
+     "arah": [
+      -1.0,
+      0.0,
+      0.0
+     ],
+     "jarak_m": 0.3,
+     "urutan": 1
+    },
+    {
+     "object_id": "EXT-HX-BAUT-31",
+     "arah": [
+      -1.0,
+      0.0,
+      0.0
+     ],
+     "jarak_m": 0.3,
+     "urutan": 1
+    },
+    {
+     "object_id": "EXT-HX-BAUT-32",
+     "arah": [
+      -1.0,
+      0.0,
+      0.0
+     ],
+     "jarak_m": 0.3,
+     "urutan": 1
+    },
+    {
+     "object_id": "EXT-HX-BAUT-33",
+     "arah": [
+      -1.0,
+      0.0,
+      0.0
+     ],
+     "jarak_m": 0.3,
+     "urutan": 1
+    },
+    {
+     "object_id": "EXT-HX-BAUT-34",
+     "arah": [
+      -1.0,
+      0.0,
+      0.0
+     ],
+     "jarak_m": 0.3,
+     "urutan": 1
+    },
+    {
+     "object_id": "EXT-HX-BAUT-35",
+     "arah": [
+      -1.0,
+      0.0,
+      0.0
+     ],
+     "jarak_m": 0.3,
+     "urutan": 1
+    },
+    {
+     "object_id": "EXT-HX-BAUT-36",
+     "arah": [
+      -1.0,
+      0.0,
+      0.0
+     ],
+     "jarak_m": 0.3,
+     "urutan": 1
+    },
+    {
+     "object_id": "EXT-HX-BAUT-37",
+     "arah": [
+      -1.0,
+      0.0,
+      0.0
+     ],
+     "jarak_m": 0.3,
+     "urutan": 1
+    },
+    {
+     "object_id": "EXT-HX-BAUT-38",
+     "arah": [
+      -1.0,
+      0.0,
+      0.0
+     ],
+     "jarak_m": 0.3,
+     "urutan": 1
+    },
+    {
+     "object_id": "EXT-HX-BAUT-39",
+     "arah": [
+      -1.0,
+      0.0,
+      0.0
+     ],
+     "jarak_m": 0.3,
+     "urutan": 1
+    },
+    {
+     "object_id": "EXT-HX-BAUT-40",
+     "arah": [
+      -1.0,
+      0.0,
+      0.0
+     ],
+     "jarak_m": 0.3,
+     "urutan": 1
+    }
+   ],
+   "status": "ILLUSTRATIVE",
+   "sumber": "P23 (baut di tepi muka depan terlihat); jumlah dan ukuran ILLUSTRATIVE",
+   "fungsi": "menjepit tutup, gasket, dan tube sheet ke flens shell",
+   "nomor_oem": null,
+   "ukuran": null
+  },
+  {
+   "no": 7,
+   "nama": "Plug drain / vent",
+   "object_ids": [
+    "EXT-HX-PLUG-1",
+    "EXT-HX-PLUG-2",
+    "EXT-HX-PLUG-3"
+   ],
+   "posisi": [
+    {
+     "object_id": "EXT-HX-PLUG-1",
+     "arah": [
+      0.0,
+      -1.0,
+      0.0
+     ],
+     "jarak_m": 0.08,
+     "urutan": 1
+    },
+    {
+     "object_id": "EXT-HX-PLUG-2",
+     "arah": [
+      1.0,
+      0.0,
+      0.0
+     ],
+     "jarak_m": 0.4,
+     "urutan": 1
+    },
+    {
+     "object_id": "EXT-HX-PLUG-3",
+     "arah": [
+      0.0,
+      -1.0,
+      0.0
+     ],
+     "jarak_m": 0.08,
+     "urutan": 1
+    }
+   ],
+   "status": "ILLUSTRATIVE",
+   "sumber": "tidak terlihat di foto; plug pembuangan dan ventilasi umum pada heat exchanger",
+   "fungsi": "membuang air saat perawatan dan membuang udara terperangkap saat pengisian",
+   "nomor_oem": null,
+   "ukuran": null
+  },
+  {
+   "no": 8,
+   "nama": "Anoda seng (zinc anode) dengan sumbat berulir",
+   "object_ids": [
+    "EXT-HX-ANODA-1"
+   ],
+   "posisi": [
+    {
+     "object_id": "EXT-HX-ANODA-1",
+     "arah": [
+      -1.0,
+      0.0,
+      0.0
+     ],
+     "jarak_m": 0.28,
+     "urutan": 2
+    }
+   ],
+   "status": "ILLUSTRATIVE",
+   "sumber": "tidak terlihat di foto; lazim pada heat exchanger berpendingin air laut",
+   "fungsi": "dikorbankan terhadap korosi galvanik agar tabung dan tutup tidak terkikis air laut; diperiksa dan diganti berkala",
+   "nomor_oem": null,
+   "ukuran": null
+  },
+  {
+   "no": 9,
+   "nama": "Pelat penutup depan berbentuk X (dekoratif, tanpa logo)",
+   "object_ids": [
+    "EXT-HEXPLATE-01"
+   ],
+   "posisi": [
+    {
+     "object_id": "EXT-HEXPLATE-01",
+     "arah": [
+      1.0,
+      0.0,
+      0.0
+     ],
+     "jarak_m": 0.33,
+     "urutan": 6
+    }
+   ],
+   "status": "OBSERVED",
+   "sumber": "P23 (pelat X di depan heat exchanger)",
+   "fungsi": "pelindung dan penanda muka depan heat exchanger; ikut dilepas bersama tutup depan",
+   "nomor_oem": null,
+   "ukuran": null
+  }
+ ],
+ "catatan": "Nomor = nomor posisi model (bukan nomor OEM; parts book 3512C tidak publik). arah dalam koordinat dunia datum/glTF (m, +Y atas, +X depan, +Z kanan). jarak_m = pergeseran pada eksplor penuh; urutan = urutan pelepasan (1 pertama). Tabrakan dengan rakitan lain di luar rakitan ini tidak diperiksa."
+}

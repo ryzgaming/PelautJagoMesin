@@ -1,0 +1,100 @@
+{
+  "id": "RAK-EXHAUST",
+  "nama": "Turbocharger dan exhaust",
+  "node_rakitan": "RAK-EXHAUST",
+  "acuan": {
+    "no": 1,
+    "object_ids": [
+      "EXT-EXHAUST-01"
+    ]
+  },
+  "diagram": {
+    "arah_pandang": [
+      0.31139957904815674,
+      0.5449492335319519,
+      0.7784989476203918
+    ],
+    "atas": [
+      0,
+      1,
+      0
+    ]
+  },
+  "bagian": [
+    {
+      "no": 1,
+      "nama": "Manifold exhaust berjaket",
+      "object_ids": [
+        "EXT-EXHAUST-01"
+      ],
+      "posisi": [],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 14 printed p. 10 / component locations, non-operation side",
+        "P17 / manifold dan port bundar"
+      ],
+      "fungsi": "Manifold exhaust berjaket",
+      "nomor_oem": null,
+      "role": null,
+      "ukuran": null
+    },
+    {
+      "no": 2,
+      "nama": "Rumah gas turbin",
+      "object_ids": [
+        "EXT-EXHAUST-02"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-EXHAUST-02",
+          "arah": [
+            1,
+            0,
+            0
+          ],
+          "jarak_m": 0.4,
+          "urutan": 2
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D05 / 0CG10-M34300, Fig.32 TURBOCHARGER COMPONENT PART, model selection 6AYM-WET / posisi 26",
+        "D01 PDF 170 / cetak 166, TD13M(1), penampang 013122-00E"
+      ],
+      "fungsi": "Rumah gas turbin",
+      "nomor_oem": "X4918211460",
+      "role": "shell",
+      "ukuran": null
+    },
+    {
+      "no": 3,
+      "nama": "Siku isolasi dan flange exhaust vertikal",
+      "object_ids": [
+        "EXT-EXHAUST-05"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-EXHAUST-05",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.4,
+          "urutan": 3
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D03 PDF 17 printed p. 33 / engine-only right elevation and front view",
+        "GA01 B3-48660-4450 / outline, top, end and rear housing details",
+        "P17 / isolasi dan mulut outlet"
+      ],
+      "fungsi": "Siku isolasi dan flange exhaust vertikal",
+      "nomor_oem": null,
+      "role": null,
+      "ukuran": null
+    }
+  ],
+  "notes": "Nomor posisi model. Lintasan ilustrasi, belum diperiksa untuk interferensi."
+}

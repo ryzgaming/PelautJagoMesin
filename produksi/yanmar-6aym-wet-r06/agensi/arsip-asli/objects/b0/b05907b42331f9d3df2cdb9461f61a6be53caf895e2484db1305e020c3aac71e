@@ -1,0 +1,129 @@
+{
+  "id": "RAK-FRONT",
+  "nama": "Penggerak depan",
+  "node_rakitan": "RAK-FRONT",
+  "acuan": {
+    "no": 1,
+    "object_ids": [
+      "EXT-FRONT-01"
+    ]
+  },
+  "diagram": {
+    "arah_pandang": [
+      1.0,
+      0.0,
+      0.0
+    ],
+    "atas": [
+      0,
+      1,
+      0
+    ]
+  },
+  "bagian": [
+    {
+      "no": 1,
+      "nama": "Rumah gear depan berongga",
+      "object_ids": [
+        "EXT-FRONT-01"
+      ],
+      "posisi": [],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D03 PDF 17 printed p. 33 / engine-only right elevation and front view",
+        "GA01 B3-48660-4450 / outline, top, end and rear housing details",
+        "P09 / profil housing depan",
+        "D01 PDF 112 cetak 108 / rangkaian gear depan"
+      ],
+      "fungsi": "Rumah gear depan berongga",
+      "nomor_oem": null,
+      "role": null,
+      "ukuran": null
+    },
+    {
+      "no": 2,
+      "nama": "Damper dan pulley crankshaft",
+      "object_ids": [
+        "EXT-FRONT-02"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-FRONT-02",
+          "arah": [
+            1,
+            0,
+            0
+          ],
+          "jarak_m": 0.28,
+          "urutan": 2
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D03 PDF 17 printed p. 33 / engine-only right elevation and front view",
+        "P09 / pusat penggerak"
+      ],
+      "fungsi": "Damper dan pulley crankshaft",
+      "nomor_oem": null,
+      "role": null,
+      "ukuran": null
+    },
+    {
+      "no": 3,
+      "nama": "Pelindung belt depan",
+      "object_ids": [
+        "EXT-FRONT-03"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-FRONT-03",
+          "arah": [
+            1,
+            0,
+            0
+          ],
+          "jarak_m": 0.28,
+          "urutan": 3
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "P08 / pelindung hitam berusuk",
+        "P09 / penggerak bawah"
+      ],
+      "fungsi": "Pelindung belt depan",
+      "nomor_oem": null,
+      "role": null,
+      "ukuran": null
+    },
+    {
+      "no": 4,
+      "nama": "Rumah bantalan poros penggerak alternator",
+      "object_ids": [
+        "EXT-FRONT-08"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-FRONT-08",
+          "arah": [
+            1,
+            0,
+            0
+          ],
+          "jarak_m": 0.28,
+          "urutan": 4
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D05 Fig.107 GENERATOR, V-belt, intermediate shaft, bearing case and drive gear; Fig.109 pulley / ref. 23",
+        "D01 PDF 112, front cam gear and alternator driving gear"
+      ],
+      "fungsi": "Rumah bantalan poros penggerak alternator",
+      "nomor_oem": "148660-77220",
+      "role": "shell",
+      "ukuran": null
+    }
+  ],
+  "notes": "Nomor posisi model. Lintasan ilustrasi, belum diperiksa untuk interferensi."
+}

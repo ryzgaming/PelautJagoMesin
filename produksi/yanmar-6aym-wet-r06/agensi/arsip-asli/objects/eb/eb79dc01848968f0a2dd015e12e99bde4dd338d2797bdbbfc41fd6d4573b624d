@@ -1,0 +1,133 @@
+"""Alternator and starter, catalogue-option mechanical teaching sections for 6AYM-WET."""
+from math import cos, sin, pi
+
+def build(api):
+    add = api['add']
+    ring, sleeve = api['ring'], api['annulus']
+    cyl, box, mesh = api['cylinder'], api['box'], api['mesh']
+    steel, iron, graphite = api['steel'], api['cast'], api['rubber']
+    copper = api['appearance']('Cuivre des bobinages', (.48,.164,.045), .59,.38)
+    insul = api['appearance']('Vernis isolant brun', (.22,.055,.019), .25,.44)
+    axis=(1,0,0)
+    parent='RAK-ELECTRIC'
+    source_base='D05 0CG10-M34300, WET (A) / Fig. '
+    import json
+    from pathlib import Path
+    catalog = api['OUT'].parents[1]/'qa/catalog/figures'
+
+    def setup(number,group,anchor,center,limitation):
+        rows={r['referenceNo']:r for r in json.loads((catalog/f'{number}.json').read_text())['positions']}
+        ref=source_base+str(number)
+        evid=[ref, 'D01 PDF 14 / component locations; P08 guard, P17 starter']
+        members=[]
+        def at(x,y=0,z=0): return (x,center[0]+y,center[1]+z)
+        def rad(x,r,a): return at(x,r*cos(a),r*sin(a))
+        def tube(x,outer,inner,length,mat):
+            return sleeve(at(x),axis,outer,inner,length,mat)
+        def pipe(x,shape,mat,n=48):
+            return ring(at(x),axis,shape,mat,n)
+        def arc(x0,x1,ri,ro,a,b,mat,steps=8):
+            vs=[]
+            for j in range(steps+1):
+                ang=a+(b-a)*j/steps
+                vs.extend([rad(x0,ri,ang),rad(x0,ro,ang),rad(x1,ro,ang),rad(x1,ri,ang)])
+            faces=[(0,1,2,3),(4*steps+3,4*steps+2,4*steps+1,4*steps)]
+            faces.extend((4*j+i,4*(j+1)+i,4*(j+1)+(i+1)%4,4*j+(i+1)%4) for j in range(steps) for i in range(4))
+            return mesh(vs,faces,mat)
+        def part(id,label,shapes,item,role,fn,displ,dist):
+            refs=[ref+' pos. '+item] if item else [ref+' (section)']
+            key=rows.get(item,{}).get('partNo')
+            obj=add('ELECTRIC',id,label,shapes,refs,fn+' '+limitation,status='ESTIMATED',
+                xray=role=='shell',parent=group,nested_under=parent,role=role,
+                direction=displ,oem=key)
+            poses=[] if not dist else [dict(object_id=obj.name,arah=list(displ),jarak_m=dist,urutan=len(members)+1)]
+            members.append(dict(no=len(members)+1,nama=label,object_ids=[obj.name],posisi=poses,status='ESTIMATED',role=role,sumber=refs,fungsi=fn,nomor_oem=key,ukuran=None))
+        def end(title):
+            api['register_recipe'](dict(id=group,nama=title,node_rakitan=group,parent_rakitan=parent,
+                status='UNVERIFIED',source_refs=evid,acuan=dict(no=1,object_ids=[anchor]),
+                diagram=dict(arah_pandang=[.42,.36,-.83],atas=[0,1,0]),bagian=members,notes=limitation))
+        return at,rad,tube,pipe,arc,part,end
+
+    p=(1,0,0); m=(-1,0,0); up=(0,1,0)
+    group='RAK-ALTERNATOR'
+    api['remove_part']('EXT-ELECTRIC-01')
+    at,rad,tube,pipe,arc,part,end=setup(109,group,'EXT-ELECTRIC-01',(.275,-.340),
+        'Opsi 600 W pada katalog; identitas unit terpasang, lilitan, ukuran dan celah belum terverifikasi. Alternatif 24 V–1 kW dirinci terpisah di Fig.108.')
+    frame=[tube(1.370,.090,.083,.090,iron),tube(1.324,.084,.076,.012,iron),tube(1.308,.080,.027,.013,iron)]
+    for i in range(14):
+        a=2*pi*i/14
+        frame.append(arc(1.338,1.412,.089,.094,a-.046,a+.046,iron,2))
+    part(1,'Rumah belakang alternator • opsi 600 W',frame,'4','shell','Menopang stator dan dudukan bantalan sisi belakang.',None,0)
+    wind=[tube(1.375,.080,.063,.057,steel)]
+    for i in range(21):
+        a=2*pi*i/21
+        wind.extend([arc(1.345,1.405,.055,.064,a-.044,a+.044,steel,3),
+                     arc(1.338,1.411,.061,.071,a+.065,a+.165,copper,4)])
+        for x in [1.337,1.411]:wind.append(arc(x-.002,x+.002,.061,.070,a-.110,a+.196,copper,5))
+    part(20,'Stator dengan inti dan kumparan',wind,'2','core','Kumparan stator menerima fluks rotor dan menghasilkan arus bolak-balik.',p,.174)
+    rotor=[cyl(at(1.386),axis,.010,.171,steel),tube(1.374,.036,.0105,.050,insul)]
+    for k in range(6):
+        for sign in [-1,1]:
+            a=2*pi*k/6+(.52 if sign==1 else 0)
+            x0=1.374+sign*.03;x1=1.374-sign*.017
+            verts=[rad(x,r,a+da) for x,w in [(x0,.24),(x1,.045)] for r,da in [(.034,-w),(.0515,-w),(.0515,w),(.034,w)]]
+            rotor.append(mesh(verts,[(0,1,2,3),(4,7,6,5),(0,4,5,1),(1,5,6,2),(2,6,7,3),(3,7,4,0)],steel))
+    rotor.extend([tube(1.326+x,.015,.0104,.003,copper) for x in [0,.006]])
+    part(21,'Rotor kutub cakar, poros dan slip ring',rotor,'23','rotor','Medan magnet berputar di dalam stator; slip ring membawa arus eksitasi.',p,.310)
+    part(22,'Bantalan belakang alternator',tube(1.314,.024,.0105,.011,steel),'24','bearing','Menumpu ujung rotor sisi belakang.',m,.150)
+    part(23,'Bantalan depan alternator',tube(1.433,.026,.0105,.010,steel),'28','bearing','Menumpu ujung rotor sisi pulley.',p,.413)
+    part(24,'Bracket depan berventilasi',[tube(1.424,.090,.080,.019,iron),tube(1.430,.030,.026,.016,iron)]+[
+        arc(1.422,1.427,.029,.082,i*pi/3-.085,i*pi/3+.085,iron,4) for i in range(6)],'27','cover','Menyangga bantalan depan dan menyediakan bukaan pendinginan.',p,.49)
+    part(25,'Pulley dengan alur V dan kipas',[pipe(1.461,[(-.021,.011),(-.021,.058),(-.018,.058),(-.008,.046),(.002,.058),(.006,.058),(.006,.011)],iron)]+[
+        arc(1.443,1.448,.057,.072,i*pi/7,i*pi/7+.080,steel,3) for i in range(14)],'36','drive','Meneruskan gerak belt; sirip belakang mengalirkan udara.',p,.57)
+    part(26,'Pelat penyearah dan heat sink',[
+        arc(1.316,1.323,.035,.070,a,a+.65,steel,10) for a in (1.7,2.43,3.17,3.91)]+[
+        cyl(rad(1.324,.052,a),axis,.006,.004,graphite,16,.0004) for a in (2,2.70,3.45,4.20)],'5','rectifier','Pelat menyerap panas dari penyearah keluaran.',m,.22)
+    part(27,'Sikat eksitasi', [box(at(x,.020),(.003,.019,.007),graphite,.0005) for x in (1.326,1.332)],'21','brush','Kontak geser meneruskan arus ke kedua slip ring.',up,.085)
+    part(28,'Dudukan sikat',box(at(1.329,.037),(.021,.017,.014),graphite,.002),'20','holder','Mengarahkan sikat eksitasi menuju slip ring.',up,.125)
+    part(29,'Regulator alternator',box(at(1.317,.056),(.014,.032,.030),graphite,.003),'37','regulator','Mengatur arus eksitasi sesuai tegangan keluaran.',m,.29)
+    end('Isi alternator · contoh katalog 600 W')
+
+    group='RAK-STARTER'
+    api['remove_part']('EXT-ELECTRIC-02')
+    at,rad,tube,pipe,arc,part,end=setup(106,group,'EXT-ELECTRIC-02',(.022,.367),
+        'Contoh katalog starter earth-float Fig.106. Fig.105 menunjukkan varian earth; identitas dan ukuran komponen unit aktual belum terverifikasi.')
+    frame=[tube(.074,.072,.064,.145,iron)]
+    for a in (.25,1.82,3.39,4.96):frame.append(arc(.024,.119,.049,.065,a-.28,a+.28,steel,7))
+    part(2,'Yoke starter dan sepatu kutub',frame,'2','shell','Menopang medan magnet yang bekerja pada armature.',None,0)
+    arm=[cyl(at(.066),axis,.009,.199,steel),cyl(at(.070),axis,.035,.077,iron),
+        cyl(at(.127),axis,.021,.029,insul)]
+    for i in range(22):
+        a=2*pi*i/22
+        arm += [arc(.030,.109,.034,.039,a,a+.194,copper,4),arc(.115,.140,.0205,.024,a,a+.24,copper,4)]
+    part(40,'Armature, lilitan dan komutator',arm,'9','rotor','Arus pada lilitan menghasilkan torsi; komutator berhubungan dengan sikat.',p,.275)
+    part(41,'Bracket belakang starter',pipe(.158,[(-.012,.062),(-.012,.071),(.008,.069),(.014,.052),(.014,.012),(.006,.012),(.006,.058)],iron),'4','cover','Menutup ujung komutator dan menyangga bantalan belakang.',p,.46)
+    part(42,'Bantalan armature',tube(.151,.023,.010,.009,steel),'10','bearing','Menjaga pusat putaran ujung poros.',p,.38)
+    brushes=[arc(.117,.137,.024,.035,i*pi/2-.13,i*pi/2+.13,graphite,4) for i in range(4)]
+    part(43,'Set sikat armature',brushes,'6','brush','Menyalurkan arus ke segmen komutator saat motor berputar.',p,.335)
+    part(44,'Dudukan sikat starter',tube(.128,.051,.038,.014,iron),'3','holder','Memegang sikat pada ujung komutator.',p,.36)
+    part(45,'Roda gigi internal reduksi',tube(.002,.053,.045,.020,steel),'13','drive','Ring gear menutup rangkaian reduksi planetary.',m,.16)
+    gears=[]
+    for i in range(3):
+        a=2*pi*i/3; y=.025*cos(a);z=.025*sin(a)
+        gears.append(cyl(at(.002,y,z),axis,.017,.016,steel,24,.0007))
+        for j in range(12):
+            b=2*pi*j/12
+            gears.append(cyl(at(.002,y+.017*cos(b),z+.017*sin(b)),axis,.0024,.016,steel,5,.0002))
+    gears.append(tube(-.008,.042,.009,.004,iron))
+    part(46,'Gear planet dan carrier',gears,'14','gear','Menurunkan kecepatan dan menaikkan torsi menuju pinion.',m,.22)
+    part(47,'Poros penggerak pinion',cyl(at(-.040),axis,.008,.093,steel),'16','shaft','Menghubungkan reduksi planetary ke kopling pinion.',m,.28)
+    clutch=[tube(-.034,.029,.009,.029,steel),tube(-.059,.017,.009,.019,iron)]
+    for i in range(10):clutch.append(arc(-.070,-.048,.016,.022,i*pi/5-.114,i*pi/5+.114,steel,3))
+    part(48,'Kopling searah dan pinion',clutch,'21','clutch','Pinion menggerakkan flywheel; kopling searah membatasi balik penggerak.',m,.35)
+    part(49,'Rumah ujung pinion',pipe(-.030,[(-.051,.025),(-.051,.034),(-.025,.056),(-.006,.065),(.02,.066),(.02,.055),(-.006,.054),(-.029,.045)],iron),'25','cover','Melindungi pinion dan memusatkan motor pada housing flywheel.',m,.44)
+    # Give the solenoid plunger radial clearance from the neighboring starter yoke.
+    sy,sz=.095,.420
+    part(50,'Rumah sakelar elektromagnet starter',[
+        sleeve((-.013,sy,sz),axis,.035,.029,.115,steel),cyl((.047,sy,sz),axis,.033,.012,graphite),
+        cyl((.056,sy+.015,sz),axis,.006,.014,copper,12,.0004)],'28','shell','Sakelar elektromagnet menarik linkage dan menyambungkan daya starter.',(0,1,0),.18)
+    part(51,'Kumparan solenoid',sleeve((-.008,sy,sz),axis,.027,.016,.068,copper),None,'winding','Bagian edukasi sakelar Fig.106. Kumparan menggerakkan plunger saat diberi arus.',up,.10)
+    part(52,'Plunger solenoid dan batang',[
+        cyl((-.012,sy,sz),axis,.014,.055,steel),cyl((-.054,sy,sz),axis,.005,.052,steel)],None,'core','Bagian edukasi sakelar Fig.106. Menggerakkan lever menuju pinion.',m,.14)
+    part(53,'Lever penggeser pinion',api['straight']((-.073,sy,sz),(-.047,.053,.371),.004,steel),'20','lever','Mengubah gerak plunger menjadi gerak aksial pinion.',(0,1,0),.125)
+    end('Isi starter · contoh katalog earth-float')

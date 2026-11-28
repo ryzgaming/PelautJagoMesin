@@ -1,0 +1,1448 @@
+{
+  "status": "UNVERIFIED",
+  "units": {
+    "length": "m",
+    "angle": "deg (viewer applies rad)"
+  },
+  "datum": {
+    "crank_axis": "+X",
+    "up": "+Y",
+    "direction": "-X yaw, CCW viewed from flywheel; +θ elapsed",
+    "rest": "No.1 compression TDC crank reference; exported valve baseline closed, evaluate all valve events at θ=0 when animated"
+  },
+  "crank_root": "MOT-INT-CRANK",
+  "cam_root": "MOT-INT-CAM",
+  "crank_signed_rotation_ratio": -1,
+  "cam_signed_rotation_ratio": -0.5,
+  "firing_order": [
+    1,
+    4,
+    2,
+    6,
+    3,
+    5
+  ],
+  "cylinder_center_x_m": [
+    0.209,
+    0.409,
+    0.609,
+    0.809,
+    1.009,
+    1.209
+  ],
+  "throw_m": 0.09,
+  "stroke_m": 0.18,
+  "crankpin_phase_degrees": [
+    0,
+    120,
+    240,
+    240,
+    120,
+    0
+  ],
+  "cylinder_firing_degrees": {
+    "1": 0,
+    "4": 120,
+    "2": 240,
+    "6": 360,
+    "3": 480,
+    "5": 600
+  },
+  "rod_center_to_center_m": 0.32044,
+  "cylinders": [
+    {
+      "number": 1,
+      "x_m": 0.209,
+      "crankpin_phase_deg": 0,
+      "firing_deg": 0,
+      "rod_root": "MOT-INT-ROD-1",
+      "piston_root": "MOT-INT-PISTON-1"
+    },
+    {
+      "number": 2,
+      "x_m": 0.409,
+      "crankpin_phase_deg": 120,
+      "firing_deg": 240,
+      "rod_root": "MOT-INT-ROD-2",
+      "piston_root": "MOT-INT-PISTON-2"
+    },
+    {
+      "number": 3,
+      "x_m": 0.609,
+      "crankpin_phase_deg": 240,
+      "firing_deg": 480,
+      "rod_root": "MOT-INT-ROD-3",
+      "piston_root": "MOT-INT-PISTON-3"
+    },
+    {
+      "number": 4,
+      "x_m": 0.809,
+      "crankpin_phase_deg": 240,
+      "firing_deg": 120,
+      "rod_root": "MOT-INT-ROD-4",
+      "piston_root": "MOT-INT-PISTON-4"
+    },
+    {
+      "number": 5,
+      "x_m": 1.009,
+      "crankpin_phase_deg": 120,
+      "firing_deg": 600,
+      "rod_root": "MOT-INT-ROD-5",
+      "piston_root": "MOT-INT-PISTON-5"
+    },
+    {
+      "number": 6,
+      "x_m": 1.209,
+      "crankpin_phase_deg": 0,
+      "firing_deg": 360,
+      "rod_root": "MOT-INT-ROD-6",
+      "piston_root": "MOT-INT-PISTON-6"
+    }
+  ],
+  "equations": {
+    "a": "radians(elapsed + phase[i])",
+    "crankpin": "[x,throw*cos(a),-throw*sin(a)]",
+    "piston_pin_y": "crankpin.y+sqrt(rod_cc^2-crankpin.z^2)",
+    "rod_rotation_x": "atan2(-crankpin.z,piston_pin_y-crankpin.y)",
+    "valve_lift": "max(0,cos(pi*wrappedDistance720(elapsed,center_angle)/(2*half_window)))^2*max_lift inside half_window only",
+    "valve_root_y": "rest_y - lift",
+    "tappet_root_y": "rest_y + lift*pushrod_ratio",
+    "rocker_rotation_x": "lift/rocker_lever",
+    "spring_scale_y": "(spring_height_m - lift)/spring_height_m"
+  },
+  "motion_roots": {
+    "MOT-INT-CRANK": {
+      "parent": "RAK-INT-CRANK",
+      "rest_translation_m": [
+        0,
+        0,
+        0
+      ],
+      "axis": [
+        1,
+        0,
+        0
+      ]
+    },
+    "MOT-INT-CAM": {
+      "parent": "RAK-INT-CAM",
+      "rest_translation_m": [
+        0,
+        0.158,
+        -0.15
+      ],
+      "axis": [
+        1,
+        0,
+        0
+      ]
+    },
+    "MOT-INT-PISTON-1": {
+      "parent": "RAK-INT-PISTON",
+      "rest_translation_m": [
+        0.209,
+        0.41044,
+        0
+      ],
+      "axis": [
+        0,
+        1,
+        0
+      ]
+    },
+    "MOT-INT-ROD-1": {
+      "parent": "RAK-INT-ROD",
+      "rest_translation_m": [
+        0.209,
+        0.09,
+        -0.0
+      ],
+      "axis": [
+        1,
+        0,
+        0
+      ]
+    },
+    "MOT-INT-PISTON-2": {
+      "parent": "RAK-INT-PISTON",
+      "rest_translation_m": [
+        0.409,
+        0.2658163341911104,
+        0
+      ],
+      "axis": [
+        0,
+        1,
+        0
+      ]
+    },
+    "MOT-INT-ROD-2": {
+      "parent": "RAK-INT-ROD",
+      "rest_translation_m": [
+        0.409,
+        -0.04499999999999998,
+        -0.07794228634059948
+      ],
+      "axis": [
+        1,
+        0,
+        0
+      ]
+    },
+    "MOT-INT-PISTON-3": {
+      "parent": "RAK-INT-PISTON",
+      "rest_translation_m": [
+        0.609,
+        0.26581633419111034,
+        0
+      ],
+      "axis": [
+        0,
+        1,
+        0
+      ]
+    },
+    "MOT-INT-ROD-3": {
+      "parent": "RAK-INT-ROD",
+      "rest_translation_m": [
+        0.609,
+        -0.04500000000000004,
+        0.07794228634059945
+      ],
+      "axis": [
+        1,
+        0,
+        0
+      ]
+    },
+    "MOT-INT-PISTON-4": {
+      "parent": "RAK-INT-PISTON",
+      "rest_translation_m": [
+        0.809,
+        0.26581633419111034,
+        0
+      ],
+      "axis": [
+        0,
+        1,
+        0
+      ]
+    },
+    "MOT-INT-ROD-4": {
+      "parent": "RAK-INT-ROD",
+      "rest_translation_m": [
+        0.809,
+        -0.04500000000000004,
+        0.07794228634059945
+      ],
+      "axis": [
+        1,
+        0,
+        0
+      ]
+    },
+    "MOT-INT-PISTON-5": {
+      "parent": "RAK-INT-PISTON",
+      "rest_translation_m": [
+        1.009,
+        0.2658163341911104,
+        0
+      ],
+      "axis": [
+        0,
+        1,
+        0
+      ]
+    },
+    "MOT-INT-ROD-5": {
+      "parent": "RAK-INT-ROD",
+      "rest_translation_m": [
+        1.009,
+        -0.04499999999999998,
+        -0.07794228634059948
+      ],
+      "axis": [
+        1,
+        0,
+        0
+      ]
+    },
+    "MOT-INT-PISTON-6": {
+      "parent": "RAK-INT-PISTON",
+      "rest_translation_m": [
+        1.209,
+        0.41044,
+        0
+      ],
+      "axis": [
+        0,
+        1,
+        0
+      ]
+    },
+    "MOT-INT-ROD-6": {
+      "parent": "RAK-INT-ROD",
+      "rest_translation_m": [
+        1.209,
+        0.09,
+        -0.0
+      ],
+      "axis": [
+        1,
+        0,
+        0
+      ]
+    },
+    "MOT-INT-TAPPET-1-1": {
+      "parent": "RAK-INT-CAM",
+      "rest_translation_m": [
+        0.15899999999999997,
+        0.198,
+        -0.15
+      ],
+      "axis": [
+        0,
+        1,
+        0
+      ]
+    },
+    "MOT-INT-ROCKER-1-1": {
+      "parent": "RAK-INT-VALVE",
+      "rest_translation_m": [
+        0.15899999999999997,
+        0.635,
+        -0.089
+      ],
+      "axis": [
+        1,
+        0,
+        0
+      ]
+    },
+    "MOT-INT-VALVE-1-1": {
+      "parent": "RAK-INT-VALVE",
+      "rest_translation_m": [
+        0.209,
+        0.492,
+        -0.034
+      ],
+      "axis": [
+        0,
+        1,
+        0
+      ]
+    },
+    "MOT-INT-SPRING-1-1-1": {
+      "parent": "RAK-INT-VALVE",
+      "rest_translation_m": [
+        0.174,
+        0.553,
+        -0.034
+      ],
+      "axis": [
+        0,
+        1,
+        0
+      ]
+    },
+    "MOT-INT-SPRING-1-1-2": {
+      "parent": "RAK-INT-VALVE",
+      "rest_translation_m": [
+        0.244,
+        0.553,
+        -0.034
+      ],
+      "axis": [
+        0,
+        1,
+        0
+      ]
+    },
+    "MOT-INT-TAPPET-1-2": {
+      "parent": "RAK-INT-CAM",
+      "rest_translation_m": [
+        0.259,
+        0.198,
+        -0.15
+      ],
+      "axis": [
+        0,
+        1,
+        0
+      ]
+    },
+    "MOT-INT-ROCKER-1-2": {
+      "parent": "RAK-INT-VALVE",
+      "rest_translation_m": [
+        0.259,
+        0.635,
+        -0.089
+      ],
+      "axis": [
+        1,
+        0,
+        0
+      ]
+    },
+    "MOT-INT-VALVE-1-2": {
+      "parent": "RAK-INT-VALVE",
+      "rest_translation_m": [
+        0.209,
+        0.492,
+        0.034
+      ],
+      "axis": [
+        0,
+        1,
+        0
+      ]
+    },
+    "MOT-INT-SPRING-1-2-1": {
+      "parent": "RAK-INT-VALVE",
+      "rest_translation_m": [
+        0.174,
+        0.553,
+        0.034
+      ],
+      "axis": [
+        0,
+        1,
+        0
+      ]
+    },
+    "MOT-INT-SPRING-1-2-2": {
+      "parent": "RAK-INT-VALVE",
+      "rest_translation_m": [
+        0.244,
+        0.553,
+        0.034
+      ],
+      "axis": [
+        0,
+        1,
+        0
+      ]
+    },
+    "MOT-INT-TAPPET-2-1": {
+      "parent": "RAK-INT-CAM",
+      "rest_translation_m": [
+        0.359,
+        0.198,
+        -0.15
+      ],
+      "axis": [
+        0,
+        1,
+        0
+      ]
+    },
+    "MOT-INT-ROCKER-2-1": {
+      "parent": "RAK-INT-VALVE",
+      "rest_translation_m": [
+        0.359,
+        0.635,
+        -0.089
+      ],
+      "axis": [
+        1,
+        0,
+        0
+      ]
+    },
+    "MOT-INT-VALVE-2-1": {
+      "parent": "RAK-INT-VALVE",
+      "rest_translation_m": [
+        0.409,
+        0.492,
+        -0.034
+      ],
+      "axis": [
+        0,
+        1,
+        0
+      ]
+    },
+    "MOT-INT-SPRING-2-1-1": {
+      "parent": "RAK-INT-VALVE",
+      "rest_translation_m": [
+        0.374,
+        0.553,
+        -0.034
+      ],
+      "axis": [
+        0,
+        1,
+        0
+      ]
+    },
+    "MOT-INT-SPRING-2-1-2": {
+      "parent": "RAK-INT-VALVE",
+      "rest_translation_m": [
+        0.44399999999999995,
+        0.553,
+        -0.034
+      ],
+      "axis": [
+        0,
+        1,
+        0
+      ]
+    },
+    "MOT-INT-TAPPET-2-2": {
+      "parent": "RAK-INT-CAM",
+      "rest_translation_m": [
+        0.45899999999999996,
+        0.198,
+        -0.15
+      ],
+      "axis": [
+        0,
+        1,
+        0
+      ]
+    },
+    "MOT-INT-ROCKER-2-2": {
+      "parent": "RAK-INT-VALVE",
+      "rest_translation_m": [
+        0.45899999999999996,
+        0.635,
+        -0.089
+      ],
+      "axis": [
+        1,
+        0,
+        0
+      ]
+    },
+    "MOT-INT-VALVE-2-2": {
+      "parent": "RAK-INT-VALVE",
+      "rest_translation_m": [
+        0.409,
+        0.492,
+        0.034
+      ],
+      "axis": [
+        0,
+        1,
+        0
+      ]
+    },
+    "MOT-INT-SPRING-2-2-1": {
+      "parent": "RAK-INT-VALVE",
+      "rest_translation_m": [
+        0.374,
+        0.553,
+        0.034
+      ],
+      "axis": [
+        0,
+        1,
+        0
+      ]
+    },
+    "MOT-INT-SPRING-2-2-2": {
+      "parent": "RAK-INT-VALVE",
+      "rest_translation_m": [
+        0.44399999999999995,
+        0.553,
+        0.034
+      ],
+      "axis": [
+        0,
+        1,
+        0
+      ]
+    },
+    "MOT-INT-TAPPET-3-1": {
+      "parent": "RAK-INT-CAM",
+      "rest_translation_m": [
+        0.5589999999999999,
+        0.198,
+        -0.15
+      ],
+      "axis": [
+        0,
+        1,
+        0
+      ]
+    },
+    "MOT-INT-ROCKER-3-1": {
+      "parent": "RAK-INT-VALVE",
+      "rest_translation_m": [
+        0.5589999999999999,
+        0.635,
+        -0.089
+      ],
+      "axis": [
+        1,
+        0,
+        0
+      ]
+    },
+    "MOT-INT-VALVE-3-1": {
+      "parent": "RAK-INT-VALVE",
+      "rest_translation_m": [
+        0.609,
+        0.492,
+        -0.034
+      ],
+      "axis": [
+        0,
+        1,
+        0
+      ]
+    },
+    "MOT-INT-SPRING-3-1-1": {
+      "parent": "RAK-INT-VALVE",
+      "rest_translation_m": [
+        0.574,
+        0.553,
+        -0.034
+      ],
+      "axis": [
+        0,
+        1,
+        0
+      ]
+    },
+    "MOT-INT-SPRING-3-1-2": {
+      "parent": "RAK-INT-VALVE",
+      "rest_translation_m": [
+        0.644,
+        0.553,
+        -0.034
+      ],
+      "axis": [
+        0,
+        1,
+        0
+      ]
+    },
+    "MOT-INT-TAPPET-3-2": {
+      "parent": "RAK-INT-CAM",
+      "rest_translation_m": [
+        0.659,
+        0.198,
+        -0.15
+      ],
+      "axis": [
+        0,
+        1,
+        0
+      ]
+    },
+    "MOT-INT-ROCKER-3-2": {
+      "parent": "RAK-INT-VALVE",
+      "rest_translation_m": [
+        0.659,
+        0.635,
+        -0.089
+      ],
+      "axis": [
+        1,
+        0,
+        0
+      ]
+    },
+    "MOT-INT-VALVE-3-2": {
+      "parent": "RAK-INT-VALVE",
+      "rest_translation_m": [
+        0.609,
+        0.492,
+        0.034
+      ],
+      "axis": [
+        0,
+        1,
+        0
+      ]
+    },
+    "MOT-INT-SPRING-3-2-1": {
+      "parent": "RAK-INT-VALVE",
+      "rest_translation_m": [
+        0.574,
+        0.553,
+        0.034
+      ],
+      "axis": [
+        0,
+        1,
+        0
+      ]
+    },
+    "MOT-INT-SPRING-3-2-2": {
+      "parent": "RAK-INT-VALVE",
+      "rest_translation_m": [
+        0.644,
+        0.553,
+        0.034
+      ],
+      "axis": [
+        0,
+        1,
+        0
+      ]
+    },
+    "MOT-INT-TAPPET-4-1": {
+      "parent": "RAK-INT-CAM",
+      "rest_translation_m": [
+        0.759,
+        0.198,
+        -0.15
+      ],
+      "axis": [
+        0,
+        1,
+        0
+      ]
+    },
+    "MOT-INT-ROCKER-4-1": {
+      "parent": "RAK-INT-VALVE",
+      "rest_translation_m": [
+        0.759,
+        0.635,
+        -0.089
+      ],
+      "axis": [
+        1,
+        0,
+        0
+      ]
+    },
+    "MOT-INT-VALVE-4-1": {
+      "parent": "RAK-INT-VALVE",
+      "rest_translation_m": [
+        0.809,
+        0.492,
+        -0.034
+      ],
+      "axis": [
+        0,
+        1,
+        0
+      ]
+    },
+    "MOT-INT-SPRING-4-1-1": {
+      "parent": "RAK-INT-VALVE",
+      "rest_translation_m": [
+        0.774,
+        0.553,
+        -0.034
+      ],
+      "axis": [
+        0,
+        1,
+        0
+      ]
+    },
+    "MOT-INT-SPRING-4-1-2": {
+      "parent": "RAK-INT-VALVE",
+      "rest_translation_m": [
+        0.8440000000000001,
+        0.553,
+        -0.034
+      ],
+      "axis": [
+        0,
+        1,
+        0
+      ]
+    },
+    "MOT-INT-TAPPET-4-2": {
+      "parent": "RAK-INT-CAM",
+      "rest_translation_m": [
+        0.8590000000000001,
+        0.198,
+        -0.15
+      ],
+      "axis": [
+        0,
+        1,
+        0
+      ]
+    },
+    "MOT-INT-ROCKER-4-2": {
+      "parent": "RAK-INT-VALVE",
+      "rest_translation_m": [
+        0.8590000000000001,
+        0.635,
+        -0.089
+      ],
+      "axis": [
+        1,
+        0,
+        0
+      ]
+    },
+    "MOT-INT-VALVE-4-2": {
+      "parent": "RAK-INT-VALVE",
+      "rest_translation_m": [
+        0.809,
+        0.492,
+        0.034
+      ],
+      "axis": [
+        0,
+        1,
+        0
+      ]
+    },
+    "MOT-INT-SPRING-4-2-1": {
+      "parent": "RAK-INT-VALVE",
+      "rest_translation_m": [
+        0.774,
+        0.553,
+        0.034
+      ],
+      "axis": [
+        0,
+        1,
+        0
+      ]
+    },
+    "MOT-INT-SPRING-4-2-2": {
+      "parent": "RAK-INT-VALVE",
+      "rest_translation_m": [
+        0.8440000000000001,
+        0.553,
+        0.034
+      ],
+      "axis": [
+        0,
+        1,
+        0
+      ]
+    },
+    "MOT-INT-TAPPET-5-1": {
+      "parent": "RAK-INT-CAM",
+      "rest_translation_m": [
+        0.9589999999999999,
+        0.198,
+        -0.15
+      ],
+      "axis": [
+        0,
+        1,
+        0
+      ]
+    },
+    "MOT-INT-ROCKER-5-1": {
+      "parent": "RAK-INT-VALVE",
+      "rest_translation_m": [
+        0.9589999999999999,
+        0.635,
+        -0.089
+      ],
+      "axis": [
+        1,
+        0,
+        0
+      ]
+    },
+    "MOT-INT-VALVE-5-1": {
+      "parent": "RAK-INT-VALVE",
+      "rest_translation_m": [
+        1.009,
+        0.492,
+        -0.034
+      ],
+      "axis": [
+        0,
+        1,
+        0
+      ]
+    },
+    "MOT-INT-SPRING-5-1-1": {
+      "parent": "RAK-INT-VALVE",
+      "rest_translation_m": [
+        0.9739999999999999,
+        0.553,
+        -0.034
+      ],
+      "axis": [
+        0,
+        1,
+        0
+      ]
+    },
+    "MOT-INT-SPRING-5-1-2": {
+      "parent": "RAK-INT-VALVE",
+      "rest_translation_m": [
+        1.0439999999999998,
+        0.553,
+        -0.034
+      ],
+      "axis": [
+        0,
+        1,
+        0
+      ]
+    },
+    "MOT-INT-TAPPET-5-2": {
+      "parent": "RAK-INT-CAM",
+      "rest_translation_m": [
+        1.059,
+        0.198,
+        -0.15
+      ],
+      "axis": [
+        0,
+        1,
+        0
+      ]
+    },
+    "MOT-INT-ROCKER-5-2": {
+      "parent": "RAK-INT-VALVE",
+      "rest_translation_m": [
+        1.059,
+        0.635,
+        -0.089
+      ],
+      "axis": [
+        1,
+        0,
+        0
+      ]
+    },
+    "MOT-INT-VALVE-5-2": {
+      "parent": "RAK-INT-VALVE",
+      "rest_translation_m": [
+        1.009,
+        0.492,
+        0.034
+      ],
+      "axis": [
+        0,
+        1,
+        0
+      ]
+    },
+    "MOT-INT-SPRING-5-2-1": {
+      "parent": "RAK-INT-VALVE",
+      "rest_translation_m": [
+        0.9739999999999999,
+        0.553,
+        0.034
+      ],
+      "axis": [
+        0,
+        1,
+        0
+      ]
+    },
+    "MOT-INT-SPRING-5-2-2": {
+      "parent": "RAK-INT-VALVE",
+      "rest_translation_m": [
+        1.0439999999999998,
+        0.553,
+        0.034
+      ],
+      "axis": [
+        0,
+        1,
+        0
+      ]
+    },
+    "MOT-INT-TAPPET-6-1": {
+      "parent": "RAK-INT-CAM",
+      "rest_translation_m": [
+        1.159,
+        0.198,
+        -0.15
+      ],
+      "axis": [
+        0,
+        1,
+        0
+      ]
+    },
+    "MOT-INT-ROCKER-6-1": {
+      "parent": "RAK-INT-VALVE",
+      "rest_translation_m": [
+        1.159,
+        0.635,
+        -0.089
+      ],
+      "axis": [
+        1,
+        0,
+        0
+      ]
+    },
+    "MOT-INT-VALVE-6-1": {
+      "parent": "RAK-INT-VALVE",
+      "rest_translation_m": [
+        1.209,
+        0.492,
+        -0.034
+      ],
+      "axis": [
+        0,
+        1,
+        0
+      ]
+    },
+    "MOT-INT-SPRING-6-1-1": {
+      "parent": "RAK-INT-VALVE",
+      "rest_translation_m": [
+        1.1740000000000002,
+        0.553,
+        -0.034
+      ],
+      "axis": [
+        0,
+        1,
+        0
+      ]
+    },
+    "MOT-INT-SPRING-6-1-2": {
+      "parent": "RAK-INT-VALVE",
+      "rest_translation_m": [
+        1.244,
+        0.553,
+        -0.034
+      ],
+      "axis": [
+        0,
+        1,
+        0
+      ]
+    },
+    "MOT-INT-TAPPET-6-2": {
+      "parent": "RAK-INT-CAM",
+      "rest_translation_m": [
+        1.2590000000000001,
+        0.198,
+        -0.15
+      ],
+      "axis": [
+        0,
+        1,
+        0
+      ]
+    },
+    "MOT-INT-ROCKER-6-2": {
+      "parent": "RAK-INT-VALVE",
+      "rest_translation_m": [
+        1.2590000000000001,
+        0.635,
+        -0.089
+      ],
+      "axis": [
+        1,
+        0,
+        0
+      ]
+    },
+    "MOT-INT-VALVE-6-2": {
+      "parent": "RAK-INT-VALVE",
+      "rest_translation_m": [
+        1.209,
+        0.492,
+        0.034
+      ],
+      "axis": [
+        0,
+        1,
+        0
+      ]
+    },
+    "MOT-INT-SPRING-6-2-1": {
+      "parent": "RAK-INT-VALVE",
+      "rest_translation_m": [
+        1.1740000000000002,
+        0.553,
+        0.034
+      ],
+      "axis": [
+        0,
+        1,
+        0
+      ]
+    },
+    "MOT-INT-SPRING-6-2-2": {
+      "parent": "RAK-INT-VALVE",
+      "rest_translation_m": [
+        1.244,
+        0.553,
+        0.034
+      ],
+      "axis": [
+        0,
+        1,
+        0
+      ]
+    },
+    "MOT-INT-GEAR-01": {
+      "parent": "RAK-INT-TIMING",
+      "rest_translation_m": [
+        0.023,
+        0,
+        0
+      ],
+      "axis": [
+        1,
+        0,
+        0
+      ],
+      "signed_crank_rotation_ratio": 1
+    },
+    "MOT-INT-GEAR-02": {
+      "parent": "RAK-INT-TIMING",
+      "rest_translation_m": [
+        0.023,
+        0.149271156,
+        0.014768951
+      ],
+      "axis": [
+        1,
+        0,
+        0
+      ],
+      "signed_crank_rotation_ratio": -1
+    },
+    "MOT-INT-GEAR-03": {
+      "parent": "RAK-INT-TIMING",
+      "rest_translation_m": [
+        0.057,
+        0.149271156,
+        0.014768951
+      ],
+      "axis": [
+        1,
+        0,
+        0
+      ],
+      "signed_crank_rotation_ratio": -1
+    },
+    "MOT-INT-GEAR-04": {
+      "parent": "RAK-INT-TIMING",
+      "rest_translation_m": [
+        0.057,
+        0.158,
+        -0.15
+      ],
+      "axis": [
+        1,
+        0,
+        0
+      ],
+      "signed_crank_rotation_ratio": 0.5
+    },
+    "MOT-INT-GEAR-05": {
+      "parent": "RAK-INT-TIMING",
+      "rest_translation_m": [
+        0.057,
+        0.111,
+        -0.308
+      ],
+      "axis": [
+        1,
+        0,
+        0
+      ],
+      "signed_crank_rotation_ratio": -1
+    },
+    "MOT-INT-GEAR-06": {
+      "parent": "RAK-INT-TIMING",
+      "rest_translation_m": [
+        0.057,
+        0.186,
+        -0.328
+      ],
+      "axis": [
+        1,
+        0,
+        0
+      ],
+      "signed_crank_rotation_ratio": 2.4444444444444446
+    },
+    "MOT-INT-GEAR-07": {
+      "parent": "RAK-INT-TIMING",
+      "rest_translation_m": [
+        0.023,
+        -0.15,
+        0
+      ],
+      "axis": [
+        1,
+        0,
+        0
+      ],
+      "signed_crank_rotation_ratio": -1
+    },
+    "MOT-INT-GEAR-08": {
+      "parent": "RAK-INT-TIMING",
+      "rest_translation_m": [
+        1.292,
+        0.158,
+        -0.15
+      ],
+      "axis": [
+        1,
+        0,
+        0
+      ],
+      "signed_crank_rotation_ratio": 0.5
+    },
+    "MOT-INT-GEAR-09": {
+      "parent": "RAK-INT-TIMING",
+      "rest_translation_m": [
+        1.292,
+        0.247,
+        -0.277
+      ],
+      "axis": [
+        1,
+        0,
+        0
+      ],
+      "signed_crank_rotation_ratio": -1.2222222222222223
+    },
+    "MOT-INT-GEAR-10": {
+      "parent": "RAK-INT-TIMING",
+      "rest_translation_m": [
+        1.292,
+        0.282,
+        -0.057
+      ],
+      "axis": [
+        1,
+        0,
+        0
+      ],
+      "signed_crank_rotation_ratio": -1.2222222222222223
+    }
+  },
+  "valve_train": [
+    {
+      "cylinder": 1,
+      "kind": "Intake",
+      "firing_deg": 0,
+      "lift_center_deg": 450,
+      "lift_max_m": 0.009,
+      "half_window_deg": 84,
+      "valve_root": "MOT-INT-VALVE-1-1",
+      "tappet_root": "MOT-INT-TAPPET-1-1",
+      "rocker_root": "MOT-INT-ROCKER-1-1",
+      "pushrod_ratio": 0.8,
+      "springs": [
+        "MOT-INT-SPRING-1-1-1",
+        "MOT-INT-SPRING-1-1-2"
+      ],
+      "spring_height_m": 0.05,
+      "rocker_lever_m": 0.05499999999999999
+    },
+    {
+      "cylinder": 1,
+      "kind": "Exhaust",
+      "firing_deg": 0,
+      "lift_center_deg": 270,
+      "lift_max_m": 0.009,
+      "half_window_deg": 84,
+      "valve_root": "MOT-INT-VALVE-1-2",
+      "tappet_root": "MOT-INT-TAPPET-1-2",
+      "rocker_root": "MOT-INT-ROCKER-1-2",
+      "pushrod_ratio": 0.8,
+      "springs": [
+        "MOT-INT-SPRING-1-2-1",
+        "MOT-INT-SPRING-1-2-2"
+      ],
+      "spring_height_m": 0.05,
+      "rocker_lever_m": 0.123
+    },
+    {
+      "cylinder": 2,
+      "kind": "Intake",
+      "firing_deg": 240,
+      "lift_center_deg": 690,
+      "lift_max_m": 0.009,
+      "half_window_deg": 84,
+      "valve_root": "MOT-INT-VALVE-2-1",
+      "tappet_root": "MOT-INT-TAPPET-2-1",
+      "rocker_root": "MOT-INT-ROCKER-2-1",
+      "pushrod_ratio": 0.8,
+      "springs": [
+        "MOT-INT-SPRING-2-1-1",
+        "MOT-INT-SPRING-2-1-2"
+      ],
+      "spring_height_m": 0.05,
+      "rocker_lever_m": 0.05499999999999999
+    },
+    {
+      "cylinder": 2,
+      "kind": "Exhaust",
+      "firing_deg": 240,
+      "lift_center_deg": 510,
+      "lift_max_m": 0.009,
+      "half_window_deg": 84,
+      "valve_root": "MOT-INT-VALVE-2-2",
+      "tappet_root": "MOT-INT-TAPPET-2-2",
+      "rocker_root": "MOT-INT-ROCKER-2-2",
+      "pushrod_ratio": 0.8,
+      "springs": [
+        "MOT-INT-SPRING-2-2-1",
+        "MOT-INT-SPRING-2-2-2"
+      ],
+      "spring_height_m": 0.05,
+      "rocker_lever_m": 0.123
+    },
+    {
+      "cylinder": 3,
+      "kind": "Intake",
+      "firing_deg": 480,
+      "lift_center_deg": 210,
+      "lift_max_m": 0.009,
+      "half_window_deg": 84,
+      "valve_root": "MOT-INT-VALVE-3-1",
+      "tappet_root": "MOT-INT-TAPPET-3-1",
+      "rocker_root": "MOT-INT-ROCKER-3-1",
+      "pushrod_ratio": 0.8,
+      "springs": [
+        "MOT-INT-SPRING-3-1-1",
+        "MOT-INT-SPRING-3-1-2"
+      ],
+      "spring_height_m": 0.05,
+      "rocker_lever_m": 0.05499999999999999
+    },
+    {
+      "cylinder": 3,
+      "kind": "Exhaust",
+      "firing_deg": 480,
+      "lift_center_deg": 30,
+      "lift_max_m": 0.009,
+      "half_window_deg": 84,
+      "valve_root": "MOT-INT-VALVE-3-2",
+      "tappet_root": "MOT-INT-TAPPET-3-2",
+      "rocker_root": "MOT-INT-ROCKER-3-2",
+      "pushrod_ratio": 0.8,
+      "springs": [
+        "MOT-INT-SPRING-3-2-1",
+        "MOT-INT-SPRING-3-2-2"
+      ],
+      "spring_height_m": 0.05,
+      "rocker_lever_m": 0.123
+    },
+    {
+      "cylinder": 4,
+      "kind": "Intake",
+      "firing_deg": 120,
+      "lift_center_deg": 570,
+      "lift_max_m": 0.009,
+      "half_window_deg": 84,
+      "valve_root": "MOT-INT-VALVE-4-1",
+      "tappet_root": "MOT-INT-TAPPET-4-1",
+      "rocker_root": "MOT-INT-ROCKER-4-1",
+      "pushrod_ratio": 0.8,
+      "springs": [
+        "MOT-INT-SPRING-4-1-1",
+        "MOT-INT-SPRING-4-1-2"
+      ],
+      "spring_height_m": 0.05,
+      "rocker_lever_m": 0.05499999999999999
+    },
+    {
+      "cylinder": 4,
+      "kind": "Exhaust",
+      "firing_deg": 120,
+      "lift_center_deg": 390,
+      "lift_max_m": 0.009,
+      "half_window_deg": 84,
+      "valve_root": "MOT-INT-VALVE-4-2",
+      "tappet_root": "MOT-INT-TAPPET-4-2",
+      "rocker_root": "MOT-INT-ROCKER-4-2",
+      "pushrod_ratio": 0.8,
+      "springs": [
+        "MOT-INT-SPRING-4-2-1",
+        "MOT-INT-SPRING-4-2-2"
+      ],
+      "spring_height_m": 0.05,
+      "rocker_lever_m": 0.123
+    },
+    {
+      "cylinder": 5,
+      "kind": "Intake",
+      "firing_deg": 600,
+      "lift_center_deg": 330,
+      "lift_max_m": 0.009,
+      "half_window_deg": 84,
+      "valve_root": "MOT-INT-VALVE-5-1",
+      "tappet_root": "MOT-INT-TAPPET-5-1",
+      "rocker_root": "MOT-INT-ROCKER-5-1",
+      "pushrod_ratio": 0.8,
+      "springs": [
+        "MOT-INT-SPRING-5-1-1",
+        "MOT-INT-SPRING-5-1-2"
+      ],
+      "spring_height_m": 0.05,
+      "rocker_lever_m": 0.05499999999999999
+    },
+    {
+      "cylinder": 5,
+      "kind": "Exhaust",
+      "firing_deg": 600,
+      "lift_center_deg": 150,
+      "lift_max_m": 0.009,
+      "half_window_deg": 84,
+      "valve_root": "MOT-INT-VALVE-5-2",
+      "tappet_root": "MOT-INT-TAPPET-5-2",
+      "rocker_root": "MOT-INT-ROCKER-5-2",
+      "pushrod_ratio": 0.8,
+      "springs": [
+        "MOT-INT-SPRING-5-2-1",
+        "MOT-INT-SPRING-5-2-2"
+      ],
+      "spring_height_m": 0.05,
+      "rocker_lever_m": 0.123
+    },
+    {
+      "cylinder": 6,
+      "kind": "Intake",
+      "firing_deg": 360,
+      "lift_center_deg": 90,
+      "lift_max_m": 0.009,
+      "half_window_deg": 84,
+      "valve_root": "MOT-INT-VALVE-6-1",
+      "tappet_root": "MOT-INT-TAPPET-6-1",
+      "rocker_root": "MOT-INT-ROCKER-6-1",
+      "pushrod_ratio": 0.8,
+      "springs": [
+        "MOT-INT-SPRING-6-1-1",
+        "MOT-INT-SPRING-6-1-2"
+      ],
+      "spring_height_m": 0.05,
+      "rocker_lever_m": 0.05499999999999999
+    },
+    {
+      "cylinder": 6,
+      "kind": "Exhaust",
+      "firing_deg": 360,
+      "lift_center_deg": 630,
+      "lift_max_m": 0.009,
+      "half_window_deg": 84,
+      "valve_root": "MOT-INT-VALVE-6-2",
+      "tappet_root": "MOT-INT-TAPPET-6-2",
+      "rocker_root": "MOT-INT-ROCKER-6-2",
+      "pushrod_ratio": 0.8,
+      "springs": [
+        "MOT-INT-SPRING-6-2-1",
+        "MOT-INT-SPRING-6-2-2"
+      ],
+      "spring_height_m": 0.05,
+      "rocker_lever_m": 0.123
+    }
+  ],
+  "documented": {
+    "firing_order": "D01 PDF 13",
+    "stroke": "D01 PDF 13",
+    "crankshaft_rotation": "D01 PDF 13",
+    "crankpin_phase": "INFERRED from D01 firing and even 120° combustion intervals",
+    "cam_ratio": "INFERRED 1:2 relationship from four-stroke OHV cycle"
+  },
+  "illustrative": [
+    "Rod center distance and piston compression height",
+    "Valve lift, events, spring travel, rocker geometry",
+    "Gear tooth profile/count and non-cam ratios",
+    "Discrete event and crank-slider demonstration"
+  ]
+}

@@ -1,0 +1,1449 @@
+{
+  "id": "RAK-TURBO",
+  "nama": "Turbocharger radial MHI TD13M(1)",
+  "node_rakitan": "RAK-TURBO",
+  "parent_rakitan": "RAK-EXHAUST",
+  "status": "UNVERIFIED",
+  "source_refs": [
+    "D05 / 0CG10-M34300, Fig.32 TURBOCHARGER COMPONENT PART, model selection 6AYM-WET",
+    "D01 PDF 170 / cetak 166, TD13M(1), penampang 013122-00E"
+  ],
+  "acuan": {
+    "no": 1,
+    "object_ids": [
+      "EXT-EXHAUST-02"
+    ]
+  },
+  "diagram": {
+    "arah_pandang": [
+      0.69,
+      0.38,
+      0.615
+    ],
+    "atas": [
+      0,
+      1,
+      0
+    ]
+  },
+  "bagian": [
+    {
+      "no": 1,
+      "nama": "Rumah gas turbin",
+      "object_ids": [
+        "EXT-EXHAUST-02"
+      ],
+      "role": "shell",
+      "status": "ESTIMATED",
+      "fungsi": "Mengarahkan aliran gas buang melingkar ke roda turbin.",
+      "sumber": [
+        "D05 / 0CG10-M34300, Fig.32 TURBOCHARGER COMPONENT PART, model selection 6AYM-WET / posisi 26",
+        "D01 PDF 170 / cetak 166, TD13M(1), penampang 013122-00E"
+      ],
+      "nomor_oem": "X4918211460",
+      "ukuran": null,
+      "posisi": []
+    },
+    {
+      "no": 2,
+      "nama": "Rumah kompresor dan inlet",
+      "object_ids": [
+        "EXT-EXHAUST-03"
+      ],
+      "role": "shell",
+      "status": "ESTIMATED",
+      "fungsi": "Menerima udara dari inducer, menampung aliran radial keluar roda dan mengarahkannya ke duct.",
+      "sumber": [
+        "D05 / 0CG10-M34300, Fig.32 TURBOCHARGER COMPONENT PART, model selection 6AYM-WET / posisi 4",
+        "D01 PDF 170 / cetak 166, TD13M(1), penampang 013122-00E"
+      ],
+      "nomor_oem": "X4918255630",
+      "ukuran": null,
+      "posisi": [
+        {
+          "object_id": "EXT-EXHAUST-03",
+          "arah": [
+            1,
+            0,
+            0
+          ],
+          "jarak_m": 0.82,
+          "urutan": 2
+        }
+      ]
+    },
+    {
+      "no": 3,
+      "nama": "Rumah bantalan dan inlet oli",
+      "object_ids": [
+        "EXT-EXHAUST-04"
+      ],
+      "role": "shell",
+      "status": "ESTIMATED",
+      "fungsi": "Menopang rotor pada bantalan dan menyalurkan oli menuju bantalan.",
+      "sumber": [
+        "D05 / 0CG10-M34300, Fig.32 TURBOCHARGER COMPONENT PART, model selection 6AYM-WET / posisi 22",
+        "D01 PDF 170 / cetak 166, TD13M(1), penampang 013122-00E"
+      ],
+      "nomor_oem": "X4918225630",
+      "ukuran": null,
+      "posisi": [
+        {
+          "object_id": "EXT-EXHAUST-04",
+          "arah": [
+            1,
+            0,
+            0
+          ],
+          "jarak_m": 0.27,
+          "urutan": 3
+        }
+      ]
+    },
+    {
+      "no": 4,
+      "nama": "Roda kompresor bersudu lengkung",
+      "object_ids": [
+        "EXT-EXHAUST-20"
+      ],
+      "role": "core",
+      "status": "ESTIMATED",
+      "fungsi": "Inducer menangkap udara dari arah poros; sudu melengkung membelokkannya ke luar secara radial.",
+      "sumber": [
+        "D05 / 0CG10-M34300, Fig.32 TURBOCHARGER COMPONENT PART, model selection 6AYM-WET / posisi 6",
+        "D01 PDF 170 / cetak 166, TD13M(1), penampang 013122-00E"
+      ],
+      "nomor_oem": "X4918245010",
+      "ukuran": null,
+      "posisi": [
+        {
+          "object_id": "EXT-EXHAUST-20",
+          "arah": [
+            1,
+            0,
+            0
+          ],
+          "jarak_m": 0.62,
+          "urutan": 4
+        }
+      ]
+    },
+    {
+      "no": 5,
+      "nama": "Poros dengan roda turbin",
+      "object_ids": [
+        "EXT-EXHAUST-21"
+      ],
+      "role": "rotor",
+      "status": "ESTIMATED",
+      "fungsi": "Gas buang memutar roda turbin; poros yang menyatu meneruskan torsi ke roda kompresor.",
+      "sumber": [
+        "D05 / 0CG10-M34300, Fig.32 TURBOCHARGER COMPONENT PART, model selection 6AYM-WET / posisi 20",
+        "D01 PDF 170 / cetak 166, TD13M(1), penampang 013122-00E"
+      ],
+      "nomor_oem": "X4918230231",
+      "ukuran": null,
+      "posisi": [
+        {
+          "object_id": "EXT-EXHAUST-21",
+          "arah": [
+            -1,
+            0,
+            0
+          ],
+          "jarak_m": 0.27,
+          "urutan": 5
+        }
+      ]
+    },
+    {
+      "no": 6,
+      "nama": "Bantalan mengambang sisi turbin",
+      "object_ids": [
+        "EXT-EXHAUST-22"
+      ],
+      "role": "bearing",
+      "status": "ESTIMATED",
+      "fungsi": "Selongsong melayang menyangga poros dengan pelumasan pada permukaan dalam dan luarnya.",
+      "sumber": [
+        "D05 / 0CG10-M34300, Fig.32 TURBOCHARGER COMPONENT PART, model selection 6AYM-WET / posisi 19",
+        "D01 PDF 170 / cetak 166, TD13M(1), penampang 013122-00E"
+      ],
+      "nomor_oem": "X4918121100",
+      "ukuran": null,
+      "posisi": [
+        {
+          "object_id": "EXT-EXHAUST-22",
+          "arah": [
+            -1,
+            0,
+            0
+          ],
+          "jarak_m": 0.075,
+          "urutan": 6
+        }
+      ]
+    },
+    {
+      "no": 7,
+      "nama": "Bantalan mengambang sisi kompresor",
+      "object_ids": [
+        "EXT-EXHAUST-23"
+      ],
+      "role": "bearing",
+      "status": "ESTIMATED",
+      "fungsi": "Selongsong melayang menyangga poros dengan pelumasan pada permukaan dalam dan luarnya.",
+      "sumber": [
+        "D05 / 0CG10-M34300, Fig.32 TURBOCHARGER COMPONENT PART, model selection 6AYM-WET / posisi 19",
+        "D01 PDF 170 / cetak 166, TD13M(1), penampang 013122-00E"
+      ],
+      "nomor_oem": "X4918121100",
+      "ukuran": null,
+      "posisi": [
+        {
+          "object_id": "EXT-EXHAUST-23",
+          "arah": [
+            1,
+            0,
+            0
+          ],
+          "jarak_m": 0.139,
+          "urutan": 7
+        }
+      ]
+    },
+    {
+      "no": 8,
+      "nama": "Bantalan aksial",
+      "object_ids": [
+        "EXT-EXHAUST-24"
+      ],
+      "role": "bearing",
+      "status": "ESTIMATED",
+      "fungsi": "Menerima beban aksial rotor pada sisi kompresor.",
+      "sumber": [
+        "D05 / 0CG10-M34300, Fig.32 TURBOCHARGER COMPONENT PART, model selection 6AYM-WET / posisi 14",
+        "D01 PDF 170 / cetak 166, TD13M(1), penampang 013122-00E"
+      ],
+      "nomor_oem": "X4918121600",
+      "ukuran": null,
+      "posisi": [
+        {
+          "object_id": "EXT-EXHAUST-24",
+          "arah": [
+            1,
+            0,
+            0
+          ],
+          "jarak_m": 0.163,
+          "urutan": 8
+        }
+      ]
+    },
+    {
+      "no": 9,
+      "nama": "Ring thrust belakang",
+      "object_ids": [
+        "EXT-EXHAUST-25"
+      ],
+      "role": "bearing",
+      "status": "ESTIMATED",
+      "fungsi": "Membentuk permukaan kontak aksial di salah satu sisi bantalan thrust.",
+      "sumber": [
+        "D05 / 0CG10-M34300, Fig.32 TURBOCHARGER COMPONENT PART, model selection 6AYM-WET / posisi 15",
+        "D01 PDF 170 / cetak 166, TD13M(1), penampang 013122-00E"
+      ],
+      "nomor_oem": "X4918142300",
+      "ukuran": null,
+      "posisi": [
+        {
+          "object_id": "EXT-EXHAUST-25",
+          "arah": [
+            1,
+            0,
+            0
+          ],
+          "jarak_m": 0.151,
+          "urutan": 9
+        }
+      ]
+    },
+    {
+      "no": 10,
+      "nama": "Ring thrust depan",
+      "object_ids": [
+        "EXT-EXHAUST-26"
+      ],
+      "role": "bearing",
+      "status": "ESTIMATED",
+      "fungsi": "Membentuk pasangan permukaan aksial di belakang roda kompresor.",
+      "sumber": [
+        "D05 / 0CG10-M34300, Fig.32 TURBOCHARGER COMPONENT PART, model selection 6AYM-WET / posisi 16",
+        "D01 PDF 170 / cetak 166, TD13M(1), penampang 013122-00E"
+      ],
+      "nomor_oem": "X4918142400",
+      "ukuran": null,
+      "posisi": [
+        {
+          "object_id": "EXT-EXHAUST-26",
+          "arah": [
+            1,
+            0,
+            0
+          ],
+          "jarak_m": 0.177,
+          "urutan": 10
+        }
+      ]
+    },
+    {
+      "no": 11,
+      "nama": "Insert belakang kompresor",
+      "object_ids": [
+        "EXT-EXHAUST-27"
+      ],
+      "role": "plate",
+      "status": "ESTIMATED",
+      "fungsi": "Insert memisahkan sisi oli dari rongga kompresor.",
+      "sumber": [
+        "D05 / 0CG10-M34300, Fig.32 TURBOCHARGER COMPONENT PART, model selection 6AYM-WET / posisi 11",
+        "D01 PDF 170 / cetak 166, TD13M(1), penampang 013122-00E"
+      ],
+      "nomor_oem": "X4918122500",
+      "ukuran": null,
+      "posisi": [
+        {
+          "object_id": "EXT-EXHAUST-27",
+          "arah": [
+            1,
+            0,
+            0
+          ],
+          "jarak_m": 0.334,
+          "urutan": 11
+        }
+      ]
+    },
+    {
+      "no": 12,
+      "nama": "Sleeve flinger oli dengan dua alur ring",
+      "object_ids": [
+        "EXT-EXHAUST-28"
+      ],
+      "role": "sleeve",
+      "status": "ESTIMATED",
+      "fungsi": "Sleeve berputar bersama poros dan membelokkan oli dari sisi udara.",
+      "sumber": [
+        "D05 / 0CG10-M34300, Fig.32 TURBOCHARGER COMPONENT PART, model selection 6AYM-WET / posisi 9",
+        "D01 PDF 170 / cetak 166, TD13M(1), penampang 013122-00E"
+      ],
+      "nomor_oem": "X4918142100",
+      "ukuran": null,
+      "posisi": [
+        {
+          "object_id": "EXT-EXHAUST-28",
+          "arah": [
+            1,
+            0,
+            0
+          ],
+          "jarak_m": 0.378,
+          "urutan": 12
+        }
+      ]
+    },
+    {
+      "no": 13,
+      "nama": "Deflektor oli",
+      "object_ids": [
+        "EXT-EXHAUST-29"
+      ],
+      "role": "plate",
+      "status": "ESTIMATED",
+      "fungsi": "Membelokkan oli di ruang bantalan menuju sisi drain.",
+      "sumber": [
+        "D05 / 0CG10-M34300, Fig.32 TURBOCHARGER COMPONENT PART, model selection 6AYM-WET / posisi 17",
+        "D01 PDF 170 / cetak 166, TD13M(1), penampang 013122-00E"
+      ],
+      "nomor_oem": "X4918122200",
+      "ukuran": null,
+      "posisi": [
+        {
+          "object_id": "EXT-EXHAUST-29",
+          "arah": [
+            1,
+            0,
+            0
+          ],
+          "jarak_m": 0.194,
+          "urutan": 13
+        }
+      ]
+    },
+    {
+      "no": 14,
+      "nama": "Ring piston seal flinger 1",
+      "object_ids": [
+        "EXT-EXHAUST-30"
+      ],
+      "role": "seal",
+      "status": "ESTIMATED",
+      "fungsi": "Membatasi migrasi oli pada sleeve sisi kompresor.",
+      "sumber": [
+        "D05 / 0CG10-M34300, Fig.32 TURBOCHARGER COMPONENT PART, model selection 6AYM-WET / posisi 10",
+        "D01 PDF 170 / cetak 166, TD13M(1), penampang 013122-00E"
+      ],
+      "nomor_oem": "X4918123100",
+      "ukuran": null,
+      "posisi": [
+        {
+          "object_id": "EXT-EXHAUST-30",
+          "arah": [
+            1,
+            0,
+            0
+          ],
+          "jarak_m": 0.389,
+          "urutan": 14
+        }
+      ]
+    },
+    {
+      "no": 15,
+      "nama": "Ring piston seal flinger 2",
+      "object_ids": [
+        "EXT-EXHAUST-31"
+      ],
+      "role": "seal",
+      "status": "ESTIMATED",
+      "fungsi": "Membatasi migrasi oli pada sleeve sisi kompresor.",
+      "sumber": [
+        "D05 / 0CG10-M34300, Fig.32 TURBOCHARGER COMPONENT PART, model selection 6AYM-WET / posisi 10",
+        "D01 PDF 170 / cetak 166, TD13M(1), penampang 013122-00E"
+      ],
+      "nomor_oem": "X4918123100",
+      "ukuran": null,
+      "posisi": [
+        {
+          "object_id": "EXT-EXHAUST-31",
+          "arah": [
+            1,
+            0,
+            0
+          ],
+          "jarak_m": 0.402,
+          "urutan": 15
+        }
+      ]
+    },
+    {
+      "no": 16,
+      "nama": "Pelat belakang turbin",
+      "object_ids": [
+        "EXT-EXHAUST-32"
+      ],
+      "role": "plate",
+      "status": "ESTIMATED",
+      "fungsi": "Pelat membatasi rongga gas panas di sisi rumah bantalan.",
+      "sumber": [
+        "D05 / 0CG10-M34300, Fig.32 TURBOCHARGER COMPONENT PART, model selection 6AYM-WET / posisi 31",
+        "D01 PDF 170 / cetak 166, TD13M(1), penampang 013122-00E"
+      ],
+      "nomor_oem": "X4918219300",
+      "ukuran": null,
+      "posisi": [
+        {
+          "object_id": "EXT-EXHAUST-32",
+          "arah": [
+            -1,
+            0,
+            0
+          ],
+          "jarak_m": 0.092,
+          "urutan": 16
+        }
+      ]
+    },
+    {
+      "no": 17,
+      "nama": "Mur pengunci roda kompresor",
+      "object_ids": [
+        "EXT-EXHAUST-33"
+      ],
+      "role": "fastener",
+      "status": "ESTIMATED",
+      "fungsi": "Mengunci roda kompresor pada ujung poros.",
+      "sumber": [
+        "D05 / 0CG10-M34300, Fig.32 TURBOCHARGER COMPONENT PART, model selection 6AYM-WET / posisi 8",
+        "D01 PDF 170 / cetak 166, TD13M(1), penampang 013122-00E"
+      ],
+      "nomor_oem": "X4918142230",
+      "ukuran": null,
+      "posisi": [
+        {
+          "object_id": "EXT-EXHAUST-33",
+          "arah": [
+            1,
+            0,
+            0
+          ],
+          "jarak_m": 0.72,
+          "urutan": 17
+        }
+      ]
+    },
+    {
+      "no": 18,
+      "nama": "O-ring insert",
+      "object_ids": [
+        "EXT-EXHAUST-34"
+      ],
+      "role": "seal",
+      "status": "ESTIMATED",
+      "fungsi": "Merapatkan diameter luar insert.",
+      "sumber": [
+        "D05 / 0CG10-M34300, Fig.32 TURBOCHARGER COMPONENT PART, model selection 6AYM-WET / posisi 13",
+        "D01 PDF 170 / cetak 166, TD13M(1), penampang 013122-00E"
+      ],
+      "nomor_oem": "X0550720700",
+      "ukuran": null,
+      "posisi": [
+        {
+          "object_id": "EXT-EXHAUST-34",
+          "arah": [
+            1,
+            0,
+            0
+          ],
+          "jarak_m": 0.35,
+          "urutan": 18
+        }
+      ]
+    },
+    {
+      "no": 19,
+      "nama": "Ring penahan insert",
+      "object_ids": [
+        "EXT-EXHAUST-35"
+      ],
+      "role": "fastener",
+      "status": "ESTIMATED",
+      "fungsi": "Menahan insert pada rumahnya.",
+      "sumber": [
+        "D05 / 0CG10-M34300, Fig.32 TURBOCHARGER COMPONENT PART, model selection 6AYM-WET / posisi 12",
+        "D01 PDF 170 / cetak 166, TD13M(1), penampang 013122-00E"
+      ],
+      "nomor_oem": "949162-23200",
+      "ukuran": null,
+      "posisi": [
+        {
+          "object_id": "EXT-EXHAUST-35",
+          "arah": [
+            1,
+            0,
+            0
+          ],
+          "jarak_m": 0.366,
+          "urutan": 19
+        }
+      ]
+    },
+    {
+      "no": 20,
+      "nama": "O-ring rumah bantalan",
+      "object_ids": [
+        "EXT-EXHAUST-36"
+      ],
+      "role": "seal",
+      "status": "ESTIMATED",
+      "fungsi": "Merapatkan sambungan rumah bantalan.",
+      "sumber": [
+        "D05 / 0CG10-M34300, Fig.32 TURBOCHARGER COMPONENT PART, model selection 6AYM-WET / posisi 23",
+        "D01 PDF 170 / cetak 166, TD13M(1), penampang 013122-00E"
+      ],
+      "nomor_oem": "X4918122700",
+      "ukuran": null,
+      "posisi": [
+        {
+          "object_id": "EXT-EXHAUST-36",
+          "arah": [
+            1,
+            0,
+            0
+          ],
+          "jarak_m": 0.316,
+          "urutan": 20
+        }
+      ]
+    },
+    {
+      "no": 21,
+      "nama": "Snap ring bantalan 1",
+      "object_ids": [
+        "EXT-EXHAUST-37"
+      ],
+      "role": "fastener",
+      "status": "ESTIMATED",
+      "fungsi": "Menahan posisi aksial bantalan di alurnya. Posisi alur dalam model merupakan perkiraan.",
+      "sumber": [
+        "D05 / 0CG10-M34300, Fig.32 TURBOCHARGER COMPONENT PART, model selection 6AYM-WET / posisi 18",
+        "D01 PDF 170 / cetak 166, TD13M(1), penampang 013122-00E"
+      ],
+      "nomor_oem": "X4918122300",
+      "ukuran": null,
+      "posisi": [
+        {
+          "object_id": "EXT-EXHAUST-37",
+          "arah": [
+            -1,
+            0,
+            0
+          ],
+          "jarak_m": 0.15,
+          "urutan": 21
+        }
+      ]
+    },
+    {
+      "no": 22,
+      "nama": "Snap ring bantalan 2",
+      "object_ids": [
+        "EXT-EXHAUST-38"
+      ],
+      "role": "fastener",
+      "status": "ESTIMATED",
+      "fungsi": "Menahan posisi aksial bantalan di alurnya. Posisi alur dalam model merupakan perkiraan.",
+      "sumber": [
+        "D05 / 0CG10-M34300, Fig.32 TURBOCHARGER COMPONENT PART, model selection 6AYM-WET / posisi 18",
+        "D01 PDF 170 / cetak 166, TD13M(1), penampang 013122-00E"
+      ],
+      "nomor_oem": "X4918122300",
+      "ukuran": null,
+      "posisi": [
+        {
+          "object_id": "EXT-EXHAUST-38",
+          "arah": [
+            -1,
+            0,
+            0
+          ],
+          "jarak_m": 0.049,
+          "urutan": 22
+        }
+      ]
+    },
+    {
+      "no": 23,
+      "nama": "Snap ring bantalan 3",
+      "object_ids": [
+        "EXT-EXHAUST-39"
+      ],
+      "role": "fastener",
+      "status": "ESTIMATED",
+      "fungsi": "Menahan posisi aksial bantalan di alurnya. Posisi alur dalam model merupakan perkiraan.",
+      "sumber": [
+        "D05 / 0CG10-M34300, Fig.32 TURBOCHARGER COMPONENT PART, model selection 6AYM-WET / posisi 18",
+        "D01 PDF 170 / cetak 166, TD13M(1), penampang 013122-00E"
+      ],
+      "nomor_oem": "X4918122300",
+      "ukuran": null,
+      "posisi": [
+        {
+          "object_id": "EXT-EXHAUST-39",
+          "arah": [
+            1,
+            0,
+            0
+          ],
+          "jarak_m": 0.116,
+          "urutan": 23
+        }
+      ]
+    },
+    {
+      "no": 24,
+      "nama": "Selimut isolasi rumah turbin",
+      "object_ids": [
+        "EXT-EXHAUST-40"
+      ],
+      "role": "cover",
+      "status": "ESTIMATED",
+      "fungsi": "Mengurangi pancaran panas dari coran volute gas buang. Bentuk belahan dan tekstur selimut diaproksimasi.",
+      "sumber": [
+        "D05 / 0CG10-M34300, Fig.32 TURBOCHARGER COMPONENT PART, model selection 6AYM-WET / posisi 29",
+        "D01 PDF 170 / cetak 166, TD13M(1), penampang 013122-00E"
+      ],
+      "nomor_oem": "148634-18340",
+      "ukuran": null,
+      "posisi": [
+        {
+          "object_id": "EXT-EXHAUST-40",
+          "arah": [
+            -1,
+            0,
+            0
+          ],
+          "jarak_m": 0.51,
+          "urutan": 24
+        }
+      ]
+    },
+    {
+      "no": 25,
+      "nama": "V-clamp sambungan rumah turbin",
+      "object_ids": [
+        "EXT-EXHAUST-41"
+      ],
+      "role": "fastener",
+      "status": "ESTIMATED",
+      "fungsi": "Mengikat bibir sambungan dengan profil penjepit V.",
+      "sumber": [
+        "D05 / 0CG10-M34300, Fig.32 TURBOCHARGER COMPONENT PART, model selection 6AYM-WET / posisi 36",
+        "D01 PDF 170 / cetak 166, TD13M(1), penampang 013122-00E"
+      ],
+      "nomor_oem": "126616-18390",
+      "ukuran": null,
+      "posisi": [
+        {
+          "object_id": "EXT-EXHAUST-41",
+          "arah": [
+            -1,
+            0,
+            0
+          ],
+          "jarak_m": 0.41,
+          "urutan": 25
+        }
+      ]
+    },
+    {
+      "no": 26,
+      "nama": "O-ring sambungan udara 1",
+      "object_ids": [
+        "EXT-EXHAUST-42"
+      ],
+      "role": "seal",
+      "status": "ESTIMATED",
+      "fungsi": "Memisahkan aliran udara dari kebocoran pada sambungan housing.",
+      "sumber": [
+        "D05 / 0CG10-M34300, Fig.32 TURBOCHARGER COMPONENT PART, model selection 6AYM-WET / posisi 35",
+        "D01 PDF 170 / cetak 166, TD13M(1), penampang 013122-00E"
+      ],
+      "nomor_oem": "126684-18150",
+      "ukuran": null,
+      "posisi": [
+        {
+          "object_id": "EXT-EXHAUST-42",
+          "arah": [
+            1,
+            0,
+            0
+          ],
+          "jarak_m": 0.91,
+          "urutan": 26
+        }
+      ]
+    },
+    {
+      "no": 27,
+      "nama": "O-ring sambungan udara 2",
+      "object_ids": [
+        "EXT-EXHAUST-43"
+      ],
+      "role": "seal",
+      "status": "ESTIMATED",
+      "fungsi": "Memisahkan aliran udara dari kebocoran pada sambungan housing.",
+      "sumber": [
+        "D05 / 0CG10-M34300, Fig.32 TURBOCHARGER COMPONENT PART, model selection 6AYM-WET / posisi 35",
+        "D01 PDF 170 / cetak 166, TD13M(1), penampang 013122-00E"
+      ],
+      "nomor_oem": "126684-18150",
+      "ukuran": null,
+      "posisi": [
+        {
+          "object_id": "EXT-EXHAUST-43",
+          "arah": [
+            1,
+            0,
+            0
+          ],
+          "jarak_m": 0.9550000000000001,
+          "urutan": 27
+        }
+      ]
+    },
+    {
+      "no": 28,
+      "nama": "Pelat penjepit kompresor 1",
+      "object_ids": [
+        "EXT-EXHAUST-44"
+      ],
+      "role": "fastener",
+      "status": "ESTIMATED",
+      "fungsi": "Menahan tepi housing dengan sepasang sekrup.",
+      "sumber": [
+        "D05 / 0CG10-M34300, Fig.32 TURBOCHARGER COMPONENT PART, model selection 6AYM-WET / posisi 34",
+        "D01 PDF 170 / cetak 166, TD13M(1), penampang 013122-00E"
+      ],
+      "nomor_oem": "X4918123500",
+      "ukuran": null,
+      "posisi": [
+        {
+          "object_id": "EXT-EXHAUST-44",
+          "arah": [
+            1,
+            0,
+            0
+          ],
+          "jarak_m": 0.45,
+          "urutan": 28
+        }
+      ]
+    },
+    {
+      "no": 29,
+      "nama": "Baut penjepit kompresor 1",
+      "object_ids": [
+        "EXT-EXHAUST-48"
+      ],
+      "role": "fastener",
+      "status": "ESTIMATED",
+      "fungsi": "Mengencangkan pelat penjepit pada dudukan rumah.",
+      "sumber": [
+        "D05 / 0CG10-M34300, Fig.32 TURBOCHARGER COMPONENT PART, model selection 6AYM-WET / posisi 37",
+        "D01 PDF 170 / cetak 166, TD13M(1), penampang 013122-00E"
+      ],
+      "nomor_oem": "X3253207320",
+      "ukuran": null,
+      "posisi": [
+        {
+          "object_id": "EXT-EXHAUST-48",
+          "arah": [
+            1,
+            0,
+            0
+          ],
+          "jarak_m": 0.49,
+          "urutan": 29
+        }
+      ]
+    },
+    {
+      "no": 30,
+      "nama": "Baut penjepit kompresor 2",
+      "object_ids": [
+        "EXT-EXHAUST-49"
+      ],
+      "role": "fastener",
+      "status": "ESTIMATED",
+      "fungsi": "Mengencangkan pelat penjepit pada dudukan rumah.",
+      "sumber": [
+        "D05 / 0CG10-M34300, Fig.32 TURBOCHARGER COMPONENT PART, model selection 6AYM-WET / posisi 37",
+        "D01 PDF 170 / cetak 166, TD13M(1), penampang 013122-00E"
+      ],
+      "nomor_oem": "X3253207320",
+      "ukuran": null,
+      "posisi": [
+        {
+          "object_id": "EXT-EXHAUST-49",
+          "arah": [
+            1,
+            0,
+            0
+          ],
+          "jarak_m": 0.49,
+          "urutan": 30
+        }
+      ]
+    },
+    {
+      "no": 31,
+      "nama": "Pelat penjepit kompresor 2",
+      "object_ids": [
+        "EXT-EXHAUST-45"
+      ],
+      "role": "fastener",
+      "status": "ESTIMATED",
+      "fungsi": "Menahan tepi housing dengan sepasang sekrup.",
+      "sumber": [
+        "D05 / 0CG10-M34300, Fig.32 TURBOCHARGER COMPONENT PART, model selection 6AYM-WET / posisi 34",
+        "D01 PDF 170 / cetak 166, TD13M(1), penampang 013122-00E"
+      ],
+      "nomor_oem": "X4918123500",
+      "ukuran": null,
+      "posisi": [
+        {
+          "object_id": "EXT-EXHAUST-45",
+          "arah": [
+            1,
+            0,
+            0
+          ],
+          "jarak_m": 0.45,
+          "urutan": 31
+        }
+      ]
+    },
+    {
+      "no": 32,
+      "nama": "Baut penjepit kompresor 3",
+      "object_ids": [
+        "EXT-EXHAUST-50"
+      ],
+      "role": "fastener",
+      "status": "ESTIMATED",
+      "fungsi": "Mengencangkan pelat penjepit pada dudukan rumah.",
+      "sumber": [
+        "D05 / 0CG10-M34300, Fig.32 TURBOCHARGER COMPONENT PART, model selection 6AYM-WET / posisi 37",
+        "D01 PDF 170 / cetak 166, TD13M(1), penampang 013122-00E"
+      ],
+      "nomor_oem": "X3253207320",
+      "ukuran": null,
+      "posisi": [
+        {
+          "object_id": "EXT-EXHAUST-50",
+          "arah": [
+            1,
+            0,
+            0
+          ],
+          "jarak_m": 0.49,
+          "urutan": 32
+        }
+      ]
+    },
+    {
+      "no": 33,
+      "nama": "Baut penjepit kompresor 4",
+      "object_ids": [
+        "EXT-EXHAUST-51"
+      ],
+      "role": "fastener",
+      "status": "ESTIMATED",
+      "fungsi": "Mengencangkan pelat penjepit pada dudukan rumah.",
+      "sumber": [
+        "D05 / 0CG10-M34300, Fig.32 TURBOCHARGER COMPONENT PART, model selection 6AYM-WET / posisi 37",
+        "D01 PDF 170 / cetak 166, TD13M(1), penampang 013122-00E"
+      ],
+      "nomor_oem": "X3253207320",
+      "ukuran": null,
+      "posisi": [
+        {
+          "object_id": "EXT-EXHAUST-51",
+          "arah": [
+            1,
+            0,
+            0
+          ],
+          "jarak_m": 0.49,
+          "urutan": 33
+        }
+      ]
+    },
+    {
+      "no": 34,
+      "nama": "Pelat penjepit kompresor 3",
+      "object_ids": [
+        "EXT-EXHAUST-46"
+      ],
+      "role": "fastener",
+      "status": "ESTIMATED",
+      "fungsi": "Menahan tepi housing dengan sepasang sekrup.",
+      "sumber": [
+        "D05 / 0CG10-M34300, Fig.32 TURBOCHARGER COMPONENT PART, model selection 6AYM-WET / posisi 34",
+        "D01 PDF 170 / cetak 166, TD13M(1), penampang 013122-00E"
+      ],
+      "nomor_oem": "X4918123500",
+      "ukuran": null,
+      "posisi": [
+        {
+          "object_id": "EXT-EXHAUST-46",
+          "arah": [
+            1,
+            0,
+            0
+          ],
+          "jarak_m": 0.45,
+          "urutan": 34
+        }
+      ]
+    },
+    {
+      "no": 35,
+      "nama": "Baut penjepit kompresor 5",
+      "object_ids": [
+        "EXT-EXHAUST-52"
+      ],
+      "role": "fastener",
+      "status": "ESTIMATED",
+      "fungsi": "Mengencangkan pelat penjepit pada dudukan rumah.",
+      "sumber": [
+        "D05 / 0CG10-M34300, Fig.32 TURBOCHARGER COMPONENT PART, model selection 6AYM-WET / posisi 37",
+        "D01 PDF 170 / cetak 166, TD13M(1), penampang 013122-00E"
+      ],
+      "nomor_oem": "X3253207320",
+      "ukuran": null,
+      "posisi": [
+        {
+          "object_id": "EXT-EXHAUST-52",
+          "arah": [
+            1,
+            0,
+            0
+          ],
+          "jarak_m": 0.49,
+          "urutan": 35
+        }
+      ]
+    },
+    {
+      "no": 36,
+      "nama": "Baut penjepit kompresor 6",
+      "object_ids": [
+        "EXT-EXHAUST-53"
+      ],
+      "role": "fastener",
+      "status": "ESTIMATED",
+      "fungsi": "Mengencangkan pelat penjepit pada dudukan rumah.",
+      "sumber": [
+        "D05 / 0CG10-M34300, Fig.32 TURBOCHARGER COMPONENT PART, model selection 6AYM-WET / posisi 37",
+        "D01 PDF 170 / cetak 166, TD13M(1), penampang 013122-00E"
+      ],
+      "nomor_oem": "X3253207320",
+      "ukuran": null,
+      "posisi": [
+        {
+          "object_id": "EXT-EXHAUST-53",
+          "arah": [
+            1,
+            0,
+            0
+          ],
+          "jarak_m": 0.49,
+          "urutan": 36
+        }
+      ]
+    },
+    {
+      "no": 37,
+      "nama": "Pelat penjepit kompresor 4",
+      "object_ids": [
+        "EXT-EXHAUST-47"
+      ],
+      "role": "fastener",
+      "status": "ESTIMATED",
+      "fungsi": "Menahan tepi housing dengan sepasang sekrup.",
+      "sumber": [
+        "D05 / 0CG10-M34300, Fig.32 TURBOCHARGER COMPONENT PART, model selection 6AYM-WET / posisi 34",
+        "D01 PDF 170 / cetak 166, TD13M(1), penampang 013122-00E"
+      ],
+      "nomor_oem": "X4918123500",
+      "ukuran": null,
+      "posisi": [
+        {
+          "object_id": "EXT-EXHAUST-47",
+          "arah": [
+            1,
+            0,
+            0
+          ],
+          "jarak_m": 0.45,
+          "urutan": 37
+        }
+      ]
+    },
+    {
+      "no": 38,
+      "nama": "Baut penjepit kompresor 7",
+      "object_ids": [
+        "EXT-EXHAUST-54"
+      ],
+      "role": "fastener",
+      "status": "ESTIMATED",
+      "fungsi": "Mengencangkan pelat penjepit pada dudukan rumah.",
+      "sumber": [
+        "D05 / 0CG10-M34300, Fig.32 TURBOCHARGER COMPONENT PART, model selection 6AYM-WET / posisi 37",
+        "D01 PDF 170 / cetak 166, TD13M(1), penampang 013122-00E"
+      ],
+      "nomor_oem": "X3253207320",
+      "ukuran": null,
+      "posisi": [
+        {
+          "object_id": "EXT-EXHAUST-54",
+          "arah": [
+            1,
+            0,
+            0
+          ],
+          "jarak_m": 0.49,
+          "urutan": 38
+        }
+      ]
+    },
+    {
+      "no": 39,
+      "nama": "Baut penjepit kompresor 8",
+      "object_ids": [
+        "EXT-EXHAUST-55"
+      ],
+      "role": "fastener",
+      "status": "ESTIMATED",
+      "fungsi": "Mengencangkan pelat penjepit pada dudukan rumah.",
+      "sumber": [
+        "D05 / 0CG10-M34300, Fig.32 TURBOCHARGER COMPONENT PART, model selection 6AYM-WET / posisi 37",
+        "D01 PDF 170 / cetak 166, TD13M(1), penampang 013122-00E"
+      ],
+      "nomor_oem": "X3253207320",
+      "ukuran": null,
+      "posisi": [
+        {
+          "object_id": "EXT-EXHAUST-55",
+          "arah": [
+            1,
+            0,
+            0
+          ],
+          "jarak_m": 0.49,
+          "urutan": 39
+        }
+      ]
+    },
+    {
+      "no": 40,
+      "nama": "Pelat penjepit turbin 1",
+      "object_ids": [
+        "EXT-EXHAUST-56"
+      ],
+      "role": "fastener",
+      "status": "ESTIMATED",
+      "fungsi": "Menahan tepi housing dengan sepasang sekrup.",
+      "sumber": [
+        "D05 / 0CG10-M34300, Fig.32 TURBOCHARGER COMPONENT PART, model selection 6AYM-WET / posisi 39",
+        "D01 PDF 170 / cetak 166, TD13M(1), penampang 013122-00E"
+      ],
+      "nomor_oem": "X4918217280",
+      "ukuran": null,
+      "posisi": [
+        {
+          "object_id": "EXT-EXHAUST-56",
+          "arah": [
+            -1,
+            0,
+            0
+          ],
+          "jarak_m": 0.185,
+          "urutan": 40
+        }
+      ]
+    },
+    {
+      "no": 41,
+      "nama": "Baut penjepit turbin 1",
+      "object_ids": [
+        "EXT-EXHAUST-60"
+      ],
+      "role": "fastener",
+      "status": "ESTIMATED",
+      "fungsi": "Mengencangkan pelat penjepit pada dudukan rumah.",
+      "sumber": [
+        "D05 / 0CG10-M34300, Fig.32 TURBOCHARGER COMPONENT PART, model selection 6AYM-WET / posisi 25",
+        "D01 PDF 170 / cetak 166, TD13M(1), penampang 013122-00E"
+      ],
+      "nomor_oem": "X4918123700",
+      "ukuran": null,
+      "posisi": [
+        {
+          "object_id": "EXT-EXHAUST-60",
+          "arah": [
+            -1,
+            0,
+            0
+          ],
+          "jarak_m": 0.225,
+          "urutan": 41
+        }
+      ]
+    },
+    {
+      "no": 42,
+      "nama": "Baut penjepit turbin 2",
+      "object_ids": [
+        "EXT-EXHAUST-61"
+      ],
+      "role": "fastener",
+      "status": "ESTIMATED",
+      "fungsi": "Mengencangkan pelat penjepit pada dudukan rumah.",
+      "sumber": [
+        "D05 / 0CG10-M34300, Fig.32 TURBOCHARGER COMPONENT PART, model selection 6AYM-WET / posisi 25",
+        "D01 PDF 170 / cetak 166, TD13M(1), penampang 013122-00E"
+      ],
+      "nomor_oem": "X4918123700",
+      "ukuran": null,
+      "posisi": [
+        {
+          "object_id": "EXT-EXHAUST-61",
+          "arah": [
+            -1,
+            0,
+            0
+          ],
+          "jarak_m": 0.225,
+          "urutan": 42
+        }
+      ]
+    },
+    {
+      "no": 43,
+      "nama": "Pelat penjepit turbin 2",
+      "object_ids": [
+        "EXT-EXHAUST-57"
+      ],
+      "role": "fastener",
+      "status": "ESTIMATED",
+      "fungsi": "Menahan tepi housing dengan sepasang sekrup.",
+      "sumber": [
+        "D05 / 0CG10-M34300, Fig.32 TURBOCHARGER COMPONENT PART, model selection 6AYM-WET / posisi 39",
+        "D01 PDF 170 / cetak 166, TD13M(1), penampang 013122-00E"
+      ],
+      "nomor_oem": "X4918217280",
+      "ukuran": null,
+      "posisi": [
+        {
+          "object_id": "EXT-EXHAUST-57",
+          "arah": [
+            -1,
+            0,
+            0
+          ],
+          "jarak_m": 0.185,
+          "urutan": 43
+        }
+      ]
+    },
+    {
+      "no": 44,
+      "nama": "Baut penjepit turbin 3",
+      "object_ids": [
+        "EXT-EXHAUST-62"
+      ],
+      "role": "fastener",
+      "status": "ESTIMATED",
+      "fungsi": "Mengencangkan pelat penjepit pada dudukan rumah.",
+      "sumber": [
+        "D05 / 0CG10-M34300, Fig.32 TURBOCHARGER COMPONENT PART, model selection 6AYM-WET / posisi 25",
+        "D01 PDF 170 / cetak 166, TD13M(1), penampang 013122-00E"
+      ],
+      "nomor_oem": "X4918123700",
+      "ukuran": null,
+      "posisi": [
+        {
+          "object_id": "EXT-EXHAUST-62",
+          "arah": [
+            -1,
+            0,
+            0
+          ],
+          "jarak_m": 0.225,
+          "urutan": 44
+        }
+      ]
+    },
+    {
+      "no": 45,
+      "nama": "Baut penjepit turbin 4",
+      "object_ids": [
+        "EXT-EXHAUST-63"
+      ],
+      "role": "fastener",
+      "status": "ESTIMATED",
+      "fungsi": "Mengencangkan pelat penjepit pada dudukan rumah.",
+      "sumber": [
+        "D05 / 0CG10-M34300, Fig.32 TURBOCHARGER COMPONENT PART, model selection 6AYM-WET / posisi 25",
+        "D01 PDF 170 / cetak 166, TD13M(1), penampang 013122-00E"
+      ],
+      "nomor_oem": "X4918123700",
+      "ukuran": null,
+      "posisi": [
+        {
+          "object_id": "EXT-EXHAUST-63",
+          "arah": [
+            -1,
+            0,
+            0
+          ],
+          "jarak_m": 0.225,
+          "urutan": 45
+        }
+      ]
+    },
+    {
+      "no": 46,
+      "nama": "Pelat penjepit turbin 3",
+      "object_ids": [
+        "EXT-EXHAUST-58"
+      ],
+      "role": "fastener",
+      "status": "ESTIMATED",
+      "fungsi": "Menahan tepi housing dengan sepasang sekrup.",
+      "sumber": [
+        "D05 / 0CG10-M34300, Fig.32 TURBOCHARGER COMPONENT PART, model selection 6AYM-WET / posisi 39",
+        "D01 PDF 170 / cetak 166, TD13M(1), penampang 013122-00E"
+      ],
+      "nomor_oem": "X4918217280",
+      "ukuran": null,
+      "posisi": [
+        {
+          "object_id": "EXT-EXHAUST-58",
+          "arah": [
+            -1,
+            0,
+            0
+          ],
+          "jarak_m": 0.185,
+          "urutan": 46
+        }
+      ]
+    },
+    {
+      "no": 47,
+      "nama": "Baut penjepit turbin 5",
+      "object_ids": [
+        "EXT-EXHAUST-64"
+      ],
+      "role": "fastener",
+      "status": "ESTIMATED",
+      "fungsi": "Mengencangkan pelat penjepit pada dudukan rumah.",
+      "sumber": [
+        "D05 / 0CG10-M34300, Fig.32 TURBOCHARGER COMPONENT PART, model selection 6AYM-WET / posisi 25",
+        "D01 PDF 170 / cetak 166, TD13M(1), penampang 013122-00E"
+      ],
+      "nomor_oem": "X4918123700",
+      "ukuran": null,
+      "posisi": [
+        {
+          "object_id": "EXT-EXHAUST-64",
+          "arah": [
+            -1,
+            0,
+            0
+          ],
+          "jarak_m": 0.225,
+          "urutan": 47
+        }
+      ]
+    },
+    {
+      "no": 48,
+      "nama": "Baut penjepit turbin 6",
+      "object_ids": [
+        "EXT-EXHAUST-65"
+      ],
+      "role": "fastener",
+      "status": "ESTIMATED",
+      "fungsi": "Mengencangkan pelat penjepit pada dudukan rumah.",
+      "sumber": [
+        "D05 / 0CG10-M34300, Fig.32 TURBOCHARGER COMPONENT PART, model selection 6AYM-WET / posisi 25",
+        "D01 PDF 170 / cetak 166, TD13M(1), penampang 013122-00E"
+      ],
+      "nomor_oem": "X4918123700",
+      "ukuran": null,
+      "posisi": [
+        {
+          "object_id": "EXT-EXHAUST-65",
+          "arah": [
+            -1,
+            0,
+            0
+          ],
+          "jarak_m": 0.225,
+          "urutan": 48
+        }
+      ]
+    },
+    {
+      "no": 49,
+      "nama": "Pelat penjepit turbin 4",
+      "object_ids": [
+        "EXT-EXHAUST-59"
+      ],
+      "role": "fastener",
+      "status": "ESTIMATED",
+      "fungsi": "Menahan tepi housing dengan sepasang sekrup.",
+      "sumber": [
+        "D05 / 0CG10-M34300, Fig.32 TURBOCHARGER COMPONENT PART, model selection 6AYM-WET / posisi 39",
+        "D01 PDF 170 / cetak 166, TD13M(1), penampang 013122-00E"
+      ],
+      "nomor_oem": "X4918217280",
+      "ukuran": null,
+      "posisi": [
+        {
+          "object_id": "EXT-EXHAUST-59",
+          "arah": [
+            -1,
+            0,
+            0
+          ],
+          "jarak_m": 0.185,
+          "urutan": 49
+        }
+      ]
+    },
+    {
+      "no": 50,
+      "nama": "Baut penjepit turbin 7",
+      "object_ids": [
+        "EXT-EXHAUST-66"
+      ],
+      "role": "fastener",
+      "status": "ESTIMATED",
+      "fungsi": "Mengencangkan pelat penjepit pada dudukan rumah.",
+      "sumber": [
+        "D05 / 0CG10-M34300, Fig.32 TURBOCHARGER COMPONENT PART, model selection 6AYM-WET / posisi 25",
+        "D01 PDF 170 / cetak 166, TD13M(1), penampang 013122-00E"
+      ],
+      "nomor_oem": "X4918123700",
+      "ukuran": null,
+      "posisi": [
+        {
+          "object_id": "EXT-EXHAUST-66",
+          "arah": [
+            -1,
+            0,
+            0
+          ],
+          "jarak_m": 0.225,
+          "urutan": 50
+        }
+      ]
+    },
+    {
+      "no": 51,
+      "nama": "Baut penjepit turbin 8",
+      "object_ids": [
+        "EXT-EXHAUST-67"
+      ],
+      "role": "fastener",
+      "status": "ESTIMATED",
+      "fungsi": "Mengencangkan pelat penjepit pada dudukan rumah.",
+      "sumber": [
+        "D05 / 0CG10-M34300, Fig.32 TURBOCHARGER COMPONENT PART, model selection 6AYM-WET / posisi 25",
+        "D01 PDF 170 / cetak 166, TD13M(1), penampang 013122-00E"
+      ],
+      "nomor_oem": "X4918123700",
+      "ukuran": null,
+      "posisi": [
+        {
+          "object_id": "EXT-EXHAUST-67",
+          "arah": [
+            -1,
+            0,
+            0
+          ],
+          "jarak_m": 0.225,
+          "urutan": 51
+        }
+      ]
+    }
+  ],
+  "notes": "Dimensi, kurva dan jumlah sudu, celah kerja, bentuk saluran dan sudut pemasangan merupakan perkiraan visual. Verifikasi nomor seri dan toleransi belum tersedia. Setiap nomor komponen WET Fig.32 tercakup, kecuali no.1 yang merupakan rakitan payung. Rumah dan bagian katalog yang dijual dalam satu rakitan tidak membuktikan bentuk internal tambahan."
+}

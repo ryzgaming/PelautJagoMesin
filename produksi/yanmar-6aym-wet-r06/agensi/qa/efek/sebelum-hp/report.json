@@ -1,0 +1,168 @@
+{
+  "url": "http://localhost:8766/.agents/skills/animasi-aliran-mesin/scripts/lab.html?auto=1.5&xray",
+  "viewport": "mobile",
+  "runtime": {
+    "link": "jacket",
+    "samples": [
+      {
+        "link": "jacket",
+        "medium": "fresh_water",
+        "state": "running",
+        "fraction": 0.05734867847607259,
+        "phase_m": 0.23047999999978455,
+        "world": [
+          0.6290497728486826,
+          0.24378264886686282,
+          0.30710554415215674
+        ],
+        "visible": true,
+        "time_s": 0.002
+      },
+      {
+        "link": "jacket",
+        "medium": "fresh_water",
+        "state": "running",
+        "fraction": 0.06162895624322636,
+        "phase_m": 0.239539999999768,
+        "world": [
+          0.6199949063608804,
+          0.24395303558093484,
+          0.30691081647893154
+        ],
+        "visible": true,
+        "time_s": 0.407
+      },
+      {
+        "link": "jacket",
+        "medium": "fresh_water",
+        "state": "paused",
+        "fraction": 0.06162895624322636,
+        "phase_m": 0.239539999999768,
+        "world": [
+          0.6199949063608804,
+          0.24395303558093484,
+          0.30691081647893154
+        ],
+        "visible": true,
+        "time_s": 0.571
+      },
+      {
+        "link": "jacket",
+        "medium": "fresh_water",
+        "state": "paused",
+        "fraction": 0.06162895624322636,
+        "phase_m": 0.239539999999768,
+        "world": [
+          0.6199949063608804,
+          0.24395303558093484,
+          0.30691081647893154
+        ],
+        "visible": true,
+        "time_s": 0.997
+      },
+      {
+        "link": "jacket",
+        "medium": "fresh_water",
+        "state": "resumed",
+        "fraction": 0.06162895624322636,
+        "phase_m": 0.239539999999768,
+        "world": [
+          0.6199949063608804,
+          0.24395303558093484,
+          0.30691081647893154
+        ],
+        "visible": true,
+        "time_s": 1.001
+      },
+      {
+        "link": "jacket",
+        "medium": "fresh_water",
+        "state": "resumed",
+        "fraction": 0.06554598257366155,
+        "phase_m": 0.24783111111082945,
+        "world": [
+          0.6117306995818188,
+          0.2443816068671055,
+          0.30642102072330796
+        ],
+        "visible": true,
+        "time_s": 1.405
+      }
+    ],
+    "pause_stable": true,
+    "moves_when_running": true,
+    "resume_continues": true
+  },
+  "links": [
+    {
+      "id": "jacket",
+      "medium": "fresh_water",
+      "label": "Air tawar pendingin",
+      "length_m": 2.116685059439029,
+      "estimated": false
+    },
+    {
+      "id": "lube",
+      "medium": "lube_oil",
+      "label": "Oli pelumas",
+      "length_m": 1.9066700764766682,
+      "estimated": false
+    },
+    {
+      "id": "fuel_rail",
+      "medium": "fuel",
+      "label": "Bahan bakar",
+      "length_m": 1.0305876024010234,
+      "estimated": false
+    },
+    {
+      "id": "fuel_1",
+      "medium": "fuel",
+      "label": "Bahan bakar",
+      "length_m": 0.12159867110473294,
+      "estimated": false
+    },
+    {
+      "id": "fuel_2",
+      "medium": "fuel",
+      "label": "Bahan bakar",
+      "length_m": 0.12159867110473294,
+      "estimated": false
+    },
+    {
+      "id": "fuel_3",
+      "medium": "fuel",
+      "label": "Bahan bakar",
+      "length_m": 0.12159867110473294,
+      "estimated": false
+    },
+    {
+      "id": "fuel_4",
+      "medium": "fuel",
+      "label": "Bahan bakar",
+      "length_m": 0.12159867110473294,
+      "estimated": false
+    },
+    {
+      "id": "exhaust",
+      "medium": "exhaust",
+      "label": "Gas buang",
+      "length_m": 1.2227399301732023,
+      "estimated": false
+    }
+  ],
+  "warnings": [],
+  "frames": [
+    "/workspace/efek-review/sebelum-hp/frame-00.png",
+    "/workspace/efek-review/sebelum-hp/frame-01.png",
+    "/workspace/efek-review/sebelum-hp/frame-02.png",
+    "/workspace/efek-review/sebelum-hp/frame-03.png"
+  ],
+  "motion": [
+    2.219,
+    2.687,
+    2.995
+  ],
+  "motion_ok": true,
+  "errors": []
+}

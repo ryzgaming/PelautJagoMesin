@@ -1,0 +1,152 @@
+"""Render inspected air-cooler poses from the same reimported GLB."""
+import argparse
+import hashlib
+import json
+from math import sqrt
+from pathlib import Path
+import sys
+
+import bpy
+from mathutils import Vector
+from mathutils.bvhtree import BVHTree
+
+folder=Path(__file__).resolve().parent
+parser=argparse.ArgumentParser(description=__doc__)
+parser.add_argument('--output',type=Path,required=True)
+parser.add_argument('--input',type=Path,default=folder/'exterior.glb')
+parser.add_argument('--fit-only',action='store_true')
+args=parser.parse_args(sys.argv[sys.argv.index('--')+1:])
+recipe=json.loads((folder.parent/'assemblies/RAK-AIRCOOLER.json').read_text())
+output=args.output.resolve()
+output.mkdir(exist_ok=True,parents=True)
+
+bpy.ops.wm.read_factory_settings(use_empty=True)
+bpy.ops.import_scene.gltf(filepath=str(args.input.resolve()))
+scene=bpy.context.scene
+cluster=bpy.data.objects['RAK-AIRCOOLER']
+parts={obj.name:obj for obj in cluster.children if obj.type=='MESH'}
+motion={a['object_id']:a for item in recipe['bagian'] for a in item['posisi']}
+assert set(parts)=={i for item in recipe['bagian'] for i in item['object_ids']}
+for obj in scene.objects:
+    if obj.type=='MESH' and obj.name not in parts:
+        obj.hide_render=True
+        obj.hide_set(True)
+
+def blender_point(p):
+    return Vector((p[0],-p[2],p[1]))
+
+def bvh(obj):
+    obj.data.calc_loop_triangles()
+    return BVHTree.FromPolygons([obj.matrix_world@v.co for v in obj.data.vertices],
+         [tuple(tri.vertices) for tri in obj.data.loop_triangles if tri.area>1e-12], all_triangles=True)
+
+def apply_pose(ratio):
+    bpy.context.view_layer.update()
+    for id,obj in parts.items():
+        obj.location=base[id]
+        if id in motion:
+            entry=motion[id]
+            obj.location+=blender_point(entry['arah'])*entry['jarak_m']*ratio
+    bpy.context.view_layer.update()
+
+base={id:obj.location.copy() for id,obj in parts.items()}
+def has_axial_passage(tree, x, y):
+    hit, _, _, _=tree.ray_cast(blender_point((x,y,.285)),blender_point((0,0,-1)),.69)
+    return hit is None
+
+shell=bvh(parts['EXT-INTAKE-02'])
+core=bvh(parts['EXT-INTAKE-08'])
+hole_layout=[(-.158+.016*(i+j/2),.720+.008*sqrt(3)*j)
+             for i in range(-5,6) for j in range(-5,6) if abs(i+j)<=5]
+passage_check={'shell_center_open_axially':has_axial_passage(shell,-.158,.720),
+        'core_tube_bore_rays_total':len(hole_layout),
+        'core_tube_bore_rays_clear':sum(has_axial_passage(core,x,y) for x,y in hole_layout)}
+
+fit=[]
+for step in range(13):
+    t=step/12
+    apply_pose(t)
+    core=bvh(parts['EXT-INTAKE-08'])
+    keys=['EXT-INTAKE-02','EXT-INTAKE-06','EXT-INTAKE-07']
+    fit.append({'ratio':t,'triangle_surface_pairs_with_core':{i:len(core.overlap(bvh(parts[i]))) for i in keys}})
+
+(output/'render-fit.json').write_text(json.dumps({
+    'input_file':str(args.input),
+    'exterior_sha256':hashlib.sha256(args.input.read_bytes()).hexdigest(),
+    'method':'Blender reimport and BVH overlap at 13 evenly sampled simultaneous illustrative offsets; triangle crossings are a discrete test.',
+    'passage_check':passage_check,'results':fit,'renderer':'Blender Cycles CPU 32 samples without denoising, 1450×850',
+    'views':[] if args.fit_only else ['assembled','exploded','core-and-open-bore','xray-assembled']
+},indent=2)+'\n')
+
+if args.fit_only:
+    sys.exit(0)
+
+bpy.context.scene.render.engine='CYCLES'
+scene.cycles.device='CPU'
+scene.cycles.samples=32
+scene.cycles.use_denoising=False
+scene.cycles.transparent_max_bounces=14
+scene.world=bpy.data.worlds.new('Studio')
+scene.world.use_nodes=True
+scene.world.node_tree.nodes['Background'].inputs[0].default_value=(.09,.13,.17,1)
+scene.world.node_tree.nodes['Background'].inputs[1].default_value=.55
+scene.render.resolution_x=1450
+scene.render.resolution_y=850
+scene.render.resolution_percentage=100
+scene.view_settings.view_transform='AgX'
+scene.render.image_settings.file_format='PNG'
+
+camera=bpy.data.cameras.new('Cooler camera')
+camera.type='ORTHO'
+obj=bpy.data.objects.new(camera.name,camera)
+scene.collection.objects.link(obj)
+scene.camera=obj
+
+def lamp(name,power,size,pos):
+    light=bpy.data.lights.new(name,'AREA')
+    light.shape='DISK'
+    light.size=size
+    light.energy=power
+    ob=bpy.data.objects.new(name,light)
+    scene.collection.objects.link(ob)
+    ob.location=pos
+    ob.rotation_euler=(Vector((-.15,0,.72))-ob.location).to_track_quat('-Z','Y').to_euler()
+
+lamp('Key',130,2,(-1.5,1.25,2.5))
+lamp('Fill',85,1.5,(-1.25,-1.2,1.18))
+lamp('Rim',160,2,(.85,-.2,2.0))
+
+shots=[
+    ('assembled',0,(-.65,-.55,.26),.98,(-.15,.02,.70)),
+    ('exploded',1,(-.70,.50,.28),2.09,(-.15,.365,.70)),
+    ('core-and-open-bore',1,(-.38,.62,.30),1.35,(-.15,.432,.718)),
+    ('xray-assembled',0,(-.65,-.55,.26),1.02,(-.15,.02,.70)),
+]
+for name,t,vector,scale,center in shots:
+    apply_pose(t)
+    center=Vector(center)
+    camera.ortho_scale=scale
+    obj.location=center+Vector(vector).normalized()*4
+    obj.rotation_euler=(center-obj.location).to_track_quat('-Z','Y').to_euler()
+    for id in ('EXT-INTAKE-06','EXT-INTAKE-12','EXT-INTAKE-13'):
+        parts[id].hide_render=name=='core-and-open-bore'
+    if name=='xray-assembled':
+        translucent=bpy.data.materials.new('X-ray illustration')
+        translucent.use_nodes=True
+        nodes=translucent.node_tree.nodes
+        links=translucent.node_tree.links
+        bsdf=nodes.get('Principled BSDF')
+        bsdf.inputs['Base Color'].default_value=(.25,.40,.48,1)
+        bsdf.inputs['Roughness'].default_value=.4
+        mix=nodes.new('ShaderNodeMixShader')
+        mix.inputs[0].default_value=.15
+        links.new(nodes.new('ShaderNodeBsdfTransparent').outputs[0],mix.inputs[1])
+        links.new(bsdf.outputs[0],mix.inputs[2])
+        links.new(mix.outputs[0],nodes.get('Material Output').inputs['Surface'])
+        for component in parts.values():
+            if component.get('xray_shell'):
+                for slot in component.material_slots:
+                    slot.material=translucent
+    scene.render.filepath=str(output/f'{name}.png')
+    bpy.ops.render.render(write_still=True)
+

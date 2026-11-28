@@ -1,0 +1,49 @@
+{
+  "id": "INT-LINER",
+  "nama": "Wet liner",
+  "node_rakitan": "RAK-INT-LINER",
+  "acuan": [
+    {
+      "no": 1,
+      "object_ids": [
+        "INT-LINER-11",
+        "INT-LINER-12",
+        "INT-LINER-13",
+        "INT-LINER-14",
+        "INT-LINER-21",
+        "INT-LINER-22",
+        "INT-LINER-23",
+        "INT-LINER-24",
+        "INT-LINER-31",
+        "INT-LINER-32",
+        "INT-LINER-33",
+        "INT-LINER-34",
+        "INT-LINER-41",
+        "INT-LINER-42",
+        "INT-LINER-43",
+        "INT-LINER-44",
+        "INT-LINER-51",
+        "INT-LINER-52",
+        "INT-LINER-53",
+        "INT-LINER-54",
+        "INT-LINER-61",
+        "INT-LINER-62",
+        "INT-LINER-63",
+        "INT-LINER-64"
+      ],
+      "sumber": "D01 PDF 94–95 / cetak 90–91"
+    }
+  ],
+  "diagram": {
+    "arah_pandang": [
+      1,
+      0.7,
+      1
+    ],
+    "atas": [
+      0,
+      1,
+      0
+    ]
+  }
+}

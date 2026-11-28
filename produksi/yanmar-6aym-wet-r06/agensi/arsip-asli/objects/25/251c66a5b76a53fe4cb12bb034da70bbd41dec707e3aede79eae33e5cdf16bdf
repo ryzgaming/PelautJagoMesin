@@ -1,0 +1,1582 @@
+{
+  "schema_version": 1,
+  "revision": "r02",
+  "scope": "Audit retrospektif subset komponen internal yang diharapkan, bukan rekonsiliasi setiap baris katalog. Catatan hanya berlaku untuk hash r02. Versi viewer berikutnya perlu mengganti catatan yang telah ditangani berdasarkan pemeriksaan revisinya.",
+  "model_sha256": {
+    "exterior": "7f4eab14803a9b0ee1671b346985f31f70c6248e9a41f6d51104257118106ed5",
+    "internal": "11ea34ec436e43053f70f8e1162391669e377daebee501cba515dc218f388bf9"
+  },
+  "method": [
+    "Periksa position/index accessor GLB setiap mesh dan hubungan recipe, lalu lihat konstruksi Blender tiap casing.",
+    "Rujukan D05-MIRROR memakai teks tabel katalog, bukan pengukuran gambar. D05 fig.38/39 juga memiliki diagram tersendiri. D01 manual keluarga dan foto tidak menetapkan varian/vendor komponen tiap nomor seri.",
+    "Status missing berarti subkomponen yang dirujuk belum ditemukan sebagai geometri terpisah pada hash yang diaudit. Status modeled hanya menyatakan representasi; ketepatan OEM tetap mengikuti status bukti tiap dimensi."
+  ],
+  "by_assembly": {
+    "RAK-BLOCK": {
+      "status": "PARTIAL",
+      "specialist": "Blok & bantalan utama",
+      "summary": "Blok menaungi crankshaft, liner, connecting rod dan bantalan dalam GLB internal.",
+      "open": "Jaket air dan galeri oli dalam coran belum ditelusuri sebagai rongga aktual. Saluran fluida skematis.",
+      "source_refs": [
+        "D05-MIRROR · katalog 0CG10-M34300 April 2014 · fig. 1–2 (kolom A 6AYM-WET; pilihan dan serial harus dicocokkan)",
+        "D01 · service manual 0B6AY-EN0010 · halaman PDF 15, 63, 157, 163"
+      ],
+      "expected": [
+        {
+          "name": "Crankshaft dan liner",
+          "status": "modeled",
+          "mesh_ids": [
+            "INT-CRANK-01",
+            "INT-LINER-11"
+          ]
+        },
+        {
+          "name": "Jaket air dan galeri blok",
+          "status": "unverified",
+          "mesh_ids": []
+        }
+      ],
+      "recipe_mesh_ids": [
+        "EXT-BLOCK-01",
+        "EXT-BLOCK-02",
+        "EXT-BLOCK-03",
+        "EXT-BLOCK-04",
+        "EXT-BLOCK-05",
+        "EXT-BLOCK-06",
+        "EXT-BLOCK-07",
+        "EXT-BLOCK-08",
+        "EXT-BLOCK-09",
+        "EXT-BLOCK-10",
+        "EXT-BLOCK-11",
+        "EXT-BLOCK-12",
+        "EXT-BLOCK-13",
+        "EXT-BLOCK-14",
+        "EXT-BLOCK-15",
+        "EXT-BLOCK-16",
+        "EXT-BLOCK-17",
+        "EXT-BLOCK-18"
+      ]
+    },
+    "RAK-HEADS": {
+      "status": "PARTIAL",
+      "specialist": "Cylinder head & valvetrain",
+      "summary": "Rocker, katup, pegas, guide dan bridge dimodelkan di dalam kepala. Bonnet dapat dipisahkan.",
+      "open": "Passage air pendingin dan penampang port pada kepala belum terverifikasi. Gasket bonnet belum dipisah.",
+      "source_refs": [
+        "D05-MIRROR · katalog 0CG10-M34300 April 2014 · fig. 22–24 (kolom A 6AYM-WET; pilihan dan serial harus dicocokkan)",
+        "D01 · service manual 0B6AY-EN0010 · halaman PDF 90–92, 163"
+      ],
+      "expected": [
+        {
+          "name": "Katup, rocker dan guide",
+          "status": "modeled",
+          "mesh_ids": [
+            "INT-VALVE-103",
+            "INT-VALVE-130"
+          ]
+        },
+        {
+          "name": "Gasket bonnet",
+          "status": "missing",
+          "mesh_ids": []
+        },
+        {
+          "name": "Jalur dalam casting",
+          "status": "unverified",
+          "mesh_ids": []
+        }
+      ],
+      "recipe_mesh_ids": [
+        "EXT-HEADS-01",
+        "EXT-HEADS-02",
+        "EXT-HEADS-03",
+        "EXT-HEADS-04",
+        "EXT-HEADS-05",
+        "EXT-HEADS-06",
+        "EXT-HEADS-07",
+        "EXT-HEADS-08",
+        "EXT-HEADS-09",
+        "EXT-HEADS-10",
+        "EXT-HEADS-11",
+        "EXT-HEADS-12"
+      ]
+    },
+    "RAK-OILPAN": {
+      "status": "PARTIAL",
+      "specialist": "Pelumasan & bak oli",
+      "summary": "Carter dan drain plug dimodelkan, pickup dan rumah saringan berada di kelompok pompa oli.",
+      "open": "Varian sump standar/dangkal dan gasket sump pada unit belum dicocokkan. Detail screen intake belum dikonfirmasi.",
+      "source_refs": [
+        "D05-MIRROR · katalog 0CG10-M34300 April 2014 · fig. 8–11, 41 (kolom A 6AYM-WET; pilihan dan serial harus dicocokkan)",
+        "D01 · service manual 0B6AY-EN0010 · halaman PDF 157–158"
+      ],
+      "expected": [
+        {
+          "name": "Carter dan plug",
+          "status": "modeled",
+          "mesh_ids": [
+            "EXT-OILPAN-01",
+            "EXT-OILPAN-02"
+          ]
+        },
+        {
+          "name": "Pickup dan rumah saringan",
+          "status": "modeled",
+          "mesh_ids": [
+            "INT-OILPUMP-10",
+            "INT-OILPUMP-11"
+          ]
+        },
+        {
+          "name": "Gasket sump",
+          "status": "missing",
+          "mesh_ids": []
+        }
+      ],
+      "recipe_mesh_ids": [
+        "EXT-OILPAN-01",
+        "EXT-OILPAN-02"
+      ]
+    },
+    "RAK-FLYWHEEL": {
+      "status": "PARTIAL",
+      "specialist": "Crankshaft & flywheel",
+      "summary": "Flywheel serta housing terpisah. Bentuk ring gear merupakan bagian dari mesh flywheel.",
+      "open": "Ring gear tidak terpilih tersendiri. Gasket housing dan seal crankshaft belum dipisah.",
+      "source_refs": [
+        "D05-MIRROR · katalog 0CG10-M34300 April 2014 · fig. 5–7, 38 (kolom A 6AYM-WET; pilihan dan serial harus dicocokkan)",
+        "D01 · service manual 0B6AY-EN0010 · halaman PDF 112–113"
+      ],
+      "expected": [
+        {
+          "name": "Flywheel/housing",
+          "status": "modeled",
+          "mesh_ids": [
+            "EXT-FLYWHEEL-01",
+            "EXT-FLYWHEEL-02"
+          ]
+        },
+        {
+          "name": "Ring gear",
+          "status": "partial",
+          "mesh_ids": [
+            "EXT-FLYWHEEL-02"
+          ]
+        },
+        {
+          "name": "Gasket housing",
+          "status": "missing",
+          "mesh_ids": []
+        }
+      ],
+      "recipe_mesh_ids": [
+        "EXT-FLYWHEEL-01",
+        "EXT-FLYWHEEL-02"
+      ]
+    },
+    "RAK-FRONT": {
+      "status": "PARTIAL",
+      "specialist": "Timing & damper",
+      "summary": "Rumah depan, guard dan damper terpisah; gear penggerak depan berada pada INT-TIMING.",
+      "open": "Isi damper dan gasket penutup belum direkonstruksi; profil gigi masih perkiraan.",
+      "source_refs": [
+        "D05-MIRROR · katalog 0CG10-M34300 April 2014 · fig. 4, 28–29, 40 (kolom A 6AYM-WET; pilihan dan serial harus dicocokkan)",
+        "D01 · service manual 0B6AY-EN0010 · halaman PDF 111–113"
+      ],
+      "expected": [
+        {
+          "name": "Gear penggerak depan",
+          "status": "modeled",
+          "mesh_ids": [
+            "INT-TIMING-08",
+            "INT-TIMING-09"
+          ]
+        },
+        {
+          "name": "Isi damper",
+          "status": "unverified",
+          "mesh_ids": []
+        },
+        {
+          "name": "Gasket cover",
+          "status": "missing",
+          "mesh_ids": []
+        }
+      ],
+      "recipe_mesh_ids": [
+        "EXT-FRONT-01",
+        "EXT-FRONT-02",
+        "EXT-FRONT-03"
+      ]
+    },
+    "RAK-ELECTRIC": {
+      "status": "PARTIAL",
+      "specialist": "Starter & pengisian",
+      "summary": "Starter/solenoid dan alternator/pulley masing-masing disajikan sebagai satu unit eksternal.",
+      "open": "Rotor/armature, stator/yoke, sikat dan bantalan belum tersedia secara terpisah. Tipe kelistrikan dan vendor unit belum pasti.",
+      "source_refs": [
+        "D05-MIRROR · katalog 0CG10-M34300 April 2014 · fig. 105–109 (kolom A 6AYM-WET; pilihan dan serial harus dicocokkan)",
+        "D01 · service manual 0B6AY-EN0010 · halaman PDF 13–14"
+      ],
+      "expected": [
+        {
+          "name": "Starter dan alternator eksternal",
+          "status": "modeled",
+          "mesh_ids": [
+            "EXT-ELECTRIC-01",
+            "EXT-ELECTRIC-02"
+          ]
+        },
+        {
+          "name": "Armature dan sikat starter",
+          "status": "missing",
+          "mesh_ids": []
+        },
+        {
+          "name": "Rotor dan stator alternator",
+          "status": "missing",
+          "mesh_ids": []
+        }
+      ],
+      "recipe_mesh_ids": [
+        "EXT-ELECTRIC-01",
+        "EXT-ELECTRIC-02",
+        "EXT-ELECTRIC-03",
+        "EXT-ELECTRIC-04"
+      ]
+    },
+    "RAK-INTAKE": {
+      "status": "PARTIAL",
+      "specialist": "Pendingin udara pengisian & intake",
+      "summary": "R02 hanya memisah manifold, cooler utuh, siku, air cleaner dan duct.",
+      "open": "Pada r02, core cooler, kedua tutup dan seal belum dapat dipilih. Isi pembersih udara serta passage manifold belum diverifikasi.",
+      "source_refs": [
+        "D05-MIRROR · katalog 0CG10-M34300 April 2014 · fig. 25, 31–32, 35–37 (kolom A 6AYM-WET; pilihan dan serial harus dicocokkan)",
+        "D01 · service manual 0B6AY-EN0010 · halaman PDF 37–38, 163, 170"
+      ],
+      "expected": [
+        {
+          "name": "Housing air cooler",
+          "status": "partial",
+          "mesh_ids": [
+            "EXT-INTAKE-02"
+          ]
+        },
+        {
+          "name": "Core assy cooler",
+          "status": "missing",
+          "mesh_ids": []
+        },
+        {
+          "name": "Dua tutup cooler",
+          "status": "partial",
+          "mesh_ids": [
+            "EXT-INTAKE-02"
+          ]
+        },
+        {
+          "name": "O-ring core",
+          "status": "missing",
+          "mesh_ids": []
+        },
+        {
+          "name": "Elemen air cleaner",
+          "status": "unverified",
+          "mesh_ids": []
+        }
+      ],
+      "recipe_mesh_ids": [
+        "EXT-INTAKE-01",
+        "EXT-INTAKE-02",
+        "EXT-INTAKE-03",
+        "EXT-INTAKE-04",
+        "EXT-INTAKE-05"
+      ]
+    },
+    "RAK-EXHAUST": {
+      "status": "PARTIAL",
+      "specialist": "Turbocharger & manifold gas buang",
+      "summary": "Rumah turbin, rumah kompresor dan rumah tengah ditampilkan.",
+      "open": "Roda kompresor/turbin, poros serta bantalan belum dapat dieksplorasi. Jaket air manifold tidak mewakili passage coran yang terverifikasi.",
+      "source_refs": [
+        "D05-MIRROR · katalog 0CG10-M34300 April 2014 · fig. 27, 31–34 (kolom A 6AYM-WET; pilihan dan serial harus dicocokkan)",
+        "D01 · service manual 0B6AY-EN0010 · halaman PDF 163, 170–171"
+      ],
+      "expected": [
+        {
+          "name": "Tiga housing turbo",
+          "status": "modeled",
+          "mesh_ids": [
+            "EXT-EXHAUST-02",
+            "EXT-EXHAUST-03",
+            "EXT-EXHAUST-04"
+          ]
+        },
+        {
+          "name": "Rotor dan bantalan",
+          "status": "missing",
+          "mesh_ids": []
+        },
+        {
+          "name": "Passage jaket manifold",
+          "status": "unverified",
+          "mesh_ids": []
+        }
+      ],
+      "recipe_mesh_ids": [
+        "EXT-EXHAUST-01",
+        "EXT-EXHAUST-02",
+        "EXT-EXHAUST-03",
+        "EXT-EXHAUST-04",
+        "EXT-EXHAUST-05"
+      ]
+    },
+    "RAK-COOLING": {
+      "status": "PARTIAL",
+      "specialist": "Heat exchanger, pompa air & termostat",
+      "summary": "Yang terlihat adalah tangki/cooler depan, dua pompa, termostat dalam rumah rail dan selang.",
+      "open": "Core heat exchanger, impeller kedua pompa, seal dan elemen termostat belum memiliki node tersendiri.",
+      "source_refs": [
+        "D05-MIRROR · katalog 0CG10-M34300 April 2014 · fig. 54–55, 57–58 (kolom A 6AYM-WET; pilihan dan serial harus dicocokkan)",
+        "D01 · service manual 0B6AY-EN0010 · halaman PDF 163–168"
+      ],
+      "expected": [
+        {
+          "name": "Unit pendinginan eksternal",
+          "status": "modeled",
+          "mesh_ids": [
+            "EXT-COOLING-01",
+            "EXT-COOLING-03",
+            "EXT-COOLING-04",
+            "EXT-COOLING-07"
+          ]
+        },
+        {
+          "name": "Core coolant heat exchanger",
+          "status": "missing",
+          "mesh_ids": []
+        },
+        {
+          "name": "Dua tipe impeller",
+          "status": "missing",
+          "mesh_ids": []
+        },
+        {
+          "name": "Elemen termostat",
+          "status": "missing",
+          "mesh_ids": []
+        }
+      ],
+      "recipe_mesh_ids": [
+        "EXT-COOLING-01",
+        "EXT-COOLING-02",
+        "EXT-COOLING-03",
+        "EXT-COOLING-04",
+        "EXT-COOLING-05",
+        "EXT-COOLING-06",
+        "EXT-COOLING-07"
+      ]
+    },
+    "RAK-FUEL": {
+      "status": "PARTIAL",
+      "specialist": "Pompa injeksi, governor & filter bahan bakar",
+      "summary": "Pada r02 fitting, pipa tekanan tinggi, kepala filter, canister, pelat dan linkage luar tersedia.",
+      "open": "Mekanisme plunger/cam, governor di balik housing, mekanisme feed pump, dan elemen cartridge filter belum tersedia pada r02.",
+      "source_refs": [
+        "D05-MIRROR · katalog 0CG10-M34300 April 2014 · fig. 74–79, 82–83, 88 (kolom A 6AYM-WET; pilihan dan serial harus dicocokkan)",
+        "D01 · service manual 0B6AY-EN0010 · halaman PDF 114–115, 145, 150, 155"
+      ],
+      "expected": [
+        {
+          "name": "Fitting dan pipa delivery",
+          "status": "modeled",
+          "mesh_ids": [
+            "EXT-FUEL-13",
+            "EXT-FUEL-03"
+          ]
+        },
+        {
+          "name": "Cam dan plunger pompa",
+          "status": "missing",
+          "mesh_ids": []
+        },
+        {
+          "name": "Pemberat governor",
+          "status": "missing",
+          "mesh_ids": []
+        },
+        {
+          "name": "Elemen filter",
+          "status": "missing",
+          "mesh_ids": []
+        }
+      ],
+      "recipe_mesh_ids": [
+        "EXT-FUEL-01",
+        "EXT-FUEL-02",
+        "EXT-FUEL-03",
+        "EXT-FUEL-04",
+        "EXT-FUEL-05",
+        "EXT-FUEL-06",
+        "EXT-FUEL-07",
+        "EXT-FUEL-08",
+        "EXT-FUEL-09",
+        "EXT-FUEL-10",
+        "EXT-FUEL-11",
+        "EXT-FUEL-12",
+        "EXT-FUEL-13",
+        "EXT-FUEL-14",
+        "EXT-FUEL-15",
+        "EXT-FUEL-16",
+        "EXT-FUEL-17",
+        "EXT-FUEL-18",
+        "EXT-FUEL-19",
+        "EXT-FUEL-20"
+      ]
+    },
+    "RAK-LUBE": {
+      "status": "PARTIAL",
+      "specialist": "Oil cooler & filtrasi oli",
+      "summary": "Rumah cooler, dua canister dan filter bypass terlihat; pompa oli terpisah di INT-OILPUMP.",
+      "open": "Core oil cooler, elemen filter, bagian putar bypass dan katup tekanan belum tersedia sebagai objek tersendiri.",
+      "source_refs": [
+        "D05-MIRROR · katalog 0CG10-M34300 April 2014 · fig. 41–43, 45–47 (kolom A 6AYM-WET; pilihan dan serial harus dicocokkan)",
+        "D01 · service manual 0B6AY-EN0010 · halaman PDF 157–162"
+      ],
+      "expected": [
+        {
+          "name": "Rumah dan filter eksternal",
+          "status": "modeled",
+          "mesh_ids": [
+            "EXT-LUBE-05",
+            "EXT-LUBE-02",
+            "EXT-LUBE-04"
+          ]
+        },
+        {
+          "name": "Core assy oil cooler",
+          "status": "missing",
+          "mesh_ids": []
+        },
+        {
+          "name": "Spindle/rotor bypass",
+          "status": "missing",
+          "mesh_ids": []
+        },
+        {
+          "name": "Katup kontrol tekanan",
+          "status": "missing",
+          "mesh_ids": []
+        }
+      ],
+      "recipe_mesh_ids": [
+        "EXT-LUBE-01",
+        "EXT-LUBE-02",
+        "EXT-LUBE-03",
+        "EXT-LUBE-04",
+        "EXT-LUBE-05"
+      ]
+    },
+    "INT-CRANK": {
+      "status": "PARTIAL",
+      "specialist": "Crankshaft & flywheel",
+      "summary": "Journal, crankpin, cheek serta counterweight tersedia.",
+      "open": "Bentuk drilling internal, sumbat, fase fisik dan material tiap revisi belum terverifikasi.",
+      "source_refs": [
+        "D05-MIRROR · katalog 0CG10-M34300 April 2014 · fig. 38 (kolom A 6AYM-WET; pilihan dan serial harus dicocokkan)",
+        "D05 fig.38 · HTML BOM dan gambar crankshaft",
+        "D01 · service manual 0B6AY-EN0010 · halaman PDF 104–106"
+      ],
+      "expected": [
+        {
+          "name": "Journal dan nose",
+          "status": "modeled",
+          "mesh_ids": [
+            "INT-CRANK-01",
+            "INT-CRANK-09"
+          ]
+        },
+        {
+          "name": "Drilling internal",
+          "status": "unverified",
+          "mesh_ids": []
+        }
+      ],
+      "recipe_mesh_ids": [
+        "INT-CRANK-01",
+        "INT-CRANK-02",
+        "INT-CRANK-03",
+        "INT-CRANK-04",
+        "INT-CRANK-05",
+        "INT-CRANK-06",
+        "INT-CRANK-07",
+        "INT-CRANK-08",
+        "INT-CRANK-09",
+        "INT-CRANK-10",
+        "INT-CRANK-20",
+        "INT-CRANK-21",
+        "INT-CRANK-22",
+        "INT-CRANK-23",
+        "INT-CRANK-30",
+        "INT-CRANK-31",
+        "INT-CRANK-32",
+        "INT-CRANK-34",
+        "INT-CRANK-40",
+        "INT-CRANK-41",
+        "INT-CRANK-42",
+        "INT-CRANK-50",
+        "INT-CRANK-51",
+        "INT-CRANK-52",
+        "INT-CRANK-60",
+        "INT-CRANK-61",
+        "INT-CRANK-62",
+        "INT-CRANK-63",
+        "INT-CRANK-70",
+        "INT-CRANK-71",
+        "INT-CRANK-72",
+        "INT-CRANK-74"
+      ]
+    },
+    "INT-MAIN": {
+      "status": "PARTIAL",
+      "specialist": "Blok & bantalan utama",
+      "summary": "Belahan main bearing, cap dan bolt direpresentasikan per journal.",
+      "open": "Thrust bearing dan rincian lubang/alur oli belum dipetakan ke unit dan posisi katalog.",
+      "source_refs": [
+        "D05-MIRROR · katalog 0CG10-M34300 April 2014 · fig. 1 (kolom A 6AYM-WET; pilihan dan serial harus dicocokkan)",
+        "D01 · service manual 0B6AY-EN0010 · halaman PDF 104–106"
+      ],
+      "expected": [
+        {
+          "name": "Belahan bearing dan cap",
+          "status": "modeled",
+          "mesh_ids": [
+            "INT-MAIN-11",
+            "INT-MAIN-12",
+            "INT-MAIN-13"
+          ]
+        },
+        {
+          "name": "Thrust bearing",
+          "status": "unverified",
+          "mesh_ids": []
+        }
+      ],
+      "recipe_mesh_ids": [
+        "INT-MAIN-11",
+        "INT-MAIN-12",
+        "INT-MAIN-13",
+        "INT-MAIN-14",
+        "INT-MAIN-15",
+        "INT-MAIN-21",
+        "INT-MAIN-22",
+        "INT-MAIN-23",
+        "INT-MAIN-24",
+        "INT-MAIN-25",
+        "INT-MAIN-31",
+        "INT-MAIN-32",
+        "INT-MAIN-33",
+        "INT-MAIN-34",
+        "INT-MAIN-35",
+        "INT-MAIN-41",
+        "INT-MAIN-42",
+        "INT-MAIN-43",
+        "INT-MAIN-44",
+        "INT-MAIN-45",
+        "INT-MAIN-51",
+        "INT-MAIN-52",
+        "INT-MAIN-53",
+        "INT-MAIN-54",
+        "INT-MAIN-55",
+        "INT-MAIN-61",
+        "INT-MAIN-62",
+        "INT-MAIN-63",
+        "INT-MAIN-64",
+        "INT-MAIN-65",
+        "INT-MAIN-71",
+        "INT-MAIN-72",
+        "INT-MAIN-73",
+        "INT-MAIN-74",
+        "INT-MAIN-75"
+      ]
+    },
+    "INT-PISTON": {
+      "status": "PARTIAL",
+      "specialist": "Piston, ring & liner",
+      "summary": "Bowl, skirt, pin, ring dan circlip tersedia sebagai geometri pembelajaran.",
+      "open": "Jalur semprotan pendingin internal dan geometri OEM di balik crown belum terverifikasi.",
+      "source_refs": [
+        "D05-MIRROR · katalog 0CG10-M34300 April 2014 · fig. 39 (kolom A 6AYM-WET; pilihan dan serial harus dicocokkan)",
+        "D05 fig.39 · HTML BOM dan gambar piston/rod",
+        "D01 · service manual 0B6AY-EN0010 · halaman PDF 96–99, 162"
+      ],
+      "expected": [
+        {
+          "name": "Piston, pin, ring",
+          "status": "modeled",
+          "mesh_ids": [
+            "INT-PISTON-11",
+            "INT-PISTON-12",
+            "INT-PISTON-13"
+          ]
+        },
+        {
+          "name": "Permukaan terselubung crown",
+          "status": "unverified",
+          "mesh_ids": []
+        }
+      ],
+      "recipe_mesh_ids": [
+        "INT-PISTON-11",
+        "INT-PISTON-12",
+        "INT-PISTON-13",
+        "INT-PISTON-14",
+        "INT-PISTON-15",
+        "INT-PISTON-16",
+        "INT-PISTON-17",
+        "INT-PISTON-18",
+        "INT-PISTON-19",
+        "INT-PISTON-20",
+        "INT-PISTON-21",
+        "INT-PISTON-22",
+        "INT-PISTON-23",
+        "INT-PISTON-24",
+        "INT-PISTON-25",
+        "INT-PISTON-26",
+        "INT-PISTON-27",
+        "INT-PISTON-28",
+        "INT-PISTON-29",
+        "INT-PISTON-30",
+        "INT-PISTON-31",
+        "INT-PISTON-32",
+        "INT-PISTON-33",
+        "INT-PISTON-34",
+        "INT-PISTON-35",
+        "INT-PISTON-36",
+        "INT-PISTON-37",
+        "INT-PISTON-38",
+        "INT-PISTON-39",
+        "INT-PISTON-40",
+        "INT-PISTON-41",
+        "INT-PISTON-42",
+        "INT-PISTON-43",
+        "INT-PISTON-44",
+        "INT-PISTON-45",
+        "INT-PISTON-46",
+        "INT-PISTON-47",
+        "INT-PISTON-48",
+        "INT-PISTON-49",
+        "INT-PISTON-50",
+        "INT-PISTON-51",
+        "INT-PISTON-52",
+        "INT-PISTON-53",
+        "INT-PISTON-54",
+        "INT-PISTON-55",
+        "INT-PISTON-56",
+        "INT-PISTON-57",
+        "INT-PISTON-58",
+        "INT-PISTON-59",
+        "INT-PISTON-60",
+        "INT-PISTON-61",
+        "INT-PISTON-62",
+        "INT-PISTON-63",
+        "INT-PISTON-64",
+        "INT-PISTON-65",
+        "INT-PISTON-66",
+        "INT-PISTON-67",
+        "INT-PISTON-68",
+        "INT-PISTON-69",
+        "INT-PISTON-70"
+      ]
+    },
+    "INT-ROD": {
+      "status": "PARTIAL",
+      "specialist": "Connecting rod & bantalan",
+      "summary": "Big-end cap, shells, pin bush dan pengikat dapat dikenali.",
+      "open": "Jalur oli dan profil penampang serta panjang pusat-ke-pusat per serial belum terverifikasi.",
+      "source_refs": [
+        "D05-MIRROR · katalog 0CG10-M34300 April 2014 · fig. 39 (kolom A 6AYM-WET; pilihan dan serial harus dicocokkan)",
+        "D05 fig.39 · HTML BOM dan gambar piston/rod",
+        "D01 · service manual 0B6AY-EN0010 · halaman PDF 100–103"
+      ],
+      "expected": [
+        {
+          "name": "Cap, shell dan bush",
+          "status": "modeled",
+          "mesh_ids": [
+            "INT-ROD-12",
+            "INT-ROD-13",
+            "INT-ROD-16"
+          ]
+        },
+        {
+          "name": "Drilling/penampang rod",
+          "status": "unverified",
+          "mesh_ids": []
+        }
+      ],
+      "recipe_mesh_ids": [
+        "INT-ROD-100",
+        "INT-ROD-101",
+        "INT-ROD-11",
+        "INT-ROD-110",
+        "INT-ROD-111",
+        "INT-ROD-12",
+        "INT-ROD-120",
+        "INT-ROD-121",
+        "INT-ROD-13",
+        "INT-ROD-130",
+        "INT-ROD-131",
+        "INT-ROD-14",
+        "INT-ROD-140",
+        "INT-ROD-141",
+        "INT-ROD-15",
+        "INT-ROD-150",
+        "INT-ROD-151",
+        "INT-ROD-16",
+        "INT-ROD-160",
+        "INT-ROD-161",
+        "INT-ROD-17",
+        "INT-ROD-170",
+        "INT-ROD-171",
+        "INT-ROD-18",
+        "INT-ROD-180",
+        "INT-ROD-181",
+        "INT-ROD-19",
+        "INT-ROD-190",
+        "INT-ROD-191",
+        "INT-ROD-200",
+        "INT-ROD-201",
+        "INT-ROD-21",
+        "INT-ROD-210",
+        "INT-ROD-211",
+        "INT-ROD-22",
+        "INT-ROD-23",
+        "INT-ROD-24",
+        "INT-ROD-240",
+        "INT-ROD-241",
+        "INT-ROD-25",
+        "INT-ROD-250",
+        "INT-ROD-251",
+        "INT-ROD-26",
+        "INT-ROD-260",
+        "INT-ROD-261",
+        "INT-ROD-27",
+        "INT-ROD-270",
+        "INT-ROD-271",
+        "INT-ROD-28",
+        "INT-ROD-280",
+        "INT-ROD-281",
+        "INT-ROD-29",
+        "INT-ROD-290",
+        "INT-ROD-291",
+        "INT-ROD-31",
+        "INT-ROD-32",
+        "INT-ROD-33",
+        "INT-ROD-34",
+        "INT-ROD-35",
+        "INT-ROD-36",
+        "INT-ROD-37",
+        "INT-ROD-38",
+        "INT-ROD-39",
+        "INT-ROD-41",
+        "INT-ROD-42",
+        "INT-ROD-43",
+        "INT-ROD-44",
+        "INT-ROD-45",
+        "INT-ROD-46",
+        "INT-ROD-47",
+        "INT-ROD-48",
+        "INT-ROD-49",
+        "INT-ROD-51",
+        "INT-ROD-52",
+        "INT-ROD-53",
+        "INT-ROD-54",
+        "INT-ROD-55",
+        "INT-ROD-56",
+        "INT-ROD-57",
+        "INT-ROD-58",
+        "INT-ROD-59",
+        "INT-ROD-61",
+        "INT-ROD-62",
+        "INT-ROD-63",
+        "INT-ROD-64",
+        "INT-ROD-65",
+        "INT-ROD-66",
+        "INT-ROD-67",
+        "INT-ROD-68",
+        "INT-ROD-69"
+      ]
+    },
+    "INT-LINER": {
+      "status": "PARTIAL",
+      "specialist": "Liner & seal",
+      "summary": "Enam liner basah dengan flange dan tiga ring model per silinder.",
+      "open": "Identitas material, penampang dan letak setiap packing/gasket OEM belum direkonsiliasi dengan seal model.",
+      "source_refs": [
+        "D05-MIRROR · katalog 0CG10-M34300 April 2014 · fig. 2 (kolom A 6AYM-WET; pilihan dan serial harus dicocokkan)",
+        "D01 · service manual 0B6AY-EN0010 · halaman PDF 63"
+      ],
+      "expected": [
+        {
+          "name": "Liner dan seal",
+          "status": "partial",
+          "mesh_ids": [
+            "INT-LINER-11",
+            "INT-LINER-12",
+            "INT-LINER-13",
+            "INT-LINER-14"
+          ]
+        }
+      ],
+      "recipe_mesh_ids": [
+        "INT-LINER-11",
+        "INT-LINER-12",
+        "INT-LINER-13",
+        "INT-LINER-14",
+        "INT-LINER-21",
+        "INT-LINER-22",
+        "INT-LINER-23",
+        "INT-LINER-24",
+        "INT-LINER-31",
+        "INT-LINER-32",
+        "INT-LINER-33",
+        "INT-LINER-34",
+        "INT-LINER-41",
+        "INT-LINER-42",
+        "INT-LINER-43",
+        "INT-LINER-44",
+        "INT-LINER-51",
+        "INT-LINER-52",
+        "INT-LINER-53",
+        "INT-LINER-54",
+        "INT-LINER-61",
+        "INT-LINER-62",
+        "INT-LINER-63",
+        "INT-LINER-64"
+      ]
+    },
+    "INT-CAM": {
+      "status": "PARTIAL",
+      "specialist": "Cam & pengikut",
+      "summary": "Camshaft, follower, tappet dan push rod direpresentasikan.",
+      "open": "Bearing camshaft terpisah dan kurva lift serta timing OEM tidak terbukti.",
+      "source_refs": [
+        "D05-MIRROR · katalog 0CG10-M34300 April 2014 · fig. 15, 28, 30 (kolom A 6AYM-WET; pilihan dan serial harus dicocokkan)",
+        "D01 · service manual 0B6AY-EN0010 · halaman PDF 111–113"
+      ],
+      "expected": [
+        {
+          "name": "Tappet dan push rod",
+          "status": "modeled",
+          "mesh_ids": [
+            "INT-CAM-16",
+            "INT-CAM-18"
+          ]
+        },
+        {
+          "name": "Bearing camshaft terpisah",
+          "status": "missing",
+          "mesh_ids": []
+        },
+        {
+          "name": "Profil lift OEM",
+          "status": "unverified",
+          "mesh_ids": []
+        }
+      ],
+      "recipe_mesh_ids": [
+        "INT-CAM-01",
+        "INT-CAM-02",
+        "INT-CAM-03",
+        "INT-CAM-04",
+        "INT-CAM-05",
+        "INT-CAM-06",
+        "INT-CAM-07",
+        "INT-CAM-08",
+        "INT-CAM-12",
+        "INT-CAM-13",
+        "INT-CAM-14",
+        "INT-CAM-15",
+        "INT-CAM-16",
+        "INT-CAM-17",
+        "INT-CAM-18",
+        "INT-CAM-19",
+        "INT-CAM-22",
+        "INT-CAM-23",
+        "INT-CAM-24",
+        "INT-CAM-25",
+        "INT-CAM-26",
+        "INT-CAM-27",
+        "INT-CAM-28",
+        "INT-CAM-29",
+        "INT-CAM-32",
+        "INT-CAM-33",
+        "INT-CAM-34",
+        "INT-CAM-35",
+        "INT-CAM-36",
+        "INT-CAM-37",
+        "INT-CAM-38",
+        "INT-CAM-39",
+        "INT-CAM-42",
+        "INT-CAM-43",
+        "INT-CAM-44",
+        "INT-CAM-45",
+        "INT-CAM-46",
+        "INT-CAM-47",
+        "INT-CAM-48",
+        "INT-CAM-49",
+        "INT-CAM-52",
+        "INT-CAM-53",
+        "INT-CAM-54",
+        "INT-CAM-55",
+        "INT-CAM-56",
+        "INT-CAM-57",
+        "INT-CAM-58",
+        "INT-CAM-59",
+        "INT-CAM-62",
+        "INT-CAM-63",
+        "INT-CAM-64",
+        "INT-CAM-65",
+        "INT-CAM-66",
+        "INT-CAM-67",
+        "INT-CAM-68",
+        "INT-CAM-69"
+      ]
+    },
+    "INT-VALVE": {
+      "status": "PARTIAL",
+      "specialist": "Cylinder head & valvetrain",
+      "summary": "Rocker, guide, bridge, pegas dan katup tiap silinder tersedia.",
+      "open": "Pengunci retainer dan seluruh pasak/plug belum direkonsiliasi dengan BOM. Timing dan clearance OEM belum diketahui.",
+      "source_refs": [
+        "D05-MIRROR · katalog 0CG10-M34300 April 2014 · fig. 22–24, 30 (kolom A 6AYM-WET; pilihan dan serial harus dicocokkan)",
+        "D01 · service manual 0B6AY-EN0010 · halaman PDF 90–94"
+      ],
+      "expected": [
+        {
+          "name": "Rocker, bridge dan katup",
+          "status": "modeled",
+          "mesh_ids": [
+            "INT-VALVE-103",
+            "INT-VALVE-105",
+            "INT-VALVE-130"
+          ]
+        },
+        {
+          "name": "Rincian pengunci/plug",
+          "status": "unverified",
+          "mesh_ids": []
+        }
+      ],
+      "recipe_mesh_ids": [
+        "INT-VALVE-101",
+        "INT-VALVE-102",
+        "INT-VALVE-103",
+        "INT-VALVE-104",
+        "INT-VALVE-105",
+        "INT-VALVE-112",
+        "INT-VALVE-113",
+        "INT-VALVE-114",
+        "INT-VALVE-115",
+        "INT-VALVE-130",
+        "INT-VALVE-131",
+        "INT-VALVE-132",
+        "INT-VALVE-133",
+        "INT-VALVE-134",
+        "INT-VALVE-137",
+        "INT-VALVE-138",
+        "INT-VALVE-139",
+        "INT-VALVE-140",
+        "INT-VALVE-141",
+        "INT-VALVE-150",
+        "INT-VALVE-151",
+        "INT-VALVE-152",
+        "INT-VALVE-153",
+        "INT-VALVE-154",
+        "INT-VALVE-157",
+        "INT-VALVE-158",
+        "INT-VALVE-159",
+        "INT-VALVE-160",
+        "INT-VALVE-161",
+        "INT-VALVE-201",
+        "INT-VALVE-202",
+        "INT-VALVE-203",
+        "INT-VALVE-204",
+        "INT-VALVE-205",
+        "INT-VALVE-212",
+        "INT-VALVE-213",
+        "INT-VALVE-214",
+        "INT-VALVE-215",
+        "INT-VALVE-230",
+        "INT-VALVE-231",
+        "INT-VALVE-232",
+        "INT-VALVE-233",
+        "INT-VALVE-234",
+        "INT-VALVE-237",
+        "INT-VALVE-238",
+        "INT-VALVE-239",
+        "INT-VALVE-240",
+        "INT-VALVE-241",
+        "INT-VALVE-250",
+        "INT-VALVE-251",
+        "INT-VALVE-252",
+        "INT-VALVE-253",
+        "INT-VALVE-254",
+        "INT-VALVE-257",
+        "INT-VALVE-258",
+        "INT-VALVE-259",
+        "INT-VALVE-260",
+        "INT-VALVE-261",
+        "INT-VALVE-301",
+        "INT-VALVE-302",
+        "INT-VALVE-303",
+        "INT-VALVE-304",
+        "INT-VALVE-305",
+        "INT-VALVE-312",
+        "INT-VALVE-313",
+        "INT-VALVE-314",
+        "INT-VALVE-315",
+        "INT-VALVE-330",
+        "INT-VALVE-331",
+        "INT-VALVE-332",
+        "INT-VALVE-333",
+        "INT-VALVE-334",
+        "INT-VALVE-337",
+        "INT-VALVE-338",
+        "INT-VALVE-339",
+        "INT-VALVE-340",
+        "INT-VALVE-341",
+        "INT-VALVE-350",
+        "INT-VALVE-351",
+        "INT-VALVE-352",
+        "INT-VALVE-353",
+        "INT-VALVE-354",
+        "INT-VALVE-357",
+        "INT-VALVE-358",
+        "INT-VALVE-359",
+        "INT-VALVE-360",
+        "INT-VALVE-361",
+        "INT-VALVE-401",
+        "INT-VALVE-402",
+        "INT-VALVE-403",
+        "INT-VALVE-404",
+        "INT-VALVE-405",
+        "INT-VALVE-412",
+        "INT-VALVE-413",
+        "INT-VALVE-414",
+        "INT-VALVE-415",
+        "INT-VALVE-430",
+        "INT-VALVE-431",
+        "INT-VALVE-432",
+        "INT-VALVE-433",
+        "INT-VALVE-434",
+        "INT-VALVE-437",
+        "INT-VALVE-438",
+        "INT-VALVE-439",
+        "INT-VALVE-440",
+        "INT-VALVE-441",
+        "INT-VALVE-450",
+        "INT-VALVE-451",
+        "INT-VALVE-452",
+        "INT-VALVE-453",
+        "INT-VALVE-454",
+        "INT-VALVE-457",
+        "INT-VALVE-458",
+        "INT-VALVE-459",
+        "INT-VALVE-460",
+        "INT-VALVE-461",
+        "INT-VALVE-501",
+        "INT-VALVE-502",
+        "INT-VALVE-503",
+        "INT-VALVE-504",
+        "INT-VALVE-505",
+        "INT-VALVE-512",
+        "INT-VALVE-513",
+        "INT-VALVE-514",
+        "INT-VALVE-515",
+        "INT-VALVE-530",
+        "INT-VALVE-531",
+        "INT-VALVE-532",
+        "INT-VALVE-533",
+        "INT-VALVE-534",
+        "INT-VALVE-537",
+        "INT-VALVE-538",
+        "INT-VALVE-539",
+        "INT-VALVE-540",
+        "INT-VALVE-541",
+        "INT-VALVE-550",
+        "INT-VALVE-551",
+        "INT-VALVE-552",
+        "INT-VALVE-553",
+        "INT-VALVE-554",
+        "INT-VALVE-557",
+        "INT-VALVE-558",
+        "INT-VALVE-559",
+        "INT-VALVE-560",
+        "INT-VALVE-561",
+        "INT-VALVE-601",
+        "INT-VALVE-602",
+        "INT-VALVE-603",
+        "INT-VALVE-604",
+        "INT-VALVE-605",
+        "INT-VALVE-612",
+        "INT-VALVE-613",
+        "INT-VALVE-614",
+        "INT-VALVE-615",
+        "INT-VALVE-630",
+        "INT-VALVE-631",
+        "INT-VALVE-632",
+        "INT-VALVE-633",
+        "INT-VALVE-634",
+        "INT-VALVE-637",
+        "INT-VALVE-638",
+        "INT-VALVE-639",
+        "INT-VALVE-640",
+        "INT-VALVE-641",
+        "INT-VALVE-650",
+        "INT-VALVE-651",
+        "INT-VALVE-652",
+        "INT-VALVE-653",
+        "INT-VALVE-654",
+        "INT-VALVE-657",
+        "INT-VALVE-658",
+        "INT-VALVE-659",
+        "INT-VALVE-660",
+        "INT-VALVE-661"
+      ]
+    },
+    "INT-FUELINJ": {
+      "status": "PARTIAL",
+      "specialist": "Nozel & injector",
+      "summary": "Enam nozzle/holder dan enam union tersedia sebagai unit luar.",
+      "open": "Pegas, holder pegas, nozzle needle dan shim/adjuster belum dipisah.",
+      "source_refs": [
+        "D05-MIRROR · katalog 0CG10-M34300 April 2014 · fig. 79 (kolom A 6AYM-WET; pilihan dan serial harus dicocokkan)",
+        "D01 · service manual 0B6AY-EN0010 · halaman PDF 150–152"
+      ],
+      "expected": [
+        {
+          "name": "Holder dan union",
+          "status": "modeled",
+          "mesh_ids": [
+            "INT-FUELINJ-11",
+            "INT-FUELINJ-12"
+          ]
+        },
+        {
+          "name": "Mekanisme pegas dan nozzle",
+          "status": "missing",
+          "mesh_ids": []
+        }
+      ],
+      "recipe_mesh_ids": [
+        "INT-FUELINJ-11",
+        "INT-FUELINJ-12",
+        "INT-FUELINJ-21",
+        "INT-FUELINJ-22",
+        "INT-FUELINJ-31",
+        "INT-FUELINJ-32",
+        "INT-FUELINJ-41",
+        "INT-FUELINJ-42",
+        "INT-FUELINJ-51",
+        "INT-FUELINJ-52",
+        "INT-FUELINJ-61",
+        "INT-FUELINJ-62"
+      ]
+    },
+    "INT-TIMING": {
+      "status": "PARTIAL",
+      "specialist": "Gear train & idler",
+      "summary": "Gear penggerak, idler dan hub direpresentasikan.",
+      "open": "Konstruksi bush, bracket dan retainers belum direkonsiliasi. Profil gigi, rasio aksesori serta timing fisik belum terverifikasi.",
+      "source_refs": [
+        "D05-MIRROR · katalog 0CG10-M34300 April 2014 · fig. 4, 28–29, 38, 80 (kolom A 6AYM-WET; pilihan dan serial harus dicocokkan)",
+        "D01 · service manual 0B6AY-EN0010 · halaman PDF 111–113"
+      ],
+      "expected": [
+        {
+          "name": "Gear dan hub idler",
+          "status": "modeled",
+          "mesh_ids": [
+            "INT-TIMING-02",
+            "INT-TIMING-11"
+          ]
+        },
+        {
+          "name": "Bush dan bracket idler",
+          "status": "unverified",
+          "mesh_ids": []
+        }
+      ],
+      "recipe_mesh_ids": [
+        "INT-TIMING-01",
+        "INT-TIMING-02",
+        "INT-TIMING-03",
+        "INT-TIMING-04",
+        "INT-TIMING-05",
+        "INT-TIMING-06",
+        "INT-TIMING-07",
+        "INT-TIMING-08",
+        "INT-TIMING-09",
+        "INT-TIMING-10",
+        "INT-TIMING-11",
+        "INT-TIMING-12"
+      ]
+    },
+    "INT-OILPUMP": {
+      "status": "PARTIAL",
+      "specialist": "Pompa oli & strainer",
+      "summary": "Poros, bodi, sepasang rotor, cover dan pickup direpresentasikan.",
+      "open": "Katup pengaman, pegas dan retainer belum dimodelkan; profil rotor dan kehalusan screen masih perkiraan.",
+      "source_refs": [
+        "D05-MIRROR · katalog 0CG10-M34300 April 2014 · fig. 41, 43 (kolom A 6AYM-WET; pilihan dan serial harus dicocokkan)",
+        "D01 · service manual 0B6AY-EN0010 · halaman PDF 157–158"
+      ],
+      "expected": [
+        {
+          "name": "Poros, rotor, pickup",
+          "status": "modeled",
+          "mesh_ids": [
+            "INT-OILPUMP-01",
+            "INT-OILPUMP-03",
+            "INT-OILPUMP-10"
+          ]
+        },
+        {
+          "name": "Safety valve + spring",
+          "status": "missing",
+          "mesh_ids": []
+        }
+      ],
+      "recipe_mesh_ids": [
+        "INT-OILPUMP-01",
+        "INT-OILPUMP-02",
+        "INT-OILPUMP-03",
+        "INT-OILPUMP-04",
+        "INT-OILPUMP-05",
+        "INT-OILPUMP-06",
+        "INT-OILPUMP-07",
+        "INT-OILPUMP-08",
+        "INT-OILPUMP-09",
+        "INT-OILPUMP-10",
+        "INT-OILPUMP-11"
+      ]
+    }
+  },
+  "by_object": {
+    "EXT-INTAKE-02": {
+      "status": "PARTIAL",
+      "specialist": "Pendingin udara pengisian",
+      "summary": "R02 menampilkan rumah, tutup dan baut sebagai satu mesh luar.",
+      "open": "Inti pendingin udara serta seal belum ada sebagai geometri r02.",
+      "source_refs": [
+        "D05-MIRROR · katalog 0CG10-M34300 April 2014 · fig. 37 (kolom A 6AYM-WET; pilihan dan serial harus dicocokkan)"
+      ]
+    },
+    "EXT-COOLING-01": {
+      "status": "PARTIAL",
+      "specialist": "Heat exchanger air tawar",
+      "summary": "Tangki/rumah pendingin dan kedua tutup merupakan satu mesh luar.",
+      "open": "Core cooler, seal dan gasket tutup belum ditampilkan sebagai bagian terpilih.",
+      "source_refs": [
+        "D05-MIRROR · katalog 0CG10-M34300 April 2014 · fig. 57 (kolom A 6AYM-WET; pilihan dan serial harus dicocokkan)"
+      ]
+    },
+    "EXT-COOLING-03": {
+      "status": "PARTIAL",
+      "specialist": "Pompa air tawar",
+      "summary": "Tersedia rumah pompa dengan cover dan port.",
+      "open": "Impeller sentrifugal, shaft, bantalan dan mechanical seal belum tersedia.",
+      "source_refs": [
+        "D05-MIRROR · katalog 0CG10-M34300 April 2014 · fig. 54 (kolom A 6AYM-WET; pilihan dan serial harus dicocokkan)"
+      ]
+    },
+    "EXT-COOLING-04": {
+      "status": "PARTIAL",
+      "specialist": "Pompa air laut",
+      "summary": "Tersedia rumah pompa dengan cover dan port.",
+      "open": "Impeller karet, shaft dan mechanical seal belum tersedia.",
+      "source_refs": [
+        "D05-MIRROR · katalog 0CG10-M34300 April 2014 · fig. 55 (kolom A 6AYM-WET; pilihan dan serial harus dicocokkan)"
+      ]
+    },
+    "EXT-COOLING-07": {
+      "status": "PARTIAL",
+      "specialist": "Termostat",
+      "summary": "Tersedia rumah termostat dan sambungan water rail.",
+      "open": "Elemen termostat dan gasket belum dapat dilepas. Rating cartridge unit ini belum dikunci.",
+      "source_refs": [
+        "D05-MIRROR · katalog 0CG10-M34300 April 2014 · fig. 58 (kolom A 6AYM-WET; pilihan dan serial harus dicocokkan)"
+      ]
+    },
+    "EXT-LUBE-02": {
+      "status": "PARTIAL",
+      "specialist": "Filtrasi oli",
+      "summary": "Canister filter oli dimodelkan sebagai bentuk luar.",
+      "open": "Elemen penyaring belum tersedia sebagai bagian dalam terpilih.",
+      "source_refs": [
+        "D05-MIRROR · katalog 0CG10-M34300 April 2014 · fig. 45–46 (kolom A 6AYM-WET; pilihan dan serial harus dicocokkan)"
+      ]
+    },
+    "EXT-LUBE-03": {
+      "status": "PARTIAL",
+      "specialist": "Filtrasi oli",
+      "summary": "Canister filter oli dimodelkan sebagai bentuk luar.",
+      "open": "Elemen penyaring belum tersedia sebagai bagian dalam terpilih.",
+      "source_refs": [
+        "D05-MIRROR · katalog 0CG10-M34300 April 2014 · fig. 45–46 (kolom A 6AYM-WET; pilihan dan serial harus dicocokkan)"
+      ]
+    },
+    "EXT-LUBE-04": {
+      "status": "PARTIAL",
+      "specialist": "Filtrasi oli sentrifugal",
+      "summary": "Tersedia bentuk luar rumah filter bypass.",
+      "open": "Spindle serta komponen putar filter belum dapat dilepas.",
+      "source_refs": [
+        "D05-MIRROR · katalog 0CG10-M34300 April 2014 · fig. 47 (kolom A 6AYM-WET; pilihan dan serial harus dicocokkan)"
+      ]
+    },
+    "EXT-LUBE-05": {
+      "status": "PARTIAL",
+      "specialist": "Oil cooler",
+      "summary": "Tersedia bentuk luar rumah cooler oli.",
+      "open": "Core assy dan O-ring belum dapat ditampilkan.",
+      "source_refs": [
+        "D05-MIRROR · katalog 0CG10-M34300 April 2014 · fig. 42 (kolom A 6AYM-WET; pilihan dan serial harus dicocokkan)"
+      ]
+    },
+    "EXT-EXHAUST-02": {
+      "status": "PARTIAL",
+      "specialist": "Turbocharger",
+      "summary": "Volute sisi turbin terlihat.",
+      "open": "Rotor, shaft serta bantalan turbo belum tersedia sebagai objek terpisah.",
+      "source_refs": [
+        "D05-MIRROR · katalog 0CG10-M34300 April 2014 · fig. 31–32 (kolom A 6AYM-WET; pilihan dan serial harus dicocokkan)"
+      ]
+    },
+    "EXT-EXHAUST-03": {
+      "status": "PARTIAL",
+      "specialist": "Turbocharger",
+      "summary": "Volute sisi kompresor dan cincin inlet terlihat.",
+      "open": "Compressor wheel belum tersedia sebagai objek terpisah.",
+      "source_refs": [
+        "D05-MIRROR · katalog 0CG10-M34300 April 2014 · fig. 31–32 (kolom A 6AYM-WET; pilihan dan serial harus dicocokkan)"
+      ]
+    },
+    "EXT-EXHAUST-04": {
+      "status": "PARTIAL",
+      "specialist": "Turbocharger",
+      "summary": "Rumah tengah dan sambungan pelumas dimodelkan.",
+      "open": "Bantalan dan spindle belum tersedia sebagai objek terpisah.",
+      "source_refs": [
+        "D05-MIRROR · katalog 0CG10-M34300 April 2014 · fig. 31–32 (kolom A 6AYM-WET; pilihan dan serial harus dicocokkan)"
+      ]
+    },
+    "EXT-FUEL-01": {
+      "status": "PARTIAL",
+      "specialist": "Injeksi bahan bakar",
+      "summary": "R02 menampilkan coran pompa, fitting, pelat dan pipa.",
+      "open": "Cam dan plunger pompa belum terwakili di dalam rumah r02.",
+      "source_refs": [
+        "D05-MIRROR · katalog 0CG10-M34300 April 2014 · fig. 74 (kolom A 6AYM-WET; pilihan dan serial harus dicocokkan)"
+      ]
+    },
+    "EXT-FUEL-02": {
+      "status": "PARTIAL",
+      "specialist": "Governor",
+      "summary": "Tuas governor dan pegas luar direpresentasikan.",
+      "open": "Pemberat dan mekanisme di dalam governor belum ditampilkan.",
+      "source_refs": [
+        "D05-MIRROR · katalog 0CG10-M34300 April 2014 · fig. 77 (kolom A 6AYM-WET; pilihan dan serial harus dicocokkan)"
+      ]
+    },
+    "EXT-FUEL-10": {
+      "status": "PARTIAL",
+      "specialist": "Filtrasi bahan bakar",
+      "summary": "Filter bahan bakar ditampilkan sebagai canister.",
+      "open": "Cartridge/elemen dan seal belum dapat dipilih.",
+      "source_refs": [
+        "D05-MIRROR · katalog 0CG10-M34300 April 2014 · fig. 82–83 (kolom A 6AYM-WET; pilihan dan serial harus dicocokkan)"
+      ]
+    },
+    "EXT-FUEL-11": {
+      "status": "PARTIAL",
+      "specialist": "Filtrasi bahan bakar",
+      "summary": "Filter bahan bakar ditampilkan sebagai canister.",
+      "open": "Cartridge/elemen dan seal belum dapat dipilih.",
+      "source_refs": [
+        "D05-MIRROR · katalog 0CG10-M34300 April 2014 · fig. 82–83 (kolom A 6AYM-WET; pilihan dan serial harus dicocokkan)"
+      ]
+    },
+    "EXT-FUEL-12": {
+      "status": "PARTIAL",
+      "specialist": "Pompa suplai bahan bakar",
+      "summary": "Pompa feed/priming dan selang tersedia pada permukaan mesin.",
+      "open": "Piston, pegas dan katup dalam feed pump belum dapat dilepas.",
+      "source_refs": [
+        "D05-MIRROR · katalog 0CG10-M34300 April 2014 · fig. 75 (kolom A 6AYM-WET; pilihan dan serial harus dicocokkan)"
+      ]
+    },
+    "EXT-ELECTRIC-01": {
+      "status": "PARTIAL",
+      "specialist": "Alternator",
+      "summary": "Rumah alternator dan pulley tergabung.",
+      "open": "Rotor, stator dan penyearah belum dipisah. Kapasitas terpasang belum terverifikasi.",
+      "source_refs": [
+        "D05-MIRROR · katalog 0CG10-M34300 April 2014 · fig. 107–109 (kolom A 6AYM-WET; pilihan dan serial harus dicocokkan)"
+      ]
+    },
+    "EXT-ELECTRIC-02": {
+      "status": "PARTIAL",
+      "specialist": "Starter",
+      "summary": "Tersedia starter dan solenoid dalam satu objek.",
+      "open": "Armature serta sikat belum terpisah. Varian starter unit harus dicocokkan sebelum memodelkan isinya.",
+      "source_refs": [
+        "D05-MIRROR · katalog 0CG10-M34300 April 2014 · fig. 105–106 (kolom A 6AYM-WET; pilihan dan serial harus dicocokkan)"
+      ]
+    },
+    "INT-FUELINJ-11": {
+      "status": "PARTIAL",
+      "specialist": "Nozel & injector",
+      "summary": "Holder dan nozzle luar tersedia.",
+      "open": "Isi nozzle dan pegas belum dapat dilepas.",
+      "source_refs": [
+        "D05-MIRROR · katalog 0CG10-M34300 April 2014 · fig. 79 (kolom A 6AYM-WET; pilihan dan serial harus dicocokkan)",
+        "D01 · service manual 0B6AY-EN0010 · halaman PDF 150–152"
+      ]
+    },
+    "INT-FUELINJ-21": {
+      "status": "PARTIAL",
+      "specialist": "Nozel & injector",
+      "summary": "Holder dan nozzle luar tersedia.",
+      "open": "Isi nozzle dan pegas belum dapat dilepas.",
+      "source_refs": [
+        "D05-MIRROR · katalog 0CG10-M34300 April 2014 · fig. 79 (kolom A 6AYM-WET; pilihan dan serial harus dicocokkan)",
+        "D01 · service manual 0B6AY-EN0010 · halaman PDF 150–152"
+      ]
+    },
+    "INT-FUELINJ-31": {
+      "status": "PARTIAL",
+      "specialist": "Nozel & injector",
+      "summary": "Holder dan nozzle luar tersedia.",
+      "open": "Isi nozzle dan pegas belum dapat dilepas.",
+      "source_refs": [
+        "D05-MIRROR · katalog 0CG10-M34300 April 2014 · fig. 79 (kolom A 6AYM-WET; pilihan dan serial harus dicocokkan)",
+        "D01 · service manual 0B6AY-EN0010 · halaman PDF 150–152"
+      ]
+    },
+    "INT-FUELINJ-41": {
+      "status": "PARTIAL",
+      "specialist": "Nozel & injector",
+      "summary": "Holder dan nozzle luar tersedia.",
+      "open": "Isi nozzle dan pegas belum dapat dilepas.",
+      "source_refs": [
+        "D05-MIRROR · katalog 0CG10-M34300 April 2014 · fig. 79 (kolom A 6AYM-WET; pilihan dan serial harus dicocokkan)",
+        "D01 · service manual 0B6AY-EN0010 · halaman PDF 150–152"
+      ]
+    },
+    "INT-FUELINJ-51": {
+      "status": "PARTIAL",
+      "specialist": "Nozel & injector",
+      "summary": "Holder dan nozzle luar tersedia.",
+      "open": "Isi nozzle dan pegas belum dapat dilepas.",
+      "source_refs": [
+        "D05-MIRROR · katalog 0CG10-M34300 April 2014 · fig. 79 (kolom A 6AYM-WET; pilihan dan serial harus dicocokkan)",
+        "D01 · service manual 0B6AY-EN0010 · halaman PDF 150–152"
+      ]
+    },
+    "INT-FUELINJ-61": {
+      "status": "PARTIAL",
+      "specialist": "Nozel & injector",
+      "summary": "Holder dan nozzle luar tersedia.",
+      "open": "Isi nozzle dan pegas belum dapat dilepas.",
+      "source_refs": [
+        "D05-MIRROR · katalog 0CG10-M34300 April 2014 · fig. 79 (kolom A 6AYM-WET; pilihan dan serial harus dicocokkan)",
+        "D01 · service manual 0B6AY-EN0010 · halaman PDF 150–152"
+      ]
+    }
+  },
+  "systems": {
+    "freshwater": {
+      "assembly_keys": [
+        "RAK-COOLING",
+        "RAK-LUBE",
+        "RAK-BLOCK",
+        "RAK-EXHAUST"
+      ],
+      "summary": "Jaket blok, inti penukar panas dan bagian dalam pompa/termostat belum direpresentasikan lengkap.",
+      "source_refs": [
+        "D01 cetak 10 / PDF 14, Location of Components",
+        "D01 cetak 159 / PDF 163, Cooling Water System, Coolant system dan diagram",
+        "D01 cetak 164 / PDF 168, Thermostat, tabel dan ilustrasi A/B",
+        "D03 PDF 17 / cetak 32–33, 6AYM-WET H-rating, Specifications dan Engine only",
+        "D01 cetak 163 / PDF 167, Coolant reservoir, teks dan skema"
+      ],
+      "scope": "Engine-only. Diagram dan port simbolik tidak membuktikan geometri internal; peralatan kapal di luar mesin dinilai terpisah."
+    },
+    "seawater": {
+      "assembly_keys": [
+        "RAK-COOLING",
+        "RAK-INTAKE"
+      ],
+      "summary": "Aliran secara skematik menunjukkan dua penukar panas berbeda; isi pompa dan kedua core masih terbuka pada r02.",
+      "source_refs": [
+        "D01 cetak 11 / PDF 15, Piping Diagram, Cooling water system dan legenda",
+        "D01 cetak 10 / PDF 14, Location of Components, Operation side",
+        "D03 cetak 32–33 / PDF 17, 6AYM-WET H-rating, Specifications dan Engine only"
+      ],
+      "scope": "Engine-only. Diagram dan port simbolik tidak membuktikan geometri internal; peralatan kapal di luar mesin dinilai terpisah."
+    },
+    "lubrication": {
+      "assembly_keys": [
+        "RAK-OILPAN",
+        "INT-OILPUMP",
+        "RAK-LUBE",
+        "INT-MAIN",
+        "INT-ROD",
+        "INT-CAM",
+        "INT-VALVE",
+        "RAK-EXHAUST"
+      ],
+      "summary": "Pompa, pickup, dan bantalan terwakili sebagian. Relief valve, galeri dalam blok, core cooler serta elemen filter masih terbuka.",
+      "source_refs": [
+        "D01 cetak 9 / PDF 13, Engine Specifications, kolom WET H dan sel Lubricating system lintas varian",
+        "D01 cetak 11 / PDF 15, Piping Diagram, Lubricating oil system, 057558-00EN00",
+        "D01 cetak 10 / PDF 14, Location of Components",
+        "D01 cetak 158 / PDF 162, Piston cooling nozzle, teks dan potongan 016371-00EN01"
+      ],
+      "scope": "Engine-only. Diagram dan port simbolik tidak membuktikan geometri internal; peralatan kapal di luar mesin dinilai terpisah."
+    },
+    "fuel": {
+      "assembly_keys": [
+        "RAK-FUEL",
+        "INT-FUELINJ"
+      ],
+      "summary": "Pompa, filter dan nozzle merupakan unit campuran. Jalur yang tergambar pada skema tidak membuktikan isi rumah pompa atau filter.",
+      "source_refs": [
+        "D01 cetak 110 / PDF 114, Fuel Injection Equipment, fig. 057559-00EN01",
+        "D01 cetak 12 / PDF 16, Fuel oil system, fig. 057559-00EN00",
+        "D01 cetak 10 / PDF 14, Location of Components – Operation side",
+        "D01 cetak 9 / PDF 13, kolom 6AYM-WET M dan H"
+      ],
+      "scope": "Engine-only. Diagram dan port simbolik tidak membuktikan geometri internal; peralatan kapal di luar mesin dinilai terpisah."
+    },
+    "intake-exhaust": {
+      "assembly_keys": [
+        "RAK-INTAKE",
+        "RAK-EXHAUST",
+        "RAK-HEADS",
+        "INT-VALVE"
+      ],
+      "summary": "Pipa dan katup sebagian terwakili, sedangkan pasangan roda turbo, isi cooler r02, dan saluran coran belum dapat ditelusuri lengkap.",
+      "source_refs": [
+        "D05-MIRROR Fig.31–32, CLEANER, PRE dan SILENCER; tabel keluarga dengan kolom (A) 6AYM-WET",
+        "D01 cetak 9 / PDF 13, Engine Specifications, kolom WET H",
+        "D01 cetak 10 / PDF 14, Location of Components",
+        "D01 cetak 34 / PDF 38, Removing the air duct dan Removing the turbocharger"
+      ],
+      "scope": "Engine-only. Diagram dan port simbolik tidak membuktikan geometri internal; peralatan kapal di luar mesin dinilai terpisah."
+    }
+  }
+}

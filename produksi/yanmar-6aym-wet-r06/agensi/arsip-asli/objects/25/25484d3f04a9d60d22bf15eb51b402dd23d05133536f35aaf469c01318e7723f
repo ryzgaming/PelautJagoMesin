@@ -1,0 +1,83 @@
+"""Check the same physical route inputs feed Blender and the merged viewer graph."""
+import argparse
+import hashlib
+import json
+from math import dist
+from pathlib import Path
+import struct
+
+parser=argparse.ArgumentParser(description=__doc__)
+parser.add_argument('workspace',type=Path)
+args=parser.parse_args()
+root=args.workspace.resolve()
+flow=root/'model/flow'
+
+def read(path):
+    return json.loads(path.read_text())
+
+def digest(path):
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+def route_index(document):
+    routes={r['id']:r for r in document['routes']}
+    if len(routes)!=len(document['routes']):
+        raise ValueError('Duplicate route id')
+    return routes
+
+def solid_nodes(path):
+    with path.open('rb') as stream:
+        header=stream.read(12)
+        if header[:4]!=b'glTF':
+            raise ValueError(f'Expected GLB: {path}')
+        length,kind=struct.unpack('<I4s',stream.read(8))
+        if kind!=b'JSON':
+            raise ValueError(f'Missing GLB JSON chunk: {path}')
+        gltf=json.loads(stream.read(length))
+    return {n['name'] for n in gltf['nodes'] if 'mesh' in n}
+
+merged=read(flow/'routes.json')
+normal=route_index(merged)
+ports={p['id']:p for p in merged['ports']}
+asset_paths={layer:root/'model'/layer/(layer+'.glb') for layer in ('exterior','internal')}
+mesh_names=set().union(*(solid_nodes(p) for p in asset_paths.values()))
+inputs=[flow/name for name in ('fuel-gas.json','water-lube.json')]
+different_centers=[]
+missing_meshes=[]
+component_metadata_mismatch=[]
+missing_component_nodes=[]
+endpoint_offsets=[]
+physical=[]
+for source in inputs:
+    for id,route in route_index(read(source)).items():
+        mesh=route.get('mesh') or route.get('mesh_id')
+        if not mesh:
+            continue
+        physical.append(id)
+        candidate=normal.get(id,{})
+        if route['points']!=candidate.get('points') or mesh!=(candidate.get('mesh') or candidate.get('mesh_id')):
+            different_centers.append(id)
+        if mesh not in mesh_names:
+            missing_meshes.append({'route':id,'mesh':mesh})
+        authored=set(route.get('component_ids',[]))
+        shown=set(candidate.get('component_ids',[]))
+        if authored!=shown:
+            component_metadata_mismatch.append({'route':id,'missing':sorted(authored-shown),'extra':sorted(shown-authored)})
+        missing=sorted(shown-mesh_names)
+        if missing:
+            missing_component_nodes.append({'route':id,'mesh_ids':missing})
+        for endpoint,coordinate in (('from',route['points'][0]),('to',route['points'][-1])):
+            port=ports.get(candidate.get(endpoint) or '')
+            error=dist(coordinate,port['point']) if port else None
+            if error is None or error>.0002:
+                endpoint_offsets.append({'route':id,'endpoint':endpoint,'distance_m':error})
+print(json.dumps({
+    'model_sha256':{layer:digest(p) for layer,p in asset_paths.items()},
+    'source_sha256':{p.name:digest(p) for p in [*inputs,flow/'routes.json']},
+    'physical_route_count':len(physical),'port_count':len(ports),'merged_route_count':len(normal),
+    'different_centers_or_mesh_ids':different_centers,'missing_mesh_nodes':missing_meshes,
+    'component_metadata_mismatch':component_metadata_mismatch,'missing_component_nodes':missing_component_nodes,
+    'endpoint_offsets_above_0_2_mm':endpoint_offsets,
+    'method':'Exact sampled centerline equality between authoring JSON and the merged graph, plus endpoints against declared ports. Geometry fit is audited separately.'
+},indent=2))
+if different_centers or missing_meshes or component_metadata_mismatch or missing_component_nodes:
+    raise SystemExit(1)

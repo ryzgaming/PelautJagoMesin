@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {initial, step, execute, validate, branches, usesNotes} from '../src/flow.ts';
-import {plugins, pluginById} from '../src/plugins.ts';
+import {initial, step, execute, validate, branches, usesNotes} from '../src/features/workflow/flow.ts';
+import {plugins, pluginById} from '../src/features/workflow/plugins.ts';
 
 const form = {nama:'Siti Aminah',email:'siti@example.com',catatan:'2'};
 function linear(...kinds) {

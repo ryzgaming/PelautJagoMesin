@@ -1,0 +1,15 @@
+{
+  "machine_model": "Yanmar 6AYM-WET H 555 kW",
+  "scope": "Pemeriksaan visual oleh pembuat internal. Review independen dilaporkan terpisah.",
+  "status": "UNVERIFIED",
+  "views": [
+    {"angle":"front","files":["renders/neutral-front.png","renders/color-front.png"],"findings":"Rocker dan siluet timing gear depan terbaca. D01 PDF 112 memberi hubungan tiga gear depan. Tata sudut dan jarak pusat pabrik belum tersedia."},
+    {"angle":"rear","files":["renders/neutral-rear.png","renders/color-rear.png"],"findings":"Susunan gear belakang menunjukkan crank ke oil pump dan compound idler, cam ke injeksi dan cabang seawater. Hub crank menutupi sebagian timing gear dalam proyeksi terpasang. Referensi D01 PDF 112 adalah skema bidang, sehingga profil gigi dan jarak aksial masih ilustratif."},
+    {"angle":"left","files":["renders/neutral-left.png","renders/color-left.png"],"findings":"Camshaft dan dua pushrod per silinder terlihat dari sisi operasi. D01 PDF 14 memberi orientasi sisi, dan D01 PDF 92–93 memperlihatkan OHV per subrakitan. Tampak lurus internal OEM lengkap belum tersedia."},
+    {"angle":"right","files":["renders/neutral-right.png","renders/color-right.png"],"findings":"Enam liner sejajar, enam throw crank dibagi tiga pasang fase, dan empat counterweight. D01 PDF 104 memberi isometri crankshaft dan jumlah counterweight, tetapi posisi dan kontur bobot masih ilustratif."},
+    {"angle":"top","files":["renders/neutral-top.png","renders/color-top.png"],"findings":"Dua rocker dan dua bridge per silinder, satu injektor pusat, empat katup. D03 PDF 17 memberikan jumlah katup. Dimensi port head dan pivot rocker masih ilustratif."},
+    {"angle":"three-quarter","files":["renders/neutral-three-quarter.png","renders/color-three-quarter.png","renders/color-detail-piston-rod.png"],"findings":"Topologi crankshaft dirujuk D01 PDF 104 dan D05 Fig. 38. Detail piston-rod menampilkan bowl, tiga ring, hollow pin, pin bore, I-beam dan cap dengan bearing shell. D05 Fig. 39 menunjukkan pin, circlip, cap, rod dan oil expander. Relief lokal crown dan kontur radius coran masih ilustratif."}
+  ],
+  "baseline": "Pembuatan aset internal baru. Render dari ekspor sebelumnya dalam proyek memakai model edukasi berbeda dan tidak memberi baseline kamera sepadan. Render 12 sudut memakai konfigurasi kamera/cahaya yang sama antara netral dan warna.",
+  "appearance": "Preset tampilan metal, bronze, dan seal untuk keterbacaan. Sifat material dan warna teknis belum diukur."
+}

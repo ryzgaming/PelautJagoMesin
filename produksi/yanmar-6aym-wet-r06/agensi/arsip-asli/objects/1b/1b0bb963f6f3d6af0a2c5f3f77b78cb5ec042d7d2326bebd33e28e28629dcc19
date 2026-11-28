@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#151b1e">
+  <title>Yanmar 6AYM-WET · Studio Mesin</title>
+  <link rel="stylesheet" href="assets/studio.css">
+  <script defer src="assets/three-bundle.js"></script>
+  <script defer src="assets/assembly-diagram.js"></script>
+  <script defer src="assets/studio.js"></script>
+</head>
+<body>
+<header>
+  <div><p class="eyebrow">STUDIO MESIN <span id="review-status">· R03 DRAF — QA BELUM LENGKAP</span></p>
+  <h1>Yanmar 6AYM-WET</h1>
+  <p class="rating">H · 555 kW / 1.840 rpm · Mesin tanpa transmisi</p></div>
+  <button id="sources">Sumber</button>
+</header>
+<main id="workspace">
+  <section id="stage" aria-label="Model mesin interaktif">
+    <div id="canvas"></div>
+    <p id="loading" role="status">Memuat model 3D…</p>
+    <div class="stage-tools"><button id="inspect-contents" hidden></button><button id="parts" aria-expanded="false">Komponen</button><button id="reset">Reset</button></div>
+    <p class="gesture">Seret untuk memutar · Cubit atau gulir untuk memperbesar</p>
+  </section>
+  <aside id="panel" aria-labelledby="panel-title" hidden>
+    <div class="panel-head"><h2 id="panel-title"></h2><button id="close" aria-label="Tutup panel">✕</button></div>
+    <div id="panel-body"></div>
+  </aside>
+</main>
+<div id="spread-box" hidden>
+  <label for="spread">Jarak urai <output id="spread-value" for="spread">50%</output></label>
+  <input id="spread" type="range" min="0" max="100" value="50">
+</div>
+<nav aria-label="Mode workspace">
+  <button data-mode="overview" aria-pressed="false">Eksplor keseluruhan</button>
+  <button data-mode="systems" aria-pressed="false">Sistem</button>
+  <button data-mode="operation" aria-pressed="false">Pengoperasian</button>
+  <button id="xray" aria-pressed="false">X-ray</button>
+</nav>
+<noscript>Aktifkan JavaScript untuk memuat model dan informasi komponen.</noscript>
+</body>
+</html>

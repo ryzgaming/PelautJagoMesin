@@ -1,0 +1,60 @@
+[
+  {
+    "phase_deg": 14,
+    "flame_center_m": [
+      0.409,
+      0.4732930272247752,
+      0
+    ],
+    "center_rays": [
+      {
+        "radius_m": 0.009,
+        "bowl_y_m": 0.4585260521887142,
+        "head_y_m": null
+      },
+      {
+        "radius_m": 0.02,
+        "bowl_y_m": 0.4584875888533466,
+        "head_y_m": null
+      },
+      {
+        "radius_m": 0.035,
+        "bowl_y_m": 0.46369271255775557,
+        "head_y_m": null
+      }
+    ],
+    "injector_tip_y_m": 0.4922064424515086,
+    "flame_half_y_m": 0.014706972775224801,
+    "visible": true,
+    "depth_test": true
+  },
+  {
+    "phase_deg": 32,
+    "flame_center_m": [
+      0.409,
+      0.46637763758389517,
+      0
+    ],
+    "center_rays": [
+      {
+        "radius_m": 0.009,
+        "bowl_y_m": 0.4446952729069542,
+        "head_y_m": null
+      },
+      {
+        "radius_m": 0.02,
+        "bowl_y_m": 0.44465680957158665,
+        "head_y_m": null
+      },
+      {
+        "radius_m": 0.035,
+        "bowl_y_m": 0.44986193327599566,
+        "head_y_m": null
+      }
+    ],
+    "injector_tip_y_m": 0.4922064424515086,
+    "flame_half_y_m": 0.02162236241610481,
+    "visible": true,
+    "depth_test": true
+  }
+]

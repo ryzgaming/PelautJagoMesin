@@ -1,0 +1,273 @@
+{
+  "id": "RAK-OIL-COOLER",
+  "node_rakitan": "RAK-OIL-COOLER",
+  "parent_rakitan": "RAK-LUBE",
+  "nama": "Pendingin oli tipe pelat",
+  "status": "UNVERIFIED",
+  "source_refs": [
+    "D05 Parts Catalogue WET / Fig. 42",
+    "D01 PDF 161 cetak 157, Lubricating oil cooler"
+  ],
+  "acuan": {
+    "no": 1,
+    "object_ids": [
+      "EXT-LUBE-05"
+    ]
+  },
+  "diagram": {
+    "arah_pandang": [
+      0.46,
+      0.32,
+      0.827
+    ],
+    "atas": [
+      0,
+      1,
+      0
+    ]
+  },
+  "bagian": [
+    {
+      "no": 1,
+      "nama": "Rumah terbuka pendingin oli",
+      "object_ids": [
+        "EXT-LUBE-05"
+      ],
+      "posisi": [],
+      "sumber": [
+        "D05 Parts Catalogue WET / Fig. 42 / pos. 2",
+        "D01 PDF 161 cetak 157, Lubricating oil cooler"
+      ],
+      "nomor_oem": "148620-33030",
+      "ukuran": null,
+      "role": "shell",
+      "status": "ESTIMATED",
+      "fungsi": "Rongga panjang menghadap sisi non-operation. Oli dan coolant melewati saluran pelat yang berbeda."
+    },
+    {
+      "no": 2,
+      "nama": "Core pelat pendingin oli 1",
+      "object_ids": [
+        "EXT-LUBE-60"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-LUBE-60",
+          "arah": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "jarak_m": 0.2300000030579774,
+          "urutan": 1
+        }
+      ],
+      "sumber": [
+        "D05 Parts Catalogue WET / Fig. 42 / pos. 4",
+        "D01 PDF 161 cetak 157, Lubricating oil cooler"
+      ],
+      "nomor_oem": "148620-33010",
+      "ukuran": null,
+      "role": "core",
+      "status": "ESTIMATED",
+      "fungsi": "Satu dari dua unit core yang tercantum di katalog. D01 mengidentifikasi penukar tipe pelat; jumlah pelat ilustratif."
+    },
+    {
+      "no": 3,
+      "nama": "Core pelat pendingin oli 2",
+      "object_ids": [
+        "EXT-LUBE-61"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-LUBE-61",
+          "arah": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "jarak_m": 0.27000000867578705,
+          "urutan": 2
+        }
+      ],
+      "sumber": [
+        "D05 Parts Catalogue WET / Fig. 42 / pos. 4",
+        "D01 PDF 161 cetak 157, Lubricating oil cooler"
+      ],
+      "nomor_oem": "148620-33010",
+      "ukuran": null,
+      "role": "core",
+      "status": "ESTIMATED",
+      "fungsi": "Satu dari dua unit core yang tercantum di katalog. D01 mengidentifikasi penukar tipe pelat; jumlah pelat ilustratif."
+    },
+    {
+      "no": 4,
+      "nama": "Cover distribusi pendingin oli",
+      "object_ids": [
+        "EXT-LUBE-62"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-LUBE-62",
+          "arah": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "jarak_m": 0.4699999990869076,
+          "urutan": 3
+        }
+      ],
+      "sumber": [
+        "D05 Parts Catalogue WET / Fig. 42 / pos. 3",
+        "D01 PDF 161 cetak 157, Lubricating oil cooler"
+      ],
+      "nomor_oem": "148620-33041",
+      "ukuran": null,
+      "role": "cover",
+      "status": "ESTIMATED",
+      "fungsi": "Tutup utama membawa sambungan alir; juga menyangga tutup inspeksi kecil."
+    },
+    {
+      "no": 5,
+      "nama": "Gasket cover panjang",
+      "object_ids": [
+        "EXT-LUBE-63"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-LUBE-63",
+          "arah": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "jarak_m": 0.34999999276229304,
+          "urutan": 4
+        }
+      ],
+      "sumber": [
+        "D05 Parts Catalogue WET / Fig. 42 / pos. 17",
+        "D01 PDF 161 cetak 157, Lubricating oil cooler"
+      ],
+      "nomor_oem": "148620-33050",
+      "ukuran": null,
+      "role": "seal",
+      "status": "ESTIMATED",
+      "fungsi": "Gasket memisahkan sisi tutup dari badan."
+    },
+    {
+      "no": 6,
+      "nama": "Pelat inspeksi depan cooler oli",
+      "object_ids": [
+        "EXT-LUBE-64"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-LUBE-64",
+          "arah": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "jarak_m": 0.6100000208323115,
+          "urutan": 5
+        }
+      ],
+      "sumber": [
+        "D05 Parts Catalogue WET / Fig. 42 / pos. 16",
+        "D01 PDF 161 cetak 157, Lubricating oil cooler"
+      ],
+      "nomor_oem": "148620-33061",
+      "ukuran": null,
+      "role": "cover",
+      "status": "ESTIMATED",
+      "fungsi": "Penutup kecil terpisah di tengah tutup distribusi."
+    },
+    {
+      "no": 7,
+      "nama": "Gasket inspeksi cooler oli",
+      "object_ids": [
+        "EXT-LUBE-65"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-LUBE-65",
+          "arah": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "jarak_m": 0.5500000086697664,
+          "urutan": 6
+        }
+      ],
+      "sumber": [
+        "D05 Parts Catalogue WET / Fig. 42 / pos. 18",
+        "D01 PDF 161 cetak 157, Lubricating oil cooler"
+      ],
+      "nomor_oem": "148620-33070",
+      "ukuran": null,
+      "role": "seal",
+      "status": "ESTIMATED",
+      "fungsi": "Bentuk luar gasket mengikuti perkiraan cover inspeksi."
+    },
+    {
+      "no": 8,
+      "nama": "Kelompok O-ring port 6",
+      "object_ids": [
+        "EXT-LUBE-66"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-LUBE-66",
+          "arah": [
+            0.0,
+            0.24987800419330597,
+            0.9682772755622864
+          ],
+          "jarak_m": 0.3201562155660254,
+          "urutan": 7
+        }
+      ],
+      "sumber": [
+        "D05 Parts Catalogue WET / Fig. 42 / pos. 6",
+        "D01 PDF 161 cetak 157, Lubricating oil cooler"
+      ],
+      "nomor_oem": "24326-000300",
+      "ukuran": null,
+      "role": "seal",
+      "status": "ESTIMATED",
+      "fungsi": "Ring disajikan per kelompok; susunan, penampang dan kegunaan tiap port diestimasi."
+    },
+    {
+      "no": 9,
+      "nama": "Kelompok O-ring port 7",
+      "object_ids": [
+        "EXT-LUBE-67"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-LUBE-67",
+          "arah": [
+            0.0,
+            0.4586428999900818,
+            0.8886206746101379
+          ],
+          "jarak_m": 0.34885527354553,
+          "urutan": 8
+        }
+      ],
+      "sumber": [
+        "D05 Parts Catalogue WET / Fig. 42 / pos. 7",
+        "D01 PDF 161 cetak 157, Lubricating oil cooler"
+      ],
+      "nomor_oem": "24316-000140",
+      "ukuran": null,
+      "role": "seal",
+      "status": "ESTIMATED",
+      "fungsi": "Ring disajikan per kelompok; susunan, penampang dan kegunaan tiap port diestimasi."
+    }
+  ],
+  "notes": "Skema bentuk berdasar gambar parts book. Dimensi, jumlah elemen geometri inti dan posisi port diperkirakan. Penetapan nomor seri belum tersedia."
+}

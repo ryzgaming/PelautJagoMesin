@@ -1,0 +1,21 @@
+{
+  "recorded_utc": "2026-11-28",
+  "source_repository_commit": "a9d6e277a729ee77352e551ac6049a4e69d1ca4f",
+  "versions": {
+    "python": "Python 3.12.14",
+    "node": "v24.22.3",
+    "blender": "Blender 4.3.2",
+    "chromium": "Chromium 156.0.8078.79 built on Debian GNU/Linux 13 (trixie)",
+    "ffmpeg": "ffmpeg version 7.1.5-0+deb13u1 Copyright (c) 2000-2026 the FFmpeg developers",
+    "numpy": "2.3.5",
+    "trimesh": "not installed in current Python",
+    "Pillow": "13.0.0",
+    "shapely": "not installed in current Python",
+    "playwright": "1.62.0"
+  },
+  "notes": [
+    "Observed environment, not a claim that every dependency was exercised by this packaging task.",
+    "Blender MCP is optional and not installed or modified by this package.",
+    "Python tests and JavaScript effect tests use standard library and included Three.js."
+  ]
+}

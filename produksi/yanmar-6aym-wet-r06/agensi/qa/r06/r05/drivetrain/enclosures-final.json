@@ -1,0 +1,800 @@
+{
+  "exterior_sha256": "3edb9db0135c2714e913c2f8a5b120c1f747dec10927024acba17cd4e09a8302",
+  "step_deg": 30,
+  "cycle_deg": 720,
+  "samples": 24,
+  "pairs": [
+    {
+      "test": "feed_pump",
+      "moving": "EXT-FUEL-210",
+      "against": "EXT-FUEL-01",
+      "maximum": 0,
+      "poses_with_crossing": 0,
+      "rest": 0
+    },
+    {
+      "test": "feed_pump",
+      "moving": "EXT-FUEL-210",
+      "against": "EXT-FUEL-12",
+      "maximum": 0,
+      "poses_with_crossing": 0,
+      "rest": 0
+    },
+    {
+      "test": "feed_pump",
+      "moving": "EXT-FUEL-210",
+      "against": "EXT-FUEL-19",
+      "maximum": 0,
+      "poses_with_crossing": 0,
+      "rest": 0
+    },
+    {
+      "test": "feed_pump",
+      "moving": "EXT-FUEL-210",
+      "against": "EXT-FUEL-21",
+      "maximum": 0,
+      "poses_with_crossing": 0,
+      "rest": 0
+    },
+    {
+      "test": "feed_pump",
+      "moving": "EXT-FUEL-210",
+      "against": "EXT-FUEL-239",
+      "maximum": 0,
+      "poses_with_crossing": 0,
+      "rest": 0
+    },
+    {
+      "test": "feed_pump",
+      "moving": "EXT-FUEL-211",
+      "against": "EXT-FUEL-01",
+      "maximum": 0,
+      "poses_with_crossing": 0,
+      "rest": 0
+    },
+    {
+      "test": "feed_pump",
+      "moving": "EXT-FUEL-211",
+      "against": "EXT-FUEL-12",
+      "maximum": 0,
+      "poses_with_crossing": 0,
+      "rest": 0
+    },
+    {
+      "test": "feed_pump",
+      "moving": "EXT-FUEL-211",
+      "against": "EXT-FUEL-19",
+      "maximum": 0,
+      "poses_with_crossing": 0,
+      "rest": 0
+    },
+    {
+      "test": "feed_pump",
+      "moving": "EXT-FUEL-211",
+      "against": "EXT-FUEL-21",
+      "maximum": 0,
+      "poses_with_crossing": 0,
+      "rest": 0
+    },
+    {
+      "test": "feed_pump",
+      "moving": "EXT-FUEL-211",
+      "against": "EXT-FUEL-239",
+      "maximum": 0,
+      "poses_with_crossing": 0,
+      "rest": 0
+    },
+    {
+      "test": "feed_pump",
+      "moving": "EXT-FUEL-212",
+      "against": "EXT-FUEL-01",
+      "maximum": 0,
+      "poses_with_crossing": 0,
+      "rest": 0
+    },
+    {
+      "test": "feed_pump",
+      "moving": "EXT-FUEL-212",
+      "against": "EXT-FUEL-12",
+      "maximum": 0,
+      "poses_with_crossing": 0,
+      "rest": 0
+    },
+    {
+      "test": "feed_pump",
+      "moving": "EXT-FUEL-212",
+      "against": "EXT-FUEL-19",
+      "maximum": 0,
+      "poses_with_crossing": 0,
+      "rest": 0
+    },
+    {
+      "test": "feed_pump",
+      "moving": "EXT-FUEL-212",
+      "against": "EXT-FUEL-21",
+      "maximum": 0,
+      "poses_with_crossing": 0,
+      "rest": 0
+    },
+    {
+      "test": "feed_pump",
+      "moving": "EXT-FUEL-212",
+      "against": "EXT-FUEL-239",
+      "maximum": 39,
+      "poses_with_crossing": 24,
+      "rest": 39
+    },
+    {
+      "test": "feed_pump",
+      "moving": "EXT-FUEL-238",
+      "against": "EXT-FUEL-01",
+      "maximum": 0,
+      "poses_with_crossing": 0,
+      "rest": 0
+    },
+    {
+      "test": "feed_pump",
+      "moving": "EXT-FUEL-238",
+      "against": "EXT-FUEL-12",
+      "maximum": 0,
+      "poses_with_crossing": 0,
+      "rest": 0
+    },
+    {
+      "test": "feed_pump",
+      "moving": "EXT-FUEL-238",
+      "against": "EXT-FUEL-19",
+      "maximum": 0,
+      "poses_with_crossing": 0,
+      "rest": 0
+    },
+    {
+      "test": "feed_pump",
+      "moving": "EXT-FUEL-238",
+      "against": "EXT-FUEL-21",
+      "maximum": 0,
+      "poses_with_crossing": 0,
+      "rest": 0
+    },
+    {
+      "test": "feed_pump",
+      "moving": "EXT-FUEL-238",
+      "against": "EXT-FUEL-239",
+      "maximum": 0,
+      "poses_with_crossing": 0,
+      "rest": 0
+    },
+    {
+      "test": "feed_cam",
+      "moving": "EXT-FUEL-238",
+      "against": "EXT-FUEL-240",
+      "maximum": 2,
+      "poses_with_crossing": 1,
+      "rest": 2
+    },
+    {
+      "test": "turbo",
+      "moving": "EXT-EXHAUST-20",
+      "against": "EXT-EXHAUST-01",
+      "maximum": 0,
+      "poses_with_crossing": 0,
+      "rest": 0
+    },
+    {
+      "test": "turbo",
+      "moving": "EXT-EXHAUST-20",
+      "against": "EXT-EXHAUST-02",
+      "maximum": 0,
+      "poses_with_crossing": 0,
+      "rest": 0
+    },
+    {
+      "test": "turbo",
+      "moving": "EXT-EXHAUST-20",
+      "against": "EXT-EXHAUST-03",
+      "maximum": 0,
+      "poses_with_crossing": 0,
+      "rest": 0
+    },
+    {
+      "test": "turbo",
+      "moving": "EXT-EXHAUST-20",
+      "against": "EXT-EXHAUST-04",
+      "maximum": 0,
+      "poses_with_crossing": 0,
+      "rest": 0
+    },
+    {
+      "test": "turbo",
+      "moving": "EXT-EXHAUST-20",
+      "against": "EXT-EXHAUST-27",
+      "maximum": 0,
+      "poses_with_crossing": 0,
+      "rest": 0
+    },
+    {
+      "test": "turbo",
+      "moving": "EXT-EXHAUST-20",
+      "against": "EXT-EXHAUST-40",
+      "maximum": 0,
+      "poses_with_crossing": 0,
+      "rest": 0
+    },
+    {
+      "test": "turbo",
+      "moving": "EXT-EXHAUST-21",
+      "against": "EXT-EXHAUST-01",
+      "maximum": 0,
+      "poses_with_crossing": 0,
+      "rest": 0
+    },
+    {
+      "test": "turbo",
+      "moving": "EXT-EXHAUST-21",
+      "against": "EXT-EXHAUST-02",
+      "maximum": 0,
+      "poses_with_crossing": 0,
+      "rest": 0
+    },
+    {
+      "test": "turbo",
+      "moving": "EXT-EXHAUST-21",
+      "against": "EXT-EXHAUST-03",
+      "maximum": 0,
+      "poses_with_crossing": 0,
+      "rest": 0
+    },
+    {
+      "test": "turbo",
+      "moving": "EXT-EXHAUST-21",
+      "against": "EXT-EXHAUST-04",
+      "maximum": 0,
+      "poses_with_crossing": 0,
+      "rest": 0
+    },
+    {
+      "test": "turbo",
+      "moving": "EXT-EXHAUST-21",
+      "against": "EXT-EXHAUST-27",
+      "maximum": 0,
+      "poses_with_crossing": 0,
+      "rest": 0
+    },
+    {
+      "test": "turbo",
+      "moving": "EXT-EXHAUST-21",
+      "against": "EXT-EXHAUST-40",
+      "maximum": 0,
+      "poses_with_crossing": 0,
+      "rest": 0
+    },
+    {
+      "test": "turbo",
+      "moving": "EXT-EXHAUST-25",
+      "against": "EXT-EXHAUST-01",
+      "maximum": 0,
+      "poses_with_crossing": 0,
+      "rest": 0
+    },
+    {
+      "test": "turbo",
+      "moving": "EXT-EXHAUST-25",
+      "against": "EXT-EXHAUST-02",
+      "maximum": 0,
+      "poses_with_crossing": 0,
+      "rest": 0
+    },
+    {
+      "test": "turbo",
+      "moving": "EXT-EXHAUST-25",
+      "against": "EXT-EXHAUST-03",
+      "maximum": 0,
+      "poses_with_crossing": 0,
+      "rest": 0
+    },
+    {
+      "test": "turbo",
+      "moving": "EXT-EXHAUST-25",
+      "against": "EXT-EXHAUST-04",
+      "maximum": 0,
+      "poses_with_crossing": 0,
+      "rest": 0
+    },
+    {
+      "test": "turbo",
+      "moving": "EXT-EXHAUST-25",
+      "against": "EXT-EXHAUST-27",
+      "maximum": 0,
+      "poses_with_crossing": 0,
+      "rest": 0
+    },
+    {
+      "test": "turbo",
+      "moving": "EXT-EXHAUST-25",
+      "against": "EXT-EXHAUST-40",
+      "maximum": 0,
+      "poses_with_crossing": 0,
+      "rest": 0
+    },
+    {
+      "test": "turbo",
+      "moving": "EXT-EXHAUST-26",
+      "against": "EXT-EXHAUST-01",
+      "maximum": 0,
+      "poses_with_crossing": 0,
+      "rest": 0
+    },
+    {
+      "test": "turbo",
+      "moving": "EXT-EXHAUST-26",
+      "against": "EXT-EXHAUST-02",
+      "maximum": 0,
+      "poses_with_crossing": 0,
+      "rest": 0
+    },
+    {
+      "test": "turbo",
+      "moving": "EXT-EXHAUST-26",
+      "against": "EXT-EXHAUST-03",
+      "maximum": 0,
+      "poses_with_crossing": 0,
+      "rest": 0
+    },
+    {
+      "test": "turbo",
+      "moving": "EXT-EXHAUST-26",
+      "against": "EXT-EXHAUST-04",
+      "maximum": 0,
+      "poses_with_crossing": 0,
+      "rest": 0
+    },
+    {
+      "test": "turbo",
+      "moving": "EXT-EXHAUST-26",
+      "against": "EXT-EXHAUST-27",
+      "maximum": 0,
+      "poses_with_crossing": 0,
+      "rest": 0
+    },
+    {
+      "test": "turbo",
+      "moving": "EXT-EXHAUST-26",
+      "against": "EXT-EXHAUST-40",
+      "maximum": 0,
+      "poses_with_crossing": 0,
+      "rest": 0
+    },
+    {
+      "test": "turbo",
+      "moving": "EXT-EXHAUST-28",
+      "against": "EXT-EXHAUST-01",
+      "maximum": 0,
+      "poses_with_crossing": 0,
+      "rest": 0
+    },
+    {
+      "test": "turbo",
+      "moving": "EXT-EXHAUST-28",
+      "against": "EXT-EXHAUST-02",
+      "maximum": 0,
+      "poses_with_crossing": 0,
+      "rest": 0
+    },
+    {
+      "test": "turbo",
+      "moving": "EXT-EXHAUST-28",
+      "against": "EXT-EXHAUST-03",
+      "maximum": 0,
+      "poses_with_crossing": 0,
+      "rest": 0
+    },
+    {
+      "test": "turbo",
+      "moving": "EXT-EXHAUST-28",
+      "against": "EXT-EXHAUST-04",
+      "maximum": 0,
+      "poses_with_crossing": 0,
+      "rest": 0
+    },
+    {
+      "test": "turbo",
+      "moving": "EXT-EXHAUST-28",
+      "against": "EXT-EXHAUST-27",
+      "maximum": 0,
+      "poses_with_crossing": 0,
+      "rest": 0
+    },
+    {
+      "test": "turbo",
+      "moving": "EXT-EXHAUST-28",
+      "against": "EXT-EXHAUST-40",
+      "maximum": 0,
+      "poses_with_crossing": 0,
+      "rest": 0
+    },
+    {
+      "test": "turbo",
+      "moving": "EXT-EXHAUST-33",
+      "against": "EXT-EXHAUST-01",
+      "maximum": 0,
+      "poses_with_crossing": 0,
+      "rest": 0
+    },
+    {
+      "test": "turbo",
+      "moving": "EXT-EXHAUST-33",
+      "against": "EXT-EXHAUST-02",
+      "maximum": 0,
+      "poses_with_crossing": 0,
+      "rest": 0
+    },
+    {
+      "test": "turbo",
+      "moving": "EXT-EXHAUST-33",
+      "against": "EXT-EXHAUST-03",
+      "maximum": 0,
+      "poses_with_crossing": 0,
+      "rest": 0
+    },
+    {
+      "test": "turbo",
+      "moving": "EXT-EXHAUST-33",
+      "against": "EXT-EXHAUST-04",
+      "maximum": 0,
+      "poses_with_crossing": 0,
+      "rest": 0
+    },
+    {
+      "test": "turbo",
+      "moving": "EXT-EXHAUST-33",
+      "against": "EXT-EXHAUST-27",
+      "maximum": 0,
+      "poses_with_crossing": 0,
+      "rest": 0
+    },
+    {
+      "test": "turbo",
+      "moving": "EXT-EXHAUST-33",
+      "against": "EXT-EXHAUST-40",
+      "maximum": 0,
+      "poses_with_crossing": 0,
+      "rest": 0
+    },
+    {
+      "test": "alternator",
+      "moving": "EXT-ELECTRIC-21",
+      "against": "EXT-ELECTRIC-01",
+      "maximum": 0,
+      "poses_with_crossing": 0,
+      "rest": 0
+    },
+    {
+      "test": "alternator",
+      "moving": "EXT-ELECTRIC-21",
+      "against": "EXT-ELECTRIC-20",
+      "maximum": 0,
+      "poses_with_crossing": 0,
+      "rest": 0
+    },
+    {
+      "test": "alternator",
+      "moving": "EXT-ELECTRIC-21",
+      "against": "EXT-ELECTRIC-22",
+      "maximum": 0,
+      "poses_with_crossing": 0,
+      "rest": 0
+    },
+    {
+      "test": "alternator",
+      "moving": "EXT-ELECTRIC-21",
+      "against": "EXT-ELECTRIC-23",
+      "maximum": 0,
+      "poses_with_crossing": 0,
+      "rest": 0
+    },
+    {
+      "test": "alternator",
+      "moving": "EXT-ELECTRIC-21",
+      "against": "EXT-ELECTRIC-24",
+      "maximum": 0,
+      "poses_with_crossing": 0,
+      "rest": 0
+    },
+    {
+      "test": "alternator",
+      "moving": "EXT-ELECTRIC-21",
+      "against": "EXT-ELECTRIC-27",
+      "maximum": 0,
+      "poses_with_crossing": 0,
+      "rest": 0
+    },
+    {
+      "test": "alternator_drive",
+      "moving": "EXT-ELECTRIC-25",
+      "against": "EXT-ELECTRIC-01",
+      "maximum": 0,
+      "poses_with_crossing": 0,
+      "rest": 0
+    },
+    {
+      "test": "alternator_drive",
+      "moving": "EXT-ELECTRIC-25",
+      "against": "EXT-ELECTRIC-20",
+      "maximum": 0,
+      "poses_with_crossing": 0,
+      "rest": 0
+    },
+    {
+      "test": "alternator_drive",
+      "moving": "EXT-ELECTRIC-25",
+      "against": "EXT-ELECTRIC-22",
+      "maximum": 0,
+      "poses_with_crossing": 0,
+      "rest": 0
+    },
+    {
+      "test": "alternator_drive",
+      "moving": "EXT-ELECTRIC-25",
+      "against": "EXT-ELECTRIC-23",
+      "maximum": 0,
+      "poses_with_crossing": 0,
+      "rest": 0
+    },
+    {
+      "test": "alternator_drive",
+      "moving": "EXT-ELECTRIC-25",
+      "against": "EXT-ELECTRIC-24",
+      "maximum": 0,
+      "poses_with_crossing": 0,
+      "rest": 0
+    },
+    {
+      "test": "alternator_drive",
+      "moving": "EXT-ELECTRIC-25",
+      "against": "EXT-ELECTRIC-27",
+      "maximum": 0,
+      "poses_with_crossing": 0,
+      "rest": 0
+    },
+    {
+      "test": "alternator_drive",
+      "moving": "EXT-ELECTRIC-30",
+      "against": "EXT-ELECTRIC-01",
+      "maximum": 0,
+      "poses_with_crossing": 0,
+      "rest": 0
+    },
+    {
+      "test": "alternator_drive",
+      "moving": "EXT-ELECTRIC-30",
+      "against": "EXT-ELECTRIC-20",
+      "maximum": 0,
+      "poses_with_crossing": 0,
+      "rest": 0
+    },
+    {
+      "test": "alternator_drive",
+      "moving": "EXT-ELECTRIC-30",
+      "against": "EXT-ELECTRIC-22",
+      "maximum": 0,
+      "poses_with_crossing": 0,
+      "rest": 0
+    },
+    {
+      "test": "alternator_drive",
+      "moving": "EXT-ELECTRIC-30",
+      "against": "EXT-ELECTRIC-23",
+      "maximum": 0,
+      "poses_with_crossing": 0,
+      "rest": 0
+    },
+    {
+      "test": "alternator_drive",
+      "moving": "EXT-ELECTRIC-30",
+      "against": "EXT-ELECTRIC-24",
+      "maximum": 0,
+      "poses_with_crossing": 0,
+      "rest": 0
+    },
+    {
+      "test": "alternator_drive",
+      "moving": "EXT-ELECTRIC-30",
+      "against": "EXT-ELECTRIC-27",
+      "maximum": 0,
+      "poses_with_crossing": 0,
+      "rest": 0
+    },
+    {
+      "test": "alternator_drive",
+      "moving": "EXT-ELECTRIC-31",
+      "against": "EXT-ELECTRIC-01",
+      "maximum": 0,
+      "poses_with_crossing": 0,
+      "rest": 0
+    },
+    {
+      "test": "alternator_drive",
+      "moving": "EXT-ELECTRIC-31",
+      "against": "EXT-ELECTRIC-20",
+      "maximum": 0,
+      "poses_with_crossing": 0,
+      "rest": 0
+    },
+    {
+      "test": "alternator_drive",
+      "moving": "EXT-ELECTRIC-31",
+      "against": "EXT-ELECTRIC-22",
+      "maximum": 0,
+      "poses_with_crossing": 0,
+      "rest": 0
+    },
+    {
+      "test": "alternator_drive",
+      "moving": "EXT-ELECTRIC-31",
+      "against": "EXT-ELECTRIC-23",
+      "maximum": 0,
+      "poses_with_crossing": 0,
+      "rest": 0
+    },
+    {
+      "test": "alternator_drive",
+      "moving": "EXT-ELECTRIC-31",
+      "against": "EXT-ELECTRIC-24",
+      "maximum": 0,
+      "poses_with_crossing": 0,
+      "rest": 0
+    },
+    {
+      "test": "alternator_drive",
+      "moving": "EXT-ELECTRIC-31",
+      "against": "EXT-ELECTRIC-27",
+      "maximum": 0,
+      "poses_with_crossing": 0,
+      "rest": 0
+    },
+    {
+      "test": "belt",
+      "moving": "EXT-FRONT-04",
+      "against": "EXT-FRONT-01",
+      "maximum": 0,
+      "poses_with_crossing": 0,
+      "rest": 0
+    },
+    {
+      "test": "belt",
+      "moving": "EXT-FRONT-04",
+      "against": "EXT-FRONT-02",
+      "maximum": 0,
+      "poses_with_crossing": 0,
+      "rest": 0
+    },
+    {
+      "test": "belt",
+      "moving": "EXT-FRONT-04",
+      "against": "EXT-FRONT-03",
+      "maximum": 0,
+      "poses_with_crossing": 0,
+      "rest": 0
+    },
+    {
+      "test": "belt",
+      "moving": "EXT-FRONT-04",
+      "against": "EXT-FRONT-07",
+      "maximum": 0,
+      "poses_with_crossing": 0,
+      "rest": 0
+    },
+    {
+      "test": "belt",
+      "moving": "EXT-FRONT-04",
+      "against": "EXT-FRONT-08",
+      "maximum": 0,
+      "poses_with_crossing": 0,
+      "rest": 0
+    },
+    {
+      "test": "belt",
+      "moving": "EXT-FRONT-04",
+      "against": "EXT-ELECTRIC-01",
+      "maximum": 0,
+      "poses_with_crossing": 0,
+      "rest": 0
+    },
+    {
+      "test": "belt",
+      "moving": "EXT-FRONT-04",
+      "against": "EXT-ELECTRIC-24",
+      "maximum": 0,
+      "poses_with_crossing": 0,
+      "rest": 0
+    },
+    {
+      "test": "belt",
+      "moving": "EXT-FRONT-04",
+      "against": "EXT-ELECTRIC-25",
+      "maximum": 0,
+      "poses_with_crossing": 0,
+      "rest": 0
+    },
+    {
+      "test": "fork_hosts_running",
+      "moving": "EXT-ELECTRIC-53",
+      "against": "EXT-ELECTRIC-49",
+      "maximum": 0,
+      "poses_with_crossing": 0,
+      "rest": 0
+    },
+    {
+      "test": "fork_hosts_running",
+      "moving": "EXT-ELECTRIC-53",
+      "against": "EXT-ELECTRIC-50",
+      "maximum": 0,
+      "poses_with_crossing": 0,
+      "rest": 0
+    },
+    {
+      "test": "fork_hosts_running",
+      "moving": "EXT-ELECTRIC-53",
+      "against": "EXT-ELECTRIC-51",
+      "maximum": 0,
+      "poses_with_crossing": 0,
+      "rest": 0
+    },
+    {
+      "test": "fork_hosts_starting",
+      "moving": "EXT-ELECTRIC-53",
+      "against": "EXT-ELECTRIC-49",
+      "maximum": 0,
+      "poses_with_crossing": 0,
+      "rest": 0
+    },
+    {
+      "test": "fork_hosts_starting",
+      "moving": "EXT-ELECTRIC-53",
+      "against": "EXT-ELECTRIC-50",
+      "maximum": 0,
+      "poses_with_crossing": 0,
+      "rest": 0
+    },
+    {
+      "test": "fork_hosts_starting",
+      "moving": "EXT-ELECTRIC-53",
+      "against": "EXT-ELECTRIC-51",
+      "maximum": 0,
+      "poses_with_crossing": 0,
+      "rest": 0
+    },
+    {
+      "test": "fork_running",
+      "moving": "EXT-ELECTRIC-48",
+      "against": "EXT-ELECTRIC-49",
+      "maximum": 0,
+      "poses_with_crossing": 0,
+      "rest": 0
+    },
+    {
+      "test": "fork_running",
+      "moving": "EXT-ELECTRIC-48",
+      "against": "EXT-ELECTRIC-53",
+      "maximum": 0,
+      "poses_with_crossing": 0,
+      "rest": 0
+    },
+    {
+      "test": "fork_starting",
+      "moving": "EXT-ELECTRIC-48",
+      "against": "EXT-ELECTRIC-49",
+      "maximum": 0,
+      "poses_with_crossing": 0,
+      "rest": 0
+    },
+    {
+      "test": "fork_starting",
+      "moving": "EXT-ELECTRIC-48",
+      "against": "EXT-ELECTRIC-53",
+      "maximum": 0,
+      "poses_with_crossing": 0,
+      "rest": 0
+    }
+  ]
+}

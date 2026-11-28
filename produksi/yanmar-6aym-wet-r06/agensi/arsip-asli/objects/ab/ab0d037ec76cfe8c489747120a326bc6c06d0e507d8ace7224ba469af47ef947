@@ -1,0 +1,98 @@
+{
+  "asset_sha256": {
+    "internal": "46a8854081530e81d2a2af56dc936dbcd22e6b296343029510638e8d120252fa",
+    "exterior": "3edb9db0135c2714e913c2f8a5b120c1f747dec10927024acba17cd4e09a8302"
+  },
+  "method": "Triangles measured directly from encoded position/index accessors. A repeated positive-area triangle means an identical unordered triple of encoded XYZ positions in the same mesh. BVH excludes faces of area \u22641e-13 m\u00b2.",
+  "by_gear": {
+    "INT-TIMING-01": {
+      "encoded_triangles": 5120,
+      "exact_zero_area": 256,
+      "area_at_most_1e13_inverse_m2": 256,
+      "duplicate_positive_area_position_triplets": 0,
+      "positive_area_unique_triangles": 4864
+    },
+    "INT-TIMING-02": {
+      "encoded_triangles": 5120,
+      "exact_zero_area": 256,
+      "area_at_most_1e13_inverse_m2": 256,
+      "duplicate_positive_area_position_triplets": 0,
+      "positive_area_unique_triangles": 4864
+    },
+    "INT-TIMING-03": {
+      "encoded_triangles": 3840,
+      "exact_zero_area": 192,
+      "area_at_most_1e13_inverse_m2": 192,
+      "duplicate_positive_area_position_triplets": 0,
+      "positive_area_unique_triangles": 3648
+    },
+    "INT-TIMING-04": {
+      "encoded_triangles": 6720,
+      "exact_zero_area": 0,
+      "area_at_most_1e13_inverse_m2": 0,
+      "duplicate_positive_area_position_triplets": 0,
+      "positive_area_unique_triangles": 6720
+    },
+    "INT-TIMING-05": {
+      "encoded_triangles": 6720,
+      "exact_zero_area": 0,
+      "area_at_most_1e13_inverse_m2": 0,
+      "duplicate_positive_area_position_triplets": 0,
+      "positive_area_unique_triangles": 6720
+    },
+    "INT-TIMING-07": {
+      "encoded_triangles": 4480,
+      "exact_zero_area": 224,
+      "area_at_most_1e13_inverse_m2": 224,
+      "duplicate_positive_area_position_triplets": 0,
+      "positive_area_unique_triangles": 4256
+    },
+    "INT-TIMING-08": {
+      "encoded_triangles": 6720,
+      "exact_zero_area": 0,
+      "area_at_most_1e13_inverse_m2": 0,
+      "duplicate_positive_area_position_triplets": 0,
+      "positive_area_unique_triangles": 6720
+    },
+    "INT-TIMING-10": {
+      "encoded_triangles": 2560,
+      "exact_zero_area": 128,
+      "area_at_most_1e13_inverse_m2": 128,
+      "duplicate_positive_area_position_triplets": 0,
+      "positive_area_unique_triangles": 2432
+    },
+    "INT-OILPUMP-03": {
+      "encoded_triangles": 2240,
+      "exact_zero_area": 112,
+      "area_at_most_1e13_inverse_m2": 112,
+      "duplicate_positive_area_position_triplets": 0,
+      "positive_area_unique_triangles": 2128
+    },
+    "INT-OILPUMP-04": {
+      "encoded_triangles": 2240,
+      "exact_zero_area": 112,
+      "area_at_most_1e13_inverse_m2": 112,
+      "duplicate_positive_area_position_triplets": 0,
+      "positive_area_unique_triangles": 2128
+    },
+    "EXT-COOLING-26": {
+      "encoded_triangles": 4920,
+      "exact_zero_area": 0,
+      "area_at_most_1e13_inverse_m2": 0,
+      "duplicate_positive_area_position_triplets": 0,
+      "positive_area_unique_triangles": 4920
+    },
+    "EXT-COOLING-41": {
+      "encoded_triangles": 5436,
+      "exact_zero_area": 232,
+      "area_at_most_1e13_inverse_m2": 232,
+      "duplicate_positive_area_position_triplets": 0,
+      "positive_area_unique_triangles": 5204
+    }
+  },
+  "sum_zero": 1512,
+  "sum_filtered": 1512,
+  "sum_duplicate_positive": 0,
+  "sum_triangles": 56116,
+  "impact": "Any filtered zero/small-area faces have no useful sampled tooth contact surface. The exporter preserved the surrounding gear flanks; clean-up of redundant faces remains a source-mesh improvement. See the tooth sweep, measured outside diameters and flank distances in gear-mesh-release.json."
+}

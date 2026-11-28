@@ -1,0 +1,15 @@
+import bpy, json, math, collections
+bpy.ops.wm.open_mainfile(filepath='/tmp/claude-0/c3512/qa/scripts/combined.blend')
+K=json.load(open('/tmp/claude-0/c3512/model/internal/kinematics.json'))
+O=bpy.data.objects
+for cyl in [1,2]:
+    c=[s for s in K['silinder'] if s['silinder']==cyl][0]; ax=c['sumbu']; x0=c['x_silinder']
+    o=O[f'INT-LINER-{cyl:02d}']; M=o.matrix_world
+    bins=collections.defaultdict(set)
+    for v in o.data.vertices:
+        p=M@v.co; X,Y,Z=p.x,p.z,-p.y
+        a=Y*ax[1]+Z*ax[2]; py=Y-a*ax[1]; pz=Z-a*ax[2]
+        r=math.sqrt((X-x0)**2+py*py+pz*pz)
+        bins[round(a,3)].add(round(r,4))
+    print(cyl, o.parent.name if o.parent else None, {k:sorted(v) for k,v in sorted(bins.items())})
+    print('loc',tuple(round(x,4) for x in o.matrix_world.translation), 'local z-range', min(v.co.z for v in o.data.vertices), max(v.co.z for v in o.data.vertices))

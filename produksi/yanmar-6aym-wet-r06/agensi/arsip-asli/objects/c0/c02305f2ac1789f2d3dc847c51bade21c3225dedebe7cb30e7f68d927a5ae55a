@@ -1,0 +1,61 @@
+{
+  "blender": "4.3.2",
+  "input": "exterior.glb",
+  "bounds": [
+    [
+      -0.3166399896144867,
+      -0.6410000324249268,
+      -0.5519999861717224
+    ],
+    [
+      1.6453237533569336,
+      0.6499999761581421,
+      0.9979999661445618
+    ]
+  ],
+  "center": [
+    0.6643418669700623,
+    0.004499971866607666,
+    0.22299998998641968
+  ],
+  "ortho_scale": 3.5315346717834473,
+  "samples": 5,
+  "resolution": [
+    840,
+    630
+  ],
+  "views": {
+    "depan": [
+      1,
+      0,
+      0
+    ],
+    "belakang": [
+      -1,
+      0,
+      0
+    ],
+    "kiri": [
+      0,
+      1,
+      0
+    ],
+    "kanan": [
+      0,
+      -1,
+      0
+    ],
+    "atas": [
+      0,
+      0,
+      1
+    ],
+    "tiga_perempat": [
+      1,
+      -1,
+      1
+    ]
+  },
+  "axes": "Blender Z-up; front +X, right -Y; verify against datum before comparison",
+  "status": "UNVERIFIED until images are inspected"
+}

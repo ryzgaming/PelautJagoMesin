@@ -1,0 +1,57 @@
+{
+  "assets_sha256": {
+    "exterior": "c741aacd33e126ef6de9a37ed0e249edd891ea7de8eb9e914ec4eb824beb81a7",
+    "internal": "46a8854081530e81d2a2af56dc936dbcd22e6b296343029510638e8d120252fa"
+  },
+  "mesh_count": 1144,
+  "aabb_candidate_pairs": 9,
+  "surface_crossing_pair_count": 0,
+  "method": "Assembled Blender GLB reimport, world AABB broad phase, triangle BVH overlap. Surface crossings include intended threads, interference fits and overlaps within an educational assembly. Solid penetration and motion are distinct checks.",
+  "pairs": [
+    {
+      "a": "EXT-BLOCK-01",
+      "b": "INT-CAM-01",
+      "surface_pairs": 0
+    },
+    {
+      "a": "EXT-FLYWHEEL-01",
+      "b": "EXT-ELECTRIC-40",
+      "surface_pairs": 0
+    },
+    {
+      "a": "EXT-COOLING-41",
+      "b": "INT-TIMING-05",
+      "surface_pairs": 0
+    },
+    {
+      "a": "EXT-COOLING-41",
+      "b": "EXT-FUEL-09",
+      "surface_pairs": 0
+    },
+    {
+      "a": "EXT-COOLING-41",
+      "b": "EXT-COOLING-45",
+      "surface_pairs": 0
+    },
+    {
+      "a": "EXT-COOLING-41",
+      "b": "EXT-FUEL-100",
+      "surface_pairs": 0
+    },
+    {
+      "a": "EXT-COOLING-04",
+      "b": "EXT-FLYWHEEL-01",
+      "surface_pairs": 0
+    },
+    {
+      "a": "EXT-COOLING-04",
+      "b": "EXT-FUEL-09",
+      "surface_pairs": 0
+    },
+    {
+      "a": "EXT-COOLING-41",
+      "b": "EXT-BLOCK-01",
+      "surface_pairs": 0
+    }
+  ]
+}

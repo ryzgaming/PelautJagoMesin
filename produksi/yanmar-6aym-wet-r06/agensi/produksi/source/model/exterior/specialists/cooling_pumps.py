@@ -1,0 +1,218 @@
+"""Removable coolant and seawater pump parts from WET Figs 54/55 and D01 p160."""
+from math import cos, pi, sin
+from pathlib import Path
+import runpy
+from mathutils import Vector
+
+
+def build(api):
+    bronze=api['appearance']('Pompa pendingin · interpretasi paduan impeler',(.30,.22,.12),.62,.37)
+    for seawater in (False,True):
+        pump(api,seawater,bronze)
+
+
+def pump(a,sea,bronze):
+    anchor, base, num = (4,35,55) if sea else (3,20,54)
+    name = 'Pompa air laut' if sea else 'Pompa air tawar'
+    group = 'RAK-SEAWATER-PUMP' if sea else 'RAK-COOLANT-PUMP'
+    offset=Vector((-.110,.123696470855145,0))
+    center=Vector((.016,.301,-.430) if sea else (1.410,.387,.293))
+    if sea:
+        center+=offset
+    sign=-1 if sea else 1
+    axis=(sign,0,0)
+    radius=.104 if sea else .115
+    steel,cover,cast,rubber=(a[x] for x in ('steel','cover','cast','rubber'))
+    fig=f'D05 Parts Catalog 0CG10-M34300, Fig. {num}, kolom A = 6AYM-WET'
+    manual='D01 PDF 164 cetak 160, potongan pompa coolant dan exploded pompa air laut; PDF 163 cetak 159'
+    function='air laut' if sea else 'coolant'
+    rows=[]
+    def pos(t,y=0,z=0):
+        return (center.x+sign*t,center.y+y,center.z+z)
+    def tube(t,r,b,w,m=steel):
+        return a['annulus'](pos(t),axis,r,b,w,m)
+    def revolved(t,profile,mat):
+        return a['ring'](pos(t),axis,profile,mat)
+    def item(n,title,shapes,ref,pn,role,t=0,notes='',qty=1):
+        refs=[f'{fig}, posisi {ref}',manual]
+        side=(sign*(1 if t>0 else -1),0,0)
+        obj=a['add']('COOLING',n,title,shapes,refs,notes or 'Komponen pada gambar WET; profil, diameter dan posisi geometri diperkirakan.',
+                     parent=group,nested_under='RAK-COOLING',role=role,xray=role in ('shell','cover','casing'),
+                     oem=pn,quantity=qty,direction=side if t else None)
+        rows.append(dict(no=len(rows)+1,nama=title,object_ids=[obj.name],role=role,status='ESTIMATED',sumber=refs,
+                         posisi=[dict(object_id=obj.name,arah=list(side),jarak_m=abs(t),urutan=len(rows))] if t else [],
+                         fungsi=notes or title,nomor_oem=pn,ukuran=None))
+    a['remove_part'](f'EXT-COOLING-{anchor:02d}')
+    # Open chamber to the axial end cover. Volute/cam IDs are intentionally
+    # unchanged exterior proxies. The annular walls leave room for the rotor.
+    shell=[revolved(0,[(-.041,.029),(-.041,radius*.79),(-.030,radius*.97),(-.012,radius),
+                        (.023,radius),(.031,radius*1.03),(.035,radius*1.03),(.035,radius*.84),
+                        (-.024,radius*.84),(-.027,.029)],cast)]
+    ports = [((-.042,.438,-.474),.043,(-.3,1,0)),((-.051,.268,-.548),.040,(-.4,0,-1))] if sea else [
+        ((1.430,.461,.491),.049,(0,.3,1)),((1.438,.530,.306),.046,(0,1,0))]
+    for end,r,direction in ports:
+        end=Vector(end)+offset if sea else Vector(end)
+        tangential=Vector((0,end.y-center.y,end.z-center.z)).normalized()
+        start=center+tangential*radius*.87
+        neck=a['sweep']([start,(start+end)*.5,end],r,cast,24,True)
+        if sea:
+            # Trim the welded-in neck lip to the chamber envelope. The rotor
+            # contact shown in the manual occurs at the cam, not an outlet stub.
+            chamber=a['cylinder'](pos(0),axis,radius*.839,.070,cast,64,0)
+            a['subtract'](neck,chamber)
+            throat=a['sweep']([center+tangential*radius*.69,(start+end)*.5,end],r*.76,cast,24)
+            a['subtract'](shell[0],throat)
+            a['clean_boolean'](neck)
+        shell += [neck,*a['flange'](end,direction,r*1.26,r*.79,.013,cast,4)]
+    if sea:
+        # Counterbore in the fixed rear wall for the revolving carbon seal head.
+        a['subtract'](shell[0],a['cylinder'](pos(-.0415),axis,.03125,.015,cast,72,0))
+        a['clean_boolean'](shell[0])
+    # Service manual shows directly driven shafts. Axis along crank approximates
+    # the drive gear interface; precise casting ports remain undimensioned.
+    bearing_rad=.047 if sea else .034
+    back_start,back_step=(-.041,-.035) if sea else (-.048,-.042)
+    bearing_shell=revolved(-.096,[(back_start,bearing_rad),(back_start,bearing_rad+.006),(back_step,bearing_rad+.013),
+                    (.042,bearing_rad+.014),(.058,bearing_rad+.025),(.063,bearing_rad+.025),
+                    (.063,.025),(.048,.025),(.038,bearing_rad)],cast)
+    if not sea: shell.append(bearing_shell)
+    item(anchor,'Rumah '+name.lower(),shell,4 if sea else 2,'148634-42100' if sea else '148660-43100','shell')
+    # Build actual blades, extending from hub to rim. On the sea pump the
+    # elastomer strips deflect progressively as they pass the eccentric cam.
+    def blade(theta,r0,r1,bend,thickness,depth,deform):
+        rear,front=[],[]
+        for face in [1,-1]:
+            for j in (range(12) if face==1 else reversed(range(12))):
+                u=j/11
+                phi=theta+bend*u*u
+                r=r0+(r1-r0)*u-deform*u*u
+                phi+=face*thickness*.5/r*(1-.25*u)
+                radial_y,radial_z=r*cos(phi),r*sin(phi)
+                rear.append(pos(-depth if sea else -.0171,radial_y,radial_z))
+                # Bond each centrifugal vane between back-disc and conical front shroud.
+                front.append(pos(depth if sea else .021-.008*u,radial_y,radial_z))
+        return a['polygon_loft']([rear,front],rubber if sea else bronze,.0007)
+    blades=10 if sea else 7
+    hub_rad=.031 if sea else .027
+    bore=.0185 if sea else .0126
+    r_tip=.084 if sea else .087
+    impeller=[tube(0,hub_rad,bore,.043,rubber if sea else bronze)]
+    if sea:
+        impeller.append(tube(0,.0235,bore,.044,bronze))
+    else:
+        impeller += [tube(-.019,r_tip,.026,.004,bronze),
+                     revolved(.024,[(-.003,.028),(-.011,.087),(-.007,.087),(.002,.034),(.005,.028)],bronze)]
+    for k in range(blades):
+        theta=2*pi*k/blades
+        compression=0  # The exported morph targets place the loaded sector in the fixed casing.
+        impeller.append(blade(theta,hub_rad*.97,r_tip,
+                              (.30+.22*compression) if sea else -.62,
+                              .007 if sea else .0038,.019 if sea else .012,.006*compression))
+    item(base,'Impeler karet fleksibel' if sea else 'Impeler sentrifugal berselubung',impeller,2 if sea else 3,
+         '148018-42031' if sea else '148660-43131','core',.170,
+         'D01 memperlihatkan sudu karet lentur pada bidang cam.' if sea else 'D01 memperlihatkan impeler pompa sentrifugal. Bentuk mata masuk dan saluran radial dimodelkan sebagai estimasi.')
+    if sea:
+        vane_profile=runpy.run_path(str(a['OUT'].parent/'motion/seawater_vanes.py'))
+        vane_profile['shape_keys'](a,a['bpy'].data.objects['EXT-COOLING-35'],center)
+        item(374,'Bidang cam tetap pompa air laut',vane_profile['cam'](a,center,.0872),4,None,'cam',.12,
+             notes='Permukaan kerja bagian dari casing, di antara dua port model. D01 PDF164 menunjukkan impeler lentur; azimut dan profil cam ini estimasi.')
+    outer=.0198 if sea else .0124
+    spindle=revolved(-.073,[(-.095,.004),(-.095,outer*.75),(-.087,outer*.75),(-.083,outer),
+                           (.099,outer),(.104,outer*.65),(.104,.004)],steel)
+    if sea:
+        key_center=pos(-.151,outer,0)
+        a['subtract'](spindle,a['box'](key_center,(.0268,.0104,.0104),steel,.0003))
+    item(base+1,'Poros '+name.lower(),spindle,9 if sea else 4,'148660-42440' if sea else '148660-43140','shaft',-.215)
+    # Bearings use the nominal 6305 / 6205 / 6308 series dimensions for races.
+    def bearing(t,outer_r,bore_r,width):
+        mid=(bore_r+outer_r)*.5
+        gap=(outer_r-bore_r)*.42
+        shapes=[tube(t,bore_r+gap*.79,bore_r,width),tube(t,outer_r,outer_r-gap*.79,width)]
+        for j in range(9):
+            ang=2*pi*j/9
+            point=pos(t,mid*cos(ang),mid*sin(ang))
+            import bpy
+            bpy.ops.mesh.primitive_uv_sphere_add(segments=12,ring_count=8,radius=gap*.70,location=a['world'](point))
+            shapes.append(a['shade'](bpy.context.object,steel,smooth=True))
+        return shapes
+    for offset,t in enumerate([-.078,-.116]):
+        if sea: radius_b,r_hole,w=.045,.020,.023
+        else: radius_b,r_hole,w=(.031,.0125,.017) if offset==0 else (.026,.0125,.015)
+        kind='6308' if sea else ('6305' if offset==0 else '6205')
+        components=bearing(t,radius_b,r_hole,w)
+        if sea:
+            radial_gap=(radius_b-r_hole)*.42
+            # Construct separately seated races, leaving room for the rolling elements.
+            ball_radius=radial_gap*.70
+            pitch=(radius_b+r_hole)*.5
+            for shape in components[:2]:a['bpy'].data.objects.remove(shape,do_unlink=True)
+            item(370+2*offset,'Ring dalam bearing 6308 posisi '+str(offset+1),
+                 tube(t,pitch-ball_radius+.00003,r_hole,w),16,None,'bearing',-.24-.09*offset)
+            item(371+2*offset,'Bola bearing 6308 posisi '+str(offset+1),components[2:],16,None,'bearing',-.28-.09*offset)
+            components=[tube(t,radius_b,pitch+ball_radius-.00003,w)]
+        item(base+2+offset,('Ring luar bearing ' if sea else 'Bantalan ')+kind+(' dekat impeler' if offset==0 else ' dekat gear'),components,
+             16 if sea else 6+offset,'24101-063084' if sea else ('24101-063054' if offset==0 else '24101-062054'),
+             'bearing',-.13-offset*.15,notes='Posisi dan jumlah bola ilustratif. Nomor bantalan dan kuantitas sesuai kolom WET.')
+    # A stationary seat is pressed in the housing. The spring-loaded mating
+    # face and bellows follow the pump shaft in this teaching section.
+    seat=tube(-.046,outer+.0116,outer+.0015,.0036,steel)
+    item(base+4,'Face tetap seal mekanis '+function,seat,3 if sea else 9,'148218-42090' if sea else '148633-43400','seal',-.06)
+    follow=[tube(-.04192,outer+.0106,outer+.0009,.00453,rubber),
+            tube(-.0356,outer+.0048,outer+.00008,.0078,rubber),
+            a['sweep']([pos(-.039+.006*j/96,(outer+.006)*cos(2*pi*j/32),(outer+.006)*sin(2*pi*j/32))
+                           for j in range(97)],.00085,steel,6)]
+    item(381 if sea else 380,'Face, pegas dan bellows seal berputar '+function,follow,3 if sea else 9,None,'seal',-.088,
+         notes='Subkomponen seal mekanis. Face model duduk berhadapan dengan cincin diam; bentuk, bahan, celah film dan kebocoran tidak diukur.')
+    item(base+5,'Seal oli sisi penggerak',tube(-.059,outer+.011,outer*.99,.007,rubber),21 if sea else 17,
+         '24421-405508' if sea else '148616-54420','seal',-.09)
+    if sea:
+        wheel=runpy.run_path(str(Path(__file__).resolve().parents[2]/'internal/gear_train.py'))['seawater_wheel']
+        gear=[wheel(a,pos(-.151),outer+.0003),tube(-.152,outer+.009,outer+.0003,.023)]
+        # Open the keyway directly in the involute ring's inner loops. The
+        # long coplanar facets on these loops make a Boolean unreliable.
+        a['bpy'].context.view_layer.update()
+        tooth_ring, hub = gear
+        inverse = tooth_ring.matrix_world.inverted()
+        for vert in tooth_ring.data.vertices:
+            wp = tooth_ring.matrix_world @ vert.co
+            y,z=wp.z-center.y,-wp.y-center.z
+            if abs(y*y+z*z-(outer+.0003)**2)<1e-8 and y>0 and abs(z)<.0052:
+                scale=min((outer+.0052)/y,.0052/abs(z) if z else 10)
+                wp.z=center.y+y*scale
+                wp.y=-center.z-z*scale
+                vert.co=inverse@wp
+        tooth_ring.data.update()
+        assert len(tooth_ring.data.polygons)>1000,'Involute tooth ring lost before export'
+        a['subtract'](hub,a['box'](key_center,(.0268,.0104,.0104),steel,.0003))
+        item(46,'Pasak pompa air laut 10 × 26',
+             a['box'](key_center,(.026,.010,.010),steel,.0004),15,'22512-100260','key',-.22,
+             'Pasak menyatukan roda gigi dan poros. Letak alur dan celah merupakan estimasi.')
+    else:
+        r=.047
+        count=24
+        gear=[tube(-.151,r-.002,outer+.0003,.018),tube(-.152,outer+.009,outer+.0003,.023)]
+        for k in range(count):
+            angle=k*2*pi/count
+            tooth=[(center.y+rad*cos(angle+phi/count),center.z+rad*sin(angle+phi/count))
+                   for rad,phi in [(r-.003,-2.4),(r+.004,-1.3),(r+.004,1.3),(r-.003,2.4)]]
+            gear.append(a['prism'](tooth,'x',center.x-sign*.151-.008,center.x-sign*.151+.008,steel,.0004))
+    item(base+6,'Roda gigi penggerak pompa',gear,12 if sea else 11,'148660-42400' if sea else '148633-43700','gear',-.395,
+         'Jumlah gigi dan engagement dimodelkan sebagai interpretasi edukasi dari rangkaian penggerak.')
+    # Freshwater end plate has a central boss. Rubber pump has a flat closed
+    # cover and wearing plate behind the rotor, as pictured on D01 p160.
+    lid=[a['cylinder'](pos(.043),axis,radius*.99,.012,cover,48,.002)]
+    if not sea: lid.append(revolved(.047,[(-.001,.009),(-.001,.076),(.003,.073),(.010,.029),(.012,.009)],cover))
+    bolt_count=8 if sea else 9
+    for k in range(bolt_count):
+        ang=k*2*pi/bolt_count
+        lid.append(a['bolt'](pos(.052,radius*.918*cos(ang),radius*.918*sin(ang)),axis,.0074))
+    item(base+7,'Tutup servis '+name.lower(),lid,7 if sea else 15,'148660-42420' if sea else '148660-43110','cover',.385)
+    item(base+8,'O-ring tutup' if sea else 'Packing tutup pompa',tube(.036,radius*.95,radius*.848,.0018,rubber),
+         '17–20, dudukan spesifik belum terverifikasi' if sea else 16,None if sea else '148660-43120','seal',.295)
+    if sea:
+        item(base+9,'Pelat aus di belakang impeler',tube(-.0237,.084,.023,.004,bronze),10,'148634-42340','wear_plate',.082)
+        item(base+10,'Rumah bantalan pompa air laut',bearing_shell,5,'148660-42431','casing',-.355)
+    a['register_recipe'](dict(id=group,node_rakitan=group,parent_rakitan='RAK-COOLING',nama=name,status='UNVERIFIED',
+            source_refs=[fig,manual],acuan=dict(no=1,object_ids=[f'EXT-COOLING-{anchor:02d}']),
+            diagram=dict(arah_pandang=[.63*sign,.31,.711 if not sea else -.711],atas=[0,1,0]),bagian=rows,
+            notes='Rentang serial belum dicocokkan. Dimensi, jumlah sudu, gigi dan bola serta orientasi relatif housing adalah interpretasi. Jalur penggerak dan lintasan bongkar ilustratif.'))

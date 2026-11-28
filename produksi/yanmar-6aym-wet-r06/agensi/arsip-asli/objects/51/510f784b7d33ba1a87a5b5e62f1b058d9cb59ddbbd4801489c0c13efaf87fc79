@@ -1,0 +1,34 @@
+{
+  "sha256": "4a1368ac64f4887bd18941c474096771034a633c88e24ed72fee6a17196a2f8b",
+  "original_bounds_m": [
+    [
+      -0.9990000128746033,
+      0.10909999161958694,
+      -0.6192773580551147
+    ],
+    [
+      0.9590599536895752,
+      1.4789999723434448,
+      0.562999963760376
+    ]
+  ],
+  "aligned_visible_bounds_m": [
+    [
+      -0.20005999505519867,
+      -0.4108999967575073,
+      -0.562999963760376
+    ],
+    [
+      1.7580000162124634,
+      0.9590000510215759,
+      0.6192773580551147
+    ]
+  ],
+  "original_crank_origin_blender_m": [
+    0.7590000033378601,
+    0.0,
+    0.0
+  ],
+  "original_cyl1_center_x_m": 0.550000011920929,
+  "alignment": "180\u00b0 about Blender Z, translate to common #1 and crank centerline; no scaling. Excludes internal core except flywheel in render. Fixed new revision 3/4 camera, lights, exposure and viewport. Comparison of appearance, not source validation."
+}

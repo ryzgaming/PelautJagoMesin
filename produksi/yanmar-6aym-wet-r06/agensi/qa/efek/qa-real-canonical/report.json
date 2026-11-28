@@ -1,0 +1,168 @@
+{
+  "url": "http://localhost:8766/.agents/skills/animasi-aliran-mesin/scripts/lab.html?auto=1.5&real&xray",
+  "viewport": "mobile",
+  "runtime": {
+    "link": "jacket",
+    "samples": [
+      {
+        "link": "jacket",
+        "medium": "fresh_water",
+        "state": "running",
+        "fraction": 0.14916119491623828,
+        "phase_m": 7.243000000000001,
+        "world": [
+          0.4508667066705097,
+          0.36141446703371666,
+          0.17
+        ],
+        "visible": true,
+        "time_s": 0.003
+      },
+      {
+        "link": "jacket",
+        "medium": "fresh_water",
+        "state": "running",
+        "fraction": 0.3540098085859562,
+        "phase_m": 7.676600000001491,
+        "world": [
+          0.021159072970347845,
+          0.41812180559270357,
+          0.17
+        ],
+        "visible": true,
+        "time_s": 0.407
+      },
+      {
+        "link": "jacket",
+        "medium": "fresh_water",
+        "state": "paused",
+        "fraction": 0.3540098085859562,
+        "phase_m": 7.676600000001491,
+        "world": [
+          0.021159072970347845,
+          0.41812180559270357,
+          0.17
+        ],
+        "visible": true,
+        "time_s": 0.563
+      },
+      {
+        "link": "jacket",
+        "medium": "fresh_water",
+        "state": "paused",
+        "fraction": 0.3540098085859562,
+        "phase_m": 7.676600000001491,
+        "world": [
+          0.021159072970347845,
+          0.41812180559270357,
+          0.17
+        ],
+        "visible": true,
+        "time_s": 0.968
+      },
+      {
+        "link": "jacket",
+        "medium": "fresh_water",
+        "state": "resumed",
+        "fraction": 0.3540098085859562,
+        "phase_m": 7.676600000001491,
+        "world": [
+          0.021159072970347845,
+          0.41812180559270357,
+          0.17
+        ],
+        "visible": true,
+        "time_s": 0.973
+      },
+      {
+        "link": "jacket",
+        "medium": "fresh_water",
+        "state": "resumed",
+        "fraction": 0.5485120554664458,
+        "phase_m": 8.088300000000745,
+        "world": [
+          -0.387302027456718,
+          0.4683606691460441,
+          0.17
+        ],
+        "visible": true,
+        "time_s": 1.396
+      }
+    ],
+    "pause_stable": true,
+    "moves_when_running": true,
+    "resume_continues": true
+  },
+  "links": [
+    {
+      "id": "jacket",
+      "medium": "fresh_water",
+      "label": "Air tawar pendingin",
+      "length_m": 2.116685059439029,
+      "estimated": false
+    },
+    {
+      "id": "lube",
+      "medium": "lube_oil",
+      "label": "Oli pelumas",
+      "length_m": 1.9066700764766682,
+      "estimated": false
+    },
+    {
+      "id": "fuel_rail",
+      "medium": "fuel",
+      "label": "Bahan bakar",
+      "length_m": 1.0305876024010234,
+      "estimated": false
+    },
+    {
+      "id": "fuel_1",
+      "medium": "fuel",
+      "label": "Bahan bakar",
+      "length_m": 0.12159867110473294,
+      "estimated": false
+    },
+    {
+      "id": "fuel_2",
+      "medium": "fuel",
+      "label": "Bahan bakar",
+      "length_m": 0.12159867110473294,
+      "estimated": false
+    },
+    {
+      "id": "fuel_3",
+      "medium": "fuel",
+      "label": "Bahan bakar",
+      "length_m": 0.12159867110473294,
+      "estimated": false
+    },
+    {
+      "id": "fuel_4",
+      "medium": "fuel",
+      "label": "Bahan bakar",
+      "length_m": 0.12159867110473294,
+      "estimated": false
+    },
+    {
+      "id": "exhaust",
+      "medium": "exhaust",
+      "label": "Gas buang",
+      "length_m": 1.2227399301732023,
+      "estimated": false
+    }
+  ],
+  "warnings": [],
+  "frames": [
+    "/workspace/efek-review/qa-real-canonical/frame-00.png",
+    "/workspace/efek-review/qa-real-canonical/frame-01.png",
+    "/workspace/efek-review/qa-real-canonical/frame-02.png",
+    "/workspace/efek-review/qa-real-canonical/frame-03.png"
+  ],
+  "motion": [
+    1.059,
+    0.758,
+    0.929
+  ],
+  "motion_ok": true,
+  "errors": []
+}

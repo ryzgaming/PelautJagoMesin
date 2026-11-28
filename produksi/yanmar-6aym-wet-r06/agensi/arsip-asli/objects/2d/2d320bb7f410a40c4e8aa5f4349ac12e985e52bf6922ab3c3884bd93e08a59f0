@@ -1,0 +1,21 @@
+{
+  "asset_sha256": "7f4eab14803a9b0ee1671b346985f31f70c6248e9a41f6d51104257118106ed5",
+  "select": {
+    "shell": [
+      "EXT-INTAKE-02"
+    ],
+    "parts": [],
+    "offsets": {}
+  },
+  "camera_blender": [
+    -2.454685688018799,
+    2.928356885910034,
+    2.303333044052124
+  ],
+  "target_blender": [
+    -0.1599999964237213,
+    0.05999999865889549,
+    0.7200000286102295
+  ],
+  "mode": "Fixed orthographic camera across versions, 1.05 assembled/X-ray, 1.65 exploded. Shell transparency weight .18. QA render, not browser screenshot."
+}

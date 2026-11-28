@@ -1,0 +1,595 @@
+{
+  "id": "RAK-FUEL",
+  "nama": "Injeksi bahan bakar",
+  "node_rakitan": "RAK-FUEL",
+  "acuan": {
+    "no": 1,
+    "object_ids": [
+      "EXT-FUEL-01"
+    ]
+  },
+  "diagram": {
+    "arah_pandang": [
+      0.31139957904815674,
+      0.5449492335319519,
+      -0.7784989476203918
+    ],
+    "atas": [
+      0,
+      1,
+      0
+    ]
+  },
+  "bagian": [
+    {
+      "no": 1,
+      "nama": "Pompa injeksi enam elemen",
+      "object_ids": [
+        "EXT-FUEL-01"
+      ],
+      "posisi": [],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 14 printed p. 10 / component locations, operation side",
+        "P07 / pompa injeksi pada sisi operasi",
+        "P08 / coran dan panel servis",
+        "P14 panel kiri / detail pompa dan fitting"
+      ],
+      "fungsi": "Pompa injeksi enam elemen",
+      "nomor_oem": null,
+      "ukuran": null
+    },
+    {
+      "no": 2,
+      "nama": "Governor mekanis, tuas dan pegas balik",
+      "object_ids": [
+        "EXT-FUEL-02"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-02",
+          "arah": [
+            1,
+            0,
+            0
+          ],
+          "jarak_m": 0.298,
+          "urutan": 2
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 14 printed p. 10 / component locations, operation side",
+        "P07 / pompa injeksi pada sisi operasi",
+        "P08 / coran dan panel servis",
+        "P14 panel kiri / detail pompa dan fitting"
+      ],
+      "fungsi": "Governor mekanis, tuas dan pegas balik",
+      "nomor_oem": null,
+      "ukuran": null
+    },
+    {
+      "no": 3,
+      "nama": "Pipa injeksi silinder 1",
+      "object_ids": [
+        "EXT-FUEL-03"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-03",
+          "arah": [
+            0,
+            0,
+            -1
+          ],
+          "jarak_m": 0.316,
+          "urutan": 3
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "P07 / lengkung pipa sisi operasi",
+        "P08 / routing tampak di bawah manifold",
+        "P14 panel kiri / lengkung dan titik sambung",
+        "D01 PDF 14 printed p. 10 / component locations, operation side"
+      ],
+      "fungsi": "Pipa injeksi silinder 1",
+      "nomor_oem": null,
+      "ukuran": null
+    },
+    {
+      "no": 4,
+      "nama": "Pipa injeksi silinder 2",
+      "object_ids": [
+        "EXT-FUEL-04"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-04",
+          "arah": [
+            0,
+            0,
+            -1
+          ],
+          "jarak_m": 0.334,
+          "urutan": 4
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "P07 / lengkung pipa sisi operasi",
+        "P08 / routing tampak di bawah manifold",
+        "P14 panel kiri / lengkung dan titik sambung",
+        "D01 PDF 14 printed p. 10 / component locations, operation side"
+      ],
+      "fungsi": "Pipa injeksi silinder 2",
+      "nomor_oem": null,
+      "ukuran": null
+    },
+    {
+      "no": 5,
+      "nama": "Pipa injeksi silinder 3",
+      "object_ids": [
+        "EXT-FUEL-05"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-05",
+          "arah": [
+            0,
+            0,
+            -1
+          ],
+          "jarak_m": 0.352,
+          "urutan": 5
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "P07 / lengkung pipa sisi operasi",
+        "P08 / routing tampak di bawah manifold",
+        "P14 panel kiri / lengkung dan titik sambung",
+        "D01 PDF 14 printed p. 10 / component locations, operation side"
+      ],
+      "fungsi": "Pipa injeksi silinder 3",
+      "nomor_oem": null,
+      "ukuran": null
+    },
+    {
+      "no": 6,
+      "nama": "Pipa injeksi silinder 4",
+      "object_ids": [
+        "EXT-FUEL-06"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-06",
+          "arah": [
+            0,
+            0,
+            -1
+          ],
+          "jarak_m": 0.37,
+          "urutan": 6
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "P07 / lengkung pipa sisi operasi",
+        "P08 / routing tampak di bawah manifold",
+        "P14 panel kiri / lengkung dan titik sambung",
+        "D01 PDF 14 printed p. 10 / component locations, operation side"
+      ],
+      "fungsi": "Pipa injeksi silinder 4",
+      "nomor_oem": null,
+      "ukuran": null
+    },
+    {
+      "no": 7,
+      "nama": "Pipa injeksi silinder 5",
+      "object_ids": [
+        "EXT-FUEL-07"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-07",
+          "arah": [
+            0,
+            0,
+            -1
+          ],
+          "jarak_m": 0.388,
+          "urutan": 7
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "P07 / lengkung pipa sisi operasi",
+        "P08 / routing tampak di bawah manifold",
+        "P14 panel kiri / lengkung dan titik sambung",
+        "D01 PDF 14 printed p. 10 / component locations, operation side"
+      ],
+      "fungsi": "Pipa injeksi silinder 5",
+      "nomor_oem": null,
+      "ukuran": null
+    },
+    {
+      "no": 8,
+      "nama": "Pipa injeksi silinder 6",
+      "object_ids": [
+        "EXT-FUEL-08"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-08",
+          "arah": [
+            0,
+            0,
+            -1
+          ],
+          "jarak_m": 0.406,
+          "urutan": 8
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "P07 / lengkung pipa sisi operasi",
+        "P08 / routing tampak di bawah manifold",
+        "P14 panel kiri / lengkung dan titik sambung",
+        "D01 PDF 14 printed p. 10 / component locations, operation side"
+      ],
+      "fungsi": "Pipa injeksi silinder 6",
+      "nomor_oem": null,
+      "ukuran": null
+    },
+    {
+      "no": 9,
+      "nama": "Kepala dan braket filter bahan bakar ganda",
+      "object_ids": [
+        "EXT-FUEL-09"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-09",
+          "arah": [
+            0,
+            0,
+            -1
+          ],
+          "jarak_m": 0.424,
+          "urutan": 9
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 14 printed p. 10 / component locations, operation side",
+        "P07 / pasangan tabung gantung",
+        "P08 / kepala coran, selang dan sumbat",
+        "P14 panel kiri / detail modul filter ganda"
+      ],
+      "fungsi": "Kepala dan braket filter bahan bakar ganda",
+      "nomor_oem": null,
+      "ukuran": null
+    },
+    {
+      "no": 10,
+      "nama": "Canister filter bahan bakar 1",
+      "object_ids": [
+        "EXT-FUEL-10"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-10",
+          "arah": [
+            0,
+            -1,
+            0
+          ],
+          "jarak_m": 0.442,
+          "urutan": 10
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 14 printed p. 10 / component locations, operation side",
+        "P07 / pasangan tabung gantung",
+        "P08 / kepala coran, selang dan sumbat",
+        "P14 panel kiri / detail modul filter ganda"
+      ],
+      "fungsi": "Canister filter bahan bakar 1",
+      "nomor_oem": null,
+      "ukuran": null
+    },
+    {
+      "no": 11,
+      "nama": "Canister filter bahan bakar 2",
+      "object_ids": [
+        "EXT-FUEL-11"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-11",
+          "arah": [
+            0,
+            -1,
+            0
+          ],
+          "jarak_m": 0.46,
+          "urutan": 11
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 14 printed p. 10 / component locations, operation side",
+        "P07 / pasangan tabung gantung",
+        "P08 / kepala coran, selang dan sumbat",
+        "P14 panel kiri / detail modul filter ganda"
+      ],
+      "fungsi": "Canister filter bahan bakar 2",
+      "nomor_oem": null,
+      "ukuran": null
+    },
+    {
+      "no": 12,
+      "nama": "Pompa feed dan priming",
+      "object_ids": [
+        "EXT-FUEL-12"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-12",
+          "arah": [
+            0,
+            0,
+            -1
+          ],
+          "jarak_m": 0.478,
+          "urutan": 12
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 14 printed p. 10 / component locations, operation side",
+        "P07 / pasangan tabung gantung",
+        "P08 / kepala coran, selang dan sumbat",
+        "P14 panel kiri / detail modul filter ganda"
+      ],
+      "fungsi": "Pompa feed dan priming",
+      "nomor_oem": null,
+      "ukuran": null
+    },
+    {
+      "no": 13,
+      "nama": "Fitting delivery pompa 1",
+      "object_ids": [
+        "EXT-FUEL-13"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-13",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.496,
+          "urutan": 13
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 14 printed p. 10 / component locations, operation side",
+        "P07 / enam sambungan",
+        "P08 / hex union dan seat bertingkat",
+        "P14 panel kiri / deret fitting dan jalur pendek"
+      ],
+      "fungsi": "Fitting delivery pompa 1",
+      "nomor_oem": null,
+      "ukuran": null
+    },
+    {
+      "no": 14,
+      "nama": "Fitting delivery pompa 2",
+      "object_ids": [
+        "EXT-FUEL-14"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-14",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.514,
+          "urutan": 14
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 14 printed p. 10 / component locations, operation side",
+        "P07 / enam sambungan",
+        "P08 / hex union dan seat bertingkat",
+        "P14 panel kiri / deret fitting dan jalur pendek"
+      ],
+      "fungsi": "Fitting delivery pompa 2",
+      "nomor_oem": null,
+      "ukuran": null
+    },
+    {
+      "no": 15,
+      "nama": "Fitting delivery pompa 3",
+      "object_ids": [
+        "EXT-FUEL-15"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-15",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.532,
+          "urutan": 15
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 14 printed p. 10 / component locations, operation side",
+        "P07 / enam sambungan",
+        "P08 / hex union dan seat bertingkat",
+        "P14 panel kiri / deret fitting dan jalur pendek"
+      ],
+      "fungsi": "Fitting delivery pompa 3",
+      "nomor_oem": null,
+      "ukuran": null
+    },
+    {
+      "no": 16,
+      "nama": "Fitting delivery pompa 4",
+      "object_ids": [
+        "EXT-FUEL-16"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-16",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.55,
+          "urutan": 16
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 14 printed p. 10 / component locations, operation side",
+        "P07 / enam sambungan",
+        "P08 / hex union dan seat bertingkat",
+        "P14 panel kiri / deret fitting dan jalur pendek"
+      ],
+      "fungsi": "Fitting delivery pompa 4",
+      "nomor_oem": null,
+      "ukuran": null
+    },
+    {
+      "no": 17,
+      "nama": "Fitting delivery pompa 5",
+      "object_ids": [
+        "EXT-FUEL-17"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-17",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.568,
+          "urutan": 17
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 14 printed p. 10 / component locations, operation side",
+        "P07 / enam sambungan",
+        "P08 / hex union dan seat bertingkat",
+        "P14 panel kiri / deret fitting dan jalur pendek"
+      ],
+      "fungsi": "Fitting delivery pompa 5",
+      "nomor_oem": null,
+      "ukuran": null
+    },
+    {
+      "no": 18,
+      "nama": "Fitting delivery pompa 6",
+      "object_ids": [
+        "EXT-FUEL-18"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-18",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.586,
+          "urutan": 18
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 14 printed p. 10 / component locations, operation side",
+        "P07 / enam sambungan",
+        "P08 / hex union dan seat bertingkat",
+        "P14 panel kiri / deret fitting dan jalur pendek"
+      ],
+      "fungsi": "Fitting delivery pompa 6",
+      "nomor_oem": null,
+      "ukuran": null
+    },
+    {
+      "no": 19,
+      "nama": "Pelat akses bawah pompa dan pengikat",
+      "object_ids": [
+        "EXT-FUEL-19"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-19",
+          "arah": [
+            0,
+            0,
+            -1
+          ],
+          "jarak_m": 0.604,
+          "urutan": 19
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 14 printed p. 10 / component locations, operation side",
+        "P07 / pompa injeksi pada sisi operasi",
+        "P08 / coran dan panel servis",
+        "P14 panel kiri / detail pompa dan fitting"
+      ],
+      "fungsi": "Pelat akses bawah pompa dan pengikat",
+      "nomor_oem": null,
+      "ukuran": null
+    },
+    {
+      "no": 20,
+      "nama": "Pelat identifikasi pompa tanpa tulisan",
+      "object_ids": [
+        "EXT-FUEL-20"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-20",
+          "arah": [
+            0,
+            0,
+            -1
+          ],
+          "jarak_m": 0.622,
+          "urutan": 20
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 14 printed p. 10 / component locations, operation side",
+        "P07 / pompa injeksi pada sisi operasi",
+        "P08 / coran dan panel servis",
+        "P14 panel kiri / detail pompa dan fitting"
+      ],
+      "fungsi": "Pelat identifikasi pompa tanpa tulisan",
+      "nomor_oem": null,
+      "ukuran": null
+    }
+  ],
+  "notes": "Nomor posisi model. Lintasan ilustrasi, belum diperiksa untuk interferensi."
+}

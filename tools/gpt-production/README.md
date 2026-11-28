@@ -1,16 +1,18 @@
 # Toolkit produksi GPT/Codex
 
-Adaptasi prompt dan toolkit yang dilampirkan pemilik pada 28 November 2026. Mulai dengan [PROMPT-GPT.md](PROMPT-GPT.md); instruksi rinci ada di [ROLE-PROMPTS.md](ROLE-PROMPTS.md). Ini perangkat kerja untuk agen, bukan generator otomatis semua mesin dan bukan pemasangan Blender.
+Adaptasi prompt dan toolkit yang dilampirkan pemilik pada 28 November 2026. Mulai dengan [PROMPT-GPT.md](PROMPT-GPT.md); instruksi rinci ada di [ROLE-PROMPTS.md](docs/ROLE-PROMPTS.md). Ini perangkat kerja untuk agen, bukan generator otomatis semua mesin dan bukan pemasangan Blender.
+
+Toolkit ini adalah perangkat aktif lintas mesin. [Indeks agensi](../../agensi/README.md) memetakan profil dan skill kanonis. Prompt dan CLI tetap di folder ini; kontrak pendukung berada di `docs/`, tes di `tests/`. Salinan pada `produksi/<mesin>/agensi` adalah arsip revisi model dan tidak ikut diperbarui ketika toolkit aktif berubah.
 
 Untuk paket unduhan mandiri, buka folder `toolkit-orang-mesin-gpt` dan jalankan `python3 toolkit.py preflight`; hilangkan awalan `tools/gpt-production/` pada command di bawah. Integrasi antrean membutuhkan checkout repository yang memuat `hosted_worker.py`; paket mandiri tidak membuat koneksi/automasi sendiri.
 
-Profil agen Codex ada di `.codex/agents/` pada root repository dan root paket unduhan mandiri. Buka Codex dari root tersebut agar profil tersedia di tingkat proyek. Untuk memakai paket di proyek lain, salin ketiga file TOML ke `.codex/agents/` proyek tujuan. Nama, pemetaan peran, dan cara menjalankan pada runtime yang menerima prompt teks tersedia di [instruksi peran](ROLE-PROMPTS.md#agen-proyek-untuk-kemiripan-dan-viewer).
+Profil agen Codex ada di `.codex/agents/` pada root repository dan root paket unduhan mandiri. Buka Codex dari root tersebut agar profil tersedia di tingkat proyek. Untuk memakai paket di proyek lain, salin profil TOML yang diperlukan (15 profil tersedia) ke `.codex/agents/` proyek tujuan. Nama, pemetaan peran, dan cara menjalankan pada runtime yang menerima prompt teks tersedia di [instruksi peran](docs/ROLE-PROMPTS.md#agen-proyek-untuk-kemiripan-dan-viewer).
 
-Untuk simulasi mekanisme, tugaskan `spesialis_kinematika_benturan` memetakan tiap mesh ke bagian diam/bergerak per kondisi operasi. Gunakan [register gerak dan pemeriksaan benturan](MOTION-QA.md) hingga pengujian viewer.
+Untuk simulasi mekanisme, tugaskan `spesialis_kinematika_benturan` memetakan tiap mesh ke bagian diam/bergerak per kondisi operasi. Gunakan [register gerak dan pemeriksaan benturan](docs/MOTION-QA.md) hingga pengujian viewer.
 
-Untuk perpipaan, lorong cor dan animasi fluida, aktifkan agen lintas rakitan `spesialis_jalur_fluida` sesuai [petunjuk registrasi dan uji rute](FLOW-ROUTING.md). Tampilan aliran dan gerak mesin memakai skill [animasi-aliran-mesin](../../.agents/skills/animasi-aliran-mesin/SKILL.md) dan [blender-animasi-mesin](../../.agents/skills/blender-animasi-mesin/SKILL.md); Blender MCP dikonfigurasi di `.codex/config.toml`.
+Untuk perpipaan, lorong cor dan animasi fluida, aktifkan agen lintas rakitan `spesialis_jalur_fluida` sesuai [petunjuk registrasi dan uji rute](docs/FLOW-ROUTING.md). Tampilan aliran dan gerak mesin memakai skill [animasi-aliran-mesin](../../.agents/skills/animasi-aliran-mesin/SKILL.md) dan [blender-animasi-mesin](../../.agents/skills/blender-animasi-mesin/SKILL.md); Blender MCP dikonfigurasi di `.codex/config.toml`.
 
-Pada produksi dan revisi model mesin, koordinator juga [menugaskan spesialis tiap rakitan](SPECIALISTS.md) sebelum memodelkan. Gunakan daftar dari `specialist-briefs`, teruskan subkomponen yang diharapkan kepada modeler, dan periksa komponen tersembunyi hingga dapat dipilih melalui viewer.
+Pada produksi dan revisi model mesin, koordinator juga [menugaskan spesialis tiap rakitan](docs/SPECIALISTS.md) sebelum memodelkan. Gunakan daftar dari `specialist-briefs`, teruskan subkomponen yang diharapkan kepada modeler, dan periksa komponen tersembunyi hingga dapat dipilih melalui viewer.
 
 ## Jalankan dari root repository
 

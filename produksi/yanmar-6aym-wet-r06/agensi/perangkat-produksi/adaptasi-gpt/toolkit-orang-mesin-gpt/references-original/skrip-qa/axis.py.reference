@@ -1,0 +1,40 @@
+import bpy, json, mathutils, math
+from mathutils.bvhtree import BVHTree
+bpy.ops.wm.open_mainfile(filepath='/tmp/claude-0/c3512/qa/scripts/combined.blend')
+K=json.load(open('/tmp/claude-0/c3512/model/internal/kinematics.json'))
+O=bpy.data.objects
+def verts(name):
+    o=O[name]; M=o.matrix_world
+    return [ (lambda p:(p.x,p.z,-p.y))(M@v.co) for v in o.data.vertices]
+res={}
+def proj(name, cyl, rmax=None):
+    c=[s for s in K['silinder'] if s['silinder']==cyl][0]
+    ax=c['sumbu']; x0=c['x_silinder']
+    vs=verts(name); out=[]
+    for (X,Y,Z) in vs:
+        a=Y*ax[1]+Z*ax[2]
+        # radial distance from cylinder axis line through (x0,0,0)
+        px=X-x0; perp=( Y-a*ax[1], Z-a*ax[2])
+        r=math.sqrt(px*px+perp[0]**2+perp[1]**2)
+        if rmax is None or r<=rmax: out.append(a)
+    return (round(min(out),4),round(max(out),4),len(out)) if out else None
+for cyl in [1,2,11,12]:
+    c=[s for s in K['silinder'] if s['silinder']==cyl][0]
+    right = c['bank'].startswith('kanan')
+    n=f'{cyl:02d}'
+    # find exterior head/cover matching x
+    hx=[o.name for o in O if o.type=='MESH' and o.name.startswith('EXT-KEPALA-'+('R' if right else 'L'))]
+    def xc(nm):
+        vs=verts(nm); return (min(v[0] for v in vs)+max(v[0] for v in vs))/2
+    head=min(hx,key=lambda nm:abs(xc(nm)-c['x_silinder']))
+    cov=head.replace('KEPALA','TUTUPKATUP')
+    d={'x_silinder':c['x_silinder'],'axis':c['sumbu'],'head_obj':head,'head_xc':round(xc(head),4),
+       'liner':proj(f'INT-LINER-{n}',cyl),'piston':proj(f'INT-PISTON-{n}',cyl),
+       'blok_dekat_sumbu_r0.12':proj('EXT-BLOK-01',cyl,0.12),'blok_dekat_sumbu_r0.2':proj('EXT-BLOK-01',cyl,0.2),
+       'kepala_r0.12':proj(head,cyl,0.12),'kepala_all':proj(head,cyl),'tutup':proj(cov,cyl),
+       'rocker':[proj(f'INT-ROCKER-{n}-{t}',cyl) for t in ['IN','INJ','EX']]}
+    others=[o.name for o in O if o.type=='MESH' and o.name.startswith('INT-') and n in o.name.split('-')]
+    d['internal_cyl_max_a']=max(((proj(nm,cyl) or (0,0,0))[1],nm) for nm in others)
+    res[cyl]=d
+json.dump(res,open('/tmp/claude-0/c3512/qa/scripts/axis.json','w'),indent=1)
+print(json.dumps(res,indent=1))

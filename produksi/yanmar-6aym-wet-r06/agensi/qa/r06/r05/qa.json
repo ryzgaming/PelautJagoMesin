@@ -1,0 +1,104 @@
+{
+  "status": "UNVERIFIED",
+  "ready_for_private_review": false,
+  "eligible_for_owner_inspection": true,
+  "owner_draft_available": true,
+  "assets": {
+    "exterior": "3edb9db0135c2714e913c2f8a5b120c1f747dec10927024acba17cd4e09a8302",
+    "internal": "46a8854081530e81d2a2af56dc936dbcd22e6b296343029510638e8d120252fa"
+  },
+  "viewer_pose_capture_hashes": {
+    "exterior": "3edb9db0135c2714e913c2f8a5b120c1f747dec10927024acba17cd4e09a8302",
+    "internal": "46a8854081530e81d2a2af56dc936dbcd22e6b296343029510638e8d120252fa",
+    "studio": "095877541cf7e5903e18b38c5f74e9b068c85a778b083dd7848064fd34c375c4",
+    "data": "ed9af251cd46a4334e98740dfdaf5f2cc1fbeed061f7ab254157d856012b7ba1"
+  },
+  "viewer_pose_runtime_sha_matches_current": true,
+  "strict_viewer_harness": {
+    "viewer-state.log": true,
+    "viewer-operation.log": true
+  },
+  "categories": {
+    "owner_air_cleaner_contact": "PASS",
+    "viewer_motion": "PASS",
+    "whole_engine_triangle_sweep": "UNVERIFIED",
+    "mechanical_oem_fidelity": "UNVERIFIED",
+    "webgl_on_physical_devices": "UNVERIFIED",
+    "physical_route_geometry": "PASS"
+  },
+  "filter_min_mesh_gap_mm": 5.349138285964727,
+  "sampled_mesh_sweeps": {
+    "r04": {
+      "parts": 1061,
+      "static_crossing_pairs": 945,
+      "relative_moving_crossing_pairs": 333,
+      "narrow_tests": 73151,
+      "poses": 61
+    },
+    "idle": {
+      "parts": 1146,
+      "static_crossing_pairs": 800,
+      "relative_moving_crossing_pairs": 95,
+      "narrow_tests": 306626,
+      "poses": 181
+    },
+    "starter": {
+      "parts": 1146,
+      "static_crossing_pairs": 800,
+      "relative_moving_crossing_pairs": 90,
+      "narrow_tests": 100944,
+      "poses": 61
+    }
+  },
+  "distinct_pair_classifications": {
+    "INTENTIONAL_FIT": 106,
+    "FAIL": 0,
+    "UNVERIFIED": 696
+  },
+  "contact_motion_subtotals": {
+    "installed_only": {
+      "INTENTIONAL_FIT": 62,
+      "FAIL": 0,
+      "UNVERIFIED": 643
+    },
+    "relative_moving": {
+      "INTENTIONAL_FIT": 44,
+      "FAIL": 0,
+      "UNVERIFIED": 53
+    }
+  },
+  "observed_blockers": [],
+  "motion_errors": [],
+  "shaft_alignment_flags": [],
+  "stationary_examples_moved": [],
+  "document_pump_speed_comparison": [
+    {
+      "id": "EXT-COOLING-26",
+      "document_crank_rpm": 1900,
+      "document_rpm": 2533,
+      "sampled_equivalent_rpm": 2533.333333333333,
+      "within_rounding_to_whole_rpm": true
+    },
+    {
+      "id": "EXT-COOLING-41",
+      "document_crank_rpm": 1900,
+      "document_rpm": 1572,
+      "sampled_equivalent_rpm": 1572.4137931034481,
+      "within_rounding_to_whole_rpm": true
+    }
+  ],
+  "route_gaps_on_sample": [],
+  "evidence": {
+    "sweep-comparison.json": "tenth/sweep-comparison.json",
+    "sweep-classified.json": "tenth/sweep-classified.json",
+    "running-pivots.json": "tenth/running-pivots.json",
+    "starting-pivots.json": "tenth/starting-pivots.json",
+    "filter-clearance.json": "tenth/filter-clearance.json",
+    "routes-check.json": "tenth/routes-check.json",
+    "intake-r05.json": "tenth/intake-r05.json",
+    "concentric.json": "tenth/concentric.json",
+    "starter-fine-sweep.json": "tenth/starter-fine-sweep.json",
+    "viewer-state.log": "tenth/viewer-state.log",
+    "viewer-operation.log": "tenth/viewer-operation.log"
+  }
+}

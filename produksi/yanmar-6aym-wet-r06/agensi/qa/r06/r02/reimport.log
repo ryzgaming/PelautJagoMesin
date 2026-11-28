@@ -1,0 +1,1879 @@
+06:29:06 | INFO: Data are loaded, start creating Blender stuff
+06:29:06 | INFO: Blender create Mesh node EXT-BLOCK-01
+06:29:06 | INFO: Blender create Mesh node EXT-BLOCK-02
+06:29:06 | INFO: Blender create Mesh node EXT-BLOCK-03
+06:29:06 | INFO: Blender create Mesh node EXT-BLOCK-04
+06:29:06 | INFO: Blender create Mesh node EXT-BLOCK-05
+06:29:06 | INFO: Blender create Mesh node EXT-BLOCK-06
+06:29:06 | INFO: Blender create Mesh node EXT-BLOCK-07
+06:29:06 | INFO: Blender create Mesh node EXT-BLOCK-08
+06:29:06 | INFO: Blender create Mesh node EXT-BLOCK-09
+06:29:06 | INFO: Blender create Mesh node EXT-BLOCK-10
+06:29:06 | INFO: Blender create Mesh node EXT-BLOCK-11
+06:29:06 | INFO: Blender create Mesh node EXT-BLOCK-12
+06:29:06 | INFO: Blender create Mesh node EXT-BLOCK-13
+06:29:06 | INFO: Blender create Mesh node EXT-BLOCK-14
+06:29:06 | INFO: Blender create Mesh node EXT-BLOCK-15
+06:29:06 | INFO: Blender create Mesh node EXT-BLOCK-16
+06:29:06 | INFO: Blender create Mesh node EXT-BLOCK-17
+06:29:06 | INFO: Blender create Mesh node EXT-BLOCK-18
+06:29:06 | INFO: Blender create Mesh node EXT-HEADS-01
+06:29:06 | INFO: Blender create Mesh node EXT-HEADS-02
+06:29:06 | INFO: Blender create Mesh node EXT-HEADS-03
+06:29:06 | INFO: Blender create Mesh node EXT-HEADS-04
+06:29:06 | INFO: Blender create Mesh node EXT-HEADS-05
+06:29:06 | INFO: Blender create Mesh node EXT-HEADS-06
+06:29:06 | INFO: Blender create Mesh node EXT-HEADS-07
+06:29:06 | INFO: Blender create Mesh node EXT-HEADS-08
+06:29:06 | INFO: Blender create Mesh node EXT-HEADS-09
+06:29:06 | INFO: Blender create Mesh node EXT-HEADS-10
+06:29:06 | INFO: Blender create Mesh node EXT-HEADS-11
+06:29:06 | INFO: Blender create Mesh node EXT-HEADS-12
+06:29:06 | INFO: Blender create Mesh node EXT-OILPAN-01
+06:29:06 | INFO: Blender create Mesh node EXT-OILPAN-02
+06:29:06 | INFO: Blender create Mesh node EXT-FLYWHEEL-01
+06:29:06 | INFO: Blender create Mesh node EXT-FLYWHEEL-02
+06:29:06 | INFO: Blender create Mesh node EXT-FRONT-01
+06:29:06 | INFO: Blender create Mesh node EXT-FRONT-02
+06:29:06 | INFO: Blender create Mesh node EXT-FRONT-03
+06:29:06 | INFO: Blender create Mesh node EXT-ELECTRIC-01
+06:29:06 | INFO: Blender create Mesh node EXT-ELECTRIC-02
+06:29:06 | INFO: Blender create Mesh node EXT-ELECTRIC-03
+06:29:06 | INFO: Blender create Mesh node EXT-ELECTRIC-04
+06:29:06 | INFO: Blender create Mesh node EXT-INTAKE-01
+06:29:06 | INFO: Blender create Mesh node EXT-INTAKE-02
+06:29:06 | INFO: Blender create Mesh node EXT-INTAKE-03
+06:29:06 | INFO: Blender create Mesh node EXT-INTAKE-04
+06:29:06 | INFO: Blender create Mesh node EXT-INTAKE-05
+06:29:06 | INFO: Blender create Mesh node EXT-COOLING-01
+06:29:06 | INFO: Blender create Mesh node EXT-COOLING-02
+06:29:06 | INFO: Blender create Mesh node EXT-COOLING-03
+06:29:06 | INFO: Blender create Mesh node EXT-COOLING-04
+06:29:06 | INFO: Blender create Mesh node EXT-COOLING-05
+06:29:06 | INFO: Blender create Mesh node EXT-COOLING-06
+06:29:06 | INFO: Blender create Mesh node EXT-COOLING-07
+06:29:06 | INFO: Blender create Mesh node EXT-EXHAUST-01
+06:29:06 | INFO: Blender create Mesh node EXT-EXHAUST-02
+06:29:06 | INFO: Blender create Mesh node EXT-EXHAUST-03
+06:29:06 | INFO: Blender create Mesh node EXT-EXHAUST-04
+06:29:06 | INFO: Blender create Mesh node EXT-EXHAUST-05
+06:29:06 | INFO: Blender create Mesh node EXT-FUEL-01
+06:29:06 | INFO: Blender create Mesh node EXT-FUEL-02
+06:29:06 | INFO: Blender create Mesh node EXT-FUEL-03
+06:29:06 | INFO: Blender create Mesh node EXT-FUEL-04
+06:29:06 | INFO: Blender create Mesh node EXT-FUEL-05
+06:29:06 | INFO: Blender create Mesh node EXT-FUEL-06
+06:29:06 | INFO: Blender create Mesh node EXT-FUEL-07
+06:29:06 | INFO: Blender create Mesh node EXT-FUEL-08
+06:29:06 | INFO: Blender create Mesh node EXT-FUEL-09
+06:29:06 | INFO: Blender create Mesh node EXT-FUEL-10
+06:29:06 | INFO: Blender create Mesh node EXT-FUEL-11
+06:29:06 | INFO: Blender create Mesh node EXT-FUEL-12
+06:29:06 | INFO: Blender create Mesh node EXT-FUEL-13
+06:29:06 | INFO: Blender create Mesh node EXT-FUEL-14
+06:29:06 | INFO: Blender create Mesh node EXT-FUEL-15
+06:29:06 | INFO: Blender create Mesh node EXT-FUEL-16
+06:29:06 | INFO: Blender create Mesh node EXT-FUEL-17
+06:29:06 | INFO: Blender create Mesh node EXT-FUEL-18
+06:29:06 | INFO: Blender create Mesh node EXT-FUEL-19
+06:29:06 | INFO: Blender create Mesh node EXT-FUEL-20
+06:29:06 | INFO: Blender create Mesh node EXT-LUBE-01
+06:29:06 | INFO: Blender create Mesh node EXT-LUBE-02
+06:29:06 | INFO: Blender create Mesh node EXT-LUBE-03
+06:29:06 | INFO: Blender create Mesh node EXT-LUBE-04
+06:29:06 | INFO: Blender create Mesh node EXT-LUBE-05
+06:29:06 | INFO: glTF import finished in 0.59s
+06:29:07 | INFO: Data are loaded, start creating Blender stuff
+06:29:07 | INFO: Blender create Mesh node INT-CRANK-01
+06:29:07 | INFO: Blender create Mesh node INT-CRANK-02
+06:29:07 | INFO: Blender create Mesh node INT-CRANK-03
+06:29:07 | INFO: Blender create Mesh node INT-CRANK-04
+06:29:07 | INFO: Blender create Mesh node INT-CRANK-05
+06:29:07 | INFO: Blender create Mesh node INT-CRANK-06
+06:29:07 | INFO: Blender create Mesh node INT-CRANK-07
+06:29:07 | INFO: Blender create Mesh node INT-CRANK-08
+06:29:07 | INFO: Blender create Mesh node INT-CRANK-09
+06:29:07 | INFO: Blender create Mesh node INT-CRANK-10
+06:29:07 | INFO: Blender create Mesh node INT-CRANK-20
+06:29:07 | INFO: Blender create Mesh node INT-CRANK-21
+06:29:07 | INFO: Blender create Mesh node INT-CRANK-22
+06:29:07 | INFO: Blender create Mesh node INT-CRANK-23
+06:29:07 | INFO: Blender create Mesh node INT-CRANK-30
+06:29:07 | INFO: Blender create Mesh node INT-CRANK-31
+06:29:07 | INFO: Blender create Mesh node INT-CRANK-32
+06:29:07 | INFO: Blender create Mesh node INT-CRANK-34
+06:29:07 | INFO: Blender create Mesh node INT-CRANK-40
+06:29:07 | INFO: Blender create Mesh node INT-CRANK-41
+06:29:07 | INFO: Blender create Mesh node INT-CRANK-42
+06:29:07 | INFO: Blender create Mesh node INT-CRANK-50
+06:29:07 | INFO: Blender create Mesh node INT-CRANK-51
+06:29:07 | INFO: Blender create Mesh node INT-CRANK-52
+06:29:07 | INFO: Blender create Mesh node INT-CRANK-60
+06:29:07 | INFO: Blender create Mesh node INT-CRANK-61
+06:29:07 | INFO: Blender create Mesh node INT-CRANK-62
+06:29:07 | INFO: Blender create Mesh node INT-CRANK-63
+06:29:07 | INFO: Blender create Mesh node INT-CRANK-70
+06:29:07 | INFO: Blender create Mesh node INT-CRANK-71
+06:29:07 | INFO: Blender create Mesh node INT-CRANK-72
+06:29:07 | INFO: Blender create Mesh node INT-CRANK-74
+06:29:07 | INFO: Blender create Mesh node INT-MAIN-11
+06:29:07 | INFO: Blender create Mesh node INT-MAIN-12
+06:29:07 | INFO: Blender create Mesh node INT-MAIN-13
+06:29:07 | INFO: Blender create Mesh node INT-MAIN-14
+06:29:07 | INFO: Blender create Mesh node INT-MAIN-15
+06:29:07 | INFO: Blender create Mesh node INT-MAIN-21
+06:29:07 | INFO: Blender create Mesh node INT-MAIN-22
+06:29:07 | INFO: Blender create Mesh node INT-MAIN-23
+06:29:07 | INFO: Blender create Mesh node INT-MAIN-24
+06:29:07 | INFO: Blender create Mesh node INT-MAIN-25
+06:29:07 | INFO: Blender create Mesh node INT-MAIN-31
+06:29:07 | INFO: Blender create Mesh node INT-MAIN-32
+06:29:07 | INFO: Blender create Mesh node INT-MAIN-33
+06:29:07 | INFO: Blender create Mesh node INT-MAIN-34
+06:29:07 | INFO: Blender create Mesh node INT-MAIN-35
+06:29:07 | INFO: Blender create Mesh node INT-MAIN-41
+06:29:07 | INFO: Blender create Mesh node INT-MAIN-42
+06:29:07 | INFO: Blender create Mesh node INT-MAIN-43
+06:29:07 | INFO: Blender create Mesh node INT-MAIN-44
+06:29:07 | INFO: Blender create Mesh node INT-MAIN-45
+06:29:07 | INFO: Blender create Mesh node INT-MAIN-51
+06:29:07 | INFO: Blender create Mesh node INT-MAIN-52
+06:29:07 | INFO: Blender create Mesh node INT-MAIN-53
+06:29:07 | INFO: Blender create Mesh node INT-MAIN-54
+06:29:07 | INFO: Blender create Mesh node INT-MAIN-55
+06:29:07 | INFO: Blender create Mesh node INT-MAIN-61
+06:29:07 | INFO: Blender create Mesh node INT-MAIN-62
+06:29:07 | INFO: Blender create Mesh node INT-MAIN-63
+06:29:07 | INFO: Blender create Mesh node INT-MAIN-64
+06:29:07 | INFO: Blender create Mesh node INT-MAIN-65
+06:29:07 | INFO: Blender create Mesh node INT-MAIN-71
+06:29:07 | INFO: Blender create Mesh node INT-MAIN-72
+06:29:07 | INFO: Blender create Mesh node INT-MAIN-73
+06:29:07 | INFO: Blender create Mesh node INT-MAIN-74
+06:29:07 | INFO: Blender create Mesh node INT-MAIN-75
+06:29:07 | INFO: Blender create Mesh node INT-PISTON-11
+06:29:07 | INFO: Blender create Mesh node INT-PISTON-12
+06:29:07 | INFO: Blender create Mesh node INT-PISTON-13
+06:29:07 | INFO: Blender create Mesh node INT-PISTON-14
+06:29:07 | INFO: Blender create Mesh node INT-PISTON-15
+06:29:07 | INFO: Blender create Mesh node INT-PISTON-16
+06:29:07 | INFO: Blender create Mesh node INT-PISTON-17
+06:29:07 | INFO: Blender create Mesh node INT-PISTON-18
+06:29:07 | INFO: Blender create Mesh node INT-PISTON-19
+06:29:07 | INFO: Blender create Mesh node INT-PISTON-20
+06:29:07 | INFO: Blender create Mesh node INT-PISTON-21
+06:29:07 | INFO: Blender create Mesh node INT-PISTON-22
+06:29:07 | INFO: Blender create Mesh node INT-PISTON-23
+06:29:07 | INFO: Blender create Mesh node INT-PISTON-24
+06:29:07 | INFO: Blender create Mesh node INT-PISTON-25
+06:29:07 | INFO: Blender create Mesh node INT-PISTON-26
+06:29:07 | INFO: Blender create Mesh node INT-PISTON-27
+06:29:07 | INFO: Blender create Mesh node INT-PISTON-28
+06:29:07 | INFO: Blender create Mesh node INT-PISTON-29
+06:29:07 | INFO: Blender create Mesh node INT-PISTON-30
+06:29:07 | INFO: Blender create Mesh node INT-PISTON-31
+06:29:07 | INFO: Blender create Mesh node INT-PISTON-32
+06:29:07 | INFO: Blender create Mesh node INT-PISTON-33
+06:29:07 | INFO: Blender create Mesh node INT-PISTON-34
+06:29:07 | INFO: Blender create Mesh node INT-PISTON-35
+06:29:07 | INFO: Blender create Mesh node INT-PISTON-36
+06:29:07 | INFO: Blender create Mesh node INT-PISTON-37
+06:29:07 | INFO: Blender create Mesh node INT-PISTON-38
+06:29:07 | INFO: Blender create Mesh node INT-PISTON-39
+06:29:07 | INFO: Blender create Mesh node INT-PISTON-40
+06:29:07 | INFO: Blender create Mesh node INT-PISTON-41
+06:29:07 | INFO: Blender create Mesh node INT-PISTON-42
+06:29:07 | INFO: Blender create Mesh node INT-PISTON-43
+06:29:07 | INFO: Blender create Mesh node INT-PISTON-44
+06:29:07 | INFO: Blender create Mesh node INT-PISTON-45
+06:29:07 | INFO: Blender create Mesh node INT-PISTON-46
+06:29:07 | INFO: Blender create Mesh node INT-PISTON-47
+06:29:07 | INFO: Blender create Mesh node INT-PISTON-48
+06:29:07 | INFO: Blender create Mesh node INT-PISTON-49
+06:29:07 | INFO: Blender create Mesh node INT-PISTON-50
+06:29:07 | INFO: Blender create Mesh node INT-PISTON-51
+06:29:07 | INFO: Blender create Mesh node INT-PISTON-52
+06:29:07 | INFO: Blender create Mesh node INT-PISTON-53
+06:29:07 | INFO: Blender create Mesh node INT-PISTON-54
+06:29:07 | INFO: Blender create Mesh node INT-PISTON-55
+06:29:07 | INFO: Blender create Mesh node INT-PISTON-56
+06:29:07 | INFO: Blender create Mesh node INT-PISTON-57
+06:29:07 | INFO: Blender create Mesh node INT-PISTON-58
+06:29:07 | INFO: Blender create Mesh node INT-PISTON-59
+06:29:07 | INFO: Blender create Mesh node INT-PISTON-60
+06:29:07 | INFO: Blender create Mesh node INT-PISTON-61
+06:29:07 | INFO: Blender create Mesh node INT-PISTON-62
+06:29:07 | INFO: Blender create Mesh node INT-PISTON-63
+06:29:07 | INFO: Blender create Mesh node INT-PISTON-64
+06:29:07 | INFO: Blender create Mesh node INT-PISTON-65
+06:29:07 | INFO: Blender create Mesh node INT-PISTON-66
+06:29:07 | INFO: Blender create Mesh node INT-PISTON-67
+06:29:07 | INFO: Blender create Mesh node INT-PISTON-68
+06:29:07 | INFO: Blender create Mesh node INT-PISTON-69
+06:29:07 | INFO: Blender create Mesh node INT-PISTON-70
+06:29:07 | INFO: Blender create Mesh node INT-ROD-100
+06:29:07 | INFO: Blender create Mesh node INT-ROD-101
+06:29:07 | INFO: Blender create Mesh node INT-ROD-11
+06:29:07 | INFO: Blender create Mesh node INT-ROD-12
+06:29:07 | INFO: Blender create Mesh node INT-ROD-13
+06:29:07 | INFO: Blender create Mesh node INT-ROD-14
+06:29:07 | INFO: Blender create Mesh node INT-ROD-15
+06:29:07 | INFO: Blender create Mesh node INT-ROD-16
+06:29:07 | INFO: Blender create Mesh node INT-ROD-160
+06:29:07 | INFO: Blender create Mesh node INT-ROD-161
+06:29:07 | INFO: Blender create Mesh node INT-ROD-17
+06:29:07 | INFO: Blender create Mesh node INT-ROD-18
+06:29:07 | INFO: Blender create Mesh node INT-ROD-19
+06:29:07 | INFO: Blender create Mesh node INT-ROD-240
+06:29:07 | INFO: Blender create Mesh node INT-ROD-241
+06:29:07 | INFO: Blender create Mesh node INT-ROD-110
+06:29:07 | INFO: Blender create Mesh node INT-ROD-111
+06:29:07 | INFO: Blender create Mesh node INT-ROD-170
+06:29:07 | INFO: Blender create Mesh node INT-ROD-171
+06:29:07 | INFO: Blender create Mesh node INT-ROD-21
+06:29:07 | INFO: Blender create Mesh node INT-ROD-22
+06:29:07 | INFO: Blender create Mesh node INT-ROD-23
+06:29:07 | INFO: Blender create Mesh node INT-ROD-24
+06:29:07 | INFO: Blender create Mesh node INT-ROD-25
+06:29:07 | INFO: Blender create Mesh node INT-ROD-250
+06:29:07 | INFO: Blender create Mesh node INT-ROD-251
+06:29:07 | INFO: Blender create Mesh node INT-ROD-26
+06:29:07 | INFO: Blender create Mesh node INT-ROD-27
+06:29:07 | INFO: Blender create Mesh node INT-ROD-28
+06:29:07 | INFO: Blender create Mesh node INT-ROD-29
+06:29:07 | INFO: Blender create Mesh node INT-ROD-120
+06:29:07 | INFO: Blender create Mesh node INT-ROD-121
+06:29:07 | INFO: Blender create Mesh node INT-ROD-180
+06:29:07 | INFO: Blender create Mesh node INT-ROD-181
+06:29:07 | INFO: Blender create Mesh node INT-ROD-260
+06:29:07 | INFO: Blender create Mesh node INT-ROD-261
+06:29:07 | INFO: Blender create Mesh node INT-ROD-31
+06:29:07 | INFO: Blender create Mesh node INT-ROD-32
+06:29:07 | INFO: Blender create Mesh node INT-ROD-33
+06:29:07 | INFO: Blender create Mesh node INT-ROD-34
+06:29:07 | INFO: Blender create Mesh node INT-ROD-35
+06:29:07 | INFO: Blender create Mesh node INT-ROD-36
+06:29:07 | INFO: Blender create Mesh node INT-ROD-37
+06:29:07 | INFO: Blender create Mesh node INT-ROD-38
+06:29:07 | INFO: Blender create Mesh node INT-ROD-39
+06:29:07 | INFO: Blender create Mesh node INT-ROD-130
+06:29:07 | INFO: Blender create Mesh node INT-ROD-131
+06:29:07 | INFO: Blender create Mesh node INT-ROD-190
+06:29:07 | INFO: Blender create Mesh node INT-ROD-191
+06:29:07 | INFO: Blender create Mesh node INT-ROD-270
+06:29:07 | INFO: Blender create Mesh node INT-ROD-271
+06:29:07 | INFO: Blender create Mesh node INT-ROD-41
+06:29:07 | INFO: Blender create Mesh node INT-ROD-42
+06:29:07 | INFO: Blender create Mesh node INT-ROD-43
+06:29:07 | INFO: Blender create Mesh node INT-ROD-44
+06:29:07 | INFO: Blender create Mesh node INT-ROD-45
+06:29:07 | INFO: Blender create Mesh node INT-ROD-46
+06:29:07 | INFO: Blender create Mesh node INT-ROD-47
+06:29:07 | INFO: Blender create Mesh node INT-ROD-48
+06:29:07 | INFO: Blender create Mesh node INT-ROD-49
+06:29:07 | INFO: Blender create Mesh node INT-ROD-140
+06:29:07 | INFO: Blender create Mesh node INT-ROD-141
+06:29:07 | INFO: Blender create Mesh node INT-ROD-200
+06:29:07 | INFO: Blender create Mesh node INT-ROD-201
+06:29:07 | INFO: Blender create Mesh node INT-ROD-280
+06:29:07 | INFO: Blender create Mesh node INT-ROD-281
+06:29:07 | INFO: Blender create Mesh node INT-ROD-51
+06:29:07 | INFO: Blender create Mesh node INT-ROD-52
+06:29:07 | INFO: Blender create Mesh node INT-ROD-53
+06:29:07 | INFO: Blender create Mesh node INT-ROD-54
+06:29:07 | INFO: Blender create Mesh node INT-ROD-55
+06:29:07 | INFO: Blender create Mesh node INT-ROD-56
+06:29:07 | INFO: Blender create Mesh node INT-ROD-57
+06:29:07 | INFO: Blender create Mesh node INT-ROD-58
+06:29:07 | INFO: Blender create Mesh node INT-ROD-59
+06:29:07 | INFO: Blender create Mesh node INT-ROD-150
+06:29:07 | INFO: Blender create Mesh node INT-ROD-151
+06:29:07 | INFO: Blender create Mesh node INT-ROD-210
+06:29:07 | INFO: Blender create Mesh node INT-ROD-211
+06:29:07 | INFO: Blender create Mesh node INT-ROD-290
+06:29:07 | INFO: Blender create Mesh node INT-ROD-291
+06:29:07 | INFO: Blender create Mesh node INT-ROD-61
+06:29:07 | INFO: Blender create Mesh node INT-ROD-62
+06:29:07 | INFO: Blender create Mesh node INT-ROD-63
+06:29:07 | INFO: Blender create Mesh node INT-ROD-64
+06:29:07 | INFO: Blender create Mesh node INT-ROD-65
+06:29:07 | INFO: Blender create Mesh node INT-ROD-66
+06:29:07 | INFO: Blender create Mesh node INT-ROD-67
+06:29:07 | INFO: Blender create Mesh node INT-ROD-68
+06:29:07 | INFO: Blender create Mesh node INT-ROD-69
+06:29:07 | INFO: Blender create Mesh node INT-LINER-11
+06:29:07 | INFO: Blender create Mesh node INT-LINER-12
+06:29:07 | INFO: Blender create Mesh node INT-LINER-13
+06:29:07 | INFO: Blender create Mesh node INT-LINER-14
+06:29:07 | INFO: Blender create Mesh node INT-LINER-21
+06:29:07 | INFO: Blender create Mesh node INT-LINER-22
+06:29:07 | INFO: Blender create Mesh node INT-LINER-23
+06:29:07 | INFO: Blender create Mesh node INT-LINER-24
+06:29:07 | INFO: Blender create Mesh node INT-LINER-31
+06:29:07 | INFO: Blender create Mesh node INT-LINER-32
+06:29:07 | INFO: Blender create Mesh node INT-LINER-33
+06:29:07 | INFO: Blender create Mesh node INT-LINER-34
+06:29:07 | INFO: Blender create Mesh node INT-LINER-41
+06:29:07 | INFO: Blender create Mesh node INT-LINER-42
+06:29:07 | INFO: Blender create Mesh node INT-LINER-43
+06:29:07 | INFO: Blender create Mesh node INT-LINER-44
+06:29:07 | INFO: Blender create Mesh node INT-LINER-51
+06:29:07 | INFO: Blender create Mesh node INT-LINER-52
+06:29:07 | INFO: Blender create Mesh node INT-LINER-53
+06:29:07 | INFO: Blender create Mesh node INT-LINER-54
+06:29:07 | INFO: Blender create Mesh node INT-LINER-61
+06:29:07 | INFO: Blender create Mesh node INT-LINER-62
+06:29:07 | INFO: Blender create Mesh node INT-LINER-63
+06:29:07 | INFO: Blender create Mesh node INT-LINER-64
+06:29:07 | INFO: Blender create Mesh node INT-CAM-01
+06:29:07 | INFO: Blender create Mesh node INT-CAM-02
+06:29:07 | INFO: Blender create Mesh node INT-CAM-03
+06:29:07 | INFO: Blender create Mesh node INT-CAM-04
+06:29:07 | INFO: Blender create Mesh node INT-CAM-05
+06:29:07 | INFO: Blender create Mesh node INT-CAM-06
+06:29:07 | INFO: Blender create Mesh node INT-CAM-07
+06:29:07 | INFO: Blender create Mesh node INT-CAM-08
+06:29:07 | INFO: Blender create Mesh node INT-CAM-12
+06:29:07 | INFO: Blender create Mesh node INT-CAM-13
+06:29:07 | INFO: Blender create Mesh node INT-CAM-22
+06:29:07 | INFO: Blender create Mesh node INT-CAM-23
+06:29:07 | INFO: Blender create Mesh node INT-CAM-32
+06:29:07 | INFO: Blender create Mesh node INT-CAM-33
+06:29:07 | INFO: Blender create Mesh node INT-CAM-42
+06:29:07 | INFO: Blender create Mesh node INT-CAM-43
+06:29:07 | INFO: Blender create Mesh node INT-CAM-52
+06:29:07 | INFO: Blender create Mesh node INT-CAM-53
+06:29:07 | INFO: Blender create Mesh node INT-CAM-62
+06:29:07 | INFO: Blender create Mesh node INT-CAM-63
+06:29:07 | INFO: Blender create Mesh node INT-CAM-14
+06:29:07 | INFO: Blender create Mesh node INT-CAM-16
+06:29:07 | INFO: Blender create Mesh node INT-CAM-18
+06:29:07 | INFO: Blender create Mesh node INT-CAM-15
+06:29:07 | INFO: Blender create Mesh node INT-CAM-17
+06:29:07 | INFO: Blender create Mesh node INT-CAM-19
+06:29:07 | INFO: Blender create Mesh node INT-CAM-24
+06:29:07 | INFO: Blender create Mesh node INT-CAM-26
+06:29:07 | INFO: Blender create Mesh node INT-CAM-28
+06:29:07 | INFO: Blender create Mesh node INT-CAM-25
+06:29:07 | INFO: Blender create Mesh node INT-CAM-27
+06:29:07 | INFO: Blender create Mesh node INT-CAM-29
+06:29:07 | INFO: Blender create Mesh node INT-CAM-34
+06:29:07 | INFO: Blender create Mesh node INT-CAM-36
+06:29:07 | INFO: Blender create Mesh node INT-CAM-38
+06:29:07 | INFO: Blender create Mesh node INT-CAM-35
+06:29:07 | INFO: Blender create Mesh node INT-CAM-37
+06:29:07 | INFO: Blender create Mesh node INT-CAM-39
+06:29:07 | INFO: Blender create Mesh node INT-CAM-44
+06:29:07 | INFO: Blender create Mesh node INT-CAM-46
+06:29:07 | INFO: Blender create Mesh node INT-CAM-48
+06:29:07 | INFO: Blender create Mesh node INT-CAM-45
+06:29:07 | INFO: Blender create Mesh node INT-CAM-47
+06:29:07 | INFO: Blender create Mesh node INT-CAM-49
+06:29:07 | INFO: Blender create Mesh node INT-CAM-54
+06:29:07 | INFO: Blender create Mesh node INT-CAM-56
+06:29:07 | INFO: Blender create Mesh node INT-CAM-58
+06:29:07 | INFO: Blender create Mesh node INT-CAM-55
+06:29:07 | INFO: Blender create Mesh node INT-CAM-57
+06:29:07 | INFO: Blender create Mesh node INT-CAM-59
+06:29:07 | INFO: Blender create Mesh node INT-CAM-64
+06:29:07 | INFO: Blender create Mesh node INT-CAM-66
+06:29:07 | INFO: Blender create Mesh node INT-CAM-68
+06:29:07 | INFO: Blender create Mesh node INT-CAM-65
+06:29:07 | INFO: Blender create Mesh node INT-CAM-67
+06:29:07 | INFO: Blender create Mesh node INT-CAM-69
+06:29:07 | INFO: Blender create Mesh node INT-VALVE-101
+06:29:07 | INFO: Blender create Mesh node INT-VALVE-132
+06:29:07 | INFO: Blender create Mesh node INT-VALVE-133
+06:29:07 | INFO: Blender create Mesh node INT-VALVE-139
+06:29:07 | INFO: Blender create Mesh node INT-VALVE-140
+06:29:07 | INFO: Blender create Mesh node INT-VALVE-152
+06:29:07 | INFO: Blender create Mesh node INT-VALVE-153
+06:29:07 | INFO: Blender create Mesh node INT-VALVE-159
+06:29:07 | INFO: Blender create Mesh node INT-VALVE-160
+06:29:07 | INFO: Blender create Mesh node INT-VALVE-201
+06:29:07 | INFO: Blender create Mesh node INT-VALVE-232
+06:29:07 | INFO: Blender create Mesh node INT-VALVE-233
+06:29:07 | INFO: Blender create Mesh node INT-VALVE-239
+06:29:07 | INFO: Blender create Mesh node INT-VALVE-240
+06:29:07 | INFO: Blender create Mesh node INT-VALVE-252
+06:29:07 | INFO: Blender create Mesh node INT-VALVE-253
+06:29:07 | INFO: Blender create Mesh node INT-VALVE-259
+06:29:07 | INFO: Blender create Mesh node INT-VALVE-260
+06:29:07 | INFO: Blender create Mesh node INT-VALVE-301
+06:29:07 | INFO: Blender create Mesh node INT-VALVE-332
+06:29:07 | INFO: Blender create Mesh node INT-VALVE-333
+06:29:07 | INFO: Blender create Mesh node INT-VALVE-339
+06:29:07 | INFO: Blender create Mesh node INT-VALVE-340
+06:29:07 | INFO: Blender create Mesh node INT-VALVE-352
+06:29:07 | INFO: Blender create Mesh node INT-VALVE-353
+06:29:07 | INFO: Blender create Mesh node INT-VALVE-359
+06:29:07 | INFO: Blender create Mesh node INT-VALVE-360
+06:29:07 | INFO: Blender create Mesh node INT-VALVE-401
+06:29:07 | INFO: Blender create Mesh node INT-VALVE-432
+06:29:07 | INFO: Blender create Mesh node INT-VALVE-433
+06:29:07 | INFO: Blender create Mesh node INT-VALVE-439
+06:29:07 | INFO: Blender create Mesh node INT-VALVE-440
+06:29:07 | INFO: Blender create Mesh node INT-VALVE-452
+06:29:07 | INFO: Blender create Mesh node INT-VALVE-453
+06:29:07 | INFO: Blender create Mesh node INT-VALVE-459
+06:29:07 | INFO: Blender create Mesh node INT-VALVE-460
+06:29:07 | INFO: Blender create Mesh node INT-VALVE-501
+06:29:07 | INFO: Blender create Mesh node INT-VALVE-532
+06:29:07 | INFO: Blender create Mesh node INT-VALVE-533
+06:29:07 | INFO: Blender create Mesh node INT-VALVE-539
+06:29:07 | INFO: Blender create Mesh node INT-VALVE-540
+06:29:07 | INFO: Blender create Mesh node INT-VALVE-552
+06:29:07 | INFO: Blender create Mesh node INT-VALVE-553
+06:29:07 | INFO: Blender create Mesh node INT-VALVE-559
+06:29:07 | INFO: Blender create Mesh node INT-VALVE-560
+06:29:07 | INFO: Blender create Mesh node INT-VALVE-601
+06:29:07 | INFO: Blender create Mesh node INT-VALVE-632
+06:29:07 | INFO: Blender create Mesh node INT-VALVE-633
+06:29:07 | INFO: Blender create Mesh node INT-VALVE-639
+06:29:07 | INFO: Blender create Mesh node INT-VALVE-640
+06:29:07 | INFO: Blender create Mesh node INT-VALVE-652
+06:29:07 | INFO: Blender create Mesh node INT-VALVE-653
+06:29:07 | INFO: Blender create Mesh node INT-VALVE-659
+06:29:07 | INFO: Blender create Mesh node INT-VALVE-660
+06:29:07 | INFO: Blender create Mesh node INT-VALVE-102
+06:29:07 | INFO: Blender create Mesh node INT-VALVE-103
+06:29:07 | INFO: Blender create Mesh node INT-VALVE-104
+06:29:07 | INFO: Blender create Mesh node INT-VALVE-112
+06:29:07 | INFO: Blender create Mesh node INT-VALVE-113
+06:29:07 | INFO: Blender create Mesh node INT-VALVE-114
+06:29:07 | INFO: Blender create Mesh node INT-VALVE-202
+06:29:07 | INFO: Blender create Mesh node INT-VALVE-203
+06:29:07 | INFO: Blender create Mesh node INT-VALVE-204
+06:29:07 | INFO: Blender create Mesh node INT-VALVE-212
+06:29:07 | INFO: Blender create Mesh node INT-VALVE-213
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-214
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-302
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-303
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-304
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-312
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-313
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-314
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-402
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-403
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-404
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-412
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-413
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-414
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-502
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-503
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-504
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-512
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-513
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-514
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-602
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-603
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-604
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-612
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-613
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-614
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-134
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-141
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-154
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-161
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-234
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-241
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-254
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-261
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-334
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-341
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-354
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-361
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-434
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-441
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-454
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-461
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-534
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-541
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-554
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-561
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-634
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-641
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-654
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-661
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-105
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-130
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-131
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-137
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-138
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-115
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-150
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-151
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-157
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-158
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-205
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-230
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-231
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-237
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-238
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-215
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-250
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-251
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-257
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-258
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-305
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-330
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-331
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-337
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-338
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-315
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-350
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-351
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-357
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-358
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-405
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-430
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-431
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-437
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-438
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-415
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-450
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-451
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-457
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-458
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-505
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-530
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-531
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-537
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-538
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-515
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-550
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-551
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-557
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-558
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-605
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-630
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-631
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-637
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-638
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-615
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-650
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-651
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-657
+06:29:08 | INFO: Blender create Mesh node INT-VALVE-658
+06:29:08 | INFO: Blender create Mesh node INT-FUELINJ-11
+06:29:08 | INFO: Blender create Mesh node INT-FUELINJ-12
+06:29:08 | INFO: Blender create Mesh node INT-FUELINJ-21
+06:29:08 | INFO: Blender create Mesh node INT-FUELINJ-22
+06:29:08 | INFO: Blender create Mesh node INT-FUELINJ-31
+06:29:08 | INFO: Blender create Mesh node INT-FUELINJ-32
+06:29:08 | INFO: Blender create Mesh node INT-FUELINJ-41
+06:29:08 | INFO: Blender create Mesh node INT-FUELINJ-42
+06:29:08 | INFO: Blender create Mesh node INT-FUELINJ-51
+06:29:08 | INFO: Blender create Mesh node INT-FUELINJ-52
+06:29:08 | INFO: Blender create Mesh node INT-FUELINJ-61
+06:29:08 | INFO: Blender create Mesh node INT-FUELINJ-62
+06:29:08 | INFO: Blender create Mesh node INT-TIMING-11
+06:29:08 | INFO: Blender create Mesh node INT-TIMING-12
+06:29:08 | INFO: Blender create Mesh node INT-TIMING-01
+06:29:08 | INFO: Blender create Mesh node INT-TIMING-02
+06:29:08 | INFO: Blender create Mesh node INT-TIMING-03
+06:29:08 | INFO: Blender create Mesh node INT-TIMING-04
+06:29:08 | INFO: Blender create Mesh node INT-TIMING-05
+06:29:08 | INFO: Blender create Mesh node INT-TIMING-06
+06:29:08 | INFO: Blender create Mesh node INT-TIMING-07
+06:29:08 | INFO: Blender create Mesh node INT-TIMING-08
+06:29:08 | INFO: Blender create Mesh node INT-TIMING-09
+06:29:08 | INFO: Blender create Mesh node INT-TIMING-10
+06:29:08 | INFO: Blender create Mesh node INT-OILPUMP-01
+06:29:08 | INFO: Blender create Mesh node INT-OILPUMP-02
+06:29:08 | INFO: Blender create Mesh node INT-OILPUMP-03
+06:29:08 | INFO: Blender create Mesh node INT-OILPUMP-04
+06:29:08 | INFO: Blender create Mesh node INT-OILPUMP-05
+06:29:08 | INFO: Blender create Mesh node INT-OILPUMP-06
+06:29:08 | INFO: Blender create Mesh node INT-OILPUMP-07
+06:29:08 | INFO: Blender create Mesh node INT-OILPUMP-08
+06:29:08 | INFO: Blender create Mesh node INT-OILPUMP-09
+06:29:08 | INFO: Blender create Mesh node INT-OILPUMP-10
+06:29:08 | INFO: Blender create Mesh node INT-OILPUMP-11
+06:29:08 | INFO: glTF import finished in 0.92s
+Blender 4.3.2
+Fra:1 Mem:117.16M (Peak 117.16M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-BLOCK-01
+Fra:1 Mem:117.17M (Peak 117.17M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-BLOCK-04
+Fra:1 Mem:119.22M (Peak 119.22M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-LUBE-05
+Fra:1 Mem:120.08M (Peak 120.08M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-BLOCK-05
+Fra:1 Mem:120.14M (Peak 120.14M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-LUBE-04
+Fra:1 Mem:120.67M (Peak 120.67M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-BLOCK-06
+Fra:1 Mem:120.75M (Peak 120.75M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-BLOCK-07
+Fra:1 Mem:120.83M (Peak 120.83M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-LUBE-03
+Fra:1 Mem:121.06M (Peak 121.06M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-BLOCK-08
+Fra:1 Mem:121.17M (Peak 121.17M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-LUBE-02
+Fra:1 Mem:121.39M (Peak 121.39M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-BLOCK-09
+Fra:1 Mem:121.51M (Peak 121.51M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-LUBE-01
+Fra:1 Mem:121.59M (Peak 121.59M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-BLOCK-10
+Fra:1 Mem:122.34M (Peak 122.34M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-20
+Fra:1 Mem:122.41M (Peak 122.41M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-BLOCK-11
+Fra:1 Mem:122.56M (Peak 122.56M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-19
+Fra:1 Mem:122.69M (Peak 122.69M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-BLOCK-12
+Fra:1 Mem:122.86M (Peak 122.86M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-18
+Fra:1 Mem:122.86M (Peak 122.86M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-BLOCK-13
+Fra:1 Mem:123.15M (Peak 123.15M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-17
+Fra:1 Mem:123.27M (Peak 123.27M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-BLOCK-14
+Fra:1 Mem:123.40M (Peak 123.40M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-BLOCK-15
+Fra:1 Mem:123.45M (Peak 123.45M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-16
+Fra:1 Mem:123.57M (Peak 123.57M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-BLOCK-16
+Fra:1 Mem:123.69M (Peak 123.69M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-15
+Fra:1 Mem:123.88M (Peak 123.88M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-14
+Fra:1 Mem:124.06M (Peak 124.06M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-13
+Fra:1 Mem:124.25M (Peak 124.25M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-12
+Fra:1 Mem:124.50M (Peak 124.50M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-11
+Fra:1 Mem:124.73M (Peak 124.73M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-10
+Fra:1 Mem:124.82M (Peak 124.82M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-BLOCK-17
+Fra:1 Mem:124.95M (Peak 124.95M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-BLOCK-18
+Fra:1 Mem:125.06M (Peak 125.06M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-HEADS-01
+Fra:1 Mem:125.20M (Peak 125.20M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-HEADS-02
+Fra:1 Mem:125.34M (Peak 125.34M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-HEADS-03
+Fra:1 Mem:125.59M (Peak 125.59M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-HEADS-04
+Fra:1 Mem:125.65M (Peak 125.65M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-HEADS-05
+Fra:1 Mem:125.81M (Peak 125.81M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-09
+Fra:1 Mem:126.37M (Peak 126.37M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-HEADS-06
+Fra:1 Mem:126.44M (Peak 126.44M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-HEADS-07
+Fra:1 Mem:126.63M (Peak 126.63M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-HEADS-08
+Fra:1 Mem:126.87M (Peak 126.87M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-HEADS-09
+Fra:1 Mem:127.04M (Peak 127.04M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-HEADS-10
+Fra:1 Mem:127.15M (Peak 127.15M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-08
+Fra:1 Mem:127.44M (Peak 127.44M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-07
+Fra:1 Mem:127.51M (Peak 127.51M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-HEADS-11
+Fra:1 Mem:127.76M (Peak 127.76M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-06
+Fra:1 Mem:127.83M (Peak 127.83M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-HEADS-12
+Fra:1 Mem:128.09M (Peak 128.09M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-05
+Fra:1 Mem:128.17M (Peak 128.17M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-04
+Fra:1 Mem:128.26M (Peak 128.26M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-OILPAN-01
+Fra:1 Mem:128.96M (Peak 128.96M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-03
+Fra:1 Mem:129.07M (Peak 129.07M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-OILPAN-02
+Fra:1 Mem:129.13M (Peak 129.13M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-02
+Fra:1 Mem:129.69M (Peak 129.69M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FLYWHEEL-01
+Fra:1 Mem:132.01M (Peak 132.01M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-01
+Fra:1 Mem:133.57M (Peak 133.57M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-EXHAUST-05
+Fra:1 Mem:133.59M (Peak 133.59M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FLYWHEEL-02
+Fra:1 Mem:136.00M (Peak 136.00M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-EXHAUST-04
+Fra:1 Mem:136.11M (Peak 136.11M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-EXHAUST-03
+Fra:1 Mem:135.32M (Peak 136.11M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-EXHAUST-02
+Fra:1 Mem:135.44M (Peak 136.11M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FRONT-01
+Fra:1 Mem:135.68M (Peak 136.11M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-EXHAUST-01
+Fra:1 Mem:135.75M (Peak 136.81M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FRONT-02
+Fra:1 Mem:136.14M (Peak 136.81M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FRONT-03
+Fra:1 Mem:136.49M (Peak 136.81M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-ELECTRIC-01
+Fra:1 Mem:137.59M (Peak 137.59M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-ELECTRIC-02
+Fra:1 Mem:137.67M (Peak 137.67M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-ELECTRIC-03
+Fra:1 Mem:137.89M (Peak 137.89M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-ELECTRIC-04
+Fra:1 Mem:137.97M (Peak 137.97M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-INTAKE-01
+Fra:1 Mem:138.69M (Peak 138.69M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-INTAKE-02
+Fra:1 Mem:139.08M (Peak 139.08M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-INTAKE-03
+Fra:1 Mem:139.57M (Peak 139.57M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-INTAKE-04
+Fra:1 Mem:140.47M (Peak 140.47M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-COOLING-07
+Fra:1 Mem:140.68M (Peak 140.68M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-COOLING-06
+Fra:1 Mem:140.94M (Peak 140.94M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-INTAKE-05
+Fra:1 Mem:141.40M (Peak 141.40M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-COOLING-01
+Fra:1 Mem:141.70M (Peak 141.70M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-COOLING-05
+Fra:1 Mem:142.19M (Peak 142.19M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-COOLING-02
+Fra:1 Mem:142.85M (Peak 142.85M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-COOLING-03
+Fra:1 Mem:143.41M (Peak 143.41M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-COOLING-04
+Fra:1 Mem:143.94M (Peak 143.94M) | Time:00:00.06 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Initializing
+Fra:1 Mem:139.35M (Peak 143.94M) | Time:00:00.06 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Waiting for render to start
+Fra:1 Mem:139.35M (Peak 143.94M) | Time:00:00.06 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Loading render kernels (may take a few minutes the first time)
+Fra:1 Mem:139.35M (Peak 143.94M) | Time:00:00.06 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Scene
+Fra:1 Mem:139.35M (Peak 143.94M) | Time:00:00.06 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Shaders
+Fra:1 Mem:139.43M (Peak 143.94M) | Time:00:00.06 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Procedurals
+Fra:1 Mem:139.43M (Peak 143.94M) | Time:00:00.06 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Background
+Fra:1 Mem:139.43M (Peak 143.94M) | Time:00:00.06 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Camera
+Fra:1 Mem:139.43M (Peak 143.94M) | Time:00:00.06 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Meshes Flags
+Fra:1 Mem:139.43M (Peak 143.94M) | Time:00:00.06 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Objects
+Fra:1 Mem:139.43M (Peak 143.94M) | Time:00:00.06 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Objects | Copying Transformations to device
+Fra:1 Mem:139.45M (Peak 143.94M) | Time:00:00.06 | Mem:0.02M, Peak:0.02M | Scene, ViewLayer | Updating Objects | Applying Static Transformations
+Fra:1 Mem:139.45M (Peak 143.94M) | Time:00:00.06 | Mem:0.02M, Peak:0.02M | Scene, ViewLayer | Updating Particle Systems
+Fra:1 Mem:139.45M (Peak 143.94M) | Time:00:00.06 | Mem:0.02M, Peak:0.02M | Scene, ViewLayer | Updating Particle Systems | Copying Particles to device
+Fra:1 Mem:139.45M (Peak 143.94M) | Time:00:00.06 | Mem:0.02M, Peak:0.02M | Scene, ViewLayer | Updating Meshes
+Fra:1 Mem:143.34M (Peak 143.94M) | Time:00:00.07 | Mem:0.02M, Peak:0.02M | Scene, ViewLayer | Updating Mesh | Computing attributes
+Fra:1 Mem:145.43M (Peak 145.43M) | Time:00:00.07 | Mem:0.03M, Peak:0.03M | Scene, ViewLayer | Updating Mesh | Copying Attributes to device
+Fra:1 Mem:145.42M (Peak 145.43M) | Time:00:00.07 | Mem:2.10M, Peak:2.10M | Scene, ViewLayer | Updating Scene BVH | Building
+Fra:1 Mem:145.42M (Peak 145.43M) | Time:00:00.07 | Mem:2.10M, Peak:2.10M | Scene, ViewLayer | Updating Scene BVH | Building BVH
+Fra:1 Mem:145.42M (Peak 145.43M) | Time:00:00.07 | Mem:9.89M, Peak:9.89M | Scene, ViewLayer | Updating Scene BVH | Building BVH 0%
+Fra:1 Mem:145.42M (Peak 145.43M) | Time:00:00.14 | Mem:19.17M, Peak:26.96M | Scene, ViewLayer | Updating Scene BVH | Copying BVH to device
+Fra:1 Mem:145.42M (Peak 145.43M) | Time:00:00.14 | Mem:19.17M, Peak:26.96M | Scene, ViewLayer | Updating Mesh | Computing normals
+Fra:1 Mem:155.81M (Peak 155.81M) | Time:00:00.15 | Mem:19.17M, Peak:26.96M | Scene, ViewLayer | Updating Mesh | Copying Mesh to device
+Fra:1 Mem:155.81M (Peak 155.81M) | Time:00:00.15 | Mem:29.56M, Peak:29.56M | Scene, ViewLayer | Updating Objects Flags
+Fra:1 Mem:155.81M (Peak 155.81M) | Time:00:00.15 | Mem:29.57M, Peak:29.57M | Scene, ViewLayer | Updating Primitive Offsets
+Fra:1 Mem:155.81M (Peak 155.81M) | Time:00:00.15 | Mem:29.57M, Peak:29.57M | Scene, ViewLayer | Updating Images
+Fra:1 Mem:155.81M (Peak 155.81M) | Time:00:00.15 | Mem:29.57M, Peak:29.57M | Scene, ViewLayer | Updating Camera Volume
+Fra:1 Mem:155.81M (Peak 155.81M) | Time:00:00.15 | Mem:29.57M, Peak:29.57M | Scene, ViewLayer | Updating Lookup Tables
+Fra:1 Mem:155.81M (Peak 155.81M) | Time:00:00.15 | Mem:29.65M, Peak:29.65M | Scene, ViewLayer | Updating Lights
+Fra:1 Mem:155.81M (Peak 155.81M) | Time:00:00.15 | Mem:29.65M, Peak:29.65M | Scene, ViewLayer | Updating Lights | Computing tree
+Fra:1 Mem:155.82M (Peak 155.82M) | Time:00:00.15 | Mem:29.65M, Peak:29.65M | Scene, ViewLayer | Updating Integrator
+Fra:1 Mem:155.82M (Peak 155.82M) | Time:00:00.15 | Mem:29.65M, Peak:29.65M | Scene, ViewLayer | Updating Film
+Fra:1 Mem:155.82M (Peak 155.82M) | Time:00:00.15 | Mem:29.57M, Peak:29.65M | Scene, ViewLayer | Updating Lookup Tables
+Fra:1 Mem:155.82M (Peak 155.82M) | Time:00:00.15 | Mem:29.65M, Peak:29.65M | Scene, ViewLayer | Updating Baking
+Fra:1 Mem:155.82M (Peak 155.82M) | Time:00:00.15 | Mem:29.65M, Peak:29.65M | Scene, ViewLayer | Updating Device | Writing constant memory
+Fra:1 Mem:155.82M (Peak 155.82M) | Time:00:00.15 | Mem:29.65M, Peak:29.65M | Scene, ViewLayer | Sample 0/12
+Fra:1 Mem:187.43M (Peak 187.43M) | Time:00:00.63 | Remaining:00:05.27 | Mem:61.24M, Peak:61.24M | Scene, ViewLayer | Sample 1/12
+Fra:1 Mem:201.47M (Peak 229.55M) | Time:00:05.04 | Mem:61.24M, Peak:61.24M | Scene, ViewLayer | Sample 12/12
+Fra:1 Mem:201.47M (Peak 229.55M) | Time:00:05.04 | Mem:61.24M, Peak:61.24M | Scene, ViewLayer | Finished
+Saved: '/workspace/private-production/yanmar-6aym-wet-r02/qa/r02/neutral_depan.png'
+Time: 00:05.29 (Saving: 00:00.24)
+
+Fra:1 Mem:131.50M (Peak 131.50M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-BLOCK-01
+Fra:1 Mem:132.24M (Peak 132.24M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-LUBE-05
+Fra:1 Mem:132.31M (Peak 132.31M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-LUBE-04
+Fra:1 Mem:132.44M (Peak 132.44M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-LUBE-03
+Fra:1 Mem:132.53M (Peak 132.53M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-LUBE-02
+Fra:1 Mem:132.61M (Peak 132.61M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-LUBE-01
+Fra:1 Mem:132.68M (Peak 132.68M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-20
+Fra:1 Mem:132.72M (Peak 132.72M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-19
+Fra:1 Mem:132.79M (Peak 132.79M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-BLOCK-02
+Fra:1 Mem:133.00M (Peak 133.00M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-BLOCK-03
+Fra:1 Mem:133.06M (Peak 133.06M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-BLOCK-04
+Fra:1 Mem:132.90M (Peak 133.06M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-BLOCK-05
+Fra:1 Mem:133.00M (Peak 133.06M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-BLOCK-06
+Fra:1 Mem:133.05M (Peak 133.06M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-BLOCK-07
+Fra:1 Mem:133.09M (Peak 133.09M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-BLOCK-08
+Fra:1 Mem:133.17M (Peak 133.17M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-BLOCK-09
+Fra:1 Mem:133.16M (Peak 133.17M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-BLOCK-10
+Fra:1 Mem:133.26M (Peak 133.26M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-BLOCK-11
+Fra:1 Mem:133.26M (Peak 133.26M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-BLOCK-12
+Fra:1 Mem:133.37M (Peak 133.37M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-BLOCK-13
+Fra:1 Mem:133.42M (Peak 133.42M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-BLOCK-14
+Fra:1 Mem:133.45M (Peak 133.45M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-BLOCK-15
+Fra:1 Mem:133.45M (Peak 133.45M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-BLOCK-16
+Fra:1 Mem:133.51M (Peak 133.51M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-BLOCK-17
+Fra:1 Mem:133.51M (Peak 133.51M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-BLOCK-18
+Fra:1 Mem:133.60M (Peak 133.60M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-HEADS-01
+Fra:1 Mem:133.65M (Peak 133.65M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-HEADS-02
+Fra:1 Mem:133.74M (Peak 133.74M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-HEADS-03
+Fra:1 Mem:133.79M (Peak 133.79M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-HEADS-04
+Fra:1 Mem:133.88M (Peak 133.88M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-HEADS-05
+Fra:1 Mem:133.95M (Peak 133.95M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-HEADS-06
+Fra:1 Mem:134.02M (Peak 134.02M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-HEADS-07
+Fra:1 Mem:134.10M (Peak 134.10M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-HEADS-08
+Fra:1 Mem:134.23M (Peak 134.23M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-HEADS-09
+Fra:1 Mem:134.32M (Peak 134.32M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-HEADS-10
+Fra:1 Mem:134.44M (Peak 134.44M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-HEADS-11
+Fra:1 Mem:134.45M (Peak 134.45M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-HEADS-12
+Fra:1 Mem:134.46M (Peak 134.46M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-OILPAN-01
+Fra:1 Mem:135.17M (Peak 135.17M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-OILPAN-02
+Fra:1 Mem:135.20M (Peak 135.20M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FLYWHEEL-01
+Fra:1 Mem:135.28M (Peak 135.28M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FLYWHEEL-02
+Fra:1 Mem:137.41M (Peak 137.75M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FRONT-01
+Fra:1 Mem:137.60M (Peak 137.75M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FRONT-02
+Fra:1 Mem:137.61M (Peak 137.75M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-18
+Fra:1 Mem:137.94M (Peak 137.94M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-17
+Fra:1 Mem:138.03M (Peak 138.03M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FRONT-03
+Fra:1 Mem:137.55M (Peak 138.03M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-16
+Fra:1 Mem:137.92M (Peak 138.03M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-ELECTRIC-01
+Fra:1 Mem:138.25M (Peak 138.25M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-15
+Fra:1 Mem:137.38M (Peak 138.25M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-14
+Fra:1 Mem:137.33M (Peak 138.25M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-ELECTRIC-02
+Fra:1 Mem:137.32M (Peak 138.25M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-13
+Fra:1 Mem:137.55M (Peak 138.25M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-ELECTRIC-03
+Fra:1 Mem:137.58M (Peak 138.25M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-12
+Fra:1 Mem:137.65M (Peak 138.25M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-ELECTRIC-04
+Fra:1 Mem:137.74M (Peak 138.25M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-INTAKE-01
+Fra:1 Mem:138.06M (Peak 138.25M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-11
+Fra:1 Mem:138.17M (Peak 138.25M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-INTAKE-02
+Fra:1 Mem:138.18M (Peak 138.25M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-10
+Fra:1 Mem:138.66M (Peak 138.66M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-INTAKE-03
+Fra:1 Mem:138.79M (Peak 138.79M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-INTAKE-04
+Fra:1 Mem:139.22M (Peak 139.22M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-INTAKE-05
+Fra:1 Mem:139.38M (Peak 139.38M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-COOLING-01
+Fra:1 Mem:139.80M (Peak 139.80M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-COOLING-02
+Fra:1 Mem:139.84M (Peak 139.84M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-COOLING-03
+Fra:1 Mem:140.13M (Peak 140.13M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-09
+Fra:1 Mem:140.13M (Peak 140.13M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-COOLING-04
+Fra:1 Mem:140.57M (Peak 140.57M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-COOLING-05
+Fra:1 Mem:140.82M (Peak 140.82M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-COOLING-06
+Fra:1 Mem:141.02M (Peak 141.02M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-COOLING-07
+Fra:1 Mem:141.16M (Peak 141.16M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-EXHAUST-01
+Fra:1 Mem:142.05M (Peak 142.05M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-08
+Fra:1 Mem:142.27M (Peak 142.27M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-07
+Fra:1 Mem:142.14M (Peak 142.27M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-EXHAUST-02
+Fra:1 Mem:142.23M (Peak 142.27M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-EXHAUST-03
+Fra:1 Mem:142.32M (Peak 142.32M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-EXHAUST-04
+Fra:1 Mem:142.31M (Peak 142.32M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-06
+Fra:1 Mem:142.40M (Peak 142.40M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-EXHAUST-05
+Fra:1 Mem:142.79M (Peak 142.79M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-05
+Fra:1 Mem:142.84M (Peak 142.84M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-04
+Fra:1 Mem:142.96M (Peak 142.96M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-03
+Fra:1 Mem:142.93M (Peak 142.96M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-02
+Fra:1 Mem:142.94M (Peak 142.96M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-01
+Fra:1 Mem:143.94M (Peak 143.94M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Initializing
+Fra:1 Mem:139.35M (Peak 143.94M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Waiting for render to start
+Fra:1 Mem:139.35M (Peak 143.94M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Loading render kernels (may take a few minutes the first time)
+Fra:1 Mem:139.35M (Peak 143.94M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Scene
+Fra:1 Mem:139.35M (Peak 143.94M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Shaders
+Fra:1 Mem:139.43M (Peak 143.94M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Procedurals
+Fra:1 Mem:139.43M (Peak 143.94M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Background
+Fra:1 Mem:139.43M (Peak 143.94M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Camera
+Fra:1 Mem:139.43M (Peak 143.94M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Meshes Flags
+Fra:1 Mem:139.43M (Peak 143.94M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Objects
+Fra:1 Mem:139.43M (Peak 143.94M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Objects | Copying Transformations to device
+Fra:1 Mem:139.45M (Peak 143.94M) | Time:00:00.02 | Mem:0.02M, Peak:0.02M | Scene, ViewLayer | Updating Objects | Applying Static Transformations
+Fra:1 Mem:139.45M (Peak 143.94M) | Time:00:00.02 | Mem:0.02M, Peak:0.02M | Scene, ViewLayer | Updating Particle Systems
+Fra:1 Mem:139.45M (Peak 143.94M) | Time:00:00.02 | Mem:0.02M, Peak:0.02M | Scene, ViewLayer | Updating Particle Systems | Copying Particles to device
+Fra:1 Mem:139.45M (Peak 143.94M) | Time:00:00.02 | Mem:0.02M, Peak:0.02M | Scene, ViewLayer | Updating Meshes
+Fra:1 Mem:143.34M (Peak 143.94M) | Time:00:00.02 | Mem:0.02M, Peak:0.02M | Scene, ViewLayer | Updating Mesh | Computing attributes
+Fra:1 Mem:145.43M (Peak 145.43M) | Time:00:00.02 | Mem:0.03M, Peak:0.03M | Scene, ViewLayer | Updating Mesh | Copying Attributes to device
+Fra:1 Mem:145.42M (Peak 145.43M) | Time:00:00.02 | Mem:2.10M, Peak:2.10M | Scene, ViewLayer | Updating Scene BVH | Building
+Fra:1 Mem:145.42M (Peak 145.43M) | Time:00:00.02 | Mem:2.10M, Peak:2.10M | Scene, ViewLayer | Updating Scene BVH | Building BVH
+Fra:1 Mem:145.42M (Peak 145.43M) | Time:00:00.02 | Mem:9.89M, Peak:9.89M | Scene, ViewLayer | Updating Scene BVH | Building BVH 0%
+Fra:1 Mem:145.42M (Peak 145.43M) | Time:00:00.09 | Mem:19.17M, Peak:26.96M | Scene, ViewLayer | Updating Scene BVH | Copying BVH to device
+Fra:1 Mem:145.42M (Peak 145.43M) | Time:00:00.09 | Mem:19.17M, Peak:26.96M | Scene, ViewLayer | Updating Mesh | Computing normals
+Fra:1 Mem:155.81M (Peak 155.81M) | Time:00:00.09 | Mem:19.17M, Peak:26.96M | Scene, ViewLayer | Updating Mesh | Copying Mesh to device
+Fra:1 Mem:155.81M (Peak 155.81M) | Time:00:00.09 | Mem:29.56M, Peak:29.56M | Scene, ViewLayer | Updating Objects Flags
+Fra:1 Mem:155.81M (Peak 155.81M) | Time:00:00.09 | Mem:29.57M, Peak:29.57M | Scene, ViewLayer | Updating Primitive Offsets
+Fra:1 Mem:155.81M (Peak 155.81M) | Time:00:00.09 | Mem:29.57M, Peak:29.57M | Scene, ViewLayer | Updating Images
+Fra:1 Mem:155.81M (Peak 155.81M) | Time:00:00.09 | Mem:29.57M, Peak:29.57M | Scene, ViewLayer | Updating Camera Volume
+Fra:1 Mem:155.81M (Peak 155.81M) | Time:00:00.09 | Mem:29.57M, Peak:29.57M | Scene, ViewLayer | Updating Lookup Tables
+Fra:1 Mem:155.81M (Peak 155.81M) | Time:00:00.09 | Mem:29.65M, Peak:29.65M | Scene, ViewLayer | Updating Lights
+Fra:1 Mem:155.81M (Peak 155.81M) | Time:00:00.09 | Mem:29.65M, Peak:29.65M | Scene, ViewLayer | Updating Lights | Computing tree
+Fra:1 Mem:155.82M (Peak 155.82M) | Time:00:00.09 | Mem:29.65M, Peak:29.65M | Scene, ViewLayer | Updating Integrator
+Fra:1 Mem:155.82M (Peak 155.82M) | Time:00:00.09 | Mem:29.65M, Peak:29.65M | Scene, ViewLayer | Updating Film
+Fra:1 Mem:155.82M (Peak 155.82M) | Time:00:00.09 | Mem:29.57M, Peak:29.65M | Scene, ViewLayer | Updating Lookup Tables
+Fra:1 Mem:155.82M (Peak 155.82M) | Time:00:00.09 | Mem:29.65M, Peak:29.65M | Scene, ViewLayer | Updating Baking
+Fra:1 Mem:155.82M (Peak 155.82M) | Time:00:00.09 | Mem:29.65M, Peak:29.65M | Scene, ViewLayer | Updating Device | Writing constant memory
+Fra:1 Mem:155.82M (Peak 155.82M) | Time:00:00.09 | Mem:29.65M, Peak:29.65M | Scene, ViewLayer | Sample 0/12
+Fra:1 Mem:187.43M (Peak 187.43M) | Time:00:00.79 | Remaining:00:07.65 | Mem:61.24M, Peak:61.24M | Scene, ViewLayer | Sample 1/12
+Fra:1 Mem:201.47M (Peak 229.55M) | Time:00:06.13 | Mem:61.24M, Peak:61.24M | Scene, ViewLayer | Sample 12/12
+Fra:1 Mem:201.47M (Peak 229.55M) | Time:00:06.13 | Mem:61.24M, Peak:61.24M | Scene, ViewLayer | Finished
+Saved: '/workspace/private-production/yanmar-6aym-wet-r02/qa/r02/neutral_belakang.png'
+Time: 00:06.38 (Saving: 00:00.24)
+
+Fra:1 Mem:131.50M (Peak 131.50M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-BLOCK-01
+Fra:1 Mem:132.22M (Peak 132.22M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-BLOCK-03
+Fra:1 Mem:132.28M (Peak 132.28M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-BLOCK-04
+Fra:1 Mem:132.33M (Peak 132.33M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-BLOCK-05
+Fra:1 Mem:132.38M (Peak 132.38M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-BLOCK-06
+Fra:1 Mem:132.43M (Peak 132.43M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-BLOCK-07
+Fra:1 Mem:132.49M (Peak 132.49M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-BLOCK-08
+Fra:1 Mem:132.60M (Peak 132.60M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-BLOCK-09
+Fra:1 Mem:132.65M (Peak 132.65M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-BLOCK-10
+Fra:1 Mem:132.69M (Peak 132.69M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-BLOCK-11
+Fra:1 Mem:132.74M (Peak 132.74M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-BLOCK-12
+Fra:1 Mem:132.80M (Peak 132.80M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-BLOCK-13
+Fra:1 Mem:132.87M (Peak 132.87M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-LUBE-05
+Fra:1 Mem:132.94M (Peak 132.94M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-LUBE-04
+Fra:1 Mem:133.07M (Peak 133.07M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-LUBE-03
+Fra:1 Mem:133.16M (Peak 133.16M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-LUBE-02
+Fra:1 Mem:133.24M (Peak 133.24M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-LUBE-01
+Fra:1 Mem:133.31M (Peak 133.31M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-20
+Fra:1 Mem:133.35M (Peak 133.35M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-19
+Fra:1 Mem:133.42M (Peak 133.42M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-18
+Fra:1 Mem:133.50M (Peak 133.50M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-17
+Fra:1 Mem:133.59M (Peak 133.59M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-16
+Fra:1 Mem:133.67M (Peak 133.67M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-15
+Fra:1 Mem:133.76M (Peak 133.76M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-14
+Fra:1 Mem:133.84M (Peak 133.84M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-13
+Fra:1 Mem:133.93M (Peak 133.93M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-12
+Fra:1 Mem:134.05M (Peak 134.05M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-11
+Fra:1 Mem:134.16M (Peak 134.16M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-10
+Fra:1 Mem:134.27M (Peak 134.27M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-09
+Fra:1 Mem:134.50M (Peak 134.50M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-08
+Fra:1 Mem:134.55M (Peak 134.55M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-07
+Fra:1 Mem:134.60M (Peak 134.60M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-06
+Fra:1 Mem:134.65M (Peak 134.65M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-05
+Fra:1 Mem:134.69M (Peak 134.69M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-04
+Fra:1 Mem:134.74M (Peak 134.74M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-03
+Fra:1 Mem:134.79M (Peak 134.79M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-02
+Fra:1 Mem:135.29M (Peak 135.29M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-01
+Fra:1 Mem:135.80M (Peak 135.80M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-EXHAUST-05
+Fra:1 Mem:136.18M (Peak 136.18M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-EXHAUST-04
+Fra:1 Mem:136.23M (Peak 136.23M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-EXHAUST-03
+Fra:1 Mem:136.31M (Peak 136.31M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-EXHAUST-02
+Fra:1 Mem:136.39M (Peak 136.39M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-EXHAUST-01
+Fra:1 Mem:137.26M (Peak 137.26M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-BLOCK-15
+Fra:1 Mem:137.29M (Peak 137.29M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-BLOCK-16
+Fra:1 Mem:137.32M (Peak 137.32M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-BLOCK-17
+Fra:1 Mem:137.35M (Peak 137.35M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-BLOCK-18
+Fra:1 Mem:137.41M (Peak 137.41M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-HEADS-01
+Fra:1 Mem:137.48M (Peak 137.48M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-HEADS-02
+Fra:1 Mem:137.55M (Peak 137.55M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-HEADS-03
+Fra:1 Mem:137.62M (Peak 137.62M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-HEADS-04
+Fra:1 Mem:137.69M (Peak 137.69M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-HEADS-05
+Fra:1 Mem:137.76M (Peak 137.76M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-HEADS-06
+Fra:1 Mem:137.83M (Peak 137.83M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-HEADS-07
+Fra:1 Mem:137.94M (Peak 137.94M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-HEADS-08
+Fra:1 Mem:138.04M (Peak 138.04M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-HEADS-09
+Fra:1 Mem:138.15M (Peak 138.15M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-HEADS-10
+Fra:1 Mem:138.26M (Peak 138.26M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-HEADS-11
+Fra:1 Mem:138.36M (Peak 138.36M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-HEADS-12
+Fra:1 Mem:138.47M (Peak 138.47M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-OILPAN-01
+Fra:1 Mem:138.98M (Peak 138.98M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-COOLING-07
+Fra:1 Mem:139.23M (Peak 139.23M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-COOLING-06
+Fra:1 Mem:139.13M (Peak 139.23M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-OILPAN-02
+Fra:1 Mem:139.31M (Peak 139.31M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FLYWHEEL-01
+Fra:1 Mem:139.33M (Peak 139.33M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-COOLING-05
+Fra:1 Mem:139.78M (Peak 139.78M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-COOLING-04
+Fra:1 Mem:140.55M (Peak 140.55M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-COOLING-03
+Fra:1 Mem:141.24M (Peak 141.24M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-COOLING-02
+Fra:1 Mem:141.24M (Peak 141.24M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-COOLING-01
+Fra:1 Mem:141.14M (Peak 141.24M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-INTAKE-05
+Fra:1 Mem:141.88M (Peak 141.88M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-INTAKE-04
+Fra:1 Mem:142.29M (Peak 142.29M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-INTAKE-03
+Fra:1 Mem:142.53M (Peak 142.53M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-INTAKE-02
+Fra:1 Mem:142.99M (Peak 142.99M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-INTAKE-01
+Fra:1 Mem:143.80M (Peak 143.80M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-ELECTRIC-04
+Fra:1 Mem:143.84M (Peak 143.84M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-ELECTRIC-03
+Fra:1 Mem:143.88M (Peak 143.88M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-ELECTRIC-02
+Fra:1 Mem:144.01M (Peak 144.01M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-ELECTRIC-01
+Fra:1 Mem:144.19M (Peak 144.19M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FRONT-03
+Fra:1 Mem:144.25M (Peak 144.25M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FRONT-02
+Fra:1 Mem:144.50M (Peak 144.50M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FRONT-01
+Fra:1 Mem:144.68M (Peak 144.68M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FLYWHEEL-02
+Fra:1 Mem:143.94M (Peak 144.68M) | Time:00:00.06 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Initializing
+Fra:1 Mem:139.35M (Peak 144.68M) | Time:00:00.07 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Waiting for render to start
+Fra:1 Mem:139.35M (Peak 144.68M) | Time:00:00.07 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Loading render kernels (may take a few minutes the first time)
+Fra:1 Mem:139.35M (Peak 144.68M) | Time:00:00.07 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Scene
+Fra:1 Mem:139.35M (Peak 144.68M) | Time:00:00.07 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Shaders
+Fra:1 Mem:139.43M (Peak 144.68M) | Time:00:00.07 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Procedurals
+Fra:1 Mem:139.43M (Peak 144.68M) | Time:00:00.07 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Background
+Fra:1 Mem:139.43M (Peak 144.68M) | Time:00:00.07 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Camera
+Fra:1 Mem:139.43M (Peak 144.68M) | Time:00:00.07 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Meshes Flags
+Fra:1 Mem:139.43M (Peak 144.68M) | Time:00:00.07 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Objects
+Fra:1 Mem:139.43M (Peak 144.68M) | Time:00:00.07 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Objects | Copying Transformations to device
+Fra:1 Mem:139.45M (Peak 144.68M) | Time:00:00.07 | Mem:0.02M, Peak:0.02M | Scene, ViewLayer | Updating Objects | Applying Static Transformations
+Fra:1 Mem:139.45M (Peak 144.68M) | Time:00:00.07 | Mem:0.02M, Peak:0.02M | Scene, ViewLayer | Updating Particle Systems
+Fra:1 Mem:139.45M (Peak 144.68M) | Time:00:00.07 | Mem:0.02M, Peak:0.02M | Scene, ViewLayer | Updating Particle Systems | Copying Particles to device
+Fra:1 Mem:139.45M (Peak 144.68M) | Time:00:00.07 | Mem:0.02M, Peak:0.02M | Scene, ViewLayer | Updating Meshes
+Fra:1 Mem:143.34M (Peak 144.68M) | Time:00:00.08 | Mem:0.02M, Peak:0.02M | Scene, ViewLayer | Updating Mesh | Computing attributes
+Fra:1 Mem:145.43M (Peak 145.43M) | Time:00:00.08 | Mem:0.03M, Peak:0.03M | Scene, ViewLayer | Updating Mesh | Copying Attributes to device
+Fra:1 Mem:145.42M (Peak 145.43M) | Time:00:00.08 | Mem:2.10M, Peak:2.10M | Scene, ViewLayer | Updating Scene BVH | Building
+Fra:1 Mem:145.42M (Peak 145.43M) | Time:00:00.08 | Mem:2.10M, Peak:2.10M | Scene, ViewLayer | Updating Scene BVH | Building BVH
+Fra:1 Mem:145.42M (Peak 145.43M) | Time:00:00.08 | Mem:9.89M, Peak:9.89M | Scene, ViewLayer | Updating Scene BVH | Building BVH 0%
+Fra:1 Mem:145.42M (Peak 145.43M) | Time:00:00.21 | Mem:19.17M, Peak:26.96M | Scene, ViewLayer | Updating Scene BVH | Copying BVH to device
+Fra:1 Mem:145.42M (Peak 145.43M) | Time:00:00.21 | Mem:19.17M, Peak:26.96M | Scene, ViewLayer | Updating Mesh | Computing normals
+Fra:1 Mem:155.81M (Peak 155.81M) | Time:00:00.21 | Mem:19.17M, Peak:26.96M | Scene, ViewLayer | Updating Mesh | Copying Mesh to device
+Fra:1 Mem:155.81M (Peak 155.81M) | Time:00:00.21 | Mem:29.56M, Peak:29.56M | Scene, ViewLayer | Updating Objects Flags
+Fra:1 Mem:155.81M (Peak 155.81M) | Time:00:00.21 | Mem:29.57M, Peak:29.57M | Scene, ViewLayer | Updating Primitive Offsets
+Fra:1 Mem:155.81M (Peak 155.81M) | Time:00:00.21 | Mem:29.57M, Peak:29.57M | Scene, ViewLayer | Updating Images
+Fra:1 Mem:155.81M (Peak 155.81M) | Time:00:00.21 | Mem:29.57M, Peak:29.57M | Scene, ViewLayer | Updating Camera Volume
+Fra:1 Mem:155.81M (Peak 155.81M) | Time:00:00.21 | Mem:29.57M, Peak:29.57M | Scene, ViewLayer | Updating Lookup Tables
+Fra:1 Mem:155.81M (Peak 155.81M) | Time:00:00.21 | Mem:29.65M, Peak:29.65M | Scene, ViewLayer | Updating Lights
+Fra:1 Mem:155.81M (Peak 155.81M) | Time:00:00.21 | Mem:29.65M, Peak:29.65M | Scene, ViewLayer | Updating Lights | Computing tree
+Fra:1 Mem:155.82M (Peak 155.82M) | Time:00:00.21 | Mem:29.65M, Peak:29.65M | Scene, ViewLayer | Updating Integrator
+Fra:1 Mem:155.82M (Peak 155.82M) | Time:00:00.21 | Mem:29.65M, Peak:29.65M | Scene, ViewLayer | Updating Film
+Fra:1 Mem:155.82M (Peak 155.82M) | Time:00:00.21 | Mem:29.57M, Peak:29.65M | Scene, ViewLayer | Updating Lookup Tables
+Fra:1 Mem:155.82M (Peak 155.82M) | Time:00:00.21 | Mem:29.65M, Peak:29.65M | Scene, ViewLayer | Updating Baking
+Fra:1 Mem:155.82M (Peak 155.82M) | Time:00:00.21 | Mem:29.65M, Peak:29.65M | Scene, ViewLayer | Updating Device | Writing constant memory
+Fra:1 Mem:155.82M (Peak 155.82M) | Time:00:00.21 | Mem:29.65M, Peak:29.65M | Scene, ViewLayer | Sample 0/12
+Fra:1 Mem:187.43M (Peak 187.43M) | Time:00:01.17 | Remaining:00:10.61 | Mem:61.24M, Peak:61.24M | Scene, ViewLayer | Sample 1/12
+Fra:1 Mem:201.47M (Peak 229.55M) | Time:00:08.21 | Mem:61.24M, Peak:61.24M | Scene, ViewLayer | Sample 12/12
+Fra:1 Mem:201.47M (Peak 229.55M) | Time:00:08.21 | Mem:61.24M, Peak:61.24M | Scene, ViewLayer | Finished
+Saved: '/workspace/private-production/yanmar-6aym-wet-r02/qa/r02/neutral_kiri.png'
+Time: 00:08.49 (Saving: 00:00.27)
+
+Fra:1 Mem:131.51M (Peak 131.51M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-LUBE-05
+Fra:1 Mem:131.58M (Peak 131.58M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-LUBE-04
+Fra:1 Mem:131.72M (Peak 131.72M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-LUBE-03
+Fra:1 Mem:131.80M (Peak 131.80M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-LUBE-02
+Fra:1 Mem:131.89M (Peak 131.89M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-LUBE-01
+Fra:1 Mem:131.95M (Peak 131.95M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-20
+Fra:1 Mem:132.00M (Peak 132.00M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-19
+Fra:1 Mem:132.07M (Peak 132.07M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-BLOCK-01
+Fra:1 Mem:132.79M (Peak 132.79M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-BLOCK-02
+Fra:1 Mem:132.84M (Peak 132.84M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-BLOCK-03
+Fra:1 Mem:132.89M (Peak 132.89M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-BLOCK-04
+Fra:1 Mem:132.95M (Peak 132.95M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-BLOCK-05
+Fra:1 Mem:133.00M (Peak 133.00M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-BLOCK-06
+Fra:1 Mem:133.05M (Peak 133.05M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-BLOCK-07
+Fra:1 Mem:133.11M (Peak 133.11M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-BLOCK-08
+Fra:1 Mem:133.16M (Peak 133.16M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-BLOCK-09
+Fra:1 Mem:133.21M (Peak 133.21M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-BLOCK-10
+Fra:1 Mem:133.26M (Peak 133.26M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-BLOCK-11
+Fra:1 Mem:133.32M (Peak 133.32M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-BLOCK-12
+Fra:1 Mem:133.37M (Peak 133.37M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-18
+Fra:1 Mem:133.45M (Peak 133.45M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-17
+Fra:1 Mem:133.54M (Peak 133.54M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-16
+Fra:1 Mem:133.62M (Peak 133.62M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-15
+Fra:1 Mem:133.71M (Peak 133.71M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-14
+Fra:1 Mem:133.79M (Peak 133.79M) | Time:00:00.06 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-13
+Fra:1 Mem:133.88M (Peak 133.88M) | Time:00:00.06 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-12
+Fra:1 Mem:134.00M (Peak 134.00M) | Time:00:00.06 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-11
+Fra:1 Mem:134.11M (Peak 134.11M) | Time:00:00.06 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-BLOCK-13
+Fra:1 Mem:134.16M (Peak 134.16M) | Time:00:00.06 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-BLOCK-15
+Fra:1 Mem:134.19M (Peak 134.19M) | Time:00:00.06 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-BLOCK-16
+Fra:1 Mem:134.22M (Peak 134.22M) | Time:00:00.06 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-BLOCK-17
+Fra:1 Mem:134.25M (Peak 134.25M) | Time:00:00.06 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-BLOCK-18
+Fra:1 Mem:134.31M (Peak 134.31M) | Time:00:00.06 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-HEADS-01
+Fra:1 Mem:134.38M (Peak 134.38M) | Time:00:00.06 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-HEADS-02
+Fra:1 Mem:134.45M (Peak 134.45M) | Time:00:00.06 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-HEADS-03
+Fra:1 Mem:134.52M (Peak 134.52M) | Time:00:00.06 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-HEADS-04
+Fra:1 Mem:134.59M (Peak 134.59M) | Time:00:00.06 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-HEADS-05
+Fra:1 Mem:134.66M (Peak 134.66M) | Time:00:00.06 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-HEADS-06
+Fra:1 Mem:134.73M (Peak 134.73M) | Time:00:00.06 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-HEADS-07
+Fra:1 Mem:134.84M (Peak 134.84M) | Time:00:00.06 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-HEADS-08
+Fra:1 Mem:134.95M (Peak 134.95M) | Time:00:00.06 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-HEADS-09
+Fra:1 Mem:135.05M (Peak 135.05M) | Time:00:00.06 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-HEADS-10
+Fra:1 Mem:135.16M (Peak 135.16M) | Time:00:00.06 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-HEADS-11
+Fra:1 Mem:135.26M (Peak 135.26M) | Time:00:00.06 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-HEADS-12
+Fra:1 Mem:135.37M (Peak 135.37M) | Time:00:00.06 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-OILPAN-01
+Fra:1 Mem:135.88M (Peak 135.88M) | Time:00:00.06 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-OILPAN-02
+Fra:1 Mem:135.91M (Peak 135.91M) | Time:00:00.06 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FLYWHEEL-01
+Fra:1 Mem:137.05M (Peak 137.05M) | Time:00:00.06 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FLYWHEEL-02
+Fra:1 Mem:137.22M (Peak 137.22M) | Time:00:00.06 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-10
+Fra:1 Mem:138.01M (Peak 138.01M) | Time:00:00.06 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-09
+Fra:1 Mem:138.29M (Peak 138.29M) | Time:00:00.06 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-08
+Fra:1 Mem:138.35M (Peak 138.35M) | Time:00:00.06 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-07
+Fra:1 Mem:138.39M (Peak 138.39M) | Time:00:00.06 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-06
+Fra:1 Mem:138.44M (Peak 138.44M) | Time:00:00.06 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-05
+Fra:1 Mem:138.49M (Peak 138.49M) | Time:00:00.06 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-04
+Fra:1 Mem:138.64M (Peak 138.64M) | Time:00:00.06 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-03
+Fra:1 Mem:138.72M (Peak 138.72M) | Time:00:00.06 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-02
+Fra:1 Mem:139.62M (Peak 139.62M) | Time:00:00.06 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-01
+Fra:1 Mem:140.13M (Peak 140.13M) | Time:00:00.06 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-EXHAUST-05
+Fra:1 Mem:140.51M (Peak 140.51M) | Time:00:00.06 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-EXHAUST-04
+Fra:1 Mem:140.56M (Peak 140.56M) | Time:00:00.06 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-EXHAUST-03
+Fra:1 Mem:140.64M (Peak 140.64M) | Time:00:00.06 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-EXHAUST-02
+Fra:1 Mem:140.72M (Peak 140.72M) | Time:00:00.06 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-EXHAUST-01
+Fra:1 Mem:140.74M (Peak 140.74M) | Time:00:00.06 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FRONT-01
+Fra:1 Mem:140.79M (Peak 140.79M) | Time:00:00.06 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-COOLING-07
+Fra:1 Mem:140.76M (Peak 140.79M) | Time:00:00.06 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FRONT-02
+Fra:1 Mem:141.09M (Peak 141.09M) | Time:00:00.06 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FRONT-03
+Fra:1 Mem:141.18M (Peak 141.18M) | Time:00:00.06 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-ELECTRIC-01
+Fra:1 Mem:141.39M (Peak 141.39M) | Time:00:00.06 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-ELECTRIC-02
+Fra:1 Mem:141.51M (Peak 141.51M) | Time:00:00.06 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-ELECTRIC-03
+Fra:1 Mem:141.56M (Peak 141.56M) | Time:00:00.06 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-ELECTRIC-04
+Fra:1 Mem:141.60M (Peak 141.60M) | Time:00:00.06 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-INTAKE-01
+Fra:1 Mem:142.05M (Peak 142.05M) | Time:00:00.06 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-INTAKE-02
+Fra:1 Mem:142.99M (Peak 142.99M) | Time:00:00.06 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-INTAKE-03
+Fra:1 Mem:143.11M (Peak 143.11M) | Time:00:00.06 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-INTAKE-04
+Fra:1 Mem:143.52M (Peak 143.52M) | Time:00:00.07 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-INTAKE-05
+Fra:1 Mem:143.68M (Peak 143.68M) | Time:00:00.07 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-COOLING-01
+Fra:1 Mem:142.89M (Peak 143.68M) | Time:00:00.07 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-COOLING-02
+Fra:1 Mem:142.93M (Peak 143.68M) | Time:00:00.07 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-COOLING-03
+Fra:1 Mem:143.24M (Peak 143.68M) | Time:00:00.07 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-COOLING-04
+Fra:1 Mem:143.64M (Peak 143.68M) | Time:00:00.07 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-COOLING-05
+Fra:1 Mem:143.89M (Peak 143.89M) | Time:00:00.07 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-COOLING-06
+Fra:1 Mem:143.94M (Peak 143.94M) | Time:00:00.07 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Initializing
+Fra:1 Mem:139.35M (Peak 143.94M) | Time:00:00.07 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Waiting for render to start
+Fra:1 Mem:139.35M (Peak 143.94M) | Time:00:00.07 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Loading render kernels (may take a few minutes the first time)
+Fra:1 Mem:139.35M (Peak 143.94M) | Time:00:00.07 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Scene
+Fra:1 Mem:139.35M (Peak 143.94M) | Time:00:00.07 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Shaders
+Fra:1 Mem:139.43M (Peak 143.94M) | Time:00:00.07 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Procedurals
+Fra:1 Mem:139.43M (Peak 143.94M) | Time:00:00.07 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Background
+Fra:1 Mem:139.43M (Peak 143.94M) | Time:00:00.07 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Camera
+Fra:1 Mem:139.43M (Peak 143.94M) | Time:00:00.07 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Meshes Flags
+Fra:1 Mem:139.43M (Peak 143.94M) | Time:00:00.07 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Objects
+Fra:1 Mem:139.43M (Peak 143.94M) | Time:00:00.07 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Objects | Copying Transformations to device
+Fra:1 Mem:139.45M (Peak 143.94M) | Time:00:00.07 | Mem:0.02M, Peak:0.02M | Scene, ViewLayer | Updating Objects | Applying Static Transformations
+Fra:1 Mem:139.45M (Peak 143.94M) | Time:00:00.08 | Mem:0.02M, Peak:0.02M | Scene, ViewLayer | Updating Particle Systems
+Fra:1 Mem:139.45M (Peak 143.94M) | Time:00:00.08 | Mem:0.02M, Peak:0.02M | Scene, ViewLayer | Updating Particle Systems | Copying Particles to device
+Fra:1 Mem:139.45M (Peak 143.94M) | Time:00:00.08 | Mem:0.02M, Peak:0.02M | Scene, ViewLayer | Updating Meshes
+Fra:1 Mem:143.34M (Peak 143.94M) | Time:00:00.08 | Mem:0.02M, Peak:0.02M | Scene, ViewLayer | Updating Mesh | Computing attributes
+Fra:1 Mem:145.43M (Peak 145.43M) | Time:00:00.08 | Mem:0.03M, Peak:0.03M | Scene, ViewLayer | Updating Mesh | Copying Attributes to device
+Fra:1 Mem:145.42M (Peak 145.43M) | Time:00:00.08 | Mem:2.10M, Peak:2.10M | Scene, ViewLayer | Updating Scene BVH | Building
+Fra:1 Mem:145.42M (Peak 145.43M) | Time:00:00.08 | Mem:2.10M, Peak:2.10M | Scene, ViewLayer | Updating Scene BVH | Building BVH
+Fra:1 Mem:145.42M (Peak 145.43M) | Time:00:00.08 | Mem:9.89M, Peak:9.89M | Scene, ViewLayer | Updating Scene BVH | Building BVH 0%
+Fra:1 Mem:145.42M (Peak 145.43M) | Time:00:00.20 | Mem:19.17M, Peak:26.96M | Scene, ViewLayer | Updating Scene BVH | Copying BVH to device
+Fra:1 Mem:145.42M (Peak 145.43M) | Time:00:00.20 | Mem:19.17M, Peak:26.96M | Scene, ViewLayer | Updating Mesh | Computing normals
+Fra:1 Mem:155.81M (Peak 155.81M) | Time:00:00.20 | Mem:19.17M, Peak:26.96M | Scene, ViewLayer | Updating Mesh | Copying Mesh to device
+Fra:1 Mem:155.81M (Peak 155.81M) | Time:00:00.20 | Mem:29.56M, Peak:29.56M | Scene, ViewLayer | Updating Objects Flags
+Fra:1 Mem:155.81M (Peak 155.81M) | Time:00:00.20 | Mem:29.57M, Peak:29.57M | Scene, ViewLayer | Updating Primitive Offsets
+Fra:1 Mem:155.81M (Peak 155.81M) | Time:00:00.20 | Mem:29.57M, Peak:29.57M | Scene, ViewLayer | Updating Images
+Fra:1 Mem:155.81M (Peak 155.81M) | Time:00:00.20 | Mem:29.57M, Peak:29.57M | Scene, ViewLayer | Updating Camera Volume
+Fra:1 Mem:155.81M (Peak 155.81M) | Time:00:00.20 | Mem:29.57M, Peak:29.57M | Scene, ViewLayer | Updating Lookup Tables
+Fra:1 Mem:155.81M (Peak 155.81M) | Time:00:00.20 | Mem:29.65M, Peak:29.65M | Scene, ViewLayer | Updating Lights
+Fra:1 Mem:155.81M (Peak 155.81M) | Time:00:00.20 | Mem:29.65M, Peak:29.65M | Scene, ViewLayer | Updating Lights | Computing tree
+Fra:1 Mem:155.82M (Peak 155.82M) | Time:00:00.20 | Mem:29.65M, Peak:29.65M | Scene, ViewLayer | Updating Integrator
+Fra:1 Mem:155.82M (Peak 155.82M) | Time:00:00.20 | Mem:29.65M, Peak:29.65M | Scene, ViewLayer | Updating Film
+Fra:1 Mem:155.82M (Peak 155.82M) | Time:00:00.20 | Mem:29.57M, Peak:29.65M | Scene, ViewLayer | Updating Lookup Tables
+Fra:1 Mem:155.82M (Peak 155.82M) | Time:00:00.20 | Mem:29.65M, Peak:29.65M | Scene, ViewLayer | Updating Baking
+Fra:1 Mem:155.82M (Peak 155.82M) | Time:00:00.20 | Mem:29.65M, Peak:29.65M | Scene, ViewLayer | Updating Device | Writing constant memory
+Fra:1 Mem:155.82M (Peak 155.82M) | Time:00:00.20 | Mem:29.65M, Peak:29.65M | Scene, ViewLayer | Sample 0/12
+Fra:1 Mem:187.43M (Peak 187.43M) | Time:00:01.14 | Remaining:00:10.27 | Mem:61.24M, Peak:61.24M | Scene, ViewLayer | Sample 1/12
+Fra:1 Mem:201.47M (Peak 229.55M) | Time:00:08.40 | Mem:61.24M, Peak:61.24M | Scene, ViewLayer | Sample 12/12
+Fra:1 Mem:201.47M (Peak 229.55M) | Time:00:08.40 | Mem:61.24M, Peak:61.24M | Scene, ViewLayer | Finished
+Saved: '/workspace/private-production/yanmar-6aym-wet-r02/qa/r02/neutral_kanan.png'
+Time: 00:08.68 (Saving: 00:00.23)
+
+Fra:1 Mem:131.51M (Peak 131.51M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-LUBE-05
+Fra:1 Mem:131.58M (Peak 131.58M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-LUBE-04
+Fra:1 Mem:131.72M (Peak 131.72M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-LUBE-03
+Fra:1 Mem:131.80M (Peak 131.80M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-LUBE-02
+Fra:1 Mem:131.89M (Peak 131.89M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-LUBE-01
+Fra:1 Mem:131.95M (Peak 131.95M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-20
+Fra:1 Mem:132.01M (Peak 132.01M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-BLOCK-01
+Fra:1 Mem:132.02M (Peak 132.02M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-19
+Fra:1 Mem:132.62M (Peak 132.62M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-18
+Fra:1 Mem:132.87M (Peak 132.87M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-17
+Fra:1 Mem:132.97M (Peak 132.97M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-BLOCK-02
+Fra:1 Mem:132.96M (Peak 132.97M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-16
+Fra:1 Mem:133.10M (Peak 133.10M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-BLOCK-03
+Fra:1 Mem:133.16M (Peak 133.16M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-BLOCK-04
+Fra:1 Mem:133.20M (Peak 133.20M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-15
+Fra:1 Mem:133.28M (Peak 133.28M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-14
+Fra:1 Mem:133.37M (Peak 133.37M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-13
+Fra:1 Mem:133.45M (Peak 133.45M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-12
+Fra:1 Mem:133.57M (Peak 133.57M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-11
+Fra:1 Mem:133.68M (Peak 133.68M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-10
+Fra:1 Mem:133.79M (Peak 133.79M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-09
+Fra:1 Mem:134.02M (Peak 134.02M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-08
+Fra:1 Mem:134.08M (Peak 134.08M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-07
+Fra:1 Mem:134.12M (Peak 134.12M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-06
+Fra:1 Mem:134.17M (Peak 134.17M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-05
+Fra:1 Mem:134.22M (Peak 134.22M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-04
+Fra:1 Mem:134.27M (Peak 134.27M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-03
+Fra:1 Mem:134.32M (Peak 134.32M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-02
+Fra:1 Mem:134.82M (Peak 134.82M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-01
+Fra:1 Mem:135.32M (Peak 135.32M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-EXHAUST-05
+Fra:1 Mem:135.70M (Peak 135.70M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-EXHAUST-04
+Fra:1 Mem:135.76M (Peak 135.76M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-EXHAUST-03
+Fra:1 Mem:135.84M (Peak 135.84M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-EXHAUST-02
+Fra:1 Mem:135.92M (Peak 135.92M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-EXHAUST-01
+Fra:1 Mem:136.76M (Peak 136.76M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-BLOCK-08
+Fra:1 Mem:136.87M (Peak 136.87M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-BLOCK-09
+Fra:1 Mem:136.86M (Peak 136.87M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-BLOCK-10
+Fra:1 Mem:136.92M (Peak 136.92M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-BLOCK-11
+Fra:1 Mem:136.97M (Peak 136.97M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-BLOCK-12
+Fra:1 Mem:137.02M (Peak 137.02M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-BLOCK-13
+Fra:1 Mem:137.13M (Peak 137.13M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-BLOCK-14
+Fra:1 Mem:137.16M (Peak 137.16M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-BLOCK-15
+Fra:1 Mem:137.19M (Peak 137.19M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-BLOCK-16
+Fra:1 Mem:137.22M (Peak 137.22M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-BLOCK-17
+Fra:1 Mem:137.24M (Peak 137.24M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-BLOCK-18
+Fra:1 Mem:137.25M (Peak 137.25M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-HEADS-01
+Fra:1 Mem:137.43M (Peak 137.43M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-HEADS-02
+Fra:1 Mem:137.52M (Peak 137.52M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-HEADS-03
+Fra:1 Mem:137.54M (Peak 137.54M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-HEADS-04
+Fra:1 Mem:137.57M (Peak 137.57M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-HEADS-06
+Fra:1 Mem:137.79M (Peak 137.79M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-HEADS-07
+Fra:1 Mem:137.79M (Peak 137.79M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-HEADS-08
+Fra:1 Mem:137.79M (Peak 137.79M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-HEADS-09
+Fra:1 Mem:138.15M (Peak 138.15M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-HEADS-10
+Fra:1 Mem:138.10M (Peak 138.15M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-HEADS-11
+Fra:1 Mem:138.22M (Peak 138.22M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-HEADS-12
+Fra:1 Mem:138.42M (Peak 138.42M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-OILPAN-01
+Fra:1 Mem:138.44M (Peak 138.44M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-OILPAN-02
+Fra:1 Mem:138.53M (Peak 138.53M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FLYWHEEL-01
+Fra:1 Mem:138.88M (Peak 138.88M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FLYWHEEL-02
+Fra:1 Mem:139.24M (Peak 139.24M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FRONT-01
+Fra:1 Mem:139.54M (Peak 139.54M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FRONT-02
+Fra:1 Mem:140.65M (Peak 140.65M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FRONT-03
+Fra:1 Mem:141.11M (Peak 141.11M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-ELECTRIC-01
+Fra:1 Mem:141.51M (Peak 141.51M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-ELECTRIC-02
+Fra:1 Mem:141.68M (Peak 141.68M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-ELECTRIC-03
+Fra:1 Mem:141.72M (Peak 141.72M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-ELECTRIC-04
+Fra:1 Mem:141.88M (Peak 141.88M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-INTAKE-01
+Fra:1 Mem:141.47M (Peak 141.88M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-INTAKE-02
+Fra:1 Mem:142.46M (Peak 142.46M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-INTAKE-03
+Fra:1 Mem:142.81M (Peak 142.81M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-INTAKE-04
+Fra:1 Mem:143.66M (Peak 143.66M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-INTAKE-05
+Fra:1 Mem:143.81M (Peak 143.81M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-COOLING-01
+Fra:1 Mem:144.22M (Peak 144.22M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-COOLING-02
+Fra:1 Mem:144.26M (Peak 144.26M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-COOLING-03
+Fra:1 Mem:143.58M (Peak 144.26M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-COOLING-04
+Fra:1 Mem:143.94M (Peak 144.26M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-COOLING-05
+Fra:1 Mem:144.19M (Peak 144.26M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-COOLING-06
+Fra:1 Mem:144.34M (Peak 144.34M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-COOLING-07
+Fra:1 Mem:143.94M (Peak 144.34M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Initializing
+Fra:1 Mem:139.35M (Peak 144.34M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Waiting for render to start
+Fra:1 Mem:139.35M (Peak 144.34M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Loading render kernels (may take a few minutes the first time)
+Fra:1 Mem:139.35M (Peak 144.34M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Scene
+Fra:1 Mem:139.35M (Peak 144.34M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Shaders
+Fra:1 Mem:139.43M (Peak 144.34M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Procedurals
+Fra:1 Mem:139.43M (Peak 144.34M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Background
+Fra:1 Mem:139.43M (Peak 144.34M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Camera
+Fra:1 Mem:139.43M (Peak 144.34M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Meshes Flags
+Fra:1 Mem:139.43M (Peak 144.34M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Objects
+Fra:1 Mem:139.43M (Peak 144.34M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Objects | Copying Transformations to device
+Fra:1 Mem:139.45M (Peak 144.34M) | Time:00:00.05 | Mem:0.02M, Peak:0.02M | Scene, ViewLayer | Updating Objects | Applying Static Transformations
+Fra:1 Mem:139.45M (Peak 144.34M) | Time:00:00.06 | Mem:0.02M, Peak:0.02M | Scene, ViewLayer | Updating Particle Systems
+Fra:1 Mem:139.45M (Peak 144.34M) | Time:00:00.06 | Mem:0.02M, Peak:0.02M | Scene, ViewLayer | Updating Particle Systems | Copying Particles to device
+Fra:1 Mem:139.45M (Peak 144.34M) | Time:00:00.06 | Mem:0.02M, Peak:0.02M | Scene, ViewLayer | Updating Meshes
+Fra:1 Mem:143.34M (Peak 144.34M) | Time:00:00.09 | Mem:0.02M, Peak:0.02M | Scene, ViewLayer | Updating Mesh | Computing attributes
+Fra:1 Mem:145.43M (Peak 145.43M) | Time:00:00.09 | Mem:0.03M, Peak:0.03M | Scene, ViewLayer | Updating Mesh | Copying Attributes to device
+Fra:1 Mem:145.42M (Peak 145.43M) | Time:00:00.09 | Mem:2.10M, Peak:2.10M | Scene, ViewLayer | Updating Scene BVH | Building
+Fra:1 Mem:145.42M (Peak 145.43M) | Time:00:00.09 | Mem:2.10M, Peak:2.10M | Scene, ViewLayer | Updating Scene BVH | Building BVH
+Fra:1 Mem:145.42M (Peak 145.43M) | Time:00:00.09 | Mem:9.89M, Peak:9.89M | Scene, ViewLayer | Updating Scene BVH | Building BVH 0%
+Fra:1 Mem:145.42M (Peak 145.43M) | Time:00:00.21 | Mem:19.17M, Peak:26.96M | Scene, ViewLayer | Updating Scene BVH | Copying BVH to device
+Fra:1 Mem:145.42M (Peak 145.43M) | Time:00:00.21 | Mem:19.17M, Peak:26.96M | Scene, ViewLayer | Updating Mesh | Computing normals
+Fra:1 Mem:155.81M (Peak 155.81M) | Time:00:00.21 | Mem:19.17M, Peak:26.96M | Scene, ViewLayer | Updating Mesh | Copying Mesh to device
+Fra:1 Mem:155.81M (Peak 155.81M) | Time:00:00.21 | Mem:29.56M, Peak:29.56M | Scene, ViewLayer | Updating Objects Flags
+Fra:1 Mem:155.81M (Peak 155.81M) | Time:00:00.21 | Mem:29.57M, Peak:29.57M | Scene, ViewLayer | Updating Primitive Offsets
+Fra:1 Mem:155.81M (Peak 155.81M) | Time:00:00.21 | Mem:29.57M, Peak:29.57M | Scene, ViewLayer | Updating Images
+Fra:1 Mem:155.81M (Peak 155.81M) | Time:00:00.21 | Mem:29.57M, Peak:29.57M | Scene, ViewLayer | Updating Camera Volume
+Fra:1 Mem:155.81M (Peak 155.81M) | Time:00:00.21 | Mem:29.57M, Peak:29.57M | Scene, ViewLayer | Updating Lookup Tables
+Fra:1 Mem:155.81M (Peak 155.81M) | Time:00:00.21 | Mem:29.65M, Peak:29.65M | Scene, ViewLayer | Updating Lights
+Fra:1 Mem:155.81M (Peak 155.81M) | Time:00:00.21 | Mem:29.65M, Peak:29.65M | Scene, ViewLayer | Updating Lights | Computing tree
+Fra:1 Mem:155.82M (Peak 155.82M) | Time:00:00.21 | Mem:29.65M, Peak:29.65M | Scene, ViewLayer | Updating Integrator
+Fra:1 Mem:155.82M (Peak 155.82M) | Time:00:00.21 | Mem:29.65M, Peak:29.65M | Scene, ViewLayer | Updating Film
+Fra:1 Mem:155.82M (Peak 155.82M) | Time:00:00.21 | Mem:29.57M, Peak:29.65M | Scene, ViewLayer | Updating Lookup Tables
+Fra:1 Mem:155.82M (Peak 155.82M) | Time:00:00.21 | Mem:29.65M, Peak:29.65M | Scene, ViewLayer | Updating Baking
+Fra:1 Mem:155.82M (Peak 155.82M) | Time:00:00.21 | Mem:29.65M, Peak:29.65M | Scene, ViewLayer | Updating Device | Writing constant memory
+Fra:1 Mem:155.82M (Peak 155.82M) | Time:00:00.21 | Mem:29.65M, Peak:29.65M | Scene, ViewLayer | Sample 0/12
+Fra:1 Mem:187.43M (Peak 187.43M) | Time:00:01.01 | Remaining:00:08.79 | Mem:61.24M, Peak:61.24M | Scene, ViewLayer | Sample 1/12
+Fra:1 Mem:201.47M (Peak 229.55M) | Time:00:09.11 | Mem:61.24M, Peak:61.24M | Scene, ViewLayer | Sample 12/12
+Fra:1 Mem:201.47M (Peak 229.55M) | Time:00:09.11 | Mem:61.24M, Peak:61.24M | Scene, ViewLayer | Finished
+Saved: '/workspace/private-production/yanmar-6aym-wet-r02/qa/r02/neutral_atas.png'
+Time: 00:09.46 (Saving: 00:00.34)
+
+Fra:1 Mem:131.51M (Peak 131.51M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-LUBE-05
+Fra:1 Mem:131.58M (Peak 131.58M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-LUBE-04
+Fra:1 Mem:131.72M (Peak 131.72M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-LUBE-03
+Fra:1 Mem:131.80M (Peak 131.80M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-LUBE-02
+Fra:1 Mem:131.89M (Peak 131.89M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-LUBE-01
+Fra:1 Mem:131.95M (Peak 131.95M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-20
+Fra:1 Mem:132.00M (Peak 132.00M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-19
+Fra:1 Mem:132.06M (Peak 132.06M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-18
+Fra:1 Mem:132.15M (Peak 132.15M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-17
+Fra:1 Mem:132.23M (Peak 132.23M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-16
+Fra:1 Mem:132.32M (Peak 132.32M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-15
+Fra:1 Mem:132.40M (Peak 132.40M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-14
+Fra:1 Mem:132.49M (Peak 132.49M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-13
+Fra:1 Mem:132.57M (Peak 132.57M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-12
+Fra:1 Mem:132.69M (Peak 132.69M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-11
+Fra:1 Mem:132.80M (Peak 132.80M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-10
+Fra:1 Mem:132.91M (Peak 132.91M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-09
+Fra:1 Mem:133.14M (Peak 133.14M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-08
+Fra:1 Mem:133.20M (Peak 133.20M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-07
+Fra:1 Mem:133.24M (Peak 133.24M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-06
+Fra:1 Mem:133.29M (Peak 133.29M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-05
+Fra:1 Mem:133.34M (Peak 133.34M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-04
+Fra:1 Mem:133.39M (Peak 133.39M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-03
+Fra:1 Mem:133.44M (Peak 133.44M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-02
+Fra:1 Mem:133.94M (Peak 133.94M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-01
+Fra:1 Mem:134.44M (Peak 134.44M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-EXHAUST-05
+Fra:1 Mem:134.82M (Peak 134.82M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-EXHAUST-04
+Fra:1 Mem:134.88M (Peak 134.88M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-EXHAUST-03
+Fra:1 Mem:134.96M (Peak 134.96M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-EXHAUST-02
+Fra:1 Mem:135.04M (Peak 135.04M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-BLOCK-01
+Fra:1 Mem:135.04M (Peak 135.04M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-EXHAUST-01
+Fra:1 Mem:135.75M (Peak 135.75M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-BLOCK-03
+Fra:1 Mem:135.98M (Peak 135.98M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-BLOCK-04
+Fra:1 Mem:136.03M (Peak 136.03M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-BLOCK-05
+Fra:1 Mem:136.26M (Peak 136.26M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-BLOCK-06
+Fra:1 Mem:136.31M (Peak 136.31M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-BLOCK-07
+Fra:1 Mem:136.19M (Peak 136.31M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-COOLING-07
+Fra:1 Mem:136.33M (Peak 136.33M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-COOLING-06
+Fra:1 Mem:136.49M (Peak 136.49M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-COOLING-05
+Fra:1 Mem:136.69M (Peak 136.69M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-BLOCK-08
+Fra:1 Mem:136.79M (Peak 136.79M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-BLOCK-10
+Fra:1 Mem:136.85M (Peak 136.85M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-BLOCK-11
+Fra:1 Mem:136.90M (Peak 136.90M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-BLOCK-12
+Fra:1 Mem:136.95M (Peak 136.95M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-BLOCK-13
+Fra:1 Mem:137.05M (Peak 137.05M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-BLOCK-14
+Fra:1 Mem:137.03M (Peak 137.05M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-COOLING-04
+Fra:1 Mem:137.03M (Peak 137.05M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-BLOCK-15
+Fra:1 Mem:137.37M (Peak 137.37M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-BLOCK-16
+Fra:1 Mem:137.40M (Peak 137.40M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-BLOCK-17
+Fra:1 Mem:137.43M (Peak 137.43M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-BLOCK-18
+Fra:1 Mem:137.48M (Peak 137.48M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-HEADS-01
+Fra:1 Mem:137.55M (Peak 137.55M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-HEADS-02
+Fra:1 Mem:137.62M (Peak 137.62M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-HEADS-03
+Fra:1 Mem:137.69M (Peak 137.69M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-HEADS-04
+Fra:1 Mem:137.76M (Peak 137.76M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-HEADS-05
+Fra:1 Mem:137.84M (Peak 137.84M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-HEADS-06
+Fra:1 Mem:137.91M (Peak 137.91M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-HEADS-07
+Fra:1 Mem:138.01M (Peak 138.01M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-HEADS-08
+Fra:1 Mem:138.12M (Peak 138.12M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-HEADS-09
+Fra:1 Mem:138.23M (Peak 138.23M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-HEADS-10
+Fra:1 Mem:138.33M (Peak 138.33M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-HEADS-11
+Fra:1 Mem:138.44M (Peak 138.44M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-HEADS-12
+Fra:1 Mem:138.55M (Peak 138.55M) | Time:00:00.06 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-OILPAN-01
+Fra:1 Mem:139.06M (Peak 139.06M) | Time:00:00.06 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-OILPAN-02
+Fra:1 Mem:139.09M (Peak 139.09M) | Time:00:00.06 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FLYWHEEL-01
+Fra:1 Mem:140.92M (Peak 140.92M) | Time:00:00.06 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FLYWHEEL-02
+Fra:1 Mem:141.82M (Peak 142.58M) | Time:00:00.06 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FRONT-01
+Fra:1 Mem:142.00M (Peak 142.58M) | Time:00:00.06 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FRONT-02
+Fra:1 Mem:142.52M (Peak 142.58M) | Time:00:00.06 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FRONT-03
+Fra:1 Mem:142.70M (Peak 142.70M) | Time:00:00.06 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-ELECTRIC-01
+Fra:1 Mem:142.79M (Peak 142.79M) | Time:00:00.06 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-ELECTRIC-02
+Fra:1 Mem:142.76M (Peak 142.79M) | Time:00:00.06 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-COOLING-02
+Fra:1 Mem:142.98M (Peak 142.98M) | Time:00:00.06 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-COOLING-01
+Fra:1 Mem:143.38M (Peak 143.38M) | Time:00:00.06 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-ELECTRIC-03
+Fra:1 Mem:143.43M (Peak 143.43M) | Time:00:00.06 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-ELECTRIC-04
+Fra:1 Mem:143.56M (Peak 143.56M) | Time:00:00.06 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-INTAKE-01
+Fra:1 Mem:143.48M (Peak 143.56M) | Time:00:00.06 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-INTAKE-05
+Fra:1 Mem:143.95M (Peak 143.95M) | Time:00:00.06 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-INTAKE-04
+Fra:1 Mem:144.36M (Peak 144.36M) | Time:00:00.06 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-INTAKE-02
+Fra:1 Mem:144.67M (Peak 144.67M) | Time:00:00.06 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-INTAKE-03
+Fra:1 Mem:143.94M (Peak 144.67M) | Time:00:00.08 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Initializing
+Fra:1 Mem:139.35M (Peak 144.67M) | Time:00:00.08 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Waiting for render to start
+Fra:1 Mem:139.35M (Peak 144.67M) | Time:00:00.08 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Loading render kernels (may take a few minutes the first time)
+Fra:1 Mem:139.35M (Peak 144.67M) | Time:00:00.08 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Scene
+Fra:1 Mem:139.35M (Peak 144.67M) | Time:00:00.08 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Shaders
+Fra:1 Mem:139.43M (Peak 144.67M) | Time:00:00.08 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Procedurals
+Fra:1 Mem:139.43M (Peak 144.67M) | Time:00:00.08 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Background
+Fra:1 Mem:139.43M (Peak 144.67M) | Time:00:00.08 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Camera
+Fra:1 Mem:139.43M (Peak 144.67M) | Time:00:00.08 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Meshes Flags
+Fra:1 Mem:139.43M (Peak 144.67M) | Time:00:00.08 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Objects
+Fra:1 Mem:139.43M (Peak 144.67M) | Time:00:00.08 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Objects | Copying Transformations to device
+Fra:1 Mem:139.45M (Peak 144.67M) | Time:00:00.08 | Mem:0.02M, Peak:0.02M | Scene, ViewLayer | Updating Objects | Applying Static Transformations
+Fra:1 Mem:139.45M (Peak 144.67M) | Time:00:00.08 | Mem:0.02M, Peak:0.02M | Scene, ViewLayer | Updating Particle Systems
+Fra:1 Mem:139.45M (Peak 144.67M) | Time:00:00.08 | Mem:0.02M, Peak:0.02M | Scene, ViewLayer | Updating Particle Systems | Copying Particles to device
+Fra:1 Mem:139.45M (Peak 144.67M) | Time:00:00.08 | Mem:0.02M, Peak:0.02M | Scene, ViewLayer | Updating Meshes
+Fra:1 Mem:143.34M (Peak 144.67M) | Time:00:00.08 | Mem:0.02M, Peak:0.02M | Scene, ViewLayer | Updating Mesh | Computing attributes
+Fra:1 Mem:145.43M (Peak 145.43M) | Time:00:00.09 | Mem:0.03M, Peak:0.03M | Scene, ViewLayer | Updating Mesh | Copying Attributes to device
+Fra:1 Mem:145.42M (Peak 145.43M) | Time:00:00.09 | Mem:2.10M, Peak:2.10M | Scene, ViewLayer | Updating Scene BVH | Building
+Fra:1 Mem:145.42M (Peak 145.43M) | Time:00:00.09 | Mem:2.10M, Peak:2.10M | Scene, ViewLayer | Updating Scene BVH | Building BVH
+Fra:1 Mem:145.42M (Peak 145.43M) | Time:00:00.09 | Mem:9.89M, Peak:9.89M | Scene, ViewLayer | Updating Scene BVH | Building BVH 0%
+Fra:1 Mem:145.42M (Peak 145.43M) | Time:00:00.21 | Mem:19.17M, Peak:26.96M | Scene, ViewLayer | Updating Scene BVH | Copying BVH to device
+Fra:1 Mem:145.42M (Peak 145.43M) | Time:00:00.21 | Mem:19.17M, Peak:26.96M | Scene, ViewLayer | Updating Mesh | Computing normals
+Fra:1 Mem:155.81M (Peak 155.81M) | Time:00:00.21 | Mem:19.17M, Peak:26.96M | Scene, ViewLayer | Updating Mesh | Copying Mesh to device
+Fra:1 Mem:155.81M (Peak 155.81M) | Time:00:00.21 | Mem:29.56M, Peak:29.56M | Scene, ViewLayer | Updating Objects Flags
+Fra:1 Mem:155.81M (Peak 155.81M) | Time:00:00.21 | Mem:29.57M, Peak:29.57M | Scene, ViewLayer | Updating Primitive Offsets
+Fra:1 Mem:155.81M (Peak 155.81M) | Time:00:00.21 | Mem:29.57M, Peak:29.57M | Scene, ViewLayer | Updating Images
+Fra:1 Mem:155.81M (Peak 155.81M) | Time:00:00.21 | Mem:29.57M, Peak:29.57M | Scene, ViewLayer | Updating Camera Volume
+Fra:1 Mem:155.81M (Peak 155.81M) | Time:00:00.21 | Mem:29.57M, Peak:29.57M | Scene, ViewLayer | Updating Lookup Tables
+Fra:1 Mem:155.81M (Peak 155.81M) | Time:00:00.21 | Mem:29.65M, Peak:29.65M | Scene, ViewLayer | Updating Lights
+Fra:1 Mem:155.81M (Peak 155.81M) | Time:00:00.21 | Mem:29.65M, Peak:29.65M | Scene, ViewLayer | Updating Lights | Computing tree
+Fra:1 Mem:155.82M (Peak 155.82M) | Time:00:00.21 | Mem:29.65M, Peak:29.65M | Scene, ViewLayer | Updating Integrator
+Fra:1 Mem:155.82M (Peak 155.82M) | Time:00:00.21 | Mem:29.65M, Peak:29.65M | Scene, ViewLayer | Updating Film
+Fra:1 Mem:155.82M (Peak 155.82M) | Time:00:00.21 | Mem:29.57M, Peak:29.65M | Scene, ViewLayer | Updating Lookup Tables
+Fra:1 Mem:155.82M (Peak 155.82M) | Time:00:00.21 | Mem:29.65M, Peak:29.65M | Scene, ViewLayer | Updating Baking
+Fra:1 Mem:155.82M (Peak 155.82M) | Time:00:00.21 | Mem:29.65M, Peak:29.65M | Scene, ViewLayer | Updating Device | Writing constant memory
+Fra:1 Mem:155.82M (Peak 155.82M) | Time:00:00.21 | Mem:29.65M, Peak:29.65M | Scene, ViewLayer | Sample 0/12
+Fra:1 Mem:187.43M (Peak 187.43M) | Time:00:01.50 | Remaining:00:14.17 | Mem:61.24M, Peak:61.24M | Scene, ViewLayer | Sample 1/12
+Fra:1 Mem:201.47M (Peak 229.55M) | Time:00:11.56 | Mem:61.24M, Peak:61.24M | Scene, ViewLayer | Sample 12/12
+Fra:1 Mem:201.47M (Peak 229.55M) | Time:00:11.56 | Mem:61.24M, Peak:61.24M | Scene, ViewLayer | Finished
+Saved: '/workspace/private-production/yanmar-6aym-wet-r02/qa/r02/neutral_tiga_perempat.png'
+Time: 00:11.88 (Saving: 00:00.30)
+
+Fra:1 Mem:144.99M (Peak 144.99M) | Time:00:00.21 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-CRANK-01
+Fra:1 Mem:145.03M (Peak 145.03M) | Time:00:00.21 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-CRANK-02
+Fra:1 Mem:145.07M (Peak 145.07M) | Time:00:00.21 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-CRANK-03
+Fra:1 Mem:145.11M (Peak 145.11M) | Time:00:00.21 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-CRANK-04
+Fra:1 Mem:145.16M (Peak 145.16M) | Time:00:00.21 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-CRANK-05
+Fra:1 Mem:145.20M (Peak 145.20M) | Time:00:00.21 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-CRANK-06
+Fra:1 Mem:145.24M (Peak 145.24M) | Time:00:00.21 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-CRANK-07
+Fra:1 Mem:145.28M (Peak 145.28M) | Time:00:00.21 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-CRANK-08
+Fra:1 Mem:145.32M (Peak 145.32M) | Time:00:00.21 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-CRANK-09
+Fra:1 Mem:145.37M (Peak 145.37M) | Time:00:00.21 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-CRANK-10
+Fra:1 Mem:145.41M (Peak 145.41M) | Time:00:00.21 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-CRANK-20
+Fra:1 Mem:145.45M (Peak 145.45M) | Time:00:00.21 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-CRANK-21
+Fra:1 Mem:145.49M (Peak 145.49M) | Time:00:00.21 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-CRANK-22
+Fra:1 Mem:145.54M (Peak 145.54M) | Time:00:00.21 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-CRANK-23
+Fra:1 Mem:145.57M (Peak 145.57M) | Time:00:00.21 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-CRANK-30
+Fra:1 Mem:145.61M (Peak 145.61M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-CRANK-31
+Fra:1 Mem:145.66M (Peak 145.66M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-CRANK-32
+Fra:1 Mem:145.70M (Peak 145.70M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-CRANK-34
+Fra:1 Mem:145.73M (Peak 145.73M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-CRANK-40
+Fra:1 Mem:145.77M (Peak 145.77M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-CRANK-41
+Fra:1 Mem:145.81M (Peak 145.81M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-CRANK-42
+Fra:1 Mem:145.85M (Peak 145.85M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-CRANK-50
+Fra:1 Mem:145.90M (Peak 145.90M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-CRANK-51
+Fra:1 Mem:145.94M (Peak 145.94M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-CRANK-52
+Fra:1 Mem:145.98M (Peak 145.98M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-CRANK-60
+Fra:1 Mem:146.02M (Peak 146.02M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-CRANK-61
+Fra:1 Mem:146.07M (Peak 146.07M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-CRANK-62
+Fra:1 Mem:146.11M (Peak 146.11M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-CRANK-63
+Fra:1 Mem:146.14M (Peak 146.14M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-CRANK-70
+Fra:1 Mem:146.18M (Peak 146.18M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-CRANK-71
+Fra:1 Mem:146.22M (Peak 146.22M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-CRANK-72
+Fra:1 Mem:146.26M (Peak 146.26M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-CRANK-74
+Fra:1 Mem:146.29M (Peak 146.29M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-MAIN-11
+Fra:1 Mem:146.34M (Peak 146.34M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-MAIN-12
+Fra:1 Mem:146.38M (Peak 146.38M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-MAIN-13
+Fra:1 Mem:146.39M (Peak 146.39M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-MAIN-14
+Fra:1 Mem:146.40M (Peak 146.40M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-MAIN-15
+Fra:1 Mem:146.41M (Peak 146.41M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-MAIN-21
+Fra:1 Mem:146.45M (Peak 146.45M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-MAIN-22
+Fra:1 Mem:146.50M (Peak 146.50M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-MAIN-23
+Fra:1 Mem:146.50M (Peak 146.50M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-MAIN-24
+Fra:1 Mem:146.51M (Peak 146.51M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-MAIN-25
+Fra:1 Mem:146.52M (Peak 146.52M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-MAIN-31
+Fra:1 Mem:146.56M (Peak 146.56M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-MAIN-32
+Fra:1 Mem:146.61M (Peak 146.61M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-MAIN-33
+Fra:1 Mem:146.62M (Peak 146.62M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-MAIN-34
+Fra:1 Mem:146.62M (Peak 146.62M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-MAIN-35
+Fra:1 Mem:146.63M (Peak 146.63M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-MAIN-41
+Fra:1 Mem:146.68M (Peak 146.68M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-MAIN-42
+Fra:1 Mem:146.72M (Peak 146.72M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-MAIN-43
+Fra:1 Mem:146.73M (Peak 146.73M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-MAIN-44
+Fra:1 Mem:146.73M (Peak 146.73M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-MAIN-45
+Fra:1 Mem:146.74M (Peak 146.74M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-MAIN-51
+Fra:1 Mem:146.79M (Peak 146.79M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-MAIN-52
+Fra:1 Mem:146.83M (Peak 146.83M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-MAIN-53
+Fra:1 Mem:146.84M (Peak 146.84M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-MAIN-54
+Fra:1 Mem:146.87M (Peak 146.87M) | Time:00:00.24 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-OILPUMP-11
+Fra:1 Mem:146.93M (Peak 146.93M) | Time:00:00.24 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-OILPUMP-10
+Fra:1 Mem:146.95M (Peak 146.95M) | Time:00:00.24 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-OILPUMP-09
+Fra:1 Mem:146.96M (Peak 146.96M) | Time:00:00.24 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-OILPUMP-08
+Fra:1 Mem:146.96M (Peak 146.96M) | Time:00:00.24 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-OILPUMP-07
+Fra:1 Mem:146.97M (Peak 146.97M) | Time:00:00.24 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-OILPUMP-06
+Fra:1 Mem:146.98M (Peak 146.98M) | Time:00:00.24 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-OILPUMP-05
+Fra:1 Mem:146.99M (Peak 146.99M) | Time:00:00.24 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-OILPUMP-04
+Fra:1 Mem:147.14M (Peak 147.14M) | Time:00:00.24 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-OILPUMP-03
+Fra:1 Mem:147.29M (Peak 147.29M) | Time:00:00.24 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-OILPUMP-02
+Fra:1 Mem:147.36M (Peak 147.36M) | Time:00:00.25 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-OILPUMP-01
+Fra:1 Mem:147.40M (Peak 147.40M) | Time:00:00.25 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-TIMING-10
+Fra:1 Mem:147.57M (Peak 147.57M) | Time:00:00.25 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-TIMING-09
+Fra:1 Mem:147.75M (Peak 147.75M) | Time:00:00.25 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-TIMING-08
+Fra:1 Mem:148.32M (Peak 148.32M) | Time:00:00.25 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-MAIN-55
+Fra:1 Mem:148.32M (Peak 148.32M) | Time:00:00.25 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-MAIN-61
+Fra:1 Mem:148.37M (Peak 148.37M) | Time:00:00.25 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-MAIN-62
+Fra:1 Mem:148.41M (Peak 148.41M) | Time:00:00.25 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-MAIN-63
+Fra:1 Mem:148.42M (Peak 148.42M) | Time:00:00.25 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-MAIN-64
+Fra:1 Mem:148.43M (Peak 148.43M) | Time:00:00.25 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-MAIN-65
+Fra:1 Mem:148.44M (Peak 148.44M) | Time:00:00.25 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-MAIN-71
+Fra:1 Mem:148.48M (Peak 148.48M) | Time:00:00.25 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-MAIN-72
+Fra:1 Mem:148.52M (Peak 148.52M) | Time:00:00.25 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-MAIN-73
+Fra:1 Mem:148.53M (Peak 148.53M) | Time:00:00.25 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-MAIN-74
+Fra:1 Mem:148.54M (Peak 148.54M) | Time:00:00.25 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-MAIN-75
+Fra:1 Mem:148.55M (Peak 148.55M) | Time:00:00.25 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-PISTON-11
+Fra:1 Mem:149.84M (Peak 149.84M) | Time:00:00.25 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-PISTON-12
+Fra:1 Mem:149.90M (Peak 149.90M) | Time:00:00.25 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-PISTON-13
+Fra:1 Mem:149.97M (Peak 149.97M) | Time:00:00.25 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-PISTON-14
+Fra:1 Mem:150.05M (Peak 150.05M) | Time:00:00.25 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-PISTON-15
+Fra:1 Mem:150.13M (Peak 150.13M) | Time:00:00.25 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-PISTON-16
+Fra:1 Mem:150.18M (Peak 150.18M) | Time:00:00.25 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-PISTON-17
+Fra:1 Mem:150.23M (Peak 150.23M) | Time:00:00.25 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-PISTON-18
+Fra:1 Mem:150.29M (Peak 150.29M) | Time:00:00.25 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-PISTON-19
+Fra:1 Mem:150.34M (Peak 150.34M) | Time:00:00.25 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-PISTON-20
+Fra:1 Mem:150.40M (Peak 150.40M) | Time:00:00.25 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-PISTON-21
+Fra:1 Mem:151.19M (Peak 151.19M) | Time:00:00.25 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-PISTON-22
+Fra:1 Mem:151.27M (Peak 151.27M) | Time:00:00.25 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-PISTON-23
+Fra:1 Mem:151.33M (Peak 151.33M) | Time:00:00.26 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-PISTON-24
+Fra:1 Mem:151.46M (Peak 151.46M) | Time:00:00.26 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-PISTON-25
+Fra:1 Mem:151.58M (Peak 151.58M) | Time:00:00.26 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-PISTON-26
+Fra:1 Mem:151.59M (Peak 151.59M) | Time:00:00.26 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-PISTON-27
+Fra:1 Mem:151.54M (Peak 151.59M) | Time:00:00.26 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-PISTON-28
+Fra:1 Mem:151.66M (Peak 151.66M) | Time:00:00.26 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-PISTON-29
+Fra:1 Mem:151.76M (Peak 151.76M) | Time:00:00.26 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-PISTON-30
+Fra:1 Mem:151.75M (Peak 151.76M) | Time:00:00.26 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-PISTON-31
+Fra:1 Mem:151.96M (Peak 151.96M) | Time:00:00.26 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-PISTON-32
+Fra:1 Mem:152.32M (Peak 152.32M) | Time:00:00.26 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-PISTON-33
+Fra:1 Mem:152.75M (Peak 152.75M) | Time:00:00.26 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-PISTON-34
+Fra:1 Mem:153.27M (Peak 153.27M) | Time:00:00.26 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-PISTON-35
+Fra:1 Mem:153.35M (Peak 153.35M) | Time:00:00.26 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-PISTON-36
+Fra:1 Mem:153.40M (Peak 153.40M) | Time:00:00.26 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-PISTON-37
+Fra:1 Mem:153.51M (Peak 153.51M) | Time:00:00.26 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-TIMING-07
+Fra:1 Mem:154.16M (Peak 154.16M) | Time:00:00.27 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-TIMING-06
+Fra:1 Mem:154.25M (Peak 154.25M) | Time:00:00.27 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-TIMING-05
+Fra:1 Mem:153.94M (Peak 154.25M) | Time:00:00.27 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-PISTON-38
+Fra:1 Mem:153.72M (Peak 154.25M) | Time:00:00.27 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-PISTON-39
+Fra:1 Mem:153.77M (Peak 154.25M) | Time:00:00.27 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-PISTON-40
+Fra:1 Mem:153.13M (Peak 154.25M) | Time:00:00.27 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-PISTON-41
+Fra:1 Mem:153.65M (Peak 154.39M) | Time:00:00.27 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-PISTON-42
+Fra:1 Mem:153.71M (Peak 154.39M) | Time:00:00.27 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-PISTON-43
+Fra:1 Mem:153.78M (Peak 154.39M) | Time:00:00.27 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-PISTON-44
+Fra:1 Mem:153.86M (Peak 154.39M) | Time:00:00.27 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-PISTON-45
+Fra:1 Mem:153.94M (Peak 154.39M) | Time:00:00.27 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-PISTON-46
+Fra:1 Mem:153.99M (Peak 154.39M) | Time:00:00.27 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-PISTON-47
+Fra:1 Mem:153.28M (Peak 154.39M) | Time:00:00.27 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-PISTON-48
+Fra:1 Mem:153.25M (Peak 154.39M) | Time:00:00.27 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-PISTON-49
+Fra:1 Mem:153.36M (Peak 154.39M) | Time:00:00.27 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-PISTON-50
+Fra:1 Mem:153.35M (Peak 154.39M) | Time:00:00.27 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-PISTON-51
+Fra:1 Mem:153.87M (Peak 154.61M) | Time:00:00.27 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-PISTON-52
+Fra:1 Mem:153.93M (Peak 154.61M) | Time:00:00.27 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-PISTON-53
+Fra:1 Mem:153.90M (Peak 154.61M) | Time:00:00.27 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-PISTON-54
+Fra:1 Mem:154.59M (Peak 154.61M) | Time:00:00.28 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-PISTON-55
+Fra:1 Mem:154.64M (Peak 154.64M) | Time:00:00.28 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-PISTON-56
+Fra:1 Mem:155.02M (Peak 155.02M) | Time:00:00.28 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-PISTON-57
+Fra:1 Mem:155.07M (Peak 155.07M) | Time:00:00.28 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-PISTON-58
+Fra:1 Mem:154.68M (Peak 155.07M) | Time:00:00.28 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-PISTON-59
+Fra:1 Mem:154.60M (Peak 155.07M) | Time:00:00.28 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-TIMING-03
+Fra:1 Mem:154.97M (Peak 155.07M) | Time:00:00.28 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-PISTON-60
+Fra:1 Mem:155.18M (Peak 155.18M) | Time:00:00.28 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-PISTON-61
+Fra:1 Mem:155.02M (Peak 155.18M) | Time:00:00.28 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-TIMING-02
+Fra:1 Mem:155.73M (Peak 155.73M) | Time:00:00.28 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-TIMING-01
+Fra:1 Mem:156.73M (Peak 156.73M) | Time:00:00.28 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-PISTON-62
+Fra:1 Mem:156.78M (Peak 156.78M) | Time:00:00.28 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-PISTON-63
+Fra:1 Mem:156.86M (Peak 156.86M) | Time:00:00.28 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-PISTON-64
+Fra:1 Mem:156.94M (Peak 156.94M) | Time:00:00.28 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-PISTON-65
+Fra:1 Mem:157.01M (Peak 157.01M) | Time:00:00.28 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-PISTON-66
+Fra:1 Mem:157.07M (Peak 157.07M) | Time:00:00.28 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-PISTON-67
+Fra:1 Mem:157.12M (Peak 157.12M) | Time:00:00.28 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-PISTON-68
+Fra:1 Mem:157.17M (Peak 157.17M) | Time:00:00.28 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-PISTON-69
+Fra:1 Mem:157.22M (Peak 157.22M) | Time:00:00.28 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-PISTON-70
+Fra:1 Mem:157.29M (Peak 157.29M) | Time:00:00.29 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-ROD-100
+Fra:1 Mem:157.30M (Peak 157.30M) | Time:00:00.29 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-ROD-101
+Fra:1 Mem:157.32M (Peak 157.32M) | Time:00:00.29 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-ROD-11
+Fra:1 Mem:157.36M (Peak 157.36M) | Time:00:00.29 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-ROD-12
+Fra:1 Mem:157.40M (Peak 157.40M) | Time:00:00.29 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-ROD-13
+Fra:1 Mem:157.44M (Peak 157.44M) | Time:00:00.29 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-ROD-14
+Fra:1 Mem:157.48M (Peak 157.48M) | Time:00:00.29 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-ROD-15
+Fra:1 Mem:157.53M (Peak 157.53M) | Time:00:00.29 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-ROD-16
+Fra:1 Mem:157.58M (Peak 157.58M) | Time:00:00.29 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-ROD-160
+Fra:1 Mem:157.59M (Peak 157.59M) | Time:00:00.29 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-ROD-161
+Fra:1 Mem:157.59M (Peak 157.59M) | Time:00:00.29 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-ROD-17
+Fra:1 Mem:157.60M (Peak 157.60M) | Time:00:00.29 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-ROD-18
+Fra:1 Mem:157.68M (Peak 157.68M) | Time:00:00.29 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-ROD-19
+Fra:1 Mem:157.69M (Peak 157.69M) | Time:00:00.29 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-ROD-240
+Fra:1 Mem:157.70M (Peak 157.70M) | Time:00:00.29 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-ROD-241
+Fra:1 Mem:157.70M (Peak 157.70M) | Time:00:00.29 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-ROD-110
+Fra:1 Mem:157.72M (Peak 157.72M) | Time:00:00.29 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-ROD-111
+Fra:1 Mem:157.74M (Peak 157.74M) | Time:00:00.29 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-ROD-170
+Fra:1 Mem:157.74M (Peak 157.74M) | Time:00:00.29 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-ROD-171
+Fra:1 Mem:157.75M (Peak 157.75M) | Time:00:00.29 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-ROD-21
+Fra:1 Mem:157.79M (Peak 157.79M) | Time:00:00.29 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-ROD-22
+Fra:1 Mem:157.83M (Peak 157.83M) | Time:00:00.29 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-ROD-23
+Fra:1 Mem:157.87M (Peak 157.87M) | Time:00:00.29 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-ROD-24
+Fra:1 Mem:157.91M (Peak 157.91M) | Time:00:00.29 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-ROD-25
+Fra:1 Mem:157.96M (Peak 157.96M) | Time:00:00.29 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-ROD-250
+Fra:1 Mem:157.97M (Peak 157.97M) | Time:00:00.29 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-ROD-251
+Fra:1 Mem:157.98M (Peak 157.98M) | Time:00:00.29 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-ROD-26
+Fra:1 Mem:158.14M (Peak 158.14M) | Time:00:00.29 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-ROD-27
+Fra:1 Mem:158.15M (Peak 158.15M) | Time:00:00.29 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-ROD-28
+Fra:1 Mem:158.48M (Peak 158.48M) | Time:00:00.29 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-ROD-29
+Fra:1 Mem:158.49M (Peak 158.49M) | Time:00:00.29 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-ROD-120
+Fra:1 Mem:158.50M (Peak 158.50M) | Time:00:00.29 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-ROD-121
+Fra:1 Mem:158.52M (Peak 158.52M) | Time:00:00.29 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-ROD-180
+Fra:1 Mem:158.53M (Peak 158.53M) | Time:00:00.29 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-ROD-181
+Fra:1 Mem:158.53M (Peak 158.53M) | Time:00:00.29 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-ROD-260
+Fra:1 Mem:158.54M (Peak 158.54M) | Time:00:00.29 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-ROD-261
+Fra:1 Mem:158.55M (Peak 158.55M) | Time:00:00.29 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-ROD-31
+Fra:1 Mem:158.59M (Peak 158.59M) | Time:00:00.29 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-ROD-32
+Fra:1 Mem:158.63M (Peak 158.63M) | Time:00:00.29 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-ROD-33
+Fra:1 Mem:158.38M (Peak 158.63M) | Time:00:00.29 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-ROD-34
+Fra:1 Mem:158.31M (Peak 158.63M) | Time:00:00.29 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-TIMING-12
+Fra:1 Mem:158.46M (Peak 158.63M) | Time:00:00.29 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-ROD-35
+Fra:1 Mem:158.47M (Peak 158.63M) | Time:00:00.29 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-TIMING-11
+Fra:1 Mem:158.48M (Peak 158.63M) | Time:00:00.29 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-FUELINJ-62
+Fra:1 Mem:158.49M (Peak 158.63M) | Time:00:00.29 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-FUELINJ-61
+Fra:1 Mem:158.57M (Peak 158.63M) | Time:00:00.29 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-FUELINJ-52
+Fra:1 Mem:158.58M (Peak 158.63M) | Time:00:00.29 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-FUELINJ-51
+Fra:1 Mem:158.65M (Peak 158.65M) | Time:00:00.29 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-FUELINJ-42
+Fra:1 Mem:158.66M (Peak 158.66M) | Time:00:00.29 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-FUELINJ-41
+Fra:1 Mem:158.74M (Peak 158.74M) | Time:00:00.29 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-FUELINJ-32
+Fra:1 Mem:158.75M (Peak 158.75M) | Time:00:00.29 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-FUELINJ-31
+Fra:1 Mem:158.82M (Peak 158.82M) | Time:00:00.29 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-FUELINJ-22
+Fra:1 Mem:158.83M (Peak 158.83M) | Time:00:00.29 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-FUELINJ-21
+Fra:1 Mem:158.91M (Peak 158.91M) | Time:00:00.29 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-FUELINJ-12
+Fra:1 Mem:158.92M (Peak 158.92M) | Time:00:00.29 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-FUELINJ-11
+Fra:1 Mem:158.99M (Peak 158.99M) | Time:00:00.29 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-658
+Fra:1 Mem:159.02M (Peak 159.02M) | Time:00:00.29 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-657
+Fra:1 Mem:159.13M (Peak 159.13M) | Time:00:00.29 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-ROD-37
+Fra:1 Mem:159.14M (Peak 159.14M) | Time:00:00.29 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-ROD-38
+Fra:1 Mem:159.14M (Peak 159.14M) | Time:00:00.30 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-ROD-39
+Fra:1 Mem:159.15M (Peak 159.15M) | Time:00:00.30 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-ROD-130
+Fra:1 Mem:159.16M (Peak 159.16M) | Time:00:00.30 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-ROD-131
+Fra:1 Mem:159.18M (Peak 159.18M) | Time:00:00.30 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-ROD-190
+Fra:1 Mem:159.19M (Peak 159.19M) | Time:00:00.30 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-ROD-191
+Fra:1 Mem:159.19M (Peak 159.19M) | Time:00:00.30 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-ROD-270
+Fra:1 Mem:159.20M (Peak 159.20M) | Time:00:00.30 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-ROD-271
+Fra:1 Mem:159.21M (Peak 159.21M) | Time:00:00.30 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-ROD-41
+Fra:1 Mem:159.25M (Peak 159.25M) | Time:00:00.30 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-ROD-42
+Fra:1 Mem:159.29M (Peak 159.29M) | Time:00:00.30 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-ROD-43
+Fra:1 Mem:159.33M (Peak 159.33M) | Time:00:00.30 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-ROD-44
+Fra:1 Mem:159.37M (Peak 159.37M) | Time:00:00.30 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-ROD-45
+Fra:1 Mem:159.42M (Peak 159.42M) | Time:00:00.30 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-ROD-46
+Fra:1 Mem:159.47M (Peak 159.47M) | Time:00:00.30 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-ROD-47
+Fra:1 Mem:159.48M (Peak 159.48M) | Time:00:00.30 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-ROD-48
+Fra:1 Mem:159.48M (Peak 159.48M) | Time:00:00.30 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-ROD-49
+Fra:1 Mem:159.49M (Peak 159.49M) | Time:00:00.30 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-ROD-140
+Fra:1 Mem:159.50M (Peak 159.50M) | Time:00:00.30 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-ROD-141
+Fra:1 Mem:159.52M (Peak 159.52M) | Time:00:00.30 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-ROD-200
+Fra:1 Mem:159.53M (Peak 159.53M) | Time:00:00.30 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-ROD-201
+Fra:1 Mem:159.53M (Peak 159.53M) | Time:00:00.30 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-ROD-280
+Fra:1 Mem:159.54M (Peak 159.54M) | Time:00:00.30 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-ROD-281
+Fra:1 Mem:159.55M (Peak 159.55M) | Time:00:00.30 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-ROD-51
+Fra:1 Mem:159.59M (Peak 159.59M) | Time:00:00.30 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-ROD-52
+Fra:1 Mem:159.63M (Peak 159.63M) | Time:00:00.30 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-ROD-53
+Fra:1 Mem:159.67M (Peak 159.67M) | Time:00:00.30 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-ROD-54
+Fra:1 Mem:159.71M (Peak 159.71M) | Time:00:00.30 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-ROD-55
+Fra:1 Mem:159.76M (Peak 159.76M) | Time:00:00.30 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-ROD-56
+Fra:1 Mem:159.81M (Peak 159.81M) | Time:00:00.30 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-ROD-57
+Fra:1 Mem:159.82M (Peak 159.82M) | Time:00:00.30 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-ROD-58
+Fra:1 Mem:159.82M (Peak 159.82M) | Time:00:00.30 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-ROD-59
+Fra:1 Mem:159.83M (Peak 159.83M) | Time:00:00.30 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-ROD-150
+Fra:1 Mem:159.84M (Peak 159.84M) | Time:00:00.30 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-ROD-151
+Fra:1 Mem:159.86M (Peak 159.86M) | Time:00:00.30 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-ROD-210
+Fra:1 Mem:159.86M (Peak 159.86M) | Time:00:00.30 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-ROD-211
+Fra:1 Mem:159.08M (Peak 159.86M) | Time:00:00.30 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-ROD-291
+Fra:1 Mem:159.09M (Peak 159.86M) | Time:00:00.30 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-ROD-61
+Fra:1 Mem:159.13M (Peak 159.86M) | Time:00:00.30 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-ROD-62
+Fra:1 Mem:159.17M (Peak 159.86M) | Time:00:00.30 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-ROD-63
+Fra:1 Mem:159.21M (Peak 159.86M) | Time:00:00.30 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-ROD-64
+Fra:1 Mem:159.25M (Peak 159.86M) | Time:00:00.30 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-ROD-65
+Fra:1 Mem:159.30M (Peak 159.86M) | Time:00:00.30 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-ROD-66
+Fra:1 Mem:159.35M (Peak 159.86M) | Time:00:00.30 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-ROD-67
+Fra:1 Mem:159.35M (Peak 159.86M) | Time:00:00.30 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-ROD-68
+Fra:1 Mem:159.36M (Peak 159.86M) | Time:00:00.30 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-ROD-69
+Fra:1 Mem:159.36M (Peak 159.86M) | Time:00:00.30 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-LINER-11
+Fra:1 Mem:160.96M (Peak 160.96M) | Time:00:00.30 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-LINER-12
+Fra:1 Mem:161.05M (Peak 161.05M) | Time:00:00.30 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-LINER-13
+Fra:1 Mem:161.15M (Peak 161.15M) | Time:00:00.30 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-LINER-14
+Fra:1 Mem:161.25M (Peak 161.25M) | Time:00:00.30 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-LINER-21
+Fra:1 Mem:161.26M (Peak 161.26M) | Time:00:00.30 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-LINER-22
+Fra:1 Mem:161.52M (Peak 161.52M) | Time:00:00.30 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-LINER-23
+Fra:1 Mem:162.34M (Peak 162.34M) | Time:00:00.30 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-LINER-24
+Fra:1 Mem:162.80M (Peak 162.80M) | Time:00:00.30 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-LINER-31
+Fra:1 Mem:164.05M (Peak 164.05M) | Time:00:00.31 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-ROD-290
+Fra:1 Mem:164.04M (Peak 164.05M) | Time:00:00.31 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-651
+Fra:1 Mem:164.12M (Peak 164.12M) | Time:00:00.31 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-LINER-32
+Fra:1 Mem:164.15M (Peak 164.15M) | Time:00:00.31 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-650
+Fra:1 Mem:164.32M (Peak 164.32M) | Time:00:00.31 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-LINER-33
+Fra:1 Mem:164.30M (Peak 164.32M) | Time:00:00.31 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-615
+Fra:1 Mem:164.36M (Peak 164.36M) | Time:00:00.31 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-638
+Fra:1 Mem:164.38M (Peak 164.38M) | Time:00:00.31 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-637
+Fra:1 Mem:164.39M (Peak 164.39M) | Time:00:00.31 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-LINER-34
+Fra:1 Mem:164.54M (Peak 164.54M) | Time:00:00.31 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-631
+Fra:1 Mem:164.58M (Peak 164.58M) | Time:00:00.31 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-LINER-41
+Fra:1 Mem:164.58M (Peak 164.58M) | Time:00:00.31 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-630
+Fra:1 Mem:164.78M (Peak 164.78M) | Time:00:00.31 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-605
+Fra:1 Mem:164.95M (Peak 164.95M) | Time:00:00.31 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-558
+Fra:1 Mem:164.97M (Peak 164.97M) | Time:00:00.31 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-557
+Fra:1 Mem:165.06M (Peak 165.06M) | Time:00:00.31 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-551
+Fra:1 Mem:165.17M (Peak 165.17M) | Time:00:00.31 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-550
+Fra:1 Mem:165.67M (Peak 165.67M) | Time:00:00.31 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-515
+Fra:1 Mem:165.68M (Peak 165.68M) | Time:00:00.31 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-538
+Fra:1 Mem:165.71M (Peak 165.71M) | Time:00:00.31 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-537
+Fra:1 Mem:165.76M (Peak 165.76M) | Time:00:00.31 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-531
+Fra:1 Mem:165.79M (Peak 165.79M) | Time:00:00.31 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-530
+Fra:1 Mem:165.94M (Peak 165.94M) | Time:00:00.31 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-505
+Fra:1 Mem:165.95M (Peak 165.95M) | Time:00:00.31 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-458
+Fra:1 Mem:166.21M (Peak 166.21M) | Time:00:00.31 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-457
+Fra:1 Mem:166.32M (Peak 166.32M) | Time:00:00.31 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-451
+Fra:1 Mem:166.48M (Peak 166.48M) | Time:00:00.31 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-450
+Fra:1 Mem:166.59M (Peak 166.59M) | Time:00:00.31 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-415
+Fra:1 Mem:166.62M (Peak 166.62M) | Time:00:00.31 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-438
+Fra:1 Mem:166.56M (Peak 166.62M) | Time:00:00.31 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-437
+Fra:1 Mem:165.84M (Peak 166.62M) | Time:00:00.32 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-LINER-42
+Fra:1 Mem:165.94M (Peak 166.62M) | Time:00:00.32 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-LINER-43
+Fra:1 Mem:166.04M (Peak 166.62M) | Time:00:00.32 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-LINER-44
+Fra:1 Mem:166.15M (Peak 166.62M) | Time:00:00.32 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-LINER-51
+Fra:1 Mem:165.97M (Peak 166.62M) | Time:00:00.34 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-LINER-52
+Fra:1 Mem:166.07M (Peak 166.62M) | Time:00:00.34 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-LINER-53
+Fra:1 Mem:166.17M (Peak 166.62M) | Time:00:00.34 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-LINER-54
+Fra:1 Mem:166.28M (Peak 166.62M) | Time:00:00.34 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-LINER-61
+Fra:1 Mem:166.85M (Peak 167.28M) | Time:00:00.35 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-LINER-62
+Fra:1 Mem:166.95M (Peak 167.28M) | Time:00:00.35 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-LINER-63
+Fra:1 Mem:167.06M (Peak 167.28M) | Time:00:00.35 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-LINER-64
+Fra:1 Mem:167.16M (Peak 167.28M) | Time:00:00.35 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-CAM-01
+Fra:1 Mem:167.20M (Peak 167.28M) | Time:00:00.35 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-CAM-02
+Fra:1 Mem:167.24M (Peak 167.28M) | Time:00:00.35 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-CAM-03
+Fra:1 Mem:167.28M (Peak 167.28M) | Time:00:00.35 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-CAM-04
+Fra:1 Mem:167.33M (Peak 167.33M) | Time:00:00.35 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-CAM-05
+Fra:1 Mem:167.37M (Peak 167.37M) | Time:00:00.35 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-CAM-06
+Fra:1 Mem:167.41M (Peak 167.41M) | Time:00:00.35 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-CAM-07
+Fra:1 Mem:167.45M (Peak 167.45M) | Time:00:00.35 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-CAM-08
+Fra:1 Mem:167.50M (Peak 167.50M) | Time:00:00.35 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-CAM-12
+Fra:1 Mem:167.54M (Peak 167.54M) | Time:00:00.35 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-CAM-13
+Fra:1 Mem:167.59M (Peak 167.59M) | Time:00:00.35 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-CAM-22
+Fra:1 Mem:167.55M (Peak 167.59M) | Time:00:00.35 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-431
+Fra:1 Mem:167.57M (Peak 167.59M) | Time:00:00.35 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-430
+Fra:1 Mem:167.62M (Peak 167.62M) | Time:00:00.35 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-405
+Fra:1 Mem:167.64M (Peak 167.64M) | Time:00:00.35 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-358
+Fra:1 Mem:167.66M (Peak 167.66M) | Time:00:00.35 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-357
+Fra:1 Mem:167.72M (Peak 167.72M) | Time:00:00.35 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-351
+Fra:1 Mem:167.74M (Peak 167.74M) | Time:00:00.35 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-350
+Fra:1 Mem:167.79M (Peak 167.79M) | Time:00:00.35 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-315
+Fra:1 Mem:167.81M (Peak 167.81M) | Time:00:00.35 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-338
+Fra:1 Mem:167.83M (Peak 167.83M) | Time:00:00.35 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-337
+Fra:1 Mem:167.89M (Peak 167.89M) | Time:00:00.35 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-331
+Fra:1 Mem:167.91M (Peak 167.91M) | Time:00:00.35 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-330
+Fra:1 Mem:167.97M (Peak 167.97M) | Time:00:00.35 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-305
+Fra:1 Mem:167.98M (Peak 167.98M) | Time:00:00.35 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-258
+Fra:1 Mem:168.01M (Peak 168.01M) | Time:00:00.35 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-257
+Fra:1 Mem:168.06M (Peak 168.06M) | Time:00:00.35 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-251
+Fra:1 Mem:168.08M (Peak 168.08M) | Time:00:00.35 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-250
+Fra:1 Mem:168.14M (Peak 168.14M) | Time:00:00.35 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-215
+Fra:1 Mem:168.15M (Peak 168.15M) | Time:00:00.35 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-238
+Fra:1 Mem:168.18M (Peak 168.18M) | Time:00:00.35 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-237
+Fra:1 Mem:168.23M (Peak 168.23M) | Time:00:00.35 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-231
+Fra:1 Mem:168.25M (Peak 168.25M) | Time:00:00.35 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-230
+Fra:1 Mem:168.31M (Peak 168.31M) | Time:00:00.35 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-205
+Fra:1 Mem:168.32M (Peak 168.32M) | Time:00:00.35 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-158
+Fra:1 Mem:168.95M (Peak 169.45M) | Time:00:00.36 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-CAM-23
+Fra:1 Mem:169.40M (Peak 169.45M) | Time:00:00.36 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-157
+Fra:1 Mem:169.45M (Peak 169.45M) | Time:00:00.36 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-151
+Fra:1 Mem:169.48M (Peak 169.48M) | Time:00:00.36 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-150
+Fra:1 Mem:169.58M (Peak 169.58M) | Time:00:00.36 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-115
+Fra:1 Mem:169.73M (Peak 169.73M) | Time:00:00.36 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-138
+Fra:1 Mem:169.76M (Peak 169.76M) | Time:00:00.36 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-137
+Fra:1 Mem:169.90M (Peak 169.90M) | Time:00:00.36 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-131
+Fra:1 Mem:169.93M (Peak 169.93M) | Time:00:00.36 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-130
+Fra:1 Mem:170.14M (Peak 170.14M) | Time:00:00.36 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-105
+Fra:1 Mem:170.71M (Peak 170.71M) | Time:00:00.36 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-661
+Fra:1 Mem:171.01M (Peak 171.01M) | Time:00:00.37 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-654
+Fra:1 Mem:170.11M (Peak 171.01M) | Time:00:00.37 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-CAM-32
+Fra:1 Mem:170.30M (Peak 171.01M) | Time:00:00.37 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-CAM-33
+Fra:1 Mem:170.35M (Peak 171.01M) | Time:00:00.37 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-CAM-42
+Fra:1 Mem:170.06M (Peak 171.01M) | Time:00:00.37 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-641
+Fra:1 Mem:170.14M (Peak 171.01M) | Time:00:00.37 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-CAM-43
+Fra:1 Mem:170.11M (Peak 171.42M) | Time:00:00.37 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-CAM-52
+Fra:1 Mem:170.15M (Peak 171.42M) | Time:00:00.37 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-CAM-53
+Fra:1 Mem:170.26M (Peak 171.42M) | Time:00:00.37 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-CAM-62
+Fra:1 Mem:170.30M (Peak 171.42M) | Time:00:00.37 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-CAM-63
+Fra:1 Mem:170.35M (Peak 171.42M) | Time:00:00.37 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-CAM-14
+Fra:1 Mem:170.36M (Peak 171.42M) | Time:00:00.37 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-CAM-16
+Fra:1 Mem:170.44M (Peak 171.42M) | Time:00:00.37 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-CAM-18
+Fra:1 Mem:170.38M (Peak 171.42M) | Time:00:00.37 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-CAM-15
+Fra:1 Mem:170.45M (Peak 171.42M) | Time:00:00.37 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-CAM-17
+Fra:1 Mem:170.54M (Peak 171.42M) | Time:00:00.37 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-CAM-19
+Fra:1 Mem:170.50M (Peak 171.42M) | Time:00:00.37 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-CAM-24
+Fra:1 Mem:170.53M (Peak 171.42M) | Time:00:00.37 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-CAM-26
+Fra:1 Mem:170.64M (Peak 171.42M) | Time:00:00.37 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-CAM-28
+Fra:1 Mem:170.61M (Peak 171.42M) | Time:00:00.37 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-CAM-25
+Fra:1 Mem:170.60M (Peak 171.42M) | Time:00:00.37 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-CAM-27
+Fra:1 Mem:170.73M (Peak 171.42M) | Time:00:00.37 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-CAM-29
+Fra:1 Mem:170.68M (Peak 171.42M) | Time:00:00.37 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-CAM-34
+Fra:1 Mem:170.75M (Peak 171.42M) | Time:00:00.37 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-CAM-36
+Fra:1 Mem:170.84M (Peak 171.42M) | Time:00:00.37 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-CAM-38
+Fra:1 Mem:170.81M (Peak 171.42M) | Time:00:00.37 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-CAM-35
+Fra:1 Mem:170.79M (Peak 171.42M) | Time:00:00.37 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-CAM-37
+Fra:1 Mem:170.92M (Peak 171.42M) | Time:00:00.37 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-CAM-39
+Fra:1 Mem:170.89M (Peak 171.42M) | Time:00:00.37 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-CAM-44
+Fra:1 Mem:170.94M (Peak 171.42M) | Time:00:00.37 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-CAM-46
+Fra:1 Mem:171.00M (Peak 171.42M) | Time:00:00.37 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-CAM-48
+Fra:1 Mem:171.04M (Peak 171.42M) | Time:00:00.37 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-CAM-45
+Fra:1 Mem:171.05M (Peak 171.42M) | Time:00:00.37 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-CAM-47
+Fra:1 Mem:171.07M (Peak 171.42M) | Time:00:00.37 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-CAM-49
+Fra:1 Mem:171.10M (Peak 171.42M) | Time:00:00.37 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-CAM-54
+Fra:1 Mem:171.15M (Peak 171.42M) | Time:00:00.37 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-CAM-56
+Fra:1 Mem:171.18M (Peak 171.42M) | Time:00:00.37 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-CAM-58
+Fra:1 Mem:171.24M (Peak 171.42M) | Time:00:00.37 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-CAM-55
+Fra:1 Mem:171.20M (Peak 171.42M) | Time:00:00.37 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-CAM-57
+Fra:1 Mem:171.32M (Peak 171.42M) | Time:00:00.37 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-CAM-59
+Fra:1 Mem:171.28M (Peak 171.42M) | Time:00:00.37 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-CAM-64
+Fra:1 Mem:171.34M (Peak 171.42M) | Time:00:00.37 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-CAM-66
+Fra:1 Mem:171.42M (Peak 171.42M) | Time:00:00.37 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-CAM-68
+Fra:1 Mem:171.39M (Peak 171.42M) | Time:00:00.37 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-CAM-65
+Fra:1 Mem:171.48M (Peak 171.48M) | Time:00:00.37 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-CAM-67
+Fra:1 Mem:171.41M (Peak 171.48M) | Time:00:00.37 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-CAM-69
+Fra:1 Mem:171.49M (Peak 171.49M) | Time:00:00.37 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-101
+Fra:1 Mem:171.58M (Peak 171.58M) | Time:00:00.37 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-132
+Fra:1 Mem:171.55M (Peak 171.58M) | Time:00:00.37 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-133
+Fra:1 Mem:171.61M (Peak 171.61M) | Time:00:00.37 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-139
+Fra:1 Mem:171.61M (Peak 171.61M) | Time:00:00.37 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-140
+Fra:1 Mem:171.65M (Peak 171.65M) | Time:00:00.37 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-152
+Fra:1 Mem:171.68M (Peak 171.68M) | Time:00:00.37 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-153
+Fra:1 Mem:171.71M (Peak 171.71M) | Time:00:00.37 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-159
+Fra:1 Mem:171.73M (Peak 171.73M) | Time:00:00.37 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-160
+Fra:1 Mem:171.77M (Peak 171.77M) | Time:00:00.37 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-201
+Fra:1 Mem:171.83M (Peak 171.83M) | Time:00:00.37 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-232
+Fra:1 Mem:171.89M (Peak 171.89M) | Time:00:00.37 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-233
+Fra:1 Mem:171.98M (Peak 171.98M) | Time:00:00.38 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-239
+Fra:1 Mem:172.20M (Peak 172.20M) | Time:00:00.38 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-240
+Fra:1 Mem:172.23M (Peak 172.23M) | Time:00:00.38 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-252
+Fra:1 Mem:172.23M (Peak 172.23M) | Time:00:00.38 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-253
+Fra:1 Mem:171.96M (Peak 172.23M) | Time:00:00.38 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-634
+Fra:1 Mem:172.00M (Peak 172.23M) | Time:00:00.38 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-259
+Fra:1 Mem:172.53M (Peak 172.53M) | Time:00:00.38 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-260
+Fra:1 Mem:172.56M (Peak 172.56M) | Time:00:00.38 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-301
+Fra:1 Mem:172.60M (Peak 172.60M) | Time:00:00.38 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-332
+Fra:1 Mem:172.27M (Peak 172.60M) | Time:00:00.38 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-561
+Fra:1 Mem:172.51M (Peak 172.60M) | Time:00:00.38 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-333
+Fra:1 Mem:172.57M (Peak 172.60M) | Time:00:00.38 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-554
+Fra:1 Mem:172.57M (Peak 172.60M) | Time:00:00.38 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-339
+Fra:1 Mem:172.91M (Peak 172.91M) | Time:00:00.38 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-340
+Fra:1 Mem:173.14M (Peak 173.14M) | Time:00:00.38 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-352
+Fra:1 Mem:173.17M (Peak 173.17M) | Time:00:00.38 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-353
+Fra:1 Mem:173.17M (Peak 173.17M) | Time:00:00.38 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-359
+Fra:1 Mem:172.89M (Peak 173.17M) | Time:00:00.38 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-541
+Fra:1 Mem:172.94M (Peak 173.17M) | Time:00:00.38 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-360
+Fra:1 Mem:173.27M (Peak 173.27M) | Time:00:00.38 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-401
+Fra:1 Mem:173.38M (Peak 173.38M) | Time:00:00.38 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-432
+Fra:1 Mem:173.49M (Peak 173.49M) | Time:00:00.39 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-433
+Fra:1 Mem:173.49M (Peak 173.49M) | Time:00:00.39 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-439
+Fra:1 Mem:173.50M (Peak 173.50M) | Time:00:00.39 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-440
+Fra:1 Mem:173.58M (Peak 173.58M) | Time:00:00.39 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-452
+Fra:1 Mem:173.58M (Peak 173.58M) | Time:00:00.39 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-453
+Fra:1 Mem:173.64M (Peak 173.64M) | Time:00:00.39 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-459
+Fra:1 Mem:173.67M (Peak 173.67M) | Time:00:00.39 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-460
+Fra:1 Mem:173.67M (Peak 173.67M) | Time:00:00.39 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-501
+Fra:1 Mem:173.76M (Peak 173.76M) | Time:00:00.39 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-532
+Fra:1 Mem:173.74M (Peak 173.76M) | Time:00:00.39 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-533
+Fra:1 Mem:173.77M (Peak 173.77M) | Time:00:00.39 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-539
+Fra:1 Mem:173.81M (Peak 173.81M) | Time:00:00.39 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-540
+Fra:1 Mem:173.83M (Peak 173.83M) | Time:00:00.39 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-552
+Fra:1 Mem:173.87M (Peak 173.87M) | Time:00:00.39 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-553
+Fra:1 Mem:173.87M (Peak 173.87M) | Time:00:00.39 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-559
+Fra:1 Mem:173.95M (Peak 173.95M) | Time:00:00.39 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-560
+Fra:1 Mem:173.95M (Peak 173.95M) | Time:00:00.39 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-601
+Fra:1 Mem:174.01M (Peak 174.01M) | Time:00:00.39 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-632
+Fra:1 Mem:174.04M (Peak 174.04M) | Time:00:00.39 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-633
+Fra:1 Mem:174.02M (Peak 174.04M) | Time:00:00.39 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-639
+Fra:1 Mem:174.11M (Peak 174.11M) | Time:00:00.39 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-640
+Fra:1 Mem:174.07M (Peak 174.11M) | Time:00:00.39 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-652
+Fra:1 Mem:174.14M (Peak 174.14M) | Time:00:00.39 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-653
+Fra:1 Mem:174.13M (Peak 174.14M) | Time:00:00.39 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-659
+Fra:1 Mem:174.20M (Peak 174.20M) | Time:00:00.39 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-660
+Fra:1 Mem:174.19M (Peak 174.20M) | Time:00:00.39 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-102
+Fra:1 Mem:174.30M (Peak 174.30M) | Time:00:00.39 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-103
+Fra:1 Mem:174.27M (Peak 174.30M) | Time:00:00.39 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-104
+Fra:1 Mem:174.28M (Peak 174.30M) | Time:00:00.39 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-112
+Fra:1 Mem:174.32M (Peak 174.32M) | Time:00:00.39 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-113
+Fra:1 Mem:174.33M (Peak 174.33M) | Time:00:00.39 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-114
+Fra:1 Mem:174.37M (Peak 174.37M) | Time:00:00.39 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-202
+Fra:1 Mem:174.37M (Peak 174.37M) | Time:00:00.39 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-203
+Fra:1 Mem:174.41M (Peak 174.41M) | Time:00:00.39 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-204
+Fra:1 Mem:174.38M (Peak 174.41M) | Time:00:00.39 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-212
+Fra:1 Mem:174.37M (Peak 174.41M) | Time:00:00.39 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-213
+Fra:1 Mem:174.42M (Peak 174.42M) | Time:00:00.39 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-214
+Fra:1 Mem:174.46M (Peak 174.46M) | Time:00:00.39 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-302
+Fra:1 Mem:174.43M (Peak 174.46M) | Time:00:00.39 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-303
+Fra:1 Mem:174.47M (Peak 174.47M) | Time:00:00.39 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-304
+Fra:1 Mem:174.51M (Peak 174.51M) | Time:00:00.39 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-312
+Fra:1 Mem:174.51M (Peak 174.51M) | Time:00:00.39 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-313
+Fra:1 Mem:174.55M (Peak 174.55M) | Time:00:00.39 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-314
+Fra:1 Mem:174.52M (Peak 174.55M) | Time:00:00.39 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-402
+Fra:1 Mem:174.51M (Peak 174.55M) | Time:00:00.39 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-403
+Fra:1 Mem:174.54M (Peak 174.55M) | Time:00:00.39 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-404
+Fra:1 Mem:174.61M (Peak 174.61M) | Time:00:00.39 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-412
+Fra:1 Mem:174.61M (Peak 174.61M) | Time:00:00.39 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-413
+Fra:1 Mem:174.65M (Peak 174.65M) | Time:00:00.39 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-414
+Fra:1 Mem:174.62M (Peak 174.65M) | Time:00:00.39 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-502
+Fra:1 Mem:174.61M (Peak 174.65M) | Time:00:00.39 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-503
+Fra:1 Mem:174.66M (Peak 174.66M) | Time:00:00.39 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-504
+Fra:1 Mem:174.67M (Peak 174.67M) | Time:00:00.39 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-512
+Fra:1 Mem:174.71M (Peak 174.71M) | Time:00:00.39 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-513
+Fra:1 Mem:174.69M (Peak 174.71M) | Time:00:00.39 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-514
+Fra:1 Mem:174.72M (Peak 174.72M) | Time:00:00.39 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-602
+Fra:1 Mem:174.76M (Peak 174.76M) | Time:00:00.39 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-603
+Fra:1 Mem:174.79M (Peak 174.79M) | Time:00:00.39 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-604
+Fra:1 Mem:174.75M (Peak 174.79M) | Time:00:00.39 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-612
+Fra:1 Mem:174.75M (Peak 174.79M) | Time:00:00.39 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-613
+Fra:1 Mem:174.80M (Peak 174.80M) | Time:00:00.39 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-614
+Fra:1 Mem:174.80M (Peak 174.80M) | Time:00:00.39 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-134
+Fra:1 Mem:175.14M (Peak 175.14M) | Time:00:00.39 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-154
+Fra:1 Mem:175.35M (Peak 175.35M) | Time:00:00.39 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-161
+Fra:1 Mem:175.56M (Peak 175.56M) | Time:00:00.39 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-234
+Fra:1 Mem:175.77M (Peak 175.77M) | Time:00:00.39 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-241
+Fra:1 Mem:176.30M (Peak 176.30M) | Time:00:00.40 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-254
+Fra:1 Mem:176.05M (Peak 176.30M) | Time:00:00.40 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-534
+Fra:1 Mem:176.57M (Peak 176.57M) | Time:00:00.40 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-461
+Fra:1 Mem:176.47M (Peak 176.57M) | Time:00:00.40 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-261
+Fra:1 Mem:176.82M (Peak 176.82M) | Time:00:00.40 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-454
+Fra:1 Mem:177.54M (Peak 177.54M) | Time:00:00.40 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-334
+Fra:1 Mem:177.43M (Peak 177.54M) | Time:00:00.40 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-441
+Fra:1 Mem:177.78M (Peak 177.78M) | Time:00:00.40 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-341
+Fra:1 Mem:177.99M (Peak 177.99M) | Time:00:00.40 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-354
+Fra:1 Mem:178.20M (Peak 178.20M) | Time:00:00.40 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-361
+Fra:1 Mem:178.40M (Peak 178.40M) | Time:00:00.40 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | INT-VALVE-434
+Fra:1 Mem:177.96M (Peak 178.40M) | Time:00:00.44 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Initializing
+Fra:1 Mem:159.87M (Peak 178.40M) | Time:00:00.47 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Waiting for render to start
+Fra:1 Mem:159.87M (Peak 178.40M) | Time:00:00.47 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Loading render kernels (may take a few minutes the first time)
+Fra:1 Mem:159.87M (Peak 178.40M) | Time:00:00.47 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Scene
+Fra:1 Mem:159.87M (Peak 178.40M) | Time:00:00.47 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Shaders
+Fra:1 Mem:159.95M (Peak 178.40M) | Time:00:00.47 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Procedurals
+Fra:1 Mem:159.95M (Peak 178.40M) | Time:00:00.47 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Background
+Fra:1 Mem:159.95M (Peak 178.40M) | Time:00:00.47 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Camera
+Fra:1 Mem:159.95M (Peak 178.40M) | Time:00:00.47 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Meshes Flags
+Fra:1 Mem:159.95M (Peak 178.40M) | Time:00:00.47 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Objects
+Fra:1 Mem:159.95M (Peak 178.40M) | Time:00:00.47 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Objects | Copying Transformations to device
+Fra:1 Mem:160.07M (Peak 178.40M) | Time:00:00.47 | Mem:0.12M, Peak:0.12M | Scene, ViewLayer | Updating Objects | Applying Static Transformations
+Fra:1 Mem:160.07M (Peak 178.40M) | Time:00:00.48 | Mem:0.12M, Peak:0.12M | Scene, ViewLayer | Updating Particle Systems
+Fra:1 Mem:160.07M (Peak 178.40M) | Time:00:00.48 | Mem:0.12M, Peak:0.12M | Scene, ViewLayer | Updating Particle Systems | Copying Particles to device
+Fra:1 Mem:160.07M (Peak 178.40M) | Time:00:00.48 | Mem:0.12M, Peak:0.12M | Scene, ViewLayer | Updating Meshes
+Fra:1 Mem:164.50M (Peak 178.40M) | Time:00:00.50 | Mem:0.12M, Peak:0.12M | Scene, ViewLayer | Updating Mesh | Computing attributes
+Fra:1 Mem:169.61M (Peak 178.40M) | Time:00:00.50 | Mem:0.15M, Peak:0.15M | Scene, ViewLayer | Updating Mesh | Copying Attributes to device
+Fra:1 Mem:169.54M (Peak 178.40M) | Time:00:00.51 | Mem:5.15M, Peak:5.15M | Scene, ViewLayer | Updating Scene BVH | Building
+Fra:1 Mem:169.54M (Peak 178.40M) | Time:00:00.51 | Mem:5.15M, Peak:5.15M | Scene, ViewLayer | Updating Scene BVH | Building BVH
+Fra:1 Mem:169.54M (Peak 178.40M) | Time:00:00.51 | Mem:14.01M, Peak:14.01M | Scene, ViewLayer | Updating Scene BVH | Building BVH 0%
+Fra:1 Mem:169.54M (Peak 178.40M) | Time:00:00.70 | Mem:23.65M, Peak:32.51M | Scene, ViewLayer | Updating Scene BVH | Copying BVH to device
+Fra:1 Mem:169.54M (Peak 178.40M) | Time:00:00.70 | Mem:23.65M, Peak:32.51M | Scene, ViewLayer | Updating Mesh | Computing normals
+Fra:1 Mem:188.42M (Peak 188.42M) | Time:00:00.70 | Mem:23.65M, Peak:32.51M | Scene, ViewLayer | Updating Mesh | Copying Mesh to device
+Fra:1 Mem:188.42M (Peak 188.42M) | Time:00:00.70 | Mem:42.53M, Peak:42.53M | Scene, ViewLayer | Updating Objects Flags
+Fra:1 Mem:188.42M (Peak 188.42M) | Time:00:00.70 | Mem:42.53M, Peak:42.53M | Scene, ViewLayer | Updating Primitive Offsets
+Fra:1 Mem:188.42M (Peak 188.42M) | Time:00:00.70 | Mem:42.53M, Peak:42.53M | Scene, ViewLayer | Updating Images
+Fra:1 Mem:188.42M (Peak 188.42M) | Time:00:00.70 | Mem:42.53M, Peak:42.53M | Scene, ViewLayer | Updating Camera Volume
+Fra:1 Mem:188.42M (Peak 188.42M) | Time:00:00.70 | Mem:42.53M, Peak:42.53M | Scene, ViewLayer | Updating Lookup Tables
+Fra:1 Mem:188.42M (Peak 188.42M) | Time:00:00.70 | Mem:42.61M, Peak:42.61M | Scene, ViewLayer | Updating Lights
+Fra:1 Mem:188.42M (Peak 188.42M) | Time:00:00.70 | Mem:42.61M, Peak:42.61M | Scene, ViewLayer | Updating Lights | Computing tree
+Fra:1 Mem:188.42M (Peak 188.42M) | Time:00:00.70 | Mem:42.62M, Peak:42.62M | Scene, ViewLayer | Updating Integrator
+Fra:1 Mem:188.42M (Peak 188.42M) | Time:00:00.70 | Mem:42.62M, Peak:42.62M | Scene, ViewLayer | Updating Film
+Fra:1 Mem:188.43M (Peak 188.43M) | Time:00:00.70 | Mem:42.54M, Peak:42.62M | Scene, ViewLayer | Updating Lookup Tables
+Fra:1 Mem:188.43M (Peak 188.43M) | Time:00:00.70 | Mem:42.62M, Peak:42.62M | Scene, ViewLayer | Updating Baking
+Fra:1 Mem:188.43M (Peak 188.43M) | Time:00:00.70 | Mem:42.62M, Peak:42.62M | Scene, ViewLayer | Updating Device | Writing constant memory
+Fra:1 Mem:188.44M (Peak 188.44M) | Time:00:00.70 | Mem:42.62M, Peak:42.62M | Scene, ViewLayer | Sample 0/12
+Fra:1 Mem:220.05M (Peak 220.05M) | Time:00:01.61 | Remaining:00:09.93 | Mem:74.21M, Peak:74.21M | Scene, ViewLayer | Sample 1/12
+Fra:1 Mem:234.09M (Peak 262.17M) | Time:00:09.01 | Mem:74.21M, Peak:74.21M | Scene, ViewLayer | Sample 12/12
+Fra:1 Mem:234.09M (Peak 262.17M) | Time:00:09.01 | Mem:74.21M, Peak:74.21M | Scene, ViewLayer | Finished
+Saved: '/workspace/private-production/yanmar-6aym-wet-r02/qa/r02/neutral_internal.png'
+Time: 00:09.57 (Saving: 00:00.49)
+
+
+Blender quit

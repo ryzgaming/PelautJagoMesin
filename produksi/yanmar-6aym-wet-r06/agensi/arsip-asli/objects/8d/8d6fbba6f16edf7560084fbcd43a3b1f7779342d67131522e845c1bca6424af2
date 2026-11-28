@@ -1,0 +1,147 @@
+{
+  "revision": "r03",
+  "machine_model": "Yanmar 6AYM-WET H 555 kW engine-only",
+  "glb_sha256": "153c7f88e907a9832d11cd05ad4f822332aae1667506cc1a902dbefa648a67ad",
+  "r02_baseline_sha256": "7f4eab14803a9b0ee1671b346985f31f70c6248e9a41f6d51104257118106ed5",
+  "status": "FAIL",
+  "visual_status": "UNVERIFIED",
+  "dimensions": [
+    {
+      "feature": "Panjang nominal engine-only",
+      "nominal_mm": 2000,
+      "measured_mm": 2002.677,
+      "difference_pct": 0.13385,
+      "status": "PASS",
+      "source": "GA01 / rantai 520 + 1000 + 480; D03 PDF 17 printed p.32"
+    },
+    {
+      "feature": "Lebar nominal engine-only",
+      "nominal_mm": 1305,
+      "measured_mm": 1305.0,
+      "difference_pct": 0.0,
+      "status": "PASS",
+      "source": "GA01 Front view; D03 PDF 17 printed p.32"
+    },
+    {
+      "feature": "Tinggi nominal engine-only",
+      "nominal_mm": 1431,
+      "measured_mm": 1541.0,
+      "difference_pct": 7.687,
+      "status": "FAIL",
+      "source": "D03 PDF 17 printed p.32 dan p.33, GA01"
+    },
+    {
+      "feature": "Tinggi fisik termasuk flange exhaust menurut proyeksi GA",
+      "nominal_mm": 1540.0,
+      "measured_mm": 1541.0,
+      "difference_pct": 0.06494,
+      "status": "PASS",
+      "source": "GA01 / 817+171.5 di atas crank + 551.5 di bawah crank. D03 pembulatan ke 989 dan 552."
+    }
+  ],
+  "physical_extent_note": "Tinggi hasil ukur 1541 mm termasuk flange exhaust. Katalog menuliskan tinggi nominal 1431 mm. Definisi kedua ukuran belum direkonsiliasi.",
+  "export": {
+    "report": "export-check-r03.json",
+    "mesh_count": 307,
+    "node_count": 342,
+    "triangles": 695087,
+    "nested_recipe_count": 24,
+    "assembly_inventory_check": "nested-r03-export-check.json"
+  },
+  "full_views": {
+    "settings": "renders-r03/render-settings.json",
+    "inspected": true,
+    "views": [
+      {
+        "view": "depan",
+        "neutral": "renders-r03/neutral_depan.png",
+        "color": "renders-r03/color_depan.png"
+      },
+      {
+        "view": "belakang",
+        "neutral": "renders-r03/neutral_belakang.png",
+        "color": "renders-r03/color_belakang.png"
+      },
+      {
+        "view": "kiri",
+        "neutral": "renders-r03/neutral_kiri.png",
+        "color": "renders-r03/color_kiri.png"
+      },
+      {
+        "view": "kanan",
+        "neutral": "renders-r03/neutral_kanan.png",
+        "color": "renders-r03/color_kanan.png"
+      },
+      {
+        "view": "atas",
+        "neutral": "renders-r03/neutral_atas.png",
+        "color": "renders-r03/color_atas.png"
+      },
+      {
+        "view": "tiga_perempat",
+        "neutral": "renders-r03/neutral_tiga_perempat.png",
+        "color": "renders-r03/color_tiga_perempat.png"
+      }
+    ],
+    "observation": "Perbedaan luar terlihat pada bentuk ujung air cooler, muka cover pendingin, detail bonnet dan housing pompanya. Bukaan charge-air terlihat pada sisi depan cooler dalam pandangan tinggi. Antarmuka duct yang tertutup pada mesin terpasang belum direkonstruksi sepenuhnya."
+  },
+  "air_cooler": {
+    "mounted_and_exploded_inspected": true,
+    "recipe": "../assemblies/RAK-AIRCOOLER.json",
+    "source_refs": [
+      "D05 Fig. 37 0CG10-M34300EN, 6AYM-WET column A",
+      "P18, tampak belakang",
+      "D01 PDF 13–15, engine specifications dan piping diagram"
+    ],
+    "render_fit": "renders-r03-aircooler/render-fit.json",
+    "source_match": "Gambar exploded menunjukkan dua tutup berbeda, bundel tabung longitudinal, tiga O-ring, rib pemisah dan drain. Core ditarik ke arah tutup No. 3 dalam eksplorasi rakitan.",
+    "model_check": "91 dari 91 ray aksial melalui tabung model. Tidak ditemukan persilangan permukaan antara core dengan housing atau kedua tutup pada 13 pose sampling. Pengujian terisolasi dari pipa luar mesin.",
+    "limits": "Jumlah tabung 91 adalah estimasi model. Dimensi tube sheet, posisi seal, lebar flange, clearance dan kebutuhan akses servis OEM belum terverifikasi.",
+    "renders": {
+      "mounted": "renders-r03-aircooler/assembled.png",
+      "exploded": "renders-r03-aircooler/exploded.png",
+      "extracted_core": "renders-r03-aircooler/core-and-open-bore.png",
+      "xray": "renders-r03-aircooler/xray-assembled.png"
+    },
+    "all_four_views_inspected": true
+  },
+  "interface_recheck": {
+    "file": "interface-r03-fit.log",
+    "installed_pairs": [
+      {
+        "pair": [
+          "EXT-ELECTRIC-02",
+          "EXT-ELECTRIC-52"
+        ],
+        "crossings": 0
+      },
+      {
+        "pair": [
+          "EXT-COOLING-04",
+          "EXT-COOLING-35"
+        ],
+        "crossings": 0
+      },
+      {
+        "pair": [
+          "EXT-FUEL-01",
+          "EXT-FUEL-21"
+        ],
+        "crossings": 0
+      }
+    ],
+    "detail": "Axis solenoid digeser sedikit untuk celah dengan yoke model. Leher outlet pompa air laut dipangkas dari ruang impeler lalu port dibuka ke ruang pompa. Bentuk sudu fleksibel di sekitar cam tetap estimasi dan belum diverifikasi dari ukuran OEM.",
+    "bosch_repair": "Ruang di bagian dalam strip dasar dibuka mengikuti envelope nok model. Pada pose terpasang, pasangan rumah dan poros nok turun dari 114 ke 0 persilangan permukaan.",
+    "mesh_geometry_changed_since_prior_candidate": [
+      "EXT-FUEL-01"
+    ],
+    "mesh_comparison_method": "Posisi vertex ekspor dan kumpulan triplet indeks per primitive. Urutan antar-triangle diabaikan."
+  },
+  "fuel_r02_regression": {
+    "report": "pump-r03-regression.json",
+    "render_directory": "renders-r03-fuel-regression",
+    "inspected": true,
+    "observation": "Enam jalur injeksi dan enam fitting r02 mempertahankan posisi vertex dan indeks dalam toleransi 1e−7 m. Dalam tampak dekat P07 dan P08, kontur luar pompa tetap terbaca dengan kamar bukaan baru di balik cover. Profil kepala dan rim canister berubah sedikit karena komponen filter terpisah."
+  },
+  "scope_limit": "Model untuk pembelajaran. Audit ini memeriksa ekspor dan pasangan geometris yang disebutkan. Seluruh lintasan bongkar, opsi serial, mekanisme dan kecocokan teknik tetap memerlukan audit terpisah."
+}

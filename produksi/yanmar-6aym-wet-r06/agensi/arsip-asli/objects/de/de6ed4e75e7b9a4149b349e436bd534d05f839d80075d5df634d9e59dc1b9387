@@ -1,0 +1,72 @@
+{
+  "model_status": "UNVERIFIED",
+  "internal_glb_sha256": "11ea34ec436e43053f70f8e1162391669e377daebee501cba515dc218f388bf9",
+  "exterior_glb_sha256": "c5e9f1f826074cbebb161f5ba15ada8392744e15f9f786ff360078f095843e53",
+  "discrete_internal_status": "PASS",
+  "sampled_pair_overlap_counts": {
+    "piston_body_liner": 0,
+    "ring_liner": 0,
+    "valve_crown": 0,
+    "rod_bearing_crankpin": 0
+  },
+  "cylinder_poses": 438,
+  "triangle_pairs_for_exterior_at_rest_angle_0": {
+    "EXT-BLOCK-01": {
+      "INT-CRANK-07": 252,
+      "INT-MAIN-71": 214,
+      "INT-MAIN-72": 222,
+      "INT-MAIN-73": 80,
+      "INT-TIMING-11": 172,
+      "INT-TIMING-02": 1307,
+      "INT-TIMING-04": 412,
+      "INT-TIMING-05": 130,
+      "INT-TIMING-06": 40,
+      "INT-TIMING-07": 842,
+      "INT-TIMING-08": 471,
+      "INT-TIMING-09": 869,
+      "INT-OILPUMP-01": 158
+    },
+    "EXT-HEADS-01": {
+      "INT-LINER-11": 69
+    },
+    "EXT-HEADS-07": {},
+    "EXT-FLYWHEEL-01": {
+      "INT-TIMING-04": 111
+    },
+    "EXT-FLYWHEEL-02": {
+      "INT-CRANK-08": 616
+    },
+    "EXT-FRONT-01": {
+      "INT-MAIN-73": 84,
+      "INT-MAIN-74": 22,
+      "INT-MAIN-75": 26,
+      "INT-CAM-01": 96,
+      "INT-CAM-08": 96,
+      "INT-TIMING-08": 1056,
+      "INT-TIMING-09": 452,
+      "INT-TIMING-10": 438
+    },
+    "EXT-FRONT-02": {
+      "INT-CRANK-09": 220
+    },
+    "EXT-OILPAN-01": {
+      "INT-TIMING-07": 544,
+      "INT-OILPUMP-01": 106
+    }
+  },
+  "all_inventory_matches": true,
+  "missing_parts": [],
+  "extra_parts": [],
+  "mesh_count": 506,
+  "triangles": 290366,
+  "near_zero_area_triangles": {},
+  "measured_diameters_m": {
+    "bore": 0.15500002186533582,
+    "main_journal": 0.1339425071212637,
+    "crankpin": 0.10595001401457822,
+    "piston_pin": 0.061975517741623985
+  },
+  "measure_method": "Blender 4.3.2 GLB reimport in Z-up. Circumscribed radial vertex dimension around design center; Blender float32.",
+  "overlap_method": "BVHTree world-space exported triangle surface crossings sampled at 10-degree crank steps. Surfaces wholly contained by other solids, tangencies, unsampled intermediate angles, and engineering load/material deformation not assessed.",
+  "exterior_method": "Existing exterior GLB imported as available. Lists every triangle surface overlap in selected shells and interfaces at angle zero, before classifying known mating contact versus unintentional penetrations."
+}

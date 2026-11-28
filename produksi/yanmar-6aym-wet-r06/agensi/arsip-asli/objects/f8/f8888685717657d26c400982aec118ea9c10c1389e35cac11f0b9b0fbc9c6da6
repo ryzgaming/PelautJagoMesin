@@ -1,0 +1,37 @@
+{
+  "id": "INT-TIMING",
+  "nama": "Timing gears",
+  "node_rakitan": "RAK-INT-TIMING",
+  "acuan": [
+    {
+      "no": 1,
+      "object_ids": [
+        "INT-TIMING-01",
+        "INT-TIMING-02",
+        "INT-TIMING-03",
+        "INT-TIMING-04",
+        "INT-TIMING-05",
+        "INT-TIMING-06",
+        "INT-TIMING-07",
+        "INT-TIMING-08",
+        "INT-TIMING-09",
+        "INT-TIMING-10",
+        "INT-TIMING-11",
+        "INT-TIMING-12"
+      ],
+      "sumber": "D01 PDF 111–112 / cetak 107–108"
+    }
+  ],
+  "diagram": {
+    "arah_pandang": [
+      1,
+      0.7,
+      1
+    ],
+    "atas": [
+      0,
+      1,
+      0
+    ]
+  }
+}

@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {splitMachine,productionBadges,roleNodes,roleProgress,roleOrder} from '../src/production-status.ts';
-import {productionGraph} from '../src/production-machine.ts';
+import {splitMachine,productionBadges,roleNodes,roleProgress,roleOrder} from '../src/features/machines/production-status.ts';
+import {productionGraph} from '../src/features/machines/production-machine.ts';
 
 test('merk dan tipe dipisah dari satu kolom', () => {
   assert.deepEqual(splitMachine('Caterpillar 3512C'), {brand: 'Caterpillar', model: '3512C'});

@@ -1,0 +1,89 @@
+{
+  "versi": 1,
+  "catatan": "Gaya tampilan efek Orang Mesin, dipakai semua viewer mesin dan boleh dipoles pemoles visual (Gemini) atau pemilik. Isinya hanya tampilan. Rute, arah, firing order dan timing injeksi resmi berasal dari data mesin; viewer memberikannya lewat opsi routes/firingOrder/timing yang selalu mengalahkan nilai di sini.",
+  "media": {
+    "fresh_water": {
+      "color": "#3aa8ff",
+      "speed": 1.0,
+      "body": 0.34,
+      "density": 2.2,
+      "bubbles": 0.78,
+      "viscosity": 0.08,
+      "rim": 0.55
+    },
+    "sea_water": {
+      "color": "#2fd88f",
+      "speed": 1.0,
+      "body": 0.32,
+      "density": 2.2,
+      "bubbles": 0.66,
+      "viscosity": 0.12,
+      "rim": 0.5
+    },
+    "lube_oil": {
+      "color": "#ffb02e",
+      "speed": 0.55,
+      "body": 0.55,
+      "density": 1.6,
+      "bubbles": 0.04,
+      "viscosity": 0.92,
+      "rim": 0.34
+    },
+    "fuel": {
+      "color": "#c8743a",
+      "speed": 0.8,
+      "body": 0.5,
+      "density": 2.6,
+      "bubbles": 0.12,
+      "viscosity": 0.55,
+      "rim": 0.38
+    },
+    "charge_air": {
+      "color": "#b9dcf2",
+      "speed": 2.4,
+      "body": 0.08,
+      "density": 3.2,
+      "bubbles": 0,
+      "viscosity": 0,
+      "rim": 0.16
+    },
+    "exhaust": {
+      "color": "#ff6a3d",
+      "speed": 2.8,
+      "body": 0.1,
+      "density": 3.0,
+      "bubbles": 0,
+      "viscosity": 0,
+      "rim": 0.12
+    },
+    "start_air": {
+      "color": "#c9ced6",
+      "speed": 3.0,
+      "body": 0.06,
+      "density": 3.6,
+      "bubbles": 0,
+      "viscosity": 0,
+      "rim": 0.16
+    }
+  },
+  "pembakaran": {
+    "warna_inti": "#fff4cf",
+    "warna_api": "#ff9a2e",
+    "warna_tepi": "#ff4a1c",
+    "warna_semburan": "#d9ecff",
+    "terang": 1.6,
+    "ukuran": 1.0,
+    "turbulensi": 0.6,
+    "naik_deg": 8,
+    "padam_deg": 45,
+    "semburan_mulai_deg": -14,
+    "semburan_selesai_deg": 4,
+    "cahaya": true,
+    "cahaya_jarak_bore": 3,
+    "_catatan": "naik_deg, padam_deg dan semburan_*_deg adalah perkiraan visual umum mesin diesel; bila manual memuat timing injeksi, viewer wajib mengirim opsi timing."
+  },
+  "tampilan": {
+    "rpm_gerak_lambat": 40,
+    "label_gerak_lambat": "Gerak lambat"
+  }
+}

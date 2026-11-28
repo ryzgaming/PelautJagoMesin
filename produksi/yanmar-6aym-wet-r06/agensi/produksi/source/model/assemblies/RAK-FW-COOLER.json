@@ -1,0 +1,749 @@
+{
+  "id": "RAK-FW-COOLER",
+  "node_rakitan": "RAK-FW-COOLER",
+  "parent_rakitan": "RAK-COOLING",
+  "nama": "Penukar panas coolant depan",
+  "status": "UNVERIFIED",
+  "source_refs": [
+    "D05 Parts Catalogue WET / Fig. 57",
+    "D01 PDF 166 cetak 162 & PDF 168 cetak 164"
+  ],
+  "acuan": {
+    "no": 1,
+    "object_ids": [
+      "EXT-COOLING-01"
+    ]
+  },
+  "diagram": {
+    "arah_pandang": [
+      0.46,
+      0.32,
+      0.827
+    ],
+    "atas": [
+      0,
+      1,
+      0
+    ]
+  },
+  "bagian": [
+    {
+      "no": 1,
+      "nama": "Coran penukar panas air tawar",
+      "object_ids": [
+        "EXT-COOLING-01"
+      ],
+      "posisi": [],
+      "sumber": [
+        "D05 Parts Catalogue WET / Fig. 57 / pos. (1)",
+        "D01 PDF 166 cetak 162 & PDF 168 cetak 164"
+      ],
+      "nomor_oem": null,
+      "ukuran": null,
+      "role": "shell",
+      "status": "ESTIMATED",
+      "fungsi": "Ruang coolant mengelilingi core pipa. Casting merupakan bagian rakitan katalog 748660-44801."
+    },
+    {
+      "no": 2,
+      "nama": "Core tubular air tawar",
+      "object_ids": [
+        "EXT-COOLING-50"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-50",
+          "arah": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "jarak_m": 0.819999998604379,
+          "urutan": 1
+        }
+      ],
+      "sumber": [
+        "D05 Parts Catalogue WET / Fig. 57 / pos. 14",
+        "D01 PDF 166 cetak 162 & PDF 168 cetak 164"
+      ],
+      "nomor_oem": "148633-44211",
+      "ukuran": null,
+      "role": "core",
+      "status": "ESTIMATED",
+      "fungsi": "Air laut mengalir di dalam pipa, coolant di luar pipa. Pipa dibuat berongga. Pola, jumlah pipa dan penyangga merupakan perkiraan."
+    },
+    {
+      "no": 3,
+      "nama": "Tutup ujung penukar panas 23",
+      "object_ids": [
+        "EXT-COOLING-51"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-51",
+          "arah": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "jarak_m": 0.34000000704737265,
+          "urutan": 2
+        }
+      ],
+      "sumber": [
+        "D05 Parts Catalogue WET / Fig. 57 / pos. 23",
+        "D01 PDF 166 cetak 162 & PDF 168 cetak 164"
+      ],
+      "nomor_oem": "148660-44321",
+      "ukuran": null,
+      "role": "cover",
+      "status": "ESTIMATED",
+      "fungsi": "Tutup manifold air laut, profil dan orientasi sambungan diestimasi dari gambar."
+    },
+    {
+      "no": 4,
+      "nama": "O-ring tutup 23",
+      "object_ids": [
+        "EXT-COOLING-53"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-53",
+          "arah": [
+            0.0,
+            0.0,
+            -0.9999999403953552
+          ],
+          "jarak_m": 0.20999999459300717,
+          "urutan": 3
+        }
+      ],
+      "sumber": [
+        "D05 Parts Catalogue WET / Fig. 57 / pos. 28",
+        "D01 PDF 166 cetak 162 & PDF 168 cetak 164"
+      ],
+      "nomor_oem": "24321-002300",
+      "ukuran": null,
+      "role": "seal",
+      "status": "ESTIMATED",
+      "fungsi": "Seal antara tutup dan body."
+    },
+    {
+      "no": 5,
+      "nama": "Tutup ujung penukar panas 22",
+      "object_ids": [
+        "EXT-COOLING-52"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-52",
+          "arah": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "jarak_m": 1.049999925068444,
+          "urutan": 4
+        }
+      ],
+      "sumber": [
+        "D05 Parts Catalogue WET / Fig. 57 / pos. 22",
+        "D01 PDF 166 cetak 162 & PDF 168 cetak 164"
+      ],
+      "nomor_oem": "148633-44310",
+      "ukuran": null,
+      "role": "cover",
+      "status": "ESTIMATED",
+      "fungsi": "Tutup manifold air laut, profil dan orientasi sambungan diestimasi dari gambar."
+    },
+    {
+      "no": 6,
+      "nama": "O-ring tutup 22",
+      "object_ids": [
+        "EXT-COOLING-54"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-54",
+          "arah": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "jarak_m": 0.9399999981738152,
+          "urutan": 5
+        }
+      ],
+      "sumber": [
+        "D05 Parts Catalogue WET / Fig. 57 / pos. 28",
+        "D01 PDF 166 cetak 162 & PDF 168 cetak 164"
+      ],
+      "nomor_oem": "24321-002300",
+      "ukuran": null,
+      "role": "seal",
+      "status": "ESTIMATED",
+      "fungsi": "Seal antara tutup dan body."
+    },
+    {
+      "no": 7,
+      "nama": "Rangka termostat 71 °C · 1",
+      "object_ids": [
+        "EXT-COOLING-55"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-55",
+          "arah": [
+            -0.5440033078193665,
+            0.7950817346572876,
+            -0.26815178990364075
+          ],
+          "jarak_m": 0.23896913142658352,
+          "urutan": 6
+        }
+      ],
+      "sumber": [
+        "D05 Parts Catalogue WET / Fig. 57 / pos. 58",
+        "D01 PDF 166 cetak 162 & PDF 168 cetak 164"
+      ],
+      "nomor_oem": "148616-48200",
+      "ukuran": null,
+      "role": "thermostat",
+      "status": "ESTIMATED",
+      "fungsi": "Rangka tetap. Tipe A mulai membuka pada 71 °C, tipe B pada 76,5 °C. Bore 33 mm."
+    },
+    {
+      "no": 8,
+      "nama": "Katup dan kapsul lilin termostat 1",
+      "object_ids": [
+        "EXT-COOLING-330"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-330",
+          "arah": [
+            -0.44986671209335327,
+            0.8651283383369446,
+            -0.2217496931552887
+          ],
+          "jarak_m": 0.2889744722838414,
+          "urutan": 7
+        }
+      ],
+      "sumber": [
+        "D05 Parts Catalogue WET / Fig. 57 / pos. 58",
+        "D01 PDF 166 cetak 162 & PDF 168 cetak 164"
+      ],
+      "nomor_oem": null,
+      "ukuran": null,
+      "role": "valve",
+      "status": "ESTIMATED",
+      "fungsi": "Subkomponen termostat. Travel model 8 mm ke bawah saat terbuka penuh; pin jiggle tipe B diperlihatkan dalam satu posisi."
+    },
+    {
+      "no": 9,
+      "nama": "Pegas balik termostat 1",
+      "object_ids": [
+        "EXT-COOLING-340"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-340",
+          "arah": [
+            -0.4242248237133026,
+            0.8810824155807495,
+            -0.20911021530628204
+          ],
+          "jarak_m": 0.306441267319938,
+          "urutan": 8
+        }
+      ],
+      "sumber": [
+        "D05 Parts Catalogue WET / Fig. 57 / pos. 58",
+        "D01 PDF 166 cetak 162 & PDF 168 cetak 164"
+      ],
+      "nomor_oem": null,
+      "ukuran": null,
+      "role": "spring",
+      "status": "ESTIMATED",
+      "fungsi": "Pegas memendek ketika katup membuka, dengan ujung bawah terpasang pada frame."
+    },
+    {
+      "no": 10,
+      "nama": "Rangka termostat 71 °C · 2",
+      "object_ids": [
+        "EXT-COOLING-56"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-56",
+          "arah": [
+            -0.560634434223175,
+            0.8193888664245605,
+            -0.11954452842473984
+          ],
+          "jarak_m": 0.23188013677923128,
+          "urutan": 9
+        }
+      ],
+      "sumber": [
+        "D05 Parts Catalogue WET / Fig. 57 / pos. 58",
+        "D01 PDF 166 cetak 162 & PDF 168 cetak 164"
+      ],
+      "nomor_oem": "148616-48200",
+      "ukuran": null,
+      "role": "thermostat",
+      "status": "ESTIMATED",
+      "fungsi": "Rangka tetap. Tipe A mulai membuka pada 71 °C, tipe B pada 76,5 °C. Bore 33 mm."
+    },
+    {
+      "no": 11,
+      "nama": "Katup dan kapsul lilin termostat 2",
+      "object_ids": [
+        "EXT-COOLING-331"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-331",
+          "arah": [
+            -0.45913639664649963,
+            0.8829546570777893,
+            -0.09790201485157013
+          ],
+          "jarak_m": 0.2831402438540022,
+          "urutan": 10
+        }
+      ],
+      "sumber": [
+        "D05 Parts Catalogue WET / Fig. 57 / pos. 58",
+        "D01 PDF 166 cetak 162 & PDF 168 cetak 164"
+      ],
+      "nomor_oem": null,
+      "ukuran": null,
+      "role": "valve",
+      "status": "ESTIMATED",
+      "fungsi": "Subkomponen termostat. Travel model 8 mm ke bawah saat terbuka penuh; pin jiggle tipe B diperlihatkan dalam satu posisi."
+    },
+    {
+      "no": 12,
+      "nama": "Pegas balik termostat 2",
+      "object_ids": [
+        "EXT-COOLING-341"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-341",
+          "arah": [
+            -0.43197137117385864,
+            0.8971713781356812,
+            -0.09210959821939468
+          ],
+          "jarak_m": 0.30094584624916976,
+          "urutan": 11
+        }
+      ],
+      "sumber": [
+        "D05 Parts Catalogue WET / Fig. 57 / pos. 58",
+        "D01 PDF 166 cetak 162 & PDF 168 cetak 164"
+      ],
+      "nomor_oem": null,
+      "ukuran": null,
+      "role": "spring",
+      "status": "ESTIMATED",
+      "fungsi": "Pegas memendek ketika katup membuka, dengan ujung bawah terpasang pada frame."
+    },
+    {
+      "no": 13,
+      "nama": "Rangka termostat 71 °C · 3",
+      "object_ids": [
+        "EXT-COOLING-57"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-57",
+          "arah": [
+            -0.5642866492271423,
+            0.8247267007827759,
+            0.037503357976675034
+          ],
+          "jarak_m": 0.23037935881409785,
+          "urutan": 12
+        }
+      ],
+      "sumber": [
+        "D05 Parts Catalogue WET / Fig. 57 / pos. 58",
+        "D01 PDF 166 cetak 162 & PDF 168 cetak 164"
+      ],
+      "nomor_oem": "148616-48200",
+      "ukuran": null,
+      "role": "thermostat",
+      "status": "ESTIMATED",
+      "fungsi": "Rangka tetap. Tipe A mulai membuka pada 71 °C, tipe B pada 76,5 °C. Bore 33 mm."
+    },
+    {
+      "no": 14,
+      "nama": "Katup dan kapsul lilin termostat 3",
+      "object_ids": [
+        "EXT-COOLING-332"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-332",
+          "arah": [
+            -0.46113601326942444,
+            0.8868000507354736,
+            0.03064780868589878
+          ],
+          "jarak_m": 0.28191248433608557,
+          "urutan": 13
+        }
+      ],
+      "sumber": [
+        "D05 Parts Catalogue WET / Fig. 57 / pos. 58",
+        "D01 PDF 166 cetak 162 & PDF 168 cetak 164"
+      ],
+      "nomor_oem": null,
+      "ukuran": null,
+      "role": "valve",
+      "status": "ESTIMATED",
+      "fungsi": "Subkomponen termostat. Travel model 8 mm ke bawah saat terbuka penuh; pin jiggle tipe B diperlihatkan dalam satu posisi."
+    },
+    {
+      "no": 15,
+      "nama": "Pegas balik termostat 3",
+      "object_ids": [
+        "EXT-COOLING-342"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-342",
+          "arah": [
+            -0.433635413646698,
+            0.9006274342536926,
+            0.02882007695734501
+          ],
+          "jarak_m": 0.29979101639220074,
+          "urutan": 14
+        }
+      ],
+      "sumber": [
+        "D05 Parts Catalogue WET / Fig. 57 / pos. 58",
+        "D01 PDF 166 cetak 162 & PDF 168 cetak 164"
+      ],
+      "nomor_oem": null,
+      "ukuran": null,
+      "role": "spring",
+      "status": "ESTIMATED",
+      "fungsi": "Pegas memendek ketika katup membuka, dengan ujung bawah terpasang pada frame."
+    },
+    {
+      "no": 16,
+      "nama": "Rangka termostat 76.5 °C · 1",
+      "object_ids": [
+        "EXT-COOLING-58"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-58",
+          "arah": [
+            0.5440033078193665,
+            0.7950817346572876,
+            -0.26815178990364075
+          ],
+          "jarak_m": 0.23896913142658352,
+          "urutan": 15
+        }
+      ],
+      "sumber": [
+        "D05 Parts Catalogue WET / Fig. 57 / pos. 59",
+        "D01 PDF 166 cetak 162 & PDF 168 cetak 164"
+      ],
+      "nomor_oem": "126634-48180",
+      "ukuran": null,
+      "role": "thermostat",
+      "status": "ESTIMATED",
+      "fungsi": "Rangka tetap. Tipe A mulai membuka pada 71 °C, tipe B pada 76,5 °C. Bore 33 mm."
+    },
+    {
+      "no": 17,
+      "nama": "Katup dan kapsul lilin termostat 4",
+      "object_ids": [
+        "EXT-COOLING-333"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-333",
+          "arah": [
+            0.44986671209335327,
+            0.8651283383369446,
+            -0.2217496931552887
+          ],
+          "jarak_m": 0.2889744722838414,
+          "urutan": 16
+        }
+      ],
+      "sumber": [
+        "D05 Parts Catalogue WET / Fig. 57 / pos. 59",
+        "D01 PDF 166 cetak 162 & PDF 168 cetak 164"
+      ],
+      "nomor_oem": null,
+      "ukuran": null,
+      "role": "valve",
+      "status": "ESTIMATED",
+      "fungsi": "Subkomponen termostat. Travel model 8 mm ke bawah saat terbuka penuh; pin jiggle tipe B diperlihatkan dalam satu posisi."
+    },
+    {
+      "no": 18,
+      "nama": "Pegas balik termostat 4",
+      "object_ids": [
+        "EXT-COOLING-343"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-343",
+          "arah": [
+            0.4242248237133026,
+            0.8810824155807495,
+            -0.20911021530628204
+          ],
+          "jarak_m": 0.306441267319938,
+          "urutan": 17
+        }
+      ],
+      "sumber": [
+        "D05 Parts Catalogue WET / Fig. 57 / pos. 59",
+        "D01 PDF 166 cetak 162 & PDF 168 cetak 164"
+      ],
+      "nomor_oem": null,
+      "ukuran": null,
+      "role": "spring",
+      "status": "ESTIMATED",
+      "fungsi": "Pegas memendek ketika katup membuka, dengan ujung bawah terpasang pada frame."
+    },
+    {
+      "no": 19,
+      "nama": "Rangka termostat 76.5 °C · 2",
+      "object_ids": [
+        "EXT-COOLING-59"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-59",
+          "arah": [
+            0.560634434223175,
+            0.8193888664245605,
+            -0.11954452842473984
+          ],
+          "jarak_m": 0.23188013677923128,
+          "urutan": 18
+        }
+      ],
+      "sumber": [
+        "D05 Parts Catalogue WET / Fig. 57 / pos. 59",
+        "D01 PDF 166 cetak 162 & PDF 168 cetak 164"
+      ],
+      "nomor_oem": "126634-48180",
+      "ukuran": null,
+      "role": "thermostat",
+      "status": "ESTIMATED",
+      "fungsi": "Rangka tetap. Tipe A mulai membuka pada 71 °C, tipe B pada 76,5 °C. Bore 33 mm."
+    },
+    {
+      "no": 20,
+      "nama": "Katup dan kapsul lilin termostat 5",
+      "object_ids": [
+        "EXT-COOLING-334"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-334",
+          "arah": [
+            0.45913639664649963,
+            0.8829546570777893,
+            -0.09790201485157013
+          ],
+          "jarak_m": 0.2831402438540022,
+          "urutan": 19
+        }
+      ],
+      "sumber": [
+        "D05 Parts Catalogue WET / Fig. 57 / pos. 59",
+        "D01 PDF 166 cetak 162 & PDF 168 cetak 164"
+      ],
+      "nomor_oem": null,
+      "ukuran": null,
+      "role": "valve",
+      "status": "ESTIMATED",
+      "fungsi": "Subkomponen termostat. Travel model 8 mm ke bawah saat terbuka penuh; pin jiggle tipe B diperlihatkan dalam satu posisi."
+    },
+    {
+      "no": 21,
+      "nama": "Pegas balik termostat 5",
+      "object_ids": [
+        "EXT-COOLING-344"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-344",
+          "arah": [
+            0.43197137117385864,
+            0.8971713781356812,
+            -0.09210959821939468
+          ],
+          "jarak_m": 0.30094584624916976,
+          "urutan": 20
+        }
+      ],
+      "sumber": [
+        "D05 Parts Catalogue WET / Fig. 57 / pos. 59",
+        "D01 PDF 166 cetak 162 & PDF 168 cetak 164"
+      ],
+      "nomor_oem": null,
+      "ukuran": null,
+      "role": "spring",
+      "status": "ESTIMATED",
+      "fungsi": "Pegas memendek ketika katup membuka, dengan ujung bawah terpasang pada frame."
+    },
+    {
+      "no": 22,
+      "nama": "Rangka termostat 76.5 °C · 3",
+      "object_ids": [
+        "EXT-COOLING-60"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-60",
+          "arah": [
+            0.5642866492271423,
+            0.8247267007827759,
+            0.037503357976675034
+          ],
+          "jarak_m": 0.23037935881409785,
+          "urutan": 21
+        }
+      ],
+      "sumber": [
+        "D05 Parts Catalogue WET / Fig. 57 / pos. 59",
+        "D01 PDF 166 cetak 162 & PDF 168 cetak 164"
+      ],
+      "nomor_oem": "126634-48180",
+      "ukuran": null,
+      "role": "thermostat",
+      "status": "ESTIMATED",
+      "fungsi": "Rangka tetap. Tipe A mulai membuka pada 71 °C, tipe B pada 76,5 °C. Bore 33 mm."
+    },
+    {
+      "no": 23,
+      "nama": "Katup dan kapsul lilin termostat 6",
+      "object_ids": [
+        "EXT-COOLING-335"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-335",
+          "arah": [
+            0.46113601326942444,
+            0.8868000507354736,
+            0.03064780868589878
+          ],
+          "jarak_m": 0.28191248433608557,
+          "urutan": 22
+        }
+      ],
+      "sumber": [
+        "D05 Parts Catalogue WET / Fig. 57 / pos. 59",
+        "D01 PDF 166 cetak 162 & PDF 168 cetak 164"
+      ],
+      "nomor_oem": null,
+      "ukuran": null,
+      "role": "valve",
+      "status": "ESTIMATED",
+      "fungsi": "Subkomponen termostat. Travel model 8 mm ke bawah saat terbuka penuh; pin jiggle tipe B diperlihatkan dalam satu posisi."
+    },
+    {
+      "no": 24,
+      "nama": "Pegas balik termostat 6",
+      "object_ids": [
+        "EXT-COOLING-345"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-345",
+          "arah": [
+            0.433635413646698,
+            0.9006274342536926,
+            0.02882007695734501
+          ],
+          "jarak_m": 0.29979101639220074,
+          "urutan": 23
+        }
+      ],
+      "sumber": [
+        "D05 Parts Catalogue WET / Fig. 57 / pos. 59",
+        "D01 PDF 166 cetak 162 & PDF 168 cetak 164"
+      ],
+      "nomor_oem": null,
+      "ukuran": null,
+      "role": "spring",
+      "status": "ESTIMATED",
+      "fungsi": "Pegas memendek ketika katup membuka, dengan ujung bawah terpasang pada frame."
+    },
+    {
+      "no": 25,
+      "nama": "Tutup ruang termostat",
+      "object_ids": [
+        "EXT-COOLING-61"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-61",
+          "arah": [
+            0.0,
+            0.9999999403953552,
+            0.0
+          ],
+          "jarak_m": 0.41999998918601433,
+          "urutan": 24
+        }
+      ],
+      "sumber": [
+        "D05 Parts Catalogue WET / Fig. 57 / pos. 33",
+        "D01 PDF 166 cetak 162 & PDF 168 cetak 164"
+      ],
+      "nomor_oem": "148660-44351",
+      "ukuran": null,
+      "role": "cover",
+      "status": "ESTIMATED",
+      "fungsi": "Menutup keenam termostat melalui gasket terpisah."
+    },
+    {
+      "no": 26,
+      "nama": "Gasket ruang termostat",
+      "object_ids": [
+        "EXT-COOLING-62"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-62",
+          "arah": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "jarak_m": 0.31499999928095984,
+          "urutan": 25
+        }
+      ],
+      "sumber": [
+        "D05 Parts Catalogue WET / Fig. 57 / pos. 34",
+        "D01 PDF 166 cetak 162 & PDF 168 cetak 164"
+      ],
+      "nomor_oem": "148660-44360",
+      "ukuran": null,
+      "role": "seal",
+      "status": "ESTIMATED",
+      "fungsi": "Gasket dengan enam bukaan pada posisi termostat."
+    }
+  ],
+  "notes": "Skema bentuk berdasar gambar parts book. Dimensi, jumlah elemen geometri inti dan posisi port diperkirakan. Penetapan nomor seri belum tersedia."
+}

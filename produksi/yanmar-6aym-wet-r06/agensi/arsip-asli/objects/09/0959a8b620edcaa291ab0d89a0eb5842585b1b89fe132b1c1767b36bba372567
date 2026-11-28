@@ -1,0 +1,1666 @@
+{
+  "variant": "Yanmar 6AYM-WET H 555 kW; serial/option unknown",
+  "hash_sha256": "4b69ad9975928cfa80be62ddc7c6a1c5caa241900bd3aef299081c1e6406ae05",
+  "sources": {
+    "1": {
+      "source": "https://yanmarshop.com/en-GB/catalog/all/servicebom/yanmardata-1310267/yanmar-marine-marine-main-engine-medium-ay-series-6aym-wet-fig-1-cylinder-block",
+      "title": "cylinder block",
+      "status": "D05 WET assembly table; fit per serial unverified"
+    },
+    "2": {
+      "source": "https://yanmarshop.com/en-GB/catalog/all/servicebom/yanmardata-1310321/yanmar-marine-marine-main-engine-medium-ay-series-6aym-wet-fig-2-cylinder-liner-head-gasket",
+      "title": "cylinder liner head gasket",
+      "status": "D05 WET assembly table; fit per serial unverified"
+    },
+    "22": {
+      "source": "https://yanmarshop.com/en-GB/catalog/all/servicebom/yanmardata-1310560/yanmar-marine-marine-main-engine-medium-ay-series-6aym-wet-fig-22-cylinder-head",
+      "title": "cylinder head",
+      "status": "D05 WET assembly table; fit per serial unverified"
+    },
+    "23": {
+      "source": "https://yanmarshop.com/en-GB/catalog/all/servicebom/yanmardata-1310603/yanmar-marine-marine-main-engine-medium-ay-series-6aym-wet-fig-23-locker-arm",
+      "title": "locker arm",
+      "status": "D05 WET assembly table; fit per serial unverified"
+    },
+    "24": {
+      "source": "https://yanmarshop.com/en-GB/catalog/all/servicebom/yanmardata-1310624/yanmar-marine-marine-main-engine-medium-ay-series-6aym-wet-fig-24-bonnet",
+      "title": "bonnet",
+      "status": "D05 WET assembly table; fit per serial unverified"
+    },
+    "28": {
+      "source": "https://yanmarshop.com/en-GB/catalog/all/servicebom/yanmardata-1310680/yanmar-marine-marine-main-engine-medium-ay-series-6aym-wet-fig-28-camshaft",
+      "title": "camshaft",
+      "status": "D05 WET assembly table; fit per serial unverified"
+    },
+    "29": {
+      "source": "https://yanmarshop.com/en-GB/catalog/all/servicebom/yanmardata-1310690/yanmar-marine-marine-main-engine-medium-ay-series-6aym-wet-fig-29-idle-gear",
+      "title": "idle gear",
+      "status": "D05 WET assembly table; fit per serial unverified"
+    },
+    "30": {
+      "source": "https://yanmarshop.com/en-GB/catalog/all/servicebom/yanmardata-1310699/yanmar-marine-marine-main-engine-medium-ay-series-6aym-wet-fig-30-working-valve-device",
+      "title": "working valve device",
+      "status": "D05 WET assembly table; fit per serial unverified"
+    },
+    "38": {
+      "source": "https://yanmarshop.com/en-GB/catalog/all/servicebom/yanmardata-1310833/yanmar-marine-marine-main-engine-medium-ay-series-6aym-wet-fig-38-crankshaft-flywheel",
+      "title": "crankshaft flywheel",
+      "status": "D05 WET assembly table; fit per serial unverified"
+    }
+  },
+  "rows": [
+    {
+      "ref": "1",
+      "pn": "748620-01705",
+      "name": "BLOCK ASSY, CYLINDER",
+      "catalog_qty": "1",
+      "figure": 1,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "1-1",
+      "pn": "748620-01706",
+      "name": "BLOCK ASSY, CYLINDER",
+      "catalog_qty": "1",
+      "figure": 1,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "5",
+      "pn": "148620-02070",
+      "name": "BOLT",
+      "catalog_qty": "14",
+      "figure": 1,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "6",
+      "pn": "148620-02250",
+      "name": "BOLT",
+      "catalog_qty": "14",
+      "figure": 1,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "7",
+      "pn": "148620-02120",
+      "name": "METAL ASSY, MAIN",
+      "catalog_qty": "7",
+      "figure": 1,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "10",
+      "pn": "748620-02590",
+      "name": "METAL ASSY, THRUST",
+      "catalog_qty": "2",
+      "figure": 1,
+      "matched_internal_nodes": [
+        "INT-MAIN-THRUST-1-1",
+        "INT-MAIN-THRUST-1-2",
+        "INT-MAIN-THRUST-2-1",
+        "INT-MAIN-THRUST-2-2"
+      ],
+      "status": "matched_by_part_number"
+    },
+    {
+      "ref": "12",
+      "pn": "22312-060100",
+      "name": "PIN, PARALLEL M6X10",
+      "catalog_qty": "2",
+      "figure": 1,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "13",
+      "pn": "27241-350000",
+      "name": "PLUG, 35",
+      "catalog_qty": "1",
+      "figure": 1,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "14",
+      "pn": "27241-500000",
+      "name": "PLUG, 50",
+      "catalog_qty": "1",
+      "figure": 1,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "15",
+      "pn": "23876-040000",
+      "name": "PLUG, R04",
+      "catalog_qty": "7",
+      "figure": 1,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "16",
+      "pn": "23876-010000",
+      "name": "PLUG, R01",
+      "catalog_qty": "4",
+      "figure": 1,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "17",
+      "pn": "22312-080100",
+      "name": "PIN, PARALLEL M8X10",
+      "catalog_qty": "12",
+      "figure": 1,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "18",
+      "pn": "148620-01091",
+      "name": "PLUG, M36X2",
+      "catalog_qty": "1",
+      "figure": 1,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "19",
+      "pn": "23414-360000",
+      "name": "GASKET, 36X1.0",
+      "catalog_qty": "1",
+      "figure": 1,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "20",
+      "pn": "22312-120320",
+      "name": "PIN, PARALLEL M12X32",
+      "catalog_qty": "4",
+      "figure": 1,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "21",
+      "pn": "26216-100302",
+      "name": "STUD, M10X 30",
+      "catalog_qty": "2",
+      "figure": 1,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "22",
+      "pn": "23887-200002",
+      "name": "PLUG, 20",
+      "catalog_qty": "1",
+      "figure": 1,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "23",
+      "pn": "23414-200000",
+      "name": "GASKET, 20X1.0",
+      "catalog_qty": "1",
+      "figure": 1,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "24",
+      "pn": "148616-02400",
+      "name": "BEARING, CAMSHAFT",
+      "catalog_qty": "2",
+      "figure": 1,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "25",
+      "pn": "148616-02420",
+      "name": "BEARING, CAMSHAFT",
+      "catalog_qty": "5",
+      "figure": 1,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "25A",
+      "pn": "22312-060080",
+      "name": "PIN, PARALLEL M6X 8",
+      "catalog_qty": "6",
+      "figure": 1,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "26",
+      "pn": "148620-01452",
+      "name": "COVER",
+      "catalog_qty": "1",
+      "figure": 1,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "27",
+      "pn": "148620-01460",
+      "name": "GASKET",
+      "catalog_qty": "1",
+      "figure": 1,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "28",
+      "pn": "26106-100252",
+      "name": "BOLT, M10X 25 PLATED",
+      "catalog_qty": "8",
+      "figure": 1,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "29",
+      "pn": "148620-01390",
+      "name": "COVER",
+      "catalog_qty": "6",
+      "figure": 1,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "31",
+      "pn": "148620-01400",
+      "name": "GASKET",
+      "catalog_qty": "6",
+      "figure": 1,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "32",
+      "pn": "26106-100252",
+      "name": "BOLT, M10X 25 PLATED",
+      "catalog_qty": "24",
+      "figure": 1,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "33",
+      "pn": "26216-121202",
+      "name": "STUD, M12X120",
+      "catalog_qty": "8",
+      "figure": 1,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "34",
+      "pn": "26716-120002",
+      "name": "NUT, M12",
+      "catalog_qty": "8",
+      "figure": 1,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "35",
+      "pn": "22217-120000",
+      "name": "WASHER, SPRING 12",
+      "catalog_qty": "8",
+      "figure": 1,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "36",
+      "pn": "26232-161602",
+      "name": "STUD, M16X160",
+      "catalog_qty": "3",
+      "figure": 1,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "37",
+      "pn": "26232-160402",
+      "name": "STUD, M16X 40",
+      "catalog_qty": "2",
+      "figure": 1,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "38",
+      "pn": "26732-160002",
+      "name": "NUT, M16",
+      "catalog_qty": "5",
+      "figure": 1,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "39",
+      "pn": "148688-54550",
+      "name": "WASHER",
+      "catalog_qty": "5",
+      "figure": 1,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "40",
+      "pn": "23887-120002",
+      "name": "PLUG, 12",
+      "catalog_qty": "1",
+      "figure": 1,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "41",
+      "pn": "23414-120000",
+      "name": "GASKET, 12X1.0",
+      "catalog_qty": "1",
+      "figure": 1,
+      "matched_internal_nodes": [
+        "INT-FUELINJ-11-05",
+        "INT-FUELINJ-11-06",
+        "INT-FUELINJ-21-05",
+        "INT-FUELINJ-21-06",
+        "INT-FUELINJ-31-05",
+        "INT-FUELINJ-31-06",
+        "INT-FUELINJ-41-05",
+        "INT-FUELINJ-41-06",
+        "INT-FUELINJ-51-05",
+        "INT-FUELINJ-51-06",
+        "INT-FUELINJ-61-05",
+        "INT-FUELINJ-61-06"
+      ],
+      "status": "matched_by_part_number"
+    },
+    {
+      "ref": "42",
+      "pn": "23887-180002",
+      "name": "PLUG, 18",
+      "catalog_qty": "2",
+      "figure": 1,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "43",
+      "pn": "23414-180000",
+      "name": "GASKET, 18X1.0",
+      "catalog_qty": "2",
+      "figure": 1,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "44",
+      "pn": "23414-120000",
+      "name": "GASKET, 12X1.0",
+      "catalog_qty": "1",
+      "figure": 1,
+      "matched_internal_nodes": [
+        "INT-FUELINJ-11-05",
+        "INT-FUELINJ-11-06",
+        "INT-FUELINJ-21-05",
+        "INT-FUELINJ-21-06",
+        "INT-FUELINJ-31-05",
+        "INT-FUELINJ-31-06",
+        "INT-FUELINJ-41-05",
+        "INT-FUELINJ-41-06",
+        "INT-FUELINJ-51-05",
+        "INT-FUELINJ-51-06",
+        "INT-FUELINJ-61-05",
+        "INT-FUELINJ-61-06"
+      ],
+      "status": "matched_by_part_number"
+    },
+    {
+      "ref": "45",
+      "pn": "23887-120002",
+      "name": "PLUG, 12",
+      "catalog_qty": "1",
+      "figure": 1,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "46",
+      "pn": "23414-130000",
+      "name": "GASKET, 13X1.0",
+      "catalog_qty": "1",
+      "figure": 1,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "47",
+      "pn": "23897-020002",
+      "name": "PLUG G1/4",
+      "catalog_qty": "1",
+      "figure": 1,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "48",
+      "pn": "23414-170000",
+      "name": "GASKET, 17X1.0",
+      "catalog_qty": "1",
+      "figure": 1,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "49",
+      "pn": "23897-030002",
+      "name": "PLUG G3/8,HEX.",
+      "catalog_qty": "1",
+      "figure": 1,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "50",
+      "pn": "23857-100000",
+      "name": "BOLT, JOINT 10",
+      "catalog_qty": "6",
+      "figure": 1,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "51",
+      "pn": "133670-39340",
+      "name": "BRACKET",
+      "catalog_qty": "6",
+      "figure": 1,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "52",
+      "pn": "148620-39300",
+      "name": "NOZZLE ASSY, COOLING",
+      "catalog_qty": "6",
+      "figure": 1,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "54",
+      "pn": "26911-050052",
+      "name": "SCREW, M5X 5",
+      "catalog_qty": "6",
+      "figure": 1,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "55",
+      "pn": "22312-060120",
+      "name": "PIN, PARALLEL M6X12",
+      "catalog_qty": "6",
+      "figure": 1,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "56",
+      "pn": "748620-02770",
+      "name": "METAL ASSY, MAIN .25",
+      "catalog_qty": "7",
+      "figure": 1,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "59",
+      "pn": "748620-02780",
+      "name": "METAL ASSY, MAIN .50",
+      "catalog_qty": "7",
+      "figure": 1,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "62",
+      "pn": "748620-02950",
+      "name": "METAL ASSY, 0.25 OS",
+      "catalog_qty": "2",
+      "figure": 1,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "64",
+      "pn": "748620-02940",
+      "name": "METAL ASSY, 0.50 OS",
+      "catalog_qty": "2",
+      "figure": 1,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "1",
+      "pn": "748620-01900",
+      "name": "LINER ASSY, CYLINDER",
+      "catalog_qty": "6",
+      "figure": 2,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "3",
+      "pn": "148620-01280",
+      "name": "O-RING",
+      "catalog_qty": "6",
+      "figure": 2,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "4",
+      "pn": "148620-01290",
+      "name": "PACKING, LINER",
+      "catalog_qty": "6",
+      "figure": 2,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "5",
+      "pn": "148620-01300",
+      "name": "GASKET, LINER",
+      "catalog_qty": "12",
+      "figure": 2,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "6",
+      "pn": "148620-01243",
+      "name": "GASKET, HEAD 1.5",
+      "catalog_qty": "6",
+      "figure": 2,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "7",
+      "pn": "24316-570480",
+      "name": "O-RING, 4DP48A",
+      "catalog_qty": "12",
+      "figure": 2,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "1",
+      "pn": "748699-11050",
+      "name": "HEAD ASSY, CYLINDER",
+      "catalog_qty": "6",
+      "figure": 22,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "1-1",
+      "pn": "748699-11051",
+      "name": "HEAD ASSY, CYLINDER",
+      "catalog_qty": "6",
+      "figure": 22,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "1-2",
+      "pn": "748699-11052",
+      "name": "HEAD ASSY, CYLINDER",
+      "catalog_qty": "6",
+      "figure": 22,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "4",
+      "pn": "148620-11070",
+      "name": "SEAT, VALVE",
+      "catalog_qty": "12",
+      "figure": 22,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "4-1",
+      "pn": "148660-11080",
+      "name": "SEAT, SUCTION VALVE",
+      "catalog_qty": "12",
+      "figure": 22,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "5",
+      "pn": "148620-11092",
+      "name": "SEAT, VALVE",
+      "catalog_qty": "12",
+      "figure": 22,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "6",
+      "pn": "148620-11770",
+      "name": "SLEEVE, NOZZLE",
+      "catalog_qty": "6",
+      "figure": 22,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "7",
+      "pn": "146673-11870",
+      "name": "PACKING",
+      "catalog_qty": "6",
+      "figure": 22,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "8",
+      "pn": "148616-11970",
+      "name": "COVER",
+      "catalog_qty": "6",
+      "figure": 22,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "9",
+      "pn": "148616-11981",
+      "name": "GASKET",
+      "catalog_qty": "6",
+      "figure": 22,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "10",
+      "pn": "23876-010000",
+      "name": "PLUG, R01",
+      "catalog_qty": "6",
+      "figure": 22,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "11",
+      "pn": "23876-030000",
+      "name": "PLUG, R03",
+      "catalog_qty": "18",
+      "figure": 22,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "12",
+      "pn": "23876-040000",
+      "name": "PLUG, R04",
+      "catalog_qty": "12",
+      "figure": 22,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "13",
+      "pn": "24326-000400",
+      "name": "O-RING, 4DG40.0",
+      "catalog_qty": "12",
+      "figure": 22,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "14",
+      "pn": "26106-100202",
+      "name": "BOLT, M10X 20 PLATED",
+      "catalog_qty": "12",
+      "figure": 22,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "15",
+      "pn": "27241-250000",
+      "name": "PLUG, 25",
+      "catalog_qty": "6",
+      "figure": 22,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "16",
+      "pn": "27241-300000",
+      "name": "PLUG 30",
+      "catalog_qty": "12",
+      "figure": 22,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "17",
+      "pn": "27241-400000",
+      "name": "PLUG, 40",
+      "catalog_qty": "6",
+      "figure": 22,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "18",
+      "pn": "148620-11110",
+      "name": "VALVE, EXHAUST",
+      "catalog_qty": "12",
+      "figure": 22,
+      "matched_internal_nodes": [
+        "INT-VALVE-150",
+        "INT-VALVE-157",
+        "INT-VALVE-250",
+        "INT-VALVE-257",
+        "INT-VALVE-350",
+        "INT-VALVE-357",
+        "INT-VALVE-450",
+        "INT-VALVE-457",
+        "INT-VALVE-550",
+        "INT-VALVE-557",
+        "INT-VALVE-650",
+        "INT-VALVE-657"
+      ],
+      "status": "matched_by_part_number"
+    },
+    {
+      "ref": "19",
+      "pn": "148628-11140",
+      "name": "SEAL, VALVE STEM",
+      "catalog_qty": "12",
+      "figure": 22,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "20",
+      "pn": "148928-11160",
+      "name": "SEAL, VALVE STEM",
+      "catalog_qty": "12",
+      "figure": 22,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "21",
+      "pn": "148616-11170",
+      "name": "GUIDE, VALVE",
+      "catalog_qty": "12",
+      "figure": 22,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "22",
+      "pn": "148620-11180",
+      "name": "VALVE, SUCTION",
+      "catalog_qty": "12",
+      "figure": 22,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "22-1",
+      "pn": "148660-11100",
+      "name": "VALVE, SUCTION",
+      "catalog_qty": "12",
+      "figure": 22,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "23",
+      "pn": "148633-11190",
+      "name": "COTTER",
+      "catalog_qty": "48",
+      "figure": 22,
+      "matched_internal_nodes": [
+        "INT-VALVE-130-COT1",
+        "INT-VALVE-130-COT2",
+        "INT-VALVE-137-COT1",
+        "INT-VALVE-137-COT2",
+        "INT-VALVE-150-COT1",
+        "INT-VALVE-150-COT2",
+        "INT-VALVE-157-COT1",
+        "INT-VALVE-157-COT2",
+        "INT-VALVE-230-COT1",
+        "INT-VALVE-230-COT2",
+        "INT-VALVE-237-COT1",
+        "INT-VALVE-237-COT2",
+        "INT-VALVE-250-COT1",
+        "INT-VALVE-250-COT2",
+        "INT-VALVE-257-COT1",
+        "INT-VALVE-257-COT2",
+        "INT-VALVE-330-COT1",
+        "INT-VALVE-330-COT2",
+        "INT-VALVE-337-COT1",
+        "INT-VALVE-337-COT2",
+        "INT-VALVE-350-COT1",
+        "INT-VALVE-350-COT2",
+        "INT-VALVE-357-COT1",
+        "INT-VALVE-357-COT2",
+        "INT-VALVE-430-COT1",
+        "INT-VALVE-430-COT2",
+        "INT-VALVE-437-COT1",
+        "INT-VALVE-437-COT2",
+        "INT-VALVE-450-COT1",
+        "INT-VALVE-450-COT2",
+        "INT-VALVE-457-COT1",
+        "INT-VALVE-457-COT2",
+        "INT-VALVE-530-COT1",
+        "INT-VALVE-530-COT2",
+        "INT-VALVE-537-COT1",
+        "INT-VALVE-537-COT2",
+        "INT-VALVE-550-COT1",
+        "INT-VALVE-550-COT2",
+        "INT-VALVE-557-COT1",
+        "INT-VALVE-557-COT2",
+        "INT-VALVE-630-COT1",
+        "INT-VALVE-630-COT2",
+        "INT-VALVE-637-COT1",
+        "INT-VALVE-637-COT2",
+        "INT-VALVE-650-COT1",
+        "INT-VALVE-650-COT2",
+        "INT-VALVE-657-COT1",
+        "INT-VALVE-657-COT2"
+      ],
+      "status": "matched_by_part_number"
+    },
+    {
+      "ref": "24",
+      "pn": "148620-11460",
+      "name": "SPRING, VALVE",
+      "catalog_qty": "12",
+      "figure": 22,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "25",
+      "pn": "148660-11460",
+      "name": "SPRING, VALVE",
+      "catalog_qty": "12",
+      "figure": 22,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "26",
+      "pn": "148620-11470",
+      "name": "SPRING, VALVE",
+      "catalog_qty": "12",
+      "figure": 22,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "27",
+      "pn": "148660-11470",
+      "name": "SPRING, VALVE",
+      "catalog_qty": "12",
+      "figure": 22,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "28",
+      "pn": "148620-11530",
+      "name": "GUIDE, BRIDGE",
+      "catalog_qty": "12",
+      "figure": 22,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "29",
+      "pn": "148928-11650",
+      "name": "GUIDE, VALVE",
+      "catalog_qty": "12",
+      "figure": 22,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "30",
+      "pn": "175149-11701",
+      "name": "ROTATOR, VALVE",
+      "catalog_qty": "24",
+      "figure": 22,
+      "matched_internal_nodes": [
+        "INT-VALVE-131",
+        "INT-VALVE-138",
+        "INT-VALVE-151",
+        "INT-VALVE-158",
+        "INT-VALVE-231",
+        "INT-VALVE-238",
+        "INT-VALVE-251",
+        "INT-VALVE-258",
+        "INT-VALVE-331",
+        "INT-VALVE-338",
+        "INT-VALVE-351",
+        "INT-VALVE-358",
+        "INT-VALVE-431",
+        "INT-VALVE-438",
+        "INT-VALVE-451",
+        "INT-VALVE-458",
+        "INT-VALVE-531",
+        "INT-VALVE-538",
+        "INT-VALVE-551",
+        "INT-VALVE-558",
+        "INT-VALVE-631",
+        "INT-VALVE-638",
+        "INT-VALVE-651",
+        "INT-VALVE-658"
+      ],
+      "status": "matched_by_part_number"
+    },
+    {
+      "ref": "31",
+      "pn": "148620-11911",
+      "name": "STUD",
+      "catalog_qty": "6",
+      "figure": 22,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "32",
+      "pn": "22312-080100",
+      "name": "PIN, PARALLEL M8X10",
+      "catalog_qty": "12",
+      "figure": 22,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "33",
+      "pn": "148620-11800",
+      "name": "BOLT, HEAD",
+      "catalog_qty": "36",
+      "figure": 22,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "33-1",
+      "pn": "148620-11801",
+      "name": "BOLT, CYLINDER HEAD",
+      "catalog_qty": "36",
+      "figure": 22,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "34",
+      "pn": "148620-11820",
+      "name": "WASHER",
+      "catalog_qty": "36",
+      "figure": 22,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "34-1",
+      "pn": "148620-11821",
+      "name": "WASHER",
+      "catalog_qty": "36",
+      "figure": 22,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "35",
+      "pn": "148620-11901",
+      "name": "RETAINER, VALVE",
+      "catalog_qty": "6",
+      "figure": 22,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "36",
+      "pn": "148610-11930",
+      "name": "GASKET, T=3.0",
+      "catalog_qty": "6",
+      "figure": 22,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "37",
+      "pn": "140623-53360",
+      "name": "WASHER",
+      "catalog_qty": "6",
+      "figure": 22,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "38",
+      "pn": "26602-140002",
+      "name": "NUT, M14",
+      "catalog_qty": "6",
+      "figure": 22,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "1",
+      "pn": "748960-11151",
+      "name": "ARM ASSY, ROCKER",
+      "catalog_qty": "6",
+      "figure": 23,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "2",
+      "pn": "748960-11871",
+      "name": "ARM ASSY, ROCKER",
+      "catalog_qty": "6",
+      "figure": 23,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "4",
+      "pn": "148960-11221",
+      "name": "BUSH",
+      "catalog_qty": "6",
+      "figure": 23,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "5",
+      "pn": "148616-11230",
+      "name": "SCREW, VALVE ADJUST",
+      "catalog_qty": "6",
+      "figure": 23,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "6",
+      "pn": "26692-140002",
+      "name": "NUT, LOCK M14",
+      "catalog_qty": "6",
+      "figure": 23,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "8",
+      "pn": "748960-11881",
+      "name": "ARM ASSY, ROCKER",
+      "catalog_qty": "6",
+      "figure": 23,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "10",
+      "pn": "148960-11221",
+      "name": "BUSH",
+      "catalog_qty": "6",
+      "figure": 23,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "11",
+      "pn": "148616-11230",
+      "name": "SCREW, VALVE ADJUST",
+      "catalog_qty": "6",
+      "figure": 23,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "12",
+      "pn": "26692-140002",
+      "name": "NUT, LOCK M14",
+      "catalog_qty": "6",
+      "figure": 23,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "14",
+      "pn": "748960-11891",
+      "name": "SHAFT CMP, ROCKERARM",
+      "catalog_qty": "6",
+      "figure": 23,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "16",
+      "pn": "23876-005000",
+      "name": "PLUG, R005",
+      "catalog_qty": "6",
+      "figure": 23,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "17",
+      "pn": "22242-000320",
+      "name": "RING,  32",
+      "catalog_qty": "6",
+      "figure": 23,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "18",
+      "pn": "148620-11260",
+      "name": "SUPPORT",
+      "catalog_qty": "6",
+      "figure": 23,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "19",
+      "pn": "748620-11261",
+      "name": "BRIDGE ASSY, VALVE",
+      "catalog_qty": "12",
+      "figure": 23,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "21",
+      "pn": "140623-11740",
+      "name": "RETAINER",
+      "catalog_qty": "12",
+      "figure": 23,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "22",
+      "pn": "148616-11520",
+      "name": "SCREW",
+      "catalog_qty": "12",
+      "figure": 23,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "23",
+      "pn": "26776-120002",
+      "name": "NUT, LOCK M12",
+      "catalog_qty": "12",
+      "figure": 23,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "24",
+      "pn": "148620-11272",
+      "name": "BOLT",
+      "catalog_qty": "6",
+      "figure": 23,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "25",
+      "pn": "148620-11290",
+      "name": "BOLT",
+      "catalog_qty": "6",
+      "figure": 23,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "26",
+      "pn": "148960-11280",
+      "name": "BOLT",
+      "catalog_qty": "6",
+      "figure": 23,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "1",
+      "pn": "148620-11304",
+      "name": "HOUSING, ROCKER ARM",
+      "catalog_qty": "6",
+      "figure": 24,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "2",
+      "pn": "148620-11701",
+      "name": "GASKET, HOUSING",
+      "catalog_qty": "6",
+      "figure": 24,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "3",
+      "pn": "26106-080302",
+      "name": "BOLT, M8X 30 PLATED",
+      "catalog_qty": "6",
+      "figure": 24,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "4",
+      "pn": "26116-120902",
+      "name": "BOLT, M12X 90 PLATED",
+      "catalog_qty": "18",
+      "figure": 24,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "5",
+      "pn": "26106-080852",
+      "name": "BOLT, M8X 85 PLATED",
+      "catalog_qty": "12",
+      "figure": 24,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "6",
+      "pn": "26106-081052",
+      "name": "BOLT, M8X105 PLATED",
+      "catalog_qty": "12",
+      "figure": 24,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "7",
+      "pn": "22117-120000",
+      "name": "WASHER, 12",
+      "catalog_qty": "18",
+      "figure": 24,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "8",
+      "pn": "748960-11310",
+      "name": "BONNET ASSY, HEAD",
+      "catalog_qty": "6",
+      "figure": 24,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "9",
+      "pn": "22242-000160",
+      "name": "RING,  16",
+      "catalog_qty": "6",
+      "figure": 24,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "12",
+      "pn": "148628-11330",
+      "name": "GASKET, BONNET",
+      "catalog_qty": "6",
+      "figure": 24,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "13",
+      "pn": "148620-11441",
+      "name": "BOLT",
+      "catalog_qty": "6",
+      "figure": 24,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "14",
+      "pn": "22190-160001",
+      "name": "WASHER, SEAL 16",
+      "catalog_qty": "6",
+      "figure": 24,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "1",
+      "pn": "148699-14140",
+      "name": "CAMSHAFT",
+      "catalog_qty": "1",
+      "figure": 28,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "2",
+      "pn": "148620-14101",
+      "name": "GEAR, CAMSHAFT",
+      "catalog_qty": "1",
+      "figure": 28,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "3",
+      "pn": "148616-14320",
+      "name": "RETAINER",
+      "catalog_qty": "1",
+      "figure": 28,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "4",
+      "pn": "148616-14330",
+      "name": "WASHER",
+      "catalog_qty": "1",
+      "figure": 28,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "5",
+      "pn": "26106-080202",
+      "name": "BOLT, M8X 20 PLATED",
+      "catalog_qty": "4",
+      "figure": 28,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "6",
+      "pn": "26156-200402",
+      "name": "BOLT, M20X 40 PLATED",
+      "catalog_qty": "1",
+      "figure": 28,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "7",
+      "pn": "22512-120450",
+      "name": "KEY, 12X 45",
+      "catalog_qty": "1",
+      "figure": 28,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "8",
+      "pn": "148660-14750",
+      "name": "GEAR, CAMSHAFT",
+      "catalog_qty": "1",
+      "figure": 28,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "9",
+      "pn": "26156-120202",
+      "name": "BOLT, M12X 20 PLATED",
+      "catalog_qty": "4",
+      "figure": 28,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "1",
+      "pn": "148620-14900",
+      "name": "GEAR ASSY, IDLE",
+      "catalog_qty": "1",
+      "figure": 29,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "4",
+      "pn": "148620-14710",
+      "name": "BUSH",
+      "catalog_qty": "1",
+      "figure": 29,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "5",
+      "pn": "148620-14721",
+      "name": "BRACKET",
+      "catalog_qty": "1",
+      "figure": 29,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "6",
+      "pn": "148620-14730",
+      "name": "PLATE",
+      "catalog_qty": "1",
+      "figure": 29,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "7",
+      "pn": "22312-040120",
+      "name": "PIN, PARALLEL M4X12",
+      "catalog_qty": "1",
+      "figure": 29,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "8",
+      "pn": "152623-14740",
+      "name": "WASHER",
+      "catalog_qty": "1",
+      "figure": 29,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "9",
+      "pn": "26152-180252",
+      "name": "BOLT, M18X 25",
+      "catalog_qty": "1",
+      "figure": 29,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "10",
+      "pn": "26156-140302",
+      "name": "BOLT, M14X 30 PLATED",
+      "catalog_qty": "4",
+      "figure": 29,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "1",
+      "pn": "130618-14200",
+      "name": "TEPPET",
+      "catalog_qty": "12",
+      "figure": 30,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "2",
+      "pn": "148620-14460",
+      "name": "ROD ASSY, PUSH",
+      "catalog_qty": "12",
+      "figure": 30,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "1",
+      "pn": "148620-21150",
+      "name": "CRANKSHAFT ASSY",
+      "catalog_qty": "1",
+      "figure": 38,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "1B",
+      "pn": "148640-21140",
+      "name": "CRANKSHAFT ASSY",
+      "catalog_qty": "1",
+      "figure": 38,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "1C",
+      "pn": "148640-21150",
+      "name": "CRANKSHAFT ASSY",
+      "catalog_qty": "1",
+      "figure": 38,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "1D",
+      "pn": "148640-21160",
+      "name": "CRANKSHAFT ASSY",
+      "catalog_qty": "1",
+      "figure": 38,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "1E",
+      "pn": "148640-21170",
+      "name": "CRANKSHAFT ASSY",
+      "catalog_qty": "1",
+      "figure": 38,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "1F",
+      "pn": "148640-21180",
+      "name": "CRANKSHAFT ASSY",
+      "catalog_qty": "1",
+      "figure": 38,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "1G",
+      "pn": "148640-21190",
+      "name": "CRANKSHAFT ASSY",
+      "catalog_qty": "1",
+      "figure": 38,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "3",
+      "pn": "148620-21201",
+      "name": "GEAR, CRANKSHAFT",
+      "catalog_qty": "1",
+      "figure": 38,
+      "matched_internal_nodes": [
+        "INT-TIMING-01"
+      ],
+      "status": "matched_by_part_number"
+    },
+    {
+      "ref": "4",
+      "pn": "121850-21920",
+      "name": "PIN, M10X22",
+      "catalog_qty": "1",
+      "figure": 38,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "5",
+      "pn": "22312-060060",
+      "name": "PIN, PARALLEL M6X 6",
+      "catalog_qty": "1",
+      "figure": 38,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "6",
+      "pn": "148620-21350",
+      "name": "FLYWHEEL ASSY",
+      "catalog_qty": "1",
+      "figure": 38,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "8",
+      "pn": "133670-21600",
+      "name": "GEAR,RING",
+      "catalog_qty": "1",
+      "figure": 38,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    },
+    {
+      "ref": "9",
+      "pn": "152673-21500",
+      "name": "BOLT,FLYWHEEL",
+      "catalog_qty": "12",
+      "figure": 38,
+      "matched_internal_nodes": [],
+      "status": "not_individually_matched"
+    }
+  ],
+  "conclusions": [
+    "D05 Fig.22 lists 48 cotters, 24 rotators and four spring rows of 12. D01 PDF 89–90 shows an inner and an outer spring and stem groove/cotters. All 24 valve trains received 2 selectable cotter halves and the second coil. Seat rotator units are now annular with cone clearances. Internal rotator ball geometry is not published here. Individual spring position→part-number assignment stays unverified.",
+    "D01 PDF89 gives installed lengths 47 mm (inside) and 50 mm (outside). Wire gauge and free coil turn count are estimates. The kinematic parent for both coils follows valve_train; sampled lift is educational.",
+    "D01 PDF104 shows a set of two semicircular thrust bearings on both faces of the flywheel-end cap. D05 Fig.1 #10 lists 2 sets. The four half models carry the parent set PN. Camshaft has seven bushing stations, D05 Fig.1 items 24/25 have different PNs; assignment to individual journals stays open.",
+    "Verified input figures also include (2) liners/gaskets, (23) rocker arms, (24) bonnets, (28) cam, (29) idler and (30) tappet. Some pieces are joined to casts or pictured only as schematic surfaces. Individual gasket passage pattern, locknuts, plugs, fixings, oversize bearing options, and undimensioned casting galleries are not certified by this work.",
+    "Injector top hex of r02 was a proxy with unverified identity. The r03 cap at the top is now identified via D01 service section and D05 Fig79 ref19. The side entry to high-pressure fuel remains separately represented. Stable ID *2 is an identifier migration and not evidence of an unchanged physical part."
+  ],
+  "scope": "Part-number matches are pointers, not claims of dossier completeness or OEM dimensional equivalence. Rows without matching PNs may have observed geometry without PN."
+}

@@ -1,0 +1,58 @@
+{
+  "target": "all",
+  "python": "3.12.14",
+  "commands": [
+    {
+      "name": "water",
+      "exit": 0,
+      "elapsed_seconds": 0.05
+    },
+    {
+      "name": "routes",
+      "exit": 0,
+      "elapsed_seconds": 0.06
+    },
+    {
+      "name": "route-coverage",
+      "exit": 0,
+      "elapsed_seconds": 0.02
+    },
+    {
+      "name": "internal",
+      "exit": 0,
+      "elapsed_seconds": 10.71
+    },
+    {
+      "name": "exterior",
+      "exit": 0,
+      "elapsed_seconds": 77.91
+    },
+    {
+      "name": "motion",
+      "exit": 0,
+      "elapsed_seconds": 0.35
+    },
+    {
+      "name": "functions",
+      "exit": 0,
+      "elapsed_seconds": 0.14
+    }
+  ],
+  "layers": {
+    "internal": {
+      "mesh_count": 705,
+      "sha256": "526ce37f126203eb288388dbd7922dd85749b19ddf8ef82ee5bfcf9d472ec8f5",
+      "same_glb_bytes_as_review": true
+    },
+    "exterior": {
+      "mesh_count": 479,
+      "sha256": "4d4b506f3c45a72449209d88247d2c78a39d2e48920d3b500b90c10c2b6e5ab7",
+      "same_glb_bytes_as_review": false
+    }
+  },
+  "blender": "Blender 4.3.2",
+  "routes": 164,
+  "mesh_count": 1184,
+  "assembly_recipes": 78,
+  "status": "passed"
+}

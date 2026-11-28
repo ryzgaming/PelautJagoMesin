@@ -1,0 +1,138 @@
+{
+  "id": "RAK-OIL-FILTER-1",
+  "nama": "Cartridge oli utama 1",
+  "node_rakitan": "RAK-OIL-FILTER-1",
+  "parent_rakitan": "RAK-LUBE",
+  "acuan": {
+    "no": 1,
+    "object_ids": [
+      "EXT-LUBE-02"
+    ]
+  },
+  "diagram": {
+    "arah_pandang": [
+      0.55,
+      0.22,
+      -0.82
+    ],
+    "atas": [
+      0,
+      1,
+      0
+    ]
+  },
+  "bagian": [
+    {
+      "no": 1,
+      "nama": "Cangkang cartridge oli 1",
+      "object_ids": [
+        "EXT-LUBE-02"
+      ],
+      "posisi": [],
+      "sumber": [
+        "D01 PDF 159 printed p155 / Lubricating oil filter; cartridge replacement",
+        "D05 Parts Catalog 0CG10-M34300 / Figs.45/46 WET, cartridge position 3, alternative 3-1",
+        "P17 / external pair of hanging oil filters"
+      ],
+      "fungsi": "Rumah cartridge mengelilingi media oli. PN 148633-35400 dan 148620-35400 adalah alternatif untuk cartridge utuh; cangkang tidak memiliki PN terpisah.",
+      "status": "ESTIMATED",
+      "role": "shell",
+      "nomor_oem": null,
+      "ukuran": null
+    },
+    {
+      "no": 2,
+      "nama": "Media lipat cartridge · ilustrasi",
+      "object_ids": [
+        "EXT-LUBE-20"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-LUBE-20",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.29,
+          "urutan": 1
+        }
+      ],
+      "sumber": [
+        "D01 PDF 159 printed p155 / Lubricating oil filter; cartridge replacement",
+        "D05 Parts Catalog 0CG10-M34300 / Figs.45/46 WET, cartridge position 3, alternative 3-1",
+        "P17 / external pair of hanging oil filters"
+      ],
+      "fungsi": "Media menahan partikel saat oli melewatinya. Lipatan dan bahan model merupakan ilustrasi, elemen tidak tercantum sebagai suku cadang terpisah.",
+      "status": "ILLUSTRATIVE",
+      "role": "core",
+      "nomor_oem": null,
+      "ukuran": null
+    },
+    {
+      "no": 3,
+      "nama": "Penyangga tengah · ilustrasi",
+      "object_ids": [
+        "EXT-LUBE-21"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-LUBE-21",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.5,
+          "urutan": 2
+        }
+      ],
+      "sumber": [
+        "D01 PDF 159 printed p155 / Lubricating oil filter; cartridge replacement",
+        "D05 Parts Catalog 0CG10-M34300 / Figs.45/46 WET, cartridge position 3, alternative 3-1",
+        "P17 / external pair of hanging oil filters"
+      ],
+      "fungsi": "Model penyangga menunjukkan arah aliran menuju inti. Pola bukaan dan bentuk tidak terverifikasi.",
+      "status": "ILLUSTRATIVE",
+      "role": "support",
+      "nomor_oem": null,
+      "ukuran": null
+    },
+    {
+      "no": 4,
+      "nama": "Pelat sambungan dan seal cartridge",
+      "object_ids": [
+        "EXT-LUBE-22"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-LUBE-22",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.68,
+          "urutan": 3
+        }
+      ],
+      "sumber": [
+        "D01 PDF 159 printed p155 / Lubricating oil filter; cartridge replacement",
+        "D05 Parts Catalog 0CG10-M34300 / Figs.45/46 WET, cartridge position 3, alternative 3-1",
+        "P17 / external pair of hanging oil filters"
+      ],
+      "fungsi": "Pelat pemasangan dan ring dudukan divisualkan sebagai satu kelompok dari tampak cartridge terlepas D01.",
+      "status": "ILLUSTRATIVE",
+      "role": "seal",
+      "nomor_oem": null,
+      "ukuran": null
+    }
+  ],
+  "notes": "Fig.45/46 memberikan cartridge pengganti sebagai satu unit servis. Penampang edukasi menunjukkan media dan penyangga, bukan BOM bagian lepas. Detail bahan, lipatan atau lubang pabrik tidak tersedia.",
+  "source_refs": [
+    "D01 PDF 159 printed p155 / Lubricating oil filter; cartridge replacement",
+    "D05 Parts Catalog 0CG10-M34300 / Figs.45/46 WET, cartridge position 3, alternative 3-1",
+    "P17 / external pair of hanging oil filters"
+  ],
+  "status": "UNVERIFIED"
+}

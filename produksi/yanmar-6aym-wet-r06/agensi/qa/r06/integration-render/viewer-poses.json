@@ -1,0 +1,4063 @@
+{
+  "diagnosis": "Poses exported by viewer logic with Three r128 and a renderer stub. Blender uses these poses for a separate static geometry check.",
+  "exterior_sha256": "153c7f88e907a9832d11cd05ad4f822332aae1667506cc1a902dbefa648a67ad",
+  "internal_sha256": "4b69ad9975928cfa80be62ddc7c6a1c5caa241900bd3aef299081c1e6406ae05",
+  "poses": [
+    {
+      "scope": "RAK-AIRCOOLER",
+      "kind": "xray",
+      "core": "EXT-INTAKE-08",
+      "pickedRay": "EXT-INTAKE-08",
+      "position": [
+        -1.1429528794996209,
+        1.111217012170104,
+        -0.8065307017100408
+      ],
+      "target": [
+        -0.15799999237060547,
+        0.6965000070631504,
+        -0.0729999989271164
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "EXT-INTAKE-02",
+        "EXT-INTAKE-06",
+        "EXT-INTAKE-07",
+        "EXT-INTAKE-08",
+        "EXT-INTAKE-09",
+        "EXT-INTAKE-10",
+        "EXT-INTAKE-11",
+        "EXT-INTAKE-12",
+        "EXT-INTAKE-13",
+        "EXT-INTAKE-14",
+        "EXT-INTAKE-15",
+        "EXT-INTAKE-16"
+      ],
+      "shells": [
+        "EXT-INTAKE-02",
+        "EXT-INTAKE-06",
+        "EXT-INTAKE-07"
+      ]
+    },
+    {
+      "scope": "RAK-AIRCOOLER",
+      "kind": "cutaway",
+      "core": "EXT-INTAKE-08",
+      "pickedRay": "EXT-INTAKE-08",
+      "position": [
+        -1.1429528794996209,
+        1.111217012170104,
+        -0.8065307017100408
+      ],
+      "target": [
+        -0.15799999237060547,
+        0.6965000070631504,
+        -0.0729999989271164
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "EXT-INTAKE-02",
+        "EXT-INTAKE-06",
+        "EXT-INTAKE-07",
+        "EXT-INTAKE-08",
+        "EXT-INTAKE-09",
+        "EXT-INTAKE-10",
+        "EXT-INTAKE-11",
+        "EXT-INTAKE-12",
+        "EXT-INTAKE-13",
+        "EXT-INTAKE-14",
+        "EXT-INTAKE-15",
+        "EXT-INTAKE-16"
+      ],
+      "shells": [
+        "EXT-INTAKE-02",
+        "EXT-INTAKE-06",
+        "EXT-INTAKE-07"
+      ],
+      "plane": {
+        "normal": [
+          0.9270954882968699,
+          -0.3748252333816231,
+          0
+        ],
+        "constant": 0.41373147130009486
+      }
+    },
+    {
+      "scope": "RAK-ALTERNATOR",
+      "kind": "xray",
+      "core": "EXT-ELECTRIC-20",
+      "pickedRay": "EXT-ELECTRIC-20",
+      "position": [
+        1.628092392753058,
+        0.4825077243962401,
+        -0.8184206035414137
+      ],
+      "target": [
+        1.3860000371932983,
+        0.2749999910593033,
+        -0.3399999961256981
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "EXT-ELECTRIC-01",
+        "EXT-ELECTRIC-20",
+        "EXT-ELECTRIC-21",
+        "EXT-ELECTRIC-22",
+        "EXT-ELECTRIC-23",
+        "EXT-ELECTRIC-24",
+        "EXT-ELECTRIC-25",
+        "EXT-ELECTRIC-26",
+        "EXT-ELECTRIC-27",
+        "EXT-ELECTRIC-28",
+        "EXT-ELECTRIC-29"
+      ],
+      "shells": [
+        "EXT-ELECTRIC-01"
+      ]
+    },
+    {
+      "scope": "RAK-ALTERNATOR",
+      "kind": "cutaway",
+      "core": "EXT-ELECTRIC-20",
+      "pickedRay": "EXT-ELECTRIC-20",
+      "position": [
+        1.628092392753058,
+        0.4825077243962401,
+        -0.8184206035414137
+      ],
+      "target": [
+        1.3860000371932983,
+        0.2749999910593033,
+        -0.3399999961256981
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "EXT-ELECTRIC-01",
+        "EXT-ELECTRIC-20",
+        "EXT-ELECTRIC-21",
+        "EXT-ELECTRIC-22",
+        "EXT-ELECTRIC-23",
+        "EXT-ELECTRIC-24",
+        "EXT-ELECTRIC-25",
+        "EXT-ELECTRIC-26",
+        "EXT-ELECTRIC-27",
+        "EXT-ELECTRIC-28",
+        "EXT-ELECTRIC-29"
+      ],
+      "shells": [
+        "EXT-ELECTRIC-01"
+      ],
+      "plane": {
+        "normal": [
+          -0.49127165845914417,
+          0,
+          0.8710064050251307
+        ],
+        "constant": 0.9634118859298653
+      }
+    },
+    {
+      "scope": "RAK-BONNET-1",
+      "kind": "xray",
+      "core": "EXT-HEADS-61",
+      "pickedRay": "EXT-HEADS-61",
+      "position": [
+        0.5612799191251141,
+        1.0959074540520406,
+        -0.5636478724121637
+      ],
+      "target": [
+        0.20899999886751175,
+        0.680999992415309,
+        0
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "EXT-HEADS-07",
+        "EXT-HEADS-31",
+        "EXT-HEADS-41",
+        "EXT-HEADS-51",
+        "EXT-HEADS-61"
+      ],
+      "shells": [
+        "EXT-HEADS-07"
+      ]
+    },
+    {
+      "scope": "RAK-BONNET-1",
+      "kind": "cutaway",
+      "core": "EXT-HEADS-61",
+      "pickedRay": "EXT-HEADS-61",
+      "position": [
+        0.5612799191251141,
+        1.0959074540520406,
+        -0.5636478724121637
+      ],
+      "target": [
+        0.20899999886751175,
+        0.680999992415309,
+        0
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "EXT-HEADS-07",
+        "EXT-HEADS-31",
+        "EXT-HEADS-41",
+        "EXT-HEADS-51",
+        "EXT-HEADS-61"
+      ],
+      "shells": [
+        "EXT-HEADS-07"
+      ],
+      "plane": {
+        "normal": [
+          -0.641373108687119,
+          -0.7672291283919171,
+          0
+        ],
+        "constant": 0.6515430173093679
+      }
+    },
+    {
+      "scope": "RAK-BONNET-2",
+      "kind": "xray",
+      "core": "EXT-HEADS-62",
+      "pickedRay": "EXT-HEADS-62",
+      "position": [
+        0.7612799346100692,
+        1.095907460004697,
+        -0.5636478804987912
+      ],
+      "target": [
+        0.4090000092983246,
+        0.680999992415309,
+        0
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "EXT-HEADS-08",
+        "EXT-HEADS-32",
+        "EXT-HEADS-42",
+        "EXT-HEADS-52",
+        "EXT-HEADS-62"
+      ],
+      "shells": [
+        "EXT-HEADS-08"
+      ]
+    },
+    {
+      "scope": "RAK-BONNET-2",
+      "kind": "cutaway",
+      "core": "EXT-HEADS-62",
+      "pickedRay": "EXT-HEADS-62",
+      "position": [
+        0.7612799346100692,
+        1.095907460004697,
+        -0.5636478804987912
+      ],
+      "target": [
+        0.4090000092983246,
+        0.680999992415309,
+        0
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "EXT-HEADS-08",
+        "EXT-HEADS-32",
+        "EXT-HEADS-42",
+        "EXT-HEADS-52",
+        "EXT-HEADS-62"
+      ],
+      "shells": [
+        "EXT-HEADS-08"
+      ],
+      "plane": {
+        "normal": [
+          -0.6413731087706663,
+          -0.767229128322075,
+          0
+        ],
+        "constant": 0.779817645723897
+      }
+    },
+    {
+      "scope": "RAK-BONNET-3",
+      "kind": "xray",
+      "core": "EXT-HEADS-63",
+      "pickedRay": "EXT-HEADS-63",
+      "position": [
+        0.9612799226891402,
+        1.095907460004697,
+        -0.5636478804987912
+      ],
+      "target": [
+        0.6089999973773956,
+        0.680999992415309,
+        0
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "EXT-HEADS-09",
+        "EXT-HEADS-33",
+        "EXT-HEADS-43",
+        "EXT-HEADS-53",
+        "EXT-HEADS-63"
+      ],
+      "shells": [
+        "EXT-HEADS-09"
+      ]
+    },
+    {
+      "scope": "RAK-BONNET-3",
+      "kind": "cutaway",
+      "core": "EXT-HEADS-63",
+      "pickedRay": "EXT-HEADS-63",
+      "position": [
+        0.9612799226891402,
+        1.095907460004697,
+        -0.5636478804987912
+      ],
+      "target": [
+        0.6089999973773956,
+        0.680999992415309,
+        0
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "EXT-HEADS-09",
+        "EXT-HEADS-33",
+        "EXT-HEADS-43",
+        "EXT-HEADS-53",
+        "EXT-HEADS-63"
+      ],
+      "shells": [
+        "EXT-HEADS-09"
+      ],
+      "plane": {
+        "normal": [
+          -0.6413731087706663,
+          -0.767229128322075,
+          0
+        ],
+        "constant": 0.9080922598322669
+      }
+    },
+    {
+      "scope": "RAK-BONNET-4",
+      "kind": "xray",
+      "core": "EXT-HEADS-64",
+      "pickedRay": "EXT-HEADS-64",
+      "position": [
+        1.1612799107682112,
+        1.095907460004697,
+        -0.5636478804987912
+      ],
+      "target": [
+        0.8089999854564667,
+        0.680999992415309,
+        0
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "EXT-HEADS-10",
+        "EXT-HEADS-34",
+        "EXT-HEADS-44",
+        "EXT-HEADS-54",
+        "EXT-HEADS-64"
+      ],
+      "shells": [
+        "EXT-HEADS-10"
+      ]
+    },
+    {
+      "scope": "RAK-BONNET-4",
+      "kind": "cutaway",
+      "core": "EXT-HEADS-64",
+      "pickedRay": "EXT-HEADS-64",
+      "position": [
+        1.1612799107682112,
+        1.095907460004697,
+        -0.5636478804987912
+      ],
+      "target": [
+        0.8089999854564667,
+        0.680999992415309,
+        0
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "EXT-HEADS-10",
+        "EXT-HEADS-34",
+        "EXT-HEADS-44",
+        "EXT-HEADS-54",
+        "EXT-HEADS-64"
+      ],
+      "shells": [
+        "EXT-HEADS-10"
+      ],
+      "plane": {
+        "normal": [
+          -0.6413731087706663,
+          -0.767229128322075,
+          0
+        ],
+        "constant": 1.0363668739406369
+      }
+    },
+    {
+      "scope": "RAK-BONNET-5",
+      "kind": "xray",
+      "core": "EXT-HEADS-65",
+      "pickedRay": "EXT-HEADS-65",
+      "position": [
+        1.3612798988472823,
+        1.095907460004697,
+        -0.5636478804987912
+      ],
+      "target": [
+        1.0089999735355377,
+        0.680999992415309,
+        0
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "EXT-HEADS-11",
+        "EXT-HEADS-35",
+        "EXT-HEADS-45",
+        "EXT-HEADS-55",
+        "EXT-HEADS-65"
+      ],
+      "shells": [
+        "EXT-HEADS-11"
+      ]
+    },
+    {
+      "scope": "RAK-BONNET-5",
+      "kind": "cutaway",
+      "core": "EXT-HEADS-65",
+      "pickedRay": "EXT-HEADS-65",
+      "position": [
+        1.3612798988472823,
+        1.095907460004697,
+        -0.5636478804987912
+      ],
+      "target": [
+        1.0089999735355377,
+        0.680999992415309,
+        0
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "EXT-HEADS-11",
+        "EXT-HEADS-35",
+        "EXT-HEADS-45",
+        "EXT-HEADS-55",
+        "EXT-HEADS-65"
+      ],
+      "shells": [
+        "EXT-HEADS-11"
+      ],
+      "plane": {
+        "normal": [
+          -0.6413731087706663,
+          -0.767229128322075,
+          0
+        ],
+        "constant": 1.164641488049007
+      }
+    },
+    {
+      "scope": "RAK-BONNET-6",
+      "kind": "xray",
+      "core": "EXT-HEADS-66",
+      "pickedRay": "EXT-HEADS-66",
+      "position": [
+        1.5612798560789694,
+        1.0959073885728208,
+        -0.5636477834592611
+      ],
+      "target": [
+        1.2089999914169312,
+        0.680999992415309,
+        0
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "EXT-HEADS-12",
+        "EXT-HEADS-36",
+        "EXT-HEADS-46",
+        "EXT-HEADS-56",
+        "EXT-HEADS-66"
+      ],
+      "shells": [
+        "EXT-HEADS-12"
+      ]
+    },
+    {
+      "scope": "RAK-BONNET-6",
+      "kind": "cutaway",
+      "core": "EXT-HEADS-66",
+      "pickedRay": "EXT-HEADS-66",
+      "position": [
+        1.5612798560789694,
+        1.0959073885728208,
+        -0.5636477834592611
+      ],
+      "target": [
+        1.2089999914169312,
+        0.680999992415309,
+        0
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "EXT-HEADS-12",
+        "EXT-HEADS-36",
+        "EXT-HEADS-46",
+        "EXT-HEADS-56",
+        "EXT-HEADS-66"
+      ],
+      "shells": [
+        "EXT-HEADS-12"
+      ],
+      "plane": {
+        "normal": [
+          -0.6413731077680996,
+          -0.7672291291601808,
+          0
+        ],
+        "constant": 1.2929161206249842
+      }
+    },
+    {
+      "scope": "RAK-BYPASS-ROTOR",
+      "kind": "xray",
+      "core": "EXT-LUBE-32",
+      "pickedRay": "EXT-LUBE-32",
+      "position": [
+        0.94808138643522,
+        0.19388255515933114,
+        -0.030357704786667772
+      ],
+      "target": [
+        0.6439999938011169,
+        0.07224999810568988,
+        0.4230000078678131
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "EXT-LUBE-04",
+        "EXT-LUBE-30",
+        "EXT-LUBE-31",
+        "EXT-LUBE-32",
+        "EXT-LUBE-33",
+        "EXT-LUBE-34",
+        "EXT-LUBE-35",
+        "EXT-LUBE-36",
+        "EXT-LUBE-37"
+      ],
+      "shells": [
+        "EXT-LUBE-04"
+      ]
+    },
+    {
+      "scope": "RAK-BYPASS-ROTOR",
+      "kind": "cutaway",
+      "core": "EXT-LUBE-32",
+      "pickedRay": "EXT-LUBE-32",
+      "position": [
+        0.94808138643522,
+        0.19388255515933114,
+        -0.030357704786667772
+      ],
+      "target": [
+        0.6439999938011169,
+        0.07224999810568988,
+        0.4230000078678131
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "EXT-LUBE-04",
+        "EXT-LUBE-30",
+        "EXT-LUBE-31",
+        "EXT-LUBE-32",
+        "EXT-LUBE-33",
+        "EXT-LUBE-34",
+        "EXT-LUBE-35",
+        "EXT-LUBE-36",
+        "EXT-LUBE-37"
+      ],
+      "shells": [
+        "EXT-LUBE-04"
+      ],
+      "plane": {
+        "normal": [
+          -0.5570352185371564,
+          0,
+          0.8304888712735785
+        ],
+        "constant": 0.007433878202077637
+      }
+    },
+    {
+      "scope": "RAK-COOLANT-PUMP",
+      "kind": "xray",
+      "core": "EXT-COOLING-20",
+      "pickedRay": "EXT-COOLING-20",
+      "position": [
+        1.948886024341059,
+        0.6971310348570228,
+        1.000108610851718
+      ],
+      "target": [
+        1.3689799904823303,
+        0.411780446767807,
+        0.34564322978258133
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "EXT-COOLING-03",
+        "EXT-COOLING-20",
+        "EXT-COOLING-21",
+        "EXT-COOLING-22",
+        "EXT-COOLING-23",
+        "EXT-COOLING-24",
+        "EXT-COOLING-25",
+        "EXT-COOLING-26",
+        "EXT-COOLING-27",
+        "EXT-COOLING-28"
+      ],
+      "shells": [
+        "EXT-COOLING-03",
+        "EXT-COOLING-27"
+      ]
+    },
+    {
+      "scope": "RAK-COOLANT-PUMP",
+      "kind": "cutaway",
+      "core": "EXT-COOLING-20",
+      "pickedRay": "EXT-COOLING-20",
+      "position": [
+        1.948886024341059,
+        0.6971310348570228,
+        1.000108610851718
+      ],
+      "target": [
+        1.3689799904823303,
+        0.411780446767807,
+        0.34564322978258133
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "EXT-COOLING-03",
+        "EXT-COOLING-20",
+        "EXT-COOLING-21",
+        "EXT-COOLING-22",
+        "EXT-COOLING-23",
+        "EXT-COOLING-24",
+        "EXT-COOLING-25",
+        "EXT-COOLING-26",
+        "EXT-COOLING-27",
+        "EXT-COOLING-28"
+      ],
+      "shells": [
+        "EXT-COOLING-03",
+        "EXT-COOLING-27"
+      ],
+      "plane": {
+        "normal": [
+          -0.893545875460022,
+          -0.4489719016245705,
+          0
+        ],
+        "constant": 1.4188468465553339
+      }
+    },
+    {
+      "scope": "RAK-FEEDPUMP",
+      "kind": "xray",
+      "core": "EXT-FUEL-210",
+      "pickedRay": "EXT-FUEL-210",
+      "position": [
+        0.8481634239345661,
+        0.6244315107545491,
+        -1.282157564470413
+      ],
+      "target": [
+        0.42331376671791077,
+        0.30343399196863174,
+        -0.49854597449302673
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "EXT-FUEL-12",
+        "EXT-FUEL-210",
+        "EXT-FUEL-211",
+        "EXT-FUEL-212",
+        "EXT-FUEL-213",
+        "EXT-FUEL-214",
+        "EXT-FUEL-215",
+        "EXT-FUEL-216",
+        "EXT-FUEL-217",
+        "EXT-FUEL-218"
+      ],
+      "shells": [
+        "EXT-FUEL-12"
+      ]
+    },
+    {
+      "scope": "RAK-FEEDPUMP",
+      "kind": "cutaway",
+      "core": "EXT-FUEL-210",
+      "pickedRay": "EXT-FUEL-210",
+      "position": [
+        0.8481634239345661,
+        0.6244315107545491,
+        -1.282157564470413
+      ],
+      "target": [
+        0.42331376671791077,
+        0.30343399196863174,
+        -0.49854597449302673
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "EXT-FUEL-12",
+        "EXT-FUEL-210",
+        "EXT-FUEL-211",
+        "EXT-FUEL-212",
+        "EXT-FUEL-213",
+        "EXT-FUEL-214",
+        "EXT-FUEL-215",
+        "EXT-FUEL-216",
+        "EXT-FUEL-217",
+        "EXT-FUEL-218"
+      ],
+      "shells": [
+        "EXT-FUEL-12"
+      ],
+      "plane": {
+        "normal": [
+          0,
+          -0.37906692548449944,
+          0.9253692592709838
+        ],
+        "constant": 0.5763609095521804
+      }
+    },
+    {
+      "scope": "RAK-FLYWHEEL-DISK",
+      "kind": "xray",
+      "core": "EXT-FLYWHEEL-20",
+      "pickedRay": "EXT-FLYWHEEL-20",
+      "position": [
+        -1.331234437564061,
+        0.3438151216863056,
+        -0.44008335575847124
+      ],
+      "target": [
+        -0.09349999949336052,
+        0,
+        0
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "EXT-FLYWHEEL-02",
+        "EXT-FLYWHEEL-20"
+      ],
+      "shells": [
+        "EXT-FLYWHEEL-02"
+      ]
+    },
+    {
+      "scope": "RAK-FLYWHEEL-DISK",
+      "kind": "cutaway",
+      "core": "EXT-FLYWHEEL-20",
+      "pickedRay": "EXT-FLYWHEEL-20",
+      "position": [
+        -1.331234437564061,
+        0.3438151216863056,
+        -0.44008335575847124
+      ],
+      "target": [
+        -0.09349999949336052,
+        0,
+        0
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "EXT-FLYWHEEL-02",
+        "EXT-FLYWHEEL-20"
+      ],
+      "shells": [
+        "EXT-FLYWHEEL-02"
+      ],
+      "plane": {
+        "normal": [
+          0.9422146902791405,
+          0,
+          0.3350096676548055
+        ],
+        "constant": 0.08809707306373647
+      }
+    },
+    {
+      "scope": "RAK-FUEL-FILTER-1",
+      "kind": "xray",
+      "core": "EXT-FUEL-100",
+      "pickedRay": "EXT-FUEL-100",
+      "position": [
+        0.5620597903010514,
+        0.41762391196001636,
+        -1.1406500445706342
+      ],
+      "target": [
+        0.1430000104010105,
+        0.25,
+        -0.5158700090833008
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "EXT-FUEL-10",
+        "EXT-FUEL-100",
+        "EXT-FUEL-101",
+        "EXT-FUEL-102",
+        "EXT-FUEL-103",
+        "EXT-FUEL-104",
+        "EXT-FUEL-105"
+      ],
+      "shells": [
+        "EXT-FUEL-10"
+      ]
+    },
+    {
+      "scope": "RAK-FUEL-FILTER-1",
+      "kind": "cutaway",
+      "core": "EXT-FUEL-100",
+      "pickedRay": "EXT-FUEL-100",
+      "position": [
+        0.5620597903010514,
+        0.41762391196001636,
+        -1.1406500445706342
+      ],
+      "target": [
+        0.1430000104010105,
+        0.25,
+        -0.5158700090833008
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "EXT-FUEL-10",
+        "EXT-FUEL-100",
+        "EXT-FUEL-101",
+        "EXT-FUEL-102",
+        "EXT-FUEL-103",
+        "EXT-FUEL-104",
+        "EXT-FUEL-105"
+      ],
+      "shells": [
+        "EXT-FUEL-10"
+      ],
+      "plane": {
+        "normal": [
+          -0.5540529486928322,
+          0,
+          0.8324814292491923
+        ],
+        "constant": 0.5046275567101531
+      }
+    },
+    {
+      "scope": "RAK-FUEL-FILTER-2",
+      "kind": "xray",
+      "core": "EXT-FUEL-110",
+      "pickedRay": "EXT-FUEL-110",
+      "position": [
+        0.7419161735597246,
+        0.4109664654184577,
+        -1.167254463086341
+      ],
+      "target": [
+        0.3070000186562538,
+        0.2370000034570694,
+        -0.5188340139575303
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "EXT-FUEL-11",
+        "EXT-FUEL-110",
+        "EXT-FUEL-111",
+        "EXT-FUEL-112",
+        "EXT-FUEL-113",
+        "EXT-FUEL-114",
+        "EXT-FUEL-115"
+      ],
+      "shells": [
+        "EXT-FUEL-11"
+      ]
+    },
+    {
+      "scope": "RAK-FUEL-FILTER-2",
+      "kind": "cutaway",
+      "core": "EXT-FUEL-110",
+      "pickedRay": "EXT-FUEL-110",
+      "position": [
+        0.7419161735597246,
+        0.4109664654184577,
+        -1.167254463086341
+      ],
+      "target": [
+        0.3070000186562538,
+        0.2370000034570694,
+        -0.5188340139575303
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "EXT-FUEL-11",
+        "EXT-FUEL-110",
+        "EXT-FUEL-111",
+        "EXT-FUEL-112",
+        "EXT-FUEL-113",
+        "EXT-FUEL-114",
+        "EXT-FUEL-115"
+      ],
+      "shells": [
+        "EXT-FUEL-11"
+      ],
+      "plane": {
+        "normal": [
+          -0.5541824196564805,
+          0,
+          0.8323952461082947
+        ],
+        "constant": 0.59798516848242
+      }
+    },
+    {
+      "scope": "RAK-FW-COOLER",
+      "kind": "xray",
+      "core": "EXT-COOLING-50",
+      "pickedRay": "EXT-COOLING-50",
+      "position": [
+        2.1679974765941528,
+        1.1635525955506658,
+        1.088497684900069
+      ],
+      "target": [
+        1.524999976158142,
+        0.716249986551702,
+        -0.06749999523162842
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "EXT-COOLING-01",
+        "EXT-COOLING-50",
+        "EXT-COOLING-51",
+        "EXT-COOLING-52",
+        "EXT-COOLING-53",
+        "EXT-COOLING-54",
+        "EXT-COOLING-55",
+        "EXT-COOLING-56",
+        "EXT-COOLING-57",
+        "EXT-COOLING-58",
+        "EXT-COOLING-59",
+        "EXT-COOLING-60",
+        "EXT-COOLING-61",
+        "EXT-COOLING-62"
+      ],
+      "shells": [
+        "EXT-COOLING-01",
+        "EXT-COOLING-51",
+        "EXT-COOLING-52",
+        "EXT-COOLING-61"
+      ]
+    },
+    {
+      "scope": "RAK-FW-COOLER",
+      "kind": "cutaway",
+      "core": "EXT-COOLING-50",
+      "pickedRay": "EXT-COOLING-50",
+      "position": [
+        2.1679974765941528,
+        1.1635525955506658,
+        1.088497684900069
+      ],
+      "target": [
+        1.524999976158142,
+        0.716249986551702,
+        -0.06749999523162842
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "EXT-COOLING-01",
+        "EXT-COOLING-50",
+        "EXT-COOLING-51",
+        "EXT-COOLING-52",
+        "EXT-COOLING-53",
+        "EXT-COOLING-54",
+        "EXT-COOLING-55",
+        "EXT-COOLING-56",
+        "EXT-COOLING-57",
+        "EXT-COOLING-58",
+        "EXT-COOLING-59",
+        "EXT-COOLING-60",
+        "EXT-COOLING-61",
+        "EXT-COOLING-62"
+      ],
+      "shells": [
+        "EXT-COOLING-01",
+        "EXT-COOLING-51",
+        "EXT-COOLING-52",
+        "EXT-COOLING-61"
+      ],
+      "plane": {
+        "normal": [
+          -0.8231493332621835,
+          -0.5678249511513408,
+          0
+        ],
+        "constant": 1.6641366777514857
+      }
+    },
+    {
+      "scope": "RAK-GOVERNOR",
+      "kind": "xray",
+      "core": "EXT-FUEL-200",
+      "pickedRay": "EXT-FUEL-200",
+      "position": [
+        1.4017425257071583,
+        0.5013200460883438,
+        -1.004878904825432
+      ],
+      "target": [
+        1.0773202180862427,
+        0.25620096921920776,
+        -0.406499981880188
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "EXT-FUEL-02",
+        "EXT-FUEL-200",
+        "EXT-FUEL-201",
+        "EXT-FUEL-202",
+        "EXT-FUEL-203",
+        "EXT-FUEL-204",
+        "EXT-FUEL-205"
+      ],
+      "shells": [
+        "EXT-FUEL-02"
+      ]
+    },
+    {
+      "scope": "RAK-GOVERNOR",
+      "kind": "cutaway",
+      "core": "EXT-FUEL-200",
+      "pickedRay": "EXT-FUEL-200",
+      "position": [
+        1.4017425257071583,
+        0.5013200460883438,
+        -1.004878904825432
+      ],
+      "target": [
+        1.0773202180862427,
+        0.25620096921920776,
+        -0.406499981880188
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "EXT-FUEL-02",
+        "EXT-FUEL-200",
+        "EXT-FUEL-201",
+        "EXT-FUEL-202",
+        "EXT-FUEL-203",
+        "EXT-FUEL-204",
+        "EXT-FUEL-205"
+      ],
+      "shells": [
+        "EXT-FUEL-02"
+      ],
+      "plane": {
+        "normal": [
+          -0.7978673239222397,
+          -0.6028330891856917,
+          0
+        ],
+        "constant": 1.0140050211385774
+      }
+    },
+    {
+      "scope": "RAK-INJECTION",
+      "kind": "xray",
+      "core": "EXT-FUEL-21",
+      "pickedRay": "EXT-FUEL-21",
+      "position": [
+        0.9336774697913813,
+        0.5661532524246757,
+        -1.2695968444699055
+      ],
+      "target": [
+        0.7080000340938568,
+        0.2652500048279762,
+        -0.40450000762939453
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "EXT-FUEL-01",
+        "EXT-FUEL-21",
+        "EXT-FUEL-22",
+        "EXT-FUEL-23",
+        "EXT-FUEL-24",
+        "EXT-FUEL-25",
+        "EXT-FUEL-26",
+        "EXT-FUEL-27",
+        "EXT-FUEL-28",
+        "EXT-FUEL-29",
+        "EXT-FUEL-30",
+        "EXT-FUEL-31",
+        "EXT-FUEL-32",
+        "EXT-FUEL-33",
+        "EXT-FUEL-34",
+        "EXT-FUEL-35",
+        "EXT-FUEL-36",
+        "EXT-FUEL-37",
+        "EXT-FUEL-38",
+        "EXT-FUEL-39",
+        "EXT-FUEL-40",
+        "EXT-FUEL-41",
+        "EXT-FUEL-42",
+        "EXT-FUEL-43",
+        "EXT-FUEL-44",
+        "EXT-FUEL-45",
+        "EXT-FUEL-46",
+        "EXT-FUEL-47",
+        "EXT-FUEL-48",
+        "EXT-FUEL-49",
+        "EXT-FUEL-50",
+        "EXT-FUEL-51",
+        "EXT-FUEL-52"
+      ],
+      "shells": [
+        "EXT-FUEL-01"
+      ]
+    },
+    {
+      "scope": "RAK-INJECTION",
+      "kind": "cutaway",
+      "core": "EXT-FUEL-21",
+      "pickedRay": "EXT-FUEL-21",
+      "position": [
+        0.9336774697913813,
+        0.5661532524246757,
+        -1.2695968444699055
+      ],
+      "target": [
+        0.7080000340938568,
+        0.2652500048279762,
+        -0.40450000762939453
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "EXT-FUEL-01",
+        "EXT-FUEL-21",
+        "EXT-FUEL-22",
+        "EXT-FUEL-23",
+        "EXT-FUEL-24",
+        "EXT-FUEL-25",
+        "EXT-FUEL-26",
+        "EXT-FUEL-27",
+        "EXT-FUEL-28",
+        "EXT-FUEL-29",
+        "EXT-FUEL-30",
+        "EXT-FUEL-31",
+        "EXT-FUEL-32",
+        "EXT-FUEL-33",
+        "EXT-FUEL-34",
+        "EXT-FUEL-35",
+        "EXT-FUEL-36",
+        "EXT-FUEL-37",
+        "EXT-FUEL-38",
+        "EXT-FUEL-39",
+        "EXT-FUEL-40",
+        "EXT-FUEL-41",
+        "EXT-FUEL-42",
+        "EXT-FUEL-43",
+        "EXT-FUEL-44",
+        "EXT-FUEL-45",
+        "EXT-FUEL-46",
+        "EXT-FUEL-47",
+        "EXT-FUEL-48",
+        "EXT-FUEL-49",
+        "EXT-FUEL-50",
+        "EXT-FUEL-51",
+        "EXT-FUEL-52"
+      ],
+      "shells": [
+        "EXT-FUEL-01"
+      ],
+      "plane": {
+        "normal": [
+          0,
+          -0.32852062494127277,
+          0.9444967967061593
+        ],
+        "constant": 0.4691890588253425
+      }
+    },
+    {
+      "scope": "RAK-INJECTOR-1",
+      "kind": "xray",
+      "core": "INT-FUELINJ-11-03",
+      "pickedRay": "INT-FUELINJ-11-03",
+      "position": [
+        0.28689494263631077,
+        0.7046928159241892,
+        -0.3904999491735432
+      ],
+      "target": [
+        0.20900000631809235,
+        0.5940000116825104,
+        -0.005125001072883606
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "INT-FUELINJ-11",
+        "INT-FUELINJ-11-03",
+        "INT-FUELINJ-11-04",
+        "INT-FUELINJ-11-05",
+        "INT-FUELINJ-11-06",
+        "INT-FUELINJ-11-07",
+        "INT-FUELINJ-11-08",
+        "INT-FUELINJ-11-09",
+        "INT-FUELINJ-11-10",
+        "INT-FUELINJ-11-11",
+        "INT-FUELINJ-11-12",
+        "INT-FUELINJ-11-13",
+        "INT-FUELINJ-11-14",
+        "INT-FUELINJ-11-15",
+        "INT-FUELINJ-11-16",
+        "INT-FUELINJ-11-17",
+        "INT-FUELINJ-12"
+      ],
+      "shells": [
+        "INT-FUELINJ-11",
+        "INT-FUELINJ-11-14",
+        "INT-FUELINJ-11-15",
+        "INT-FUELINJ-12"
+      ]
+    },
+    {
+      "scope": "RAK-INJECTOR-1",
+      "kind": "cutaway",
+      "core": "INT-FUELINJ-11-03",
+      "pickedRay": "INT-FUELINJ-11-03",
+      "position": [
+        0.28689494263631077,
+        0.7046928159241892,
+        -0.3904999491735432
+      ],
+      "target": [
+        0.20900000631809235,
+        0.5940000116825104,
+        -0.005125001072883606
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "INT-FUELINJ-11",
+        "INT-FUELINJ-11-03",
+        "INT-FUELINJ-11-04",
+        "INT-FUELINJ-11-05",
+        "INT-FUELINJ-11-06",
+        "INT-FUELINJ-11-07",
+        "INT-FUELINJ-11-08",
+        "INT-FUELINJ-11-09",
+        "INT-FUELINJ-11-10",
+        "INT-FUELINJ-11-11",
+        "INT-FUELINJ-11-12",
+        "INT-FUELINJ-11-13",
+        "INT-FUELINJ-11-14",
+        "INT-FUELINJ-11-15",
+        "INT-FUELINJ-11-16",
+        "INT-FUELINJ-11-17",
+        "INT-FUELINJ-12"
+      ],
+      "shells": [
+        "INT-FUELINJ-11",
+        "INT-FUELINJ-11-14",
+        "INT-FUELINJ-11-15",
+        "INT-FUELINJ-12"
+      ],
+      "plane": {
+        "normal": [
+          -1,
+          0,
+          0
+        ],
+        "constant": 0.20900000631809235
+      }
+    },
+    {
+      "scope": "RAK-INJECTOR-2",
+      "kind": "xray",
+      "core": "INT-FUELINJ-21-03",
+      "pickedRay": "INT-FUELINJ-21-03",
+      "position": [
+        0.48689494561654306,
+        0.7046928159241892,
+        -0.39049994917354325
+      ],
+      "target": [
+        0.4090000092983246,
+        0.5940000116825104,
+        -0.005125001072883606
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "INT-FUELINJ-21",
+        "INT-FUELINJ-21-03",
+        "INT-FUELINJ-21-04",
+        "INT-FUELINJ-21-05",
+        "INT-FUELINJ-21-06",
+        "INT-FUELINJ-21-07",
+        "INT-FUELINJ-21-08",
+        "INT-FUELINJ-21-09",
+        "INT-FUELINJ-21-10",
+        "INT-FUELINJ-21-11",
+        "INT-FUELINJ-21-12",
+        "INT-FUELINJ-21-13",
+        "INT-FUELINJ-21-14",
+        "INT-FUELINJ-21-15",
+        "INT-FUELINJ-21-16",
+        "INT-FUELINJ-21-17",
+        "INT-FUELINJ-22"
+      ],
+      "shells": [
+        "INT-FUELINJ-21",
+        "INT-FUELINJ-21-14",
+        "INT-FUELINJ-21-15",
+        "INT-FUELINJ-22"
+      ]
+    },
+    {
+      "scope": "RAK-INJECTOR-2",
+      "kind": "cutaway",
+      "core": "INT-FUELINJ-21-03",
+      "pickedRay": "INT-FUELINJ-21-03",
+      "position": [
+        0.48689494561654306,
+        0.7046928159241892,
+        -0.39049994917354325
+      ],
+      "target": [
+        0.4090000092983246,
+        0.5940000116825104,
+        -0.005125001072883606
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "INT-FUELINJ-21",
+        "INT-FUELINJ-21-03",
+        "INT-FUELINJ-21-04",
+        "INT-FUELINJ-21-05",
+        "INT-FUELINJ-21-06",
+        "INT-FUELINJ-21-07",
+        "INT-FUELINJ-21-08",
+        "INT-FUELINJ-21-09",
+        "INT-FUELINJ-21-10",
+        "INT-FUELINJ-21-11",
+        "INT-FUELINJ-21-12",
+        "INT-FUELINJ-21-13",
+        "INT-FUELINJ-21-14",
+        "INT-FUELINJ-21-15",
+        "INT-FUELINJ-21-16",
+        "INT-FUELINJ-21-17",
+        "INT-FUELINJ-22"
+      ],
+      "shells": [
+        "INT-FUELINJ-21",
+        "INT-FUELINJ-21-14",
+        "INT-FUELINJ-21-15",
+        "INT-FUELINJ-22"
+      ],
+      "plane": {
+        "normal": [
+          -1,
+          0,
+          0
+        ],
+        "constant": 0.4090000092983246
+      }
+    },
+    {
+      "scope": "RAK-INJECTOR-3",
+      "kind": "xray",
+      "core": "INT-FUELINJ-31-03",
+      "pickedRay": "INT-FUELINJ-31-03",
+      "position": [
+        0.6868949634979364,
+        0.7046928159241892,
+        -0.39049994917354325
+      ],
+      "target": [
+        0.609000027179718,
+        0.5940000116825104,
+        -0.005125001072883606
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "INT-FUELINJ-31",
+        "INT-FUELINJ-31-03",
+        "INT-FUELINJ-31-04",
+        "INT-FUELINJ-31-05",
+        "INT-FUELINJ-31-06",
+        "INT-FUELINJ-31-07",
+        "INT-FUELINJ-31-08",
+        "INT-FUELINJ-31-09",
+        "INT-FUELINJ-31-10",
+        "INT-FUELINJ-31-11",
+        "INT-FUELINJ-31-12",
+        "INT-FUELINJ-31-13",
+        "INT-FUELINJ-31-14",
+        "INT-FUELINJ-31-15",
+        "INT-FUELINJ-31-16",
+        "INT-FUELINJ-31-17",
+        "INT-FUELINJ-32"
+      ],
+      "shells": [
+        "INT-FUELINJ-31",
+        "INT-FUELINJ-31-14",
+        "INT-FUELINJ-31-15",
+        "INT-FUELINJ-32"
+      ]
+    },
+    {
+      "scope": "RAK-INJECTOR-3",
+      "kind": "cutaway",
+      "core": "INT-FUELINJ-31-03",
+      "pickedRay": "INT-FUELINJ-31-03",
+      "position": [
+        0.6868949634979364,
+        0.7046928159241892,
+        -0.39049994917354325
+      ],
+      "target": [
+        0.609000027179718,
+        0.5940000116825104,
+        -0.005125001072883606
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "INT-FUELINJ-31",
+        "INT-FUELINJ-31-03",
+        "INT-FUELINJ-31-04",
+        "INT-FUELINJ-31-05",
+        "INT-FUELINJ-31-06",
+        "INT-FUELINJ-31-07",
+        "INT-FUELINJ-31-08",
+        "INT-FUELINJ-31-09",
+        "INT-FUELINJ-31-10",
+        "INT-FUELINJ-31-11",
+        "INT-FUELINJ-31-12",
+        "INT-FUELINJ-31-13",
+        "INT-FUELINJ-31-14",
+        "INT-FUELINJ-31-15",
+        "INT-FUELINJ-31-16",
+        "INT-FUELINJ-31-17",
+        "INT-FUELINJ-32"
+      ],
+      "shells": [
+        "INT-FUELINJ-31",
+        "INT-FUELINJ-31-14",
+        "INT-FUELINJ-31-15",
+        "INT-FUELINJ-32"
+      ],
+      "plane": {
+        "normal": [
+          -1,
+          0,
+          0
+        ],
+        "constant": 0.609000027179718
+      }
+    },
+    {
+      "scope": "RAK-INJECTOR-4",
+      "kind": "xray",
+      "core": "INT-FUELINJ-41-03",
+      "pickedRay": "INT-FUELINJ-41-03",
+      "position": [
+        0.8868949515770075,
+        0.7046928159241892,
+        -0.39049994917354325
+      ],
+      "target": [
+        0.8090000152587891,
+        0.5940000116825104,
+        -0.005125001072883606
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "INT-FUELINJ-41",
+        "INT-FUELINJ-41-03",
+        "INT-FUELINJ-41-04",
+        "INT-FUELINJ-41-05",
+        "INT-FUELINJ-41-06",
+        "INT-FUELINJ-41-07",
+        "INT-FUELINJ-41-08",
+        "INT-FUELINJ-41-09",
+        "INT-FUELINJ-41-10",
+        "INT-FUELINJ-41-11",
+        "INT-FUELINJ-41-12",
+        "INT-FUELINJ-41-13",
+        "INT-FUELINJ-41-14",
+        "INT-FUELINJ-41-15",
+        "INT-FUELINJ-41-16",
+        "INT-FUELINJ-41-17",
+        "INT-FUELINJ-42"
+      ],
+      "shells": [
+        "INT-FUELINJ-41",
+        "INT-FUELINJ-41-14",
+        "INT-FUELINJ-41-15",
+        "INT-FUELINJ-42"
+      ]
+    },
+    {
+      "scope": "RAK-INJECTOR-4",
+      "kind": "cutaway",
+      "core": "INT-FUELINJ-41-03",
+      "pickedRay": "INT-FUELINJ-41-03",
+      "position": [
+        0.8868949515770075,
+        0.7046928159241892,
+        -0.39049994917354325
+      ],
+      "target": [
+        0.8090000152587891,
+        0.5940000116825104,
+        -0.005125001072883606
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "INT-FUELINJ-41",
+        "INT-FUELINJ-41-03",
+        "INT-FUELINJ-41-04",
+        "INT-FUELINJ-41-05",
+        "INT-FUELINJ-41-06",
+        "INT-FUELINJ-41-07",
+        "INT-FUELINJ-41-08",
+        "INT-FUELINJ-41-09",
+        "INT-FUELINJ-41-10",
+        "INT-FUELINJ-41-11",
+        "INT-FUELINJ-41-12",
+        "INT-FUELINJ-41-13",
+        "INT-FUELINJ-41-14",
+        "INT-FUELINJ-41-15",
+        "INT-FUELINJ-41-16",
+        "INT-FUELINJ-41-17",
+        "INT-FUELINJ-42"
+      ],
+      "shells": [
+        "INT-FUELINJ-41",
+        "INT-FUELINJ-41-14",
+        "INT-FUELINJ-41-15",
+        "INT-FUELINJ-42"
+      ],
+      "plane": {
+        "normal": [
+          -1,
+          0,
+          0
+        ],
+        "constant": 0.8090000152587891
+      }
+    },
+    {
+      "scope": "RAK-INJECTOR-5",
+      "kind": "xray",
+      "core": "INT-FUELINJ-51-03",
+      "pickedRay": "INT-FUELINJ-51-03",
+      "position": [
+        1.0868948800514338,
+        0.7046928159241892,
+        -0.39049994917354325
+      ],
+      "target": [
+        1.0089999437332153,
+        0.5940000116825104,
+        -0.005125001072883606
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "INT-FUELINJ-51",
+        "INT-FUELINJ-51-03",
+        "INT-FUELINJ-51-04",
+        "INT-FUELINJ-51-05",
+        "INT-FUELINJ-51-06",
+        "INT-FUELINJ-51-07",
+        "INT-FUELINJ-51-08",
+        "INT-FUELINJ-51-09",
+        "INT-FUELINJ-51-10",
+        "INT-FUELINJ-51-11",
+        "INT-FUELINJ-51-12",
+        "INT-FUELINJ-51-13",
+        "INT-FUELINJ-51-14",
+        "INT-FUELINJ-51-15",
+        "INT-FUELINJ-51-16",
+        "INT-FUELINJ-51-17",
+        "INT-FUELINJ-52"
+      ],
+      "shells": [
+        "INT-FUELINJ-51",
+        "INT-FUELINJ-51-14",
+        "INT-FUELINJ-51-15",
+        "INT-FUELINJ-52"
+      ]
+    },
+    {
+      "scope": "RAK-INJECTOR-5",
+      "kind": "cutaway",
+      "core": "INT-FUELINJ-51-03",
+      "pickedRay": "INT-FUELINJ-51-03",
+      "position": [
+        1.0868948800514338,
+        0.7046928159241892,
+        -0.39049994917354325
+      ],
+      "target": [
+        1.0089999437332153,
+        0.5940000116825104,
+        -0.005125001072883606
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "INT-FUELINJ-51",
+        "INT-FUELINJ-51-03",
+        "INT-FUELINJ-51-04",
+        "INT-FUELINJ-51-05",
+        "INT-FUELINJ-51-06",
+        "INT-FUELINJ-51-07",
+        "INT-FUELINJ-51-08",
+        "INT-FUELINJ-51-09",
+        "INT-FUELINJ-51-10",
+        "INT-FUELINJ-51-11",
+        "INT-FUELINJ-51-12",
+        "INT-FUELINJ-51-13",
+        "INT-FUELINJ-51-14",
+        "INT-FUELINJ-51-15",
+        "INT-FUELINJ-51-16",
+        "INT-FUELINJ-51-17",
+        "INT-FUELINJ-52"
+      ],
+      "shells": [
+        "INT-FUELINJ-51",
+        "INT-FUELINJ-51-14",
+        "INT-FUELINJ-51-15",
+        "INT-FUELINJ-52"
+      ],
+      "plane": {
+        "normal": [
+          -1,
+          0,
+          0
+        ],
+        "constant": 1.0089999437332153
+      }
+    },
+    {
+      "scope": "RAK-INJECTOR-6",
+      "kind": "xray",
+      "core": "INT-FUELINJ-61-03",
+      "pickedRay": "INT-FUELINJ-61-03",
+      "position": [
+        1.2868949277351496,
+        0.7046928159241892,
+        -0.39049994917354325
+      ],
+      "target": [
+        1.2089999914169312,
+        0.5940000116825104,
+        -0.005125001072883606
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "INT-FUELINJ-61",
+        "INT-FUELINJ-61-03",
+        "INT-FUELINJ-61-04",
+        "INT-FUELINJ-61-05",
+        "INT-FUELINJ-61-06",
+        "INT-FUELINJ-61-07",
+        "INT-FUELINJ-61-08",
+        "INT-FUELINJ-61-09",
+        "INT-FUELINJ-61-10",
+        "INT-FUELINJ-61-11",
+        "INT-FUELINJ-61-12",
+        "INT-FUELINJ-61-13",
+        "INT-FUELINJ-61-14",
+        "INT-FUELINJ-61-15",
+        "INT-FUELINJ-61-16",
+        "INT-FUELINJ-61-17",
+        "INT-FUELINJ-62"
+      ],
+      "shells": [
+        "INT-FUELINJ-61",
+        "INT-FUELINJ-61-14",
+        "INT-FUELINJ-61-15",
+        "INT-FUELINJ-62"
+      ]
+    },
+    {
+      "scope": "RAK-INJECTOR-6",
+      "kind": "cutaway",
+      "core": "INT-FUELINJ-61-03",
+      "pickedRay": "INT-FUELINJ-61-03",
+      "position": [
+        1.2868949277351496,
+        0.7046928159241892,
+        -0.39049994917354325
+      ],
+      "target": [
+        1.2089999914169312,
+        0.5940000116825104,
+        -0.005125001072883606
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "INT-FUELINJ-61",
+        "INT-FUELINJ-61-03",
+        "INT-FUELINJ-61-04",
+        "INT-FUELINJ-61-05",
+        "INT-FUELINJ-61-06",
+        "INT-FUELINJ-61-07",
+        "INT-FUELINJ-61-08",
+        "INT-FUELINJ-61-09",
+        "INT-FUELINJ-61-10",
+        "INT-FUELINJ-61-11",
+        "INT-FUELINJ-61-12",
+        "INT-FUELINJ-61-13",
+        "INT-FUELINJ-61-14",
+        "INT-FUELINJ-61-15",
+        "INT-FUELINJ-61-16",
+        "INT-FUELINJ-61-17",
+        "INT-FUELINJ-62"
+      ],
+      "shells": [
+        "INT-FUELINJ-61",
+        "INT-FUELINJ-61-14",
+        "INT-FUELINJ-61-15",
+        "INT-FUELINJ-62"
+      ],
+      "plane": {
+        "normal": [
+          -1,
+          0,
+          0
+        ],
+        "constant": 1.2089999914169312
+      }
+    },
+    {
+      "scope": "RAK-KATUP-1-1-1",
+      "kind": "xray",
+      "core": "INT-VALVE-130",
+      "pickedRay": "INT-VALVE-130",
+      "position": [
+        0.24941580306579958,
+        0.5983976725480087,
+        -0.29935186343330206
+      ],
+      "target": [
+        0.1740000108256936,
+        0.5565000101923943,
+        -0.03400000184774399
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "INT-VALVE-130-INNER",
+        "INT-VALVE-134",
+        "INT-VALVE-130",
+        "INT-VALVE-130-COT1",
+        "INT-VALVE-130-COT2",
+        "INT-VALVE-131",
+        "INT-VALVE-130-SEAL",
+        "INT-VALVE-132",
+        "INT-VALVE-133"
+      ],
+      "shells": [
+        "INT-VALVE-132"
+      ]
+    },
+    {
+      "scope": "RAK-KATUP-1-1-1",
+      "kind": "cutaway",
+      "core": "INT-VALVE-130",
+      "pickedRay": "INT-VALVE-130",
+      "position": [
+        0.24941580306579958,
+        0.5983976725480087,
+        -0.29935186343330206
+      ],
+      "target": [
+        0.1740000108256936,
+        0.5565000101923943,
+        -0.03400000184774399
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "INT-VALVE-130-INNER",
+        "INT-VALVE-134",
+        "INT-VALVE-130",
+        "INT-VALVE-130-COT1",
+        "INT-VALVE-130-COT2",
+        "INT-VALVE-131",
+        "INT-VALVE-130-SEAL",
+        "INT-VALVE-132",
+        "INT-VALVE-133"
+      ],
+      "shells": [
+        "INT-VALVE-132"
+      ],
+      "plane": {
+        "normal": [
+          -1,
+          0,
+          0
+        ],
+        "constant": 0.17399999499320984
+      }
+    },
+    {
+      "scope": "RAK-KATUP-1-1-2",
+      "kind": "xray",
+      "core": "INT-VALVE-137",
+      "pickedRay": "INT-VALVE-137",
+      "position": [
+        0.31941579405059706,
+        0.5983976725480087,
+        -0.29935186343330206
+      ],
+      "target": [
+        0.24400000181049109,
+        0.5565000101923943,
+        -0.03400000184774399
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "INT-VALVE-137-INNER",
+        "INT-VALVE-141",
+        "INT-VALVE-137",
+        "INT-VALVE-137-COT1",
+        "INT-VALVE-137-COT2",
+        "INT-VALVE-138",
+        "INT-VALVE-137-SEAL",
+        "INT-VALVE-139",
+        "INT-VALVE-140"
+      ],
+      "shells": [
+        "INT-VALVE-139"
+      ]
+    },
+    {
+      "scope": "RAK-KATUP-1-1-2",
+      "kind": "cutaway",
+      "core": "INT-VALVE-137",
+      "pickedRay": "INT-VALVE-137",
+      "position": [
+        0.31941579405059706,
+        0.5983976725480087,
+        -0.29935186343330206
+      ],
+      "target": [
+        0.24400000181049109,
+        0.5565000101923943,
+        -0.03400000184774399
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "INT-VALVE-137-INNER",
+        "INT-VALVE-141",
+        "INT-VALVE-137",
+        "INT-VALVE-137-COT1",
+        "INT-VALVE-137-COT2",
+        "INT-VALVE-138",
+        "INT-VALVE-137-SEAL",
+        "INT-VALVE-139",
+        "INT-VALVE-140"
+      ],
+      "shells": [
+        "INT-VALVE-139"
+      ],
+      "plane": {
+        "normal": [
+          -1,
+          0,
+          0
+        ],
+        "constant": 0.24400000274181366
+      }
+    },
+    {
+      "scope": "RAK-KATUP-1-2-1",
+      "kind": "xray",
+      "core": "INT-VALVE-150",
+      "pickedRay": "INT-VALVE-150",
+      "position": [
+        0.24837718166592282,
+        0.5978206606591883,
+        -0.227697451108618
+      ],
+      "target": [
+        0.1740000108256936,
+        0.5565000101923943,
+        0.03400000184774399
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "INT-VALVE-150-INNER",
+        "INT-VALVE-154",
+        "INT-VALVE-150",
+        "INT-VALVE-150-COT1",
+        "INT-VALVE-150-COT2",
+        "INT-VALVE-151",
+        "INT-VALVE-150-SEAL",
+        "INT-VALVE-152",
+        "INT-VALVE-153"
+      ],
+      "shells": [
+        "INT-VALVE-152"
+      ]
+    },
+    {
+      "scope": "RAK-KATUP-1-2-1",
+      "kind": "cutaway",
+      "core": "INT-VALVE-150",
+      "pickedRay": "INT-VALVE-150",
+      "position": [
+        0.24837718166592282,
+        0.5978206606591883,
+        -0.227697451108618
+      ],
+      "target": [
+        0.1740000108256936,
+        0.5565000101923943,
+        0.03400000184774399
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "INT-VALVE-150-INNER",
+        "INT-VALVE-154",
+        "INT-VALVE-150",
+        "INT-VALVE-150-COT1",
+        "INT-VALVE-150-COT2",
+        "INT-VALVE-151",
+        "INT-VALVE-150-SEAL",
+        "INT-VALVE-152",
+        "INT-VALVE-153"
+      ],
+      "shells": [
+        "INT-VALVE-152"
+      ],
+      "plane": {
+        "normal": [
+          -1,
+          0,
+          0
+        ],
+        "constant": 0.17399999499320984
+      }
+    },
+    {
+      "scope": "RAK-KATUP-1-2-2",
+      "kind": "xray",
+      "core": "INT-VALVE-157",
+      "pickedRay": "INT-VALVE-157",
+      "position": [
+        0.3183771726507203,
+        0.5978206606591883,
+        -0.227697451108618
+      ],
+      "target": [
+        0.24400000181049109,
+        0.5565000101923943,
+        0.03400000184774399
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "INT-VALVE-157-INNER",
+        "INT-VALVE-161",
+        "INT-VALVE-157",
+        "INT-VALVE-157-COT1",
+        "INT-VALVE-157-COT2",
+        "INT-VALVE-158",
+        "INT-VALVE-157-SEAL",
+        "INT-VALVE-159",
+        "INT-VALVE-160"
+      ],
+      "shells": [
+        "INT-VALVE-159"
+      ]
+    },
+    {
+      "scope": "RAK-KATUP-1-2-2",
+      "kind": "cutaway",
+      "core": "INT-VALVE-157",
+      "pickedRay": "INT-VALVE-157",
+      "position": [
+        0.3183771726507203,
+        0.5978206606591883,
+        -0.227697451108618
+      ],
+      "target": [
+        0.24400000181049109,
+        0.5565000101923943,
+        0.03400000184774399
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "INT-VALVE-157-INNER",
+        "INT-VALVE-161",
+        "INT-VALVE-157",
+        "INT-VALVE-157-COT1",
+        "INT-VALVE-157-COT2",
+        "INT-VALVE-158",
+        "INT-VALVE-157-SEAL",
+        "INT-VALVE-159",
+        "INT-VALVE-160"
+      ],
+      "shells": [
+        "INT-VALVE-159"
+      ],
+      "plane": {
+        "normal": [
+          -1,
+          0,
+          0
+        ],
+        "constant": 0.24400000274181366
+      }
+    },
+    {
+      "scope": "RAK-KATUP-2-1-1",
+      "kind": "xray",
+      "core": "INT-VALVE-230",
+      "pickedRay": "INT-VALVE-230",
+      "position": [
+        0.4494158060460318,
+        0.5983976725480087,
+        -0.29935186343330206
+      ],
+      "target": [
+        0.37400001380592585,
+        0.5565000101923943,
+        -0.03400000184774399
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "INT-VALVE-230-INNER",
+        "INT-VALVE-234",
+        "INT-VALVE-230",
+        "INT-VALVE-230-COT1",
+        "INT-VALVE-230-COT2",
+        "INT-VALVE-231",
+        "INT-VALVE-230-SEAL",
+        "INT-VALVE-232",
+        "INT-VALVE-233"
+      ],
+      "shells": [
+        "INT-VALVE-232"
+      ]
+    },
+    {
+      "scope": "RAK-KATUP-2-1-1",
+      "kind": "cutaway",
+      "core": "INT-VALVE-230",
+      "pickedRay": "INT-VALVE-230",
+      "position": [
+        0.4494158060460318,
+        0.5983976725480087,
+        -0.29935186343330206
+      ],
+      "target": [
+        0.37400001380592585,
+        0.5565000101923943,
+        -0.03400000184774399
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "INT-VALVE-230-INNER",
+        "INT-VALVE-234",
+        "INT-VALVE-230",
+        "INT-VALVE-230-COT1",
+        "INT-VALVE-230-COT2",
+        "INT-VALVE-231",
+        "INT-VALVE-230-SEAL",
+        "INT-VALVE-232",
+        "INT-VALVE-233"
+      ],
+      "shells": [
+        "INT-VALVE-232"
+      ],
+      "plane": {
+        "normal": [
+          -1,
+          0,
+          0
+        ],
+        "constant": 0.3739999979734421
+      }
+    },
+    {
+      "scope": "RAK-KATUP-2-1-2",
+      "kind": "xray",
+      "core": "INT-VALVE-237",
+      "pickedRay": "INT-VALVE-237",
+      "position": [
+        0.5194157970308293,
+        0.5983976725480087,
+        -0.29935186343330206
+      ],
+      "target": [
+        0.4440000047907233,
+        0.5565000101923943,
+        -0.03400000184774399
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "INT-VALVE-237-INNER",
+        "INT-VALVE-241",
+        "INT-VALVE-237",
+        "INT-VALVE-237-COT1",
+        "INT-VALVE-237-COT2",
+        "INT-VALVE-238",
+        "INT-VALVE-237-SEAL",
+        "INT-VALVE-239",
+        "INT-VALVE-240"
+      ],
+      "shells": [
+        "INT-VALVE-239"
+      ]
+    },
+    {
+      "scope": "RAK-KATUP-2-1-2",
+      "kind": "cutaway",
+      "core": "INT-VALVE-237",
+      "pickedRay": "INT-VALVE-237",
+      "position": [
+        0.5194157970308293,
+        0.5983976725480087,
+        -0.29935186343330206
+      ],
+      "target": [
+        0.4440000047907233,
+        0.5565000101923943,
+        -0.03400000184774399
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "INT-VALVE-237-INNER",
+        "INT-VALVE-241",
+        "INT-VALVE-237",
+        "INT-VALVE-237-COT1",
+        "INT-VALVE-237-COT2",
+        "INT-VALVE-238",
+        "INT-VALVE-237-SEAL",
+        "INT-VALVE-239",
+        "INT-VALVE-240"
+      ],
+      "shells": [
+        "INT-VALVE-239"
+      ],
+      "plane": {
+        "normal": [
+          -1,
+          0,
+          0
+        ],
+        "constant": 0.4439999908208847
+      }
+    },
+    {
+      "scope": "RAK-KATUP-2-2-1",
+      "kind": "xray",
+      "core": "INT-VALVE-250",
+      "pickedRay": "INT-VALVE-250",
+      "position": [
+        0.44837718464615506,
+        0.5978206606591883,
+        -0.227697451108618
+      ],
+      "target": [
+        0.37400001380592585,
+        0.5565000101923943,
+        0.03400000184774399
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "INT-VALVE-250-INNER",
+        "INT-VALVE-254",
+        "INT-VALVE-250",
+        "INT-VALVE-250-COT1",
+        "INT-VALVE-250-COT2",
+        "INT-VALVE-251",
+        "INT-VALVE-250-SEAL",
+        "INT-VALVE-252",
+        "INT-VALVE-253"
+      ],
+      "shells": [
+        "INT-VALVE-252"
+      ]
+    },
+    {
+      "scope": "RAK-KATUP-2-2-1",
+      "kind": "cutaway",
+      "core": "INT-VALVE-250",
+      "pickedRay": "INT-VALVE-250",
+      "position": [
+        0.44837718464615506,
+        0.5978206606591883,
+        -0.227697451108618
+      ],
+      "target": [
+        0.37400001380592585,
+        0.5565000101923943,
+        0.03400000184774399
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "INT-VALVE-250-INNER",
+        "INT-VALVE-254",
+        "INT-VALVE-250",
+        "INT-VALVE-250-COT1",
+        "INT-VALVE-250-COT2",
+        "INT-VALVE-251",
+        "INT-VALVE-250-SEAL",
+        "INT-VALVE-252",
+        "INT-VALVE-253"
+      ],
+      "shells": [
+        "INT-VALVE-252"
+      ],
+      "plane": {
+        "normal": [
+          -1,
+          0,
+          0
+        ],
+        "constant": 0.3739999979734421
+      }
+    },
+    {
+      "scope": "RAK-KATUP-2-2-2",
+      "kind": "xray",
+      "core": "INT-VALVE-257",
+      "pickedRay": "INT-VALVE-257",
+      "position": [
+        0.5183771756309525,
+        0.5978206606591883,
+        -0.227697451108618
+      ],
+      "target": [
+        0.4440000047907233,
+        0.5565000101923943,
+        0.03400000184774399
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "INT-VALVE-257-INNER",
+        "INT-VALVE-261",
+        "INT-VALVE-257",
+        "INT-VALVE-257-COT1",
+        "INT-VALVE-257-COT2",
+        "INT-VALVE-258",
+        "INT-VALVE-257-SEAL",
+        "INT-VALVE-259",
+        "INT-VALVE-260"
+      ],
+      "shells": [
+        "INT-VALVE-259"
+      ]
+    },
+    {
+      "scope": "RAK-KATUP-2-2-2",
+      "kind": "cutaway",
+      "core": "INT-VALVE-257",
+      "pickedRay": "INT-VALVE-257",
+      "position": [
+        0.5183771756309525,
+        0.5978206606591883,
+        -0.227697451108618
+      ],
+      "target": [
+        0.4440000047907233,
+        0.5565000101923943,
+        0.03400000184774399
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "INT-VALVE-257-INNER",
+        "INT-VALVE-261",
+        "INT-VALVE-257",
+        "INT-VALVE-257-COT1",
+        "INT-VALVE-257-COT2",
+        "INT-VALVE-258",
+        "INT-VALVE-257-SEAL",
+        "INT-VALVE-259",
+        "INT-VALVE-260"
+      ],
+      "shells": [
+        "INT-VALVE-259"
+      ],
+      "plane": {
+        "normal": [
+          -1,
+          0,
+          0
+        ],
+        "constant": 0.4439999908208847
+      }
+    },
+    {
+      "scope": "RAK-KATUP-3-1-1",
+      "kind": "xray",
+      "core": "INT-VALVE-330",
+      "pickedRay": "INT-VALVE-330",
+      "position": [
+        0.6494157941251029,
+        0.5983976725480087,
+        -0.29935186343330206
+      ],
+      "target": [
+        0.5740000018849969,
+        0.5565000101923943,
+        -0.03400000184774399
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "INT-VALVE-330-INNER",
+        "INT-VALVE-334",
+        "INT-VALVE-330",
+        "INT-VALVE-330-COT1",
+        "INT-VALVE-330-COT2",
+        "INT-VALVE-331",
+        "INT-VALVE-330-SEAL",
+        "INT-VALVE-332",
+        "INT-VALVE-333"
+      ],
+      "shells": [
+        "INT-VALVE-332"
+      ]
+    },
+    {
+      "scope": "RAK-KATUP-3-1-1",
+      "kind": "cutaway",
+      "core": "INT-VALVE-330",
+      "pickedRay": "INT-VALVE-330",
+      "position": [
+        0.6494157941251029,
+        0.5983976725480087,
+        -0.29935186343330206
+      ],
+      "target": [
+        0.5740000018849969,
+        0.5565000101923943,
+        -0.03400000184774399
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "INT-VALVE-330-INNER",
+        "INT-VALVE-334",
+        "INT-VALVE-330",
+        "INT-VALVE-330-COT1",
+        "INT-VALVE-330-COT2",
+        "INT-VALVE-331",
+        "INT-VALVE-330-SEAL",
+        "INT-VALVE-332",
+        "INT-VALVE-333"
+      ],
+      "shells": [
+        "INT-VALVE-332"
+      ],
+      "plane": {
+        "normal": [
+          -1,
+          0,
+          0
+        ],
+        "constant": 0.5740000009536743
+      }
+    },
+    {
+      "scope": "RAK-KATUP-3-1-2",
+      "kind": "xray",
+      "core": "INT-VALVE-337",
+      "pickedRay": "INT-VALVE-337",
+      "position": [
+        0.7194158447145451,
+        0.5983976725480087,
+        -0.29935186343330206
+      ],
+      "target": [
+        0.6440000524744391,
+        0.5565000101923943,
+        -0.03400000184774399
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "INT-VALVE-337-INNER",
+        "INT-VALVE-341",
+        "INT-VALVE-337",
+        "INT-VALVE-337-COT1",
+        "INT-VALVE-337-COT2",
+        "INT-VALVE-338",
+        "INT-VALVE-337-SEAL",
+        "INT-VALVE-339",
+        "INT-VALVE-340"
+      ],
+      "shells": [
+        "INT-VALVE-339"
+      ]
+    },
+    {
+      "scope": "RAK-KATUP-3-1-2",
+      "kind": "cutaway",
+      "core": "INT-VALVE-337",
+      "pickedRay": "INT-VALVE-337",
+      "position": [
+        0.7194158447145451,
+        0.5983976725480087,
+        -0.29935186343330206
+      ],
+      "target": [
+        0.6440000524744391,
+        0.5565000101923943,
+        -0.03400000184774399
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "INT-VALVE-337-INNER",
+        "INT-VALVE-341",
+        "INT-VALVE-337",
+        "INT-VALVE-337-COT1",
+        "INT-VALVE-337-COT2",
+        "INT-VALVE-338",
+        "INT-VALVE-337-SEAL",
+        "INT-VALVE-339",
+        "INT-VALVE-340"
+      ],
+      "shells": [
+        "INT-VALVE-339"
+      ],
+      "plane": {
+        "normal": [
+          -1,
+          0,
+          0
+        ],
+        "constant": 0.6439999938011169
+      }
+    },
+    {
+      "scope": "RAK-KATUP-3-2-1",
+      "kind": "xray",
+      "core": "INT-VALVE-350",
+      "pickedRay": "INT-VALVE-350",
+      "position": [
+        0.6483771727252261,
+        0.5978206606591883,
+        -0.227697451108618
+      ],
+      "target": [
+        0.5740000018849969,
+        0.5565000101923943,
+        0.03400000184774399
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "INT-VALVE-350-INNER",
+        "INT-VALVE-354",
+        "INT-VALVE-350",
+        "INT-VALVE-350-COT1",
+        "INT-VALVE-350-COT2",
+        "INT-VALVE-351",
+        "INT-VALVE-350-SEAL",
+        "INT-VALVE-352",
+        "INT-VALVE-353"
+      ],
+      "shells": [
+        "INT-VALVE-352"
+      ]
+    },
+    {
+      "scope": "RAK-KATUP-3-2-1",
+      "kind": "cutaway",
+      "core": "INT-VALVE-350",
+      "pickedRay": "INT-VALVE-350",
+      "position": [
+        0.6483771727252261,
+        0.5978206606591883,
+        -0.227697451108618
+      ],
+      "target": [
+        0.5740000018849969,
+        0.5565000101923943,
+        0.03400000184774399
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "INT-VALVE-350-INNER",
+        "INT-VALVE-354",
+        "INT-VALVE-350",
+        "INT-VALVE-350-COT1",
+        "INT-VALVE-350-COT2",
+        "INT-VALVE-351",
+        "INT-VALVE-350-SEAL",
+        "INT-VALVE-352",
+        "INT-VALVE-353"
+      ],
+      "shells": [
+        "INT-VALVE-352"
+      ],
+      "plane": {
+        "normal": [
+          -1,
+          0,
+          0
+        ],
+        "constant": 0.5740000009536743
+      }
+    },
+    {
+      "scope": "RAK-KATUP-3-2-2",
+      "kind": "xray",
+      "core": "INT-VALVE-357",
+      "pickedRay": "INT-VALVE-357",
+      "position": [
+        0.7183772233146684,
+        0.5978206606591883,
+        -0.227697451108618
+      ],
+      "target": [
+        0.6440000524744391,
+        0.5565000101923943,
+        0.03400000184774399
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "INT-VALVE-357-INNER",
+        "INT-VALVE-361",
+        "INT-VALVE-357",
+        "INT-VALVE-357-COT1",
+        "INT-VALVE-357-COT2",
+        "INT-VALVE-358",
+        "INT-VALVE-357-SEAL",
+        "INT-VALVE-359",
+        "INT-VALVE-360"
+      ],
+      "shells": [
+        "INT-VALVE-359"
+      ]
+    },
+    {
+      "scope": "RAK-KATUP-3-2-2",
+      "kind": "cutaway",
+      "core": "INT-VALVE-357",
+      "pickedRay": "INT-VALVE-357",
+      "position": [
+        0.7183772233146684,
+        0.5978206606591883,
+        -0.227697451108618
+      ],
+      "target": [
+        0.6440000524744391,
+        0.5565000101923943,
+        0.03400000184774399
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "INT-VALVE-357-INNER",
+        "INT-VALVE-361",
+        "INT-VALVE-357",
+        "INT-VALVE-357-COT1",
+        "INT-VALVE-357-COT2",
+        "INT-VALVE-358",
+        "INT-VALVE-357-SEAL",
+        "INT-VALVE-359",
+        "INT-VALVE-360"
+      ],
+      "shells": [
+        "INT-VALVE-359"
+      ],
+      "plane": {
+        "normal": [
+          -1,
+          0,
+          0
+        ],
+        "constant": 0.6439999938011169
+      }
+    },
+    {
+      "scope": "RAK-KATUP-4-1-1",
+      "kind": "xray",
+      "core": "INT-VALVE-430",
+      "pickedRay": "INT-VALVE-430",
+      "position": [
+        0.8494157822041739,
+        0.5983976725480087,
+        -0.29935186343330206
+      ],
+      "target": [
+        0.7739999899640679,
+        0.5565000101923943,
+        -0.03400000184774399
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "INT-VALVE-430-INNER",
+        "INT-VALVE-434",
+        "INT-VALVE-430",
+        "INT-VALVE-430-COT1",
+        "INT-VALVE-430-COT2",
+        "INT-VALVE-431",
+        "INT-VALVE-430-SEAL",
+        "INT-VALVE-432",
+        "INT-VALVE-433"
+      ],
+      "shells": [
+        "INT-VALVE-432"
+      ]
+    },
+    {
+      "scope": "RAK-KATUP-4-1-1",
+      "kind": "cutaway",
+      "core": "INT-VALVE-430",
+      "pickedRay": "INT-VALVE-430",
+      "position": [
+        0.8494157822041739,
+        0.5983976725480087,
+        -0.29935186343330206
+      ],
+      "target": [
+        0.7739999899640679,
+        0.5565000101923943,
+        -0.03400000184774399
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "INT-VALVE-430-INNER",
+        "INT-VALVE-434",
+        "INT-VALVE-430",
+        "INT-VALVE-430-COT1",
+        "INT-VALVE-430-COT2",
+        "INT-VALVE-431",
+        "INT-VALVE-430-SEAL",
+        "INT-VALVE-432",
+        "INT-VALVE-433"
+      ],
+      "shells": [
+        "INT-VALVE-432"
+      ],
+      "plane": {
+        "normal": [
+          -1,
+          0,
+          0
+        ],
+        "constant": 0.7739999890327454
+      }
+    },
+    {
+      "scope": "RAK-KATUP-4-1-2",
+      "kind": "xray",
+      "core": "INT-VALVE-437",
+      "pickedRay": "INT-VALVE-437",
+      "position": [
+        0.9194158327936162,
+        0.5983976725480087,
+        -0.29935186343330206
+      ],
+      "target": [
+        0.8440000405535102,
+        0.5565000101923943,
+        -0.03400000184774399
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "INT-VALVE-437-INNER",
+        "INT-VALVE-441",
+        "INT-VALVE-437",
+        "INT-VALVE-437-COT1",
+        "INT-VALVE-437-COT2",
+        "INT-VALVE-438",
+        "INT-VALVE-437-SEAL",
+        "INT-VALVE-439",
+        "INT-VALVE-440"
+      ],
+      "shells": [
+        "INT-VALVE-439"
+      ]
+    },
+    {
+      "scope": "RAK-KATUP-4-1-2",
+      "kind": "cutaway",
+      "core": "INT-VALVE-437",
+      "pickedRay": "INT-VALVE-437",
+      "position": [
+        0.9194158327936162,
+        0.5983976725480087,
+        -0.29935186343330206
+      ],
+      "target": [
+        0.8440000405535102,
+        0.5565000101923943,
+        -0.03400000184774399
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "INT-VALVE-437-INNER",
+        "INT-VALVE-441",
+        "INT-VALVE-437",
+        "INT-VALVE-437-COT1",
+        "INT-VALVE-437-COT2",
+        "INT-VALVE-438",
+        "INT-VALVE-437-SEAL",
+        "INT-VALVE-439",
+        "INT-VALVE-440"
+      ],
+      "shells": [
+        "INT-VALVE-439"
+      ],
+      "plane": {
+        "normal": [
+          -1,
+          0,
+          0
+        ],
+        "constant": 0.8440000116825104
+      }
+    },
+    {
+      "scope": "RAK-KATUP-4-2-1",
+      "kind": "xray",
+      "core": "INT-VALVE-450",
+      "pickedRay": "INT-VALVE-450",
+      "position": [
+        0.8483771608042971,
+        0.5978206606591883,
+        -0.227697451108618
+      ],
+      "target": [
+        0.7739999899640679,
+        0.5565000101923943,
+        0.03400000184774399
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "INT-VALVE-450-INNER",
+        "INT-VALVE-454",
+        "INT-VALVE-450",
+        "INT-VALVE-450-COT1",
+        "INT-VALVE-450-COT2",
+        "INT-VALVE-451",
+        "INT-VALVE-450-SEAL",
+        "INT-VALVE-452",
+        "INT-VALVE-453"
+      ],
+      "shells": [
+        "INT-VALVE-452"
+      ]
+    },
+    {
+      "scope": "RAK-KATUP-4-2-1",
+      "kind": "cutaway",
+      "core": "INT-VALVE-450",
+      "pickedRay": "INT-VALVE-450",
+      "position": [
+        0.8483771608042971,
+        0.5978206606591883,
+        -0.227697451108618
+      ],
+      "target": [
+        0.7739999899640679,
+        0.5565000101923943,
+        0.03400000184774399
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "INT-VALVE-450-INNER",
+        "INT-VALVE-454",
+        "INT-VALVE-450",
+        "INT-VALVE-450-COT1",
+        "INT-VALVE-450-COT2",
+        "INT-VALVE-451",
+        "INT-VALVE-450-SEAL",
+        "INT-VALVE-452",
+        "INT-VALVE-453"
+      ],
+      "shells": [
+        "INT-VALVE-452"
+      ],
+      "plane": {
+        "normal": [
+          -1,
+          0,
+          0
+        ],
+        "constant": 0.7739999890327454
+      }
+    },
+    {
+      "scope": "RAK-KATUP-4-2-2",
+      "kind": "xray",
+      "core": "INT-VALVE-457",
+      "pickedRay": "INT-VALVE-457",
+      "position": [
+        0.9183772113937394,
+        0.5978206606591883,
+        -0.227697451108618
+      ],
+      "target": [
+        0.8440000405535102,
+        0.5565000101923943,
+        0.03400000184774399
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "INT-VALVE-457-INNER",
+        "INT-VALVE-461",
+        "INT-VALVE-457",
+        "INT-VALVE-457-COT1",
+        "INT-VALVE-457-COT2",
+        "INT-VALVE-458",
+        "INT-VALVE-457-SEAL",
+        "INT-VALVE-459",
+        "INT-VALVE-460"
+      ],
+      "shells": [
+        "INT-VALVE-459"
+      ]
+    },
+    {
+      "scope": "RAK-KATUP-4-2-2",
+      "kind": "cutaway",
+      "core": "INT-VALVE-457",
+      "pickedRay": "INT-VALVE-457",
+      "position": [
+        0.9183772113937394,
+        0.5978206606591883,
+        -0.227697451108618
+      ],
+      "target": [
+        0.8440000405535102,
+        0.5565000101923943,
+        0.03400000184774399
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "INT-VALVE-457-INNER",
+        "INT-VALVE-461",
+        "INT-VALVE-457",
+        "INT-VALVE-457-COT1",
+        "INT-VALVE-457-COT2",
+        "INT-VALVE-458",
+        "INT-VALVE-457-SEAL",
+        "INT-VALVE-459",
+        "INT-VALVE-460"
+      ],
+      "shells": [
+        "INT-VALVE-459"
+      ],
+      "plane": {
+        "normal": [
+          -1,
+          0,
+          0
+        ],
+        "constant": 0.8440000116825104
+      }
+    },
+    {
+      "scope": "RAK-KATUP-5-1-1",
+      "kind": "xray",
+      "core": "INT-VALVE-530",
+      "pickedRay": "INT-VALVE-530",
+      "position": [
+        1.0494157106786002,
+        0.5983976725480087,
+        -0.29935186343330206
+      ],
+      "target": [
+        0.9739999184384942,
+        0.5565000101923943,
+        -0.03400000184774399
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "INT-VALVE-530-INNER",
+        "INT-VALVE-534",
+        "INT-VALVE-530",
+        "INT-VALVE-530-COT1",
+        "INT-VALVE-530-COT2",
+        "INT-VALVE-531",
+        "INT-VALVE-530-SEAL",
+        "INT-VALVE-532",
+        "INT-VALVE-533"
+      ],
+      "shells": [
+        "INT-VALVE-532"
+      ]
+    },
+    {
+      "scope": "RAK-KATUP-5-1-1",
+      "kind": "cutaway",
+      "core": "INT-VALVE-530",
+      "pickedRay": "INT-VALVE-530",
+      "position": [
+        1.0494157106786002,
+        0.5983976725480087,
+        -0.29935186343330206
+      ],
+      "target": [
+        0.9739999184384942,
+        0.5565000101923943,
+        -0.03400000184774399
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "INT-VALVE-530-INNER",
+        "INT-VALVE-534",
+        "INT-VALVE-530",
+        "INT-VALVE-530-COT1",
+        "INT-VALVE-530-COT2",
+        "INT-VALVE-531",
+        "INT-VALVE-530-SEAL",
+        "INT-VALVE-532",
+        "INT-VALVE-533"
+      ],
+      "shells": [
+        "INT-VALVE-532"
+      ],
+      "plane": {
+        "normal": [
+          -1,
+          0,
+          0
+        ],
+        "constant": 0.9740000069141388
+      }
+    },
+    {
+      "scope": "RAK-KATUP-5-1-2",
+      "kind": "xray",
+      "core": "INT-VALVE-537",
+      "pickedRay": "INT-VALVE-537",
+      "position": [
+        1.1194157016633977,
+        0.5983976725480087,
+        -0.29935186343330206
+      ],
+      "target": [
+        1.0439999094232917,
+        0.5565000101923943,
+        -0.03400000184774399
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "INT-VALVE-537-INNER",
+        "INT-VALVE-541",
+        "INT-VALVE-537",
+        "INT-VALVE-537-COT1",
+        "INT-VALVE-537-COT2",
+        "INT-VALVE-538",
+        "INT-VALVE-537-SEAL",
+        "INT-VALVE-539",
+        "INT-VALVE-540"
+      ],
+      "shells": [
+        "INT-VALVE-539"
+      ]
+    },
+    {
+      "scope": "RAK-KATUP-5-1-2",
+      "kind": "cutaway",
+      "core": "INT-VALVE-537",
+      "pickedRay": "INT-VALVE-537",
+      "position": [
+        1.1194157016633977,
+        0.5983976725480087,
+        -0.29935186343330206
+      ],
+      "target": [
+        1.0439999094232917,
+        0.5565000101923943,
+        -0.03400000184774399
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "INT-VALVE-537-INNER",
+        "INT-VALVE-541",
+        "INT-VALVE-537",
+        "INT-VALVE-537-COT1",
+        "INT-VALVE-537-COT2",
+        "INT-VALVE-538",
+        "INT-VALVE-537-SEAL",
+        "INT-VALVE-539",
+        "INT-VALVE-540"
+      ],
+      "shells": [
+        "INT-VALVE-539"
+      ],
+      "plane": {
+        "normal": [
+          -1,
+          0,
+          0
+        ],
+        "constant": 1.0440000295639038
+      }
+    },
+    {
+      "scope": "RAK-KATUP-5-2-1",
+      "kind": "xray",
+      "core": "INT-VALVE-550",
+      "pickedRay": "INT-VALVE-550",
+      "position": [
+        1.0483770892787234,
+        0.5978206606591883,
+        -0.227697451108618
+      ],
+      "target": [
+        0.9739999184384942,
+        0.5565000101923943,
+        0.03400000184774399
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "INT-VALVE-550-INNER",
+        "INT-VALVE-554",
+        "INT-VALVE-550",
+        "INT-VALVE-550-COT1",
+        "INT-VALVE-550-COT2",
+        "INT-VALVE-551",
+        "INT-VALVE-550-SEAL",
+        "INT-VALVE-552",
+        "INT-VALVE-553"
+      ],
+      "shells": [
+        "INT-VALVE-552"
+      ]
+    },
+    {
+      "scope": "RAK-KATUP-5-2-1",
+      "kind": "cutaway",
+      "core": "INT-VALVE-550",
+      "pickedRay": "INT-VALVE-550",
+      "position": [
+        1.0483770892787234,
+        0.5978206606591883,
+        -0.227697451108618
+      ],
+      "target": [
+        0.9739999184384942,
+        0.5565000101923943,
+        0.03400000184774399
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "INT-VALVE-550-INNER",
+        "INT-VALVE-554",
+        "INT-VALVE-550",
+        "INT-VALVE-550-COT1",
+        "INT-VALVE-550-COT2",
+        "INT-VALVE-551",
+        "INT-VALVE-550-SEAL",
+        "INT-VALVE-552",
+        "INT-VALVE-553"
+      ],
+      "shells": [
+        "INT-VALVE-552"
+      ],
+      "plane": {
+        "normal": [
+          -1,
+          0,
+          0
+        ],
+        "constant": 0.9740000069141388
+      }
+    },
+    {
+      "scope": "RAK-KATUP-5-2-2",
+      "kind": "xray",
+      "core": "INT-VALVE-557",
+      "pickedRay": "INT-VALVE-557",
+      "position": [
+        1.118377080263521,
+        0.5978206606591883,
+        -0.227697451108618
+      ],
+      "target": [
+        1.0439999094232917,
+        0.5565000101923943,
+        0.03400000184774399
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "INT-VALVE-557-INNER",
+        "INT-VALVE-561",
+        "INT-VALVE-557",
+        "INT-VALVE-557-COT1",
+        "INT-VALVE-557-COT2",
+        "INT-VALVE-558",
+        "INT-VALVE-557-SEAL",
+        "INT-VALVE-559",
+        "INT-VALVE-560"
+      ],
+      "shells": [
+        "INT-VALVE-559"
+      ]
+    },
+    {
+      "scope": "RAK-KATUP-5-2-2",
+      "kind": "cutaway",
+      "core": "INT-VALVE-557",
+      "pickedRay": "INT-VALVE-557",
+      "position": [
+        1.118377080263521,
+        0.5978206606591883,
+        -0.227697451108618
+      ],
+      "target": [
+        1.0439999094232917,
+        0.5565000101923943,
+        0.03400000184774399
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "INT-VALVE-557-INNER",
+        "INT-VALVE-561",
+        "INT-VALVE-557",
+        "INT-VALVE-557-COT1",
+        "INT-VALVE-557-COT2",
+        "INT-VALVE-558",
+        "INT-VALVE-557-SEAL",
+        "INT-VALVE-559",
+        "INT-VALVE-560"
+      ],
+      "shells": [
+        "INT-VALVE-559"
+      ],
+      "plane": {
+        "normal": [
+          -1,
+          0,
+          0
+        ],
+        "constant": 1.0440000295639038
+      }
+    },
+    {
+      "scope": "RAK-KATUP-6-1-1",
+      "kind": "xray",
+      "core": "INT-VALVE-630",
+      "pickedRay": "INT-VALVE-630",
+      "position": [
+        1.2494158179669608,
+        0.5983976725480087,
+        -0.29935186343330206
+      ],
+      "target": [
+        1.1740000257268548,
+        0.5565000101923943,
+        -0.03400000184774399
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "INT-VALVE-630-INNER",
+        "INT-VALVE-634",
+        "INT-VALVE-630",
+        "INT-VALVE-630-COT1",
+        "INT-VALVE-630-COT2",
+        "INT-VALVE-631",
+        "INT-VALVE-630-SEAL",
+        "INT-VALVE-632",
+        "INT-VALVE-633"
+      ],
+      "shells": [
+        "INT-VALVE-632"
+      ]
+    },
+    {
+      "scope": "RAK-KATUP-6-1-1",
+      "kind": "cutaway",
+      "core": "INT-VALVE-630",
+      "pickedRay": "INT-VALVE-630",
+      "position": [
+        1.2494158179669608,
+        0.5983976725480087,
+        -0.29935186343330206
+      ],
+      "target": [
+        1.1740000257268548,
+        0.5565000101923943,
+        -0.03400000184774399
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "INT-VALVE-630-INNER",
+        "INT-VALVE-634",
+        "INT-VALVE-630",
+        "INT-VALVE-630-COT1",
+        "INT-VALVE-630-COT2",
+        "INT-VALVE-631",
+        "INT-VALVE-630-SEAL",
+        "INT-VALVE-632",
+        "INT-VALVE-633"
+      ],
+      "shells": [
+        "INT-VALVE-632"
+      ],
+      "plane": {
+        "normal": [
+          -1,
+          0,
+          0
+        ],
+        "constant": 1.1740000247955322
+      }
+    },
+    {
+      "scope": "RAK-KATUP-6-1-2",
+      "kind": "xray",
+      "core": "INT-VALVE-637",
+      "pickedRay": "INT-VALVE-637",
+      "position": [
+        1.3194157493471135,
+        0.5983976725480087,
+        -0.29935186343330206
+      ],
+      "target": [
+        1.2439999571070075,
+        0.5565000101923943,
+        -0.03400000184774399
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "INT-VALVE-637-INNER",
+        "INT-VALVE-641",
+        "INT-VALVE-637",
+        "INT-VALVE-637-COT1",
+        "INT-VALVE-637-COT2",
+        "INT-VALVE-638",
+        "INT-VALVE-637-SEAL",
+        "INT-VALVE-639",
+        "INT-VALVE-640"
+      ],
+      "shells": [
+        "INT-VALVE-639"
+      ]
+    },
+    {
+      "scope": "RAK-KATUP-6-1-2",
+      "kind": "cutaway",
+      "core": "INT-VALVE-637",
+      "pickedRay": "INT-VALVE-637",
+      "position": [
+        1.3194157493471135,
+        0.5983976725480087,
+        -0.29935186343330206
+      ],
+      "target": [
+        1.2439999571070075,
+        0.5565000101923943,
+        -0.03400000184774399
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "INT-VALVE-637-INNER",
+        "INT-VALVE-641",
+        "INT-VALVE-637",
+        "INT-VALVE-637-COT1",
+        "INT-VALVE-637-COT2",
+        "INT-VALVE-638",
+        "INT-VALVE-637-SEAL",
+        "INT-VALVE-639",
+        "INT-VALVE-640"
+      ],
+      "shells": [
+        "INT-VALVE-639"
+      ],
+      "plane": {
+        "normal": [
+          -1,
+          0,
+          0
+        ],
+        "constant": 1.24399995803833
+      }
+    },
+    {
+      "scope": "RAK-KATUP-6-2-1",
+      "kind": "xray",
+      "core": "INT-VALVE-650",
+      "pickedRay": "INT-VALVE-650",
+      "position": [
+        1.248377196567084,
+        0.5978206606591883,
+        -0.227697451108618
+      ],
+      "target": [
+        1.1740000257268548,
+        0.5565000101923943,
+        0.03400000184774399
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "INT-VALVE-650-INNER",
+        "INT-VALVE-654",
+        "INT-VALVE-650",
+        "INT-VALVE-650-COT1",
+        "INT-VALVE-650-COT2",
+        "INT-VALVE-651",
+        "INT-VALVE-650-SEAL",
+        "INT-VALVE-652",
+        "INT-VALVE-653"
+      ],
+      "shells": [
+        "INT-VALVE-652"
+      ]
+    },
+    {
+      "scope": "RAK-KATUP-6-2-1",
+      "kind": "cutaway",
+      "core": "INT-VALVE-650",
+      "pickedRay": "INT-VALVE-650",
+      "position": [
+        1.248377196567084,
+        0.5978206606591883,
+        -0.227697451108618
+      ],
+      "target": [
+        1.1740000257268548,
+        0.5565000101923943,
+        0.03400000184774399
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "INT-VALVE-650-INNER",
+        "INT-VALVE-654",
+        "INT-VALVE-650",
+        "INT-VALVE-650-COT1",
+        "INT-VALVE-650-COT2",
+        "INT-VALVE-651",
+        "INT-VALVE-650-SEAL",
+        "INT-VALVE-652",
+        "INT-VALVE-653"
+      ],
+      "shells": [
+        "INT-VALVE-652"
+      ],
+      "plane": {
+        "normal": [
+          -1,
+          0,
+          0
+        ],
+        "constant": 1.1740000247955322
+      }
+    },
+    {
+      "scope": "RAK-KATUP-6-2-2",
+      "kind": "xray",
+      "core": "INT-VALVE-657",
+      "pickedRay": "INT-VALVE-657",
+      "position": [
+        1.3183771279472367,
+        0.5978206606591883,
+        -0.227697451108618
+      ],
+      "target": [
+        1.2439999571070075,
+        0.5565000101923943,
+        0.03400000184774399
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "INT-VALVE-657-INNER",
+        "INT-VALVE-661",
+        "INT-VALVE-657",
+        "INT-VALVE-657-COT1",
+        "INT-VALVE-657-COT2",
+        "INT-VALVE-658",
+        "INT-VALVE-657-SEAL",
+        "INT-VALVE-659",
+        "INT-VALVE-660"
+      ],
+      "shells": [
+        "INT-VALVE-659"
+      ]
+    },
+    {
+      "scope": "RAK-KATUP-6-2-2",
+      "kind": "cutaway",
+      "core": "INT-VALVE-657",
+      "pickedRay": "INT-VALVE-657",
+      "position": [
+        1.3183771279472367,
+        0.5978206606591883,
+        -0.227697451108618
+      ],
+      "target": [
+        1.2439999571070075,
+        0.5565000101923943,
+        0.03400000184774399
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "INT-VALVE-657-INNER",
+        "INT-VALVE-661",
+        "INT-VALVE-657",
+        "INT-VALVE-657-COT1",
+        "INT-VALVE-657-COT2",
+        "INT-VALVE-658",
+        "INT-VALVE-657-SEAL",
+        "INT-VALVE-659",
+        "INT-VALVE-660"
+      ],
+      "shells": [
+        "INT-VALVE-659"
+      ],
+      "plane": {
+        "normal": [
+          -1,
+          0,
+          0
+        ],
+        "constant": 1.24399995803833
+      }
+    },
+    {
+      "scope": "RAK-OIL-COOLER",
+      "kind": "xray",
+      "core": "EXT-LUBE-60",
+      "pickedRay": "EXT-LUBE-60",
+      "position": [
+        1.085423979837865,
+        0.6288601768563937,
+        1.138944874666467
+      ],
+      "target": [
+        0.6629999876022339,
+        0.33500000834465027,
+        0.37950000166893005
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "EXT-LUBE-05",
+        "EXT-LUBE-60",
+        "EXT-LUBE-61",
+        "EXT-LUBE-62",
+        "EXT-LUBE-63",
+        "EXT-LUBE-64",
+        "EXT-LUBE-65",
+        "EXT-LUBE-66",
+        "EXT-LUBE-67"
+      ],
+      "shells": [
+        "EXT-LUBE-05",
+        "EXT-LUBE-62",
+        "EXT-LUBE-64"
+      ]
+    },
+    {
+      "scope": "RAK-OIL-COOLER",
+      "kind": "cutaway",
+      "core": "EXT-LUBE-60",
+      "pickedRay": "EXT-LUBE-60",
+      "position": [
+        1.085423979837865,
+        0.6288601768563937,
+        1.138944874666467
+      ],
+      "target": [
+        0.6629999876022339,
+        0.33500000834465027,
+        0.37950000166893005
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "EXT-LUBE-05",
+        "EXT-LUBE-60",
+        "EXT-LUBE-61",
+        "EXT-LUBE-62",
+        "EXT-LUBE-63",
+        "EXT-LUBE-64",
+        "EXT-LUBE-65",
+        "EXT-LUBE-66",
+        "EXT-LUBE-67"
+      ],
+      "shells": [
+        "EXT-LUBE-05",
+        "EXT-LUBE-62",
+        "EXT-LUBE-64"
+      ],
+      "plane": {
+        "normal": [
+          0,
+          -0.35556783142518694,
+          -0.9346504786579793
+        ],
+        "constant": 0.4616646317136941
+      }
+    },
+    {
+      "scope": "RAK-OIL-FILTER-1",
+      "kind": "xray",
+      "core": "EXT-LUBE-20",
+      "pickedRay": "EXT-LUBE-20",
+      "position": [
+        1.1940755631943336,
+        0.2548302267559287,
+        -0.06800356811903263
+      ],
+      "target": [
+        0.8519999980926514,
+        0.11800000071525574,
+        0.44200000166893005
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "EXT-LUBE-02",
+        "EXT-LUBE-20",
+        "EXT-LUBE-21",
+        "EXT-LUBE-22"
+      ],
+      "shells": [
+        "EXT-LUBE-02"
+      ]
+    },
+    {
+      "scope": "RAK-OIL-FILTER-1",
+      "kind": "cutaway",
+      "core": "EXT-LUBE-20",
+      "pickedRay": "EXT-LUBE-20",
+      "position": [
+        1.1940755631943336,
+        0.2548302267559287,
+        -0.06800356811903263
+      ],
+      "target": [
+        0.8519999980926514,
+        0.11800000071525574,
+        0.44200000166893005
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "EXT-LUBE-02",
+        "EXT-LUBE-20",
+        "EXT-LUBE-21",
+        "EXT-LUBE-22"
+      ],
+      "shells": [
+        "EXT-LUBE-02"
+      ],
+      "plane": {
+        "normal": [
+          -0.5570352185371562,
+          0,
+          0.8304888712735785
+        ],
+        "constant": 0.10751792264224719
+      }
+    },
+    {
+      "scope": "RAK-OIL-FILTER-2",
+      "kind": "xray",
+      "core": "EXT-LUBE-24",
+      "pickedRay": "EXT-LUBE-24",
+      "position": [
+        1.3540755298157325,
+        0.2548302267559287,
+        -0.06800356811903263
+      ],
+      "target": [
+        1.0119999647140503,
+        0.11800000071525574,
+        0.44200000166893005
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "EXT-LUBE-03",
+        "EXT-LUBE-24",
+        "EXT-LUBE-25",
+        "EXT-LUBE-26"
+      ],
+      "shells": [
+        "EXT-LUBE-03"
+      ]
+    },
+    {
+      "scope": "RAK-OIL-FILTER-2",
+      "kind": "cutaway",
+      "core": "EXT-LUBE-24",
+      "pickedRay": "EXT-LUBE-24",
+      "position": [
+        1.3540755298157325,
+        0.2548302267559287,
+        -0.06800356811903263
+      ],
+      "target": [
+        1.0119999647140503,
+        0.11800000071525574,
+        0.44200000166893005
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "EXT-LUBE-03",
+        "EXT-LUBE-24",
+        "EXT-LUBE-25",
+        "EXT-LUBE-26"
+      ],
+      "shells": [
+        "EXT-LUBE-03"
+      ],
+      "plane": {
+        "normal": [
+          -0.5570352185371562,
+          0,
+          0.8304888712735785
+        ],
+        "constant": 0.19664353901513587
+      }
+    },
+    {
+      "scope": "RAK-SEAWATER-PUMP",
+      "kind": "xray",
+      "core": "EXT-COOLING-35",
+      "pickedRay": "EXT-COOLING-35",
+      "position": [
+        -0.5000960976940442,
+        0.5991995029138407,
+        -1.0658263070635168
+      ],
+      "target": [
+        0.042378177866339684,
+        0.33226771652698517,
+        -0.4536053389310837
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "EXT-COOLING-04",
+        "EXT-COOLING-35",
+        "EXT-COOLING-36",
+        "EXT-COOLING-37",
+        "EXT-COOLING-38",
+        "EXT-COOLING-39",
+        "EXT-COOLING-40",
+        "EXT-COOLING-41",
+        "EXT-COOLING-42",
+        "EXT-COOLING-43",
+        "EXT-COOLING-44",
+        "EXT-COOLING-45"
+      ],
+      "shells": [
+        "EXT-COOLING-04",
+        "EXT-COOLING-42",
+        "EXT-COOLING-45"
+      ]
+    },
+    {
+      "scope": "RAK-SEAWATER-PUMP",
+      "kind": "cutaway",
+      "core": "EXT-COOLING-35",
+      "pickedRay": "EXT-COOLING-35",
+      "position": [
+        -0.5000960976940442,
+        0.5991995029138407,
+        -1.0658263070635168
+      ],
+      "target": [
+        0.042378177866339684,
+        0.33226771652698517,
+        -0.4536053389310837
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "EXT-COOLING-04",
+        "EXT-COOLING-35",
+        "EXT-COOLING-36",
+        "EXT-COOLING-37",
+        "EXT-COOLING-38",
+        "EXT-COOLING-39",
+        "EXT-COOLING-40",
+        "EXT-COOLING-41",
+        "EXT-COOLING-42",
+        "EXT-COOLING-43",
+        "EXT-COOLING-44",
+        "EXT-COOLING-45"
+      ],
+      "shells": [
+        "EXT-COOLING-04",
+        "EXT-COOLING-42",
+        "EXT-COOLING-45"
+      ],
+      "plane": {
+        "normal": [
+          0.6161844528870221,
+          0,
+          0.7876018791371191
+        ],
+        "constant": 0.3702753535496923
+      }
+    },
+    {
+      "scope": "RAK-STARTER",
+      "kind": "xray",
+      "core": "EXT-ELECTRIC-52",
+      "pickedRay": "EXT-ELECTRIC-52",
+      "position": [
+        0.28782498157514863,
+        0.25006426661349823,
+        -0.10931483897578159
+      ],
+      "target": [
+        0.042750002816319466,
+        0.03999999910593033,
+        0.375
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "EXT-ELECTRIC-02",
+        "EXT-ELECTRIC-40",
+        "EXT-ELECTRIC-41",
+        "EXT-ELECTRIC-42",
+        "EXT-ELECTRIC-43",
+        "EXT-ELECTRIC-44",
+        "EXT-ELECTRIC-45",
+        "EXT-ELECTRIC-46",
+        "EXT-ELECTRIC-47",
+        "EXT-ELECTRIC-48",
+        "EXT-ELECTRIC-49",
+        "EXT-ELECTRIC-50",
+        "EXT-ELECTRIC-51",
+        "EXT-ELECTRIC-52",
+        "EXT-ELECTRIC-53"
+      ],
+      "shells": [
+        "EXT-ELECTRIC-02",
+        "EXT-ELECTRIC-50"
+      ]
+    },
+    {
+      "scope": "RAK-STARTER",
+      "kind": "cutaway",
+      "core": "EXT-ELECTRIC-52",
+      "pickedRay": "EXT-ELECTRIC-52",
+      "position": [
+        0.28782498157514863,
+        0.25006426661349823,
+        -0.10931483897578159
+      ],
+      "target": [
+        0.042750002816319466,
+        0.03999999910593033,
+        0.375
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "EXT-ELECTRIC-02",
+        "EXT-ELECTRIC-40",
+        "EXT-ELECTRIC-41",
+        "EXT-ELECTRIC-42",
+        "EXT-ELECTRIC-43",
+        "EXT-ELECTRIC-44",
+        "EXT-ELECTRIC-45",
+        "EXT-ELECTRIC-46",
+        "EXT-ELECTRIC-47",
+        "EXT-ELECTRIC-48",
+        "EXT-ELECTRIC-49",
+        "EXT-ELECTRIC-50",
+        "EXT-ELECTRIC-51",
+        "EXT-ELECTRIC-52",
+        "EXT-ELECTRIC-53"
+      ],
+      "shells": [
+        "EXT-ELECTRIC-02",
+        "EXT-ELECTRIC-50"
+      ],
+      "plane": {
+        "normal": [
+          0,
+          -0.43185846509440406,
+          0.9019413873009184
+        ],
+        "constant": -0.321511615216098
+      }
+    },
+    {
+      "scope": "RAK-TURBO",
+      "kind": "xray",
+      "core": "EXT-EXHAUST-20",
+      "pickedRay": "EXT-EXHAUST-20",
+      "position": [
+        1.40436755348247,
+        1.0810517711486887,
+        1.1231455534888934
+      ],
+      "target": [
+        0.6820000112056732,
+        0.6832261681556702,
+        0.4792962223291397
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "EXT-EXHAUST-02",
+        "EXT-EXHAUST-03",
+        "EXT-EXHAUST-04",
+        "EXT-EXHAUST-20",
+        "EXT-EXHAUST-21",
+        "EXT-EXHAUST-22",
+        "EXT-EXHAUST-23",
+        "EXT-EXHAUST-24",
+        "EXT-EXHAUST-25",
+        "EXT-EXHAUST-26",
+        "EXT-EXHAUST-27",
+        "EXT-EXHAUST-28",
+        "EXT-EXHAUST-29",
+        "EXT-EXHAUST-30",
+        "EXT-EXHAUST-31",
+        "EXT-EXHAUST-32",
+        "EXT-EXHAUST-33",
+        "EXT-EXHAUST-34",
+        "EXT-EXHAUST-35",
+        "EXT-EXHAUST-36",
+        "EXT-EXHAUST-37",
+        "EXT-EXHAUST-38",
+        "EXT-EXHAUST-39",
+        "EXT-EXHAUST-40",
+        "EXT-EXHAUST-41",
+        "EXT-EXHAUST-42",
+        "EXT-EXHAUST-43",
+        "EXT-EXHAUST-44",
+        "EXT-EXHAUST-45",
+        "EXT-EXHAUST-46",
+        "EXT-EXHAUST-47",
+        "EXT-EXHAUST-48",
+        "EXT-EXHAUST-49",
+        "EXT-EXHAUST-50",
+        "EXT-EXHAUST-51",
+        "EXT-EXHAUST-52",
+        "EXT-EXHAUST-53",
+        "EXT-EXHAUST-54",
+        "EXT-EXHAUST-55",
+        "EXT-EXHAUST-56",
+        "EXT-EXHAUST-57",
+        "EXT-EXHAUST-58",
+        "EXT-EXHAUST-59",
+        "EXT-EXHAUST-60",
+        "EXT-EXHAUST-61",
+        "EXT-EXHAUST-62",
+        "EXT-EXHAUST-63",
+        "EXT-EXHAUST-64",
+        "EXT-EXHAUST-65",
+        "EXT-EXHAUST-66",
+        "EXT-EXHAUST-67"
+      ],
+      "shells": [
+        "EXT-EXHAUST-02",
+        "EXT-EXHAUST-03",
+        "EXT-EXHAUST-04",
+        "EXT-EXHAUST-40"
+      ]
+    },
+    {
+      "scope": "RAK-TURBO",
+      "kind": "cutaway",
+      "core": "EXT-EXHAUST-20",
+      "pickedRay": "EXT-EXHAUST-20",
+      "position": [
+        1.40436755348247,
+        1.0810517711486887,
+        1.1231455534888934
+      ],
+      "target": [
+        0.6820000112056732,
+        0.6832261681556702,
+        0.4792962223291397
+      ],
+      "fov": 35,
+      "aspect": 2,
+      "visible": [
+        "EXT-EXHAUST-02",
+        "EXT-EXHAUST-03",
+        "EXT-EXHAUST-04",
+        "EXT-EXHAUST-20",
+        "EXT-EXHAUST-21",
+        "EXT-EXHAUST-22",
+        "EXT-EXHAUST-23",
+        "EXT-EXHAUST-24",
+        "EXT-EXHAUST-25",
+        "EXT-EXHAUST-26",
+        "EXT-EXHAUST-27",
+        "EXT-EXHAUST-28",
+        "EXT-EXHAUST-29",
+        "EXT-EXHAUST-30",
+        "EXT-EXHAUST-31",
+        "EXT-EXHAUST-32",
+        "EXT-EXHAUST-33",
+        "EXT-EXHAUST-34",
+        "EXT-EXHAUST-35",
+        "EXT-EXHAUST-36",
+        "EXT-EXHAUST-37",
+        "EXT-EXHAUST-38",
+        "EXT-EXHAUST-39",
+        "EXT-EXHAUST-40",
+        "EXT-EXHAUST-41",
+        "EXT-EXHAUST-42",
+        "EXT-EXHAUST-43",
+        "EXT-EXHAUST-44",
+        "EXT-EXHAUST-45",
+        "EXT-EXHAUST-46",
+        "EXT-EXHAUST-47",
+        "EXT-EXHAUST-48",
+        "EXT-EXHAUST-49",
+        "EXT-EXHAUST-50",
+        "EXT-EXHAUST-51",
+        "EXT-EXHAUST-52",
+        "EXT-EXHAUST-53",
+        "EXT-EXHAUST-54",
+        "EXT-EXHAUST-55",
+        "EXT-EXHAUST-56",
+        "EXT-EXHAUST-57",
+        "EXT-EXHAUST-58",
+        "EXT-EXHAUST-59",
+        "EXT-EXHAUST-60",
+        "EXT-EXHAUST-61",
+        "EXT-EXHAUST-62",
+        "EXT-EXHAUST-63",
+        "EXT-EXHAUST-64",
+        "EXT-EXHAUST-65",
+        "EXT-EXHAUST-66",
+        "EXT-EXHAUST-67"
+      ],
+      "shells": [
+        "EXT-EXHAUST-02",
+        "EXT-EXHAUST-03",
+        "EXT-EXHAUST-04",
+        "EXT-EXHAUST-40"
+      ],
+      "plane": {
+        "normal": [
+          -0.8983658808634911,
+          -0.4392479301036758,
+          0
+        ],
+        "constant": 0.8166293145430745
+      }
+    }
+  ]
+}

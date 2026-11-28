@@ -1,0 +1,2907 @@
+{
+  "note": "Normalized labels describe recorded access. Historic statements are attributed; not new validation. Full source fields remain in original registries.",
+  "sources": [
+    {
+      "registry": "dokumen/cooler-specialist/BOM-Fig37.json",
+      "json_pointer": "",
+      "url": "https://yanmarshop.com/en-GB/catalog/all/servicebom/yanmardata-1310808/yanmar-marine-marine-main-engine-medium-ay-series-6aym-wet-fig-37-air-cooler",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "id": "D05-37"
+      }
+    },
+    {
+      "registry": "dokumen/cooler-specialist/D05-42.json",
+      "json_pointer": "",
+      "url": "https://yanmarshop.com/en-GB/catalog/all/servicebom/yanmardata-1310902/yanmar-marine-marine-main-engine-medium-ay-series-6aym-wet-fig-42-lub-oil-cooler",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {}
+    },
+    {
+      "registry": "dokumen/cooler-specialist/D05-57.json",
+      "json_pointer": "",
+      "url": "https://yanmarshop.com/en-GB/catalog/all/servicebom/yanmardata-1311151/yanmar-marine-marine-main-engine-medium-ay-series-6aym-wet-fig-57-fresh-water-cooler",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {}
+    },
+    {
+      "registry": "dokumen/cooling-pumps-specialist/coverage.json",
+      "json_pointer": "/sources/0",
+      "url": "https://yanmarshop.com/en-GB/catalog/all/servicebom/yanmardata-1311058/yanmar-marine-marine-main-engine-medium-ay-series-6aym-wet-fig-54-cooling-fresh-water-pump",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "id": "D05-F54",
+        "title": "Parts Catalog 0CG10-M34300EN Fig.54 COOLING FRESH WATER PUMP",
+        "scope": "kolom A, 6AYM-WET; kecocokan nomor seri unit belum diketahui"
+      }
+    },
+    {
+      "registry": "dokumen/cooling-pumps-specialist/coverage.json",
+      "json_pointer": "/sources/1",
+      "url": "https://yanmarshop.com/en-GB/catalog/all/servicebom/yanmardata-1311091/yanmar-marine-marine-main-engine-medium-ay-series-6aym-wet-fig-55-cooling-pumpsea-water",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "id": "D05-F55",
+        "title": "Parts Catalog 0CG10-M34300EN Fig.55 COOLING SEA WATER PUMP",
+        "scope": "kolom A, 6AYM-WET; kecocokan nomor seri unit belum diketahui"
+      }
+    },
+    {
+      "registry": "dokumen/evidence-doc.json",
+      "json_pointer": "/sources/0",
+      "url": "https://dealer.yanmar.com.au/bulletins/SERVICE/6AYM-W_Service_manual.pdf",
+      "normalized_access_status": "DOCUMENTED_TEXT",
+      "original_fields": {
+        "id": "D01",
+        "title": "Service Manual — Marine Propulsion Engine 6AYM-WGT, 6AYM-WET, 6AYM-WST",
+        "publisher": "YANMAR CO., LTD.",
+        "evidence_status": "DOCUMENTED",
+        "locators": [
+          "PDF 2 code",
+          "PDF 13–16 specifications, layout and systems",
+          "PDF 63 liner",
+          "PDF 90, 92 head and rocker",
+          "PDF 96–97 piston",
+          "PDF 100 rod",
+          "PDF 104–105 crank",
+          "PDF 112–113 gears, flywheel, damper"
+        ],
+        "limitations": "PDF 222 halaman; pdftotext -layout menghasilkan pemisah halaman; pilih halaman OCR atau buka render. Ilustrasi keluarga bersifat representatif; kolom WET H dikunci di spesifikasi.",
+        "file": "D01-service.pdf",
+        "sha256": "bd68c39b57e2f84137ed990f87163cc652f8cbbb59e19d782526a089f3566160"
+      }
+    },
+    {
+      "registry": "dokumen/evidence-doc.json",
+      "json_pointer": "/sources/1",
+      "url": "https://www.yanmar.com/media/global/com/product/marinecommercial/propulsionEngine-HighSpeed/operationmanual/6AYM-WST_WET_WGT_OPM_0A6AY-G00401.pdf",
+      "normalized_access_status": "DOCUMENTED_TEXT",
+      "original_fields": {
+        "id": "D02",
+        "title": "Marine Diesel Engine Operation Manual 6AYM-WGT, 6AYM-WET, 6AYM-WST",
+        "publisher": "YANMAR CO., LTD.",
+        "evidence_status": "DOCUMENTED",
+        "locators": [
+          "PDF 13 / cetak 9 spesifikasi WET H/M",
+          "PDF 14 / cetak 10 lokasi komponen"
+        ],
+        "limitations": "PDF 60 halaman; teks tertanam tak dapat diekstrak dengan pdftotext -layout; halaman angka dan layout dilihat langsung.",
+        "file": "D02-operation.pdf",
+        "sha256": "d8ea101654d254869bbcf2590c01987c079b1b2c8a296a79e07201b7254979b1"
+      }
+    },
+    {
+      "registry": "dokumen/evidence-doc.json",
+      "json_pointer": "/sources/2",
+      "url": "https://www.yanmar.com/media/global/2016/catalog/diesel_engine_product_guide_201608.pdf",
+      "normalized_access_status": "DOCUMENTED_TEXT",
+      "original_fields": {
+        "id": "D03",
+        "title": "Products Guide — Marine Diesel Engine",
+        "publisher": "YANMAR CO., LTD.",
+        "evidence_status": "DOCUMENTED",
+        "locators": [
+          "PDF 17 / cetak 32–33 WET H",
+          "PDF 18 / cetak 34–35 WET M"
+        ],
+        "limitations": "Dua spread asli dibaca secara visual, teks via pdftotext -layout. Orthographic view dengan dimensi, sebagian datum bukan envelope maksimal.",
+        "file": "D03-product-guide.pdf",
+        "sha256": "effb2cb7ef35e641ee0dd394802d38e8a2f5087ce0544334cc738fb536e592eb"
+      }
+    },
+    {
+      "registry": "dokumen/evidence-doc.json",
+      "json_pointer": "/sources/3",
+      "url": "https://yanmarshop.com/en-GB/catalog/all/browse/yanmardata-1310266/yanmar-marine-marine-main-engine-medium-ay-series-6aym-wet",
+      "normalized_access_status": "DOCUMENTED_TEXT",
+      "original_fields": {
+        "id": "D05",
+        "title": "6AYM-WET — Yanmar Shop Engineering Parts Catalogue",
+        "publisher": "Yanmar Shop; data parts Yanmar",
+        "evidence_status": "DOCUMENTED",
+        "locators": [
+          {
+            "figure": 38,
+            "url": "https://yanmarshop.com/en-GB/catalog/all/servicebom/yanmardata-1310833/yanmar-marine-marine-main-engine-medium-ay-series-6aym-wet-fig-38-crankshaft-flywheel"
+          },
+          {
+            "figure": 39,
+            "url": "https://yanmarshop.com/en-GB/catalog/all/servicebom/yanmardata-1310847/yanmar-marine-marine-main-engine-medium-ay-series-6aym-wet-fig-39-piston-connecting-rod"
+          }
+        ],
+        "limitations": "HTML BOM dan kedua gambar SVG OEM berhasil diunduh dan dibuka secara visual. Diagram exploded tidak berdimensi. Nomor part alternatif butuh serial. PDF katalog lengkap tidak tersedia.",
+        "file": "D05-fig38.html",
+        "sha256": "01ef6ccecd99f0cc860f71b434c2a2605cebada679ee8c5ce17650a76e474bd1"
+      }
+    },
+    {
+      "registry": "dokumen/evidence-doc.json",
+      "json_pointer": "/sources/3/locators/0",
+      "url": "https://yanmarshop.com/en-GB/catalog/all/servicebom/yanmardata-1310833/yanmar-marine-marine-main-engine-medium-ay-series-6aym-wet-fig-38-crankshaft-flywheel",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {}
+    },
+    {
+      "registry": "dokumen/evidence-doc.json",
+      "json_pointer": "/sources/3/locators/1",
+      "url": "https://yanmarshop.com/en-GB/catalog/all/servicebom/yanmardata-1310847/yanmar-marine-marine-main-engine-medium-ay-series-6aym-wet-fig-39-piston-connecting-rod",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {}
+    },
+    {
+      "registry": "dokumen/evidence-doc.json",
+      "json_pointer": "/sources/4",
+      "url": "https://www.yanmar.com/ph/marinecommercial/products/propulsion_engine-high_speed/6ayseries/",
+      "normalized_access_status": "DOCUMENTED_TEXT",
+      "original_fields": {
+        "id": "D06",
+        "title": "6AY SERIES — Marine Commercial — YANMAR Philippines",
+        "publisher": "Yanmar",
+        "evidence_status": "DOCUMENTED",
+        "locators": [
+          "PRINCIPAL DATA; dua kolom 6AYM-WET"
+        ],
+        "limitations": "HTML yang diunduh dan dibaca menamai rating 555 kW sebagai C.",
+        "file": "D06-current-product.html",
+        "sha256": "b325a7d943375f987965ebb0207f52e50cbbcf5cb44e0b291b16f5dda3bafc18"
+      }
+    },
+    {
+      "registry": "dokumen/evidence-doc.json",
+      "json_pointer": "/failures/0",
+      "url": "https://armada.bki.co.id/bulkdrawing/revisi/2401120002_1_1_yanmar%206aym-wstwet%20.pdf",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "id": "D04"
+      }
+    },
+    {
+      "registry": "dokumen/evidence-doc.json",
+      "json_pointer": "/failures/1",
+      "url": "https://pdfcoffee.com/6aym-wet-parts-catalogepdf-pdf-free.html",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "id": "D05-PDF"
+      }
+    },
+    {
+      "registry": "dokumen/evidence-doc.json",
+      "json_pointer": "/failures/2",
+      "url": "https://www.yanmar.no/theme/yanmarportal/uploadedFiles/Marine/productDownloads/Commercial-datasheet/6148-Datasheet-6AYM-WET-M.pdf",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "id": "ALT-M"
+      }
+    },
+    {
+      "registry": "dokumen/function-references/browser-sources.json",
+      "json_pointer": "/0",
+      "url": "https://pin.it/1xWNBjn2J",
+      "normalized_access_status": "OBSERVED",
+      "original_fields": {
+        "id": "USER-START",
+        "title": "Contoh starter dari pemilik",
+        "publisher": null,
+        "scope": "Pinion masuk/keluar ring gear; flywheel berputar; casing starter tetap",
+        "access": "sampled_frames_viewed",
+        "limitations": "Kompilasi split-screen animasi+bench. Pembuat, mesin, gigi, rasio, ukuran dan timing real tidak teridentifikasi. Bukan bukti geometri OEM."
+      }
+    },
+    {
+      "registry": "dokumen/function-references/browser-sources.json",
+      "json_pointer": "/1",
+      "url": "https://assets.denso-am.eu/production/attachments/Starter-Alternator-Manual-English.pdf",
+      "normalized_access_status": "OBSERVED",
+      "original_fields": {
+        "id": "DENSO-MAN",
+        "title": "Starters & Alternators Technical Manual, edition 2 October 2016",
+        "publisher": "DENSO Europe",
+        "scope": "Engagement/disengagement starter dan rotor/stator alternator",
+        "access": "pdf_pages_viewed",
+        "limitations": "Desain generik beberapa tipe; bukan starter exact 6AYM."
+      }
+    },
+    {
+      "registry": "dokumen/function-references/browser-sources.json",
+      "json_pointer": "/2",
+      "url": "https://www.garrettmotion.com/news/video-center/video/how-a-turbocharger-works/",
+      "normalized_access_status": "OBSERVED",
+      "original_fields": {
+        "id": "GARRETT-VID",
+        "title": "How a Turbocharger Works",
+        "publisher": "Garrett Motion",
+        "scope": "Turbine, poros bersama, compressor, charge air cooler dan aliran masuk/buang",
+        "access": "sampled_frames_viewed",
+        "limitations": "Animasi automotive generik. 280000RPM pada40s bukan RPM Yanmar dan tidak boleh ditransfer."
+      }
+    },
+    {
+      "registry": "dokumen/function-references/browser-sources.json",
+      "json_pointer": "/3",
+      "url": "https://www.youtube.com/watch?v=ECv1VwW6RTo",
+      "normalized_access_status": "METADATA_ONLY",
+      "original_fields": {
+        "id": "JABSCO-VID",
+        "title": "How a Jabsco Flexible Impeller Pump Works",
+        "publisher": "Jabsco Flojet Rule",
+        "scope": "Demonstrasi OEM clear end-cover untuk lenturan vane",
+        "access": "metadata_only",
+        "limitations": "Deskripsi mengonfirmasi demonstrasi aktual; video gagal fetch, tanpa timestamp pengamatan."
+      }
+    },
+    {
+      "registry": "dokumen/function-references/browser-sources.json",
+      "json_pointer": "/4",
+      "url": "https://www.youtube.com/watch?v=_bVukK4ZD0I",
+      "normalized_access_status": "METADATA_ONLY",
+      "original_fields": {
+        "id": "GRUNDFOS-VID",
+        "title": "The Fundamentals of Centrifugal Pumps - Part 1",
+        "publisher": "Grundfos",
+        "scope": "Prinsip pompa sentrifugal",
+        "access": "metadata_only",
+        "limitations": "Tidak ditonton; analogi fungsi, bukan geometri/jumlah sudu/rasio pompa Yanmar."
+      }
+    },
+    {
+      "registry": "dokumen/function-references/browser-sources.json",
+      "json_pointer": "/5",
+      "url": "https://www.youtube.com/watch?v=gQpCCeq9HIQ",
+      "normalized_access_status": "METADATA_ONLY",
+      "original_fields": {
+        "id": "PUMP-VID",
+        "title": "The Governor Operation in a Mechanical In-Line Fuel Injection Pump / CLIP",
+        "publisher": "Mr Lopez",
+        "scope": "Kandidat pendidikan governor pompa inline",
+        "access": "metadata_only",
+        "limitations": "Non-OEM, frame tidak dilihat. Referensi implementasi tetap YM-SERVICE PDF115–116."
+      }
+    },
+    {
+      "registry": "dokumen/function-references/browser-sources.json",
+      "json_pointer": "/6",
+      "url": "https://www.youtube.com/watch?v=P5-yxENaLDU",
+      "normalized_access_status": "METADATA_ONLY",
+      "original_fields": {
+        "id": "INJECTOR-VID",
+        "title": "Video on working of diesel fuel Injector and how nozzle spray (judul tautan kurikulum)",
+        "publisher": null,
+        "scope": "Kandidat inspeksi mekanisme injektor",
+        "access": "curriculum_link_only",
+        "limitations": "Judul asli/channel/frame belum terverifikasi; tidak dijadikan bukti teknis. Tolak transfer piezo/commonrail ke injector mekanis Yanmar."
+      }
+    },
+    {
+      "registry": "dokumen/function-references/browser-sources.json",
+      "json_pointer": "/7",
+      "url": "https://www.youtube.com/watch?v=nx9Fos8ZQbc",
+      "normalized_access_status": "METADATA_ONLY",
+      "original_fields": {
+        "id": "FOURSTROKE-VID",
+        "title": "How Four Stroke Engines Work (How It Works - 4 Stroke)",
+        "publisher": "saVRee",
+        "scope": "Kandidat analogi empat langkah",
+        "access": "indexed_metadata",
+        "limitations": "Frame belum dilihat; fase/urutan Yanmar memakai manualexisting."
+      }
+    },
+    {
+      "registry": "dokumen/function-references/browser-sources.json",
+      "json_pointer": "/8",
+      "url": "https://www.youtube.com/watch?v=0wykeiH4KwI",
+      "normalized_access_status": "METADATA_ONLY",
+      "original_fields": {
+        "id": "OILGEAR-VID",
+        "title": "Bosch Rexroth: External gear pump - CKD - Conversion of a Basic Pump to a Primary Pump",
+        "publisher": "Bosch Rexroth (judul terindeks; channel belum diperiksa)",
+        "scope": "Kandidat struktur gearpump",
+        "access": "metadata_only",
+        "limitations": "Video assembly bukan bukti debit/putaran Yanmar. Rasio harus YM-SERVICE PDF157."
+      }
+    },
+    {
+      "registry": "dokumen/function-references/browser-sources.json",
+      "json_pointer": "/9",
+      "url": "https://www.youtube.com/watch?v=AajTItBn148",
+      "normalized_access_status": "METADATA_ONLY",
+      "original_fields": {
+        "id": "OILFILTER-VID",
+        "title": "MANN-FILTER Oil Filters",
+        "publisher": "MANN-FILTER (brand dalam judul; channel belum diperiksa)",
+        "scope": "Kandidat filter oli",
+        "access": "metadata_only",
+        "limitations": "Tidak ditonton, bypass pressure/flowdirection Yanmar ditentukan diagrammanual."
+      }
+    },
+    {
+      "registry": "dokumen/function-references/browser-sources.json",
+      "json_pointer": "/10",
+      "url": "https://www.youtube.com/watch?v=OyQ3SaU4KKU",
+      "normalized_access_status": "METADATA_ONLY",
+      "original_fields": {
+        "id": "COOLER-VID",
+        "title": "How Does a Shell and Tube Heat Exchanger Work? | 3D Animation",
+        "publisher": "saVRee",
+        "scope": "Kandidat aliran terpisah shell/tube dan heat transfer",
+        "access": "metadata_only",
+        "limitations": "Frame belum dilihat. Bukan OEM Yanmar; jumlah tube dan pass tidak dipindah."
+      }
+    },
+    {
+      "registry": "dokumen/function-references/browser-sources.json",
+      "json_pointer": "/11",
+      "url": "https://dealer.yanmar.com.au/bulletins/SERVICE/6AYM-W_Service_manual.pdf",
+      "normalized_access_status": "OBSERVED",
+      "original_fields": {
+        "id": "YM-SERVICE",
+        "title": "Service Manual 6AYM-WGT / 6AYM-WET / 6AYM-WST, 0B6AY-EN0010",
+        "publisher": "YANMAR",
+        "scope": "Pompa injeksi/governor/feedpump/pompaoli/rute pendingin Yanmar",
+        "access": "pdf_pages_viewed",
+        "limitations": "Kolom WET dipilih. Gambar keluarga tidak menetapkan serial/clearance/cam law lengkap."
+      }
+    },
+    {
+      "registry": "dokumen/function-references/registry.json",
+      "json_pointer": "/sources/0",
+      "url": "https://pin.it/1xWNBjn2J",
+      "normalized_access_status": "OBSERVED",
+      "original_fields": {
+        "id": "USER-START",
+        "title": "Contoh starter dari pemilik",
+        "publisher": null,
+        "variant": "Analogi mekanisme; bukan identifikasi varian Yanmar",
+        "scope": "Pinion masuk/keluar ring gear; flywheel berputar; casing starter tetap",
+        "access": "sampled_frames_viewed",
+        "frames_seconds": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "limitations": "Kompilasi split-screen animasi+bench. Pembuat, mesin, gigi, rasio, ukuran dan timing real tidak teridentifikasi. Bukan bukti geometri OEM.",
+        "video_file": "starter-user.mp4",
+        "evidence": "starter-observed.jpg",
+        "sha256": "88257f146910759c9ebcd8974bd1ca0c38da505b6beb43cc33dd31310bedd9fe"
+      }
+    },
+    {
+      "registry": "dokumen/function-references/registry.json",
+      "json_pointer": "/sources/1",
+      "url": "https://assets.denso-am.eu/production/attachments/Starter-Alternator-Manual-English.pdf",
+      "normalized_access_status": "OBSERVED",
+      "original_fields": {
+        "id": "DENSO-MAN",
+        "title": "Starters & Alternators Technical Manual, edition 2 October 2016",
+        "publisher": "DENSO Europe",
+        "variant": "Analogi mekanisme; bukan identifikasi varian Yanmar",
+        "scope": "Engagement/disengagement starter dan rotor/stator alternator",
+        "access": "pdf_pages_viewed",
+        "pages_viewed": [
+          10,
+          43
+        ],
+        "limitations": "Desain generik beberapa tipe; bukan starter exact 6AYM.",
+        "file": "denso-manual.pdf",
+        "evidence": [
+          "denso-p10.png",
+          "denso-p43.png"
+        ],
+        "sha256": "fb1fca26e8c4d4197a95de5db598f4fee3389ec706ef9a52d884104e7ae5fe53"
+      }
+    },
+    {
+      "registry": "dokumen/function-references/registry.json",
+      "json_pointer": "/sources/2",
+      "url": "https://www.youtube.com/watch?v=3nhbKIToMB4",
+      "normalized_access_status": "METADATA_ONLY",
+      "original_fields": {
+        "id": "DENSO-VID",
+        "title": "Discover DENSO Starters & Alternators",
+        "publisher": "DENSO Aftermarket Europe",
+        "variant": "Analogi mekanisme; bukan identifikasi varian Yanmar",
+        "scope": "Kandidat video OEM starter/alternator",
+        "access": "metadata_only",
+        "limitations": "Video produk OEM; frame tidak dilihat. Mekanisme memakai DENSO-MAN, bukan klaim menonton video."
+      }
+    },
+    {
+      "registry": "dokumen/function-references/registry.json",
+      "json_pointer": "/sources/3",
+      "url": "https://www.garrettmotion.com/news/video-center/video/how-a-turbocharger-works/",
+      "normalized_access_status": "OBSERVED",
+      "original_fields": {
+        "id": "GARRETT-VID",
+        "title": "How a Turbocharger Works",
+        "publisher": "Garrett Motion",
+        "variant": "Analogi mekanisme; bukan identifikasi varian Yanmar",
+        "scope": "Turbine, poros bersama, compressor, charge air cooler dan aliran masuk/buang",
+        "access": "sampled_frames_viewed",
+        "frames_seconds": [
+          30,
+          40,
+          50,
+          60,
+          70,
+          80
+        ],
+        "limitations": "Animasi automotive generik. 280000RPM pada40s bukan RPM Yanmar dan tidak boleh ditransfer.",
+        "video_file": "garrett-turbo.mp4",
+        "evidence": "garrett-observed.jpg",
+        "sha256": "c22c24240154076b6e5efff6a94c2da43b965c784bf3e2ad7daaf033c8e3339d"
+      }
+    },
+    {
+      "registry": "dokumen/function-references/registry.json",
+      "json_pointer": "/sources/4",
+      "url": "https://www.garrettmotion.com/turbo-replacement/turbo-diagnosis/knowledge-base/",
+      "normalized_access_status": "DOCUMENTED_TEXT",
+      "original_fields": {
+        "id": "GARRETT-DOC",
+        "title": "Turbocharger knowledge base",
+        "publisher": "Garrett Motion",
+        "variant": "Analogi mekanisme; bukan identifikasi varian Yanmar",
+        "scope": "Exhaust drives turbine; solid shaft connects compressor",
+        "access": "web_text",
+        "limitations": "Tidak memvalidasi speed/lag/unit Yanmar."
+      }
+    },
+    {
+      "registry": "dokumen/function-references/registry.json",
+      "json_pointer": "/sources/5",
+      "url": "https://www.youtube.com/watch?v=ECv1VwW6RTo",
+      "normalized_access_status": "METADATA_ONLY",
+      "original_fields": {
+        "id": "JABSCO-VID",
+        "title": "How a Jabsco Flexible Impeller Pump Works",
+        "publisher": "Jabsco Flojet Rule",
+        "variant": "Analogi mekanisme; bukan identifikasi varian Yanmar",
+        "scope": "Demonstrasi OEM clear end-cover untuk lenturan vane",
+        "access": "metadata_only",
+        "limitations": "Deskripsi mengonfirmasi demonstrasi aktual; video gagal fetch, tanpa timestamp pengamatan."
+      }
+    },
+    {
+      "registry": "dokumen/function-references/registry.json",
+      "json_pointer": "/sources/6",
+      "url": "https://www.xylem.com/siteassets/brand/jabsco/resources/manual/user-guide---engine-cooling-flexible-impeller-pumps.pdf",
+      "normalized_access_status": "DOCUMENTED_TEXT",
+      "original_fields": {
+        "id": "JABSCO-DOC",
+        "title": "Engine Cooling Flexible Impeller Pumps — Principle of Operation",
+        "publisher": "Xylem/Jabsco",
+        "variant": "Analogi mekanisme; bukan identifikasi varian Yanmar",
+        "scope": "Volume sel meningkat sisi isap, mengecil oleh eccentric cam sisi discharge",
+        "access": "indexed_primary_text",
+        "limitations": "Unduhan langsung403; paragraf operasi terbaca via websearch. Bukan ukuran pompa Yanmar."
+      }
+    },
+    {
+      "registry": "dokumen/function-references/registry.json",
+      "json_pointer": "/sources/7",
+      "url": "https://www.youtube.com/watch?v=_bVukK4ZD0I",
+      "normalized_access_status": "METADATA_ONLY",
+      "original_fields": {
+        "id": "GRUNDFOS-VID",
+        "title": "The Fundamentals of Centrifugal Pumps - Part 1",
+        "publisher": "Grundfos",
+        "variant": "Analogi mekanisme; bukan identifikasi varian Yanmar",
+        "scope": "Prinsip pompa sentrifugal",
+        "access": "metadata_only",
+        "limitations": "Tidak ditonton; analogi fungsi, bukan geometri/jumlah sudu/rasio pompa Yanmar."
+      }
+    },
+    {
+      "registry": "dokumen/function-references/registry.json",
+      "json_pointer": "/sources/8",
+      "url": "https://www.grundfos.com/content/dam/global/page-assets/learn/ecademy/pdfs/us-course-102L-module-3-centrifugal-pump-theory.pdf",
+      "normalized_access_status": "DOCUMENTED_TEXT",
+      "original_fields": {
+        "id": "GRUNDFOS-DOC",
+        "title": "Centrifugal pump theory",
+        "publisher": "Grundfos Holding A/S",
+        "variant": "Analogi mekanisme; bukan identifikasi varian Yanmar",
+        "scope": "Konversi energi putar menjadi kecepatan dan tekanan",
+        "access": "indexed_primary_text",
+        "limitations": "Peta head-flow Yanmar tidak tersedia."
+      }
+    },
+    {
+      "registry": "dokumen/function-references/registry.json",
+      "json_pointer": "/sources/9",
+      "url": "https://www.youtube.com/watch?v=gQpCCeq9HIQ",
+      "normalized_access_status": "METADATA_ONLY",
+      "original_fields": {
+        "id": "PUMP-VID",
+        "title": "The Governor Operation in a Mechanical In-Line Fuel Injection Pump / CLIP",
+        "publisher": "Mr Lopez",
+        "variant": "Analogi mekanisme; bukan identifikasi varian Yanmar",
+        "scope": "Kandidat pendidikan governor pompa inline",
+        "access": "metadata_only",
+        "limitations": "Non-OEM, frame tidak dilihat. Referensi implementasi tetap YM-SERVICE PDF115–116."
+      }
+    },
+    {
+      "registry": "dokumen/function-references/registry.json",
+      "json_pointer": "/sources/10",
+      "url": "https://www.youtube.com/watch?v=P5-yxENaLDU",
+      "normalized_access_status": "METADATA_ONLY",
+      "original_fields": {
+        "id": "INJECTOR-VID",
+        "title": "Video on working of diesel fuel Injector and how nozzle spray (judul tautan kurikulum)",
+        "publisher": null,
+        "variant": "Analogi mekanisme; bukan identifikasi varian Yanmar",
+        "scope": "Kandidat inspeksi mekanisme injektor",
+        "access": "curriculum_link_only",
+        "limitations": "Judul asli/channel/frame belum terverifikasi; tidak dijadikan bukti teknis. Tolak transfer piezo/commonrail ke injector mekanis Yanmar."
+      }
+    },
+    {
+      "registry": "dokumen/function-references/registry.json",
+      "json_pointer": "/sources/11",
+      "url": "https://www.youtube.com/watch?v=nx9Fos8ZQbc",
+      "normalized_access_status": "METADATA_ONLY",
+      "original_fields": {
+        "id": "FOURSTROKE-VID",
+        "title": "How Four Stroke Engines Work (How It Works - 4 Stroke)",
+        "publisher": "saVRee",
+        "variant": "Analogi mekanisme; bukan identifikasi varian Yanmar",
+        "scope": "Kandidat analogi empat langkah",
+        "access": "indexed_metadata",
+        "limitations": "Frame belum dilihat; fase/urutan Yanmar memakai manualexisting."
+      }
+    },
+    {
+      "registry": "dokumen/function-references/registry.json",
+      "json_pointer": "/sources/12",
+      "url": "https://www.youtube.com/watch?v=0wykeiH4KwI",
+      "normalized_access_status": "METADATA_ONLY",
+      "original_fields": {
+        "id": "OILGEAR-VID",
+        "title": "Bosch Rexroth: External gear pump - CKD - Conversion of a Basic Pump to a Primary Pump",
+        "publisher": "Bosch Rexroth (judul terindeks; channel belum diperiksa)",
+        "variant": "Analogi mekanisme; bukan identifikasi varian Yanmar",
+        "scope": "Kandidat struktur gearpump",
+        "access": "metadata_only",
+        "limitations": "Video assembly bukan bukti debit/putaran Yanmar. Rasio harus YM-SERVICE PDF157."
+      }
+    },
+    {
+      "registry": "dokumen/function-references/registry.json",
+      "json_pointer": "/sources/13",
+      "url": "https://www.youtube.com/watch?v=AajTItBn148",
+      "normalized_access_status": "METADATA_ONLY",
+      "original_fields": {
+        "id": "OILFILTER-VID",
+        "title": "MANN-FILTER Oil Filters",
+        "publisher": "MANN-FILTER (brand dalam judul; channel belum diperiksa)",
+        "variant": "Analogi mekanisme; bukan identifikasi varian Yanmar",
+        "scope": "Kandidat filter oli",
+        "access": "metadata_only",
+        "limitations": "Tidak ditonton, bypass pressure/flowdirection Yanmar ditentukan diagrammanual."
+      }
+    },
+    {
+      "registry": "dokumen/function-references/registry.json",
+      "json_pointer": "/sources/14",
+      "url": "https://www.mann-filter.com/in-en/parts/oil-filter.html",
+      "normalized_access_status": "DOCUMENTED_TEXT",
+      "original_fields": {
+        "id": "OILFILTER-DOC",
+        "title": "Engine oil filters",
+        "publisher": "MANN-FILTER",
+        "variant": "Analogi mekanisme; bukan identifikasi varian Yanmar",
+        "scope": "Filter/non-return function",
+        "access": "indexed_primary_text",
+        "limitations": "Jenis elemen dan valve berbeda antarproduk."
+      }
+    },
+    {
+      "registry": "dokumen/function-references/registry.json",
+      "json_pointer": "/sources/15",
+      "url": "https://www.youtube.com/watch?v=OyQ3SaU4KKU",
+      "normalized_access_status": "METADATA_ONLY",
+      "original_fields": {
+        "id": "COOLER-VID",
+        "title": "How Does a Shell and Tube Heat Exchanger Work? | 3D Animation",
+        "publisher": "saVRee",
+        "variant": "Analogi mekanisme; bukan identifikasi varian Yanmar",
+        "scope": "Kandidat aliran terpisah shell/tube dan heat transfer",
+        "access": "metadata_only",
+        "limitations": "Frame belum dilihat. Bukan OEM Yanmar; jumlah tube dan pass tidak dipindah."
+      }
+    },
+    {
+      "registry": "dokumen/function-references/registry.json",
+      "json_pointer": "/sources/16",
+      "url": "https://www.alfalaval.com/products/heat-transfer/tubular-heat-exchangers/shell-and-tube-heat-exchanger/",
+      "normalized_access_status": "DOCUMENTED_TEXT",
+      "original_fields": {
+        "id": "COOLER-DOC",
+        "title": "Shell-and-tube heat exchanger",
+        "publisher": "Alfa Laval",
+        "variant": "Analogi mekanisme; bukan identifikasi varian Yanmar",
+        "scope": "Baffle, tube dan permukaan perpindahan panas",
+        "access": "indexed_primary_text",
+        "limitations": "Tidak menetapkan konfigurasi cooler 6AYM."
+      }
+    },
+    {
+      "registry": "dokumen/function-references/registry.json",
+      "json_pointer": "/sources/17",
+      "url": "https://dealer.yanmar.com.au/bulletins/SERVICE/6AYM-W_Service_manual.pdf",
+      "normalized_access_status": "OBSERVED",
+      "original_fields": {
+        "id": "YM-SERVICE",
+        "title": "Service Manual 6AYM-WGT / 6AYM-WET / 6AYM-WST, 0B6AY-EN0010",
+        "publisher": "YANMAR",
+        "variant": "6AYM-WGT/WET/WST; pilih kolom WET",
+        "scope": "Pompa injeksi/governor/feedpump/pompaoli/rute pendingin Yanmar",
+        "access": "pdf_pages_viewed",
+        "pages_viewed": [
+          115,
+          116,
+          145,
+          148,
+          149,
+          150,
+          151,
+          157,
+          163
+        ],
+        "printed_pages": [
+          111,
+          112,
+          141,
+          144,
+          145,
+          146,
+          147,
+          153,
+          159
+        ],
+        "limitations": "Kolom WET dipilih. Gambar keluarga tidak menetapkan serial/clearance/cam law lengkap.",
+        "file": "../D01-service.pdf",
+        "evidence": [
+          "yanmar-D01-p115.png",
+          "yanmar-D01-p116.png",
+          "yanmar-D01-p145.png",
+          "yanmar-D01-p148.png",
+          "yanmar-D01-p149.png",
+          "yanmar-D01-p150.png",
+          "yanmar-D01-p151.png",
+          "yanmar-D01-p157.png",
+          "yanmar-D01-p163.png"
+        ],
+        "sha256": "bd68c39b57e2f84137ed990f87163cc652f8cbbb59e19d782526a089f3566160"
+      }
+    },
+    {
+      "registry": "dokumen/function-references/registry.json",
+      "json_pointer": "/sources/18",
+      "url": "https://www.yanmar.com/media/global/com/product/marinecommercial/propulsionEngine-HighSpeed/operationmanual/6AYM-WST_WET_WGT_OPM_0A6AY-G00401.pdf",
+      "normalized_access_status": "SEE_ORIGINAL_REGISTRY",
+      "original_fields": {
+        "id": "YM-OPERATION",
+        "title": "Operation Manual 6AYM-WGT / WET / WST",
+        "publisher": "YANMAR",
+        "variant": "6AYM-WGT/WET/WST; pilih kolom WET",
+        "scope": "Manual operasi primer yang sudah ada",
+        "access": "existing_project_source",
+        "limitations": "Tidak dibuka ulang pada tugas referensi ini; tidak mengklaim inspeksi baru.",
+        "file": "../D02-operation.pdf",
+        "sha256": "d8ea101654d254869bbcf2590c01987c079b1b2c8a296a79e07201b7254979b1"
+      }
+    },
+    {
+      "registry": "dokumen/sources.json",
+      "json_pointer": "/sources/0",
+      "url": "https://dealer.yanmar.com.au/bulletins/SERVICE/6AYM-W_Service_manual.pdf",
+      "normalized_access_status": "DOCUMENTED_TEXT",
+      "original_fields": {
+        "id": "D01",
+        "title": "Service Manual — Marine Propulsion Engine 6AYM-WGT, 6AYM-WET, 6AYM-WST",
+        "publisher": "YANMAR CO., LTD.",
+        "evidence_status": "DOCUMENTED",
+        "locators": [
+          "PDF 2 code",
+          "PDF 13–16 specifications, layout and systems",
+          "PDF 63 liner",
+          "PDF 90, 92 head and rocker",
+          "PDF 96–97 piston",
+          "PDF 100 rod",
+          "PDF 104–105 crank",
+          "PDF 112–113 gears, flywheel, damper"
+        ],
+        "limitations": "PDF 222 halaman; pdftotext -layout menghasilkan pemisah halaman; pilih halaman OCR atau buka render. Ilustrasi keluarga bersifat representatif; kolom WET H dikunci di spesifikasi.",
+        "file": "D01-service.pdf",
+        "sha256": "bd68c39b57e2f84137ed990f87163cc652f8cbbb59e19d782526a089f3566160"
+      }
+    },
+    {
+      "registry": "dokumen/sources.json",
+      "json_pointer": "/sources/1",
+      "url": "https://www.yanmar.com/media/global/com/product/marinecommercial/propulsionEngine-HighSpeed/operationmanual/6AYM-WST_WET_WGT_OPM_0A6AY-G00401.pdf",
+      "normalized_access_status": "DOCUMENTED_TEXT",
+      "original_fields": {
+        "id": "D02",
+        "title": "Marine Diesel Engine Operation Manual 6AYM-WGT, 6AYM-WET, 6AYM-WST",
+        "publisher": "YANMAR CO., LTD.",
+        "evidence_status": "DOCUMENTED",
+        "locators": [
+          "PDF 13 / cetak 9 spesifikasi WET H/M",
+          "PDF 14 / cetak 10 lokasi komponen"
+        ],
+        "limitations": "PDF 60 halaman; teks tertanam tak dapat diekstrak dengan pdftotext -layout; halaman angka dan layout dilihat langsung.",
+        "file": "D02-operation.pdf",
+        "sha256": "d8ea101654d254869bbcf2590c01987c079b1b2c8a296a79e07201b7254979b1"
+      }
+    },
+    {
+      "registry": "dokumen/sources.json",
+      "json_pointer": "/sources/2",
+      "url": "https://www.yanmar.com/media/global/2016/catalog/diesel_engine_product_guide_201608.pdf",
+      "normalized_access_status": "DOCUMENTED_TEXT",
+      "original_fields": {
+        "id": "D03",
+        "title": "Products Guide — Marine Diesel Engine",
+        "publisher": "YANMAR CO., LTD.",
+        "evidence_status": "DOCUMENTED",
+        "locators": [
+          "PDF 17 / cetak 32–33 WET H",
+          "PDF 18 / cetak 34–35 WET M"
+        ],
+        "limitations": "Dua spread asli dibaca secara visual, teks via pdftotext -layout. Orthographic view dengan dimensi, sebagian datum bukan envelope maksimal.",
+        "file": "D03-product-guide.pdf",
+        "sha256": "effb2cb7ef35e641ee0dd394802d38e8a2f5087ce0544334cc738fb536e592eb"
+      }
+    },
+    {
+      "registry": "dokumen/sources.json",
+      "json_pointer": "/sources/3",
+      "url": "https://yanmarshop.com/en-GB/catalog/all/browse/yanmardata-1310266/yanmar-marine-marine-main-engine-medium-ay-series-6aym-wet",
+      "normalized_access_status": "DOCUMENTED_TEXT",
+      "original_fields": {
+        "id": "D05",
+        "title": "6AYM-WET — Yanmar Shop Engineering Parts Catalogue",
+        "publisher": "Yanmar Shop; data parts Yanmar",
+        "evidence_status": "DOCUMENTED",
+        "locators": [
+          {
+            "figure": 38,
+            "url": "https://yanmarshop.com/en-GB/catalog/all/servicebom/yanmardata-1310833/yanmar-marine-marine-main-engine-medium-ay-series-6aym-wet-fig-38-crankshaft-flywheel"
+          },
+          {
+            "figure": 39,
+            "url": "https://yanmarshop.com/en-GB/catalog/all/servicebom/yanmardata-1310847/yanmar-marine-marine-main-engine-medium-ay-series-6aym-wet-fig-39-piston-connecting-rod"
+          }
+        ],
+        "limitations": "HTML BOM dan kedua gambar SVG OEM berhasil diunduh dan dibuka secara visual. Diagram exploded tidak berdimensi. Nomor part alternatif butuh serial. PDF katalog lengkap tidak tersedia.",
+        "file": "D05-fig38.html",
+        "sha256": "01ef6ccecd99f0cc860f71b434c2a2605cebada679ee8c5ce17650a76e474bd1"
+      }
+    },
+    {
+      "registry": "dokumen/sources.json",
+      "json_pointer": "/sources/3/locators/0",
+      "url": "https://yanmarshop.com/en-GB/catalog/all/servicebom/yanmardata-1310833/yanmar-marine-marine-main-engine-medium-ay-series-6aym-wet-fig-38-crankshaft-flywheel",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {}
+    },
+    {
+      "registry": "dokumen/sources.json",
+      "json_pointer": "/sources/3/locators/1",
+      "url": "https://yanmarshop.com/en-GB/catalog/all/servicebom/yanmardata-1310847/yanmar-marine-marine-main-engine-medium-ay-series-6aym-wet-fig-39-piston-connecting-rod",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {}
+    },
+    {
+      "registry": "dokumen/sources.json",
+      "json_pointer": "/sources/4",
+      "url": "https://www.yanmar.com/ph/marinecommercial/products/propulsion_engine-high_speed/6ayseries/",
+      "normalized_access_status": "DOCUMENTED_TEXT",
+      "original_fields": {
+        "id": "D06",
+        "title": "6AY SERIES — Marine Commercial — YANMAR Philippines",
+        "publisher": "Yanmar",
+        "evidence_status": "DOCUMENTED",
+        "locators": [
+          "PRINCIPAL DATA; dua kolom 6AYM-WET"
+        ],
+        "limitations": "HTML yang diunduh dan dibaca menamai rating 555 kW sebagai C.",
+        "file": "D06-current-product.html",
+        "sha256": "b325a7d943375f987965ebb0207f52e50cbbcf5cb44e0b291b16f5dda3bafc18"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/0",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2025/08/22400-YANMAR-6AYM-WET-555kW-@-1840-rpm.pdf",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "id": 29512
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/0/media_details/sizes/full",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2025/08/22400-YANMAR-6AYM-WET-555kW-@-1840-rpm-pdf.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "22400-YANMAR-6AYM-WET-555kW-@-1840-rpm-pdf.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/0/media_details/sizes/medium",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2025/08/22400-YANMAR-6AYM-WET-555kW-@-1840-rpm-pdf-212x300.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "22400-YANMAR-6AYM-WET-555kW-@-1840-rpm-pdf-212x300.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/0/media_details/sizes/large",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2025/08/22400-YANMAR-6AYM-WET-555kW-@-1840-rpm-pdf-724x1024.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "22400-YANMAR-6AYM-WET-555kW-@-1840-rpm-pdf-724x1024.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/0/media_details/sizes/thumbnail",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2025/08/22400-YANMAR-6AYM-WET-555kW-@-1840-rpm-pdf-106x150.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "22400-YANMAR-6AYM-WET-555kW-@-1840-rpm-pdf-106x150.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/1",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2025/08/22399-YANMAR-6AYM-WET-555kW-@-1840-rpm.pdf",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "id": 29508
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/1/media_details/sizes/full",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2025/08/22399-YANMAR-6AYM-WET-555kW-@-1840-rpm-pdf.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "22399-YANMAR-6AYM-WET-555kW-@-1840-rpm-pdf.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/1/media_details/sizes/medium",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2025/08/22399-YANMAR-6AYM-WET-555kW-@-1840-rpm-pdf-212x300.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "22399-YANMAR-6AYM-WET-555kW-@-1840-rpm-pdf-212x300.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/1/media_details/sizes/large",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2025/08/22399-YANMAR-6AYM-WET-555kW-@-1840-rpm-pdf-724x1024.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "22399-YANMAR-6AYM-WET-555kW-@-1840-rpm-pdf-724x1024.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/1/media_details/sizes/thumbnail",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2025/08/22399-YANMAR-6AYM-WET-555kW-@-1840-rpm-pdf-106x150.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "22399-YANMAR-6AYM-WET-555kW-@-1840-rpm-pdf-106x150.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/2",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2025/08/22331-YANMAR-6AYM-WET-555kW-@-1840-rpm.pdf",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "id": 29504
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/2/media_details/sizes/full",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2025/08/22331-YANMAR-6AYM-WET-555kW-@-1840-rpm-pdf.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "22331-YANMAR-6AYM-WET-555kW-@-1840-rpm-pdf.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/2/media_details/sizes/medium",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2025/08/22331-YANMAR-6AYM-WET-555kW-@-1840-rpm-pdf-212x300.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "22331-YANMAR-6AYM-WET-555kW-@-1840-rpm-pdf-212x300.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/2/media_details/sizes/large",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2025/08/22331-YANMAR-6AYM-WET-555kW-@-1840-rpm-pdf-724x1024.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "22331-YANMAR-6AYM-WET-555kW-@-1840-rpm-pdf-724x1024.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/2/media_details/sizes/thumbnail",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2025/08/22331-YANMAR-6AYM-WET-555kW-@-1840-rpm-pdf-106x150.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "22331-YANMAR-6AYM-WET-555kW-@-1840-rpm-pdf-106x150.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/3",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2025/08/22330-YANMAR-6AYM-WET-555kW-@-1840-rpm.pdf",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "id": 29500
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/3/media_details/sizes/full",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2025/08/22330-YANMAR-6AYM-WET-555kW-@-1840-rpm-pdf.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "22330-YANMAR-6AYM-WET-555kW-@-1840-rpm-pdf.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/3/media_details/sizes/medium",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2025/08/22330-YANMAR-6AYM-WET-555kW-@-1840-rpm-pdf-212x300.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "22330-YANMAR-6AYM-WET-555kW-@-1840-rpm-pdf-212x300.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/3/media_details/sizes/large",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2025/08/22330-YANMAR-6AYM-WET-555kW-@-1840-rpm-pdf-724x1024.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "22330-YANMAR-6AYM-WET-555kW-@-1840-rpm-pdf-724x1024.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/3/media_details/sizes/thumbnail",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2025/08/22330-YANMAR-6AYM-WET-555kW-@-1840-rpm-pdf-106x150.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "22330-YANMAR-6AYM-WET-555kW-@-1840-rpm-pdf-106x150.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/4",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/22400-YANMAR-6AYM-WET-555kW-@-1840-rpm.pdf",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "id": 23671
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/4/media_details/sizes/full",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/22400-YANMAR-6AYM-WET-555kW-@-1840-rpm-pdf.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "22400-YANMAR-6AYM-WET-555kW-@-1840-rpm-pdf.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/4/media_details/sizes/medium",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/22400-YANMAR-6AYM-WET-555kW-@-1840-rpm-pdf-212x300.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "22400-YANMAR-6AYM-WET-555kW-@-1840-rpm-pdf-212x300.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/4/media_details/sizes/large",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/22400-YANMAR-6AYM-WET-555kW-@-1840-rpm-pdf-724x1024.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "22400-YANMAR-6AYM-WET-555kW-@-1840-rpm-pdf-724x1024.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/4/media_details/sizes/thumbnail",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/22400-YANMAR-6AYM-WET-555kW-@-1840-rpm-pdf-106x150.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "22400-YANMAR-6AYM-WET-555kW-@-1840-rpm-pdf-106x150.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/5",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/22399-YANMAR-6AYM-WET-555kW-@-1840-rpm.pdf",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "id": 23661
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/5/media_details/sizes/full",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/22399-YANMAR-6AYM-WET-555kW-@-1840-rpm-pdf.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "22399-YANMAR-6AYM-WET-555kW-@-1840-rpm-pdf.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/5/media_details/sizes/medium",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/22399-YANMAR-6AYM-WET-555kW-@-1840-rpm-pdf-212x300.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "22399-YANMAR-6AYM-WET-555kW-@-1840-rpm-pdf-212x300.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/5/media_details/sizes/large",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/22399-YANMAR-6AYM-WET-555kW-@-1840-rpm-pdf-724x1024.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "22399-YANMAR-6AYM-WET-555kW-@-1840-rpm-pdf-724x1024.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/5/media_details/sizes/thumbnail",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/22399-YANMAR-6AYM-WET-555kW-@-1840-rpm-pdf-106x150.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "22399-YANMAR-6AYM-WET-555kW-@-1840-rpm-pdf-106x150.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/6",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/22331-YANMAR-6AYM-WET-555kW-@-1840-rpm.pdf",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "id": 23656
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/6/media_details/sizes/full",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/22331-YANMAR-6AYM-WET-555kW-@-1840-rpm-pdf.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "22331-YANMAR-6AYM-WET-555kW-@-1840-rpm-pdf.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/6/media_details/sizes/medium",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/22331-YANMAR-6AYM-WET-555kW-@-1840-rpm-pdf-212x300.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "22331-YANMAR-6AYM-WET-555kW-@-1840-rpm-pdf-212x300.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/6/media_details/sizes/large",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/22331-YANMAR-6AYM-WET-555kW-@-1840-rpm-pdf-724x1024.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "22331-YANMAR-6AYM-WET-555kW-@-1840-rpm-pdf-724x1024.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/6/media_details/sizes/thumbnail",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/22331-YANMAR-6AYM-WET-555kW-@-1840-rpm-pdf-106x150.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "22331-YANMAR-6AYM-WET-555kW-@-1840-rpm-pdf-106x150.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/7",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "id": 23652
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/7/media_details/sizes/medium",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-300x225.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-300x225.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/7/media_details/sizes/large",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-1024x768.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-1024x768.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/7/media_details/sizes/thumbnail",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-150x150.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-150x150.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/7/media_details/sizes/medium_large",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-768x576.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-768x576.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/7/media_details/sizes/1536x1536",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-1536x1152.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-1536x1152.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/7/media_details/sizes/htmega_size_585x295",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-585x295.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-585x295.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/7/media_details/sizes/htmega_size_1170x536",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-1170x536.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-1170x536.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/7/media_details/sizes/htmega_size_396x360",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-396x360.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-396x360.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/7/media_details/sizes/twentyseventeen-thumbnail-avatar",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-100x100.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-100x100.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/7/media_details/sizes/full",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/8",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-11.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "id": 23651
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/8/media_details/sizes/medium",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-11-225x300.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-11-225x300.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/8/media_details/sizes/large",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-11-768x1024.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-11-768x1024.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/8/media_details/sizes/thumbnail",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-11-150x150.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-11-150x150.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/8/media_details/sizes/medium_large",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-11-768x1024.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-11-768x1024.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/8/media_details/sizes/1536x1536",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-11-1152x1536.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-11-1152x1536.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/8/media_details/sizes/htmega_size_585x295",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-11-585x295.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-11-585x295.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/8/media_details/sizes/htmega_size_1170x536",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-11-1170x536.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-11-1170x536.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/8/media_details/sizes/htmega_size_396x360",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-11-396x360.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-11-396x360.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/8/media_details/sizes/twentyseventeen-featured-image",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-11-1200x1200.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-11-1200x1200.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/8/media_details/sizes/twentyseventeen-thumbnail-avatar",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-11-100x100.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-11-100x100.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/8/media_details/sizes/full",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-11.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-11.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/9",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-10.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "id": 23650
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/9/media_details/sizes/medium",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-10-225x300.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-10-225x300.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/9/media_details/sizes/large",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-10-768x1024.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-10-768x1024.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/9/media_details/sizes/thumbnail",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-10-150x150.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-10-150x150.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/9/media_details/sizes/medium_large",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-10-768x1024.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-10-768x1024.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/9/media_details/sizes/1536x1536",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-10-1152x1536.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-10-1152x1536.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/9/media_details/sizes/htmega_size_585x295",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-10-585x295.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-10-585x295.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/9/media_details/sizes/htmega_size_1170x536",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-10-1170x536.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-10-1170x536.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/9/media_details/sizes/htmega_size_396x360",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-10-396x360.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-10-396x360.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/9/media_details/sizes/twentyseventeen-featured-image",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-10-1200x1200.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-10-1200x1200.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/9/media_details/sizes/twentyseventeen-thumbnail-avatar",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-10-100x100.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-10-100x100.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/9/media_details/sizes/full",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-10.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-10.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/10",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-9.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "id": 23649
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/10/media_details/sizes/medium",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-9-225x300.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-9-225x300.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/10/media_details/sizes/large",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-9-768x1024.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-9-768x1024.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/10/media_details/sizes/thumbnail",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-9-150x150.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-9-150x150.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/10/media_details/sizes/medium_large",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-9-768x1024.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-9-768x1024.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/10/media_details/sizes/1536x1536",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-9-1152x1536.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-9-1152x1536.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/10/media_details/sizes/htmega_size_585x295",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-9-585x295.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-9-585x295.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/10/media_details/sizes/htmega_size_1170x536",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-9-1170x536.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-9-1170x536.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/10/media_details/sizes/htmega_size_396x360",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-9-396x360.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-9-396x360.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/10/media_details/sizes/twentyseventeen-featured-image",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-9-1200x1200.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-9-1200x1200.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/10/media_details/sizes/twentyseventeen-thumbnail-avatar",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-9-100x100.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-9-100x100.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/10/media_details/sizes/full",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-9.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-9.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/11",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-8.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "id": 23648
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/11/media_details/sizes/medium",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-8-225x300.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-8-225x300.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/11/media_details/sizes/large",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-8-768x1024.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-8-768x1024.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/11/media_details/sizes/thumbnail",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-8-150x150.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-8-150x150.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/11/media_details/sizes/medium_large",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-8-768x1024.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-8-768x1024.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/11/media_details/sizes/1536x1536",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-8-1152x1536.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-8-1152x1536.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/11/media_details/sizes/htmega_size_585x295",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-8-585x295.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-8-585x295.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/11/media_details/sizes/htmega_size_1170x536",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-8-1170x536.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-8-1170x536.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/11/media_details/sizes/htmega_size_396x360",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-8-396x360.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-8-396x360.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/11/media_details/sizes/twentyseventeen-featured-image",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-8-1200x1200.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-8-1200x1200.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/11/media_details/sizes/twentyseventeen-thumbnail-avatar",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-8-100x100.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-8-100x100.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/11/media_details/sizes/full",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-8.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-8.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/12",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-7.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "id": 23647
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/12/media_details/sizes/medium",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-7-300x225.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-7-300x225.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/12/media_details/sizes/large",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-7-1024x768.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-7-1024x768.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/12/media_details/sizes/thumbnail",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-7-150x150.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-7-150x150.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/12/media_details/sizes/medium_large",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-7-768x576.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-7-768x576.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/12/media_details/sizes/1536x1536",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-7-1536x1152.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-7-1536x1152.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/12/media_details/sizes/htmega_size_585x295",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-7-585x295.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-7-585x295.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/12/media_details/sizes/htmega_size_1170x536",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-7-1170x536.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-7-1170x536.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/12/media_details/sizes/htmega_size_396x360",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-7-396x360.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-7-396x360.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/12/media_details/sizes/twentyseventeen-thumbnail-avatar",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-7-100x100.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-7-100x100.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/12/media_details/sizes/full",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-7.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-7.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/13",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-6.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "id": 23646
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/13/media_details/sizes/medium",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-6-300x225.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-6-300x225.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/13/media_details/sizes/large",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-6-1024x768.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-6-1024x768.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/13/media_details/sizes/thumbnail",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-6-150x150.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-6-150x150.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/13/media_details/sizes/medium_large",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-6-768x576.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-6-768x576.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/13/media_details/sizes/1536x1536",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-6-1536x1152.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-6-1536x1152.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/13/media_details/sizes/htmega_size_585x295",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-6-585x295.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-6-585x295.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/13/media_details/sizes/htmega_size_1170x536",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-6-1170x536.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-6-1170x536.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/13/media_details/sizes/htmega_size_396x360",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-6-396x360.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-6-396x360.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/13/media_details/sizes/twentyseventeen-thumbnail-avatar",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-6-100x100.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-6-100x100.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/13/media_details/sizes/full",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-6.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-6.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/14",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-5.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "id": 23645
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/14/media_details/sizes/medium",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-5-225x300.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-5-225x300.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/14/media_details/sizes/large",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-5-768x1024.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-5-768x1024.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/14/media_details/sizes/thumbnail",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-5-150x150.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-5-150x150.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/14/media_details/sizes/medium_large",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-5-768x1024.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-5-768x1024.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/14/media_details/sizes/1536x1536",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-5-1152x1536.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-5-1152x1536.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/14/media_details/sizes/htmega_size_585x295",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-5-585x295.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-5-585x295.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/14/media_details/sizes/htmega_size_1170x536",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-5-1170x536.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-5-1170x536.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/14/media_details/sizes/htmega_size_396x360",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-5-396x360.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-5-396x360.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/14/media_details/sizes/twentyseventeen-featured-image",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-5-1200x1200.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-5-1200x1200.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/14/media_details/sizes/twentyseventeen-thumbnail-avatar",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-5-100x100.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-5-100x100.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/14/media_details/sizes/full",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-5.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-5.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/15",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-4.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "id": 23644
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/15/media_details/sizes/medium",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-4-225x300.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-4-225x300.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/15/media_details/sizes/large",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-4-768x1024.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-4-768x1024.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/15/media_details/sizes/thumbnail",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-4-150x150.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-4-150x150.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/15/media_details/sizes/medium_large",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-4-768x1024.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-4-768x1024.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/15/media_details/sizes/1536x1536",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-4-1152x1536.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-4-1152x1536.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/15/media_details/sizes/htmega_size_585x295",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-4-585x295.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-4-585x295.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/15/media_details/sizes/htmega_size_1170x536",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-4-1170x536.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-4-1170x536.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/15/media_details/sizes/htmega_size_396x360",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-4-396x360.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-4-396x360.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/15/media_details/sizes/twentyseventeen-featured-image",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-4-1200x1200.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-4-1200x1200.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/15/media_details/sizes/twentyseventeen-thumbnail-avatar",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-4-100x100.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-4-100x100.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/15/media_details/sizes/full",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-4.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-4.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/16",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-3.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "id": 23643
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/16/media_details/sizes/medium",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-3-225x300.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-3-225x300.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/16/media_details/sizes/large",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-3-768x1024.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-3-768x1024.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/16/media_details/sizes/thumbnail",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-3-150x150.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-3-150x150.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/16/media_details/sizes/medium_large",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-3-768x1024.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-3-768x1024.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/16/media_details/sizes/1536x1536",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-3-1152x1536.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-3-1152x1536.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/16/media_details/sizes/htmega_size_585x295",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-3-585x295.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-3-585x295.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/16/media_details/sizes/htmega_size_1170x536",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-3-1170x536.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-3-1170x536.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/16/media_details/sizes/htmega_size_396x360",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-3-396x360.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-3-396x360.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/16/media_details/sizes/twentyseventeen-featured-image",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-3-1200x1200.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-3-1200x1200.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/16/media_details/sizes/twentyseventeen-thumbnail-avatar",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-3-100x100.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-3-100x100.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/16/media_details/sizes/full",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-3.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-3.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/17",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-2.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "id": 23642
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/17/media_details/sizes/medium",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-2-300x225.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-2-300x225.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/17/media_details/sizes/large",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-2-1024x768.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-2-1024x768.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/17/media_details/sizes/thumbnail",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-2-150x150.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-2-150x150.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/17/media_details/sizes/medium_large",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-2-768x576.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-2-768x576.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/17/media_details/sizes/1536x1536",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-2-1536x1152.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-2-1536x1152.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/17/media_details/sizes/htmega_size_585x295",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-2-585x295.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-2-585x295.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/17/media_details/sizes/htmega_size_1170x536",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-2-1170x536.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-2-1170x536.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/17/media_details/sizes/htmega_size_396x360",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-2-396x360.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-2-396x360.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/17/media_details/sizes/twentyseventeen-thumbnail-avatar",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-2-100x100.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-2-100x100.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/17/media_details/sizes/full",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-2.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "YANMAR-6AYM-WET-555kW-2.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/18",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/22330-YANMAR-6AYM-WET-555kW-@-1840-rpm.pdf",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "id": 23641
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/18/media_details/sizes/full",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/22330-YANMAR-6AYM-WET-555kW-@-1840-rpm-pdf.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "22330-YANMAR-6AYM-WET-555kW-@-1840-rpm-pdf.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/18/media_details/sizes/medium",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/22330-YANMAR-6AYM-WET-555kW-@-1840-rpm-pdf-212x300.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "22330-YANMAR-6AYM-WET-555kW-@-1840-rpm-pdf-212x300.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/18/media_details/sizes/large",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/22330-YANMAR-6AYM-WET-555kW-@-1840-rpm-pdf-724x1024.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "22330-YANMAR-6AYM-WET-555kW-@-1840-rpm-pdf-724x1024.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/18/media_details/sizes/thumbnail",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/22330-YANMAR-6AYM-WET-555kW-@-1840-rpm-pdf-106x150.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "22330-YANMAR-6AYM-WET-555kW-@-1840-rpm-pdf-106x150.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/19",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2022/09/22400-YANMAR-6AYM-WET-555kW-@-1840-rpm-2.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "id": 18321
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/19/media_details/sizes/medium",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2022/09/22400-YANMAR-6AYM-WET-555kW-@-1840-rpm-2-300x225.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "22400-YANMAR-6AYM-WET-555kW-@-1840-rpm-2-300x225.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/19/media_details/sizes/thumbnail",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2022/09/22400-YANMAR-6AYM-WET-555kW-@-1840-rpm-2-150x150.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "22400-YANMAR-6AYM-WET-555kW-@-1840-rpm-2-150x150.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/19/media_details/sizes/medium_large",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2022/09/22400-YANMAR-6AYM-WET-555kW-@-1840-rpm-2-768x576.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "22400-YANMAR-6AYM-WET-555kW-@-1840-rpm-2-768x576.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/19/media_details/sizes/htmega_size_585x295",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2022/09/22400-YANMAR-6AYM-WET-555kW-@-1840-rpm-2-585x295.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "22400-YANMAR-6AYM-WET-555kW-@-1840-rpm-2-585x295.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/19/media_details/sizes/htmega_size_1170x536",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2022/09/22400-YANMAR-6AYM-WET-555kW-@-1840-rpm-2-1024x536.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "22400-YANMAR-6AYM-WET-555kW-@-1840-rpm-2-1024x536.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/19/media_details/sizes/htmega_size_396x360",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2022/09/22400-YANMAR-6AYM-WET-555kW-@-1840-rpm-2-396x360.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "22400-YANMAR-6AYM-WET-555kW-@-1840-rpm-2-396x360.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/19/media_details/sizes/twentyseventeen-thumbnail-avatar",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2022/09/22400-YANMAR-6AYM-WET-555kW-@-1840-rpm-2-100x100.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "22400-YANMAR-6AYM-WET-555kW-@-1840-rpm-2-100x100.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/19/media_details/sizes/full",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2022/09/22400-YANMAR-6AYM-WET-555kW-@-1840-rpm-2.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "22400-YANMAR-6AYM-WET-555kW-@-1840-rpm-2.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/20",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2022/09/22400-YANMAR-6AYM-WET-555kW-@-1840-rpm.pdf",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "id": 18320
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/21",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2022/09/22399-YANMAR-6AYM-WET-555kW-@-1840-rpm.pdf",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "id": 18309
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/22",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2022/09/22331-YANMAR-6AYM-WET-555kW-@-1840-rpm-2.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "id": 18300
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/22/media_details/sizes/medium",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2022/09/22331-YANMAR-6AYM-WET-555kW-@-1840-rpm-2-300x225.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "22331-YANMAR-6AYM-WET-555kW-@-1840-rpm-2-300x225.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/22/media_details/sizes/thumbnail",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2022/09/22331-YANMAR-6AYM-WET-555kW-@-1840-rpm-2-150x150.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "22331-YANMAR-6AYM-WET-555kW-@-1840-rpm-2-150x150.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/22/media_details/sizes/medium_large",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2022/09/22331-YANMAR-6AYM-WET-555kW-@-1840-rpm-2-768x576.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "22331-YANMAR-6AYM-WET-555kW-@-1840-rpm-2-768x576.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/22/media_details/sizes/htmega_size_585x295",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2022/09/22331-YANMAR-6AYM-WET-555kW-@-1840-rpm-2-585x295.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "22331-YANMAR-6AYM-WET-555kW-@-1840-rpm-2-585x295.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/22/media_details/sizes/htmega_size_1170x536",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2022/09/22331-YANMAR-6AYM-WET-555kW-@-1840-rpm-2-1024x536.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "22331-YANMAR-6AYM-WET-555kW-@-1840-rpm-2-1024x536.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/22/media_details/sizes/htmega_size_396x360",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2022/09/22331-YANMAR-6AYM-WET-555kW-@-1840-rpm-2-396x360.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "22331-YANMAR-6AYM-WET-555kW-@-1840-rpm-2-396x360.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/22/media_details/sizes/twentyseventeen-thumbnail-avatar",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2022/09/22331-YANMAR-6AYM-WET-555kW-@-1840-rpm-2-100x100.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "22331-YANMAR-6AYM-WET-555kW-@-1840-rpm-2-100x100.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/22/media_details/sizes/full",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2022/09/22331-YANMAR-6AYM-WET-555kW-@-1840-rpm-2.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "22331-YANMAR-6AYM-WET-555kW-@-1840-rpm-2.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/23",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2022/09/22331-YANMAR-6AYM-WET-555kW-@-1840-rpm.pdf",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "id": 18299
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/24",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2022/09/22330-YANMAR-6AYM-WET-555kW-@-1840-rpm-2.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "id": 18290
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/24/media_details/sizes/medium",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2022/09/22330-YANMAR-6AYM-WET-555kW-@-1840-rpm-2-300x281.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "22330-YANMAR-6AYM-WET-555kW-@-1840-rpm-2-300x281.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/24/media_details/sizes/thumbnail",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2022/09/22330-YANMAR-6AYM-WET-555kW-@-1840-rpm-2-150x150.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "22330-YANMAR-6AYM-WET-555kW-@-1840-rpm-2-150x150.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/24/media_details/sizes/medium_large",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2022/09/22330-YANMAR-6AYM-WET-555kW-@-1840-rpm-2-768x720.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "22330-YANMAR-6AYM-WET-555kW-@-1840-rpm-2-768x720.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/24/media_details/sizes/htmega_size_585x295",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2022/09/22330-YANMAR-6AYM-WET-555kW-@-1840-rpm-2-585x295.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "22330-YANMAR-6AYM-WET-555kW-@-1840-rpm-2-585x295.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/24/media_details/sizes/htmega_size_1170x536",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2022/09/22330-YANMAR-6AYM-WET-555kW-@-1840-rpm-2-817x536.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "22330-YANMAR-6AYM-WET-555kW-@-1840-rpm-2-817x536.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/24/media_details/sizes/htmega_size_396x360",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2022/09/22330-YANMAR-6AYM-WET-555kW-@-1840-rpm-2-396x360.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "22330-YANMAR-6AYM-WET-555kW-@-1840-rpm-2-396x360.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/24/media_details/sizes/twentyseventeen-thumbnail-avatar",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2022/09/22330-YANMAR-6AYM-WET-555kW-@-1840-rpm-2-100x100.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "22330-YANMAR-6AYM-WET-555kW-@-1840-rpm-2-100x100.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/24/media_details/sizes/full",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2022/09/22330-YANMAR-6AYM-WET-555kW-@-1840-rpm-2.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "22330-YANMAR-6AYM-WET-555kW-@-1840-rpm-2.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/25",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2022/09/22330-YANMAR-6AYM-WET-555kW-@-1840-rpm-1-1.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "id": 18289
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/25/media_details/sizes/medium",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2022/09/22330-YANMAR-6AYM-WET-555kW-@-1840-rpm-1-1-300x225.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "22330-YANMAR-6AYM-WET-555kW-@-1840-rpm-1-1-300x225.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/25/media_details/sizes/thumbnail",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2022/09/22330-YANMAR-6AYM-WET-555kW-@-1840-rpm-1-1-150x150.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "22330-YANMAR-6AYM-WET-555kW-@-1840-rpm-1-1-150x150.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/25/media_details/sizes/medium_large",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2022/09/22330-YANMAR-6AYM-WET-555kW-@-1840-rpm-1-1-768x576.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "22330-YANMAR-6AYM-WET-555kW-@-1840-rpm-1-1-768x576.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/25/media_details/sizes/htmega_size_585x295",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2022/09/22330-YANMAR-6AYM-WET-555kW-@-1840-rpm-1-1-585x295.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "22330-YANMAR-6AYM-WET-555kW-@-1840-rpm-1-1-585x295.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/25/media_details/sizes/htmega_size_1170x536",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2022/09/22330-YANMAR-6AYM-WET-555kW-@-1840-rpm-1-1-1024x536.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "22330-YANMAR-6AYM-WET-555kW-@-1840-rpm-1-1-1024x536.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/25/media_details/sizes/htmega_size_396x360",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2022/09/22330-YANMAR-6AYM-WET-555kW-@-1840-rpm-1-1-396x360.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "22330-YANMAR-6AYM-WET-555kW-@-1840-rpm-1-1-396x360.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/25/media_details/sizes/twentyseventeen-thumbnail-avatar",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2022/09/22330-YANMAR-6AYM-WET-555kW-@-1840-rpm-1-1-100x100.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "22330-YANMAR-6AYM-WET-555kW-@-1840-rpm-1-1-100x100.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/25/media_details/sizes/full",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2022/09/22330-YANMAR-6AYM-WET-555kW-@-1840-rpm-1-1.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "file": "22330-YANMAR-6AYM-WET-555kW-@-1840-rpm-1-1.jpg"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/aam-media/index.json",
+      "json_pointer": "/26",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2022/09/22330-YANMAR-6AYM-WET-555kW-@-1840-rpm.pdf",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "id": 18286
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/evidence.json",
+      "json_pointer": "/units/1",
+      "url": "https://www.resale.info/en/yanmar-6aym-wet-marine-engine/No-164078938",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "variant": "6AYM-WET 555 kW @ 1840 rpm (H by OEM table)"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/evidence.json",
+      "json_pointer": "/media/0",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-2.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "id": 23642,
+        "file": "aam-media/23642.jpg",
+        "sha256": "b2aa581ec5497f995a254118351384c3cb053dcabb29bdcf05de36b84fa29578"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/evidence.json",
+      "json_pointer": "/media/1",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-4.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "id": 23644,
+        "file": "aam-media/23644.jpg",
+        "sha256": "4dd99cd8872af5ca0dbabf688188163beaccf6475455aa35762e9dc3b69f9431"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/evidence.json",
+      "json_pointer": "/media/2",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-5.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "id": 23645,
+        "file": "aam-media/23645.jpg",
+        "sha256": "6cdd1dcf268654e935383195d0f1fc18ddda6d6266f5b6db6e47e8fbc4bc7d06"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/evidence.json",
+      "json_pointer": "/media/3",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-10.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "id": 23650,
+        "file": "aam-media/23650.jpg",
+        "sha256": "6afca4b49654483ca4cd36d94d1de82888577db2e53e3fb70a1f1dc0e99195a5"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/evidence.json",
+      "json_pointer": "/media/4",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-8.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "id": 23648,
+        "file": "aam-media/23648.jpg",
+        "sha256": "d1dbcb033df59206cb4697a16715938f9587620d40453a88e296aab2f71baca8"
+      }
+    },
+    {
+      "registry": "dokumen/unit-identity/evidence.json",
+      "json_pointer": "/media/5",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-9.jpg",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "id": 23649,
+        "file": "aam-media/23649.jpg",
+        "sha256": "ea51416bd3fc98b665f51750b0e2a807a303072e5b645ef3f35c9a580ab68692"
+      }
+    },
+    {
+      "registry": "foto/evidence-foto.json",
+      "json_pointer": "/access_failures/0",
+      "url": "https://www.constructionsales.com.au/items/details/yanmar-6aym-wet-marine-engine/OAG-AD-25080474/",
+      "normalized_access_status": "SEE_ORIGINAL_REGISTRY",
+      "original_fields": {
+        "status": 403
+      }
+    },
+    {
+      "registry": "foto/evidence-foto.json",
+      "json_pointer": "/access_failures/1",
+      "url": "https://www.ownerdriver.com.au/detail/yanmar-6aymwet-1047749",
+      "normalized_access_status": "SEE_ORIGINAL_REGISTRY",
+      "original_fields": {
+        "status": 202
+      }
+    },
+    {
+      "registry": "video/evidence-video.json",
+      "json_pointer": "/videos/0",
+      "url": "https://youtu.be/gU4C8JgGfq8",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "id": "V01",
+        "title": null,
+        "publisher": null,
+        "access": "unavailable",
+        "visual_status": "UNVERIFIED",
+        "timestamp_range_reviewed": null
+      }
+    },
+    {
+      "registry": "video/evidence-video.json",
+      "json_pointer": "/videos/1",
+      "url": "https://youtu.be/aE9zL-1s6Xs",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "id": "V02",
+        "title": null,
+        "publisher": null,
+        "access": "unavailable",
+        "visual_status": "UNVERIFIED",
+        "timestamp_range_reviewed": null
+      }
+    },
+    {
+      "registry": "video/evidence-video.json",
+      "json_pointer": "/videos/2",
+      "url": "https://youtu.be/_Fee7TkfG7k",
+      "normalized_access_status": "UNVERIFIED",
+      "original_fields": {
+        "id": "V03",
+        "title": null,
+        "publisher": null,
+        "access": "unavailable",
+        "visual_status": "UNVERIFIED",
+        "timestamp_range_reviewed": null
+      }
+    },
+    {
+      "registry": "video/evidence-video.json",
+      "json_pointer": "/videos/3",
+      "url": "https://www.youtube.com/watch?v=N7XbfXXDH2I",
+      "normalized_access_status": "METADATA_ONLY",
+      "original_fields": {
+        "id": "V04",
+        "title": "YANMAR 6AYM-WET TESTIMONIAL",
+        "publisher": "Navela",
+        "access": "metadata_only",
+        "visual_status": "UNVERIFIED",
+        "timestamp_range_reviewed": null
+      }
+    },
+    {
+      "registry": "video/evidence-video.json",
+      "json_pointer": "/videos/4",
+      "url": "https://www.youtube.com/watch?v=9qCvyd2iq1s",
+      "normalized_access_status": "METADATA_ONLY",
+      "original_fields": {
+        "id": "V05",
+        "title": "Yanmar series type  6AYM-WET with power 610 kw ||test run",
+        "publisher": "mekanik gagal",
+        "access": "metadata_only",
+        "visual_status": "UNVERIFIED",
+        "timestamp_range_reviewed": null
+      }
+    },
+    {
+      "registry": "video/evidence-video.json",
+      "json_pointer": "/videos/5",
+      "url": "https://www.youtube.com/watch?v=ZvschmR5zgg",
+      "normalized_access_status": "METADATA_ONLY",
+      "original_fields": {
+        "id": "V06",
+        "title": "얀마엔진 소모품 교체 (YANMAR ENGINE) 6AYM-WGT/6AYM-WET (911PS)",
+        "publisher": "YANMAR PLUS , 얀마프러스",
+        "access": "metadata_only",
+        "visual_status": "UNVERIFIED",
+        "timestamp_range_reviewed": null
+      }
+    },
+    {
+      "registry": "video/evidence-video.json",
+      "json_pointer": "/videos/6",
+      "url": "https://kr.made-in-china.com/video-channel/deutzengine_aQWrcsRCvAkE_Yanmar-Marine-Engine-6aym-Wet-6aym-Wet-6aym-Wgt.html",
+      "normalized_access_status": "SEE_ORIGINAL_REGISTRY",
+      "original_fields": {
+        "id": "V07",
+        "title": "Yanmar Marine Engine 6aym-Wet 6aym-Wet 6aym-Wgt",
+        "publisher": "Shanghai Stone Diesel Engine Co., Ltd. (watermark visual)",
+        "access": "frame/video",
+        "visual_status": "EXCLUDED_WRONG_OR_UNCONFIRMED_ENGINE",
+        "timestamp_range_reviewed": [
+          "00:00:01",
+          "00:00:13"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+import bpy, json, mathutils
+from mathutils.bvhtree import BVHTree
+bpy.ops.wm.open_mainfile(filepath='/tmp/claude-0/c3512/qa/scripts/combined.blend')
+O={o.name:o for o in bpy.data.objects if o.type=='MESH'}
+def W(o): M=o.matrix_world; return [M@v.co for v in o.data.vertices]
+ext=[n for n in O if n.startswith('EXT-')]
+trees=[BVHTree.FromPolygons(W(O[n]),[tuple(p.vertices) for p in O[n].data.polygons]) for n in ext]
+dirs=[mathutils.Vector(d).normalized() for d in [(0.31,0.17,0.93),(-0.5,0.8,0.33),(0.7,-0.6,0.39)]]
+def inside_any(p):
+    votes=0
+    for d in dirs:
+        ins=False
+        for t in trees:
+            cnt=0; s=p.copy()
+            for _ in range(60):
+                loc,n,i,dist=t.ray_cast(s,d,10)
+                if loc is None: break
+                cnt+=1; s=loc+d*1e-5
+            if cnt%2==1: ins=True; break
+        votes+=ins
+    return votes>=2
+res={}
+for n in sorted(O):
+    if not n.startswith('INT-'): continue
+    vs=W(O[n]); step=max(1,len(vs)//60); sample=vs[::step]
+    outc=sum(1 for p in sample if not inside_any(p))
+    res[n]=(outc,len(sample))
+json.dump(res,open('/tmp/claude-0/c3512/qa/scripts/outside.json','w'))
+bad={k:v for k,v in res.items() if v[0]/v[1]>0.05}
+print('internal objects with >5% sampled verts outside exterior shells:',len(bad))
+for k,v in sorted(bad.items(),key=lambda kv:-kv[1][0]/kv[1][1])[:40]: print(k,v)

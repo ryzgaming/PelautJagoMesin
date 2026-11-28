@@ -1,0 +1,1415 @@
+{
+  "baseline_hashes": {
+    "exterior": "e860291eac958af9bba6566891d6462e47d1c7694921c424dc702695fb02e887",
+    "internal": "4b69ad9975928cfa80be62ddc7c6a1c5caa241900bd3aef299081c1e6406ae05"
+  },
+  "assets": {
+    "exterior": "4160445ec0d01e736dcb56104355bcc42e046dd7f536b1d1ea486a82774bbbfd",
+    "internal": "47d4f30a18e3d305ef6c128fd84dd6cc482601d3e62befad1c020d2e8b599735"
+  },
+  "r04": {
+    "parts": 1061,
+    "sampled_degrees": [
+      0,
+      12,
+      24,
+      36,
+      48,
+      60,
+      72,
+      84,
+      96,
+      108,
+      120,
+      132,
+      144,
+      156,
+      168,
+      180,
+      192,
+      204,
+      216,
+      228,
+      240,
+      252,
+      264,
+      276,
+      288,
+      300,
+      312,
+      324,
+      336,
+      348,
+      360,
+      372,
+      384,
+      396,
+      408,
+      420,
+      432,
+      444,
+      456,
+      468,
+      480,
+      492,
+      504,
+      516,
+      528,
+      540,
+      552,
+      564,
+      576,
+      588,
+      600,
+      612,
+      624,
+      636,
+      648,
+      660,
+      672,
+      684,
+      696,
+      708,
+      720
+    ],
+    "narrow_tests": 73151,
+    "static_crossing_pairs": 945,
+    "relative_moving_crossing_pairs": 333,
+    "unmatched_component_ids": []
+  },
+  "idle": {
+    "parts": 1080,
+    "sampled_degrees": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      28,
+      32,
+      36,
+      40,
+      44,
+      48,
+      52,
+      56,
+      60,
+      64,
+      68,
+      72,
+      76,
+      80,
+      84,
+      88,
+      92,
+      96,
+      100,
+      104,
+      108,
+      112,
+      116,
+      120,
+      124,
+      128,
+      132,
+      136,
+      140,
+      144,
+      148,
+      152,
+      156,
+      160,
+      164,
+      168,
+      172,
+      176,
+      180,
+      184,
+      188,
+      192,
+      196,
+      200,
+      204,
+      208,
+      212,
+      216,
+      220,
+      224,
+      228,
+      232,
+      236,
+      240,
+      244,
+      248,
+      252,
+      256,
+      260,
+      264,
+      268,
+      272,
+      276,
+      280,
+      284,
+      288,
+      292,
+      296,
+      300,
+      304,
+      308,
+      312,
+      316,
+      320,
+      324,
+      328,
+      332,
+      336,
+      340,
+      344,
+      348,
+      352,
+      356,
+      360,
+      364,
+      368,
+      372,
+      376,
+      380,
+      384,
+      388,
+      392,
+      396,
+      400,
+      404,
+      408,
+      412,
+      416,
+      420,
+      424,
+      428,
+      432,
+      436,
+      440,
+      444,
+      448,
+      452,
+      456,
+      460,
+      464,
+      468,
+      472,
+      476,
+      480,
+      484,
+      488,
+      492,
+      496,
+      500,
+      504,
+      508,
+      512,
+      516,
+      520,
+      524,
+      528,
+      532,
+      536,
+      540,
+      544,
+      548,
+      552,
+      556,
+      560,
+      564,
+      568,
+      572,
+      576,
+      580,
+      584,
+      588,
+      592,
+      596,
+      600,
+      604,
+      608,
+      612,
+      616,
+      620,
+      624,
+      628,
+      632,
+      636,
+      640,
+      644,
+      648,
+      652,
+      656,
+      660,
+      664,
+      668,
+      672,
+      676,
+      680,
+      684,
+      688,
+      692,
+      696,
+      700,
+      704,
+      708,
+      712,
+      716,
+      720
+    ],
+    "narrow_tests": 266366,
+    "static_crossing_pairs": 901,
+    "relative_moving_crossing_pairs": 392,
+    "unmatched_component_ids": []
+  },
+  "starter": {
+    "parts": 1080,
+    "sampled_degrees": [
+      0,
+      12,
+      24,
+      36,
+      48,
+      60,
+      72,
+      84,
+      96,
+      108,
+      120,
+      132,
+      144,
+      156,
+      168,
+      180,
+      192,
+      204,
+      216,
+      228,
+      240,
+      252,
+      264,
+      276,
+      288,
+      300,
+      312,
+      324,
+      336,
+      348,
+      360,
+      372,
+      384,
+      396,
+      408,
+      420,
+      432,
+      444,
+      456,
+      468,
+      480,
+      492,
+      504,
+      516,
+      528,
+      540,
+      552,
+      564,
+      576,
+      588,
+      600,
+      612,
+      624,
+      636,
+      648,
+      660,
+      672,
+      684,
+      696,
+      708,
+      720
+    ],
+    "narrow_tests": 86646,
+    "static_crossing_pairs": 901,
+    "relative_moving_crossing_pairs": 397,
+    "unmatched_component_ids": []
+  },
+  "selected_interfaces": {
+    "air cleaner and exhaust manifold": [
+      {
+        "parts": [
+          "EXT-INTAKE-04",
+          "EXT-EXHAUST-01"
+        ],
+        "baseline": {
+          "at_rest_triangle_pairs": 741,
+          "moving_sample_count": 61,
+          "samples_with_surface_crossings": 0,
+          "max_moving_triangle_pairs": 0,
+          "worst_crank_deg": null
+        },
+        "idle": {
+          "at_rest_triangle_pairs": 0,
+          "moving_sample_count": 181,
+          "samples_with_surface_crossings": 0,
+          "max_moving_triangle_pairs": 0,
+          "worst_crank_deg": null
+        },
+        "starter": {
+          "at_rest_triangle_pairs": 0,
+          "moving_sample_count": 61,
+          "samples_with_surface_crossings": 0,
+          "max_moving_triangle_pairs": 0,
+          "worst_crank_deg": null
+        }
+      }
+    ],
+    "cold air elbow interfaces": [
+      {
+        "parts": [
+          "EXT-INTAKE-03",
+          "EXT-INTAKE-01"
+        ],
+        "baseline": {
+          "at_rest_triangle_pairs": 3875,
+          "moving_sample_count": 61,
+          "samples_with_surface_crossings": 0,
+          "max_moving_triangle_pairs": 0,
+          "worst_crank_deg": null
+        },
+        "idle": {
+          "at_rest_triangle_pairs": 180,
+          "moving_sample_count": 181,
+          "samples_with_surface_crossings": 0,
+          "max_moving_triangle_pairs": 0,
+          "worst_crank_deg": null
+        },
+        "starter": {
+          "at_rest_triangle_pairs": 180,
+          "moving_sample_count": 61,
+          "samples_with_surface_crossings": 0,
+          "max_moving_triangle_pairs": 0,
+          "worst_crank_deg": null
+        }
+      },
+      {
+        "parts": [
+          "EXT-INTAKE-03",
+          "EXT-INTAKE-02"
+        ],
+        "baseline": {
+          "at_rest_triangle_pairs": 403,
+          "moving_sample_count": 61,
+          "samples_with_surface_crossings": 0,
+          "max_moving_triangle_pairs": 0,
+          "worst_crank_deg": null
+        },
+        "idle": {
+          "at_rest_triangle_pairs": 0,
+          "moving_sample_count": 181,
+          "samples_with_surface_crossings": 0,
+          "max_moving_triangle_pairs": 0,
+          "worst_crank_deg": null
+        },
+        "starter": {
+          "at_rest_triangle_pairs": 0,
+          "moving_sample_count": 61,
+          "samples_with_surface_crossings": 0,
+          "max_moving_triangle_pairs": 0,
+          "worst_crank_deg": null
+        }
+      }
+    ],
+    "damper and stationary case/guard": [
+      {
+        "parts": [
+          "EXT-FRONT-02",
+          "EXT-FRONT-01"
+        ],
+        "baseline": {
+          "at_rest_triangle_pairs": 806,
+          "moving_sample_count": 61,
+          "samples_with_surface_crossings": 58,
+          "max_moving_triangle_pairs": 829,
+          "worst_crank_deg": "12"
+        },
+        "idle": {
+          "at_rest_triangle_pairs": 448,
+          "moving_sample_count": 181,
+          "samples_with_surface_crossings": 178,
+          "max_moving_triangle_pairs": 451,
+          "worst_crank_deg": "4"
+        },
+        "starter": {
+          "at_rest_triangle_pairs": 448,
+          "moving_sample_count": 61,
+          "samples_with_surface_crossings": 58,
+          "max_moving_triangle_pairs": 451,
+          "worst_crank_deg": "12"
+        }
+      },
+      {
+        "parts": [
+          "EXT-FRONT-02",
+          "EXT-FRONT-03"
+        ],
+        "baseline": {
+          "at_rest_triangle_pairs": 600,
+          "moving_sample_count": 61,
+          "samples_with_surface_crossings": 58,
+          "max_moving_triangle_pairs": 610,
+          "worst_crank_deg": "48"
+        },
+        "idle": {
+          "at_rest_triangle_pairs": 138,
+          "moving_sample_count": 181,
+          "samples_with_surface_crossings": 178,
+          "max_moving_triangle_pairs": 238,
+          "worst_crank_deg": "44"
+        },
+        "starter": {
+          "at_rest_triangle_pairs": 138,
+          "moving_sample_count": 61,
+          "samples_with_surface_crossings": 58,
+          "max_moving_triangle_pairs": 216,
+          "worst_crank_deg": "156"
+        }
+      }
+    ],
+    "crank and stationary bearing surfaces": [
+      {
+        "parts": [
+          "INT-CRANK-23",
+          "INT-MAIN-11"
+        ],
+        "baseline": {
+          "at_rest_triangle_pairs": 0,
+          "moving_sample_count": 61,
+          "samples_with_surface_crossings": 46,
+          "max_moving_triangle_pairs": 138,
+          "worst_crank_deg": "144"
+        },
+        "idle": {
+          "at_rest_triangle_pairs": 0,
+          "moving_sample_count": 181,
+          "samples_with_surface_crossings": 0,
+          "max_moving_triangle_pairs": 0,
+          "worst_crank_deg": null
+        },
+        "starter": {
+          "at_rest_triangle_pairs": 0,
+          "moving_sample_count": 61,
+          "samples_with_surface_crossings": 0,
+          "max_moving_triangle_pairs": 0,
+          "worst_crank_deg": null
+        }
+      },
+      {
+        "parts": [
+          "INT-CRANK-74",
+          "INT-MAIN-71"
+        ],
+        "baseline": {
+          "at_rest_triangle_pairs": 0,
+          "moving_sample_count": 61,
+          "samples_with_surface_crossings": 46,
+          "max_moving_triangle_pairs": 138,
+          "worst_crank_deg": "144"
+        },
+        "idle": {
+          "at_rest_triangle_pairs": 0,
+          "moving_sample_count": 181,
+          "samples_with_surface_crossings": 0,
+          "max_moving_triangle_pairs": 0,
+          "worst_crank_deg": null
+        },
+        "starter": {
+          "at_rest_triangle_pairs": 0,
+          "moving_sample_count": 61,
+          "samples_with_surface_crossings": 0,
+          "max_moving_triangle_pairs": 0,
+          "worst_crank_deg": null
+        }
+      },
+      {
+        "parts": [
+          "INT-CRANK-23",
+          "INT-MAIN-THRUST-2-1"
+        ],
+        "baseline": {
+          "at_rest_triangle_pairs": 0,
+          "moving_sample_count": 61,
+          "samples_with_surface_crossings": 46,
+          "max_moving_triangle_pairs": 16,
+          "worst_crank_deg": "144"
+        },
+        "idle": {
+          "at_rest_triangle_pairs": 0,
+          "moving_sample_count": 181,
+          "samples_with_surface_crossings": 0,
+          "max_moving_triangle_pairs": 0,
+          "worst_crank_deg": null
+        },
+        "starter": {
+          "at_rest_triangle_pairs": 0,
+          "moving_sample_count": 61,
+          "samples_with_surface_crossings": 0,
+          "max_moving_triangle_pairs": 0,
+          "worst_crank_deg": null
+        }
+      },
+      {
+        "parts": [
+          "INT-CRANK-21",
+          "INT-MAIN-THRUST-2-1"
+        ],
+        "baseline": {
+          "at_rest_triangle_pairs": 48,
+          "moving_sample_count": 61,
+          "samples_with_surface_crossings": 58,
+          "max_moving_triangle_pairs": 310,
+          "worst_crank_deg": "180"
+        },
+        "idle": {
+          "at_rest_triangle_pairs": 0,
+          "moving_sample_count": 181,
+          "samples_with_surface_crossings": 0,
+          "max_moving_triangle_pairs": 0,
+          "worst_crank_deg": null
+        },
+        "starter": {
+          "at_rest_triangle_pairs": 0,
+          "moving_sample_count": 61,
+          "samples_with_surface_crossings": 0,
+          "max_moving_triangle_pairs": 0,
+          "worst_crank_deg": null
+        }
+      },
+      {
+        "parts": [
+          "INT-CRANK-72",
+          "INT-MAIN-71"
+        ],
+        "baseline": {
+          "at_rest_triangle_pairs": 170,
+          "moving_sample_count": 61,
+          "samples_with_surface_crossings": 58,
+          "max_moving_triangle_pairs": 182,
+          "worst_crank_deg": "204"
+        },
+        "idle": {
+          "at_rest_triangle_pairs": 0,
+          "moving_sample_count": 181,
+          "samples_with_surface_crossings": 0,
+          "max_moving_triangle_pairs": 0,
+          "worst_crank_deg": null
+        },
+        "starter": {
+          "at_rest_triangle_pairs": 0,
+          "moving_sample_count": 61,
+          "samples_with_surface_crossings": 0,
+          "max_moving_triangle_pairs": 0,
+          "worst_crank_deg": null
+        }
+      },
+      {
+        "parts": [
+          "EXT-BLOCK-01",
+          "INT-CRANK-07"
+        ],
+        "baseline": {
+          "at_rest_triangle_pairs": 252,
+          "moving_sample_count": 61,
+          "samples_with_surface_crossings": 58,
+          "max_moving_triangle_pairs": 252,
+          "worst_crank_deg": "12"
+        },
+        "idle": {
+          "at_rest_triangle_pairs": 252,
+          "moving_sample_count": 181,
+          "samples_with_surface_crossings": 178,
+          "max_moving_triangle_pairs": 252,
+          "worst_crank_deg": "4"
+        },
+        "starter": {
+          "at_rest_triangle_pairs": 252,
+          "moving_sample_count": 61,
+          "samples_with_surface_crossings": 58,
+          "max_moving_triangle_pairs": 252,
+          "worst_crank_deg": "12"
+        }
+      }
+    ],
+    "front gears neighboring sixth crank and piston": [
+      {
+        "parts": [
+          "INT-TIMING-08",
+          "INT-CRANK-74"
+        ],
+        "baseline": {
+          "at_rest_triangle_pairs": 0,
+          "moving_sample_count": 61,
+          "samples_with_surface_crossings": 26,
+          "max_moving_triangle_pairs": 493,
+          "worst_crank_deg": "216"
+        },
+        "idle": {
+          "at_rest_triangle_pairs": 0,
+          "moving_sample_count": 181,
+          "samples_with_surface_crossings": 0,
+          "max_moving_triangle_pairs": 0,
+          "worst_crank_deg": null
+        },
+        "starter": {
+          "at_rest_triangle_pairs": 0,
+          "moving_sample_count": 61,
+          "samples_with_surface_crossings": 0,
+          "max_moving_triangle_pairs": 0,
+          "worst_crank_deg": null
+        }
+      },
+      {
+        "parts": [
+          "INT-TIMING-08",
+          "INT-CRANK-72"
+        ],
+        "baseline": {
+          "at_rest_triangle_pairs": 168,
+          "moving_sample_count": 61,
+          "samples_with_surface_crossings": 18,
+          "max_moving_triangle_pairs": 269,
+          "worst_crank_deg": "48"
+        },
+        "idle": {
+          "at_rest_triangle_pairs": 0,
+          "moving_sample_count": 181,
+          "samples_with_surface_crossings": 0,
+          "max_moving_triangle_pairs": 0,
+          "worst_crank_deg": null
+        },
+        "starter": {
+          "at_rest_triangle_pairs": 0,
+          "moving_sample_count": 61,
+          "samples_with_surface_crossings": 0,
+          "max_moving_triangle_pairs": 0,
+          "worst_crank_deg": null
+        }
+      },
+      {
+        "parts": [
+          "INT-TIMING-10",
+          "INT-PISTON-61"
+        ],
+        "baseline": {
+          "at_rest_triangle_pairs": 0,
+          "moving_sample_count": 61,
+          "samples_with_surface_crossings": 46,
+          "max_moving_triangle_pairs": 304,
+          "worst_crank_deg": "156"
+        },
+        "idle": {
+          "at_rest_triangle_pairs": 0,
+          "moving_sample_count": 181,
+          "samples_with_surface_crossings": 0,
+          "max_moving_triangle_pairs": 0,
+          "worst_crank_deg": null
+        },
+        "starter": {
+          "at_rest_triangle_pairs": 0,
+          "moving_sample_count": 61,
+          "samples_with_surface_crossings": 0,
+          "max_moving_triangle_pairs": 0,
+          "worst_crank_deg": null
+        }
+      },
+      {
+        "parts": [
+          "INT-TIMING-10",
+          "INT-PISTON-67"
+        ],
+        "baseline": {
+          "at_rest_triangle_pairs": 0,
+          "moving_sample_count": 61,
+          "samples_with_surface_crossings": 38,
+          "max_moving_triangle_pairs": 174,
+          "worst_crank_deg": "108"
+        },
+        "idle": {
+          "at_rest_triangle_pairs": 0,
+          "moving_sample_count": 181,
+          "samples_with_surface_crossings": 0,
+          "max_moving_triangle_pairs": 0,
+          "worst_crank_deg": null
+        },
+        "starter": {
+          "at_rest_triangle_pairs": 0,
+          "moving_sample_count": 61,
+          "samples_with_surface_crossings": 0,
+          "max_moving_triangle_pairs": 0,
+          "worst_crank_deg": null
+        }
+      }
+    ],
+    "filters neighboring pumps and seawater gear": [
+      {
+        "parts": [
+          "EXT-FUEL-110",
+          "EXT-FUEL-12"
+        ],
+        "baseline": {
+          "at_rest_triangle_pairs": 3456,
+          "moving_sample_count": 61,
+          "samples_with_surface_crossings": 0,
+          "max_moving_triangle_pairs": 0,
+          "worst_crank_deg": null
+        },
+        "idle": {
+          "at_rest_triangle_pairs": 3456,
+          "moving_sample_count": 181,
+          "samples_with_surface_crossings": 0,
+          "max_moving_triangle_pairs": 0,
+          "worst_crank_deg": null
+        },
+        "starter": {
+          "at_rest_triangle_pairs": 3456,
+          "moving_sample_count": 61,
+          "samples_with_surface_crossings": 0,
+          "max_moving_triangle_pairs": 0,
+          "worst_crank_deg": null
+        }
+      },
+      {
+        "parts": [
+          "EXT-FUEL-100",
+          "EXT-COOLING-41"
+        ],
+        "baseline": {
+          "at_rest_triangle_pairs": 2417,
+          "moving_sample_count": 61,
+          "samples_with_surface_crossings": 0,
+          "max_moving_triangle_pairs": 0,
+          "worst_crank_deg": null
+        },
+        "idle": {
+          "at_rest_triangle_pairs": 2417,
+          "moving_sample_count": 181,
+          "samples_with_surface_crossings": 178,
+          "max_moving_triangle_pairs": 2438,
+          "worst_crank_deg": "80"
+        },
+        "starter": {
+          "at_rest_triangle_pairs": 2417,
+          "moving_sample_count": 61,
+          "samples_with_surface_crossings": 58,
+          "max_moving_triangle_pairs": 2435,
+          "worst_crank_deg": "24"
+        }
+      },
+      {
+        "parts": [
+          "EXT-FUEL-100",
+          "EXT-COOLING-45"
+        ],
+        "baseline": {
+          "at_rest_triangle_pairs": 1990,
+          "moving_sample_count": 61,
+          "samples_with_surface_crossings": 0,
+          "max_moving_triangle_pairs": 0,
+          "worst_crank_deg": null
+        },
+        "idle": {
+          "at_rest_triangle_pairs": 1990,
+          "moving_sample_count": 181,
+          "samples_with_surface_crossings": 0,
+          "max_moving_triangle_pairs": 0,
+          "worst_crank_deg": null
+        },
+        "starter": {
+          "at_rest_triangle_pairs": 1990,
+          "moving_sample_count": 61,
+          "samples_with_surface_crossings": 0,
+          "max_moving_triangle_pairs": 0,
+          "worst_crank_deg": null
+        }
+      },
+      {
+        "parts": [
+          "EXT-FUEL-100",
+          "EXT-COOLING-38"
+        ],
+        "baseline": {
+          "at_rest_triangle_pairs": 1154,
+          "moving_sample_count": 61,
+          "samples_with_surface_crossings": 0,
+          "max_moving_triangle_pairs": 0,
+          "worst_crank_deg": null
+        },
+        "idle": {
+          "at_rest_triangle_pairs": 1154,
+          "moving_sample_count": 181,
+          "samples_with_surface_crossings": 0,
+          "max_moving_triangle_pairs": 0,
+          "worst_crank_deg": null
+        },
+        "starter": {
+          "at_rest_triangle_pairs": 1154,
+          "moving_sample_count": 61,
+          "samples_with_surface_crossings": 0,
+          "max_moving_triangle_pairs": 0,
+          "worst_crank_deg": null
+        }
+      }
+    ],
+    "timing moving parts and stationary casting": [
+      {
+        "parts": [
+          "INT-TIMING-02",
+          "EXT-BLOCK-01"
+        ],
+        "baseline": {
+          "at_rest_triangle_pairs": 1307,
+          "moving_sample_count": 61,
+          "samples_with_surface_crossings": 0,
+          "max_moving_triangle_pairs": 0,
+          "worst_crank_deg": null
+        },
+        "idle": {
+          "at_rest_triangle_pairs": 3088,
+          "moving_sample_count": 181,
+          "samples_with_surface_crossings": 178,
+          "max_moving_triangle_pairs": 4550,
+          "worst_crank_deg": "300"
+        },
+        "starter": {
+          "at_rest_triangle_pairs": 3088,
+          "moving_sample_count": 61,
+          "samples_with_surface_crossings": 58,
+          "max_moving_triangle_pairs": 4550,
+          "worst_crank_deg": "300"
+        }
+      },
+      {
+        "parts": [
+          "INT-TIMING-07",
+          "EXT-BLOCK-01"
+        ],
+        "baseline": {
+          "at_rest_triangle_pairs": 842,
+          "moving_sample_count": 61,
+          "samples_with_surface_crossings": 0,
+          "max_moving_triangle_pairs": 0,
+          "worst_crank_deg": null
+        },
+        "idle": {
+          "at_rest_triangle_pairs": 1788,
+          "moving_sample_count": 181,
+          "samples_with_surface_crossings": 178,
+          "max_moving_triangle_pairs": 1833,
+          "worst_crank_deg": "160"
+        },
+        "starter": {
+          "at_rest_triangle_pairs": 1788,
+          "moving_sample_count": 61,
+          "samples_with_surface_crossings": 58,
+          "max_moving_triangle_pairs": 1827,
+          "worst_crank_deg": "96"
+        }
+      },
+      {
+        "parts": [
+          "INT-TIMING-04",
+          "EXT-BLOCK-01"
+        ],
+        "baseline": {
+          "at_rest_triangle_pairs": 412,
+          "moving_sample_count": 61,
+          "samples_with_surface_crossings": 0,
+          "max_moving_triangle_pairs": 0,
+          "worst_crank_deg": null
+        },
+        "idle": {
+          "at_rest_triangle_pairs": 1418,
+          "moving_sample_count": 181,
+          "samples_with_surface_crossings": 179,
+          "max_moving_triangle_pairs": 1450,
+          "worst_crank_deg": "156"
+        },
+        "starter": {
+          "at_rest_triangle_pairs": 1418,
+          "moving_sample_count": 61,
+          "samples_with_surface_crossings": 59,
+          "max_moving_triangle_pairs": 1450,
+          "worst_crank_deg": "156"
+        }
+      },
+      {
+        "parts": [
+          "INT-TIMING-05",
+          "EXT-BLOCK-01"
+        ],
+        "baseline": {
+          "at_rest_triangle_pairs": 130,
+          "moving_sample_count": 61,
+          "samples_with_surface_crossings": 0,
+          "max_moving_triangle_pairs": 0,
+          "worst_crank_deg": null
+        },
+        "idle": {
+          "at_rest_triangle_pairs": 756,
+          "moving_sample_count": 181,
+          "samples_with_surface_crossings": 179,
+          "max_moving_triangle_pairs": 756,
+          "worst_crank_deg": "180"
+        },
+        "starter": {
+          "at_rest_triangle_pairs": 756,
+          "moving_sample_count": 61,
+          "samples_with_surface_crossings": 59,
+          "max_moving_triangle_pairs": 756,
+          "worst_crank_deg": "180"
+        }
+      },
+      {
+        "parts": [
+          "INT-TIMING-07",
+          "EXT-OILPAN-01"
+        ],
+        "baseline": {
+          "at_rest_triangle_pairs": 544,
+          "moving_sample_count": 61,
+          "samples_with_surface_crossings": 0,
+          "max_moving_triangle_pairs": 0,
+          "worst_crank_deg": null
+        },
+        "idle": {
+          "at_rest_triangle_pairs": 894,
+          "moving_sample_count": 181,
+          "samples_with_surface_crossings": 178,
+          "max_moving_triangle_pairs": 930,
+          "worst_crank_deg": "36"
+        },
+        "starter": {
+          "at_rest_triangle_pairs": 894,
+          "moving_sample_count": 61,
+          "samples_with_surface_crossings": 58,
+          "max_moving_triangle_pairs": 930,
+          "worst_crank_deg": "36"
+        }
+      },
+      {
+        "parts": [
+          "INT-TIMING-08",
+          "EXT-FRONT-01"
+        ],
+        "baseline": {
+          "at_rest_triangle_pairs": 1056,
+          "moving_sample_count": 61,
+          "samples_with_surface_crossings": 0,
+          "max_moving_triangle_pairs": 0,
+          "worst_crank_deg": null
+        },
+        "idle": {
+          "at_rest_triangle_pairs": 0,
+          "moving_sample_count": 181,
+          "samples_with_surface_crossings": 0,
+          "max_moving_triangle_pairs": 0,
+          "worst_crank_deg": null
+        },
+        "starter": {
+          "at_rest_triangle_pairs": 0,
+          "moving_sample_count": 61,
+          "samples_with_surface_crossings": 0,
+          "max_moving_triangle_pairs": 0,
+          "worst_crank_deg": null
+        }
+      }
+    ],
+    "sw neighboring injection gear": [
+      {
+        "parts": [
+          "INT-TIMING-05",
+          "EXT-COOLING-04"
+        ],
+        "baseline": {
+          "at_rest_triangle_pairs": 0,
+          "moving_sample_count": 61,
+          "samples_with_surface_crossings": 0,
+          "max_moving_triangle_pairs": 0,
+          "worst_crank_deg": null
+        },
+        "idle": {
+          "at_rest_triangle_pairs": 1956,
+          "moving_sample_count": 181,
+          "samples_with_surface_crossings": 179,
+          "max_moving_triangle_pairs": 1992,
+          "worst_crank_deg": "460"
+        },
+        "starter": {
+          "at_rest_triangle_pairs": 1956,
+          "moving_sample_count": 61,
+          "samples_with_surface_crossings": 59,
+          "max_moving_triangle_pairs": 1991,
+          "worst_crank_deg": "216"
+        }
+      },
+      {
+        "parts": [
+          "INT-TIMING-05",
+          "EXT-COOLING-45"
+        ],
+        "baseline": {
+          "at_rest_triangle_pairs": 0,
+          "moving_sample_count": 61,
+          "samples_with_surface_crossings": 0,
+          "max_moving_triangle_pairs": 0,
+          "worst_crank_deg": null
+        },
+        "idle": {
+          "at_rest_triangle_pairs": 1360,
+          "moving_sample_count": 181,
+          "samples_with_surface_crossings": 179,
+          "max_moving_triangle_pairs": 1394,
+          "worst_crank_deg": "132"
+        },
+        "starter": {
+          "at_rest_triangle_pairs": 1360,
+          "moving_sample_count": 61,
+          "samples_with_surface_crossings": 59,
+          "max_moving_triangle_pairs": 1394,
+          "worst_crank_deg": "132"
+        }
+      },
+      {
+        "parts": [
+          "INT-TIMING-05",
+          "EXT-COOLING-36"
+        ],
+        "baseline": {
+          "at_rest_triangle_pairs": 0,
+          "moving_sample_count": 61,
+          "samples_with_surface_crossings": 0,
+          "max_moving_triangle_pairs": 0,
+          "worst_crank_deg": null
+        },
+        "idle": {
+          "at_rest_triangle_pairs": 850,
+          "moving_sample_count": 181,
+          "samples_with_surface_crossings": 179,
+          "max_moving_triangle_pairs": 870,
+          "worst_crank_deg": "28"
+        },
+        "starter": {
+          "at_rest_triangle_pairs": 850,
+          "moving_sample_count": 61,
+          "samples_with_surface_crossings": 59,
+          "max_moving_triangle_pairs": 868,
+          "worst_crank_deg": "144"
+        }
+      }
+    ],
+    "starter pinion neighboring casing and intended engagement": [
+      {
+        "parts": [
+          "EXT-ELECTRIC-48",
+          "EXT-BLOCK-15"
+        ],
+        "baseline": {
+          "at_rest_triangle_pairs": 146,
+          "moving_sample_count": 61,
+          "samples_with_surface_crossings": 0,
+          "max_moving_triangle_pairs": 0,
+          "worst_crank_deg": null
+        },
+        "idle": {
+          "at_rest_triangle_pairs": 146,
+          "moving_sample_count": 181,
+          "samples_with_surface_crossings": 0,
+          "max_moving_triangle_pairs": 0,
+          "worst_crank_deg": null
+        },
+        "starter": {
+          "at_rest_triangle_pairs": 146,
+          "moving_sample_count": 61,
+          "samples_with_surface_crossings": 48,
+          "max_moving_triangle_pairs": 154,
+          "worst_crank_deg": "36"
+        }
+      },
+      {
+        "parts": [
+          "EXT-ELECTRIC-48",
+          "EXT-FLYWHEEL-01"
+        ],
+        "baseline": {
+          "at_rest_triangle_pairs": 0,
+          "moving_sample_count": 61,
+          "samples_with_surface_crossings": 0,
+          "max_moving_triangle_pairs": 0,
+          "worst_crank_deg": null
+        },
+        "idle": {
+          "at_rest_triangle_pairs": 0,
+          "moving_sample_count": 181,
+          "samples_with_surface_crossings": 0,
+          "max_moving_triangle_pairs": 0,
+          "worst_crank_deg": null
+        },
+        "starter": {
+          "at_rest_triangle_pairs": 0,
+          "moving_sample_count": 61,
+          "samples_with_surface_crossings": 0,
+          "max_moving_triangle_pairs": 0,
+          "worst_crank_deg": null
+        }
+      },
+      {
+        "parts": [
+          "EXT-ELECTRIC-48",
+          "EXT-FLYWHEEL-20"
+        ],
+        "baseline": {
+          "at_rest_triangle_pairs": 0,
+          "moving_sample_count": 61,
+          "samples_with_surface_crossings": 0,
+          "max_moving_triangle_pairs": 0,
+          "worst_crank_deg": null
+        },
+        "idle": {
+          "at_rest_triangle_pairs": 0,
+          "moving_sample_count": 181,
+          "samples_with_surface_crossings": 0,
+          "max_moving_triangle_pairs": 0,
+          "worst_crank_deg": null
+        },
+        "starter": {
+          "at_rest_triangle_pairs": 0,
+          "moving_sample_count": 61,
+          "samples_with_surface_crossings": 0,
+          "max_moving_triangle_pairs": 0,
+          "worst_crank_deg": null
+        }
+      },
+      {
+        "parts": [
+          "EXT-ELECTRIC-40",
+          "EXT-ELECTRIC-43"
+        ],
+        "baseline": {
+          "at_rest_triangle_pairs": 185,
+          "moving_sample_count": 61,
+          "samples_with_surface_crossings": 0,
+          "max_moving_triangle_pairs": 0,
+          "worst_crank_deg": null
+        },
+        "idle": {
+          "at_rest_triangle_pairs": 185,
+          "moving_sample_count": 181,
+          "samples_with_surface_crossings": 0,
+          "max_moving_triangle_pairs": 0,
+          "worst_crank_deg": null
+        },
+        "starter": {
+          "at_rest_triangle_pairs": 185,
+          "moving_sample_count": 61,
+          "samples_with_surface_crossings": 58,
+          "max_moving_triangle_pairs": 212,
+          "worst_crank_deg": "108"
+        }
+      }
+    ],
+    "gear profiles neighboring members": [
+      {
+        "parts": [
+          "INT-TIMING-01",
+          "INT-TIMING-02"
+        ],
+        "baseline": {
+          "at_rest_triangle_pairs": 100,
+          "moving_sample_count": 61,
+          "samples_with_surface_crossings": 0,
+          "max_moving_triangle_pairs": 0,
+          "worst_crank_deg": null
+        },
+        "idle": {
+          "at_rest_triangle_pairs": 0,
+          "moving_sample_count": 181,
+          "samples_with_surface_crossings": 100,
+          "max_moving_triangle_pairs": 1497,
+          "worst_crank_deg": "104"
+        },
+        "starter": {
+          "at_rest_triangle_pairs": 0,
+          "moving_sample_count": 61,
+          "samples_with_surface_crossings": 32,
+          "max_moving_triangle_pairs": 1471,
+          "worst_crank_deg": "96"
+        }
+      },
+      {
+        "parts": [
+          "INT-TIMING-03",
+          "INT-TIMING-04"
+        ],
+        "baseline": {
+          "at_rest_triangle_pairs": 92,
+          "moving_sample_count": 61,
+          "samples_with_surface_crossings": 0,
+          "max_moving_triangle_pairs": 0,
+          "worst_crank_deg": null
+        },
+        "idle": {
+          "at_rest_triangle_pairs": 0,
+          "moving_sample_count": 181,
+          "samples_with_surface_crossings": 178,
+          "max_moving_triangle_pairs": 2600,
+          "worst_crank_deg": "184"
+        },
+        "starter": {
+          "at_rest_triangle_pairs": 0,
+          "moving_sample_count": 61,
+          "samples_with_surface_crossings": 58,
+          "max_moving_triangle_pairs": 2580,
+          "worst_crank_deg": "540"
+        }
+      },
+      {
+        "parts": [
+          "INT-TIMING-04",
+          "INT-TIMING-05"
+        ],
+        "baseline": {
+          "at_rest_triangle_pairs": 23,
+          "moving_sample_count": 61,
+          "samples_with_surface_crossings": 0,
+          "max_moving_triangle_pairs": 0,
+          "worst_crank_deg": null
+        },
+        "idle": {
+          "at_rest_triangle_pairs": 0,
+          "moving_sample_count": 181,
+          "samples_with_surface_crossings": 0,
+          "max_moving_triangle_pairs": 0,
+          "worst_crank_deg": null
+        },
+        "starter": {
+          "at_rest_triangle_pairs": 0,
+          "moving_sample_count": 61,
+          "samples_with_surface_crossings": 0,
+          "max_moving_triangle_pairs": 0,
+          "worst_crank_deg": null
+        }
+      },
+      {
+        "parts": [
+          "INT-TIMING-05",
+          "EXT-COOLING-41"
+        ],
+        "baseline": {
+          "at_rest_triangle_pairs": 0,
+          "moving_sample_count": 61,
+          "samples_with_surface_crossings": 0,
+          "max_moving_triangle_pairs": 0,
+          "worst_crank_deg": null
+        },
+        "idle": {
+          "at_rest_triangle_pairs": 0,
+          "moving_sample_count": 181,
+          "samples_with_surface_crossings": 0,
+          "max_moving_triangle_pairs": 0,
+          "worst_crank_deg": null
+        },
+        "starter": {
+          "at_rest_triangle_pairs": 0,
+          "moving_sample_count": 61,
+          "samples_with_surface_crossings": 0,
+          "max_moving_triangle_pairs": 0,
+          "worst_crank_deg": null
+        }
+      },
+      {
+        "parts": [
+          "INT-TIMING-01",
+          "INT-TIMING-07"
+        ],
+        "baseline": {
+          "at_rest_triangle_pairs": 72,
+          "moving_sample_count": 61,
+          "samples_with_surface_crossings": 0,
+          "max_moving_triangle_pairs": 0,
+          "worst_crank_deg": null
+        },
+        "idle": {
+          "at_rest_triangle_pairs": 0,
+          "moving_sample_count": 181,
+          "samples_with_surface_crossings": 168,
+          "max_moving_triangle_pairs": 185,
+          "worst_crank_deg": "52"
+        },
+        "starter": {
+          "at_rest_triangle_pairs": 0,
+          "moving_sample_count": 61,
+          "samples_with_surface_crossings": 56,
+          "max_moving_triangle_pairs": 173,
+          "worst_crank_deg": "48"
+        }
+      },
+      {
+        "parts": [
+          "INT-TIMING-08",
+          "INT-TIMING-10"
+        ],
+        "baseline": {
+          "at_rest_triangle_pairs": 40,
+          "moving_sample_count": 61,
+          "samples_with_surface_crossings": 0,
+          "max_moving_triangle_pairs": 0,
+          "worst_crank_deg": null
+        },
+        "idle": {
+          "at_rest_triangle_pairs": 0,
+          "moving_sample_count": 181,
+          "samples_with_surface_crossings": 0,
+          "max_moving_triangle_pairs": 0,
+          "worst_crank_deg": null
+        },
+        "starter": {
+          "at_rest_triangle_pairs": 0,
+          "moving_sample_count": 61,
+          "samples_with_surface_crossings": 0,
+          "max_moving_triangle_pairs": 0,
+          "worst_crank_deg": null
+        }
+      },
+      {
+        "parts": [
+          "INT-TIMING-08",
+          "EXT-COOLING-26"
+        ],
+        "baseline": {
+          "at_rest_triangle_pairs": 0,
+          "moving_sample_count": 61,
+          "samples_with_surface_crossings": 0,
+          "max_moving_triangle_pairs": 0,
+          "worst_crank_deg": null
+        },
+        "idle": {
+          "at_rest_triangle_pairs": 0,
+          "moving_sample_count": 181,
+          "samples_with_surface_crossings": 0,
+          "max_moving_triangle_pairs": 0,
+          "worst_crank_deg": null
+        },
+        "starter": {
+          "at_rest_triangle_pairs": 0,
+          "moving_sample_count": 61,
+          "samples_with_surface_crossings": 0,
+          "max_moving_triangle_pairs": 0,
+          "worst_crank_deg": null
+        }
+      }
+    ]
+  }
+}

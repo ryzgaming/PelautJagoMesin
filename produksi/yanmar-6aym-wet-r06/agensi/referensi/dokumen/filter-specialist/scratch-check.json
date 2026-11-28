@@ -1,0 +1,27 @@
+{
+  "RAK-BYPASS-ROTOR": {
+    "mesh_count": 9,
+    "owner": "EXT-LUBE-04",
+    "all_mesh_ids_present": true
+  },
+  "RAK-FUEL-FILTER-1": {
+    "mesh_count": 7,
+    "owner": "EXT-FUEL-10",
+    "all_mesh_ids_present": true
+  },
+  "RAK-FUEL-FILTER-2": {
+    "mesh_count": 7,
+    "owner": "EXT-FUEL-11",
+    "all_mesh_ids_present": true
+  },
+  "RAK-OIL-FILTER-1": {
+    "mesh_count": 4,
+    "owner": "EXT-LUBE-02",
+    "all_mesh_ids_present": true
+  },
+  "RAK-OIL-FILTER-2": {
+    "mesh_count": 4,
+    "owner": "EXT-LUBE-03",
+    "all_mesh_ids_present": true
+  }
+}

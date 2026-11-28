@@ -1,0 +1,142 @@
+{
+  "ui": "minimal",
+  "name": "hp",
+  "initial": {
+    "state": {
+      "ready": true,
+      "phase": "off",
+      "paused": false,
+      "running": false,
+      "phaseTime": 0,
+      "rpm": 0,
+      "crankAngle": 0,
+      "starterEngagement": 0,
+      "selection": null,
+      "xray": false,
+      "mode": "operation",
+      "flow": "fuel",
+      "drive": "timing-01",
+      "audioSupported": true,
+      "muted": false,
+      "capTestSupported": true,
+      "capPressure": null
+    },
+    "canvas": {
+      "geometry": [
+        true,
+        true
+      ],
+      "triangles": 986968,
+      "gpu": "WebKit WebGL",
+      "contextLost": false,
+      "audio": {
+        "phase": "off",
+        "rpm": 0,
+        "elapsed": 0,
+        "paused": true,
+        "unlocked": false,
+        "muted": false,
+        "volume": 0.35,
+        "hidden": false,
+        "disposed": false,
+        "contextState": "uncreated",
+        "firingHz": 0,
+        "audible": false,
+        "nodes": 0,
+        "activeOneShots": 0,
+        "lastClickElapsed": null,
+        "targets": null
+      },
+      "viewport": [
+        390,
+        844,
+        null
+      ]
+    },
+    "parts": 1184,
+    "overflow": 0,
+    "studioCanvas": false,
+    "minimalCanvas": true,
+    "foreignStudioLayout": 0
+  },
+  "phases": [
+    "off",
+    "engaging",
+    "cranking",
+    "firing",
+    "running",
+    "stopping",
+    "off"
+  ],
+  "selected": "EXT-FUEL-03",
+  "requests": [
+    "http://127.0.0.1:4197/yanmar-6aym-wet-r06/model/assets/data.json",
+    "http://127.0.0.1:4197/yanmar-6aym-wet-r06/model/assets/exterior.glb",
+    "http://127.0.0.1:4197/yanmar-6aym-wet-r06/model/assets/internal.glb",
+    "http://127.0.0.1:4197/yanmar-6aym-wet-r06/model/manifest.json",
+    "http://127.0.0.1:4197/yanmar-6aym-wet-r06/model/runtime/engine-session.js",
+    "http://127.0.0.1:4197/yanmar-6aym-wet-r06/model/runtime/powertrain.js",
+    "http://127.0.0.1:4197/yanmar-6aym-wet-r06/model/runtime/vendor/combustion-glow.js",
+    "http://127.0.0.1:4197/yanmar-6aym-wet-r06/model/runtime/vendor/engine-audio.js",
+    "http://127.0.0.1:4197/yanmar-6aym-wet-r06/model/runtime/vendor/flow-ribbons.js",
+    "http://127.0.0.1:4197/yanmar-6aym-wet-r06/model/runtime/vendor/functional-motion.js",
+    "http://127.0.0.1:4197/yanmar-6aym-wet-r06/model/runtime/vendor/three-bundle.js",
+    "http://127.0.0.1:4197/yanmar-6aym-wet-r06/ui-workspace/minimal.css",
+    "http://127.0.0.1:4197/yanmar-6aym-wet-r06/ui-workspace/minimal.html",
+    "http://127.0.0.1:4197/yanmar-6aym-wet-r06/ui-workspace/minimal.js"
+  ],
+  "matrixRows": [
+    {
+      "at": 0,
+      "phase": "engaging",
+      "hash": "022c0f39906a5f7af96c363ee929969308d3757ba08477acda27f1abf7c03013"
+    },
+    {
+      "at": 10,
+      "phase": "engaging",
+      "hash": "a81243d300dfe2719bb8a962d7b1efe4bfffdf52151ca6fe70c76808e5f12d15"
+    },
+    {
+      "at": 35,
+      "phase": "cranking",
+      "hash": "da92bb3becb3ebaa4c62830cafbfb4cd8e5443d786c5d4c1ed9fcd0d50a13814"
+    },
+    {
+      "at": 55,
+      "phase": "cranking",
+      "hash": "72694bbacf8f24b60d517a6c4a9efff4e1205c8bbf10ff98266c4594ab62f05c"
+    },
+    {
+      "at": 90,
+      "phase": "firing",
+      "hash": "a49c5887c4989add6881d202ba79782b9523ddfe3a4668c587e9d78b792eeb28"
+    },
+    {
+      "at": 105,
+      "phase": "firing",
+      "hash": "75c67b33378c990520b7e6047778bf696ae9b94a0a95aececfb9085959776762"
+    },
+    {
+      "at": 145,
+      "phase": "running",
+      "hash": "201eecc5d7a61b4a393f271237913a523cfd9bda64659a15e346bc5fbfd1329c"
+    },
+    {
+      "at": 175,
+      "phase": "running",
+      "hash": "bb9c017e69ac860638fa1986d5f11f74f783937bdc7fd700b29008c526ad1dab"
+    },
+    {
+      "at": 205,
+      "phase": "running",
+      "hash": "83daf5860e3b01f77902f00e6cd0b40fe9cad4776115ea62a1e570660b5fbbce"
+    },
+    {
+      "at": "reset",
+      "phase": "off",
+      "hash": "022c0f39906a5f7af96c363ee929969308d3757ba08477acda27f1abf7c03013"
+    }
+  ],
+  "coreModuleSha256": "b83f5b3a92d5152ef93ee3e626eb7e29d41799946e1a306b25e6b86883e526ab",
+  "error": null
+}

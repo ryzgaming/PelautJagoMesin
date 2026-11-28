@@ -1,0 +1,3746 @@
+{
+  "machine_model": "Yanmar 6AYM-WET H 555 kW",
+  "status": "UNVERIFIED",
+  "unit": "m",
+  "coordinate_order": "X depan, Y atas, Z kanan",
+  "components": [
+    {
+      "id": "EXT-BLOCK-01",
+      "name": "Coran block dan crankcase",
+      "nama": "Coran block dan crankcase",
+      "parent": "RAK-BLOCK",
+      "rakitan": "RAK-BLOCK",
+      "count": 1,
+      "jumlah": 1,
+      "status": "ESTIMATED",
+      "source_refs": [
+        "D03 PDF 17 printed p. 33 / engine-only right elevation and front view",
+        "GA01 B3-48660-4450 / outline, top, end and rear housing details",
+        "P07 / profil dan rusuk"
+      ],
+      "sumber": [
+        "D03 PDF 17 printed p. 33 / engine-only right elevation and front view",
+        "GA01 B3-48660-4450 / outline, top, end and rear housing details",
+        "P07 / profil dan rusuk"
+      ],
+      "model_dimensions_m": [
+        1.34,
+        0.6685,
+        0.664
+      ],
+      "bounds_m": [
+        [
+          -0.005,
+          -0.1785,
+          -0.332
+        ],
+        [
+          1.335,
+          0.49,
+          0.332
+        ]
+      ],
+      "ukuran_oem": null,
+      "nomor_oem": null,
+      "xray_shell": true,
+      "note": "Bentuk/tata letak dari tampak yang dikutip. Detail ukuran model diperkirakan.",
+      "direction": null
+    },
+    {
+      "id": "EXT-BLOCK-02",
+      "name": "Tutup inspeksi kiri 1",
+      "nama": "Tutup inspeksi kiri 1",
+      "parent": "RAK-BLOCK",
+      "rakitan": "RAK-BLOCK",
+      "count": 1,
+      "jumlah": 1,
+      "status": "ESTIMATED",
+      "source_refs": [
+        "P07 / tutup inspeksi sisi operasi"
+      ],
+      "sumber": [
+        "P07 / tutup inspeksi sisi operasi"
+      ],
+      "model_dimensions_m": [
+        0.176984,
+        0.167,
+        0.04
+      ],
+      "bounds_m": [
+        [
+          0.11985,
+          -0.107,
+          -0.362
+        ],
+        [
+          0.296834,
+          0.06,
+          -0.322
+        ]
+      ],
+      "ukuran_oem": null,
+      "nomor_oem": null,
+      "xray_shell": true,
+      "note": "Bentuk/tata letak dari tampak yang dikutip. Detail ukuran model diperkirakan.",
+      "direction": [
+        0,
+        0,
+        -1
+      ]
+    },
+    {
+      "id": "EXT-BLOCK-03",
+      "name": "Tutup inspeksi kiri 2",
+      "nama": "Tutup inspeksi kiri 2",
+      "parent": "RAK-BLOCK",
+      "rakitan": "RAK-BLOCK",
+      "count": 1,
+      "jumlah": 1,
+      "status": "ESTIMATED",
+      "source_refs": [
+        "P07 / tutup inspeksi sisi operasi"
+      ],
+      "sumber": [
+        "P07 / tutup inspeksi sisi operasi"
+      ],
+      "model_dimensions_m": [
+        0.176984,
+        0.167,
+        0.04
+      ],
+      "bounds_m": [
+        [
+          0.31985,
+          -0.107,
+          -0.362
+        ],
+        [
+          0.496834,
+          0.06,
+          -0.322
+        ]
+      ],
+      "ukuran_oem": null,
+      "nomor_oem": null,
+      "xray_shell": true,
+      "note": "Bentuk/tata letak dari tampak yang dikutip. Detail ukuran model diperkirakan.",
+      "direction": [
+        0,
+        0,
+        -1
+      ]
+    },
+    {
+      "id": "EXT-BLOCK-04",
+      "name": "Tutup inspeksi kiri 3",
+      "nama": "Tutup inspeksi kiri 3",
+      "parent": "RAK-BLOCK",
+      "rakitan": "RAK-BLOCK",
+      "count": 1,
+      "jumlah": 1,
+      "status": "ESTIMATED",
+      "source_refs": [
+        "P07 / tutup inspeksi sisi operasi"
+      ],
+      "sumber": [
+        "P07 / tutup inspeksi sisi operasi"
+      ],
+      "model_dimensions_m": [
+        0.176984,
+        0.167,
+        0.04
+      ],
+      "bounds_m": [
+        [
+          0.51985,
+          -0.107,
+          -0.362
+        ],
+        [
+          0.696834,
+          0.06,
+          -0.322
+        ]
+      ],
+      "ukuran_oem": null,
+      "nomor_oem": null,
+      "xray_shell": true,
+      "note": "Bentuk/tata letak dari tampak yang dikutip. Detail ukuran model diperkirakan.",
+      "direction": [
+        0,
+        0,
+        -1
+      ]
+    },
+    {
+      "id": "EXT-BLOCK-05",
+      "name": "Tutup inspeksi kiri 4",
+      "nama": "Tutup inspeksi kiri 4",
+      "parent": "RAK-BLOCK",
+      "rakitan": "RAK-BLOCK",
+      "count": 1,
+      "jumlah": 1,
+      "status": "ESTIMATED",
+      "source_refs": [
+        "P07 / tutup inspeksi sisi operasi"
+      ],
+      "sumber": [
+        "P07 / tutup inspeksi sisi operasi"
+      ],
+      "model_dimensions_m": [
+        0.176984,
+        0.167,
+        0.04
+      ],
+      "bounds_m": [
+        [
+          0.71985,
+          -0.107,
+          -0.362
+        ],
+        [
+          0.896834,
+          0.06,
+          -0.322
+        ]
+      ],
+      "ukuran_oem": null,
+      "nomor_oem": null,
+      "xray_shell": true,
+      "note": "Bentuk/tata letak dari tampak yang dikutip. Detail ukuran model diperkirakan.",
+      "direction": [
+        0,
+        0,
+        -1
+      ]
+    },
+    {
+      "id": "EXT-BLOCK-06",
+      "name": "Tutup inspeksi kiri 5",
+      "nama": "Tutup inspeksi kiri 5",
+      "parent": "RAK-BLOCK",
+      "rakitan": "RAK-BLOCK",
+      "count": 1,
+      "jumlah": 1,
+      "status": "ESTIMATED",
+      "source_refs": [
+        "P07 / tutup inspeksi sisi operasi"
+      ],
+      "sumber": [
+        "P07 / tutup inspeksi sisi operasi"
+      ],
+      "model_dimensions_m": [
+        0.176984,
+        0.167,
+        0.04
+      ],
+      "bounds_m": [
+        [
+          0.91985,
+          -0.107,
+          -0.362
+        ],
+        [
+          1.096834,
+          0.06,
+          -0.322
+        ]
+      ],
+      "ukuran_oem": null,
+      "nomor_oem": null,
+      "xray_shell": true,
+      "note": "Bentuk/tata letak dari tampak yang dikutip. Detail ukuran model diperkirakan.",
+      "direction": [
+        0,
+        0,
+        -1
+      ]
+    },
+    {
+      "id": "EXT-BLOCK-07",
+      "name": "Tutup inspeksi kiri 6",
+      "nama": "Tutup inspeksi kiri 6",
+      "parent": "RAK-BLOCK",
+      "rakitan": "RAK-BLOCK",
+      "count": 1,
+      "jumlah": 1,
+      "status": "ESTIMATED",
+      "source_refs": [
+        "P07 / tutup inspeksi sisi operasi"
+      ],
+      "sumber": [
+        "P07 / tutup inspeksi sisi operasi"
+      ],
+      "model_dimensions_m": [
+        0.176984,
+        0.167,
+        0.04
+      ],
+      "bounds_m": [
+        [
+          1.11985,
+          -0.107,
+          -0.362
+        ],
+        [
+          1.296834,
+          0.06,
+          -0.322
+        ]
+      ],
+      "ukuran_oem": null,
+      "nomor_oem": null,
+      "xray_shell": true,
+      "note": "Bentuk/tata letak dari tampak yang dikutip. Detail ukuran model diperkirakan.",
+      "direction": [
+        0,
+        0,
+        -1
+      ]
+    },
+    {
+      "id": "EXT-BLOCK-08",
+      "name": "Tutup inspeksi kanan 1",
+      "nama": "Tutup inspeksi kanan 1",
+      "parent": "RAK-BLOCK",
+      "rakitan": "RAK-BLOCK",
+      "count": 1,
+      "jumlah": 1,
+      "status": "ESTIMATED",
+      "source_refs": [
+        "P17 / akses sisi non-operation"
+      ],
+      "sumber": [
+        "P17 / akses sisi non-operation"
+      ],
+      "model_dimensions_m": [
+        0.176984,
+        0.167,
+        0.053
+      ],
+      "bounds_m": [
+        [
+          0.11985,
+          -0.107,
+          0.309
+        ],
+        [
+          0.296834,
+          0.06,
+          0.362
+        ]
+      ],
+      "ukuran_oem": null,
+      "nomor_oem": null,
+      "xray_shell": true,
+      "note": "Bentuk/tata letak dari tampak yang dikutip. Detail ukuran model diperkirakan.",
+      "direction": [
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "id": "EXT-BLOCK-09",
+      "name": "Tutup inspeksi kanan 2",
+      "nama": "Tutup inspeksi kanan 2",
+      "parent": "RAK-BLOCK",
+      "rakitan": "RAK-BLOCK",
+      "count": 1,
+      "jumlah": 1,
+      "status": "ESTIMATED",
+      "source_refs": [
+        "P17 / akses sisi non-operation"
+      ],
+      "sumber": [
+        "P17 / akses sisi non-operation"
+      ],
+      "model_dimensions_m": [
+        0.176984,
+        0.167,
+        0.053
+      ],
+      "bounds_m": [
+        [
+          0.31985,
+          -0.107,
+          0.309
+        ],
+        [
+          0.496834,
+          0.06,
+          0.362
+        ]
+      ],
+      "ukuran_oem": null,
+      "nomor_oem": null,
+      "xray_shell": true,
+      "note": "Bentuk/tata letak dari tampak yang dikutip. Detail ukuran model diperkirakan.",
+      "direction": [
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "id": "EXT-BLOCK-10",
+      "name": "Tutup inspeksi kanan 3",
+      "nama": "Tutup inspeksi kanan 3",
+      "parent": "RAK-BLOCK",
+      "rakitan": "RAK-BLOCK",
+      "count": 1,
+      "jumlah": 1,
+      "status": "ESTIMATED",
+      "source_refs": [
+        "P17 / akses sisi non-operation"
+      ],
+      "sumber": [
+        "P17 / akses sisi non-operation"
+      ],
+      "model_dimensions_m": [
+        0.176984,
+        0.167,
+        0.053
+      ],
+      "bounds_m": [
+        [
+          0.51985,
+          -0.107,
+          0.309
+        ],
+        [
+          0.696834,
+          0.06,
+          0.362
+        ]
+      ],
+      "ukuran_oem": null,
+      "nomor_oem": null,
+      "xray_shell": true,
+      "note": "Bentuk/tata letak dari tampak yang dikutip. Detail ukuran model diperkirakan.",
+      "direction": [
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "id": "EXT-BLOCK-11",
+      "name": "Tutup inspeksi kanan 4",
+      "nama": "Tutup inspeksi kanan 4",
+      "parent": "RAK-BLOCK",
+      "rakitan": "RAK-BLOCK",
+      "count": 1,
+      "jumlah": 1,
+      "status": "ESTIMATED",
+      "source_refs": [
+        "P17 / akses sisi non-operation"
+      ],
+      "sumber": [
+        "P17 / akses sisi non-operation"
+      ],
+      "model_dimensions_m": [
+        0.176984,
+        0.167,
+        0.053
+      ],
+      "bounds_m": [
+        [
+          0.71985,
+          -0.107,
+          0.309
+        ],
+        [
+          0.896834,
+          0.06,
+          0.362
+        ]
+      ],
+      "ukuran_oem": null,
+      "nomor_oem": null,
+      "xray_shell": true,
+      "note": "Bentuk/tata letak dari tampak yang dikutip. Detail ukuran model diperkirakan.",
+      "direction": [
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "id": "EXT-BLOCK-12",
+      "name": "Tutup inspeksi kanan 5",
+      "nama": "Tutup inspeksi kanan 5",
+      "parent": "RAK-BLOCK",
+      "rakitan": "RAK-BLOCK",
+      "count": 1,
+      "jumlah": 1,
+      "status": "ESTIMATED",
+      "source_refs": [
+        "P17 / akses sisi non-operation"
+      ],
+      "sumber": [
+        "P17 / akses sisi non-operation"
+      ],
+      "model_dimensions_m": [
+        0.176984,
+        0.167,
+        0.053
+      ],
+      "bounds_m": [
+        [
+          0.91985,
+          -0.107,
+          0.309
+        ],
+        [
+          1.096834,
+          0.06,
+          0.362
+        ]
+      ],
+      "ukuran_oem": null,
+      "nomor_oem": null,
+      "xray_shell": true,
+      "note": "Bentuk/tata letak dari tampak yang dikutip. Detail ukuran model diperkirakan.",
+      "direction": [
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "id": "EXT-BLOCK-13",
+      "name": "Tutup inspeksi kanan 6",
+      "nama": "Tutup inspeksi kanan 6",
+      "parent": "RAK-BLOCK",
+      "rakitan": "RAK-BLOCK",
+      "count": 1,
+      "jumlah": 1,
+      "status": "ESTIMATED",
+      "source_refs": [
+        "P17 / akses sisi non-operation"
+      ],
+      "sumber": [
+        "P17 / akses sisi non-operation"
+      ],
+      "model_dimensions_m": [
+        0.176984,
+        0.167,
+        0.053
+      ],
+      "bounds_m": [
+        [
+          1.11985,
+          -0.107,
+          0.309
+        ],
+        [
+          1.296834,
+          0.06,
+          0.362
+        ]
+      ],
+      "ukuran_oem": null,
+      "nomor_oem": null,
+      "xray_shell": true,
+      "note": "Bentuk/tata letak dari tampak yang dikutip. Detail ukuran model diperkirakan.",
+      "direction": [
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "id": "EXT-BLOCK-14",
+      "name": "Kaki dudukan mesin",
+      "nama": "Kaki dudukan mesin",
+      "parent": "RAK-BLOCK",
+      "rakitan": "RAK-BLOCK",
+      "count": 1,
+      "jumlah": 1,
+      "status": "ESTIMATED",
+      "source_refs": [
+        "GA01 B3-48660-4450 / outline, top, end and rear housing details",
+        "P08 / dudukan depan",
+        "P18 / dudukan belakang"
+      ],
+      "sumber": [
+        "GA01 B3-48660-4450 / outline, top, end and rear housing details",
+        "P08 / dudukan depan",
+        "P18 / dudukan belakang"
+      ],
+      "model_dimensions_m": [
+        0.13,
+        0.264959,
+        0.181316
+      ],
+      "bounds_m": [
+        [
+          -0.132,
+          -0.167,
+          -0.481
+        ],
+        [
+          -0.002,
+          0.097959,
+          -0.299684
+        ]
+      ],
+      "ukuran_oem": null,
+      "nomor_oem": null,
+      "xray_shell": false,
+      "note": "GA: delapan lubang Ø24, jarak melintang 880 mm. Penempatan gusset diperkirakan. Ulir jack bolt tidak dimodelkan.",
+      "direction": [
+        0,
+        -1,
+        0
+      ]
+    },
+    {
+      "id": "EXT-BLOCK-15",
+      "name": "Kaki dudukan mesin",
+      "nama": "Kaki dudukan mesin",
+      "parent": "RAK-BLOCK",
+      "rakitan": "RAK-BLOCK",
+      "count": 1,
+      "jumlah": 1,
+      "status": "ESTIMATED",
+      "source_refs": [
+        "GA01 B3-48660-4450 / outline, top, end and rear housing details",
+        "P08 / dudukan depan",
+        "P18 / dudukan belakang"
+      ],
+      "sumber": [
+        "GA01 B3-48660-4450 / outline, top, end and rear housing details",
+        "P08 / dudukan depan",
+        "P18 / dudukan belakang"
+      ],
+      "model_dimensions_m": [
+        0.13,
+        0.264959,
+        0.181316
+      ],
+      "bounds_m": [
+        [
+          -0.132,
+          -0.167,
+          0.299684
+        ],
+        [
+          -0.002,
+          0.097959,
+          0.481
+        ]
+      ],
+      "ukuran_oem": null,
+      "nomor_oem": null,
+      "xray_shell": false,
+      "note": "GA: delapan lubang Ø24, jarak melintang 880 mm. Penempatan gusset diperkirakan. Ulir jack bolt tidak dimodelkan.",
+      "direction": [
+        0,
+        -1,
+        0
+      ]
+    },
+    {
+      "id": "EXT-BLOCK-16",
+      "name": "Kaki dudukan mesin",
+      "nama": "Kaki dudukan mesin",
+      "parent": "RAK-BLOCK",
+      "rakitan": "RAK-BLOCK",
+      "count": 1,
+      "jumlah": 1,
+      "status": "ESTIMATED",
+      "source_refs": [
+        "GA01 B3-48660-4450 / outline, top, end and rear housing details",
+        "P08 / dudukan depan",
+        "P18 / dudukan belakang"
+      ],
+      "sumber": [
+        "GA01 B3-48660-4450 / outline, top, end and rear housing details",
+        "P08 / dudukan depan",
+        "P18 / dudukan belakang"
+      ],
+      "model_dimensions_m": [
+        0.15,
+        0.264919,
+        0.172438
+      ],
+      "bounds_m": [
+        [
+          1.1315,
+          -0.167,
+          -0.472
+        ],
+        [
+          1.2815,
+          0.097919,
+          -0.299562
+        ]
+      ],
+      "ukuran_oem": null,
+      "nomor_oem": null,
+      "xray_shell": false,
+      "note": "GA: delapan lubang Ø24, jarak melintang 880 mm. Penempatan gusset diperkirakan. Ulir jack bolt tidak dimodelkan.",
+      "direction": [
+        0,
+        -1,
+        0
+      ]
+    },
+    {
+      "id": "EXT-BLOCK-17",
+      "name": "Kaki dudukan mesin",
+      "nama": "Kaki dudukan mesin",
+      "parent": "RAK-BLOCK",
+      "rakitan": "RAK-BLOCK",
+      "count": 1,
+      "jumlah": 1,
+      "status": "ESTIMATED",
+      "source_refs": [
+        "GA01 B3-48660-4450 / outline, top, end and rear housing details",
+        "P08 / dudukan depan",
+        "P18 / dudukan belakang"
+      ],
+      "sumber": [
+        "GA01 B3-48660-4450 / outline, top, end and rear housing details",
+        "P08 / dudukan depan",
+        "P18 / dudukan belakang"
+      ],
+      "model_dimensions_m": [
+        0.15,
+        0.264919,
+        0.172438
+      ],
+      "bounds_m": [
+        [
+          1.1315,
+          -0.167,
+          0.299562
+        ],
+        [
+          1.2815,
+          0.097919,
+          0.472
+        ]
+      ],
+      "ukuran_oem": null,
+      "nomor_oem": null,
+      "xray_shell": false,
+      "note": "GA: delapan lubang Ø24, jarak melintang 880 mm. Penempatan gusset diperkirakan. Ulir jack bolt tidak dimodelkan.",
+      "direction": [
+        0,
+        -1,
+        0
+      ]
+    },
+    {
+      "id": "EXT-BLOCK-18",
+      "name": "Pegangan servis oranye",
+      "nama": "Pegangan servis oranye",
+      "parent": "RAK-BLOCK",
+      "rakitan": "RAK-BLOCK",
+      "count": 1,
+      "jumlah": 1,
+      "status": "ESTIMATED",
+      "source_refs": [
+        "P07 / pegangan di bawah pompa"
+      ],
+      "sumber": [
+        "P07 / pegangan di bawah pompa"
+      ],
+      "model_dimensions_m": [
+        0.044,
+        0.044,
+        0.0405
+      ],
+      "bounds_m": [
+        [
+          0.997,
+          -0.152,
+          -0.3655
+        ],
+        [
+          1.041,
+          -0.108,
+          -0.325
+        ]
+      ],
+      "ukuran_oem": null,
+      "nomor_oem": null,
+      "xray_shell": false,
+      "note": "Bentuk/tata letak dari tampak yang dikutip. Detail ukuran model diperkirakan.",
+      "direction": [
+        0,
+        0,
+        -1
+      ]
+    },
+    {
+      "id": "EXT-HEADS-01",
+      "name": "Cylinder head 1",
+      "nama": "Cylinder head 1",
+      "parent": "RAK-HEADS",
+      "rakitan": "RAK-HEADS",
+      "count": 1,
+      "jumlah": 1,
+      "status": "ESTIMATED",
+      "source_refs": [
+        "D03 PDF 17 printed p. 33 / engine-only right elevation and front view",
+        "GA01 B3-48660-4450 / outline, top, end and rear housing details",
+        "P10 / deret bagian atas"
+      ],
+      "sumber": [
+        "D03 PDF 17 printed p. 33 / engine-only right elevation and front view",
+        "GA01 B3-48660-4450 / outline, top, end and rear housing details",
+        "P10 / deret bagian atas"
+      ],
+      "model_dimensions_m": [
+        0.194,
+        0.138802,
+        0.564
+      ],
+      "bounds_m": [
+        [
+          0.112,
+          0.49,
+          -0.282
+        ],
+        [
+          0.306,
+          0.628802,
+          0.282
+        ]
+      ],
+      "ukuran_oem": null,
+      "nomor_oem": null,
+      "xray_shell": true,
+      "note": "Envelope luar ditafsirkan dari gambar. Rongga rocker adalah penyederhanaan untuk susunan edukasi.",
+      "direction": [
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "id": "EXT-HEADS-07",
+      "name": "Bonnet rocker 1",
+      "nama": "Bonnet rocker 1",
+      "parent": "RAK-HEADS",
+      "rakitan": "RAK-HEADS",
+      "count": 1,
+      "jumlah": 1,
+      "status": "ESTIMATED",
+      "source_refs": [
+        "GA01 B3-48660-4450 / outline, top, end and rear housing details",
+        "P10 / deret bonnet dalam perspektif"
+      ],
+      "sumber": [
+        "GA01 B3-48660-4450 / outline, top, end and rear housing details",
+        "P10 / deret bonnet dalam perspektif"
+      ],
+      "model_dimensions_m": [
+        0.191306,
+        0.095,
+        0.40598
+      ],
+      "bounds_m": [
+        [
+          0.113347,
+          0.627,
+          -0.20299
+        ],
+        [
+          0.304653,
+          0.722,
+          0.20299
+        ]
+      ],
+      "ukuran_oem": null,
+      "nomor_oem": null,
+      "xray_shell": true,
+      "note": "Geometri punggung dan ketinggian diperkirakan. Foto atas tegak lurus belum tersedia.",
+      "direction": [
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "id": "EXT-HEADS-02",
+      "name": "Cylinder head 2",
+      "nama": "Cylinder head 2",
+      "parent": "RAK-HEADS",
+      "rakitan": "RAK-HEADS",
+      "count": 1,
+      "jumlah": 1,
+      "status": "ESTIMATED",
+      "source_refs": [
+        "D03 PDF 17 printed p. 33 / engine-only right elevation and front view",
+        "GA01 B3-48660-4450 / outline, top, end and rear housing details",
+        "P10 / deret bagian atas"
+      ],
+      "sumber": [
+        "D03 PDF 17 printed p. 33 / engine-only right elevation and front view",
+        "GA01 B3-48660-4450 / outline, top, end and rear housing details",
+        "P10 / deret bagian atas"
+      ],
+      "model_dimensions_m": [
+        0.194,
+        0.138802,
+        0.564
+      ],
+      "bounds_m": [
+        [
+          0.312,
+          0.49,
+          -0.282
+        ],
+        [
+          0.506,
+          0.628802,
+          0.282
+        ]
+      ],
+      "ukuran_oem": null,
+      "nomor_oem": null,
+      "xray_shell": true,
+      "note": "Envelope luar ditafsirkan dari gambar. Rongga rocker adalah penyederhanaan untuk susunan edukasi.",
+      "direction": [
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "id": "EXT-HEADS-08",
+      "name": "Bonnet rocker 2",
+      "nama": "Bonnet rocker 2",
+      "parent": "RAK-HEADS",
+      "rakitan": "RAK-HEADS",
+      "count": 1,
+      "jumlah": 1,
+      "status": "ESTIMATED",
+      "source_refs": [
+        "GA01 B3-48660-4450 / outline, top, end and rear housing details",
+        "P10 / deret bonnet dalam perspektif"
+      ],
+      "sumber": [
+        "GA01 B3-48660-4450 / outline, top, end and rear housing details",
+        "P10 / deret bonnet dalam perspektif"
+      ],
+      "model_dimensions_m": [
+        0.191307,
+        0.095,
+        0.40598
+      ],
+      "bounds_m": [
+        [
+          0.313347,
+          0.627,
+          -0.20299
+        ],
+        [
+          0.504654,
+          0.722,
+          0.20299
+        ]
+      ],
+      "ukuran_oem": null,
+      "nomor_oem": null,
+      "xray_shell": true,
+      "note": "Geometri punggung dan ketinggian diperkirakan. Foto atas tegak lurus belum tersedia.",
+      "direction": [
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "id": "EXT-HEADS-03",
+      "name": "Cylinder head 3",
+      "nama": "Cylinder head 3",
+      "parent": "RAK-HEADS",
+      "rakitan": "RAK-HEADS",
+      "count": 1,
+      "jumlah": 1,
+      "status": "ESTIMATED",
+      "source_refs": [
+        "D03 PDF 17 printed p. 33 / engine-only right elevation and front view",
+        "GA01 B3-48660-4450 / outline, top, end and rear housing details",
+        "P10 / deret bagian atas"
+      ],
+      "sumber": [
+        "D03 PDF 17 printed p. 33 / engine-only right elevation and front view",
+        "GA01 B3-48660-4450 / outline, top, end and rear housing details",
+        "P10 / deret bagian atas"
+      ],
+      "model_dimensions_m": [
+        0.194,
+        0.138802,
+        0.564
+      ],
+      "bounds_m": [
+        [
+          0.512,
+          0.49,
+          -0.282
+        ],
+        [
+          0.706,
+          0.628802,
+          0.282
+        ]
+      ],
+      "ukuran_oem": null,
+      "nomor_oem": null,
+      "xray_shell": true,
+      "note": "Envelope luar ditafsirkan dari gambar. Rongga rocker adalah penyederhanaan untuk susunan edukasi.",
+      "direction": [
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "id": "EXT-HEADS-09",
+      "name": "Bonnet rocker 3",
+      "nama": "Bonnet rocker 3",
+      "parent": "RAK-HEADS",
+      "rakitan": "RAK-HEADS",
+      "count": 1,
+      "jumlah": 1,
+      "status": "ESTIMATED",
+      "source_refs": [
+        "GA01 B3-48660-4450 / outline, top, end and rear housing details",
+        "P10 / deret bonnet dalam perspektif"
+      ],
+      "sumber": [
+        "GA01 B3-48660-4450 / outline, top, end and rear housing details",
+        "P10 / deret bonnet dalam perspektif"
+      ],
+      "model_dimensions_m": [
+        0.191308,
+        0.095,
+        0.40598
+      ],
+      "bounds_m": [
+        [
+          0.513346,
+          0.627,
+          -0.20299
+        ],
+        [
+          0.704654,
+          0.722,
+          0.20299
+        ]
+      ],
+      "ukuran_oem": null,
+      "nomor_oem": null,
+      "xray_shell": true,
+      "note": "Geometri punggung dan ketinggian diperkirakan. Foto atas tegak lurus belum tersedia.",
+      "direction": [
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "id": "EXT-HEADS-04",
+      "name": "Cylinder head 4",
+      "nama": "Cylinder head 4",
+      "parent": "RAK-HEADS",
+      "rakitan": "RAK-HEADS",
+      "count": 1,
+      "jumlah": 1,
+      "status": "ESTIMATED",
+      "source_refs": [
+        "D03 PDF 17 printed p. 33 / engine-only right elevation and front view",
+        "GA01 B3-48660-4450 / outline, top, end and rear housing details",
+        "P10 / deret bagian atas"
+      ],
+      "sumber": [
+        "D03 PDF 17 printed p. 33 / engine-only right elevation and front view",
+        "GA01 B3-48660-4450 / outline, top, end and rear housing details",
+        "P10 / deret bagian atas"
+      ],
+      "model_dimensions_m": [
+        0.194,
+        0.138802,
+        0.564
+      ],
+      "bounds_m": [
+        [
+          0.712,
+          0.49,
+          -0.282
+        ],
+        [
+          0.906,
+          0.628802,
+          0.282
+        ]
+      ],
+      "ukuran_oem": null,
+      "nomor_oem": null,
+      "xray_shell": true,
+      "note": "Envelope luar ditafsirkan dari gambar. Rongga rocker adalah penyederhanaan untuk susunan edukasi.",
+      "direction": [
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "id": "EXT-HEADS-10",
+      "name": "Bonnet rocker 4",
+      "nama": "Bonnet rocker 4",
+      "parent": "RAK-HEADS",
+      "rakitan": "RAK-HEADS",
+      "count": 1,
+      "jumlah": 1,
+      "status": "ESTIMATED",
+      "source_refs": [
+        "GA01 B3-48660-4450 / outline, top, end and rear housing details",
+        "P10 / deret bonnet dalam perspektif"
+      ],
+      "sumber": [
+        "GA01 B3-48660-4450 / outline, top, end and rear housing details",
+        "P10 / deret bonnet dalam perspektif"
+      ],
+      "model_dimensions_m": [
+        0.191307,
+        0.095,
+        0.40598
+      ],
+      "bounds_m": [
+        [
+          0.713346,
+          0.627,
+          -0.20299
+        ],
+        [
+          0.904653,
+          0.722,
+          0.20299
+        ]
+      ],
+      "ukuran_oem": null,
+      "nomor_oem": null,
+      "xray_shell": true,
+      "note": "Geometri punggung dan ketinggian diperkirakan. Foto atas tegak lurus belum tersedia.",
+      "direction": [
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "id": "EXT-HEADS-05",
+      "name": "Cylinder head 5",
+      "nama": "Cylinder head 5",
+      "parent": "RAK-HEADS",
+      "rakitan": "RAK-HEADS",
+      "count": 1,
+      "jumlah": 1,
+      "status": "ESTIMATED",
+      "source_refs": [
+        "D03 PDF 17 printed p. 33 / engine-only right elevation and front view",
+        "GA01 B3-48660-4450 / outline, top, end and rear housing details",
+        "P10 / deret bagian atas"
+      ],
+      "sumber": [
+        "D03 PDF 17 printed p. 33 / engine-only right elevation and front view",
+        "GA01 B3-48660-4450 / outline, top, end and rear housing details",
+        "P10 / deret bagian atas"
+      ],
+      "model_dimensions_m": [
+        0.194,
+        0.138802,
+        0.564
+      ],
+      "bounds_m": [
+        [
+          0.912,
+          0.49,
+          -0.282
+        ],
+        [
+          1.106,
+          0.628802,
+          0.282
+        ]
+      ],
+      "ukuran_oem": null,
+      "nomor_oem": null,
+      "xray_shell": true,
+      "note": "Envelope luar ditafsirkan dari gambar. Rongga rocker adalah penyederhanaan untuk susunan edukasi.",
+      "direction": [
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "id": "EXT-HEADS-11",
+      "name": "Bonnet rocker 5",
+      "nama": "Bonnet rocker 5",
+      "parent": "RAK-HEADS",
+      "rakitan": "RAK-HEADS",
+      "count": 1,
+      "jumlah": 1,
+      "status": "ESTIMATED",
+      "source_refs": [
+        "GA01 B3-48660-4450 / outline, top, end and rear housing details",
+        "P10 / deret bonnet dalam perspektif"
+      ],
+      "sumber": [
+        "GA01 B3-48660-4450 / outline, top, end and rear housing details",
+        "P10 / deret bonnet dalam perspektif"
+      ],
+      "model_dimensions_m": [
+        0.191307,
+        0.095,
+        0.40598
+      ],
+      "bounds_m": [
+        [
+          0.913346,
+          0.627,
+          -0.20299
+        ],
+        [
+          1.104653,
+          0.722,
+          0.20299
+        ]
+      ],
+      "ukuran_oem": null,
+      "nomor_oem": null,
+      "xray_shell": true,
+      "note": "Geometri punggung dan ketinggian diperkirakan. Foto atas tegak lurus belum tersedia.",
+      "direction": [
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "id": "EXT-HEADS-06",
+      "name": "Cylinder head 6",
+      "nama": "Cylinder head 6",
+      "parent": "RAK-HEADS",
+      "rakitan": "RAK-HEADS",
+      "count": 1,
+      "jumlah": 1,
+      "status": "ESTIMATED",
+      "source_refs": [
+        "D03 PDF 17 printed p. 33 / engine-only right elevation and front view",
+        "GA01 B3-48660-4450 / outline, top, end and rear housing details",
+        "P10 / deret bagian atas"
+      ],
+      "sumber": [
+        "D03 PDF 17 printed p. 33 / engine-only right elevation and front view",
+        "GA01 B3-48660-4450 / outline, top, end and rear housing details",
+        "P10 / deret bagian atas"
+      ],
+      "model_dimensions_m": [
+        0.194,
+        0.138802,
+        0.564
+      ],
+      "bounds_m": [
+        [
+          1.112,
+          0.49,
+          -0.282
+        ],
+        [
+          1.306,
+          0.628802,
+          0.282
+        ]
+      ],
+      "ukuran_oem": null,
+      "nomor_oem": null,
+      "xray_shell": true,
+      "note": "Envelope luar ditafsirkan dari gambar. Rongga rocker adalah penyederhanaan untuk susunan edukasi.",
+      "direction": [
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "id": "EXT-HEADS-12",
+      "name": "Bonnet rocker 6",
+      "nama": "Bonnet rocker 6",
+      "parent": "RAK-HEADS",
+      "rakitan": "RAK-HEADS",
+      "count": 1,
+      "jumlah": 1,
+      "status": "ESTIMATED",
+      "source_refs": [
+        "GA01 B3-48660-4450 / outline, top, end and rear housing details",
+        "P10 / deret bonnet dalam perspektif"
+      ],
+      "sumber": [
+        "GA01 B3-48660-4450 / outline, top, end and rear housing details",
+        "P10 / deret bonnet dalam perspektif"
+      ],
+      "model_dimensions_m": [
+        0.191306,
+        0.095,
+        0.40598
+      ],
+      "bounds_m": [
+        [
+          1.113347,
+          0.627,
+          -0.20299
+        ],
+        [
+          1.304653,
+          0.722,
+          0.20299
+        ]
+      ],
+      "ukuran_oem": null,
+      "nomor_oem": null,
+      "xray_shell": true,
+      "note": "Geometri punggung dan ketinggian diperkirakan. Foto atas tegak lurus belum tersedia.",
+      "direction": [
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "id": "EXT-OILPAN-01",
+      "name": "Carter oli bergaris rusuk vertikal",
+      "nama": "Carter oli bergaris rusuk vertikal",
+      "parent": "RAK-OILPAN",
+      "rakitan": "RAK-OILPAN",
+      "count": 1,
+      "jumlah": 1,
+      "status": "ESTIMATED",
+      "source_refs": [
+        "D03 PDF 17 printed p. 33 / engine-only right elevation and front view",
+        "GA01 B3-48660-4450 / outline, top, end and rear housing details",
+        "P18 / sump bawah flywheel"
+      ],
+      "sumber": [
+        "D03 PDF 17 printed p. 33 / engine-only right elevation and front view",
+        "GA01 B3-48660-4450 / outline, top, end and rear housing details",
+        "P18 / sump bawah flywheel"
+      ],
+      "model_dimensions_m": [
+        1.320529,
+        0.395913,
+        0.58
+      ],
+      "bounds_m": [
+        [
+          0.01375,
+          -0.552,
+          -0.29
+        ],
+        [
+          1.334279,
+          -0.156087,
+          0.29
+        ]
+      ],
+      "ukuran_oem": null,
+      "nomor_oem": null,
+      "xray_shell": true,
+      "note": "Bentuk/tata letak dari tampak yang dikutip. Detail ukuran model diperkirakan.",
+      "direction": [
+        0,
+        -1,
+        0
+      ]
+    },
+    {
+      "id": "EXT-OILPAN-02",
+      "name": "Sumbat buang oli",
+      "nama": "Sumbat buang oli",
+      "parent": "RAK-OILPAN",
+      "rakitan": "RAK-OILPAN",
+      "count": 1,
+      "jumlah": 1,
+      "status": "ESTIMATED",
+      "source_refs": [
+        "P18 / sumbat muka belakang"
+      ],
+      "sumber": [
+        "P18 / sumbat muka belakang"
+      ],
+      "model_dimensions_m": [
+        0.038,
+        0.052,
+        0.052
+      ],
+      "bounds_m": [
+        [
+          0.058,
+          -0.502,
+          -0.026
+        ],
+        [
+          0.096,
+          -0.45,
+          0.026
+        ]
+      ],
+      "ukuran_oem": null,
+      "nomor_oem": null,
+      "xray_shell": false,
+      "note": "Bentuk/tata letak dari tampak yang dikutip. Detail ukuran model diperkirakan.",
+      "direction": [
+        -1,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "EXT-FLYWHEEL-01",
+      "name": "Flywheel housing SAE #0",
+      "nama": "Flywheel housing SAE #0",
+      "parent": "RAK-FLYWHEEL",
+      "rakitan": "RAK-FLYWHEEL",
+      "count": 1,
+      "jumlah": 1,
+      "status": "ESTIMATED",
+      "source_refs": [
+        "GA01 B3-48660-4450 / outline, top, end and rear housing details",
+        "P18 / housing, flange dan rusuk"
+      ],
+      "sumber": [
+        "GA01 B3-48660-4450 / outline, top, end and rear housing details",
+        "P18 / housing, flange dan rusuk"
+      ],
+      "model_dimensions_m": [
+        0.212845,
+        0.995563,
+        0.766116
+      ],
+      "bounds_m": [
+        [
+          -0.1355,
+          -0.361,
+          -0.383058
+        ],
+        [
+          0.077345,
+          0.634563,
+          0.383058
+        ]
+      ],
+      "ukuran_oem": null,
+      "nomor_oem": null,
+      "xray_shell": true,
+      "note": "GA mencantumkan PCD 679.5 mm dengan 16 posisi. Lubang mesh tanpa ulir.",
+      "direction": null
+    },
+    {
+      "id": "EXT-FLYWHEEL-02",
+      "name": "Flywheel dan hub pusat",
+      "nama": "Flywheel dan hub pusat",
+      "parent": "RAK-FLYWHEEL",
+      "rakitan": "RAK-FLYWHEEL",
+      "count": 1,
+      "jumlah": 1,
+      "status": "ESTIMATED",
+      "source_refs": [
+        "GA01 B3-48660-4450 / outline, top, end and rear housing details",
+        "P06 / roda merah dan hub"
+      ],
+      "sumber": [
+        "GA01 B3-48660-4450 / outline, top, end and rear housing details",
+        "P06 / roda merah dan hub"
+      ],
+      "model_dimensions_m": [
+        0.089,
+        0.632,
+        0.632
+      ],
+      "bounds_m": [
+        [
+          -0.138,
+          -0.316,
+          -0.316
+        ],
+        [
+          -0.049,
+          0.316,
+          0.316
+        ]
+      ],
+      "ukuran_oem": null,
+      "nomor_oem": null,
+      "xray_shell": false,
+      "note": "GA mencantumkan PCD 542.9 mm dengan 12 posisi. 18 in adalah ukuran nominal.",
+      "direction": [
+        -1,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "EXT-FRONT-01",
+      "name": "Rumah gear depan",
+      "nama": "Rumah gear depan",
+      "parent": "RAK-FRONT",
+      "rakitan": "RAK-FRONT",
+      "count": 1,
+      "jumlah": 1,
+      "status": "ESTIMATED",
+      "source_refs": [
+        "D03 PDF 17 printed p. 33 / engine-only right elevation and front view",
+        "GA01 B3-48660-4450 / outline, top, end and rear housing details",
+        "P09 / profil housing depan"
+      ],
+      "sumber": [
+        "D03 PDF 17 printed p. 33 / engine-only right elevation and front view",
+        "GA01 B3-48660-4450 / outline, top, end and rear housing details",
+        "P09 / profil housing depan"
+      ],
+      "model_dimensions_m": [
+        0.12,
+        0.673,
+        0.717
+      ],
+      "bounds_m": [
+        [
+          1.299,
+          -0.187,
+          -0.374
+        ],
+        [
+          1.419,
+          0.486,
+          0.343
+        ]
+      ],
+      "ukuran_oem": null,
+      "nomor_oem": null,
+      "xray_shell": true,
+      "note": "Bentuk/tata letak dari tampak yang dikutip. Detail ukuran model diperkirakan.",
+      "direction": [
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "EXT-FRONT-02",
+      "name": "Damper dan pulley crankshaft",
+      "nama": "Damper dan pulley crankshaft",
+      "parent": "RAK-FRONT",
+      "rakitan": "RAK-FRONT",
+      "count": 1,
+      "jumlah": 1,
+      "status": "ESTIMATED",
+      "source_refs": [
+        "D03 PDF 17 printed p. 33 / engine-only right elevation and front view",
+        "P09 / pusat penggerak"
+      ],
+      "sumber": [
+        "D03 PDF 17 printed p. 33 / engine-only right elevation and front view",
+        "P09 / pusat penggerak"
+      ],
+      "model_dimensions_m": [
+        0.123,
+        0.398,
+        0.398
+      ],
+      "bounds_m": [
+        [
+          1.365,
+          -0.199,
+          -0.199
+        ],
+        [
+          1.488,
+          0.199,
+          0.199
+        ]
+      ],
+      "ukuran_oem": null,
+      "nomor_oem": null,
+      "xray_shell": false,
+      "note": "Diameter proyeksi damper sekitar 394 mm. Profil alur dan dudukan diperkirakan.",
+      "direction": [
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "EXT-FRONT-03",
+      "name": "Pelindung belt depan",
+      "nama": "Pelindung belt depan",
+      "parent": "RAK-FRONT",
+      "rakitan": "RAK-FRONT",
+      "count": 1,
+      "jumlah": 1,
+      "status": "ESTIMATED",
+      "source_refs": [
+        "P08 / pelindung hitam berusuk",
+        "P09 / penggerak bawah"
+      ],
+      "sumber": [
+        "P08 / pelindung hitam berusuk",
+        "P09 / penggerak bawah"
+      ],
+      "model_dimensions_m": [
+        0.116,
+        0.535807,
+        0.503359
+      ],
+      "bounds_m": [
+        [
+          1.426,
+          -0.185251,
+          -0.451719
+        ],
+        [
+          1.542,
+          0.350556,
+          0.05164
+        ]
+      ],
+      "ukuran_oem": null,
+      "nomor_oem": null,
+      "xray_shell": true,
+      "note": "Bentuk/tata letak dari tampak yang dikutip. Detail ukuran model diperkirakan.",
+      "direction": [
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "EXT-ELECTRIC-01",
+      "name": "Alternator dan pulley",
+      "nama": "Alternator dan pulley",
+      "parent": "RAK-ELECTRIC",
+      "rakitan": "RAK-ELECTRIC",
+      "count": 1,
+      "jumlah": 1,
+      "status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 14 printed p. 10 / component locations, operation side",
+        "P08 / alternator di balik pelindung"
+      ],
+      "sumber": [
+        "D01 PDF 14 printed p. 10 / component locations, operation side",
+        "P08 / alternator di balik pelindung"
+      ],
+      "model_dimensions_m": [
+        0.191,
+        0.192,
+        0.187588
+      ],
+      "bounds_m": [
+        [
+          1.3005,
+          0.179,
+          -0.433794
+        ],
+        [
+          1.4915,
+          0.371,
+          -0.246206
+        ]
+      ],
+      "ukuran_oem": null,
+      "nomor_oem": null,
+      "xray_shell": false,
+      "note": "Bentuk/tata letak dari tampak yang dikutip. Detail ukuran model diperkirakan.",
+      "direction": [
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "EXT-ELECTRIC-02",
+      "name": "Starter listrik dan solenoid",
+      "nama": "Starter listrik dan solenoid",
+      "parent": "RAK-ELECTRIC",
+      "rakitan": "RAK-ELECTRIC",
+      "count": 1,
+      "jumlah": 1,
+      "status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 14 printed p. 10 / component locations, non-operation side",
+        "P17 / starter dekat flywheel"
+      ],
+      "sumber": [
+        "D01 PDF 14 printed p. 10 / component locations, non-operation side",
+        "P17 / starter dekat flywheel"
+      ],
+      "model_dimensions_m": [
+        0.2705,
+        0.178,
+        0.157
+      ],
+      "bounds_m": [
+        [
+          -0.094,
+          -0.051,
+          0.294
+        ],
+        [
+          0.1765,
+          0.127,
+          0.451
+        ]
+      ],
+      "ukuran_oem": null,
+      "nomor_oem": null,
+      "xray_shell": false,
+      "note": "Bentuk/tata letak dari tampak yang dikutip. Detail ukuran model diperkirakan.",
+      "direction": [
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "id": "EXT-INTAKE-01",
+      "name": "Intake manifold panjang berusuk",
+      "nama": "Intake manifold panjang berusuk",
+      "parent": "RAK-INTAKE",
+      "rakitan": "RAK-INTAKE",
+      "count": 1,
+      "jumlah": 1,
+      "status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 14 printed p. 10 / component locations, operation side",
+        "GA01 B3-48660-4450 / outline, top, end and rear housing details",
+        "P07/P08 / dua baris rusuk, seam kontinu dan tutup berbeda"
+      ],
+      "sumber": [
+        "D01 PDF 14 printed p. 10 / component locations, operation side",
+        "GA01 B3-48660-4450 / outline, top, end and rear housing details",
+        "P07/P08 / dua baris rusuk, seam kontinu dan tutup berbeda"
+      ],
+      "model_dimensions_m": [
+        1.315,
+        0.299363,
+        0.2485
+      ],
+      "bounds_m": [
+        [
+          0.032,
+          0.501637,
+          -0.4805
+        ],
+        [
+          1.347,
+          0.801,
+          -0.232
+        ]
+      ],
+      "ukuran_oem": null,
+      "nomor_oem": null,
+      "xray_shell": true,
+      "note": "Dua kisi rib dan perbedaan tutup mengikuti sisi operasi. Skala dan bidang mesin diperkirakan.",
+      "direction": [
+        0,
+        0,
+        -1
+      ]
+    },
+    {
+      "id": "EXT-INTAKE-02",
+      "name": "Air cooler melintang belakang",
+      "nama": "Air cooler melintang belakang",
+      "parent": "RAK-INTAKE",
+      "rakitan": "RAK-INTAKE",
+      "count": 1,
+      "jumlah": 1,
+      "status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 14 printed p. 10 / component locations, operation side",
+        "GA01 B3-48660-4450 / outline, top, end and rear housing details",
+        "P18 / housing dan tutup ujung"
+      ],
+      "sumber": [
+        "D01 PDF 14 printed p. 10 / component locations, operation side",
+        "GA01 B3-48660-4450 / outline, top, end and rear housing details",
+        "P18 / housing dan tutup ujung"
+      ],
+      "model_dimensions_m": [
+        0.3042,
+        0.29898,
+        0.8
+      ],
+      "bounds_m": [
+        [
+          -0.311,
+          0.57202,
+          -0.465
+        ],
+        [
+          -0.0068,
+          0.871,
+          0.335
+        ]
+      ],
+      "ukuran_oem": null,
+      "nomor_oem": null,
+      "xray_shell": true,
+      "note": "Bentuk/tata letak dari tampak yang dikutip. Detail ukuran model diperkirakan.",
+      "direction": [
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "id": "EXT-COOLING-01",
+      "name": "Coolant tank dan heat exchanger depan",
+      "nama": "Coolant tank dan heat exchanger depan",
+      "parent": "RAK-COOLING",
+      "rakitan": "RAK-COOLING",
+      "count": 1,
+      "jumlah": 1,
+      "status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 14 printed p. 10 / component locations, operation side",
+        "GA01 B3-48660-4450 / outline, top, end and rear housing details",
+        "P08 / cap samping dan rusuk",
+        "P09 / muka depan"
+      ],
+      "sumber": [
+        "D01 PDF 14 printed p. 10 / component locations, operation side",
+        "GA01 B3-48660-4450 / outline, top, end and rear housing details",
+        "P08 / cap samping dan rusuk",
+        "P09 / muka depan"
+      ],
+      "model_dimensions_m": [
+        0.335187,
+        0.29007,
+        0.81
+      ],
+      "bounds_m": [
+        [
+          1.35649,
+          0.57543,
+          -0.472
+        ],
+        [
+          1.691677,
+          0.8655,
+          0.338
+        ]
+      ],
+      "ukuran_oem": null,
+      "nomor_oem": null,
+      "xray_shell": true,
+      "note": "Bentuk/tata letak dari tampak yang dikutip. Detail ukuran model diperkirakan.",
+      "direction": [
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "id": "EXT-COOLING-02",
+      "name": "Leher dan tutup pengisian coolant",
+      "nama": "Leher dan tutup pengisian coolant",
+      "parent": "RAK-COOLING",
+      "rakitan": "RAK-COOLING",
+      "count": 1,
+      "jumlah": 1,
+      "status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 14 printed p. 10 / component locations, operation side",
+        "P08 / penutup bagian atas"
+      ],
+      "sumber": [
+        "D01 PDF 14 printed p. 10 / component locations, operation side",
+        "P08 / penutup bagian atas"
+      ],
+      "model_dimensions_m": [
+        0.152,
+        0.0635,
+        0.118
+      ],
+      "bounds_m": [
+        [
+          1.395,
+          0.847,
+          -0.201
+        ],
+        [
+          1.547,
+          0.9105,
+          -0.083
+        ]
+      ],
+      "ukuran_oem": null,
+      "nomor_oem": null,
+      "xray_shell": false,
+      "note": "Bentuk/tata letak dari tampak yang dikutip. Detail ukuran model diperkirakan.",
+      "direction": [
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "id": "EXT-INTAKE-03",
+      "name": "Siku sambungan ujung manifold",
+      "nama": "Siku sambungan ujung manifold",
+      "parent": "RAK-INTAKE",
+      "rakitan": "RAK-INTAKE",
+      "count": 1,
+      "jumlah": 1,
+      "status": "ESTIMATED",
+      "source_refs": [
+        "P08 / siku di muka sisi operasi",
+        "GA01 B3-48660-4450 / outline, top, end and rear housing details"
+      ],
+      "sumber": [
+        "P08 / siku di muka sisi operasi",
+        "GA01 B3-48660-4450 / outline, top, end and rear housing details"
+      ],
+      "model_dimensions_m": [
+        0.298026,
+        0.196154,
+        0.199075
+      ],
+      "bounds_m": [
+        [
+          1.274316,
+          0.602,
+          -0.52826
+        ],
+        [
+          1.572342,
+          0.798154,
+          -0.329185
+        ]
+      ],
+      "ukuran_oem": null,
+      "nomor_oem": null,
+      "xray_shell": false,
+      "note": "Bentuk/tata letak dari tampak yang dikutip. Detail ukuran model diperkirakan.",
+      "direction": [
+        0,
+        0,
+        -1
+      ]
+    },
+    {
+      "id": "EXT-EXHAUST-01",
+      "name": "Manifold exhaust berjaket",
+      "nama": "Manifold exhaust berjaket",
+      "parent": "RAK-EXHAUST",
+      "rakitan": "RAK-EXHAUST",
+      "count": 1,
+      "jumlah": 1,
+      "status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 14 printed p. 10 / component locations, non-operation side",
+        "P17 / manifold dan port bundar"
+      ],
+      "sumber": [
+        "D01 PDF 14 printed p. 10 / component locations, non-operation side",
+        "P17 / manifold dan port bundar"
+      ],
+      "model_dimensions_m": [
+        1.256982,
+        0.238113,
+        0.213418
+      ],
+      "bounds_m": [
+        [
+          0.053611,
+          0.497886,
+          0.19086
+        ],
+        [
+          1.310593,
+          0.735999,
+          0.404278
+        ]
+      ],
+      "ukuran_oem": null,
+      "nomor_oem": null,
+      "xray_shell": true,
+      "note": "Bentuk/tata letak dari tampak yang dikutip. Detail ukuran model diperkirakan.",
+      "direction": [
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "id": "EXT-EXHAUST-02",
+      "name": "Volute turbine dan isolasi panas",
+      "nama": "Volute turbine dan isolasi panas",
+      "parent": "RAK-EXHAUST",
+      "rakitan": "RAK-EXHAUST",
+      "count": 1,
+      "jumlah": 1,
+      "status": "ESTIMATED",
+      "source_refs": [
+        "D03 PDF 17 printed p. 33 / engine-only right elevation and front view",
+        "D01 PDF 14 printed p. 10 / component locations, non-operation side",
+        "P17 / rumah turbin terisolasi"
+      ],
+      "sumber": [
+        "D03 PDF 17 printed p. 33 / engine-only right elevation and front view",
+        "D01 PDF 14 printed p. 10 / component locations, non-operation side",
+        "P17 / rumah turbin terisolasi"
+      ],
+      "model_dimensions_m": [
+        0.121,
+        0.298243,
+        0.30194
+      ],
+      "bounds_m": [
+        [
+          0.52,
+          0.52903,
+          0.3182
+        ],
+        [
+          0.641,
+          0.827273,
+          0.62014
+        ]
+      ],
+      "ukuran_oem": null,
+      "nomor_oem": null,
+      "xray_shell": false,
+      "note": "Siluet dari tampak kanan. Geometri snail dan isolasi adalah estimasi.",
+      "direction": [
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "id": "EXT-EXHAUST-03",
+      "name": "Volute compressor dan inlet",
+      "nama": "Volute compressor dan inlet",
+      "parent": "RAK-EXHAUST",
+      "rakitan": "RAK-EXHAUST",
+      "count": 1,
+      "jumlah": 1,
+      "status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 14 printed p. 10 / component locations, non-operation side",
+        "P17 / rumah kompresor terang"
+      ],
+      "sumber": [
+        "D01 PDF 14 printed p. 10 / component locations, non-operation side",
+        "P17 / rumah kompresor terang"
+      ],
+      "model_dimensions_m": [
+        0.124,
+        0.273536,
+        0.276928
+      ],
+      "bounds_m": [
+        [
+          0.734,
+          0.545536,
+          0.353386
+        ],
+        [
+          0.858,
+          0.819072,
+          0.630314
+        ]
+      ],
+      "ukuran_oem": null,
+      "nomor_oem": null,
+      "xray_shell": false,
+      "note": "Bentuk/tata letak dari tampak yang dikutip. Detail ukuran model diperkirakan.",
+      "direction": [
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "EXT-EXHAUST-04",
+      "name": "Center housing turbo",
+      "nama": "Center housing turbo",
+      "parent": "RAK-EXHAUST",
+      "rakitan": "RAK-EXHAUST",
+      "count": 1,
+      "jumlah": 1,
+      "status": "ESTIMATED",
+      "source_refs": [
+        "P17 / poros terbungkus dan sambungan visual"
+      ],
+      "sumber": [
+        "P17 / poros terbungkus dan sambungan visual"
+      ],
+      "model_dimensions_m": [
+        0.107,
+        0.185,
+        0.138
+      ],
+      "bounds_m": [
+        [
+          0.6265,
+          0.611,
+          0.412
+        ],
+        [
+          0.7335,
+          0.796,
+          0.55
+        ]
+      ],
+      "ukuran_oem": null,
+      "nomor_oem": null,
+      "xray_shell": false,
+      "note": "Bentuk/tata letak dari tampak yang dikutip. Detail ukuran model diperkirakan.",
+      "direction": [
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "id": "EXT-EXHAUST-05",
+      "name": "Siku isolasi dan flange exhaust vertikal",
+      "nama": "Siku isolasi dan flange exhaust vertikal",
+      "parent": "RAK-EXHAUST",
+      "rakitan": "RAK-EXHAUST",
+      "count": 1,
+      "jumlah": 1,
+      "status": "ESTIMATED",
+      "source_refs": [
+        "D03 PDF 17 printed p. 33 / engine-only right elevation and front view",
+        "GA01 B3-48660-4450 / outline, top, end and rear housing details",
+        "P17 / isolasi dan mulut outlet"
+      ],
+      "sumber": [
+        "D03 PDF 17 printed p. 33 / engine-only right elevation and front view",
+        "GA01 B3-48660-4450 / outline, top, end and rear housing details",
+        "P17 / isolasi dan mulut outlet"
+      ],
+      "model_dimensions_m": [
+        0.32,
+        0.416823,
+        0.32
+      ],
+      "bounds_m": [
+        [
+          0.329,
+          0.572177,
+          0.321
+        ],
+        [
+          0.649,
+          0.989,
+          0.641
+        ]
+      ],
+      "ukuran_oem": null,
+      "nomor_oem": null,
+      "xray_shell": false,
+      "note": "Puncak flange mengikuti dimensi 817 + 171.5 mm GA. Diameter dalam dan pola baut model belum terverifikasi.",
+      "direction": [
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "id": "EXT-INTAKE-04",
+      "name": "Air cleaner turbo",
+      "nama": "Air cleaner turbo",
+      "parent": "RAK-INTAKE",
+      "rakitan": "RAK-INTAKE",
+      "count": 1,
+      "jumlah": 1,
+      "status": "ESTIMATED",
+      "source_refs": [
+        "GA01 B3-48660-4450 / outline, top, end and rear housing details",
+        "P17 / tabung hitam setelah compressor"
+      ],
+      "sumber": [
+        "GA01 B3-48660-4450 / outline, top, end and rear housing details",
+        "P17 / tabung hitam setelah compressor"
+      ],
+      "model_dimensions_m": [
+        0.1435,
+        0.306,
+        0.306
+      ],
+      "bounds_m": [
+        [
+          0.858,
+          0.534,
+          0.328
+        ],
+        [
+          1.0015,
+          0.84,
+          0.634
+        ]
+      ],
+      "ukuran_oem": null,
+      "nomor_oem": null,
+      "xray_shell": false,
+      "note": "Bentuk/tata letak dari tampak yang dikutip. Detail ukuran model diperkirakan.",
+      "direction": [
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "EXT-INTAKE-05",
+      "name": "Duct berlengan dari sisi compressor",
+      "nama": "Duct berlengan dari sisi compressor",
+      "parent": "RAK-INTAKE",
+      "rakitan": "RAK-INTAKE",
+      "count": 1,
+      "jumlah": 1,
+      "status": "ESTIMATED",
+      "source_refs": [
+        "P17 / duct hitam berbelok",
+        "GA01 / pipa sisi non-operation"
+      ],
+      "sumber": [
+        "P17 / duct hitam berbelok",
+        "GA01 / pipa sisi non-operation"
+      ],
+      "model_dimensions_m": [
+        0.4887,
+        0.225728,
+        0.325093
+      ],
+      "bounds_m": [
+        [
+          0.979915,
+          0.611036,
+          0.230906
+        ],
+        [
+          1.468615,
+          0.836764,
+          0.555999
+        ]
+      ],
+      "ukuran_oem": null,
+      "nomor_oem": null,
+      "xray_shell": false,
+      "note": "Port yang tertutup tidak mengonfirmasi urutan koneksi internal. Rute mengikuti siluet yang terlihat.",
+      "direction": [
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "id": "EXT-COOLING-03",
+      "name": "Pompa air tawar",
+      "nama": "Pompa air tawar",
+      "parent": "RAK-COOLING",
+      "rakitan": "RAK-COOLING",
+      "count": 1,
+      "jumlah": 1,
+      "status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 14 printed p. 10 / component locations, non-operation side",
+        "GA01 B3-48660-4450 / outline, top, end and rear housing details",
+        "P17 / pump cover di depan kanan"
+      ],
+      "sumber": [
+        "D01 PDF 14 printed p. 10 / component locations, non-operation side",
+        "GA01 B3-48660-4450 / outline, top, end and rear housing details",
+        "P17 / pump cover di depan kanan"
+      ],
+      "model_dimensions_m": [
+        0.238,
+        0.2805,
+        0.29155
+      ],
+      "bounds_m": [
+        [
+          1.291,
+          0.268,
+          0.232
+        ],
+        [
+          1.529,
+          0.5485,
+          0.52355
+        ]
+      ],
+      "ukuran_oem": null,
+      "nomor_oem": null,
+      "xray_shell": false,
+      "note": "Bentuk/tata letak dari tampak yang dikutip. Detail ukuran model diperkirakan.",
+      "direction": [
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "id": "EXT-COOLING-04",
+      "name": "Pompa air laut",
+      "nama": "Pompa air laut",
+      "parent": "RAK-COOLING",
+      "rakitan": "RAK-COOLING",
+      "count": 1,
+      "jumlah": 1,
+      "status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 14 printed p. 10 / component locations, operation side",
+        "GA01 B3-48660-4450 / outline, top, end and rear housing details",
+        "P18 / pompa bulat di bawah air cooler"
+      ],
+      "sumber": [
+        "D01 PDF 14 printed p. 10 / component locations, operation side",
+        "GA01 B3-48660-4450 / outline, top, end and rear housing details",
+        "P18 / pompa bulat di bawah air cooler"
+      ],
+      "model_dimensions_m": [
+        0.238908,
+        0.27825,
+        0.201322
+      ],
+      "bounds_m": [
+        [
+          -0.111908,
+          0.19,
+          -0.579822
+        ],
+        [
+          0.127,
+          0.46825,
+          -0.3785
+        ]
+      ],
+      "ukuran_oem": null,
+      "nomor_oem": null,
+      "xray_shell": false,
+      "note": "Bentuk/tata letak dari tampak yang dikutip. Detail ukuran model diperkirakan.",
+      "direction": [
+        0,
+        0,
+        -1
+      ]
+    },
+    {
+      "id": "EXT-COOLING-05",
+      "name": "Siku dan sambungan air laut",
+      "nama": "Siku dan sambungan air laut",
+      "parent": "RAK-COOLING",
+      "rakitan": "RAK-COOLING",
+      "count": 1,
+      "jumlah": 1,
+      "status": "ESTIMATED",
+      "source_refs": [
+        "P07 / siku belakang ke luar",
+        "P18 / sambungan berkelok",
+        "GA01 B3-48660-4450 / outline, top, end and rear housing details"
+      ],
+      "sumber": [
+        "P07 / siku belakang ke luar",
+        "P18 / sambungan berkelok",
+        "GA01 B3-48660-4450 / outline, top, end and rear housing details"
+      ],
+      "model_dimensions_m": [
+        0.304133,
+        0.452493,
+        0.24979
+      ],
+      "bounds_m": [
+        [
+          -0.249722,
+          0.220507,
+          -0.664
+        ],
+        [
+          0.054411,
+          0.673,
+          -0.41421
+        ]
+      ],
+      "ukuran_oem": null,
+      "nomor_oem": null,
+      "xray_shell": false,
+      "note": "Bentuk/tata letak dari tampak yang dikutip. Detail ukuran model diperkirakan.",
+      "direction": [
+        0,
+        0,
+        -1
+      ]
+    },
+    {
+      "id": "EXT-COOLING-06",
+      "name": "Selang pendingin kanan",
+      "nama": "Selang pendingin kanan",
+      "parent": "RAK-COOLING",
+      "rakitan": "RAK-COOLING",
+      "count": 1,
+      "jumlah": 1,
+      "status": "ESTIMATED",
+      "source_refs": [
+        "P17 / sambungan sisi non-operation",
+        "P18 / selang sisi kanan atas",
+        "D01 PDF 14 printed p. 10 / component locations, non-operation side"
+      ],
+      "sumber": [
+        "P17 / sambungan sisi non-operation",
+        "P18 / selang sisi kanan atas",
+        "D01 PDF 14 printed p. 10 / component locations, non-operation side"
+      ],
+      "model_dimensions_m": [
+        1.710019,
+        0.404627,
+        0.283321
+      ],
+      "bounds_m": [
+        [
+          -0.171,
+          0.328016,
+          0.242869
+        ],
+        [
+          1.539019,
+          0.732643,
+          0.52619
+        ]
+      ],
+      "ukuran_oem": null,
+      "nomor_oem": null,
+      "xray_shell": false,
+      "note": "Bentuk/tata letak dari tampak yang dikutip. Detail ukuran model diperkirakan.",
+      "direction": [
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "id": "EXT-COOLING-07",
+      "name": "Water rail casting dan termostat",
+      "nama": "Water rail casting dan termostat",
+      "parent": "RAK-COOLING",
+      "rakitan": "RAK-COOLING",
+      "count": 1,
+      "jumlah": 1,
+      "status": "ESTIMATED",
+      "source_refs": [
+        "P17 / rail berseksi memanjang",
+        "D01 PDF 15 / skema sirkuit"
+      ],
+      "sumber": [
+        "P17 / rail berseksi memanjang",
+        "D01 PDF 15 / skema sirkuit"
+      ],
+      "model_dimensions_m": [
+        1.374236,
+        0.17632,
+        0.180684
+      ],
+      "bounds_m": [
+        [
+          0.122764,
+          0.33518,
+          0.256316
+        ],
+        [
+          1.497,
+          0.5115,
+          0.437
+        ]
+      ],
+      "ukuran_oem": null,
+      "nomor_oem": null,
+      "xray_shell": false,
+      "note": "Bentuk/tata letak dari tampak yang dikutip. Detail ukuran model diperkirakan.",
+      "direction": [
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "id": "EXT-FUEL-01",
+      "name": "Pompa injeksi enam elemen",
+      "nama": "Pompa injeksi enam elemen",
+      "parent": "RAK-FUEL",
+      "rakitan": "RAK-FUEL",
+      "count": 1,
+      "jumlah": 1,
+      "status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 14 printed p. 10 / component locations, operation side",
+        "P07 / pompa injeksi pada sisi operasi",
+        "P08 / coran dan panel servis",
+        "P14 panel kiri / detail pompa dan fitting"
+      ],
+      "sumber": [
+        "D01 PDF 14 printed p. 10 / component locations, operation side",
+        "P07 / pompa injeksi pada sisi operasi",
+        "P08 / coran dan panel servis",
+        "P14 panel kiri / detail pompa dan fitting"
+      ],
+      "model_dimensions_m": [
+        0.612,
+        0.3665,
+        0.173
+      ],
+      "bounds_m": [
+        [
+          0.402,
+          0.082,
+          -0.491
+        ],
+        [
+          1.014,
+          0.4485,
+          -0.318
+        ]
+      ],
+      "ukuran_oem": null,
+      "nomor_oem": null,
+      "xray_shell": false,
+      "note": "Profil coran, kuping dudukan dan boss berdasarkan foto operasi. Ukuran dan material teknik diperkirakan.",
+      "direction": [
+        0,
+        0,
+        -1
+      ]
+    },
+    {
+      "id": "EXT-FUEL-02",
+      "name": "Governor mekanis, tuas dan pegas balik",
+      "nama": "Governor mekanis, tuas dan pegas balik",
+      "parent": "RAK-FUEL",
+      "rakitan": "RAK-FUEL",
+      "count": 1,
+      "jumlah": 1,
+      "status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 14 printed p. 10 / component locations, operation side",
+        "P07 / pompa injeksi pada sisi operasi",
+        "P08 / coran dan panel servis",
+        "P14 panel kiri / detail pompa dan fitting"
+      ],
+      "sumber": [
+        "D01 PDF 14 printed p. 10 / component locations, operation side",
+        "P07 / pompa injeksi pada sisi operasi",
+        "P08 / coran dan panel servis",
+        "P14 panel kiri / detail pompa dan fitting"
+      ],
+      "model_dimensions_m": [
+        0.195641,
+        0.238402,
+        0.243
+      ],
+      "bounds_m": [
+        [
+          0.9795,
+          0.137,
+          -0.528
+        ],
+        [
+          1.175141,
+          0.375402,
+          -0.285
+        ]
+      ],
+      "ukuran_oem": null,
+      "nomor_oem": null,
+      "xray_shell": false,
+      "note": "Kontur tuas dan pegas balik terlihat dari sisi operasi. Titik pivot dan mekanisme dalam diperkirakan.",
+      "direction": [
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "EXT-FUEL-03",
+      "name": "Pipa injeksi silinder 1",
+      "nama": "Pipa injeksi silinder 1",
+      "parent": "RAK-FUEL",
+      "rakitan": "RAK-FUEL",
+      "count": 1,
+      "jumlah": 1,
+      "status": "ESTIMATED",
+      "source_refs": [
+        "P07 / lengkung pipa sisi operasi",
+        "P08 / routing tampak di bawah manifold",
+        "P14 panel kiri / lengkung dan titik sambung",
+        "D01 PDF 14 printed p. 10 / component locations, operation side"
+      ],
+      "sumber": [
+        "P07 / lengkung pipa sisi operasi",
+        "P08 / routing tampak di bawah manifold",
+        "P14 panel kiri / lengkung dan titik sambung",
+        "D01 PDF 14 printed p. 10 / component locations, operation side"
+      ],
+      "model_dimensions_m": [
+        0.294041,
+        0.09484,
+        0.201811
+      ],
+      "bounds_m": [
+        [
+          0.196934,
+          0.478198,
+          -0.454604
+        ],
+        [
+          0.490975,
+          0.573038,
+          -0.252793
+        ]
+      ],
+      "ukuran_oem": null,
+      "nomor_oem": null,
+      "xray_shell": false,
+      "note": "Lengkung terlihat dibedakan per jalur. Bagian di balik manifold dan asosiasi silinder diperkirakan.",
+      "direction": [
+        0,
+        0,
+        -1
+      ]
+    },
+    {
+      "id": "EXT-FUEL-04",
+      "name": "Pipa injeksi silinder 2",
+      "nama": "Pipa injeksi silinder 2",
+      "parent": "RAK-FUEL",
+      "rakitan": "RAK-FUEL",
+      "count": 1,
+      "jumlah": 1,
+      "status": "ESTIMATED",
+      "source_refs": [
+        "P07 / lengkung pipa sisi operasi",
+        "P08 / routing tampak di bawah manifold",
+        "P14 panel kiri / lengkung dan titik sambung",
+        "D01 PDF 14 printed p. 10 / component locations, operation side"
+      ],
+      "sumber": [
+        "P07 / lengkung pipa sisi operasi",
+        "P08 / routing tampak di bawah manifold",
+        "P14 panel kiri / lengkung dan titik sambung",
+        "D01 PDF 14 printed p. 10 / component locations, operation side"
+      ],
+      "model_dimensions_m": [
+        0.198818,
+        0.094307,
+        0.232503
+      ],
+      "bounds_m": [
+        [
+          0.397638,
+          0.478269,
+          -0.486075
+        ],
+        [
+          0.596456,
+          0.572576,
+          -0.253572
+        ]
+      ],
+      "ukuran_oem": null,
+      "nomor_oem": null,
+      "xray_shell": false,
+      "note": "Lengkung terlihat dibedakan per jalur. Bagian di balik manifold dan asosiasi silinder diperkirakan.",
+      "direction": [
+        0,
+        0,
+        -1
+      ]
+    },
+    {
+      "id": "EXT-FUEL-05",
+      "name": "Pipa injeksi silinder 3",
+      "nama": "Pipa injeksi silinder 3",
+      "parent": "RAK-FUEL",
+      "rakitan": "RAK-FUEL",
+      "count": 1,
+      "jumlah": 1,
+      "status": "ESTIMATED",
+      "source_refs": [
+        "P07 / lengkung pipa sisi operasi",
+        "P08 / routing tampak di bawah manifold",
+        "P14 panel kiri / lengkung dan titik sambung",
+        "D01 PDF 14 printed p. 10 / component locations, operation side"
+      ],
+      "sumber": [
+        "P07 / lengkung pipa sisi operasi",
+        "P08 / routing tampak di bawah manifold",
+        "P14 panel kiri / lengkung dan titik sambung",
+        "D01 PDF 14 printed p. 10 / component locations, operation side"
+      ],
+      "model_dimensions_m": [
+        0.076444,
+        0.094918,
+        0.203674
+      ],
+      "bounds_m": [
+        [
+          0.571179,
+          0.478923,
+          -0.457476
+        ],
+        [
+          0.647623,
+          0.573841,
+          -0.253802
+        ]
+      ],
+      "ukuran_oem": null,
+      "nomor_oem": null,
+      "xray_shell": false,
+      "note": "Lengkung terlihat dibedakan per jalur. Bagian di balik manifold dan asosiasi silinder diperkirakan.",
+      "direction": [
+        0,
+        0,
+        -1
+      ]
+    },
+    {
+      "id": "EXT-FUEL-06",
+      "name": "Pipa injeksi silinder 4",
+      "nama": "Pipa injeksi silinder 4",
+      "parent": "RAK-FUEL",
+      "rakitan": "RAK-FUEL",
+      "count": 1,
+      "jumlah": 1,
+      "status": "ESTIMATED",
+      "source_refs": [
+        "P07 / lengkung pipa sisi operasi",
+        "P08 / routing tampak di bawah manifold",
+        "P14 panel kiri / lengkung dan titik sambung",
+        "D01 PDF 14 printed p. 10 / component locations, operation side"
+      ],
+      "sumber": [
+        "P07 / lengkung pipa sisi operasi",
+        "P08 / routing tampak di bawah manifold",
+        "P14 panel kiri / lengkung dan titik sambung",
+        "D01 PDF 14 printed p. 10 / component locations, operation side"
+      ],
+      "model_dimensions_m": [
+        0.103708,
+        0.094701,
+        0.206842
+      ],
+      "bounds_m": [
+        [
+          0.715253,
+          0.478923,
+          -0.461605
+        ],
+        [
+          0.818961,
+          0.573624,
+          -0.254763
+        ]
+      ],
+      "ukuran_oem": null,
+      "nomor_oem": null,
+      "xray_shell": false,
+      "note": "Lengkung terlihat dibedakan per jalur. Bagian di balik manifold dan asosiasi silinder diperkirakan.",
+      "direction": [
+        0,
+        0,
+        -1
+      ]
+    },
+    {
+      "id": "EXT-FUEL-07",
+      "name": "Pipa injeksi silinder 5",
+      "nama": "Pipa injeksi silinder 5",
+      "parent": "RAK-FUEL",
+      "rakitan": "RAK-FUEL",
+      "count": 1,
+      "jumlah": 1,
+      "status": "ESTIMATED",
+      "source_refs": [
+        "P07 / lengkung pipa sisi operasi",
+        "P08 / routing tampak di bawah manifold",
+        "P14 panel kiri / lengkung dan titik sambung",
+        "D01 PDF 14 printed p. 10 / component locations, operation side"
+      ],
+      "sumber": [
+        "P07 / lengkung pipa sisi operasi",
+        "P08 / routing tampak di bawah manifold",
+        "P14 panel kiri / lengkung dan titik sambung",
+        "D01 PDF 14 printed p. 10 / component locations, operation side"
+      ],
+      "model_dimensions_m": [
+        0.226187,
+        0.093576,
+        0.205932
+      ],
+      "bounds_m": [
+        [
+          0.793945,
+          0.478663,
+          -0.45986
+        ],
+        [
+          1.020132,
+          0.572239,
+          -0.253928
+        ]
+      ],
+      "ukuran_oem": null,
+      "nomor_oem": null,
+      "xray_shell": false,
+      "note": "Lengkung terlihat dibedakan per jalur. Bagian di balik manifold dan asosiasi silinder diperkirakan.",
+      "direction": [
+        0,
+        0,
+        -1
+      ]
+    },
+    {
+      "id": "EXT-FUEL-08",
+      "name": "Pipa injeksi silinder 6",
+      "nama": "Pipa injeksi silinder 6",
+      "parent": "RAK-FUEL",
+      "rakitan": "RAK-FUEL",
+      "count": 1,
+      "jumlah": 1,
+      "status": "ESTIMATED",
+      "source_refs": [
+        "P07 / lengkung pipa sisi operasi",
+        "P08 / routing tampak di bawah manifold",
+        "P14 panel kiri / lengkung dan titik sambung",
+        "D01 PDF 14 printed p. 10 / component locations, operation side"
+      ],
+      "sumber": [
+        "P07 / lengkung pipa sisi operasi",
+        "P08 / routing tampak di bawah manifold",
+        "P14 panel kiri / lengkung dan titik sambung",
+        "D01 PDF 14 printed p. 10 / component locations, operation side"
+      ],
+      "model_dimensions_m": [
+        0.347853,
+        0.095041,
+        0.247466
+      ],
+      "bounds_m": [
+        [
+          0.873438,
+          0.477782,
+          -0.500106
+        ],
+        [
+          1.221291,
+          0.572823,
+          -0.25264
+        ]
+      ],
+      "ukuran_oem": null,
+      "nomor_oem": null,
+      "xray_shell": false,
+      "note": "Lengkung terlihat dibedakan per jalur. Bagian di balik manifold dan asosiasi silinder diperkirakan.",
+      "direction": [
+        0,
+        0,
+        -1
+      ]
+    },
+    {
+      "id": "EXT-FUEL-09",
+      "name": "Kepala dan braket filter bahan bakar ganda",
+      "nama": "Kepala dan braket filter bahan bakar ganda",
+      "parent": "RAK-FUEL",
+      "rakitan": "RAK-FUEL",
+      "count": 1,
+      "jumlah": 1,
+      "status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 14 printed p. 10 / component locations, operation side",
+        "P07 / pasangan tabung gantung",
+        "P08 / kepala coran, selang dan sumbat",
+        "P14 panel kiri / detail modul filter ganda"
+      ],
+      "sumber": [
+        "D01 PDF 14 printed p. 10 / component locations, operation side",
+        "P07 / pasangan tabung gantung",
+        "P08 / kepala coran, selang dan sumbat",
+        "P14 panel kiri / detail modul filter ganda"
+      ],
+      "model_dimensions_m": [
+        0.350893,
+        0.12345,
+        0.194
+      ],
+      "bounds_m": [
+        [
+          0.061107,
+          0.38555,
+          -0.593
+        ],
+        [
+          0.412,
+          0.509,
+          -0.399
+        ]
+      ],
+      "ukuran_oem": null,
+      "nomor_oem": null,
+      "xray_shell": false,
+      "note": "Bentuk/tata letak dari tampak yang dikutip. Detail ukuran model diperkirakan.",
+      "direction": [
+        0,
+        0,
+        -1
+      ]
+    },
+    {
+      "id": "EXT-FUEL-10",
+      "name": "Canister filter bahan bakar 1",
+      "nama": "Canister filter bahan bakar 1",
+      "parent": "RAK-FUEL",
+      "rakitan": "RAK-FUEL",
+      "count": 1,
+      "jumlah": 1,
+      "status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 14 printed p. 10 / component locations, operation side",
+        "P07 / pasangan tabung gantung",
+        "P08 / kepala coran, selang dan sumbat",
+        "P14 panel kiri / detail modul filter ganda"
+      ],
+      "sumber": [
+        "D01 PDF 14 printed p. 10 / component locations, operation side",
+        "P07 / pasangan tabung gantung",
+        "P08 / kepala coran, selang dan sumbat",
+        "P14 panel kiri / detail modul filter ganda"
+      ],
+      "model_dimensions_m": [
+        0.14364,
+        0.341,
+        0.15382
+      ],
+      "bounds_m": [
+        [
+          0.07118,
+          0.075,
+          -0.593
+        ],
+        [
+          0.21482,
+          0.416,
+          -0.43918
+        ]
+      ],
+      "ukuran_oem": null,
+      "nomor_oem": null,
+      "xray_shell": false,
+      "note": "Shaping pantat tabung, rim dan sumbat drain mengikuti foto. Posisi serial dan dimensi internal tidak tersedia.",
+      "direction": [
+        0,
+        -1,
+        0
+      ]
+    },
+    {
+      "id": "EXT-FUEL-11",
+      "name": "Canister filter bahan bakar 2",
+      "nama": "Canister filter bahan bakar 2",
+      "parent": "RAK-FUEL",
+      "rakitan": "RAK-FUEL",
+      "count": 1,
+      "jumlah": 1,
+      "status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 14 printed p. 10 / component locations, operation side",
+        "P07 / pasangan tabung gantung",
+        "P08 / kepala coran, selang dan sumbat",
+        "P14 panel kiri / detail modul filter ganda"
+      ],
+      "sumber": [
+        "D01 PDF 14 printed p. 10 / component locations, operation side",
+        "P07 / pasangan tabung gantung",
+        "P08 / kepala coran, selang dan sumbat",
+        "P14 panel kiri / detail modul filter ganda"
+      ],
+      "model_dimensions_m": [
+        0.151848,
+        0.352,
+        0.161924
+      ],
+      "bounds_m": [
+        [
+          0.231076,
+          0.0565,
+          -0.6
+        ],
+        [
+          0.382924,
+          0.4085,
+          -0.438076
+        ]
+      ],
+      "ukuran_oem": null,
+      "nomor_oem": null,
+      "xray_shell": false,
+      "note": "Shaping pantat tabung, rim dan sumbat drain mengikuti foto. Posisi serial dan dimensi internal tidak tersedia.",
+      "direction": [
+        0,
+        -1,
+        0
+      ]
+    },
+    {
+      "id": "EXT-FUEL-12",
+      "name": "Pompa feed dan priming",
+      "nama": "Pompa feed dan priming",
+      "parent": "RAK-FUEL",
+      "rakitan": "RAK-FUEL",
+      "count": 1,
+      "jumlah": 1,
+      "status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 14 printed p. 10 / component locations, operation side",
+        "P07 / pasangan tabung gantung",
+        "P08 / kepala coran, selang dan sumbat",
+        "P14 panel kiri / detail modul filter ganda"
+      ],
+      "sumber": [
+        "D01 PDF 14 printed p. 10 / component locations, operation side",
+        "P07 / pasangan tabung gantung",
+        "P08 / kepala coran, selang dan sumbat",
+        "P14 panel kiri / detail modul filter ganda"
+      ],
+      "model_dimensions_m": [
+        0.461137,
+        0.332868,
+        0.173092
+      ],
+      "bounds_m": [
+        [
+          0.192745,
+          0.137,
+          -0.585092
+        ],
+        [
+          0.653882,
+          0.469868,
+          -0.412
+        ]
+      ],
+      "ukuran_oem": null,
+      "nomor_oem": null,
+      "xray_shell": false,
+      "note": "Dua selang fleksibel ditafsirkan dari lengkung tampak P08/P14. Port tertutup tidak menetapkan jalur servis.",
+      "direction": [
+        0,
+        0,
+        -1
+      ]
+    },
+    {
+      "id": "EXT-FUEL-13",
+      "name": "Fitting delivery pompa 1",
+      "nama": "Fitting delivery pompa 1",
+      "parent": "RAK-FUEL",
+      "rakitan": "RAK-FUEL",
+      "count": 1,
+      "jumlah": 1,
+      "status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 14 printed p. 10 / component locations, operation side",
+        "P07 / enam sambungan",
+        "P08 / hex union dan seat bertingkat",
+        "P14 panel kiri / deret fitting dan jalur pendek"
+      ],
+      "sumber": [
+        "D01 PDF 14 printed p. 10 / component locations, operation side",
+        "P07 / enam sambungan",
+        "P08 / hex union dan seat bertingkat",
+        "P14 panel kiri / deret fitting dan jalur pendek"
+      ],
+      "model_dimensions_m": [
+        0.042,
+        0.0655,
+        0.043322
+      ],
+      "bounds_m": [
+        [
+          0.463,
+          0.414,
+          -0.448661
+        ],
+        [
+          0.505,
+          0.4795,
+          -0.405339
+        ]
+      ],
+      "ukuran_oem": null,
+      "nomor_oem": null,
+      "xray_shell": false,
+      "note": "Fitting tersendiri dengan hex, shoulder dan leher. Ukuran ulir dan part number belum terverifikasi.",
+      "direction": [
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "id": "EXT-FUEL-14",
+      "name": "Fitting delivery pompa 2",
+      "nama": "Fitting delivery pompa 2",
+      "parent": "RAK-FUEL",
+      "rakitan": "RAK-FUEL",
+      "count": 1,
+      "jumlah": 1,
+      "status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 14 printed p. 10 / component locations, operation side",
+        "P07 / enam sambungan",
+        "P08 / hex union dan seat bertingkat",
+        "P14 panel kiri / deret fitting dan jalur pendek"
+      ],
+      "sumber": [
+        "D01 PDF 14 printed p. 10 / component locations, operation side",
+        "P07 / enam sambungan",
+        "P08 / hex union dan seat bertingkat",
+        "P14 panel kiri / deret fitting dan jalur pendek"
+      ],
+      "model_dimensions_m": [
+        0.042,
+        0.0655,
+        0.043322
+      ],
+      "bounds_m": [
+        [
+          0.542,
+          0.414,
+          -0.448661
+        ],
+        [
+          0.584,
+          0.4795,
+          -0.405339
+        ]
+      ],
+      "ukuran_oem": null,
+      "nomor_oem": null,
+      "xray_shell": false,
+      "note": "Fitting tersendiri dengan hex, shoulder dan leher. Ukuran ulir dan part number belum terverifikasi.",
+      "direction": [
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "id": "EXT-FUEL-15",
+      "name": "Fitting delivery pompa 3",
+      "nama": "Fitting delivery pompa 3",
+      "parent": "RAK-FUEL",
+      "rakitan": "RAK-FUEL",
+      "count": 1,
+      "jumlah": 1,
+      "status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 14 printed p. 10 / component locations, operation side",
+        "P07 / enam sambungan",
+        "P08 / hex union dan seat bertingkat",
+        "P14 panel kiri / deret fitting dan jalur pendek"
+      ],
+      "sumber": [
+        "D01 PDF 14 printed p. 10 / component locations, operation side",
+        "P07 / enam sambungan",
+        "P08 / hex union dan seat bertingkat",
+        "P14 panel kiri / deret fitting dan jalur pendek"
+      ],
+      "model_dimensions_m": [
+        0.042,
+        0.0655,
+        0.043322
+      ],
+      "bounds_m": [
+        [
+          0.621,
+          0.414,
+          -0.448661
+        ],
+        [
+          0.663,
+          0.4795,
+          -0.405339
+        ]
+      ],
+      "ukuran_oem": null,
+      "nomor_oem": null,
+      "xray_shell": false,
+      "note": "Fitting tersendiri dengan hex, shoulder dan leher. Ukuran ulir dan part number belum terverifikasi.",
+      "direction": [
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "id": "EXT-FUEL-16",
+      "name": "Fitting delivery pompa 4",
+      "nama": "Fitting delivery pompa 4",
+      "parent": "RAK-FUEL",
+      "rakitan": "RAK-FUEL",
+      "count": 1,
+      "jumlah": 1,
+      "status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 14 printed p. 10 / component locations, operation side",
+        "P07 / enam sambungan",
+        "P08 / hex union dan seat bertingkat",
+        "P14 panel kiri / deret fitting dan jalur pendek"
+      ],
+      "sumber": [
+        "D01 PDF 14 printed p. 10 / component locations, operation side",
+        "P07 / enam sambungan",
+        "P08 / hex union dan seat bertingkat",
+        "P14 panel kiri / deret fitting dan jalur pendek"
+      ],
+      "model_dimensions_m": [
+        0.042,
+        0.0655,
+        0.043322
+      ],
+      "bounds_m": [
+        [
+          0.7,
+          0.414,
+          -0.448661
+        ],
+        [
+          0.742,
+          0.4795,
+          -0.405339
+        ]
+      ],
+      "ukuran_oem": null,
+      "nomor_oem": null,
+      "xray_shell": false,
+      "note": "Fitting tersendiri dengan hex, shoulder dan leher. Ukuran ulir dan part number belum terverifikasi.",
+      "direction": [
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "id": "EXT-FUEL-17",
+      "name": "Fitting delivery pompa 5",
+      "nama": "Fitting delivery pompa 5",
+      "parent": "RAK-FUEL",
+      "rakitan": "RAK-FUEL",
+      "count": 1,
+      "jumlah": 1,
+      "status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 14 printed p. 10 / component locations, operation side",
+        "P07 / enam sambungan",
+        "P08 / hex union dan seat bertingkat",
+        "P14 panel kiri / deret fitting dan jalur pendek"
+      ],
+      "sumber": [
+        "D01 PDF 14 printed p. 10 / component locations, operation side",
+        "P07 / enam sambungan",
+        "P08 / hex union dan seat bertingkat",
+        "P14 panel kiri / deret fitting dan jalur pendek"
+      ],
+      "model_dimensions_m": [
+        0.042,
+        0.0655,
+        0.043322
+      ],
+      "bounds_m": [
+        [
+          0.779,
+          0.414,
+          -0.448661
+        ],
+        [
+          0.821,
+          0.4795,
+          -0.405339
+        ]
+      ],
+      "ukuran_oem": null,
+      "nomor_oem": null,
+      "xray_shell": false,
+      "note": "Fitting tersendiri dengan hex, shoulder dan leher. Ukuran ulir dan part number belum terverifikasi.",
+      "direction": [
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "id": "EXT-FUEL-18",
+      "name": "Fitting delivery pompa 6",
+      "nama": "Fitting delivery pompa 6",
+      "parent": "RAK-FUEL",
+      "rakitan": "RAK-FUEL",
+      "count": 1,
+      "jumlah": 1,
+      "status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 14 printed p. 10 / component locations, operation side",
+        "P07 / enam sambungan",
+        "P08 / hex union dan seat bertingkat",
+        "P14 panel kiri / deret fitting dan jalur pendek"
+      ],
+      "sumber": [
+        "D01 PDF 14 printed p. 10 / component locations, operation side",
+        "P07 / enam sambungan",
+        "P08 / hex union dan seat bertingkat",
+        "P14 panel kiri / deret fitting dan jalur pendek"
+      ],
+      "model_dimensions_m": [
+        0.042,
+        0.0655,
+        0.043322
+      ],
+      "bounds_m": [
+        [
+          0.858,
+          0.414,
+          -0.448661
+        ],
+        [
+          0.9,
+          0.4795,
+          -0.405339
+        ]
+      ],
+      "ukuran_oem": null,
+      "nomor_oem": null,
+      "xray_shell": false,
+      "note": "Fitting tersendiri dengan hex, shoulder dan leher. Ukuran ulir dan part number belum terverifikasi.",
+      "direction": [
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "id": "EXT-FUEL-19",
+      "name": "Pelat akses bawah pompa dan pengikat",
+      "nama": "Pelat akses bawah pompa dan pengikat",
+      "parent": "RAK-FUEL",
+      "rakitan": "RAK-FUEL",
+      "count": 1,
+      "jumlah": 1,
+      "status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 14 printed p. 10 / component locations, operation side",
+        "P07 / pompa injeksi pada sisi operasi",
+        "P08 / coran dan panel servis",
+        "P14 panel kiri / detail pompa dan fitting"
+      ],
+      "sumber": [
+        "D01 PDF 14 printed p. 10 / component locations, operation side",
+        "P07 / pompa injeksi pada sisi operasi",
+        "P08 / coran dan panel servis",
+        "P14 panel kiri / detail pompa dan fitting"
+      ],
+      "model_dimensions_m": [
+        0.521387,
+        0.079,
+        0.027
+      ],
+      "bounds_m": [
+        [
+          0.450017,
+          0.16,
+          -0.491
+        ],
+        [
+          0.971404,
+          0.239,
+          -0.464
+        ]
+      ],
+      "ukuran_oem": null,
+      "nomor_oem": null,
+      "xray_shell": false,
+      "note": "Garis pisah dan tutup rendah diestimasi dari foto sisi operasi. Konstruksi di balik cover belum dipastikan.",
+      "direction": [
+        0,
+        0,
+        -1
+      ]
+    },
+    {
+      "id": "EXT-FUEL-20",
+      "name": "Pelat identifikasi pompa tanpa tulisan",
+      "nama": "Pelat identifikasi pompa tanpa tulisan",
+      "parent": "RAK-FUEL",
+      "rakitan": "RAK-FUEL",
+      "count": 1,
+      "jumlah": 1,
+      "status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 14 printed p. 10 / component locations, operation side",
+        "P07 / pompa injeksi pada sisi operasi",
+        "P08 / coran dan panel servis",
+        "P14 panel kiri / detail pompa dan fitting"
+      ],
+      "sumber": [
+        "D01 PDF 14 printed p. 10 / component locations, operation side",
+        "P07 / pompa injeksi pada sisi operasi",
+        "P08 / coran dan panel servis",
+        "P14 panel kiri / detail pompa dan fitting"
+      ],
+      "model_dimensions_m": [
+        0.375,
+        0.039,
+        0.018
+      ],
+      "bounds_m": [
+        [
+          0.522,
+          0.3325,
+          -0.491
+        ],
+        [
+          0.897,
+          0.3715,
+          -0.473
+        ]
+      ],
+      "ukuran_oem": null,
+      "nomor_oem": null,
+      "xray_shell": false,
+      "note": "Dua bidang pelat merah tampak di P08/P14. Tulisan pabrikan tidak direproduksi.",
+      "direction": [
+        0,
+        0,
+        -1
+      ]
+    },
+    {
+      "id": "EXT-LUBE-01",
+      "name": "Header oli dan dudukan filter",
+      "nama": "Header oli dan dudukan filter",
+      "parent": "RAK-LUBE",
+      "rakitan": "RAK-LUBE",
+      "count": 1,
+      "jumlah": 1,
+      "status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 14 printed p. 10 / component locations, non-operation side",
+        "P17 / dua tabung oli dan filter bypass"
+      ],
+      "sumber": [
+        "D01 PDF 14 printed p. 10 / component locations, non-operation side",
+        "P17 / dua tabung oli dan filter bypass"
+      ],
+      "model_dimensions_m": [
+        0.364,
+        0.068,
+        0.1675
+      ],
+      "bounds_m": [
+        [
+          0.742,
+          0.249,
+          0.3315
+        ],
+        [
+          1.106,
+          0.317,
+          0.499
+        ]
+      ],
+      "ukuran_oem": null,
+      "nomor_oem": null,
+      "xray_shell": false,
+      "note": "Bentuk/tata letak dari tampak yang dikutip. Detail ukuran model diperkirakan.",
+      "direction": [
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "id": "EXT-LUBE-02",
+      "name": "Filter oli utama",
+      "nama": "Filter oli utama",
+      "parent": "RAK-LUBE",
+      "rakitan": "RAK-LUBE",
+      "count": 1,
+      "jumlah": 1,
+      "status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 14 printed p. 10 / component locations, non-operation side",
+        "P17 / dua tabung oli dan filter bypass"
+      ],
+      "sumber": [
+        "D01 PDF 14 printed p. 10 / component locations, non-operation side",
+        "P17 / dua tabung oli dan filter bypass"
+      ],
+      "model_dimensions_m": [
+        0.11424,
+        0.301,
+        0.11424
+      ],
+      "bounds_m": [
+        [
+          0.79488,
+          -0.0225,
+          0.38488
+        ],
+        [
+          0.90912,
+          0.2785,
+          0.49912
+        ]
+      ],
+      "ukuran_oem": null,
+      "nomor_oem": null,
+      "xray_shell": false,
+      "note": "Bentuk/tata letak dari tampak yang dikutip. Detail ukuran model diperkirakan.",
+      "direction": [
+        0,
+        -1,
+        0
+      ]
+    },
+    {
+      "id": "EXT-LUBE-03",
+      "name": "Filter oli utama",
+      "nama": "Filter oli utama",
+      "parent": "RAK-LUBE",
+      "rakitan": "RAK-LUBE",
+      "count": 1,
+      "jumlah": 1,
+      "status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 14 printed p. 10 / component locations, non-operation side",
+        "P17 / dua tabung oli dan filter bypass"
+      ],
+      "sumber": [
+        "D01 PDF 14 printed p. 10 / component locations, non-operation side",
+        "P17 / dua tabung oli dan filter bypass"
+      ],
+      "model_dimensions_m": [
+        0.11424,
+        0.301,
+        0.11424
+      ],
+      "bounds_m": [
+        [
+          0.95488,
+          -0.0225,
+          0.38488
+        ],
+        [
+          1.06912,
+          0.2785,
+          0.49912
+        ]
+      ],
+      "ukuran_oem": null,
+      "nomor_oem": null,
+      "xray_shell": false,
+      "note": "Bentuk/tata letak dari tampak yang dikutip. Detail ukuran model diperkirakan.",
+      "direction": [
+        0,
+        -1,
+        0
+      ]
+    },
+    {
+      "id": "EXT-LUBE-04",
+      "name": "Filter bypass oli",
+      "nama": "Filter bypass oli",
+      "parent": "RAK-LUBE",
+      "rakitan": "RAK-LUBE",
+      "count": 1,
+      "jumlah": 1,
+      "status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 14 printed p. 10 / component locations, non-operation side",
+        "P17 / dua tabung oli dan filter bypass"
+      ],
+      "sumber": [
+        "D01 PDF 14 printed p. 10 / component locations, non-operation side",
+        "P17 / dua tabung oli dan filter bypass"
+      ],
+      "model_dimensions_m": [
+        0.12648,
+        0.2585,
+        0.12648
+      ],
+      "bounds_m": [
+        [
+          0.58076,
+          -0.05,
+          0.35976
+        ],
+        [
+          0.70724,
+          0.2085,
+          0.48624
+        ]
+      ],
+      "ukuran_oem": null,
+      "nomor_oem": null,
+      "xray_shell": false,
+      "note": "Bentuk/tata letak dari tampak yang dikutip. Detail ukuran model diperkirakan.",
+      "direction": [
+        0,
+        -1,
+        0
+      ]
+    },
+    {
+      "id": "EXT-LUBE-05",
+      "name": "Rumah oil cooler",
+      "nama": "Rumah oil cooler",
+      "parent": "RAK-LUBE",
+      "rakitan": "RAK-LUBE",
+      "count": 1,
+      "jumlah": 1,
+      "status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 14 printed p. 10 / component locations, non-operation side",
+        "P17 / body panjang di balik filter dan penutup"
+      ],
+      "sumber": [
+        "D01 PDF 14 printed p. 10 / component locations, non-operation side",
+        "P17 / body panjang di balik filter dan penutup"
+      ],
+      "model_dimensions_m": [
+        0.961949,
+        0.132048,
+        0.15899
+      ],
+      "bounds_m": [
+        [
+          0.172741,
+          0.264452,
+          0.298078
+        ],
+        [
+          1.13469,
+          0.3965,
+          0.457068
+        ]
+      ],
+      "ukuran_oem": null,
+      "nomor_oem": null,
+      "xray_shell": false,
+      "note": "Bentuk/tata letak dari tampak yang dikutip. Detail ukuran model diperkirakan.",
+      "direction": [
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "id": "EXT-ELECTRIC-03",
+      "name": "Harness starter dan alternator",
+      "nama": "Harness starter dan alternator",
+      "parent": "RAK-ELECTRIC",
+      "rakitan": "RAK-ELECTRIC",
+      "count": 1,
+      "jumlah": 1,
+      "status": "ESTIMATED",
+      "source_refs": [
+        "P08 / kabel alternator",
+        "P17 / kabel rendah starter"
+      ],
+      "sumber": [
+        "P08 / kabel alternator",
+        "P17 / kabel rendah starter"
+      ],
+      "model_dimensions_m": [
+        1.345784,
+        0.41597,
+        0.849011
+      ],
+      "bounds_m": [
+        [
+          0.060112,
+          -0.016098,
+          -0.416505
+        ],
+        [
+          1.405896,
+          0.399872,
+          0.432506
+        ]
+      ],
+      "ukuran_oem": null,
+      "nomor_oem": null,
+      "xray_shell": false,
+      "note": "Bentuk/tata letak dari tampak yang dikutip. Detail ukuran model diperkirakan.",
+      "direction": [
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "id": "EXT-ELECTRIC-04",
+      "name": "Rumah sensor dan panel koneksi",
+      "nama": "Rumah sensor dan panel koneksi",
+      "parent": "RAK-ELECTRIC",
+      "rakitan": "RAK-ELECTRIC",
+      "count": 1,
+      "jumlah": 1,
+      "status": "ESTIMATED",
+      "source_refs": [
+        "P17 / panel dan kabel"
+      ],
+      "sumber": [
+        "P17 / panel dan kabel"
+      ],
+      "model_dimensions_m": [
+        0.127941,
+        0.246846,
+        0.076921
+      ],
+      "bounds_m": [
+        [
+          0.239,
+          0.410154,
+          0.308
+        ],
+        [
+          0.366941,
+          0.657,
+          0.384921
+        ]
+      ],
+      "ukuran_oem": null,
+      "nomor_oem": null,
+      "xray_shell": false,
+      "note": "Pelat polos. Kalibrasi, konektor OEM dan jenis sensor belum terverifikasi.",
+      "direction": [
+        0,
+        0,
+        1
+      ]
+    }
+  ]
+}

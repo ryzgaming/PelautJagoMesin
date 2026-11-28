@@ -1,6 +1,6 @@
 import {url, apiKey} from "../config";
-import {revisionProducts} from "../../src/revision-products";
-import {briefInfo, briefLimits, validBrief} from "../../src/production-brief";
+import {revisionProducts} from "../../src/features/machines/revision-products";
+import {briefInfo, briefLimits, validBrief} from "../../src/features/machines/production-brief";
 import {aiModelById, productionOptions, type ProductionOptions} from "../../src/ai-models";
 import {cookie} from "./session";
 import {discoverSourceLeads} from "../source-leads";

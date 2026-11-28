@@ -1,0 +1,283 @@
+{
+ "machine_model": "Caterpillar 3512C HD marine propulsion",
+ "system": "fuel",
+ "status": "PARTIAL",
+ "applicability": "3512C HD (170x215 mm, 58.6 L, V12 4-tak) propulsi laut. Sumber utama D03 LEHM4885-03 (2005, A3 ECM, rating D 1800 rpm) dan D02 LEHM22783-00 (IMO II, ADEM6); D01 LEHM0180-00 varian DGB auxiliary/DEP (pendukung saja); D05 halaman dealer HD Tier3/IMO II. D06 (3512 generasi awal) TIDAK dipakai. Foto P10-P26 sebagian besar genset/frac, bukan marine; dipakai hanya untuk tata letak kasar.",
+ "nodes": [
+  {
+   "id": "tank",
+   "name": "Tangki bahan bakar kapal (supply/day tank)",
+   "kind": "external_tank",
+   "location_hint": "di luar mesin, instalasi kapal",
+   "status": "INFERRED",
+   "source_refs": [
+    "INFERRED: setiap mesin perlu suplai; tidak ada di daftar perlengkapan mesin"
+   ]
+  },
+  {
+   "id": "solas_conn",
+   "name": "SOLAS compliant fuel connections with spill shield",
+   "kind": "connection",
+   "location_hint": "sambungan masuk/balik bahan bakar di mesin; posisi tidak tertulis",
+   "status": "DOCUMENTED",
+   "source_refs": [
+    "D03 hlm. 1 (Fuel System, standar)",
+    "D01 hlm. 2 (opsi)",
+    "D02 hlm. 1 (opsi)"
+   ]
+  },
+  {
+   "id": "prim_filter",
+   "name": "Primary fuel filter / water separator",
+   "kind": "filter",
+   "location_hint": "UNKNOWN; tidak ada di dokumen yang dibuka",
+   "status": "UNKNOWN",
+   "source_refs": [
+    "tidak ditemukan di D01/D02/D03; hanya disebut ringkasan WebSearch untuk keluarga 3500B/C (SEBU7844), halaman tidak dibuka"
+   ]
+  },
+  {
+   "id": "transfer_pump",
+   "name": "Fuel transfer pump",
+   "kind": "pump",
+   "location_hint": "digerakkan mesin (fuel consumption D03 hlm. 4 'all oil, fuel, and water pumps, engine driven'); posisi tidak tertulis",
+   "status": "DOCUMENTED",
+   "source_refs": [
+    "D03 hlm. 1 (Fuel System)",
+    "D03 hlm. 4 (Rating conditions: pumps engine driven)"
+   ]
+  },
+  {
+   "id": "fuel_filter",
+   "name": "Fuel filter with service indicators (secondary/final)",
+   "kind": "filter",
+   "location_hint": "punya 'fuel filter base' tempat suhu bahan bakar diukur; posisi tidak tertulis. P19 menunjukkan filter samping kanan tetapi unit frac",
+   "status": "DOCUMENTED",
+   "source_refs": [
+    "D03 hlm. 1 (Fuel System; Instrumentation 'fuel filter differential')",
+    "D03 hlm. 4 (fuel temperature up to 52 C measured at the fuel filter base)",
+    "P19 (frac, bukan marine)"
+   ]
+  },
+  {
+   "id": "fuel_gallery",
+   "name": "Saluran bahan bakar ke kepala silinder (supply/return gallery)",
+   "kind": "passage",
+   "location_hint": "di dalam/di sepanjang kepala silinder kedua bank",
+   "status": "INFERRED",
+   "source_refs": [
+    "INFERRED: unit injector di tiap silinder memerlukan suplai dan saluran balik; tidak tertulis di dokumen yang dibuka"
+   ]
+  },
+  {
+   "id": "unit_injectors",
+   "name": "Electronically controlled unit injectors (12)",
+   "kind": "injector",
+   "location_hint": "satu per silinder di kepala silinder",
+   "status": "DOCUMENTED",
+   "source_refs": [
+    "D03 hlm. 1 (Fuel System)",
+    "D01 hlm. 2 (Dual A4 ECM w/ electronic unit injector fuel system)",
+    "D02 hlm. 1 ('Electronically cooled unit injectors', kemungkinan salah ketik 'controlled')",
+    "D05 (K-factor injector)",
+    "P16 (Injector 2461854, unit genset)"
+   ]
+  },
+  {
+   "id": "camshafts",
+   "name": "Dual camshafts",
+   "kind": "mechanical",
+   "location_hint": "di blok, satu per bank (INFERRED dari 'dual')",
+   "status": "DOCUMENTED",
+   "source_refs": [
+    "D05 bagian fitur ('Dual camshafts')"
+   ]
+  },
+  {
+   "id": "ecm",
+   "name": "Dual ECM (A3 pada D03, A4 pada D01, ADEM6 pada D02)",
+   "kind": "controller",
+   "location_hint": "harness port dan starboard (D03); P11 kotak ECM dekat flywheel housing kiri (genset)",
+   "status": "DOCUMENTED",
+   "source_refs": [
+    "D03 hlm. 1 (Control System)",
+    "D01 hlm. 2",
+    "D02 hlm. 1",
+    "P11 (genset)"
+   ]
+  },
+  {
+   "id": "fuel_press_ind",
+   "name": "Indikator tekanan bahan bakar dan beda tekanan filter",
+   "kind": "instrument",
+   "location_hint": "panel mesin / MPD",
+   "status": "DOCUMENTED",
+   "source_refs": [
+    "D03 hlm. 1 (Instrumentation)"
+   ]
+  },
+  {
+   "id": "fuel_cooler",
+   "name": "Fuel cooler terpadu pada plate-type heat exchanger (opsi)",
+   "kind": "heat_exchanger",
+   "location_hint": "engine-mounted HX, sisi depan pada marine (P22/P23 menunjukkan HX, fuel cooler tidak terlihat)",
+   "status": "DOCUMENTED",
+   "source_refs": [
+    "D03 hlm. 1 (Common Optional Equipment)"
+   ]
+  }
+ ],
+ "edges": [
+  {
+   "from": "tank",
+   "to": "solas_conn",
+   "purpose": "suplai bahan bakar ke mesin",
+   "operating_condition": "mesin jalan",
+   "status": "INFERRED",
+   "source_refs": [
+    "INFERRED dari prinsip suplai; rute instalasi tidak tertulis"
+   ]
+  },
+  {
+   "from": "solas_conn",
+   "to": "prim_filter",
+   "purpose": "penyaringan awal / pemisahan air",
+   "operating_condition": "mesin jalan",
+   "status": "UNKNOWN",
+   "source_refs": [
+    "keberadaan primary filter belum terbukti"
+   ]
+  },
+  {
+   "from": "prim_filter",
+   "to": "transfer_pump",
+   "purpose": "isap pompa transfer",
+   "operating_condition": "mesin jalan",
+   "status": "UNKNOWN",
+   "source_refs": [
+    "urutan tidak tertulis"
+   ]
+  },
+  {
+   "from": "solas_conn",
+   "to": "transfer_pump",
+   "purpose": "isap pompa transfer (bila tanpa primary filter)",
+   "operating_condition": "mesin jalan",
+   "status": "INFERRED",
+   "source_refs": [
+    "INFERRED: pompa transfer mengisap dari tangki; D03 hlm. 1 hanya mendaftar komponen"
+   ]
+  },
+  {
+   "from": "transfer_pump",
+   "to": "fuel_filter",
+   "purpose": "dorong bahan bakar ke filter berindikator",
+   "operating_condition": "mesin jalan",
+   "status": "INFERRED",
+   "source_refs": [
+    "INFERRED: filter halus lazim di sisi tekan pompa transfer; D03 hlm. 1 tidak memberi urutan"
+   ]
+  },
+  {
+   "from": "fuel_filter",
+   "to": "fuel_gallery",
+   "purpose": "suplai bahan bakar bersih ke kepala silinder",
+   "operating_condition": "mesin jalan",
+   "status": "INFERRED",
+   "source_refs": [
+    "INFERRED"
+   ]
+  },
+  {
+   "from": "fuel_gallery",
+   "to": "unit_injectors",
+   "purpose": "isi unit injector",
+   "operating_condition": "mesin jalan",
+   "status": "INFERRED",
+   "source_refs": [
+    "INFERRED"
+   ]
+  },
+  {
+   "from": "camshafts",
+   "to": "unit_injectors",
+   "purpose": "penggerak tekanan injeksi (MEUI)",
+   "operating_condition": "tiap langkah kompresi",
+   "status": "UNKNOWN",
+   "source_refs": [
+    "MEUI tidak dibuktikan di dokumen yang dibuka; D05 hanya 'dual camshafts' dan 'crank timing vs. cam timing' untuk kontrol injeksi"
+   ]
+  },
+  {
+   "from": "ecm",
+   "to": "unit_injectors",
+   "purpose": "sinyal listrik saat dan lama injeksi",
+   "operating_condition": "mesin jalan",
+   "status": "DOCUMENTED",
+   "source_refs": [
+    "D01 hlm. 2 (ECM w/ electronic unit injector fuel system)",
+    "D03 hlm. 1",
+    "D05 (electronic injection control using crank timing)"
+   ]
+  },
+  {
+   "from": "unit_injectors",
+   "to": "fuel_gallery",
+   "purpose": "kelebihan bahan bakar (pendingin injector) keluar ke saluran balik",
+   "operating_condition": "mesin jalan",
+   "status": "INFERRED",
+   "source_refs": [
+    "INFERRED: sistem unit injector bersirkulasi lebih dari yang diinjeksi; tidak tertulis"
+   ]
+  },
+  {
+   "from": "fuel_gallery",
+   "to": "fuel_cooler",
+   "purpose": "bahan bakar balik didinginkan (bila opsi dipasang)",
+   "operating_condition": "mesin jalan, opsi",
+   "status": "UNKNOWN",
+   "source_refs": [
+    "D03 hlm. 1 hanya 'integrated fuel cooler'; posisi di sirkuit (suplai atau balik) tidak tertulis"
+   ]
+  },
+  {
+   "from": "fuel_cooler",
+   "to": "solas_conn",
+   "purpose": "bahan bakar balik keluar mesin",
+   "operating_condition": "mesin jalan",
+   "status": "INFERRED",
+   "source_refs": [
+    "INFERRED"
+   ]
+  },
+  {
+   "from": "solas_conn",
+   "to": "tank",
+   "purpose": "balik ke tangki",
+   "operating_condition": "mesin jalan",
+   "status": "INFERRED",
+   "source_refs": [
+    "INFERRED"
+   ]
+  },
+  {
+   "from": "fuel_filter",
+   "to": "fuel_press_ind",
+   "purpose": "sensor tekanan dan beda tekanan filter",
+   "operating_condition": "mesin jalan",
+   "status": "DOCUMENTED",
+   "source_refs": [
+    "D03 hlm. 1 (Instrumentation: fuel pressure, fuel filter differential)"
+   ]
+  }
+ ],
+ "gaps": [
+  "Diagram aliran bahan bakar resmi (Systems Operation 3500C) tidak tersedia publik; hanya Cat SIS/berbayar atau salinan Scribd yang tidak dipakai.",
+  "Primary filter/water separator dan priming pump belum terbukti untuk 3512C HD marine.",
+  "MEUI (injector digerakkan camshaft) belum dibuktikan; dokumen hanya 'electronically controlled unit injectors' dan 'dual camshafts'.",
+  "Posisi fuel cooler (suplai atau balik) dan apakah standar atau opsi pada IMO II tidak jelas (D03 opsi).",
+  "Lokasi transfer pump, filter, dan sambungan SOLAS di mesin marine tidak terlihat di foto marine (P22/P23); P19 adalah frac.",
+  "Regulator/relief valve tekanan bahan bakar dan orifice balik: tidak ada data.",
+  "D01/D02 menulis 'Electronically cooled unit injectors' (kemungkinan salah ketik 'controlled'); jangan dipakai sebagai klaim pendinginan elektronik."
+ ]
+}

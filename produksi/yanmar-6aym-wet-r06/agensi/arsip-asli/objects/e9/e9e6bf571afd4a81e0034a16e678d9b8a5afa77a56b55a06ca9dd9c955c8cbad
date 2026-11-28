@@ -1,0 +1,758 @@
+{
+  "id": "RAK-COOLANT-PUMP",
+  "node_rakitan": "RAK-COOLANT-PUMP",
+  "parent_rakitan": "RAK-COOLING",
+  "nama": "Pompa air tawar",
+  "status": "UNVERIFIED",
+  "source_refs": [
+    "D05 Parts Catalog 0CG10-M34300, Fig. 54, kolom A = 6AYM-WET",
+    "D01 PDF 164 cetak 160, potongan pompa coolant dan exploded pompa air laut; PDF 163 cetak 159",
+    "D01 PDF 112 cetak 108, diagram front cam gear–water pump gear",
+    "D05 Fig 54, 6AYM-WET cooling fresh water pump",
+    "D03 PDF 17 cetak 33, tampak depan dan samping mesin; D01 PDF 14, P17"
+  ],
+  "acuan": {
+    "no": 1,
+    "object_ids": [
+      "EXT-COOLING-03"
+    ]
+  },
+  "diagram": {
+    "arah_pandang": [
+      0.63,
+      0.31,
+      0.711
+    ],
+    "atas": [
+      0,
+      1,
+      0
+    ]
+  },
+  "bagian": [
+    {
+      "no": 1,
+      "nama": "Rumah pompa air tawar",
+      "object_ids": [
+        "EXT-COOLING-03"
+      ],
+      "role": "shell",
+      "status": "ESTIMATED",
+      "sumber": [
+        "D05 Parts Catalog 0CG10-M34300, Fig. 54, kolom A = 6AYM-WET, posisi 2",
+        "D01 PDF 164 cetak 160, potongan pompa coolant dan exploded pompa air laut; PDF 163 cetak 159"
+      ],
+      "posisi": [],
+      "fungsi": "Rumah pompa air tawar",
+      "nomor_oem": "148660-43100",
+      "ukuran": null
+    },
+    {
+      "no": 2,
+      "nama": "Impeler sentrifugal berselubung",
+      "object_ids": [
+        "EXT-COOLING-20"
+      ],
+      "role": "core",
+      "status": "ESTIMATED",
+      "sumber": [
+        "D05 Parts Catalog 0CG10-M34300, Fig. 54, kolom A = 6AYM-WET, posisi 3",
+        "D01 PDF 164 cetak 160, potongan pompa coolant dan exploded pompa air laut; PDF 163 cetak 159"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-20",
+          "arah": [
+            1,
+            0,
+            0
+          ],
+          "jarak_m": 0.17,
+          "urutan": 1
+        }
+      ],
+      "fungsi": "D01 memperlihatkan impeler pompa sentrifugal. Bentuk mata masuk dan saluran radial dimodelkan sebagai estimasi.",
+      "nomor_oem": "148660-43131",
+      "ukuran": null
+    },
+    {
+      "no": 3,
+      "nama": "Poros pompa coolant dengan dudukan pasak",
+      "object_ids": [
+        "EXT-COOLING-21"
+      ],
+      "role": "shaft",
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 112 cetak 108, diagram front cam gear–water pump gear",
+        "D05 Fig 54, 6AYM-WET cooling fresh water pump",
+        "D03 PDF 17 cetak 33, tampak depan dan samping mesin; D01 PDF 14, P17"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-21",
+          "arah": [
+            -1,
+            0,
+            0
+          ],
+          "jarak_m": 0.215,
+          "urutan": 2
+        }
+      ],
+      "fungsi": "Pompa sentrifugal digerakkan langsung oleh gear heliks cam depan. Jumlah 18 gigi, posisi, modul, heliks dan profil adalah parameter rekonstruksi. Rasio 4:3 menghasilkan 2.533 rpm pompa pada 1.900 rpm crank sesuai D01 hlm. 160.",
+      "nomor_oem": "148660-43140",
+      "ukuran": null
+    },
+    {
+      "no": 4,
+      "nama": "Ring luar bantalan 6305 pompa coolant",
+      "object_ids": [
+        "EXT-COOLING-22"
+      ],
+      "role": "bearing",
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 112 cetak 108, diagram front cam gear–water pump gear",
+        "D05 Fig 54, 6AYM-WET cooling fresh water pump",
+        "D03 PDF 17 cetak 33, tampak depan dan samping mesin; D01 PDF 14, P17"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-22",
+          "arah": [
+            -1,
+            0,
+            0
+          ],
+          "jarak_m": 0.13,
+          "urutan": 3
+        }
+      ],
+      "fungsi": "Pompa sentrifugal digerakkan langsung oleh gear heliks cam depan. Jumlah 18 gigi, posisi, modul, heliks dan profil adalah parameter rekonstruksi. Rasio 4:3 menghasilkan 2.533 rpm pompa pada 1.900 rpm crank sesuai D01 hlm. 160.",
+      "nomor_oem": "24101-063054",
+      "ukuran": null
+    },
+    {
+      "no": 5,
+      "nama": "Ring luar bantalan 6205 pompa coolant",
+      "object_ids": [
+        "EXT-COOLING-23"
+      ],
+      "role": "bearing",
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 112 cetak 108, diagram front cam gear–water pump gear",
+        "D05 Fig 54, 6AYM-WET cooling fresh water pump",
+        "D03 PDF 17 cetak 33, tampak depan dan samping mesin; D01 PDF 14, P17"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-23",
+          "arah": [
+            -1,
+            0,
+            0
+          ],
+          "jarak_m": 0.28,
+          "urutan": 4
+        }
+      ],
+      "fungsi": "Pompa sentrifugal digerakkan langsung oleh gear heliks cam depan. Jumlah 18 gigi, posisi, modul, heliks dan profil adalah parameter rekonstruksi. Rasio 4:3 menghasilkan 2.533 rpm pompa pada 1.900 rpm crank sesuai D01 hlm. 160.",
+      "nomor_oem": "24101-062054",
+      "ukuran": null
+    },
+    {
+      "no": 6,
+      "nama": "Seal mekanis coolant",
+      "object_ids": [
+        "EXT-COOLING-24"
+      ],
+      "role": "seal",
+      "status": "ESTIMATED",
+      "sumber": [
+        "D05 Parts Catalog 0CG10-M34300, Fig. 54, kolom A = 6AYM-WET, posisi 9",
+        "D01 PDF 164 cetak 160, potongan pompa coolant dan exploded pompa air laut; PDF 163 cetak 159"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-24",
+          "arah": [
+            -1,
+            0,
+            0
+          ],
+          "jarak_m": 0.06,
+          "urutan": 5
+        }
+      ],
+      "fungsi": "Seal mekanis coolant",
+      "nomor_oem": "148633-43400",
+      "ukuran": null
+    },
+    {
+      "no": 7,
+      "nama": "Seal oli sisi penggerak",
+      "object_ids": [
+        "EXT-COOLING-25"
+      ],
+      "role": "seal",
+      "status": "ESTIMATED",
+      "sumber": [
+        "D05 Parts Catalog 0CG10-M34300, Fig. 54, kolom A = 6AYM-WET, posisi 17",
+        "D01 PDF 164 cetak 160, potongan pompa coolant dan exploded pompa air laut; PDF 163 cetak 159"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-25",
+          "arah": [
+            -1,
+            0,
+            0
+          ],
+          "jarak_m": 0.09,
+          "urutan": 6
+        }
+      ],
+      "fungsi": "Seal oli sisi penggerak",
+      "nomor_oem": "148616-54420",
+      "ukuran": null
+    },
+    {
+      "no": 8,
+      "nama": "Gear heliks pompa coolant · 18 gigi model",
+      "object_ids": [
+        "EXT-COOLING-26"
+      ],
+      "role": "gear",
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 112 cetak 108, diagram front cam gear–water pump gear",
+        "D05 Fig 54, 6AYM-WET cooling fresh water pump",
+        "D03 PDF 17 cetak 33, tampak depan dan samping mesin; D01 PDF 14, P17"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-26",
+          "arah": [
+            -1,
+            0,
+            0
+          ],
+          "jarak_m": 0.395,
+          "urutan": 7
+        }
+      ],
+      "fungsi": "Pompa sentrifugal digerakkan langsung oleh gear heliks cam depan. Jumlah 18 gigi, posisi, modul, heliks dan profil adalah parameter rekonstruksi. Rasio 4:3 menghasilkan 2.533 rpm pompa pada 1.900 rpm crank sesuai D01 hlm. 160.",
+      "nomor_oem": "148633-43700",
+      "ukuran": null
+    },
+    {
+      "no": 9,
+      "nama": "Tutup servis pompa air tawar",
+      "object_ids": [
+        "EXT-COOLING-27"
+      ],
+      "role": "cover",
+      "status": "ESTIMATED",
+      "sumber": [
+        "D05 Parts Catalog 0CG10-M34300, Fig. 54, kolom A = 6AYM-WET, posisi 15",
+        "D01 PDF 164 cetak 160, potongan pompa coolant dan exploded pompa air laut; PDF 163 cetak 159"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-27",
+          "arah": [
+            1,
+            0,
+            0
+          ],
+          "jarak_m": 0.385,
+          "urutan": 8
+        }
+      ],
+      "fungsi": "Tutup servis pompa air tawar",
+      "nomor_oem": "148660-43110",
+      "ukuran": null
+    },
+    {
+      "no": 10,
+      "nama": "Packing tutup pompa",
+      "object_ids": [
+        "EXT-COOLING-28"
+      ],
+      "role": "seal",
+      "status": "ESTIMATED",
+      "sumber": [
+        "D05 Parts Catalog 0CG10-M34300, Fig. 54, kolom A = 6AYM-WET, posisi 16",
+        "D01 PDF 164 cetak 160, potongan pompa coolant dan exploded pompa air laut; PDF 163 cetak 159"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-28",
+          "arah": [
+            1,
+            0,
+            0
+          ],
+          "jarak_m": 0.295,
+          "urutan": 9
+        }
+      ],
+      "fungsi": "Packing tutup pompa",
+      "nomor_oem": "148660-43120",
+      "ukuran": null
+    },
+    {
+      "no": 11,
+      "nama": "Pasak poros pompa coolant 7 × 20",
+      "object_ids": [
+        "EXT-COOLING-310"
+      ],
+      "role": "fastener",
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 112 cetak 108, diagram front cam gear–water pump gear",
+        "D05 Fig 54, 6AYM-WET cooling fresh water pump",
+        "D03 PDF 17 cetak 33, tampak depan dan samping mesin; D01 PDF 14, P17",
+        "D05 Fig 54 ref 12"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-310",
+          "arah": [
+            -1,
+            0,
+            0
+          ],
+          "jarak_m": 0.43,
+          "urutan": 10
+        }
+      ],
+      "fungsi": "Pasak poros pompa coolant 7 × 20",
+      "nomor_oem": "22512-070200",
+      "ukuran": null
+    },
+    {
+      "no": 12,
+      "nama": "Ring datar penahan gear pompa coolant",
+      "object_ids": [
+        "EXT-COOLING-311"
+      ],
+      "role": "fastener",
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 112 cetak 108, diagram front cam gear–water pump gear",
+        "D05 Fig 54, 6AYM-WET cooling fresh water pump",
+        "D03 PDF 17 cetak 33, tampak depan dan samping mesin; D01 PDF 14, P17",
+        "D05 Fig 54 ref 14"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-311",
+          "arah": [
+            -1,
+            0,
+            0
+          ],
+          "jarak_m": 0.455,
+          "urutan": 11
+        }
+      ],
+      "fungsi": "Ring datar penahan gear pompa coolant",
+      "nomor_oem": "22137-200000",
+      "ukuran": null
+    },
+    {
+      "no": 13,
+      "nama": "Mur M20 pengikat gear pompa coolant",
+      "object_ids": [
+        "EXT-COOLING-312"
+      ],
+      "role": "fastener",
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 112 cetak 108, diagram front cam gear–water pump gear",
+        "D05 Fig 54, 6AYM-WET cooling fresh water pump",
+        "D03 PDF 17 cetak 33, tampak depan dan samping mesin; D01 PDF 14, P17",
+        "D05 Fig 54 ref 13"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-312",
+          "arah": [
+            -1,
+            0,
+            0
+          ],
+          "jarak_m": 0.48,
+          "urutan": 12
+        }
+      ],
+      "fungsi": "Mur M20 pengikat gear pompa coolant",
+      "nomor_oem": "26356-200002",
+      "ukuran": null
+    },
+    {
+      "no": 14,
+      "nama": "Gasket flange pompa ke penggerak",
+      "object_ids": [
+        "EXT-COOLING-319"
+      ],
+      "role": "seal",
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 112 cetak 108, diagram front cam gear–water pump gear",
+        "D05 Fig 54, 6AYM-WET cooling fresh water pump",
+        "D03 PDF 17 cetak 33, tampak depan dan samping mesin; D01 PDF 14, P17",
+        "D05 Fig 54 ref 23"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-319",
+          "arah": [
+            -1,
+            0,
+            0
+          ],
+          "jarak_m": 0.55,
+          "urutan": 13
+        }
+      ],
+      "fungsi": "Gasket flange pompa ke penggerak",
+      "nomor_oem": "148660-43201",
+      "ukuran": null
+    },
+    {
+      "no": 15,
+      "nama": "Baut M10 × 20 dudukan pompa 1",
+      "object_ids": [
+        "EXT-COOLING-320"
+      ],
+      "role": "fastener",
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 112 cetak 108, diagram front cam gear–water pump gear",
+        "D05 Fig 54, 6AYM-WET cooling fresh water pump",
+        "D03 PDF 17 cetak 33, tampak depan dan samping mesin; D01 PDF 14, P17",
+        "D05 Fig 54 ref 22"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-320",
+          "arah": [
+            -1,
+            0,
+            0
+          ],
+          "jarak_m": 0.575,
+          "urutan": 14
+        }
+      ],
+      "fungsi": "Baut M10 × 20 dudukan pompa 1",
+      "nomor_oem": "26106-100202",
+      "ukuran": null
+    },
+    {
+      "no": 16,
+      "nama": "Baut M10 × 20 dudukan pompa 2",
+      "object_ids": [
+        "EXT-COOLING-321"
+      ],
+      "role": "fastener",
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 112 cetak 108, diagram front cam gear–water pump gear",
+        "D05 Fig 54, 6AYM-WET cooling fresh water pump",
+        "D03 PDF 17 cetak 33, tampak depan dan samping mesin; D01 PDF 14, P17",
+        "D05 Fig 54 ref 22"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-321",
+          "arah": [
+            -1,
+            0,
+            0
+          ],
+          "jarak_m": 0.61,
+          "urutan": 15
+        }
+      ],
+      "fungsi": "Baut M10 × 20 dudukan pompa 2",
+      "nomor_oem": "26106-100202",
+      "ukuran": null
+    },
+    {
+      "no": 17,
+      "nama": "Baut M10 × 20 dudukan pompa 3",
+      "object_ids": [
+        "EXT-COOLING-322"
+      ],
+      "role": "fastener",
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 112 cetak 108, diagram front cam gear–water pump gear",
+        "D05 Fig 54, 6AYM-WET cooling fresh water pump",
+        "D03 PDF 17 cetak 33, tampak depan dan samping mesin; D01 PDF 14, P17",
+        "D05 Fig 54 ref 22"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-322",
+          "arah": [
+            -1,
+            0,
+            0
+          ],
+          "jarak_m": 0.645,
+          "urutan": 16
+        }
+      ],
+      "fungsi": "Baut M10 × 20 dudukan pompa 3",
+      "nomor_oem": "26106-100202",
+      "ukuran": null
+    },
+    {
+      "no": 18,
+      "nama": "Baut M10 × 20 dudukan pompa 4",
+      "object_ids": [
+        "EXT-COOLING-323"
+      ],
+      "role": "fastener",
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 112 cetak 108, diagram front cam gear–water pump gear",
+        "D05 Fig 54, 6AYM-WET cooling fresh water pump",
+        "D03 PDF 17 cetak 33, tampak depan dan samping mesin; D01 PDF 14, P17",
+        "D05 Fig 54 ref 22"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-323",
+          "arah": [
+            -1,
+            0,
+            0
+          ],
+          "jarak_m": 0.6799999999999999,
+          "urutan": 17
+        }
+      ],
+      "fungsi": "Baut M10 × 20 dudukan pompa 4",
+      "nomor_oem": "26106-100202",
+      "ukuran": null
+    },
+    {
+      "no": 19,
+      "nama": "Baut M10 × 20 dudukan pompa 5",
+      "object_ids": [
+        "EXT-COOLING-324"
+      ],
+      "role": "fastener",
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 112 cetak 108, diagram front cam gear–water pump gear",
+        "D05 Fig 54, 6AYM-WET cooling fresh water pump",
+        "D03 PDF 17 cetak 33, tampak depan dan samping mesin; D01 PDF 14, P17",
+        "D05 Fig 54 ref 22"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-324",
+          "arah": [
+            -1,
+            0,
+            0
+          ],
+          "jarak_m": 0.715,
+          "urutan": 18
+        }
+      ],
+      "fungsi": "Baut M10 × 20 dudukan pompa 5",
+      "nomor_oem": "26106-100202",
+      "ukuran": null
+    },
+    {
+      "no": 20,
+      "nama": "Dudukan pompa pada rumah penggerak depan",
+      "object_ids": [
+        "EXT-COOLING-313"
+      ],
+      "role": "casing",
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 112 cetak 108, diagram front cam gear–water pump gear",
+        "D05 Fig 54, 6AYM-WET cooling fresh water pump",
+        "D03 PDF 17 cetak 33, tampak depan dan samping mesin; D01 PDF 14, P17",
+        "D05 Fig 54 ref 24"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-313",
+          "arah": [
+            -1,
+            0,
+            0
+          ],
+          "jarak_m": 0.525,
+          "urutan": 19
+        }
+      ],
+      "fungsi": "Dudukan pompa pada rumah penggerak depan",
+      "nomor_oem": "148660-42602",
+      "ukuran": null
+    },
+    {
+      "no": 21,
+      "nama": "Gasket dudukan rumah penggerak pompa",
+      "object_ids": [
+        "EXT-COOLING-314"
+      ],
+      "role": "seal",
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 112 cetak 108, diagram front cam gear–water pump gear",
+        "D05 Fig 54, 6AYM-WET cooling fresh water pump",
+        "D03 PDF 17 cetak 33, tampak depan dan samping mesin; D01 PDF 14, P17",
+        "D05 Fig 54 ref 25"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-314",
+          "arah": [
+            -1,
+            0,
+            0
+          ],
+          "jarak_m": 0.54,
+          "urutan": 20
+        }
+      ],
+      "fungsi": "Gasket dudukan rumah penggerak pompa",
+      "nomor_oem": "148660-42621",
+      "ukuran": null
+    },
+    {
+      "no": 22,
+      "nama": "Ring dalam bantalan 6305 pompa coolant",
+      "object_ids": [
+        "EXT-COOLING-315"
+      ],
+      "role": "inner_race",
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 112 cetak 108, diagram front cam gear–water pump gear",
+        "D05 Fig 54, 6AYM-WET cooling fresh water pump",
+        "D03 PDF 17 cetak 33, tampak depan dan samping mesin; D01 PDF 14, P17",
+        "D05 Fig 54 ref 6"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-315",
+          "arah": [
+            -1,
+            0,
+            0
+          ],
+          "jarak_m": 0.18,
+          "urutan": 21
+        }
+      ],
+      "fungsi": "Ring dalam bantalan 6305 pompa coolant",
+      "nomor_oem": null,
+      "ukuran": null
+    },
+    {
+      "no": 23,
+      "nama": "Bola bantalan 6305 pompa coolant",
+      "object_ids": [
+        "EXT-COOLING-316"
+      ],
+      "role": "rolling_elements",
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 112 cetak 108, diagram front cam gear–water pump gear",
+        "D05 Fig 54, 6AYM-WET cooling fresh water pump",
+        "D03 PDF 17 cetak 33, tampak depan dan samping mesin; D01 PDF 14, P17",
+        "D05 Fig 54 ref 6"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-316",
+          "arah": [
+            -1,
+            0,
+            0
+          ],
+          "jarak_m": 0.2,
+          "urutan": 22
+        }
+      ],
+      "fungsi": "Bola bantalan 6305 pompa coolant",
+      "nomor_oem": null,
+      "ukuran": null
+    },
+    {
+      "no": 24,
+      "nama": "Ring dalam bantalan 6205 pompa coolant",
+      "object_ids": [
+        "EXT-COOLING-317"
+      ],
+      "role": "inner_race",
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 112 cetak 108, diagram front cam gear–water pump gear",
+        "D05 Fig 54, 6AYM-WET cooling fresh water pump",
+        "D03 PDF 17 cetak 33, tampak depan dan samping mesin; D01 PDF 14, P17",
+        "D05 Fig 54 ref 7"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-317",
+          "arah": [
+            -1,
+            0,
+            0
+          ],
+          "jarak_m": 0.3,
+          "urutan": 23
+        }
+      ],
+      "fungsi": "Ring dalam bantalan 6205 pompa coolant",
+      "nomor_oem": null,
+      "ukuran": null
+    },
+    {
+      "no": 25,
+      "nama": "Bola bantalan 6205 pompa coolant",
+      "object_ids": [
+        "EXT-COOLING-318"
+      ],
+      "role": "rolling_elements",
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 112 cetak 108, diagram front cam gear–water pump gear",
+        "D05 Fig 54, 6AYM-WET cooling fresh water pump",
+        "D03 PDF 17 cetak 33, tampak depan dan samping mesin; D01 PDF 14, P17",
+        "D05 Fig 54 ref 7"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-318",
+          "arah": [
+            -1,
+            0,
+            0
+          ],
+          "jarak_m": 0.33,
+          "urutan": 24
+        }
+      ],
+      "fungsi": "Bola bantalan 6205 pompa coolant",
+      "nomor_oem": null,
+      "ukuran": null
+    }
+  ],
+  "notes": "Pompa sentrifugal digerakkan langsung oleh gear heliks cam depan. Jumlah 18 gigi, posisi, modul, heliks dan profil adalah parameter rekonstruksi. Rasio 4:3 menghasilkan 2.533 rpm pompa pada 1.900 rpm crank sesuai D01 hlm. 160. D01 menyatakan sambungan langsung. Lokasi OEM lateral, profil gigi dan nomor seri belum terverifikasi."
+}

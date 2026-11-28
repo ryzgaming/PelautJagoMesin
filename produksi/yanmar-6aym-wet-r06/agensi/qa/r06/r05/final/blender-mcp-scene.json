@@ -1,0 +1,15 @@
+{
+  "read": "get_scene_info",
+  "objects_reported": 1306,
+  "mesh_count_from_native_import": 1146,
+  "geometry": {
+    "exterior": "3edb9db0135c2714e913c2f8a5b120c1f747dec10927024acba17cd4e09a8302",
+    "internal": "46a8854081530e81d2a2af56dc936dbcd22e6b296343029510638e8d120252fa"
+  },
+  "model": "Yanmar 6AYM-WET r05 3edb9db0",
+  "mcp_server": "MCP for Blender",
+  "package": "2.3.3",
+  "blender": "4.3.2",
+  "transport": "stdio and loopback",
+  "verified": true
+}

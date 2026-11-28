@@ -1,0 +1,183 @@
+{
+  "status": "PRIVATE_REVIEW",
+  "variant": "6AYM-WET mesin saja, konfigurasi sirkulasi air tawar + air laut dari D01 PDF 163 dan D05 Fig 66; nomor seri belum ada.",
+  "sources": [
+    {
+      "figure": 49,
+      "title": "lub oil pipelub oil cooler",
+      "source": "https://yanmarshop.com/en-GB/catalog/all/servicebom/yanmardata-1311003/yanmar-marine-marine-main-engine-medium-ay-series-6aym-wet-fig-49-lub-oil-pipelub-oil-cooler",
+      "svg_sha256": "c8d00775c37b886def5e5c1e7ddebe913d1846641d6ac1fa6cf8912b89086179"
+    },
+    {
+      "figure": 50,
+      "title": "lub oil pipeturbocharger",
+      "source": "https://yanmarshop.com/en-GB/catalog/all/servicebom/yanmardata-1311016/yanmar-marine-marine-main-engine-medium-ay-series-6aym-wet-fig-50-lub-oil-pipeturbocharger",
+      "svg_sha256": "0a4c0f549abe8d9c72cd768ec2ee1f71d197eabfbd4ef632a15c836f04d470ab"
+    },
+    {
+      "figure": 51,
+      "title": "lub oil pipereturn",
+      "source": "https://yanmarshop.com/en-GB/catalog/all/servicebom/yanmardata-1311037/yanmar-marine-marine-main-engine-medium-ay-series-6aym-wet-fig-51-lub-oil-pipereturn",
+      "svg_sha256": "19bc7a9bcb9b42a55a76ec906417ebad62dc438a824102d568a30616929b9525"
+    },
+    {
+      "figure": 63,
+      "title": "c f w pipethermostat pump",
+      "source": "https://yanmarshop.com/en-GB/catalog/all/servicebom/yanmardata-1311270/yanmar-marine-marine-main-engine-medium-ay-series-6aym-wet-fig-63-c-f-w-pipethermostat-pump",
+      "svg_sha256": "a0e4e361512521d1a9d46094224c73e7abda21e3bf3441187a3826667b3c5a41"
+    },
+    {
+      "figure": 65,
+      "title": "c f w pipel o cooler block",
+      "source": "https://yanmarshop.com/en-GB/catalog/all/servicebom/yanmardata-1311319/yanmar-marine-marine-main-engine-medium-ay-series-6aym-wet-fig-65-c-f-w-pipel-o-cooler-block",
+      "svg_sha256": "28003c7944a566863b72451b49399fa70f3fbd9e7422571405c85114f22bc990"
+    },
+    {
+      "figure": 66,
+      "title": "c s w pipec s w pump air cooler f w cooler",
+      "source": "https://yanmarshop.com/en-GB/catalog/all/servicebom/yanmardata-1311335/yanmar-marine-marine-main-engine-medium-ay-series-6aym-wet-fig-66-c-s-w-pipec-s-w-pump-air-cooler-f-w-cooler",
+      "svg_sha256": "4c553d933096a81724d94213ee30435eb09bc4720bbdb57016e6fc1ee77cd9fa"
+    }
+  ],
+  "manual": [
+    "D01 PDF 157 (cetak 153), diagram pelumasan; 161 (157), oil cooler; 163 (159), diagram pendinginan; 166 (162), thermostat/heat exchanger.",
+    "D01 PDF 101–102, crankpin clearance; 104/106, upper main bearing groove.",
+    "Foto P07, P17 dan P18: casing, orientasi dan sebagian siku eksternal; jalur tersembunyi di foto hanya dipakai sebagai estimasi."
+  ],
+  "geometry_grade": "Port xyz adalah datum model, bukan hasil ukur OEM. Kendati topologi sirkuit utama terdokumentasi, geometri tube, diameter, bor, arah port lokal, internal gallery dan pilihan cabang crankpin tetap perkiraan.",
+  "circuits": {
+    "seawater": {
+      "route_count": 6,
+      "distinct_ports": 7,
+      "all_ports_reachable_from": "SW-ship-in",
+      "endpoint_delta_max_mm": 0,
+      "external_boundaries": [
+        "SW-ship-in",
+        "SW-ship-out"
+      ],
+      "physical_meshes": [
+        "EXT-COOLING-05",
+        "EXT-COOLING-300",
+        "EXT-COOLING-301"
+      ]
+    },
+    "freshwater": {
+      "route_count": 10,
+      "distinct_ports": 10,
+      "all_ports_reachable_from": "FW-pump-in",
+      "endpoint_delta_max_mm": 0,
+      "external_boundaries": [],
+      "physical_meshes": [
+        "EXT-COOLING-302",
+        "EXT-COOLING-303",
+        "EXT-COOLING-304",
+        "EXT-COOLING-06"
+      ]
+    },
+    "lubrication": {
+      "route_count": 54,
+      "distinct_ports": 47,
+      "all_ports_reachable_from": "LO-screen",
+      "endpoint_delta_max_mm": 0,
+      "external_boundaries": [],
+      "physical_meshes": [
+        "INT-OILPUMP-10",
+        "EXT-LUBE-300",
+        "EXT-LUBE-301",
+        "EXT-LUBE-302",
+        "EXT-LUBE-303"
+      ]
+    }
+  },
+  "corrections": [
+    {
+      "interface": "SW pump discharge",
+      "previous_tube_end_m": [
+        0.017,
+        0.305,
+        -0.486
+      ],
+      "current_port": "SW-pump-out",
+      "old_end_to_current_face_mm": 152.42,
+      "new_end_to_current_face_mm": 0
+    },
+    {
+      "interface": "SW intercooler inlet",
+      "previous_tube_end_m": [
+        -0.095,
+        0.62,
+        -0.42
+      ],
+      "current_port": "SW-charge-in",
+      "old_end_to_current_face_mm": 112.23,
+      "new_end_to_current_face_mm": 0
+    },
+    {
+      "interface": "SW pump suction",
+      "previous_tube_end_m": [
+        -0.054,
+        0.275,
+        -0.522
+      ],
+      "current_port": "SW-pump-in",
+      "old_end_to_current_face_mm": 32.8,
+      "new_end_to_current_face_mm": 0
+    },
+    {
+      "interface": "FW pump suction",
+      "previous_tube_end_m": [
+        1.386,
+        0.525,
+        0.311
+      ],
+      "current_port": "FW-pump-in",
+      "old_end_to_current_face_mm": 53.49,
+      "new_end_to_current_face_mm": 0
+    }
+  ],
+  "crank_kinematic_tests": [
+    {
+      "cylinder": 1,
+      "max_film_reference_mm_at_two_degree_samples": 0
+    },
+    {
+      "cylinder": 2,
+      "max_film_reference_mm_at_two_degree_samples": 1.8e-05
+    },
+    {
+      "cylinder": 3,
+      "max_film_reference_mm_at_two_degree_samples": 1.8e-05
+    },
+    {
+      "cylinder": 4,
+      "max_film_reference_mm_at_two_degree_samples": 1.8e-05
+    },
+    {
+      "cylinder": 5,
+      "max_film_reference_mm_at_two_degree_samples": 1.8e-05
+    },
+    {
+      "cylinder": 6,
+      "max_film_reference_mm_at_two_degree_samples": 0
+    }
+  ],
+  "excluded": [
+    "Cabang katup keselamatan dan pengatur tekanan, filter bypass, pompa injeksi, rocker, nok dan pendinginan piston tercantum pada D01 PDF 157. Routing 3D cabang tersebut belum diverifikasi.",
+    "Bypass termostat dingin dan tangki pemulihan belum dianimasikan. Tampilan menggambarkan mesin hangat.",
+    "Geometri dan identitas sambungan sesuai nomor seri belum terverifikasi. Pipa milik kapal dan opsi pendingin gearbox berhenti di batas mesin."
+  ],
+  "retired_legacy_proxy": {
+    "id": "EXT-COOLING-07",
+    "source": "D05 Fig 42, 57, 63 dan 65 serta foto P17",
+    "replacement_id": "EXT-COOLING-302",
+    "thermostat_ids": [
+      "EXT-COOLING-55",
+      "EXT-COOLING-56",
+      "EXT-COOLING-57",
+      "EXT-COOLING-58",
+      "EXT-COOLING-59",
+      "EXT-COOLING-60"
+    ],
+    "reason": "Proxy solid berada pada posisi pendingin oli dan menampilkan penutup termostat beserta flange bebas. Rakitan pendingin oli, enam termostat pada penukar panas dan saluran pompa ke pendingin sudah dimodelkan terpisah."
+  }
+}

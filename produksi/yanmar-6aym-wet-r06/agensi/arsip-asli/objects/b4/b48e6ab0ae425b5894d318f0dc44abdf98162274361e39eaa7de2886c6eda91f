@@ -1,0 +1,804 @@
+{
+  "scope": "Isolated authoring scratch, Blender 4.3.2 import of exported GLB. Full-engine placement and WebGL tests belong to independent QA.",
+  "source_module_sha256": "c349618436c90c275560ca8b769c6349e032777e99335b1add011b55550213b3",
+  "checks": {
+    "triangles": [
+      {
+        "id": "EXT-COOLING-01",
+        "triangles": 1116,
+        "area_le_1e-12_m2": 0
+      },
+      {
+        "id": "EXT-COOLING-50",
+        "triangles": 25952,
+        "area_le_1e-12_m2": 0
+      },
+      {
+        "id": "EXT-COOLING-51",
+        "triangles": 3420,
+        "area_le_1e-12_m2": 0
+      },
+      {
+        "id": "EXT-COOLING-52",
+        "triangles": 3420,
+        "area_le_1e-12_m2": 0
+      },
+      {
+        "id": "EXT-COOLING-53",
+        "triangles": 768,
+        "area_le_1e-12_m2": 0
+      },
+      {
+        "id": "EXT-COOLING-54",
+        "triangles": 768,
+        "area_le_1e-12_m2": 0
+      },
+      {
+        "id": "EXT-COOLING-55",
+        "triangles": 4508,
+        "area_le_1e-12_m2": 0
+      },
+      {
+        "id": "EXT-COOLING-56",
+        "triangles": 4508,
+        "area_le_1e-12_m2": 0
+      },
+      {
+        "id": "EXT-COOLING-57",
+        "triangles": 4508,
+        "area_le_1e-12_m2": 0
+      },
+      {
+        "id": "EXT-COOLING-58",
+        "triangles": 4508,
+        "area_le_1e-12_m2": 0
+      },
+      {
+        "id": "EXT-COOLING-59",
+        "triangles": 4508,
+        "area_le_1e-12_m2": 0
+      },
+      {
+        "id": "EXT-COOLING-60",
+        "triangles": 4508,
+        "area_le_1e-12_m2": 0
+      },
+      {
+        "id": "EXT-COOLING-61",
+        "triangles": 108,
+        "area_le_1e-12_m2": 0
+      },
+      {
+        "id": "EXT-COOLING-62",
+        "triangles": 532,
+        "area_le_1e-12_m2": 0
+      },
+      {
+        "id": "EXT-LUBE-05",
+        "triangles": 60,
+        "area_le_1e-12_m2": 0
+      },
+      {
+        "id": "EXT-LUBE-60",
+        "triangles": 5040,
+        "area_le_1e-12_m2": 0
+      },
+      {
+        "id": "EXT-LUBE-61",
+        "triangles": 5040,
+        "area_le_1e-12_m2": 0
+      },
+      {
+        "id": "EXT-LUBE-62",
+        "triangles": 1840,
+        "area_le_1e-12_m2": 0
+      },
+      {
+        "id": "EXT-LUBE-63",
+        "triangles": 64,
+        "area_le_1e-12_m2": 0
+      },
+      {
+        "id": "EXT-LUBE-64",
+        "triangles": 220,
+        "area_le_1e-12_m2": 0
+      },
+      {
+        "id": "EXT-LUBE-65",
+        "triangles": 64,
+        "area_le_1e-12_m2": 0
+      },
+      {
+        "id": "EXT-LUBE-66",
+        "triangles": 3072,
+        "area_le_1e-12_m2": 0
+      },
+      {
+        "id": "EXT-LUBE-67",
+        "triangles": 6144,
+        "area_le_1e-12_m2": 0
+      }
+    ],
+    "surface_pair_tests": [
+      {
+        "a": "EXT-COOLING-01",
+        "b": "EXT-COOLING-50",
+        "triangle_intersections": 0
+      },
+      {
+        "a": "EXT-LUBE-05",
+        "b": "EXT-LUBE-60",
+        "triangle_intersections": 0
+      },
+      {
+        "a": "EXT-LUBE-05",
+        "b": "EXT-LUBE-61",
+        "triangle_intersections": 0
+      },
+      {
+        "a": "EXT-LUBE-60",
+        "b": "EXT-LUBE-61",
+        "triangle_intersections": 0
+      },
+      {
+        "a": "EXT-LUBE-60",
+        "b": "EXT-LUBE-62",
+        "triangle_intersections": 0
+      },
+      {
+        "a": "EXT-COOLING-01",
+        "b": "EXT-COOLING-55",
+        "triangle_intersections": 0
+      },
+      {
+        "a": "EXT-COOLING-55",
+        "b": "EXT-COOLING-50",
+        "triangle_intersections": 0
+      }
+    ]
+  },
+  "limitations": [
+    "Undimensioned geometry interpretation from OEM schematic. Part and serial applicability checked only at WET designation.",
+    "Plate and tube counts, pitch, flow-port positions, materials and finishing are approximate.",
+    "Pressure cap internals, individual studs/bolts/plugs, FW reservoir, corrosion protection zinc and unassigned rows are not complete.",
+    "Geometry of individual core plates/tubes belongs to removable core assembly and has no separate OEM PN in sources."
+  ],
+  "Fig42": {
+    "catalog_url": "https://yanmarshop.com/en-GB/catalog/all/servicebom/yanmardata-1310902/yanmar-marine-marine-main-engine-medium-ay-series-6aym-wet-fig-42-lub-oil-cooler",
+    "rows": [
+      {
+        "reference": "1",
+        "part_number": "748620-33011",
+        "label": "COOLER ASSY, OIL",
+        "qty": "1",
+        "ids": [
+          "RAK-OIL-COOLER"
+        ],
+        "coverage": "mapped"
+      },
+      {
+        "reference": "2",
+        "part_number": "148620-33030",
+        "label": "BODY, COOLER",
+        "qty": "1",
+        "ids": [
+          "EXT-LUBE-05"
+        ],
+        "coverage": "mapped"
+      },
+      {
+        "reference": "3",
+        "part_number": "148620-33041",
+        "label": "COVER",
+        "qty": "1",
+        "ids": [
+          "EXT-LUBE-62"
+        ],
+        "coverage": "mapped"
+      },
+      {
+        "reference": "4",
+        "part_number": "148620-33010",
+        "label": "CORE ASSY",
+        "qty": "2",
+        "ids": [
+          "EXT-LUBE-60",
+          "EXT-LUBE-61"
+        ],
+        "coverage": "mapped"
+      },
+      {
+        "reference": "5",
+        "part_number": "26376-100002",
+        "label": "NUT, M10",
+        "qty": "8",
+        "ids": [],
+        "coverage": "no independent model ID mapped to this catalogue row"
+      },
+      {
+        "reference": "6",
+        "part_number": "24326-000300",
+        "label": "O-RING, 4DG30.0",
+        "qty": "4",
+        "ids": [
+          "EXT-LUBE-66"
+        ],
+        "coverage": "mapped"
+      },
+      {
+        "reference": "7",
+        "part_number": "24316-000140",
+        "label": "O-RING, 4DP14.0",
+        "qty": "8",
+        "ids": [
+          "EXT-LUBE-67"
+        ],
+        "coverage": "mapped"
+      },
+      {
+        "reference": "8",
+        "part_number": "26106-100652",
+        "label": "BOLT, M10X 65 PLATED",
+        "qty": "1",
+        "ids": [],
+        "coverage": "no independent model ID mapped to this catalogue row"
+      },
+      {
+        "reference": "9",
+        "part_number": "26106-100252",
+        "label": "BOLT, M10X 25 PLATED",
+        "qty": "9",
+        "ids": [],
+        "coverage": "no independent model ID mapped to this catalogue row"
+      },
+      {
+        "reference": "10",
+        "part_number": "23887-200002",
+        "label": "PLUG, 20",
+        "qty": "1",
+        "ids": [],
+        "coverage": "no independent model ID mapped to this catalogue row"
+      },
+      {
+        "reference": "11",
+        "part_number": "23414-200000",
+        "label": "GASKET, 20X1.0",
+        "qty": "1",
+        "ids": [],
+        "coverage": "no independent model ID mapped to this catalogue row"
+      },
+      {
+        "reference": "12",
+        "part_number": "23897-030002",
+        "label": "PLUG G3/8,HEX.",
+        "qty": "1",
+        "ids": [],
+        "coverage": "no independent model ID mapped to this catalogue row"
+      },
+      {
+        "reference": "13",
+        "part_number": "23414-170000",
+        "label": "GASKET, 17X1.0",
+        "qty": "1",
+        "ids": [],
+        "coverage": "no independent model ID mapped to this catalogue row"
+      },
+      {
+        "reference": "14",
+        "part_number": "26106-100302",
+        "label": "BOLT, M10X 30 PLATED",
+        "qty": "2",
+        "ids": [],
+        "coverage": "no independent model ID mapped to this catalogue row"
+      },
+      {
+        "reference": "15",
+        "part_number": "26106-100802",
+        "label": "BOLT, M10X 80 PLATED",
+        "qty": "6",
+        "ids": [],
+        "coverage": "no independent model ID mapped to this catalogue row"
+      },
+      {
+        "reference": "16",
+        "part_number": "148620-33061",
+        "label": "COVER",
+        "qty": "1",
+        "ids": [
+          "EXT-LUBE-64"
+        ],
+        "coverage": "mapped"
+      },
+      {
+        "reference": "17",
+        "part_number": "148620-33050",
+        "label": "GASKET",
+        "qty": "1",
+        "ids": [
+          "EXT-LUBE-63"
+        ],
+        "coverage": "mapped"
+      },
+      {
+        "reference": "18",
+        "part_number": "148620-33070",
+        "label": "GASKET",
+        "qty": "1",
+        "ids": [
+          "EXT-LUBE-65"
+        ],
+        "coverage": "mapped"
+      },
+      {
+        "reference": "19",
+        "part_number": "23897-040002",
+        "label": "PLUG, G1/2",
+        "qty": "2",
+        "ids": [],
+        "coverage": "no independent model ID mapped to this catalogue row"
+      },
+      {
+        "reference": "20",
+        "part_number": "23414-210000",
+        "label": "GASKET, 21X1.0",
+        "qty": "2",
+        "ids": [],
+        "coverage": "no independent model ID mapped to this catalogue row"
+      },
+      {
+        "reference": "21",
+        "part_number": "26366-100002",
+        "label": "NUT, M10",
+        "qty": "8",
+        "ids": [],
+        "coverage": "no independent model ID mapped to this catalogue row"
+      },
+      {
+        "reference": "22",
+        "part_number": "26216-101402",
+        "label": "STUD, M10X140",
+        "qty": "8",
+        "ids": [],
+        "coverage": "no independent model ID mapped to this catalogue row"
+      }
+    ]
+  },
+  "Fig57": {
+    "catalog_url": "https://yanmarshop.com/en-GB/catalog/all/servicebom/yanmardata-1311151/yanmar-marine-marine-main-engine-medium-ay-series-6aym-wet-fig-57-fresh-water-cooler",
+    "rows": [
+      {
+        "reference": "1",
+        "part_number": "748660-44801",
+        "label": "COOLER ASSY, WATER",
+        "qty": "1",
+        "ids": [
+          "RAK-FW-COOLER"
+        ],
+        "coverage": "mapped"
+      },
+      {
+        "reference": "2",
+        "part_number": "126683-44400",
+        "label": "COVER",
+        "qty": "1",
+        "ids": [],
+        "coverage": "no independent model ID mapped to this catalogue row"
+      },
+      {
+        "reference": "3",
+        "part_number": "148218-33061",
+        "label": "GASKET, COVER",
+        "qty": "1",
+        "ids": [],
+        "coverage": "no independent model ID mapped to this catalogue row"
+      },
+      {
+        "reference": "4",
+        "part_number": "127610-11750",
+        "label": "PLUG, M33X1.5",
+        "qty": "2",
+        "ids": [],
+        "coverage": "no independent model ID mapped to this catalogue row"
+      },
+      {
+        "reference": "5",
+        "part_number": "23897-040002",
+        "label": "PLUG, G1/2",
+        "qty": "1",
+        "ids": [],
+        "coverage": "no independent model ID mapped to this catalogue row"
+      },
+      {
+        "reference": "6",
+        "part_number": "127610-11760",
+        "label": "GASKET",
+        "qty": "2",
+        "ids": [],
+        "coverage": "no independent model ID mapped to this catalogue row"
+      },
+      {
+        "reference": "7",
+        "part_number": "23414-210000",
+        "label": "GASKET, 21X1.0",
+        "qty": "1",
+        "ids": [],
+        "coverage": "no independent model ID mapped to this catalogue row"
+      },
+      {
+        "reference": "8",
+        "part_number": "128623-44210",
+        "label": "FILLER ASSY",
+        "qty": "1",
+        "ids": [
+          "EXT-COOLING-02"
+        ],
+        "coverage": "mapped"
+      },
+      {
+        "reference": "9",
+        "part_number": "126650-44610",
+        "label": "GASKET",
+        "qty": "1",
+        "ids": [],
+        "coverage": "no independent model ID mapped to this catalogue row"
+      },
+      {
+        "reference": "10",
+        "part_number": "132310-09330",
+        "label": "PACKING",
+        "qty": "4",
+        "ids": [],
+        "coverage": "no independent model ID mapped to this catalogue row"
+      },
+      {
+        "reference": "11",
+        "part_number": "145640-09320",
+        "label": "FLANGE",
+        "qty": "4",
+        "ids": [],
+        "coverage": "no independent model ID mapped to this catalogue row"
+      },
+      {
+        "reference": "12",
+        "part_number": "126685-09330",
+        "label": "GASKET",
+        "qty": "4",
+        "ids": [],
+        "coverage": "no independent model ID mapped to this catalogue row"
+      },
+      {
+        "reference": "14",
+        "part_number": "148633-44211",
+        "label": "CORE ASSY",
+        "qty": "1",
+        "ids": [
+          "EXT-COOLING-50"
+        ],
+        "coverage": "mapped"
+      },
+      {
+        "reference": "22",
+        "part_number": "148633-44310",
+        "label": "COVER",
+        "qty": "1",
+        "ids": [
+          "EXT-COOLING-52"
+        ],
+        "coverage": "mapped"
+      },
+      {
+        "reference": "23",
+        "part_number": "148660-44321",
+        "label": "COVER",
+        "qty": "1",
+        "ids": [
+          "EXT-COOLING-51"
+        ],
+        "coverage": "mapped"
+      },
+      {
+        "reference": "24",
+        "part_number": "148633-44530",
+        "label": "GUARD ASSY",
+        "qty": "1",
+        "ids": [],
+        "coverage": "no independent model ID mapped to this catalogue row"
+      },
+      {
+        "reference": "27",
+        "part_number": "26113-060122",
+        "label": "BOLT, M6X 12",
+        "qty": "2",
+        "ids": [],
+        "coverage": "no independent model ID mapped to this catalogue row"
+      },
+      {
+        "reference": "28",
+        "part_number": "24321-002300",
+        "label": "O-RING, 1AG230.0",
+        "qty": "2",
+        "ids": [
+          "EXT-COOLING-53",
+          "EXT-COOLING-54"
+        ],
+        "coverage": "mapped"
+      },
+      {
+        "reference": "29",
+        "part_number": "26226-100352",
+        "label": "STUD, M10X 35",
+        "qty": "12",
+        "ids": [],
+        "coverage": "no independent model ID mapped to this catalogue row"
+      },
+      {
+        "reference": "30",
+        "part_number": "26716-100002",
+        "label": "NUT, M10",
+        "qty": "4",
+        "ids": [],
+        "coverage": "no independent model ID mapped to this catalogue row"
+      },
+      {
+        "reference": "31",
+        "part_number": "27200-400400",
+        "label": "ZINC, NUT40X40",
+        "qty": "4",
+        "ids": [],
+        "coverage": "no independent model ID mapped to this catalogue row"
+      },
+      {
+        "reference": "32",
+        "part_number": "26366-100002",
+        "label": "NUT, M10",
+        "qty": "16",
+        "ids": [],
+        "coverage": "no independent model ID mapped to this catalogue row"
+      },
+      {
+        "reference": "33",
+        "part_number": "148660-44351",
+        "label": "COVER, THERMOSTAT",
+        "qty": "1",
+        "ids": [
+          "EXT-COOLING-61"
+        ],
+        "coverage": "mapped"
+      },
+      {
+        "reference": "34",
+        "part_number": "148660-44360",
+        "label": "GASKET",
+        "qty": "1",
+        "ids": [
+          "EXT-COOLING-62"
+        ],
+        "coverage": "mapped"
+      },
+      {
+        "reference": "35",
+        "part_number": "23414-170000",
+        "label": "GASKET, 17X1.0",
+        "qty": "2",
+        "ids": [],
+        "coverage": "no independent model ID mapped to this catalogue row"
+      },
+      {
+        "reference": "36",
+        "part_number": "23894-030002",
+        "label": "PLUG, G3/8",
+        "qty": "2",
+        "ids": [],
+        "coverage": "no independent model ID mapped to this catalogue row"
+      },
+      {
+        "reference": "37",
+        "part_number": "26106-080162",
+        "label": "BOLT, M8X 16 PLATED",
+        "qty": "4",
+        "ids": [],
+        "coverage": "no independent model ID mapped to this catalogue row"
+      },
+      {
+        "reference": "38",
+        "part_number": "26106-100202",
+        "label": "BOLT, M10X 20 PLATED",
+        "qty": "8",
+        "ids": [],
+        "coverage": "no independent model ID mapped to this catalogue row"
+      },
+      {
+        "reference": "39",
+        "part_number": "26106-100252",
+        "label": "BOLT, M10X 25 PLATED",
+        "qty": "4",
+        "ids": [],
+        "coverage": "no independent model ID mapped to this catalogue row"
+      },
+      {
+        "reference": "40",
+        "part_number": "26106-100602",
+        "label": "BOLT, M10X 60 PLATED",
+        "qty": "9",
+        "ids": [],
+        "coverage": "no independent model ID mapped to this catalogue row"
+      },
+      {
+        "reference": "41",
+        "part_number": "23887-120002",
+        "label": "PLUG, 12",
+        "qty": "1",
+        "ids": [],
+        "coverage": "no independent model ID mapped to this catalogue row"
+      },
+      {
+        "reference": "42",
+        "part_number": "23414-120000",
+        "label": "GASKET, 12X1.0",
+        "qty": "1",
+        "ids": [],
+        "coverage": "no independent model ID mapped to this catalogue row"
+      },
+      {
+        "reference": "43",
+        "part_number": "43230-556830",
+        "label": "SUB RESERVOIR ASSY",
+        "qty": "1",
+        "ids": [],
+        "coverage": "no independent model ID mapped to this catalogue row"
+      },
+      {
+        "reference": "44",
+        "part_number": "42215-570330",
+        "label": "BRACKET",
+        "qty": "1",
+        "ids": [],
+        "coverage": "no independent model ID mapped to this catalogue row"
+      },
+      {
+        "reference": "45",
+        "part_number": "42215-570340",
+        "label": "BELT, TANK",
+        "qty": "1",
+        "ids": [],
+        "coverage": "no independent model ID mapped to this catalogue row"
+      },
+      {
+        "reference": "46",
+        "part_number": "23061-071700",
+        "label": "PIPE, 7X1700",
+        "qty": "1",
+        "ids": [],
+        "coverage": "no independent model ID mapped to this catalogue row"
+      },
+      {
+        "reference": "47",
+        "part_number": "123482-44570",
+        "label": "PIPE",
+        "qty": "1",
+        "ids": [],
+        "coverage": "no independent model ID mapped to this catalogue row"
+      },
+      {
+        "reference": "48",
+        "part_number": "23000-013000",
+        "label": "CLAMP,  13",
+        "qty": "2",
+        "ids": [],
+        "coverage": "no independent model ID mapped to this catalogue row"
+      },
+      {
+        "reference": "49",
+        "part_number": "23010-009000",
+        "label": "CLAMP,   9",
+        "qty": "1",
+        "ids": [],
+        "coverage": "no independent model ID mapped to this catalogue row"
+      },
+      {
+        "reference": "50",
+        "part_number": "22217-080000",
+        "label": "WASHER, SPRING  8",
+        "qty": "4",
+        "ids": [],
+        "coverage": "no independent model ID mapped to this catalogue row"
+      },
+      {
+        "reference": "51",
+        "part_number": "26106-080162",
+        "label": "BOLT, M8X 16 PLATED",
+        "qty": "4",
+        "ids": [],
+        "coverage": "no independent model ID mapped to this catalogue row"
+      },
+      {
+        "reference": "52",
+        "part_number": "26366-080002",
+        "label": "NUT, M8",
+        "qty": "2",
+        "ids": [],
+        "coverage": "no independent model ID mapped to this catalogue row"
+      },
+      {
+        "reference": "53",
+        "part_number": "148660-44611",
+        "label": "BRACKET",
+        "qty": "1",
+        "ids": [],
+        "coverage": "no independent model ID mapped to this catalogue row"
+      },
+      {
+        "reference": "54",
+        "part_number": "26156-160402",
+        "label": "BOLT, M16X 40 PLATED",
+        "qty": "2",
+        "ids": [],
+        "coverage": "no independent model ID mapped to this catalogue row"
+      },
+      {
+        "reference": "55",
+        "part_number": "26156-140402",
+        "label": "BOLT, M14X 40 PLATED",
+        "qty": "2",
+        "ids": [],
+        "coverage": "no independent model ID mapped to this catalogue row"
+      },
+      {
+        "reference": "56",
+        "part_number": "26116-120402",
+        "label": "BOLT, M12X 40 PLATED",
+        "qty": "2",
+        "ids": [],
+        "coverage": "no independent model ID mapped to this catalogue row"
+      },
+      {
+        "reference": "57",
+        "part_number": "26106-100302",
+        "label": "BOLT, M10X 30 PLATED",
+        "qty": "9",
+        "ids": [],
+        "coverage": "no independent model ID mapped to this catalogue row"
+      },
+      {
+        "reference": "58",
+        "part_number": "148616-48200",
+        "label": "THERMOSTAT, 71C 54",
+        "qty": "3",
+        "ids": [
+          "EXT-COOLING-55",
+          "EXT-COOLING-56",
+          "EXT-COOLING-57"
+        ],
+        "coverage": "mapped"
+      },
+      {
+        "reference": "59",
+        "part_number": "126634-48180",
+        "label": "THERMOSTAT, 76.5-90",
+        "qty": "3",
+        "ids": [
+          "EXT-COOLING-58",
+          "EXT-COOLING-59",
+          "EXT-COOLING-60"
+        ],
+        "coverage": "mapped"
+      },
+      {
+        "reference": "60",
+        "part_number": "41649-000130",
+        "label": "PLUG, BLIND",
+        "qty": "1",
+        "ids": [],
+        "coverage": "no independent model ID mapped to this catalogue row"
+      },
+      {
+        "reference": "61",
+        "part_number": "22190-360002",
+        "label": "WASHER, SEAL 36",
+        "qty": "1",
+        "ids": [],
+        "coverage": "no independent model ID mapped to this catalogue row"
+      }
+    ]
+  }
+}

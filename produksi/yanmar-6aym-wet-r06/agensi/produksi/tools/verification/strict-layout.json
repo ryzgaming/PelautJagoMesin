@@ -1,0 +1,119 @@
+{
+  "commands": [
+    "python agensi/produksi/tools/build.py --target all --output <new-folder>",
+    "python agensi/produksi/tools/build.py --target metadata --output <new-folder>",
+    "python agensi/produksi/tools/build.py --target check --output <new-folder>",
+    "python agensi/produksi/tools/audit.py <new-folder>",
+    "python agensi/produksi/tools/compare_geometry.py model/assets/exterior.glb <new-folder>/project/model/exterior/exterior.glb"
+  ],
+  "check": "passed",
+  "metadata": "passed",
+  "full_cold_build": {
+    "target": "all",
+    "python": "3.12.14",
+    "commands": [
+      {
+        "name": "water",
+        "exit": 0,
+        "elapsed_seconds": 0.05
+      },
+      {
+        "name": "routes",
+        "exit": 0,
+        "elapsed_seconds": 0.1
+      },
+      {
+        "name": "route-coverage",
+        "exit": 0,
+        "elapsed_seconds": 0.03
+      },
+      {
+        "name": "internal",
+        "exit": 0,
+        "elapsed_seconds": 13.83
+      },
+      {
+        "name": "exterior",
+        "exit": 0,
+        "elapsed_seconds": 99.81
+      },
+      {
+        "name": "motion",
+        "exit": 0,
+        "elapsed_seconds": 0.31
+      },
+      {
+        "name": "functions",
+        "exit": 0,
+        "elapsed_seconds": 0.14
+      }
+    ],
+    "layers": {
+      "internal": {
+        "mesh_count": 705,
+        "sha256": "526ce37f126203eb288388dbd7922dd85749b19ddf8ef82ee5bfcf9d472ec8f5",
+        "same_glb_bytes_as_review": true
+      },
+      "exterior": {
+        "mesh_count": 479,
+        "sha256": "18f3f20a9c0d695ec920dd28156c296e094a82b54b5086863795297a1c4463ac",
+        "same_glb_bytes_as_review": false
+      }
+    },
+    "blender": "Blender 4.3.2",
+    "routes": 164,
+    "mesh_count": 1184,
+    "assembly_recipes": 78,
+    "status": "passed"
+  },
+  "review_master_files": {
+    "model/masters/exterior.blend": {
+      "sha256": "348d31ac5de8b16352421f643291410b86d59e9634988d0a5ca6d2dfdfb12157",
+      "size_bytes": 49638528,
+      "external_links": []
+    },
+    "model/masters/internal.blend": {
+      "sha256": "2dd18541aade76c03c06d9a41ca1aa7c853ff5115a6e89b1b5f4d44dde381e58",
+      "size_bytes": 20856272,
+      "external_links": []
+    }
+  },
+  "output_guards_tested": [
+    "model",
+    "runtime",
+    "agensi",
+    "ui-workspace"
+  ],
+  "source_inventory_entries_verified": 159,
+  "metadata_with_review_GLB_byte_match": {
+    "flow/water-lube.json": true,
+    "flow/fuel-gas.json": true,
+    "flow/routes.json": true,
+    "flow/source-coverage.json": true,
+    "motion/drivetrain.json": true,
+    "motion/shaft-inventory.json": true,
+    "motion/functions.json": true
+  },
+  "rebuilt_assembly_recipes_byte_match": 78,
+  "candidate_geometry": {
+    "reference_sha256": "defc58c070a871da2068b2ddd4388ff51b340a1014dfde2226f7e47946a89121",
+    "candidate_sha256": "18f3f20a9c0d695ec920dd28156c296e094a82b54b5086863795297a1c4463ac",
+    "same_bytes": false,
+    "same_glTF_JSON": true,
+    "mesh_count_reference": 479,
+    "mesh_count_candidate": 479,
+    "missing": [],
+    "extra": [],
+    "geometry_differences": {},
+    "same_base_triangle_geometry": true,
+    "scope": "Exact base vertex positions, duplicate counts and oriented triangles per primitive. Does not compare shading or morph-target values."
+  },
+  "rebuilt_geometry_audit": {
+    "gear_pairs_passed": true,
+    "gear_pairs": 8,
+    "impeller_poses": 181,
+    "impeller_crossings_to_housing": 0,
+    "impeller_crossings_to_cam": 0,
+    "open_turbo_oil_bores": 5
+  }
+}

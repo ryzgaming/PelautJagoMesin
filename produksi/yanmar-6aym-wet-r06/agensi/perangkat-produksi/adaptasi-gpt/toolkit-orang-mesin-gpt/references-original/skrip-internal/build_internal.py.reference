@@ -1,0 +1,855 @@
+# Build internal parts of Caterpillar 3512C HD (V12) in Blender (headless).
+# Coordinate system per /tmp/claude-0/c3512/model/datum.json (m, Y up, crank axis = X,
+# origin crank axis at block rear face, +X front, +Z right seen from flywheel).
+import bpy, bmesh, math, json, os
+from mathutils import Vector, Matrix
+
+OUT = '/tmp/claude-0/c3512/model/internal'
+D2R = math.pi / 180.0
+
+# ---------------------------------------------------------------- parameters
+BORE = 0.170            # DOCUMENTED D02 hlm.1
+STROKE = 0.215          # DOCUMENTED D02 hlm.1 (HD)
+R_CRANK = STROKE / 2
+V_HALF = 30.0           # INFERRED D06 (60 V-12)
+DECK = 0.620            # ESTIMATED: atas blok/dasar kepala exterior (Integrator, diukur Exterior dari D01)
+HC = 0.130              # piston compression height (pin -> crown), ESTIMATED
+CROWN_TDC = DECK - 0.0015
+ROD_L = CROWN_TDC - HC - R_CRANK   # = 0.471, ESTIMATED (derived)
+BANK_DX = 0.065         # ILLUSTRATIVE placeholder datum bank_offset_x
+XR = {1: 1.563, 3: 1.293, 5: 1.023, 7: 0.753, 9: 0.483, 11: 0.213}
+FIRING = [1, 12, 9, 4, 5, 8, 11, 2, 3, 10, 7, 6]   # D06, INFERRED for 3512C
+# Flywheel (incl. 183-tooth ring gear) and damper bodies are the exterior ones; read their faces so the
+# crank flange and nose meet them without overlap.
+_ext = {r['id']: r['bbox_datum_m'] for r in json.load(open('/tmp/claude-0/c3512/model/exterior/inventory.json'))['item']}
+FW_FACE = _ext['EXT-FLYWHEEL-01']['max'][0]
+DMP_FACE = _ext['EXT-DAMPER-01']['min'][0]
+
+
+def cyl_x(c):
+    return XR[c] if c % 2 else XR[c - 1] - BANK_DX
+
+def bank(c):
+    return 'R' if c % 2 else 'L'
+
+def theta(b):           # rotation about +X mapping local +Y to bank axis
+    return V_HALF * D2R if b == 'R' else -V_HALF * D2R
+
+def sgn(b):             # local +Z is outward for R, inward for L
+    return 1.0 if b == 'R' else -1.0
+
+def beta_bank(b):       # angle in YZ plane measured from +Y toward +Z
+    return V_HALF if b == 'R' else -V_HALF
+
+PHI = {c: 60.0 * i for i, c in enumerate(FIRING)}   # crank angle of firing TDC
+def wrap360(a):
+    return a % 360.0
+def wrap720s(a):        # to (-360, 360]
+    a = a % 720.0
+    return a - 720.0 if a > 360.0 else a
+BETA_PIN0 = {c: wrap360(beta_bank(bank(c)) + PHI[c]) for c in PHI}
+PAIRS = [(1, 2), (3, 4), (5, 6), (7, 8), (9, 10), (11, 12)]
+for a, b in PAIRS:
+    assert abs(BETA_PIN0[a] - BETA_PIN0[b]) < 1e-6, (a, b)
+
+def ydir(beta_deg):
+    b = beta_deg * D2R
+    return Vector((0.0, math.cos(b), math.sin(b)))
+
+# camshaft (ILLUSTRATIVE position) in bank frame
+CAM_A, CAM_T = 0.290, 0.155
+CAM_RB, CAM_H = 0.035, 0.010
+INJ_H = 0.008
+ROLLER_R = 0.014
+LOBE_X = {'IN': -0.035, 'INJ': 0.0, 'EX': 0.035}
+HD = {'IN': 120.0, 'EX': 120.0, 'INJ': 60.0}          # half duration, crank deg
+def lobe_peak(c, kind):
+    return {'IN': PHI[c] + 470.0, 'EX': PHI[c] + 250.0, 'INJ': PHI[c] + 5.0}[kind] % 720.0
+def lift(kind, phi_deg, c):
+    d = wrap720s(phi_deg - lobe_peak(c, kind))
+    h = INJ_H if kind == 'INJ' else CAM_H
+    if abs(d) >= HD[kind]:
+        return 0.0
+    return h * math.cos(0.5 * math.pi * d / HD[kind]) ** 2
+
+def bank_point(c, x, a, t):
+    """global point of bank-frame coords (x rel. cylinder, a along axis, t outward)"""
+    b = bank(c)
+    u = ydir(beta_bank(b))
+    n = Vector((0.0, -math.sin(beta_bank(b) * D2R), math.cos(beta_bank(b) * D2R))) if b == 'R' else \
+        Vector((0.0, -0.5, -math.cos(V_HALF * D2R)))
+    return Vector((cyl_x(c) + x, 0, 0)) + a * u + t * n
+
+def M_bank(c, x=0.0, a=0.0, tl=0.0, rot=0.0):
+    """object matrix: origin at bank-local point; local axes rotated about X only"""
+    return (Matrix.Translation((cyl_x(c), 0, 0)) @ Matrix.Rotation(theta(bank(c)), 4, 'X')
+            @ Matrix.Translation((x, a, tl)) @ Matrix.Rotation(rot, 4, 'X'))
+
+# ---------------------------------------------------------------- geometry helpers
+class MB:
+    def __init__(s):
+        s.v, s.f = [], []
+    def add(s, vf, M=None):
+        v, f = vf
+        o = len(s.v)
+        if M is not None:
+            v = [tuple(M @ Vector(p)) for p in v]
+        s.v += [tuple(p) for p in v]
+        s.f += [tuple(i + o for i in ff) for ff in f]
+        return s
+
+def _pt(axis, r, h, ang):
+    c, si = r * math.cos(ang), r * math.sin(ang)
+    if axis == 'Y':
+        return (si, h, c)
+    if axis == 'X':
+        return (h, c, si)
+    return (c, si, h)
+
+def lathe(profile, n=32, axis='Y', closed=False):
+    verts, faces, idx = [], [], []
+    for (r, h) in profile:
+        if r <= 1e-9:
+            idx.append([len(verts)] * n)
+            verts.append(_pt(axis, 0, h, 0))
+        else:
+            row = []
+            for k in range(n):
+                row.append(len(verts))
+                verts.append(_pt(axis, r, h, 2 * math.pi * k / n))
+            idx.append(row)
+    m = len(profile)
+    rng = range(m) if closed else range(m - 1)
+    for i in rng:
+        A, B = idx[i], idx[(i + 1) % m]
+        for k in range(n):
+            k2 = (k + 1) % n
+            q = [A[k], A[k2], B[k2], B[k]]
+            uq = []
+            for x in q:
+                if x not in uq:
+                    uq.append(x)
+            if len(uq) >= 3:
+                faces.append(tuple(uq))
+    return verts, faces
+
+def cyl(r, h0, h1, n=32, axis='Y'):
+    return lathe([(0, h0), (r, h0), (r, h1), (0, h1)], n, axis)
+
+def tubeY(ro, ri, h0, h1, n=32, axis='Y'):
+    return lathe([(ri, h0), (ro, h0), (ro, h1), (ri, h1)], n, axis, closed=True)
+
+def prism(poly, h0, h1, axis='X'):
+    """poly in (u,v); axis X -> (h,u,v); axis Y -> (u,h,v); axis Z -> (u,v,h)"""
+    def P(u, v, h):
+        return (h, u, v) if axis == 'X' else ((u, h, v) if axis == 'Y' else (u, v, h))
+    n = len(poly)
+    verts = [P(u, v, h0) for u, v in poly] + [P(u, v, h1) for u, v in poly]
+    faces = [tuple(range(n)), tuple(range(2 * n - 1, n - 1, -1))]
+    for i in range(n):
+        j = (i + 1) % n
+        faces.append((i, j, n + j, n + i))
+    return verts, faces
+
+def loft(pa, pb, h0, h1, axis='Y'):
+    def P(u, v, h):
+        return (h, u, v) if axis == 'X' else ((u, h, v) if axis == 'Y' else (u, v, h))
+    n = len(pa)
+    verts = [P(u, v, h0) for u, v in pa] + [P(u, v, h1) for u, v in pb]
+    faces = [tuple(range(n)), tuple(range(2 * n - 1, n - 1, -1))]
+    for i in range(n):
+        j = (i + 1) % n
+        faces.append((i, j, n + j, n + i))
+    return verts, faces
+
+def annulus_prism(outer, inner, h0, h1, axis='X'):
+    def P(u, v, h):
+        return (h, u, v) if axis == 'X' else ((u, h, v) if axis == 'Y' else (u, v, h))
+    n = len(outer)
+    v = [P(*p, h0) for p in outer] + [P(*p, h1) for p in outer] + \
+        [P(*p, h0) for p in inner] + [P(*p, h1) for p in inner]
+    f = []
+    for i in range(n):
+        j = (i + 1) % n
+        f.append((i, j, n + j, n + i))                  # outer side
+        f.append((2 * n + i, 3 * n + i, 3 * n + j, 2 * n + j))  # inner side
+        f.append((i, 2 * n + i, 2 * n + j, j))          # cap h0
+        f.append((n + i, n + j, 3 * n + j, 3 * n + i))  # cap h1
+    return v, f
+
+def box(c, s):
+    cx, cy, cz = c
+    sx, sy, sz = s[0] / 2, s[1] / 2, s[2] / 2
+    poly = [(cy - sy, cz - sz), (cy + sy, cz - sz), (cy + sy, cz + sz), (cy - sy, cz + sz)]
+    return prism(poly, cx - sx, cx + sx, 'X')
+
+def between(p0, p1, r, n=12):
+    p0, p1 = Vector(p0), Vector(p1)
+    d = p1 - p0
+    L = d.length
+    v, f = cyl(r, 0, L, n, 'Y')
+    q = Vector((0, 1, 0)).rotation_difference(d.normalized())
+    M = Matrix.Translation(p0) @ q.to_matrix().to_4x4()
+    return [tuple(M @ Vector(p)) for p in v], f
+
+def circle(r, n, c=(0, 0), a0=0.0):
+    return [(c[0] + r * math.cos(a0 + 2 * math.pi * i / n), c[1] + r * math.sin(a0 + 2 * math.pi * i / n)) for i in range(n)]
+
+def gear_outline(N, m, c=(0, 0), phase=0.0):
+    rp = N * m / 2
+    ra, rf = rp + m, rp - 1.25 * m
+    pts = []
+    for i in range(N):
+        a = phase + 2 * math.pi * i / N
+        da = 2 * math.pi / N
+        for frac, r in ((0.0, rf), (0.18, rf), (0.30, ra), (0.50, ra), (0.62, rf), (0.80, rf)):
+            # (0.30..0.50) tip, flanks between
+            pass
+        seq = [(0.00, rf), (0.12, rf), (0.30, ra), (0.50, ra), (0.68, rf), (0.88, rf)]
+        for frac, r in seq:
+            ang = a + frac * da
+            pts.append((c[0] + r * math.cos(ang), c[1] + r * math.sin(ang)))
+    return pts, rp
+
+def gear(N, m, h0, h1, bore_r, axis='X', phase=0.0):
+    out, rp = gear_outline(N, m, phase=phase)
+    inn = []
+    for (u, v) in out:
+        a = math.atan2(v, u)
+        inn.append((bore_r * math.cos(a), bore_r * math.sin(a)))
+    return annulus_prism(out, inn, h0, h1, axis)
+
+def helix(rm, wr, y0, y1, turns, spt=14, sides=6):
+    v, f = [], []
+    N = int(turns * spt) + 1
+    rings = []
+    for i in range(N):
+        t = i / (N - 1)
+        ang = 2 * math.pi * turns * t
+        y = y0 + (y1 - y0) * t
+        c = Vector((rm * math.sin(ang), y, rm * math.cos(ang)))
+        radial = Vector((math.sin(ang), 0, math.cos(ang)))
+        up = Vector((0, 1, 0))
+        row = []
+        for k in range(sides):
+            b = 2 * math.pi * k / sides
+            p = c + wr * (math.cos(b) * radial + math.sin(b) * up)
+            row.append(len(v))
+            v.append(tuple(p))
+        rings.append(row)
+    for i in range(N - 1):
+        for k in range(sides):
+            k2 = (k + 1) % sides
+            f.append((rings[i][k], rings[i][k2], rings[i + 1][k2], rings[i + 1][k]))
+    f.append(tuple(rings[0][::-1]))
+    f.append(tuple(rings[-1]))
+    return v, f
+
+def hull2d(pts):
+    pts = sorted(set((round(x, 7), round(y, 7)) for x, y in pts))
+    def cross(o, a, b):
+        return (a[0] - o[0]) * (b[1] - o[1]) - (a[1] - o[1]) * (b[0] - o[0])
+    lo, up = [], []
+    for p in pts:
+        while len(lo) >= 2 and cross(lo[-2], lo[-1], p) <= 0:
+            lo.pop()
+        lo.append(p)
+    for p in reversed(pts):
+        while len(up) >= 2 and cross(up[-2], up[-1], p) <= 0:
+            up.pop()
+        up.append(p)
+    return lo[:-1] + up[:-1]
+
+# ---------------------------------------------------------------- scene / materials / registry
+bpy.ops.wm.read_factory_settings(use_empty=True)
+scene = bpy.context.scene
+
+def mat(name, rgb, metal, rough):
+    m = bpy.data.materials.new(name)
+    m.diffuse_color = (*rgb, 1.0)
+    m.metallic, m.roughness = metal, rough
+    try:
+        m.use_nodes = True
+    except Exception:
+        pass
+    if m.node_tree:
+        bs = m.node_tree.nodes.get('Principled BSDF')
+        if bs:
+            bs.inputs['Base Color'].default_value = (*rgb, 1.0)
+            bs.inputs['Metallic'].default_value = metal
+            bs.inputs['Roughness'].default_value = rough
+    return m
+
+MAT = {
+    'steel': mat('INT-steel-forged', (0.55, 0.56, 0.58), 1.0, 0.35),
+    'alu': mat('INT-piston-alloy', (0.78, 0.77, 0.72), 1.0, 0.45),
+    'iron': mat('INT-cast-iron', (0.36, 0.37, 0.39), 0.9, 0.6),
+    'rod': mat('INT-rod-steel', (0.40, 0.48, 0.62), 1.0, 0.4),
+    'cam': mat('INT-cam-steel', (0.62, 0.50, 0.30), 1.0, 0.35),
+    'valve': mat('INT-valve-steel', (0.80, 0.80, 0.82), 1.0, 0.25),
+    'spring': mat('INT-spring-steel', (0.20, 0.45, 0.30), 0.9, 0.4),
+    'ring': mat('INT-ring-steel', (0.25, 0.25, 0.27), 1.0, 0.3),
+    'gear': mat('INT-gear-steel', (0.50, 0.42, 0.36), 1.0, 0.35),
+    'inj': mat('INT-injector', (0.70, 0.62, 0.20), 0.8, 0.4),
+    'rock': mat('INT-rocker-steel', (0.55, 0.35, 0.45), 1.0, 0.4),
+    'pump': mat('INT-pump-iron', (0.30, 0.45, 0.55), 0.9, 0.5),
+    'bronze': mat('INT-bronze', (0.72, 0.52, 0.28), 1.0, 0.35),
+}
+
+COLL = {}
+def coll(name):
+    if name not in COLL:
+        c = bpy.data.collections.new(name)
+        scene.collection.children.link(c)
+        COLL[name] = c
+    return COLL[name]
+
+INV = []
+SHARED = {}
+
+def finish_mesh(me, angle=40.0):
+    bm = bmesh.new()
+    bm.from_mesh(me)
+    bmesh.ops.remove_doubles(bm, verts=bm.verts, dist=1e-7)
+    bmesh.ops.recalc_face_normals(bm, faces=bm.faces)
+    for f in bm.faces:
+        f.smooth = True
+    th = math.radians(angle)
+    for e in bm.edges:
+        if len(e.link_faces) == 2:
+            if e.calc_face_angle(0.0) > th:
+                e.smooth = False
+        else:
+            e.smooth = False
+    bm.to_mesh(me)
+    bm.free()
+
+def mkobj(name, mb_or_mesh, material, M, rakitan, info, angle=40.0):
+    if isinstance(mb_or_mesh, bpy.types.Mesh):
+        me = mb_or_mesh
+    else:
+        me = bpy.data.meshes.new(name + '_mesh')
+        me.from_pydata(mb_or_mesh.v, [], mb_or_mesh.f)
+        me.validate(clean_customdata=False)
+        finish_mesh(me, angle)
+        if len(me.materials) == 0:
+            me.materials.append(MAT[material])
+    ob = bpy.data.objects.new(name, me)
+    ob.matrix_world = M
+    coll('INT-' + rakitan).objects.link(ob)
+    ob['status'] = info['status']
+    ob['rakitan'] = rakitan
+    rec = dict(id=name, nama=info['nama'], rakitan=rakitan, jumlah=info.get('jumlah', 1),
+               status=info['status'], sumber=info.get('sumber'), alasan=info.get('alasan'),
+               ukuran_utama_m=info.get('ukuran'), catatan=info.get('catatan'))
+    INV.append(rec)
+    return ob
+
+def shared(key, builder, material, angle=40.0):
+    if key not in SHARED:
+        mb = builder()
+        me = bpy.data.meshes.new(key)
+        me.from_pydata(mb.v, [], mb.f)
+        me.validate(clean_customdata=False)
+        finish_mesh(me, angle)
+        me.materials.append(MAT[material])
+        SHARED[key] = me
+    return SHARED[key]
+
+S = lambda i, loc: {'id': i, 'locator': loc}
+SRC_BORE = [S('D02', 'hlm. 1 Bore x Stroke (170 x 215 mm HD)'), S('D05', 'SPECIFICATIONS FOR 3512C HD')]
+SRC_FO = [S('D06', 'hlm. 140026 Firing Order (Injection Sequence), 3512 awal; INFERRED untuk 3512C')]
+SRC_V = [S('D06', 'hlm. 140026 "60 V-12", 3512 awal; INFERRED untuk 3512C')]
+
+# ================================================================= CRANKSHAFT
+PIN_R, MAIN_R = 0.056, 0.065
+PIN_LEN = 0.122
+MAIN_W = 0.060
+WEB_W = (0.270 - PIN_LEN - MAIN_W) / 2
+throws = []
+for a, b in PAIRS:
+    xc = (cyl_x(a) + cyl_x(b)) / 2
+    throws.append((xc, BETA_PIN0[a]))
+mains = [throws[-1][0] - 0.135] + [t[0] + 0.135 for t in reversed(throws)]
+mains = sorted(mains)
+
+cr = MB()
+for xm in mains:
+    cr.add(cyl(MAIN_R, xm - MAIN_W / 2, xm + MAIN_W / 2, 40, 'X'))
+for xc, bdeg in throws:
+    pdir = ydir(bdeg)
+    pc = (pdir.y * R_CRANK, pdir.z * R_CRANK)
+    cr.add(cyl(PIN_R, -PIN_LEN / 2, PIN_LEN / 2, 36, 'X'),
+           Matrix.Translation((xc, pc[0], pc[1])))
+    pts = circle(0.076, 28, pc) + circle(0.082, 28)
+    cw = (bdeg + 180.0) * D2R
+    for k in range(15):
+        ang = cw + (-65 + 130 * k / 14) * D2R
+        pts.append((0.175 * math.cos(ang), 0.175 * math.sin(ang)))
+    # angles measured from +Y toward +Z => (u,v)=(Y,Z)
+    pts = [(p[0], p[1]) for p in pts]
+    hp = hull2d(pts)
+    for s_ in (-1, 1):
+        x0 = xc + s_ * PIN_LEN / 2
+        x1 = x0 + s_ * WEB_W
+        cr.add(prism(hp, min(x0, x1), max(x0, x1), 'X'))
+# rear: seal journal, gear seat, flange
+cr.add(cyl(0.070, -0.002, mains[0] - MAIN_W / 2, 40, 'X'))
+cr.add(cyl(0.050, -0.045, -0.002, 32, 'X'))
+cr.add(cyl(0.130, FW_FACE + 0.0005, -0.045, 48, 'X'))
+# front nose
+cr.add(cyl(0.065, mains[-1] + MAIN_W / 2, 1.92, 40, 'X'))
+cr.add(cyl(0.050, 1.92, DMP_FACE - 0.0005, 32, 'X'))
+mkobj('INT-CRANK-01', cr, 'steel', Matrix.Identity(4), 'CRANKSHAFT', dict(
+    nama='Crankshaft (poros engkol) dengan 7 main journal, 6 crankpin, 12 web dan counterweight, flens belakang (sampai muka depan EXT-FLYWHEEL-01), nose depan (sampai muka belakang EXT-DAMPER-01)',
+    status='ESTIMATED', sumber=SRC_BORE + SRC_FO + SRC_V,
+    alasan='Radius engkol = stroke/2 (DOCUMENTED). Susunan 6 crankpin dengan 2 rod berdampingan dan 3 arah crankpin 120 derajat diturunkan dari firing order D06 + V60 (INFERRED). Diameter journal, web, counterweight ESTIMATED proporsional.',
+    ukuran=dict(radius_engkol=R_CRANK, crankpin_d=2 * PIN_R, main_journal_d=2 * MAIN_R, crankpin_panjang=PIN_LEN,
+                main_journal_lebar=MAIN_W, web_tebal=round(WEB_W, 4), counterweight_r=0.175, x_range=[round(FW_FACE + 0.0005, 4), round(DMP_FACE - 0.0005, 4)]),
+    catatan='Crankpin pada beta(0 deg)= ' + ', '.join(f'{a}/{b}:{BETA_PIN0[a]:.0f}' for a, b in PAIRS) +
+            ' (beta diukur dari +Y ke +Z). Main journal x: ' + ', '.join(f'{m:.4f}' for m in mains)))
+
+# ================================================================= PISTONS, RINGS, PINS
+R_P = 0.0845
+BOWL_K = 0.86   # bowl depth scale tuned so CR ~ 14.7 (D03)
+def piston_builder():
+    hc = HC
+    k = BOWL_K
+    prof = [(0, hc - 0.012), (0.020, hc - 0.032 * k), (0.040, hc - 0.044 * k), (0.054, hc - 0.040 * k), (0.057, hc - 0.026 * k),
+            (0.050, hc - 0.008 * k), (0.053, hc), (R_P - 0.002, hc), (R_P, hc - 0.002),
+            (R_P, hc - 0.020), (R_P - 0.006, hc - 0.020), (R_P - 0.006, hc - 0.0237), (R_P, hc - 0.0237),
+            (R_P, hc - 0.0340), (R_P - 0.006, hc - 0.0340), (R_P - 0.006, hc - 0.0377), (R_P, hc - 0.0377),
+            (R_P, hc - 0.0480), (R_P - 0.0055, hc - 0.0480), (R_P - 0.0055, hc - 0.0535), (R_P, hc - 0.0535),
+            (R_P - 0.0003, -0.070), (R_P - 0.009, -0.070), (R_P - 0.009, 0.045), (0.062, 0.070), (0, 0.074)]
+    mb = MB().add(lathe(prof, 48, 'Y'))
+    for s_ in (-1, 1):   # pin bosses
+        mb.add(cyl(0.040, s_ * 0.028, s_ * 0.071, 20, 'X'))
+        mb.add(box((s_ * (0.028 + 0.071) / 2, 0.040, 0), (0.071 - 0.028, 0.06, 0.05)))
+    return mb
+
+def ring_builder(kind):
+    def b():
+        h = 0.0035 if kind != 'OIL' else 0.0053
+        ri, ro = R_P - 0.0058, 0.0847
+        prof = [(ri, -h / 2), (ro, -h / 2), (ro, h / 2), (ri, h / 2)]
+        n = 48
+        v, f, rows = [], [], []
+        gap = 2.0 * D2R
+        for k in range(n + 1):
+            a = gap / 2 + (2 * math.pi - gap) * k / n
+            row = []
+            for (r, y) in prof:
+                row.append(len(v))
+                v.append((r * math.sin(a), y, r * math.cos(a)))
+            rows.append(row)
+        for k in range(n):
+            for i in range(4):
+                j = (i + 1) % 4
+                f.append((rows[k][i], rows[k][j], rows[k + 1][j], rows[k + 1][i]))
+        f.append(tuple(rows[0]))
+        f.append(tuple(rows[-1][::-1]))
+        return MB().add((v, f))
+    return b
+
+pin_mesh = lambda: MB().add(tubeY(0.0275, 0.013, -0.065, 0.065, 28, 'X'))
+
+def piston_s(alpha_deg):
+    a = alpha_deg * D2R
+    return R_CRANK * math.cos(a) + math.sqrt(ROD_L ** 2 - (R_CRANK * math.sin(a)) ** 2)
+
+KIN = {'cylinders': []}
+for c in range(1, 13):
+    b = bank(c)
+    alpha = wrap720s(BETA_PIN0[c] - beta_bank(b))
+    s_pin = piston_s(alpha)
+    nn = f'{c:02d}'
+    pm = shared('piston', piston_builder, 'alu', 35)
+    mkobj(f'INT-PISTON-{nn}', pm, 'alu', M_bank(c, 0, s_pin), 'PISTON', dict(
+        nama=f'Piston silinder {c} (crown dengan piston bowl re-entrant, 3 alur ring, pin boss)',
+        status='ESTIMATED', sumber=SRC_BORE + [S('D05', 'teks "redesigned/modified piston bowl shape"'), S('D03', 'hlm. 1 compression ratio 14.7:1')],
+        alasan='Diameter dari bore (DOCUMENTED). Bentuk bowl, tinggi kompresi 0.130, panjang skirt ILLUSTRATIVE/ESTIMATED; volume bowl disetel agar rasio kompresi ~14.7 (lihat compare.json).',
+        ukuran=dict(diameter=2 * R_P, celah_radial_ke_liner=round(0.085 - R_P, 4), tinggi_kompresi=HC, panjang_total=HC + 0.070), catatan=f'Origin = pusat piston pin; sumbu lokal +Y = sumbu silinder bank {b}.'))
+    for k, kind in enumerate(['TOP', 'SECOND', 'OIL']):
+        yk = HC - [0.02185, 0.03585, 0.05075][k]
+        rmesh = shared('ring_' + kind, ring_builder(kind), 'ring', 30)
+        mkobj(f'INT-RING-{nn}-{k + 1}', rmesh, 'ring', M_bank(c, 0, s_pin + yk), 'PISTON', dict(
+            nama=['Top compression ring', 'Second compression ring', 'Oil control ring'][k] + f' silinder {c}',
+            status='ILLUSTRATIVE', alasan='Jumlah dan penampang ring tidak ada di dokumen terbuka; susunan 3 ring lazim untuk diesel 4-tak.',
+            ukuran=dict(diameter_luar=0.1694, tinggi=0.0035 if kind != 'OIL' else 0.0053)))
+    mkobj(f'INT-PIN-{nn}', shared('pin', pin_mesh, 'steel'), 'steel', M_bank(c, 0, s_pin), 'PISTON', dict(
+        nama=f'Piston pin silinder {c} (pena piston, berongga)', status='ESTIMATED',
+        alasan='Diameter 0.055 dan panjang 0.130 ESTIMATED proporsional terhadap bore.', ukuran=dict(diameter=0.055, panjang=0.130)))
+    KIN['cylinders'].append(dict(cyl=c, bank=b, alpha0=alpha, s0=s_pin))
+
+# ================================================================= CONNECTING RODS
+RE_O, RE_I, RW = 0.082, PIN_R + 0.0003, 0.056
+SE_O, SE_I, SW = 0.040, 0.0275, 0.045
+SPLIT = 40.0 * D2R    # angled split, ILLUSTRATIVE
+
+def sector(ro, ri, a0, a1, n):
+    out = [(ro * math.sin(a0 + (a1 - a0) * i / n), ro * math.cos(a0 + (a1 - a0) * i / n)) for i in range(n + 1)]
+    inn = [(ri * math.sin(a0 + (a1 - a0) * i / n), ri * math.cos(a0 + (a1 - a0) * i / n)) for i in range(n + 1)]
+    return out + inn[::-1]   # (z, y) pairs in rod local plane
+
+def rod_builder():
+    mb = MB()
+    # big end upper part (rod side): angles measured from +Y toward +Z, split line through center at SPLIT
+    poly = sector(RE_O, RE_I, SPLIT - math.pi / 2, SPLIT + math.pi / 2, 24)
+    poly_yz = [(y, z) for (z, y) in poly]
+    mb.add(prism(poly_yz, -RW / 2, RW / 2, 'X'))
+    # small end
+    mb.add(tubeY(SE_O, SE_I + 0.003, -SW / 2, SW / 2, 32, 'X'), Matrix.Translation((0, ROD_L, 0)))
+    mb.add(tubeY(SE_I + 0.003, SE_I + 0.0002, -SW / 2 + 0.001, SW / 2 - 0.001, 32, 'X'), Matrix.Translation((0, ROD_L, 0)))  # bushing
+    # I-beam shank (web in plane of motion, flanges at lateral edges)
+    def I(wl, T, tf, tw):
+        hw, ht = wl / 2, T / 2
+        return [(-ht, -hw), (ht, -hw), (ht, -hw + tf), (tw / 2, -hw + tf), (tw / 2, hw - tf), (ht, hw - tf),
+                (ht, hw), (-ht, hw), (-ht, hw - tf), (-tw / 2, hw - tf), (-tw / 2, -hw + tf), (-ht, -hw + tf)]
+    y0, y1 = 0.060, ROD_L - 0.030
+    pa = [(z, x) for (x, z) in I(0.070, 0.044, 0.012, 0.014)]
+    pb = [(z, x) for (x, z) in I(0.046, 0.036, 0.010, 0.012)]
+    pa = [(p[1], p[0]) for p in pa]
+    pb = [(p[1], p[0]) for p in pb]
+    # loft along Y: (u,v)=(x,z)
+    mb.add(loft(pa, pb, y0, y1, 'Y'))
+    # bolt bosses on rod side
+    for s_ in (-1, 1):
+        cx, cy = s_ * 0.064 * math.cos(SPLIT), -s_ * 0.064 * math.sin(SPLIT)
+        # point on split line: direction perpendicular to bolt axis
+        d = (math.cos(SPLIT), -math.sin(SPLIT))   # (z,y) along split line
+        pz, py = s_ * 0.066 * d[0], s_ * 0.066 * d[1]
+        nrm = (math.sin(SPLIT), math.cos(SPLIT))  # bolt axis (z,y), toward rod side
+        bz, by = pz + nrm[0] * 0.022, py + nrm[1] * 0.022
+        M = Matrix.Translation((0, by, bz)) @ Matrix.Rotation(SPLIT, 4, 'X')
+        mb.add(box((0, 0, 0), (RW, 0.044, 0.030)), M)
+    return mb
+
+def cap_builder():
+    mb = MB()
+    poly = sector(RE_O, RE_I, SPLIT + math.pi / 2, SPLIT + 3 * math.pi / 2, 24)
+    mb.add(prism([(y, z) for (z, y) in poly], -RW / 2, RW / 2, 'X'))
+    d = (math.cos(SPLIT), -math.sin(SPLIT))
+    nrm = (math.sin(SPLIT), math.cos(SPLIT))
+    for s_ in (-1, 1):
+        pz, py = s_ * 0.066 * d[0], s_ * 0.066 * d[1]
+        bz, by = pz - nrm[0] * 0.016, py - nrm[1] * 0.016
+        M = Matrix.Translation((0, by, bz)) @ Matrix.Rotation(SPLIT, 4, 'X')
+        mb.add(box((0, 0, 0), (RW, 0.032, 0.030)), M)
+    return mb
+
+def bolt_builder():
+    mb = MB()
+    mb.add(cyl(0.0085, -0.050, 0.040, 12, 'Y'))
+    mb.add(lathe([(0, -0.064), (0.014, -0.064), (0.014, -0.050), (0, -0.050)], 6, 'Y'))
+    return mb
+
+for c in range(1, 13):
+    b = bank(c)
+    k = KIN['cylinders'][c - 1]
+    alpha = k['alpha0'] * D2R
+    pinx_off = cyl_x(c)
+    # crankpin center (global) and piston pin (global)
+    P = R_CRANK * ydir(BETA_PIN0[c]) + Vector((cyl_x(c), 0, 0))
+    Q = Vector((cyl_x(c), 0, 0)) + k['s0'] * ydir(beta_bank(b))
+    d = (Q - P).normalized()
+    ang = math.atan2(d.z, d.y)          # rotation about X mapping +Y -> d
+    M = Matrix.Translation(P) @ Matrix.Rotation(ang, 4, 'X')
+    nn = f'{c:02d}'
+    rod_ang_rel = ang / D2R - beta_bank(b)
+    k.update(rod_angle0=rod_ang_rel)
+    common = dict(sumber=SRC_BORE, status='ESTIMATED')
+    mkobj(f'INT-ROD-{nn}', shared('rod', rod_builder, 'rod', 35), 'rod', M, 'CONNECTING_ROD', dict(
+        nama=f'Connecting rod silinder {c} (I-beam, small end dengan bushing, big end terbelah miring)',
+        status='ESTIMATED', sumber=SRC_BORE,
+        alasan=f'Panjang pusat-ke-pusat {ROD_L:.3f} m ESTIMATED: deck 0.620 (atas blok exterior dari D01, ESTIMATED) - tinggi kompresi piston - radius engkol. Belahan miring 40 derajat ILLUSTRATIVE (tidak terbukti). Dua rod berdampingan per crankpin INFERRED (V12, datum bank_offset).',
+        ukuran=dict(panjang_pusat=round(ROD_L, 4), big_end_bore=2 * RE_I, small_end_bore=2 * SE_I, lebar_big_end=RW),
+        catatan='Origin = pusat big end (crankpin); +Y lokal menuju small end.'))
+    mkobj(f'INT-ROD-{nn}-CAP', shared('rodcap', cap_builder, 'rod', 35), 'rod', M, 'CONNECTING_ROD', dict(
+        nama=f'Connecting rod cap silinder {c}', status='ILLUSTRATIVE',
+        alasan='Bentuk dan sudut belahan tidak ada di dokumen terbuka.', ukuran=dict(radius_luar=RE_O)))
+    dsp = Vector((0, math.cos(SPLIT), -math.sin(SPLIT)))  # not used directly
+    for j, s_ in enumerate((-1, 1)):
+        dz, dy = math.cos(SPLIT), -math.sin(SPLIT)
+        nz, ny = math.sin(SPLIT), math.cos(SPLIT)
+        pz, py = s_ * 0.066 * dz, s_ * 0.066 * dy
+        Mb = M @ Matrix.Translation((0, py, pz)) @ Matrix.Rotation(SPLIT, 4, 'X')
+        mkobj(f'INT-ROD-{nn}-BOLT{j + 1}', shared('rodbolt', bolt_builder, 'steel'), 'steel', Mb, 'CONNECTING_ROD', dict(
+            nama=f'Baut connecting rod cap silinder {c} no.{j + 1}', status='ILLUSTRATIVE',
+            alasan='Jumlah dan ukuran baut tidak ada di dokumen terbuka.', ukuran=dict(diameter=0.017, panjang=0.104)))
+
+# ================================================================= LINERS
+def liner_builder():
+    prof = [(0.085, 0.330), (0.097, 0.330), (0.097, 0.370), (0.099, 0.370), (0.099, 0.378), (0.097, 0.378),
+            (0.097, 0.540), (0.100, 0.540), (0.100, 0.590), (0.107, 0.598), (0.107, DECK - 0.0003), (0.085, DECK - 0.0003)]
+    return MB().add(lathe(prof, 64, 'Y', closed=True))
+for c in range(1, 13):
+    mkobj(f'INT-LINER-{c:02d}', shared('liner', liner_builder, 'iron', 30), 'iron', M_bank(c), 'CYLINDER_LINER', dict(
+        nama=f'Cylinder liner silinder {c} (flens atas duduk di counterbore blok, di bawah deck 0.620; pita seal)', status='ILLUSTRATIVE', sumber=SRC_BORE,
+        alasan='Diameter dalam = bore (DOCUMENTED). Jenis basah/kering, tebal, panjang, flens tidak ada bukti; ditandai ILLUSTRATIVE.',
+        ukuran=dict(diameter_dalam=BORE, diameter_luar=0.194, flens_d=0.214, a_range=[0.330, round(DECK - 0.0003, 4)], flens_a_range=[0.598, round(DECK - 0.0003, 4)], pita_seal_a=[0.370, 0.378]),
+        catatan='Origin = sumbu crank pada bidang silinder; geometri sepanjang +Y lokal (sumbu bank).'))
+
+# ================================================================= CAMSHAFTS & GEAR TRAIN
+GM = 0.0035     # rear gear train module (ILLUSTRATIVE), small enough to stay inside EXT-FWHOUSING-01
+GMF = 0.0047    # front gear train module
+N_CRANKG, N_IDL, N_CAMG = 36, 44, 72
+rc_g, ri_g, rk_g = N_CRANKG * GM / 2, N_IDL * GM / 2, N_CAMG * GM / 2
+def lobe_poly(beta_nose_deg, kind, n=64):
+    h = INJ_H if kind == 'INJ' else CAM_H
+    pts = []
+    for i in range(n):
+        psi = 360.0 * i / n - 180.0      # cam deg from nose
+        dcr = 2 * psi
+        l = h * math.cos(0.5 * math.pi * dcr / HD[kind]) ** 2 if abs(dcr) < HD[kind] else 0.0
+        r = CAM_RB + l
+        bb = (beta_nose_deg + psi) * D2R
+        pts.append((r * math.cos(bb), r * math.sin(bb)))
+    return pts
+
+CAMS = {}
+for b, cyls in (('R', [1, 3, 5, 7, 9, 11]), ('L', [2, 4, 6, 8, 10, 12])):
+    c0 = cyls[0]
+    cc = bank_point(c0, 0, CAM_A, CAM_T)
+    center = Vector((0, cc.y, cc.z))
+    mb = MB()
+    xs = sorted(cyl_x(c) for c in cyls)
+    x_lo, x_hi = -0.0145, xs[-1] + 0.135 + 0.02
+    mb.add(cyl(0.024, x_lo, x_hi, 24, 'X'))
+    for xj in [xs[0] - 0.135] + [x + 0.135 for x in xs]:
+        mb.add(cyl(0.048, max(xj - 0.02, x_lo), xj + 0.02, 32, 'X'))
+    for c in cyls:
+        for kind, dx in LOBE_X.items():
+            bn = beta_bank(b) + lobe_peak(c, kind) / 2.0
+            mb.add(prism(lobe_poly(bn, kind), cyl_x(c) + dx - 0.011, cyl_x(c) + dx + 0.011, 'X'))
+    ob = mkobj(f'INT-CAM-{b}', mb, 'cam', Matrix.Translation(center), 'CAMSHAFT', dict(
+        nama=f'Camshaft bank {"kanan" if b == "R" else "kiri"} (18 lobe: inlet, exhaust, unit injector per silinder; 7 journal)',
+        status='INFERRED', sumber=[S('D05', 'teks "Dual camshafts"')],
+        alasan='Dua camshaft DOCUMENTED (D05); satu per bank di blok INFERRED. Posisi (a=0.29, t=0.155 dari sumbu bank, sisi luar; di bawah rusuk blok exterior), profil lobe, fase lobe ILLUSTRATIVE. Lobe injector INFERRED dari unit injector mekanis-elektronik (D02).',
+        ukuran=dict(base_circle_r=CAM_RB, lift_katup=CAM_H, lift_injector=INJ_H, journal_d=0.096, x_range=[x_lo, x_hi]),
+        catatan='Origin pada sumbu cam di x=0; berputar mengitari sumbu -X (searah crank, ILLUSTRATIVE) pada 1/2 putaran crank.'))
+    CAMS[b] = center
+    # cam gear (rear)
+    mkobj(f'INT-GEAR-R-CAM-{b}', MB().add(gear(N_CAMG, GM, -0.0145, -0.002, 0.024, 'X')), 'gear',
+          Matrix.Translation(center), 'GEAR_TRAIN', dict(
+        nama=f'Camshaft gear bank {"kanan" if b == "R" else "kiri"} ({N_CAMG} gigi)', status='ILLUSTRATIVE',
+        alasan='Gear train dan lokasinya (belakang) tidak terbukti; jumlah gigi dipilih agar rasio 2:1 dengan crank gear 36 gigi.',
+        ukuran=dict(diameter_pitch=round(2 * rk_g, 4), lebar=0.0125, x_range=[-0.0145, -0.002])))
+
+# crank gears
+mkobj('INT-GEAR-R-CRANK', MB().add(gear(N_CRANKG, GM, -0.0145, -0.002, 0.050, 'X')), 'gear', Matrix.Identity(4), 'GEAR_TRAIN', dict(
+    nama=f'Crankshaft gear belakang ({N_CRANKG} gigi)', status='ILLUSTRATIVE', alasan='Gear train tidak terbukti di dokumen terbuka.',
+    ukuran=dict(diameter_pitch=round(2 * rc_g, 4))))
+mkobj('INT-GEAR-F-CRANK', MB().add(gear(N_CRANKG, GMF, 1.800, 1.830, 0.063, 'X')), 'gear', Matrix.Identity(4), 'GEAR_TRAIN', dict(
+    nama=f'Crankshaft gear depan ({N_CRANKG} gigi, penggerak pompa oli)', status='ILLUSTRATIVE', alasan='Gear train depan tidak terbukti; D03 menyebut front housing dua sisi untuk accessory drive.',
+    ukuran=dict(diameter_pitch=round(N_CRANKG * GMF, 4))))
+IDLERS = {}
+for b in ('R', 'L'):
+    K = CAMS[b]
+    d1, d2 = rc_g + ri_g, ri_g + rk_g
+    D = K.length
+    a_ = (d1 ** 2 - d2 ** 2 + D ** 2) / (2 * D)
+    h_ = math.sqrt(max(d1 ** 2 - a_ ** 2, 0))
+    e = Vector((0, K.y, K.z)) / D
+    perp = Vector((0, -e.z, e.y))
+    cand = [a_ * e + h_ * perp, a_ * e - h_ * perp]
+    I = max(cand, key=lambda p: abs(p.z))      # outboard solution
+    IDLERS[b] = I
+    mkobj(f'INT-GEAR-R-IDLER-{b}', MB().add(gear(N_IDL, GM, -0.0145, -0.002, 0.02, 'X')), 'gear', Matrix.Translation(I), 'GEAR_TRAIN', dict(
+        nama=f'Idler gear belakang bank {"kanan" if b == "R" else "kiri"} ({N_IDL} gigi)', status='ILLUSTRATIVE',
+        alasan='Gear train tidak terbukti; idler ditempatkan agar crank gear dan cam gear bersinggungan di lingkaran pitch.',
+        ukuran=dict(diameter_pitch=round(2 * ri_g, 4))))
+
+# ================================================================= FLYWHEEL & DAMPER
+
+# ================================================================= OIL PUMP (gear type)
+N_PD = 26
+r_pd = N_PD * GMF / 2
+YP = -(N_CRANKG * GMF / 2 + r_pd)
+mkobj('INT-GEAR-F-OILPUMP', MB().add(gear(N_PD, GMF, 1.800, 1.830, 0.012, 'X', phase=math.pi / N_PD)), 'gear',
+      Matrix.Translation((0, YP, 0)), 'OIL_PUMP', dict(
+    nama=f'Oil pump drive gear ({N_PD} gigi)', status='ILLUSTRATIVE', alasan='Penggerak pompa tidak tertulis; ditempatkan bersinggungan dengan crank gear depan.',
+    ukuran=dict(diameter_pitch=round(2 * r_pd, 4))))
+PG_N, PG_M = 12, 0.0065
+r_pg = PG_N * PG_M / 2
+for j, yy in enumerate((YP, YP - 2 * r_pg)):
+    g = MB().add(gear(PG_N, PG_M, 1.738, 1.788, 0.008, 'X', phase=(math.pi / PG_N) * j))
+    g.add(cyl(0.012, 1.725 if j else 1.725, 1.835 if j == 0 else 1.795, 12, 'X'))
+    mkobj(f'INT-OILPUMP-GEAR{j + 1}', g, 'gear', Matrix.Translation((0, yy, 0)), 'OIL_PUMP', dict(
+        nama=f'Oil pump {"driving" if j == 0 else "driven"} gear ({PG_N} gigi, spur)', status='ILLUSTRATIVE',
+        sumber=[S('D03', 'hlm. 1 Lube System "gear-type oil pump"')],
+        alasan='Jenis gear pump DOCUMENTED; ukuran, jumlah gigi, posisi ILLUSTRATIVE.', ukuran=dict(diameter_luar=round(2 * r_pg + 2 * PG_M, 4), lebar=0.05)))
+yc = YP - r_pg
+hp = MB()
+outline = []
+for k in range(24):
+    a = math.pi * k / 23
+    outline.append((YP + (r_pg + PG_M + 0.012) * math.sin(a), (r_pg + PG_M + 0.012) * math.cos(a)))
+for k in range(24):
+    a = math.pi + math.pi * k / 23
+    outline.append((YP - 2 * r_pg + (r_pg + PG_M + 0.012) * math.sin(a), (r_pg + PG_M + 0.012) * math.cos(a)))
+# shell: two plates + side wall built as annulus between outline and inner offset
+inner = [(yc + (y - yc) * 0.80, z * 0.80) for (y, z) in outline]
+hp.add(annulus_prism(outline, inner, 1.732, 1.794, 'X'))
+hp.add(prism(outline, 1.725, 1.732, 'X'))
+hp.add(prism(outline, 1.794, 1.800, 'X'))
+hp.add(between((1.763, yc - r_pg - PG_M - 0.010, 0.0), (1.700, -0.700, 0.0), 0.022, 16))
+hp.add(cyl(0.060, -0.715, -0.700, 24, 'Y'), Matrix.Translation((1.700, 0, 0)))
+hp.add(box((1.763, yc, (r_pg + PG_M + 0.012) + 0.015), (0.04, 0.04, 0.03)))
+mkobj('INT-OILPUMP-HSG', hp, 'pump', Matrix.Identity(4), 'OIL_PUMP', dict(
+    nama='Oil pump housing dengan pipa hisap dan suction bell (strainer)', status='ILLUSTRATIVE',
+    sumber=[S('D03', 'hlm. 1 Lube System "gear-type oil pump"')],
+    alasan='Posisi pompa (depan bawah di dalam oil pan) dan bentuk tidak tertulis; pipa hisap ke Y -0.715 (di atas dasar pan -0.805).',
+    ukuran=dict(x_range=[1.725, 1.800], y_range=[round(yc - r_pg - PG_M - 0.012, 3), round(YP + r_pg + PG_M + 0.012, 3)])))
+
+# ================================================================= VALVE TRAIN & INJECTORS
+HUB_A, HUB_T = 0.835, 0.066
+CUP_A, CUP_T = 0.815, 0.121
+FOL_T = CAM_T
+FIRE = DECK + 0.001
+VSEAT_A = 0.700
+STEM_TOP = 0.790
+VALVE_POS = {'IN': [(-0.035, -0.035), (-0.035, 0.035)], 'EX': [(0.035, -0.035), (0.035, 0.035)]}   # (x, t)
+RATIO = (HUB_T - 0.0) / (CUP_T - HUB_T)
+
+def valve_builder():
+    prof = [(0, 0), (0.026, 0), (0.029, 0.0025), (0.029, 0.004), (0.020, 0.010), (0.009, 0.020), (0.0055, 0.035),
+            (0.0055, STEM_TOP - FIRE), (0, STEM_TOP - FIRE)]
+    return MB().add(lathe(prof, 24, 'Y'))
+def retainer_builder():
+    return MB().add(lathe([(0.0055, 0), (0.021, 0), (0.021, 0.004), (0.012, 0.010), (0.0055, 0.010)], 20, 'Y', closed=True))
+def follower_builder():
+    mb = MB()
+    mb.add(cyl(0.015, 0.0, 0.070, 16, 'Y'))
+    mb.add(tubeY(ROLLER_R, 0.005, -0.009, 0.009, 18, 'X'))
+    mb.add(lathe([(0, 0.070), (0.007, 0.070), (0.004, 0.063), (0, 0.063)], 10, 'Y'))
+    return mb
+
+def rocker_mesh(tip_a, s_, kind):
+    """rocker arm in rocker-local coords: origin at hub, (x, a, tl). tl = t*s_"""
+    mb = MB()
+    mb.add(tubeY(0.019, 0.012, -0.011, 0.011, 20, 'X'))
+    cup = (CUP_A - 0.010 - HUB_A, (CUP_T - HUB_T) * s_)
+    tip = (tip_a + 0.006 - HUB_A, (0.0 - HUB_T) * s_)
+    for (a_, t_), w in ((cup, 0.020), (tip, 0.018)):
+        p0, p1 = Vector((0, 0, 0)), Vector((0, a_, t_))
+        d = (p1 - p0)
+        L = d.length
+        ang = math.atan2(d.z, d.y)
+        M = Matrix.Rotation(ang, 4, 'X')
+        # tapered arm: box along +Y of length L
+        prof = [(-w / 2, -0.010), (w / 2, -0.010), (w / 2, 0.010), (-w / 2, 0.010)]
+        prof2 = [(-w / 2 * 0.8, -0.007), (w / 2 * 0.8, -0.007), (w / 2 * 0.8, 0.007), (-w / 2 * 0.8, 0.007)]
+        mb.add(loft(prof, prof2, 0.0, L, 'Y'), M)
+    # adjusting screw at cup end (points down toward pushrod)
+    mb.add(cyl(0.006, -0.012, 0.012, 10, 'Y'), Matrix.Translation((0, cup[0] + 0.010, cup[1])))
+    mb.add(lathe([(0, -0.016), (0.008, -0.012), (0, -0.008)], 10, 'Y'), Matrix.Translation((0, cup[0] + 0.010, cup[1])))
+    # tip pad
+    mb.add(cyl(0.010, -0.006, 0.0, 14, 'Y'), Matrix.Translation((0, tip[0] - 0.000, tip[1])))
+    return mb
+
+def spring_mb(y0, y1):
+    return MB().add(helix(0.0165, 0.0028, y0, y1, 6.5, 12, 6))
+
+def bridge_builder():
+    mb = MB()
+    mb.add(box((0, 0.0075, 0), (0.018, 0.015, 0.092)))
+    mb.add(cyl(0.009, 0.015, 0.020, 12, 'Y'))
+    return mb
+
+injector_body = lambda: MB().add(lathe([(0, 0.705 - 0.705), (0.004, 0.0), (0.006, 0.004), (0.006, 0.013), (0.012, 0.018),
+                                        (0.016, 0.033), (0.016, 0.143), (0.019, 0.148), (0.019, 0.193), (0.013, 0.198),
+                                        (0.013, 0.218), (0, 0.218)], 24, 'Y'))
+
+VT = []   # records for kinematics
+for c in range(1, 13):
+    b = bank(c)
+    s_ = sgn(b)
+    nn = f'{c:02d}'
+    lifts = {k: lift(k, 0.0, c) for k in LOBE_X}
+    # rocker shaft
+    rs = MB().add(cyl(0.012, -0.065, 0.065, 16, 'X'))
+    for xx in (-0.0545, 0.0545):
+        rs.add(box((xx, -0.025, 0), (0.016, 0.050, 0.040)))
+    mkobj(f'INT-ROCKSHAFT-{nn}', rs, 'steel', M_bank(c, 0, HUB_A, HUB_T * s_), 'VALVE_TRAIN', dict(
+        nama=f'Rocker shaft dan pedestal silinder {c}', status='ILLUSTRATIVE', alasan='Susunan valve train pushrod (cam di blok) INFERRED; bentuk ILLUSTRATIVE.',
+        ukuran=dict(diameter=0.024, panjang=0.130)))
+    for kind, dx in LOBE_X.items():
+        L_ = lifts[kind]
+        tag = {'IN': 'IN', 'EX': 'EX', 'INJ': 'INJ'}[kind]
+        # follower
+        f_a = CAM_A + CAM_RB + L_ + ROLLER_R
+        mkobj(f'INT-TAPPET-{nn}-{tag}', shared('follower', follower_builder, 'steel'), 'steel',
+              M_bank(c, dx, f_a, FOL_T * s_), 'VALVE_TRAIN', dict(
+            nama=f'Roller follower (tappet) {tag} silinder {c}', status='ILLUSTRATIVE',
+            alasan='Jenis follower (roller) tidak terbukti; lazim pada cam di blok. Posisi mengikuti lobe.', ukuran=dict(diameter=0.030, panjang=0.070, roller_d=2 * ROLLER_R)))
+        # rocker rotation
+        tip_a = (STEM_TOP + 0.015 + 0.005) if kind != 'INJ' else 0.855
+        cup_rel = Vector((0, CUP_A - 0.010 - HUB_A + 0.010 - 0.016, (CUP_T - HUB_T) * s_))   # ball tip of screw
+        delta = -s_ * L_ / (CUP_T - HUB_T)
+        R = Matrix.Rotation(delta, 4, 'X')
+        cup_new = R @ cup_rel
+        tip_rel = Vector((0, tip_a - HUB_A, (0 - HUB_T) * s_))
+        tip_new = R @ tip_rel
+        down = tip_rel.y - tip_new.y      # valve/plunger travel (along -a)
+        mkobj(f'INT-ROCKER-{nn}-{tag}', rocker_mesh(tip_a, s_, kind), 'rock', M_bank(c, dx, HUB_A, HUB_T * s_, delta), 'VALVE_TRAIN', dict(
+            nama=f'Rocker arm {tag} silinder {c}', status='ILLUSTRATIVE',
+            alasan='Rocker arm untuk katup/injector INFERRED dari cam di blok; rasio dan bentuk ILLUSTRATIVE.',
+            ukuran=dict(rasio=round(RATIO, 3), panjang=0.13), catatan='Origin = pusat rocker shaft; berputar mengitari X lokal.'))
+        # pushrod: from follower top to new cup ball
+        p_bot = Vector((dx, f_a + 0.063, FOL_T * s_))
+        p_top = Vector((dx, HUB_A + cup_new.y, HUB_T * s_ + cup_new.z))
+        dvec = p_top - p_bot
+        ang = math.atan2(dvec.z, dvec.y)
+        pr = MB().add(cyl(0.0065, 0.004, dvec.length - 0.004, 10, 'Y'))
+        pr.add(lathe([(0, 0), (0.007, 0.004), (0.009, 0.010), (0.0065, 0.014)], 10, 'Y'))
+        pr.add(lathe([(0.0065, dvec.length - 0.014), (0.009, dvec.length - 0.010), (0.009, dvec.length - 0.002), (0, dvec.length)], 10, 'Y'))
+        mkobj(f'INT-PUSHROD-{nn}-{tag}', pr, 'steel', M_bank(c, p_bot.x, p_bot.y, p_bot.z, ang), 'VALVE_TRAIN', dict(
+            nama=f'Push rod {tag} silinder {c}', status='ILLUSTRATIVE', alasan='Push rod INFERRED dari camshaft di blok + katup di kepala; panjang mengikuti tata letak model.',
+            ukuran=dict(diameter=0.013, panjang=round(dvec.length, 4))))
+        VT.append(dict(cyl=c, kind=kind, lift0=L_, peak=lobe_peak(c, kind), travel0=down, rocker_delta0_deg=delta / D2R))
+        if kind == 'INJ':
+            mkobj(f'INT-INJ-{nn}', shared('injector', injector_body, 'inj', 30), 'inj', M_bank(c, 0, 0.612, 0), 'INJECTOR', dict(
+                nama=f'Electronic unit injector (EUI) silinder {c}', status='INFERRED',
+                sumber=[S('D02', 'hlm. 1 "electronic unit injectors"'), S('D03', 'hlm. 1 Fuel System "Electronically controlled unit injectors"')],
+                alasan='Jenis unit injector DOCUMENTED; letak di tengah kepala di antara 4 katup INFERRED; bentuk dan ukuran ILLUSTRATIVE.',
+                ukuran=dict(diameter_badan=0.032, panjang=0.218, ujung_nozzle_a=0.612)))
+            sol = MB().add(box((0, 0.0, -0.040 * s_), (0.016, 0.034, 0.040)))
+            mkobj(f'INT-INJ-{nn}-SOL', sol, 'inj', M_bank(c, 0, 0.755, 0), 'INJECTOR', dict(
+                nama=f'Solenoid/konektor unit injector silinder {c}', status='ILLUSTRATIVE', alasan='Bentuk dan letak solenoid tidak tertulis.',
+                ukuran=dict(ukuran=[0.016, 0.034, 0.040])))
+            pl = MB().add(cyl(0.012, -0.022, 0.0, 16, 'Y'))
+            pl.add(helix(0.0165, 0.0022, -0.050, -0.022, 4, 12, 5))
+            mkobj(f'INT-INJ-{nn}-PLUNGER', pl, 'inj', M_bank(c, 0, 0.855 - down, 0), 'INJECTOR', dict(
+                nama=f'Tappet/plunger dan pegas unit injector silinder {c}', status='ILLUSTRATIVE',
+                alasan='Aktuasi injector oleh cam lewat rocker INFERRED; bentuk ILLUSTRATIVE.', ukuran=dict(langkah_maks=round(INJ_H * RATIO, 4))))
+        else:
+            vx = dx
+            mkobj(f'INT-BRIDGE-{nn}-{tag}', shared('bridge', bridge_builder, 'steel'), 'steel',
+                  M_bank(c, vx, STEM_TOP - down, 0), 'VALVE_TRAIN', dict(
+                nama=f'Valve bridge {tag} silinder {c}', status='ILLUSTRATIVE', alasan='Bridge untuk 2 katup sejenis INFERRED dari 4 katup per silinder; bentuk ILLUSTRATIVE.',
+                ukuran=dict(panjang=0.092)))
+            for j, (vxx, vt) in enumerate(VALVE_POS[kind]):
+                vid = f'{tag}{j + 1}'
+                mkobj(f'INT-KATUP-{nn}-{vid}', shared('valve_' + kind, valve_builder, 'valve', 30), 'valve',
+                      M_bank(c, vxx, FIRE - down, vt * s_), 'VALVE_TRAIN', dict(
+                    nama=f'Katup {"inlet" if kind == "IN" else "exhaust"} {j + 1} silinder {c}', status='INFERRED', sumber=[S('D06', 'hlm. 140026 4 katup per silinder (3512 awal)')],
+                    alasan='4 katup per silinder INFERRED dari D06; diameter kepala 0.058 dan susunan (inlet belakang, exhaust depan) ILLUSTRATIVE.',
+                    ukuran=dict(diameter_kepala=0.058, panjang=round(STEM_TOP - FIRE, 4))))
+                ret_a = VSEAT_A + 0.065 - down
+                mkobj(f'INT-RETAINER-{nn}-{vid}', shared('retainer', retainer_builder, 'steel'), 'steel',
+                      M_bank(c, vxx, ret_a, vt * s_), 'VALVE_TRAIN', dict(
+                    nama=f'Valve spring retainer dan keeper {vid} silinder {c}', status='ILLUSTRATIVE', alasan='Bentuk ILLUSTRATIVE.', ukuran=dict(diameter=0.042)))
+                mkobj(f'INT-PEGAS-{nn}-{vid}', spring_mb(0.0, ret_a - VSEAT_A), 'spring',
+                      M_bank(c, vxx, VSEAT_A, vt * s_), 'VALVE_TRAIN', dict(
+                    nama=f'Pegas katup (valve spring) {vid} silinder {c}', status='ILLUSTRATIVE', alasan='Jumlah pegas per katup dan ukuran tidak terbukti.',
+                    ukuran=dict(diameter_luar=0.0386, panjang_terpasang=round(ret_a - VSEAT_A, 4))))
+
+# ================================================================= export data
+for o in bpy.data.objects:
+    o['int_id'] = o.name
+json.dump(dict(VT=VT, KIN=KIN, mains=mains, throws=throws, CAMS={k: list(v) for k, v in CAMS.items()},
+               IDLERS={k: list(v) for k, v in IDLERS.items()}, ROD_L=ROD_L, YP=YP),
+          open(os.path.join(OUT, '_build_state.json'), 'w'), indent=1)
+json.dump(INV, open(os.path.join(OUT, '_inv_raw.json'), 'w'), indent=1, ensure_ascii=False)
+bpy.ops.wm.save_as_mainfile(filepath=os.path.join(OUT, 'internal.blend'))
+print('OBJECTS', len(bpy.data.objects))

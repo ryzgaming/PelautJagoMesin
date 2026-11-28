@@ -1,0 +1,163 @@
+{
+  "hashes": {
+    "exterior": "60fd5009808ff5baa563c63cd6a3dfb3040bdf1a7c2152522a5f21e01ced6e20",
+    "internal": "46a8854081530e81d2a2af56dc936dbcd22e6b296343029510638e8d120252fa"
+  },
+  "route_manifest_sha256": "45c94947affb76bfe49698bbb75329ef0c05adca5dd3248c29f8dca9086a387d",
+  "method": "Actual GLB pipe meshes, AABB broad phase then exact zero-epsilon triangle BVH pair overlap. Representative tube mesh for each physical route. Multiple authored mating pieces may be excluded; occupancy/solid containment is outside this screen. Same-fluid intentional joint surfaces may cross.",
+  "counts": {
+    "same_media_pipe_mesh_pairs": 66,
+    "pairs_with_overlapping_bbox": 23,
+    "distinct_media_pipe_mesh_pairs": 259
+  },
+  "missing_mesh": [],
+  "representatives": {
+    "EXT-FUEL-403": [
+      "feed-hose"
+    ],
+    "EXT-FUEL-400": [
+      "filter-fitting"
+    ],
+    "EXT-FUEL-404": [
+      "filter-pump-hose"
+    ],
+    "EXT-FUEL-401": [
+      "pump-fitting"
+    ],
+    "EXT-FUEL-03": [
+      "hp-pipe-1",
+      "hp-head-1"
+    ],
+    "EXT-FUEL-04": [
+      "hp-pipe-2",
+      "hp-head-2"
+    ],
+    "EXT-FUEL-05": [
+      "hp-pipe-3",
+      "hp-head-3"
+    ],
+    "EXT-FUEL-06": [
+      "hp-pipe-4",
+      "hp-head-4"
+    ],
+    "EXT-FUEL-07": [
+      "hp-pipe-5",
+      "hp-head-5"
+    ],
+    "EXT-FUEL-08": [
+      "hp-pipe-6",
+      "hp-head-6"
+    ],
+    "EXT-INTAKE-05": [
+      "hot-air-duct"
+    ],
+    "EXT-INTAKE-03": [
+      "cold-air-elbow"
+    ],
+    "EXT-EXHAUST-110": [
+      "exhaust-takeoff"
+    ],
+    "EXT-EXHAUST-05": [
+      "exhaust-elbow",
+      "exhaust-flange"
+    ],
+    "EXT-COOLING-05": [
+      "SW-suction"
+    ],
+    "EXT-COOLING-300": [
+      "SW-delivery"
+    ],
+    "EXT-COOLING-301": [
+      "SW-transfer"
+    ],
+    "EXT-COOLING-302": [
+      "FW-pump-cooler"
+    ],
+    "EXT-COOLING-303": [
+      "FW-cooler-block"
+    ],
+    "EXT-COOLING-304": [
+      "FW-to-stat"
+    ],
+    "EXT-COOLING-06": [
+      "FW-return"
+    ],
+    "INT-OILPUMP-10": [
+      "LO-pickup"
+    ],
+    "EXT-LUBE-300": [
+      "LO-cooler-feed"
+    ],
+    "EXT-LUBE-301": [
+      "LO-cooler-out"
+    ],
+    "EXT-LUBE-302": [
+      "LO-turbo-line"
+    ],
+    "EXT-LUBE-303": [
+      "LO-turbo-return"
+    ]
+  },
+  "actual_surface_contact": [
+    {
+      "parts": [
+        "EXT-FUEL-403",
+        "EXT-FUEL-400"
+      ],
+      "media": [
+        [
+          "fuel"
+        ],
+        [
+          "fuel"
+        ]
+      ],
+      "different_media": false,
+      "overlap_pairs": 184,
+      "crossing_bounds_mm_glb": [
+        [
+          192.80822575092316,
+          212.99046277999878
+        ],
+        [
+          406.88878297805786,
+          413.0432903766632
+        ],
+        [
+          -596.858561038971,
+          -582.6131105422974
+        ]
+      ]
+    },
+    {
+      "parts": [
+        "EXT-FUEL-404",
+        "EXT-FUEL-401"
+      ],
+      "media": [
+        [
+          "fuel"
+        ],
+        [
+          "fuel"
+        ]
+      ],
+      "different_media": false,
+      "overlap_pairs": 72,
+      "crossing_bounds_mm_glb": [
+        [
+          630.1181316375732,
+          653.8819074630737
+        ],
+        [
+          194.12291049957275,
+          210.66902577877045
+        ],
+        [
+          -523.352324962616,
+          -505.08391857147217
+        ]
+      ]
+    }
+  ]
+}

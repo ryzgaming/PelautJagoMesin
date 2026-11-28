@@ -1,0 +1,20 @@
+{
+  "size": [
+    576,
+    864
+  ],
+  "fps": 24,
+  "duration_s": 19.75,
+  "frames": 474,
+  "source_glb_sha256": {
+    "exterior": "e860291eac958af9bba6566891d6462e47d1c7694921c424dc702695fb02e887",
+    "internal": "4b69ad9975928cfa80be62ddc7c6a1c5caa241900bd3aef299081c1e6406ae05"
+  },
+  "route_manifest_sha256": "0830845dd4b9903bb19d329b8839e6c69a937821cfc4485c434fbe521d8f2225",
+  "kinematics_sha256": "bd858b0dc1d63d4ec2aaff28fbf20a57ec658a5d4aeb7c618ef4346df7a3a2b8",
+  "film_script_sha256": "8cce9dcb50e09fd62a44771e003bbffd9f4dd22e0483253bbe8d0dffec5bf7a5",
+  "poster_sha256": "a504bbdf44f929d6087af4db5c3f60e14978cb41cdf7c982b9fff35767fd38cf",
+  "route_count": 163,
+  "video_sha256": "47d023f797ebe23caca4406f94e285142816a83f3f18eb392d2c3816df3005fb",
+  "renderer": "llvmpipe (LLVM 19.1.7, 256 bits)"
+}

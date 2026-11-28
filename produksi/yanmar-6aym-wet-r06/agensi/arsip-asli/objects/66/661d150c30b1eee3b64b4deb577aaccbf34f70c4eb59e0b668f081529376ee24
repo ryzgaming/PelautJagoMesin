@@ -1,0 +1,23 @@
+"""Cut r04 model entry ports before intersecting casting detail is joined."""
+import json
+import runpy
+
+def head_drill(api):
+    directory=api['OUT']
+    flow=json.loads((directory.parent/'flow/fuel-gas.json').read_text())
+    lines={route['id']:route['points'] for route in flow['routes']}
+    tube=runpy.run_path(str(directory/'specialists/piping.py'))['tube']
+    def drill(index,negative_pieces):
+        start=lines[f'hp-pipe-{index}'][-4:-1]
+        receiver=lines[f'hp-head-{index}'][:20]
+        for piece in negative_pieces:
+            tip=tube(api,start+receiver,.0072,api['steel'])
+            api['subtract'](piece,tip)
+    return drill
+
+def axial_port(api,pieces,start,end,radius):
+    bounds=api['Vector'](end)-api['Vector'](start)
+    p=(api['Vector'](start)+api['Vector'](end))*.5
+    for piece in pieces:
+        api['subtract'](piece,api['cylinder'](p,bounds,radius,bounds.length,api['steel'],40,0))
+        api['clean_boolean'](piece)

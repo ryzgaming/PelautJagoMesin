@@ -1,0 +1,74 @@
+{
+  "starter": {
+    "frames": [
+      33,
+      45,
+      73
+    ],
+    "projected_excursion_px": 98.83332824707031
+  },
+  "timing": {
+    "frames": [
+      81,
+      94,
+      106
+    ],
+    "projected_excursion_px": 99.0531234741211
+  },
+  "belt": {
+    "frames": [
+      189,
+      202,
+      218
+    ],
+    "projected_excursion_px": 423.428466796875
+  },
+  "alternator": {
+    "frames": [
+      231,
+      242,
+      276
+    ],
+    "projected_excursion_px": 198.97789001464844
+  },
+  "turbo": {
+    "frames": [
+      285,
+      326,
+      329
+    ],
+    "projected_excursion_px": 184.05755615234375
+  },
+  "freshwater": {
+    "frames": [
+      375,
+      393,
+      402
+    ],
+    "projected_excursion_px": 353.6025085449219
+  },
+  "seawater": {
+    "frames": [
+      423,
+      450,
+      463
+    ],
+    "projected_excursion_px": 262.6653137207031
+  },
+  "injection": {
+    "frames": [
+      507,
+      524,
+      547
+    ],
+    "projected_excursion_px": 51.144065856933594
+  },
+  "oil": {
+    "frames": [
+      597,
+      608,
+      619
+    ],
+    "projected_excursion_px": 144.85479736328125
+  }
+}

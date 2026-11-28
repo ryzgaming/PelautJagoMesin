@@ -1,0 +1,158 @@
+{
+  "id": "RAK-INTAKE",
+  "nama": "Udara masuk",
+  "node_rakitan": "RAK-INTAKE",
+  "acuan": {
+    "no": 1,
+    "object_ids": [
+      "EXT-INTAKE-01"
+    ]
+  },
+  "diagram": {
+    "arah_pandang": [
+      0.31139957904815674,
+      0.5449492335319519,
+      -0.7784989476203918
+    ],
+    "atas": [
+      0,
+      1,
+      0
+    ]
+  },
+  "bagian": [
+    {
+      "no": 1,
+      "nama": "Intake manifold panjang berusuk",
+      "object_ids": [
+        "EXT-INTAKE-01"
+      ],
+      "posisi": [],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 14 printed p. 10 / component locations, operation side",
+        "GA01 B3-48660-4450 / outline, top, end and rear housing details",
+        "P07/P08 / dua baris rusuk, seam kontinu dan tutup berbeda"
+      ],
+      "fungsi": "Intake manifold panjang berusuk",
+      "nomor_oem": null,
+      "role": null,
+      "ukuran": null
+    },
+    {
+      "no": 2,
+      "nama": "Rumah air cooler",
+      "object_ids": [
+        "EXT-INTAKE-02"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-INTAKE-02",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.28,
+          "urutan": 2
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D05 Parts Catalog 0CG10-M34300EN / Fig. 37 AIR COOLER, column A 6AYM-WET",
+        "D05-37 exploded image / original OEM callouts; geometry schematic",
+        "P18 / actual WET H flywheel end and end covers"
+      ],
+      "fungsi": "Rumah air cooler",
+      "nomor_oem": "148699-18500",
+      "role": "shell",
+      "ukuran": null
+    },
+    {
+      "no": 3,
+      "nama": "Siku udara dingin ke manifold",
+      "object_ids": [
+        "EXT-INTAKE-03"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-INTAKE-03",
+          "arah": [
+            0,
+            0,
+            1
+          ],
+          "jarak_m": 0.28,
+          "urutan": 3
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 14, 163, 170–171 / lokasi, pendingin udara dan turbo",
+        "D05 Fig. 25, 31–32, 36–37 / manifold, turbo, duct dan cooler",
+        "P07/P17/P18 / geometri tampak"
+      ],
+      "fungsi": "Siku udara dingin ke manifold",
+      "nomor_oem": null,
+      "role": null,
+      "ukuran": null
+    },
+    {
+      "no": 4,
+      "nama": "Air cleaner turbo",
+      "object_ids": [
+        "EXT-INTAKE-04"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-INTAKE-04",
+          "arah": [
+            1,
+            0,
+            0
+          ],
+          "jarak_m": 0.28,
+          "urutan": 4
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "GA01 B3-48660-4450 / outline, top, end and rear housing details",
+        "P17 / tabung hitam setelah compressor"
+      ],
+      "fungsi": "Air cleaner turbo",
+      "nomor_oem": null,
+      "role": null,
+      "ukuran": null
+    },
+    {
+      "no": 5,
+      "nama": "Duct pangkal kompresor",
+      "object_ids": [
+        "EXT-INTAKE-05"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-INTAKE-05",
+          "arah": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "jarak_m": 0.28,
+          "urutan": 5
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D05 Fig. 36 AIR DUCT, AIR HEATER, ref. 1–7 / 6AYM-WET / posisi 1",
+        "D01 PDF 14, 163, 170–171 / air cooler, turbocharger"
+      ],
+      "fungsi": "Duct pangkal kompresor",
+      "nomor_oem": "148660-18111",
+      "role": "pipe",
+      "ukuran": null
+    }
+  ],
+  "notes": "Nomor posisi model. Lintasan ilustrasi, belum diperiksa untuk interferensi."
+}

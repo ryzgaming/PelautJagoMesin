@@ -1,0 +1,272 @@
+{
+  "method": "Blender reimport under final hash. Gasket center from bounding midpoint, direction from nearest segment of physical centerline. 36 mm axial center ray spans gasket and close end faces. Nearest vertex/surface sampled on both sides; Fasteners assigned uniquely to the nearest measured gasket center. This determines group count, not thread fit. Fit of seats and renderer geometry only, exact thread and pressure seal remain undetermined.",
+  "asset_sha256": "e860291eac958af9bba6566891d6462e47d1c7694921c424dc702695fb02e887",
+  "route_sha256": "0830845dd4b9903bb19d329b8839e6c69a937821cfc4485c434fbe521d8f2225",
+  "expected_ids": [
+    "EXT-INTAKE-05",
+    "EXT-INTAKE-50",
+    "EXT-INTAKE-51",
+    "EXT-INTAKE-52",
+    "EXT-INTAKE-53",
+    "EXT-INTAKE-54",
+    "EXT-INTAKE-55",
+    "EXT-INTAKE-56",
+    "EXT-INTAKE-57",
+    "EXT-INTAKE-58",
+    "EXT-INTAKE-59",
+    "EXT-INTAKE-60",
+    "EXT-INTAKE-61",
+    "EXT-INTAKE-62",
+    "EXT-INTAKE-63",
+    "EXT-INTAKE-64",
+    "EXT-INTAKE-65",
+    "EXT-INTAKE-66",
+    "EXT-INTAKE-67",
+    "EXT-INTAKE-68",
+    "EXT-INTAKE-69",
+    "EXT-INTAKE-70",
+    "EXT-INTAKE-71",
+    "EXT-INTAKE-72",
+    "EXT-INTAKE-73",
+    "EXT-INTAKE-74",
+    "EXT-INTAKE-75",
+    "EXT-INTAKE-76",
+    "EXT-INTAKE-77",
+    "EXT-INTAKE-78",
+    "EXT-INTAKE-79",
+    "EXT-INTAKE-80",
+    "EXT-INTAKE-81",
+    "EXT-INTAKE-82",
+    "EXT-INTAKE-83",
+    "EXT-INTAKE-84",
+    "EXT-INTAKE-85",
+    "EXT-INTAKE-86",
+    "EXT-INTAKE-87",
+    "EXT-INTAKE-88",
+    "EXT-INTAKE-89"
+  ],
+  "actual_ids": [
+    "EXT-INTAKE-05",
+    "EXT-INTAKE-50",
+    "EXT-INTAKE-51",
+    "EXT-INTAKE-52",
+    "EXT-INTAKE-53",
+    "EXT-INTAKE-54",
+    "EXT-INTAKE-55",
+    "EXT-INTAKE-56",
+    "EXT-INTAKE-57",
+    "EXT-INTAKE-58",
+    "EXT-INTAKE-59",
+    "EXT-INTAKE-60",
+    "EXT-INTAKE-61",
+    "EXT-INTAKE-62",
+    "EXT-INTAKE-63",
+    "EXT-INTAKE-64",
+    "EXT-INTAKE-65",
+    "EXT-INTAKE-66",
+    "EXT-INTAKE-67",
+    "EXT-INTAKE-68",
+    "EXT-INTAKE-69",
+    "EXT-INTAKE-70",
+    "EXT-INTAKE-71",
+    "EXT-INTAKE-72",
+    "EXT-INTAKE-73",
+    "EXT-INTAKE-74",
+    "EXT-INTAKE-75",
+    "EXT-INTAKE-76",
+    "EXT-INTAKE-77",
+    "EXT-INTAKE-78",
+    "EXT-INTAKE-79",
+    "EXT-INTAKE-80",
+    "EXT-INTAKE-81",
+    "EXT-INTAKE-82",
+    "EXT-INTAKE-83",
+    "EXT-INTAKE-84",
+    "EXT-INTAKE-85",
+    "EXT-INTAKE-86",
+    "EXT-INTAKE-87",
+    "EXT-INTAKE-88",
+    "EXT-INTAKE-89"
+  ],
+  "mesh_parents": {
+    "EXT-INTAKE-05": "RAK-CHARGEDUCT",
+    "EXT-INTAKE-50": "RAK-CHARGEDUCT",
+    "EXT-INTAKE-51": "RAK-CHARGEDUCT",
+    "EXT-INTAKE-52": "RAK-CHARGEDUCT",
+    "EXT-INTAKE-53": "RAK-CHARGEDUCT",
+    "EXT-INTAKE-54": "RAK-CHARGEDUCT",
+    "EXT-INTAKE-55": "RAK-CHARGEDUCT",
+    "EXT-INTAKE-56": "RAK-CHARGEDUCT",
+    "EXT-INTAKE-57": "RAK-CHARGEDUCT",
+    "EXT-INTAKE-58": "RAK-CHARGEDUCT",
+    "EXT-INTAKE-59": "RAK-CHARGEDUCT",
+    "EXT-INTAKE-60": "RAK-CHARGEDUCT",
+    "EXT-INTAKE-61": "RAK-CHARGEDUCT",
+    "EXT-INTAKE-62": "RAK-CHARGEDUCT",
+    "EXT-INTAKE-63": "RAK-CHARGEDUCT",
+    "EXT-INTAKE-64": "RAK-CHARGEDUCT",
+    "EXT-INTAKE-65": "RAK-CHARGEDUCT",
+    "EXT-INTAKE-66": "RAK-CHARGEDUCT",
+    "EXT-INTAKE-67": "RAK-CHARGEDUCT",
+    "EXT-INTAKE-68": "RAK-CHARGEDUCT",
+    "EXT-INTAKE-69": "RAK-CHARGEDUCT",
+    "EXT-INTAKE-70": "RAK-CHARGEDUCT",
+    "EXT-INTAKE-71": "RAK-CHARGEDUCT",
+    "EXT-INTAKE-72": "RAK-CHARGEDUCT",
+    "EXT-INTAKE-73": "RAK-CHARGEDUCT",
+    "EXT-INTAKE-74": "RAK-CHARGEDUCT",
+    "EXT-INTAKE-75": "RAK-CHARGEDUCT",
+    "EXT-INTAKE-76": "RAK-CHARGEDUCT",
+    "EXT-INTAKE-77": "RAK-CHARGEDUCT",
+    "EXT-INTAKE-78": "RAK-CHARGEDUCT",
+    "EXT-INTAKE-79": "RAK-CHARGEDUCT",
+    "EXT-INTAKE-80": "RAK-CHARGEDUCT",
+    "EXT-INTAKE-81": "RAK-CHARGEDUCT",
+    "EXT-INTAKE-82": "RAK-CHARGEDUCT",
+    "EXT-INTAKE-83": "RAK-CHARGEDUCT",
+    "EXT-INTAKE-84": "RAK-CHARGEDUCT",
+    "EXT-INTAKE-85": "RAK-CHARGEDUCT",
+    "EXT-INTAKE-86": "RAK-CHARGEDUCT",
+    "EXT-INTAKE-87": "RAK-CHARGEDUCT",
+    "EXT-INTAKE-88": "RAK-CHARGEDUCT",
+    "EXT-INTAKE-89": "RAK-CHARGEDUCT"
+  },
+  "profile_detection": [
+    {
+      "gasket": "EXT-INTAKE-54",
+      "along_m": 0.3010000138566817,
+      "plane_midpoint_to_centerline_mm": 0.0,
+      "projected_gasket_axial_thickness_mm": 2.0023691467940807,
+      "gasket_thickness_along_fitted_own_normal_mm": 2.0347194227447827,
+      "two_adjacent_faces": [
+        {
+          "part": "EXT-INTAKE-05",
+          "vertex_to_surface_mm": 0.0,
+          "overlap_pairs": 271
+        },
+        {
+          "part": "EXT-INTAKE-52",
+          "vertex_to_surface_mm": 0.0,
+          "overlap_pairs": 393
+        }
+      ],
+      "axial_center_blocking_meshes": [],
+      "nearby_hardware": {
+        "bolts": [
+          "EXT-INTAKE-58",
+          "EXT-INTAKE-59",
+          "EXT-INTAKE-60",
+          "EXT-INTAKE-61"
+        ],
+        "nuts": [
+          "EXT-INTAKE-74",
+          "EXT-INTAKE-75",
+          "EXT-INTAKE-76",
+          "EXT-INTAKE-77"
+        ]
+      }
+    },
+    {
+      "gasket": "EXT-INTAKE-55",
+      "along_m": 0.37700003011927946,
+      "plane_midpoint_to_centerline_mm": 0.0,
+      "projected_gasket_axial_thickness_mm": 2.0017754286527634,
+      "gasket_thickness_along_fitted_own_normal_mm": 2.0419098340869626,
+      "two_adjacent_faces": [
+        {
+          "part": "EXT-INTAKE-50",
+          "vertex_to_surface_mm": 0.0,
+          "overlap_pairs": 390
+        },
+        {
+          "part": "EXT-INTAKE-52",
+          "vertex_to_surface_mm": 0.0,
+          "overlap_pairs": 384
+        }
+      ],
+      "axial_center_blocking_meshes": [],
+      "nearby_hardware": {
+        "bolts": [
+          "EXT-INTAKE-62",
+          "EXT-INTAKE-63",
+          "EXT-INTAKE-64",
+          "EXT-INTAKE-65"
+        ],
+        "nuts": [
+          "EXT-INTAKE-78",
+          "EXT-INTAKE-79",
+          "EXT-INTAKE-80",
+          "EXT-INTAKE-81"
+        ]
+      }
+    },
+    {
+      "gasket": "EXT-INTAKE-56",
+      "along_m": 0.4769999838466943,
+      "plane_midpoint_to_centerline_mm": 0.0,
+      "projected_gasket_axial_thickness_mm": 2.002958208322525,
+      "gasket_thickness_along_fitted_own_normal_mm": 2.0344885430941715,
+      "two_adjacent_faces": [
+        {
+          "part": "EXT-INTAKE-50",
+          "vertex_to_surface_mm": 0.0,
+          "overlap_pairs": 379
+        },
+        {
+          "part": "EXT-INTAKE-53",
+          "vertex_to_surface_mm": 0.0,
+          "overlap_pairs": 401
+        }
+      ],
+      "axial_center_blocking_meshes": [],
+      "nearby_hardware": {
+        "bolts": [
+          "EXT-INTAKE-66",
+          "EXT-INTAKE-67",
+          "EXT-INTAKE-68",
+          "EXT-INTAKE-69"
+        ],
+        "nuts": [
+          "EXT-INTAKE-82",
+          "EXT-INTAKE-83",
+          "EXT-INTAKE-84",
+          "EXT-INTAKE-85"
+        ]
+      }
+    },
+    {
+      "gasket": "EXT-INTAKE-57",
+      "along_m": 0.5529999930613767,
+      "plane_midpoint_to_centerline_mm": 0.0,
+      "projected_gasket_axial_thickness_mm": 5.9304130263626575,
+      "gasket_thickness_along_fitted_own_normal_mm": 2.009823585643722,
+      "two_adjacent_faces": [
+        {
+          "part": "EXT-INTAKE-51",
+          "vertex_to_surface_mm": 0.0,
+          "overlap_pairs": 326
+        },
+        {
+          "part": "EXT-INTAKE-53",
+          "vertex_to_surface_mm": 0.0,
+          "overlap_pairs": 327
+        }
+      ],
+      "axial_center_blocking_meshes": [],
+      "nearby_hardware": {
+        "bolts": [
+          "EXT-INTAKE-70",
+          "EXT-INTAKE-71",
+          "EXT-INTAKE-72",
+          "EXT-INTAKE-73"
+        ],
+        "nuts": [
+          "EXT-INTAKE-86",
+          "EXT-INTAKE-87",
+          "EXT-INTAKE-88",
+          "EXT-INTAKE-89"
+        ]
+      }
+    }
+  ]
+}

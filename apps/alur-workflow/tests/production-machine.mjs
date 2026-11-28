@@ -1,8 +1,8 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {productionGraph,productionId,productionField} from '../src/production-machine.ts';
-import {agentByKind} from '../src/organization.ts';
-import {validate,execute,singleField,usesNotes,step} from '../src/flow.ts';
+import {productionGraph,productionId,productionField} from '../src/features/machines/production-machine.ts';
+import {agentByKind} from '../src/features/agents/organization.ts';
+import {validate,execute,singleField,usesNotes,step} from '../src/features/workflow/flow.ts';
 
 const boss = (g, id) => g.edges.find(e => e.to === id)?.from;
 

@@ -1,0 +1,740 @@
+{
+  "model/exterior/build.py": {
+    "imports": [
+      "bmesh",
+      "bpy",
+      "json",
+      "math",
+      "mathutils",
+      "mathutils.geometry",
+      "pathlib",
+      "runpy"
+    ],
+    "file_or_module_reads": [
+      {
+        "line": 15,
+        "operation": "read_text",
+        "expression": "OUT.parent / 'datum.json'"
+      },
+      {
+        "line": 311,
+        "operation": "read_text",
+        "expression": "OUT.parent / 'internal/kinematics.json'"
+      },
+      {
+        "line": 391,
+        "operation": "run_path",
+        "expression": "str(OUT / 'piping_ports.py')"
+      },
+      {
+        "line": 855,
+        "operation": "run_path",
+        "expression": "str(OUT / 'specialists' / 'injection.py')"
+      },
+      {
+        "line": 876,
+        "operation": "run_path",
+        "expression": "str(OUT / 'specialists' / 'pump_accessories.py')"
+      },
+      {
+        "line": 968,
+        "operation": "run_path",
+        "expression": "str(OUT / 'specialists' / 'pump_accessories.py')"
+      },
+      {
+        "line": 991,
+        "operation": "run_path",
+        "expression": "str(OUT / 'specialists' / 'pump_accessories.py')"
+      },
+      {
+        "line": 1043,
+        "operation": "run_path",
+        "expression": "str(specialist)"
+      }
+    ]
+  },
+  "model/exterior/charge_duct.py": {
+    "imports": [
+      "bisect",
+      "math",
+      "mathutils",
+      "mathutils.geometry"
+    ],
+    "file_or_module_reads": []
+  },
+  "model/exterior/piping_ports.py": {
+    "imports": [
+      "bmesh",
+      "json",
+      "math",
+      "runpy"
+    ],
+    "file_or_module_reads": [
+      {
+        "line": 7,
+        "operation": "read_text",
+        "expression": "directory.parent / 'flow/fuel-gas.json'"
+      },
+      {
+        "line": 9,
+        "operation": "run_path",
+        "expression": "str(directory / 'specialists/piping.py')"
+      },
+      {
+        "line": 31,
+        "operation": "read_text",
+        "expression": "directory.parent / 'flow/fuel-gas.json'"
+      }
+    ]
+  },
+  "model/exterior/specialists/air_cooler.py": {
+    "imports": [
+      "math",
+      "mathutils",
+      "mathutils.geometry",
+      "runpy"
+    ],
+    "file_or_module_reads": [
+      {
+        "line": 117,
+        "operation": "run_path",
+        "expression": "str(api['OUT'] / 'piping_ports.py')"
+      }
+    ]
+  },
+  "model/exterior/specialists/coolant_cap.py": {
+    "imports": [
+      "math"
+    ],
+    "file_or_module_reads": []
+  },
+  "model/exterior/specialists/cooling_pumps.py": {
+    "imports": [
+      "bpy",
+      "math",
+      "mathutils",
+      "pathlib",
+      "runpy"
+    ],
+    "file_or_module_reads": [
+      {
+        "line": 115,
+        "operation": "run_path",
+        "expression": "str(a['OUT'].parent / 'motion/seawater_vanes.py')"
+      },
+      {
+        "line": 169,
+        "operation": "run_path",
+        "expression": "str(Path(__file__).resolve().parents[2] / 'internal/gear_train.py')"
+      }
+    ]
+  },
+  "model/exterior/specialists/drive_belt.py": {
+    "imports": [
+      "math",
+      "mathutils",
+      "runpy"
+    ],
+    "file_or_module_reads": [
+      {
+        "line": 6,
+        "operation": "run_path",
+        "expression": "str(api['OUT'].parent / 'motion' / 'belt.py')"
+      }
+    ]
+  },
+  "model/exterior/specialists/electrical.py": {
+    "imports": [
+      "json",
+      "math",
+      "pathlib",
+      "runpy"
+    ],
+    "file_or_module_reads": [
+      {
+        "line": 19,
+        "operation": "read_text",
+        "expression": "catalog / f'{number}.json'"
+      },
+      {
+        "line": 140,
+        "operation": "run_path",
+        "expression": "str(api['OUT'].parent / 'motion' / 'starter.py')"
+      }
+    ]
+  },
+  "model/exterior/specialists/filters.py": {
+    "imports": [
+      "math"
+    ],
+    "file_or_module_reads": []
+  },
+  "model/exterior/specialists/freshwater_drive.py": {
+    "imports": [
+      "bpy",
+      "math",
+      "mathutils",
+      "runpy"
+    ],
+    "file_or_module_reads": [
+      {
+        "line": 8,
+        "operation": "run_path",
+        "expression": "str(api['OUT'].parent / 'motion' / 'freshwater_pump.py')"
+      },
+      {
+        "line": 9,
+        "operation": "run_path",
+        "expression": "str(api['OUT'].parent / 'internal' / 'gear_train.py')"
+      }
+    ]
+  },
+  "model/exterior/specialists/heat_exchangers.py": {
+    "imports": [
+      "math",
+      "mathutils",
+      "mathutils.geometry"
+    ],
+    "file_or_module_reads": []
+  },
+  "model/exterior/specialists/housing_service.py": {
+    "imports": [
+      "math"
+    ],
+    "file_or_module_reads": []
+  },
+  "model/exterior/specialists/injection.py": {
+    "imports": [
+      "math",
+      "runpy"
+    ],
+    "file_or_module_reads": [
+      {
+        "line": 120,
+        "operation": "run_path",
+        "expression": "str(api['OUT'].parent / 'motion/metering_rack.py')"
+      },
+      {
+        "line": 142,
+        "operation": "run_path",
+        "expression": "str(api['OUT'].parent / 'motion' / 'pump_cam.py')"
+      }
+    ]
+  },
+  "model/exterior/specialists/piping.py": {
+    "imports": [
+      "collections",
+      "json",
+      "math",
+      "mathutils",
+      "pathlib",
+      "runpy"
+    ],
+    "file_or_module_reads": [
+      {
+        "line": 26,
+        "operation": "read_text",
+        "expression": "source"
+      },
+      {
+        "line": 37,
+        "operation": "run_path",
+        "expression": "str(Path(api['OUT']) / 'charge_duct.py')"
+      }
+    ]
+  },
+  "model/exterior/specialists/pump_accessories.py": {
+    "imports": [
+      "math"
+    ],
+    "file_or_module_reads": []
+  },
+  "model/exterior/specialists/turbo.py": {
+    "imports": [
+      "math"
+    ],
+    "file_or_module_reads": []
+  },
+  "model/exterior/specialists/water_lube_routes.py": {
+    "imports": [
+      "bmesh",
+      "bpy",
+      "json",
+      "math",
+      "mathutils"
+    ],
+    "file_or_module_reads": [
+      {
+        "line": 85,
+        "operation": "read_text",
+        "expression": "api['OUT'].parent / 'flow' / 'water-lube.json'"
+      }
+    ]
+  },
+  "model/flow/audit_charge_duct.py": {
+    "imports": [
+      "bisect",
+      "bpy",
+      "hashlib",
+      "json",
+      "math",
+      "mathutils",
+      "mathutils.bvhtree",
+      "pathlib",
+      "sys"
+    ],
+    "file_or_module_reads": [
+      {
+        "line": 20,
+        "operation": "read_text",
+        "expression": "root / 'model/flow/routes.json'"
+      },
+      {
+        "line": 61,
+        "operation": "read_text",
+        "expression": "root / 'model/assemblies/RAK-CHARGEDUCT.json'"
+      },
+      {
+        "line": 62,
+        "operation": "read_bytes",
+        "expression": "root / path"
+      }
+    ]
+  },
+  "model/flow/build_routes.py": {
+    "imports": [
+      "ast",
+      "json",
+      "math",
+      "pathlib"
+    ],
+    "file_or_module_reads": [
+      {
+        "line": 29,
+        "operation": "read_text",
+        "expression": "HERE.parent / 'datum.json'"
+      },
+      {
+        "line": 34,
+        "operation": "read_text",
+        "expression": "HERE.parent / 'exterior' / 'build.py'"
+      },
+      {
+        "line": 150,
+        "operation": "read_text",
+        "expression": "water"
+      }
+    ]
+  },
+  "model/flow/make_water_lube.py": {
+    "imports": [
+      "json",
+      "math",
+      "pathlib",
+      "runpy"
+    ],
+    "file_or_module_reads": [
+      {
+        "line": 255,
+        "operation": "run_path",
+        "expression": "str(Path(__file__).resolve().parents[1] / 'motion' / 'freshwater_pump.py')"
+      }
+    ]
+  },
+  "model/flow/source_coverage.py": {
+    "imports": [
+      "json",
+      "pathlib"
+    ],
+    "file_or_module_reads": [
+      {
+        "line": 49,
+        "operation": "read_text",
+        "expression": "HERE.parent / 'systems' / f'{family}.json'"
+      },
+      {
+        "line": 65,
+        "operation": "read_text",
+        "expression": "HERE / 'routes.json'"
+      }
+    ]
+  },
+  "model/internal/build_internal.py": {
+    "imports": [
+      "bmesh",
+      "bpy",
+      "gear_train",
+      "injector",
+      "json",
+      "math",
+      "mathutils",
+      "mechanical_service",
+      "pathlib",
+      "sys"
+    ],
+    "file_or_module_reads": [
+      {
+        "line": 12,
+        "operation": "read_text",
+        "expression": "OUT.parent / 'datum.json'"
+      }
+    ]
+  },
+  "model/internal/gear_train.py": {
+    "imports": [
+      "json",
+      "math",
+      "pathlib",
+      "runpy"
+    ],
+    "file_or_module_reads": [
+      {
+        "line": 4,
+        "operation": "run_path",
+        "expression": "str(Path(__file__).resolve().parents[1] / 'motion' / 'water_drive_spec.py')"
+      },
+      {
+        "line": 101,
+        "operation": "read_text",
+        "expression": "Path(__file__).parent / 'kinematics.json'"
+      }
+    ]
+  },
+  "model/internal/injector.py": {
+    "imports": [
+      "hashlib",
+      "json",
+      "math",
+      "pathlib",
+      "re"
+    ],
+    "file_or_module_reads": [
+      {
+        "line": 277,
+        "operation": "read_text",
+        "expression": "evidence / 'D05-fig79.html'"
+      },
+      {
+        "line": 282,
+        "operation": "read_bytes",
+        "expression": "out.parent.parent / 'doc' / 'D01-service.pdf'"
+      },
+      {
+        "line": 287,
+        "operation": "read_bytes",
+        "expression": "evidence / name"
+      }
+    ]
+  },
+  "model/internal/mechanical_service.py": {
+    "imports": [
+      "json",
+      "math"
+    ],
+    "file_or_module_reads": []
+  },
+  "model/motion/audit_drives.py": {
+    "imports": [
+      "bpy",
+      "hashlib",
+      "json",
+      "math",
+      "mathutils",
+      "mathutils.bvhtree",
+      "pathlib",
+      "sys"
+    ],
+    "file_or_module_reads": [
+      {
+        "line": 26,
+        "operation": "read_text",
+        "expression": "root / 'model/motion/drivetrain.json'"
+      },
+      {
+        "line": 62,
+        "operation": "read_bytes",
+        "expression": "root / 'model/exterior/exterior.glb'"
+      },
+      {
+        "line": 63,
+        "operation": "read_bytes",
+        "expression": "root / 'model/internal/internal.glb'"
+      }
+    ]
+  },
+  "model/motion/audit_enclosures.py": {
+    "imports": [
+      "bpy",
+      "hashlib",
+      "json",
+      "math",
+      "mathutils",
+      "mathutils.bvhtree",
+      "pathlib",
+      "sys"
+    ],
+    "file_or_module_reads": [
+      {
+        "line": 15,
+        "operation": "read_text",
+        "expression": "root / 'model/motion/drivetrain.json'"
+      },
+      {
+        "line": 79,
+        "operation": "read_bytes",
+        "expression": "asset"
+      }
+    ]
+  },
+  "model/motion/audit_starter_flanks.py": {
+    "imports": [
+      "bpy",
+      "hashlib",
+      "json",
+      "math",
+      "numpy",
+      "pathlib",
+      "starter",
+      "sys"
+    ],
+    "file_or_module_reads": [
+      {
+        "line": 70,
+        "operation": "read_bytes",
+        "expression": "asset"
+      }
+    ]
+  },
+  "model/motion/belt.py": {
+    "imports": [
+      "math"
+    ],
+    "file_or_module_reads": []
+  },
+  "model/motion/build_functions.py": {
+    "imports": [
+      "build_motion",
+      "collections",
+      "hashlib",
+      "json",
+      "pathlib",
+      "re"
+    ],
+    "file_or_module_reads": [
+      {
+        "line": 10,
+        "operation": "read_text",
+        "expression": "ROOT / p"
+      },
+      {
+        "line": 11,
+        "operation": "read_bytes",
+        "expression": "ROOT / p"
+      }
+    ]
+  },
+  "model/motion/build_motion.py": {
+    "imports": [
+      "belt",
+      "collections",
+      "function_groups",
+      "json",
+      "math",
+      "pathlib",
+      "pump_cam",
+      "starter",
+      "struct",
+      "water_drive_spec"
+    ],
+    "file_or_module_reads": [
+      {
+        "line": 54,
+        "operation": "read_text",
+        "expression": "ROOT / 'model/internal/kinematics.json'"
+      },
+      {
+        "line": 173,
+        "operation": "read_text",
+        "expression": "ROOT / 'inputs/base-viewer-kinematics.json'"
+      },
+      {
+        "line": 196,
+        "operation": "read_text",
+        "expression": "f / 'inventory.json'"
+      }
+    ]
+  },
+  "model/motion/check_drive_release.py": {
+    "imports": [
+      "hashlib",
+      "json",
+      "pathlib",
+      "sys"
+    ],
+    "file_or_module_reads": [
+      {
+        "line": 10,
+        "operation": "read_text",
+        "expression": "path"
+      },
+      {
+        "line": 12,
+        "operation": "read_bytes",
+        "expression": "path"
+      }
+    ]
+  },
+  "model/motion/freshwater_pump.py": {
+    "imports": [
+      "pathlib",
+      "runpy"
+    ],
+    "file_or_module_reads": [
+      {
+        "line": 4,
+        "operation": "run_path",
+        "expression": "str(Path(__file__).with_name('water_drive_spec.py'))"
+      }
+    ]
+  },
+  "model/motion/function_groups.py": {
+    "imports": [
+      "math"
+    ],
+    "file_or_module_reads": []
+  },
+  "model/motion/make_pinion_profile.py": {
+    "imports": [
+      "json",
+      "math",
+      "numpy",
+      "pathlib",
+      "shapely.geometry",
+      "shapely.ops",
+      "starter"
+    ],
+    "file_or_module_reads": []
+  },
+  "model/motion/metering_rack.py": {
+    "imports": [
+      "math",
+      "pathlib",
+      "runpy"
+    ],
+    "file_or_module_reads": [
+      {
+        "line": 17,
+        "operation": "run_path",
+        "expression": "str(Path(__file__).resolve().parents[1] / 'internal/gear_train.py')"
+      }
+    ]
+  },
+  "model/motion/pump_cam.py": {
+    "imports": [
+      "math"
+    ],
+    "file_or_module_reads": []
+  },
+  "model/motion/seawater_vanes.py": {
+    "imports": [
+      "math"
+    ],
+    "file_or_module_reads": []
+  },
+  "model/motion/starter.py": {
+    "imports": [
+      "json",
+      "math",
+      "pathlib"
+    ],
+    "file_or_module_reads": [
+      {
+        "line": 35,
+        "operation": "read_text",
+        "expression": "Path(__file__).with_name('pinion-profile.json')"
+      }
+    ]
+  },
+  "model/motion/water_drive_spec.py": {
+    "imports": [
+      "math"
+    ],
+    "file_or_module_reads": []
+  },
+  "qa/r06/check_function_geometry.py": {
+    "imports": [
+      "bpy",
+      "hashlib",
+      "json",
+      "math",
+      "mathutils",
+      "mathutils.bvhtree",
+      "pathlib",
+      "runpy"
+    ],
+    "file_or_module_reads": [
+      {
+        "line": 47,
+        "operation": "read_bytes",
+        "expression": "p"
+      },
+      {
+        "line": 48,
+        "operation": "read_text",
+        "expression": "root / 'model/motion/drivetrain.json'"
+      },
+      {
+        "line": 51,
+        "operation": "run_path",
+        "expression": "str(root / 'model/motion/seawater_vanes.py')"
+      }
+    ]
+  },
+  "qa/r06/verify_driven_gears.py": {
+    "imports": [
+      "bpy",
+      "hashlib",
+      "json",
+      "math",
+      "mathutils",
+      "mathutils.bvhtree",
+      "pathlib",
+      "runpy",
+      "sys"
+    ],
+    "file_or_module_reads": [
+      {
+        "line": 13,
+        "operation": "read_text",
+        "expression": "root / 'model/internal/kinematics.json'"
+      },
+      {
+        "line": 14,
+        "operation": "run_path",
+        "expression": "str(root / 'model/motion/water_drive_spec.py')"
+      },
+      {
+        "line": 89,
+        "operation": "read_bytes",
+        "expression": "root / f'model/{n}/{n}.glb'"
+      }
+    ]
+  },
+  "qa/r06/verify_turbo_oil_drills.py": {
+    "imports": [
+      "bpy",
+      "hashlib",
+      "json",
+      "mathutils",
+      "mathutils.bvhtree",
+      "pathlib"
+    ],
+    "file_or_module_reads": [
+      {
+        "line": 32,
+        "operation": "read_bytes",
+        "expression": "glb"
+      }
+    ]
+  }
+}

@@ -1,0 +1,252 @@
+{
+  "id": "D05-37",
+  "assembly": "6AYM-WET charge-air cooler",
+  "url": "https://yanmarshop.com/en-GB/catalog/all/servicebom/yanmardata-1310808/yanmar-marine-marine-main-engine-medium-ay-series-6aym-wet-fig-37-air-cooler",
+  "catalog": "0CG10-M34300; Fig.37; varian model WET; kecocokan serial/H 555 kW belum dipastikan",
+  "private_source_files": {
+    "D05-37.html": "30fe1287334f1df4ffaef9abec518f29e54898da4f256551d5421d94e0c15a24",
+    "D05-37.svg": "1d1a77ff75e3f0a526ff15694f0f4d7e11b8c66e763d478c0c2fc9ddc2ed38f8",
+    "D05-37.png": "1bbc7103a052ef07848d637eb4c20b5c7df1f991c04ebb161f05b3ee861614be"
+  },
+  "sources": [
+    "D05-37 engineering parts catalogue exploded view + 24 rows of BOM",
+    "D01 0B6AY-EN0010 PDF 14 printed 10 names rear air cooler; PDF 163 printed 159 cooling water diagram",
+    "D05-37 PDF mirrored text in ../D05-parts-download independently corroborates 22 lines; omits 6/7 present in HTML + diagram."
+  ],
+  "parts": [
+    {
+      "ref": "1",
+      "pn": "748699-18110",
+      "name": "COOLER ASSY, INTER",
+      "qty_catalog_wet": 1,
+      "evidence": "DOCUMENTED",
+      "r02": "induk logis; casing dan tutup menyatu dalam satu objek r02",
+      "parent_in_diagram": null
+    },
+    {
+      "ref": "2",
+      "pn": "148699-18500",
+      "name": "BODY, COOLER",
+      "qty_catalog_wet": 1,
+      "evidence": "DOCUMENTED",
+      "r02": "EXT-INTAKE-02; prisma tertutup/solid",
+      "parent_in_diagram": "1"
+    },
+    {
+      "ref": "3",
+      "pn": "148699-18510",
+      "name": "COVER",
+      "qty_catalog_wet": 1,
+      "evidence": "DOCUMENTED",
+      "r02": "tutup sederhana menyatu di EXT-INTAKE-02",
+      "parent_in_diagram": "1"
+    },
+    {
+      "ref": "4",
+      "pn": "148660-18520",
+      "name": "COVER",
+      "qty_catalog_wet": 1,
+      "evidence": "DOCUMENTED",
+      "r02": "tutup sederhana menyatu di EXT-INTAKE-02",
+      "parent_in_diagram": "1"
+    },
+    {
+      "ref": "5",
+      "pn": "133615-18621",
+      "name": "CORE ASSY",
+      "qty_catalog_wet": 1,
+      "evidence": "DOCUMENTED",
+      "r02": "tidak ada ID yang dipetakan",
+      "parent_in_diagram": "1"
+    },
+    {
+      "ref": "6",
+      "pn": "133615-18970",
+      "name": "DIVISION RIB",
+      "qty_catalog_wet": 1,
+      "evidence": "DOCUMENTED",
+      "r02": "tidak ada ID yang dipetakan",
+      "parent_in_diagram": "5"
+    },
+    {
+      "ref": "7",
+      "pn": "133615-18980",
+      "name": "DIVISION RIB SEAL",
+      "qty_catalog_wet": 1,
+      "evidence": "DOCUMENTED",
+      "r02": "tidak ada ID yang dipetakan",
+      "parent_in_diagram": "5"
+    },
+    {
+      "ref": "8",
+      "pn": "24326-001900",
+      "name": "O-RING, 4DG190.0",
+      "qty_catalog_wet": 3,
+      "evidence": "DOCUMENTED",
+      "r02": "tidak ada ID yang dipetakan",
+      "parent_in_diagram": "1"
+    },
+    {
+      "ref": "9",
+      "pn": "135410-33310",
+      "name": "PLUG",
+      "qty_catalog_wet": 4,
+      "evidence": "DOCUMENTED",
+      "r02": "tidak ada ID yang dipetakan",
+      "parent_in_diagram": "1"
+    },
+    {
+      "ref": "10",
+      "pn": "27210-200550",
+      "name": "ZINC, SCREW20X55",
+      "qty_catalog_wet": 4,
+      "evidence": "DOCUMENTED",
+      "r02": "tidak ada ID yang dipetakan",
+      "parent_in_diagram": "1"
+    },
+    {
+      "ref": "11",
+      "pn": "123210-09310",
+      "name": "GASKET",
+      "qty_catalog_wet": 4,
+      "evidence": "DOCUMENTED",
+      "r02": "tidak ada ID yang dipetakan",
+      "parent_in_diagram": "1"
+    },
+    {
+      "ref": "12",
+      "pn": "23414-250000",
+      "name": "GASKET, 25X1.0",
+      "qty_catalog_wet": 4,
+      "evidence": "DOCUMENTED",
+      "r02": "tidak ada ID yang dipetakan",
+      "parent_in_diagram": "1"
+    },
+    {
+      "ref": "13",
+      "pn": "26106-100352",
+      "name": "BOLT, M10X 35 PLATED",
+      "qty_catalog_wet": 8,
+      "evidence": "DOCUMENTED",
+      "r02": "baut generik menyatu pada kedua tutup; identitas OEM belum dicocokkan",
+      "parent_in_diagram": "1"
+    },
+    {
+      "ref": "14",
+      "pn": "26106-100752",
+      "name": "BOLT, M10X 75 PLATED",
+      "qty_catalog_wet": 4,
+      "evidence": "DOCUMENTED",
+      "r02": "baut generik menyatu pada kedua tutup; identitas OEM belum dicocokkan",
+      "parent_in_diagram": "1"
+    },
+    {
+      "ref": "15",
+      "pn": "148660-18640",
+      "name": "DRAIN ASSY, AUTO",
+      "qty_catalog_wet": 1,
+      "evidence": "DOCUMENTED",
+      "r02": "tidak ada ID yang dipetakan",
+      "parent_in_diagram": "1"
+    },
+    {
+      "ref": "21",
+      "pn": "23897-030002",
+      "name": "PLUG G3/8,HEX.",
+      "qty_catalog_wet": 2,
+      "evidence": "DOCUMENTED",
+      "r02": "tidak ada ID yang dipetakan",
+      "parent_in_diagram": "1"
+    },
+    {
+      "ref": "22",
+      "pn": "23414-170000",
+      "name": "GASKET, 17X1.0",
+      "qty_catalog_wet": 2,
+      "evidence": "DOCUMENTED",
+      "r02": "tidak ada ID yang dipetakan",
+      "parent_in_diagram": "1"
+    },
+    {
+      "ref": "23",
+      "pn": "23877-040000",
+      "name": "PLUG, R04",
+      "qty_catalog_wet": 1,
+      "evidence": "DOCUMENTED",
+      "r02": "tidak ada ID yang dipetakan",
+      "parent_in_diagram": "1"
+    },
+    {
+      "ref": "24",
+      "pn": "26106-100702",
+      "name": "BOLT, M10X 70 PLATED",
+      "qty_catalog_wet": 4,
+      "evidence": "DOCUMENTED",
+      "r02": "tidak ada ID yang dipetakan",
+      "parent_in_diagram": null
+    },
+    {
+      "ref": "25",
+      "pn": "26106-101102",
+      "name": "BOLT, M10X110 PLATED",
+      "qty_catalog_wet": 4,
+      "evidence": "DOCUMENTED",
+      "r02": "tidak ada ID yang dipetakan",
+      "parent_in_diagram": null
+    },
+    {
+      "ref": "26",
+      "pn": "148660-18701",
+      "name": "SUPPORT",
+      "qty_catalog_wet": 1,
+      "evidence": "DOCUMENTED",
+      "r02": "tidak ada ID yang dipetakan",
+      "parent_in_diagram": null
+    },
+    {
+      "ref": "27",
+      "pn": "26116-140352",
+      "name": "BOLT, M14X 35 PLATED",
+      "qty_catalog_wet": 2,
+      "evidence": "DOCUMENTED",
+      "r02": "tidak ada ID yang dipetakan",
+      "parent_in_diagram": null
+    },
+    {
+      "ref": "28",
+      "pn": "26156-140252",
+      "name": "BOLT, M14X 25 PLATED",
+      "qty_catalog_wet": 2,
+      "evidence": "DOCUMENTED",
+      "r02": "tidak ada ID yang dipetakan",
+      "parent_in_diagram": null
+    },
+    {
+      "ref": "29",
+      "pn": "23010-015000",
+      "name": "CLAMP,  15",
+      "qty_catalog_wet": 1,
+      "evidence": "DOCUMENTED",
+      "r02": "tidak ada ID yang dipetakan",
+      "parent_in_diagram": null
+    }
+  ],
+  "geometry_observed": [
+    "Inti silindris berupa banyak pipa lurus paralel, dua pelat/tepi ujung bundar dan penyangga melintang di antaranya. Ujung memperlihatkan lubang-lubang. Jumlah pipa, pitch, diameter dan detail lubang tidak dinyatakan sebagai dimensi OEM.",
+    "Body berflens dengan mulut lingkaran di kedua ujung; dudukan bawah dan mulut udara. Cover 3 bersekat; cover 4 berbentuk kubah dengan dua boss menonjol.",
+    "Gambar menunjukkan tiga O-ring (ref 8), satu di sepanjang inti dan dua dekat tutup, dan ref 6/7 seat pada ujung inti. Dua gasket kecil 11 dan 12 berbeda dari O-ring casing.",
+    "Arrow flywheel side pada gambar bukan panah penarikan inti. Sumbu inti ditetapkan melintang pada model menurut bukti eksternal; diagram exploded tidak mengalibrasi pose ke kerangka dunia."
+  ],
+  "flow": {
+    "water": "Seawater pump → air cooler → heat exchanger pada baseline, D01 hlm.159. Representasi edukasi aliran air di tube side dan udara di sisi luar mengikuti bentuk tube sheet/cover.",
+    "air": "Charge air dari kompresor menuju cooler lalu intake manifold. Aliran udara dan air melalui dua jalur terpisah.",
+    "unverified": [
+      "Arah aktual di tiap tube dan jumlah pass",
+      "Varian sambungan kapal, fitting opsional, lokasi port persis",
+      "Profil lubang dan ketebalan, material, pitch, jumlah fisik tube; gambar non-dimensi",
+      "Diagram D01 PDF166 untuk HE coolant di depan bukan penampang air cooler. Potongan internal berdimensi untuk air cooler belum diperoleh."
+    ]
+  },
+  "r02_cause": "build.py helper cooler() dipakai dua produk berbeda; semua muka tutup dan baut dijoin dalam EXT-INTAKE-02; core, O-ring, sekat, dan tube sheet tidak diberi geometri sendiri. Integrator hanya memasukkan lima node induk ke RAK-INTAKE.",
+  "model_handoff": "EXT-INTAKE-02 tetap body; ID anak final ditetapkan pada inventaris/QA r03. Cocokkan label dan no OEM per item ini; tubebank/tube sheets adalah fitur ref 5, bukan PN baru. Komponen kecil yang digabung/diabaikan harus dinyatakan sebagai gap."
+}

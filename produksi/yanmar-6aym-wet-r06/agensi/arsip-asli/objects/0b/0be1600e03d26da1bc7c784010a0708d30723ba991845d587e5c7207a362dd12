@@ -1,0 +1,258 @@
+{
+  "agent": {
+    "id": "/root/video",
+    "role": "Evidence Video"
+  },
+  "machine_model": "Yanmar 6AYM-WET",
+  "date_utc": "2026-11-28",
+  "status": "UNVERIFIED",
+  "videos": [
+    {
+      "id": "V01",
+      "url": "https://youtu.be/gU4C8JgGfq8",
+      "video_id": "gU4C8JgGfq8",
+      "user_reference": true,
+      "title": null,
+      "publisher": null,
+      "claimed_variant_note": null,
+      "verified_variant": null,
+      "timestamp_range_reviewed": null,
+      "source_sha256": null,
+      "access": "unavailable",
+      "visual_status": "UNVERIFIED",
+      "counts_as_target_visual_evidence": false,
+      "frames": []
+    },
+    {
+      "id": "V02",
+      "url": "https://youtu.be/aE9zL-1s6Xs",
+      "video_id": "aE9zL-1s6Xs",
+      "user_reference": true,
+      "title": null,
+      "publisher": null,
+      "claimed_variant_note": null,
+      "verified_variant": null,
+      "timestamp_range_reviewed": null,
+      "source_sha256": null,
+      "access": "unavailable",
+      "visual_status": "UNVERIFIED",
+      "counts_as_target_visual_evidence": false,
+      "frames": []
+    },
+    {
+      "id": "V03",
+      "url": "https://youtu.be/_Fee7TkfG7k",
+      "video_id": "_Fee7TkfG7k",
+      "user_reference": true,
+      "title": null,
+      "publisher": null,
+      "claimed_variant_note": null,
+      "verified_variant": null,
+      "timestamp_range_reviewed": null,
+      "source_sha256": null,
+      "access": "unavailable",
+      "visual_status": "UNVERIFIED",
+      "counts_as_target_visual_evidence": false,
+      "frames": []
+    },
+    {
+      "id": "V04",
+      "url": "https://www.youtube.com/watch?v=N7XbfXXDH2I",
+      "video_id": "N7XbfXXDH2I",
+      "user_reference": false,
+      "title": "YANMAR 6AYM-WET TESTIMONIAL",
+      "publisher": "Navela",
+      "claimed_variant_note": "6AYM-WET menurut deskripsi, rating unit belum terkonfirmasi. WB24 dari deskripsi tidak cukup untuk menyamakan unit dengan kapal 555 kW dalam berita OEM.",
+      "verified_variant": null,
+      "timestamp_range_reviewed": null,
+      "source_sha256": null,
+      "access": "metadata_only",
+      "visual_status": "UNVERIFIED",
+      "counts_as_target_visual_evidence": false,
+      "frames": []
+    },
+    {
+      "id": "V05",
+      "url": "https://www.youtube.com/watch?v=9qCvyd2iq1s",
+      "video_id": "9qCvyd2iq1s",
+      "user_reference": false,
+      "title": "Yanmar series type  6AYM-WET with power 610 kw ||test run",
+      "publisher": "mekanik gagal",
+      "claimed_variant_note": "6AYM-WET 610 kW menurut judul dan deskripsi; nameplate belum terlihat.",
+      "verified_variant": null,
+      "timestamp_range_reviewed": null,
+      "source_sha256": null,
+      "access": "metadata_only",
+      "visual_status": "UNVERIFIED",
+      "counts_as_target_visual_evidence": false,
+      "frames": []
+    },
+    {
+      "id": "V06",
+      "url": "https://www.youtube.com/watch?v=ZvschmR5zgg",
+      "video_id": "ZvschmR5zgg",
+      "user_reference": false,
+      "title": "얀마엔진 소모품 교체 (YANMAR ENGINE) 6AYM-WGT/6AYM-WET (911PS)",
+      "publisher": "YANMAR PLUS , 얀마프러스",
+      "claimed_variant_note": "Metadata mencampur WGT dan WET. Angka 911 PS konsisten dengan rating WGT pada tabel OEM; varian unit belum terkonfirmasi.",
+      "verified_variant": null,
+      "timestamp_range_reviewed": null,
+      "source_sha256": null,
+      "access": "metadata_only",
+      "visual_status": "UNVERIFIED",
+      "counts_as_target_visual_evidence": false,
+      "frames": []
+    },
+    {
+      "id": "V07",
+      "url": "https://kr.made-in-china.com/video-channel/deutzengine_aQWrcsRCvAkE_Yanmar-Marine-Engine-6aym-Wet-6aym-Wet-6aym-Wgt.html",
+      "video_id": "TQxfCgvzIRVD",
+      "media_url": "https://v.made-in-china.com/ucv/sbr/47e886b36803d1ee7fc8c7f47b9d8c/9c1317745f10207841352014463187_h264_def.mp4",
+      "title": "Yanmar Marine Engine 6aym-Wet 6aym-Wet 6aym-Wgt",
+      "publisher": "Shanghai Stone Diesel Engine Co., Ltd. (watermark visual)",
+      "user_reference": false,
+      "claimed_variant_note": "Judul listing menyebut 6AYM-WET/WGT, tetapi emblem tiga berlian Mitsubishi terlihat pada produk di video.",
+      "verified_variant": null,
+      "video_duration_seconds": 18.866667,
+      "timestamp_range_reviewed": [
+        "00:00:01",
+        "00:00:13"
+      ],
+      "source_file": "V07.mp4",
+      "source_sha256": "3bd78cdd0fc97ea4c17519c0f8b892ab0e5c44b40d8d123745de6769f33cb61f",
+      "access": "frame/video",
+      "visual_status": "EXCLUDED_WRONG_OR_UNCONFIRMED_ENGINE",
+      "counts_as_target_visual_evidence": false,
+      "frames": [
+        {
+          "timestamp": "00:00:01",
+          "timestamp_seconds": 1,
+          "timebase": "posisi seek pada video sumber, tanpa offset",
+          "angle": "samping serong, close-up",
+          "features": "Belokan pipa di foreground, sepasang filter dan jalur pipa kecil terlihat.",
+          "internals_visible": false,
+          "file": "frames/V07-1s.jpg",
+          "sha256": "6951caac8d3f3989c93a060ac7ca879316e5bfe5be90fa8d4cdbd6b943579566",
+          "inspected": true,
+          "evidence_status": "OBSERVED",
+          "counts_as_target_visual_evidence": false
+        },
+        {
+          "timestamp": "00:00:04",
+          "timestamp_seconds": 4,
+          "timebase": "posisi seek pada video sumber, tanpa offset",
+          "angle": "samping serong, close-up",
+          "features": "Flange dan belokan pipa terlihat sebagian. Efek kilatan menghalangi sebagian besar detail.",
+          "internals_visible": false,
+          "file": "frames/V07-4s.jpg",
+          "sha256": "d09b0d74ed7b670567f525a3ba718a17411d8acb3759bb4d913291802c2dad26",
+          "inspected": true,
+          "evidence_status": "OBSERVED",
+          "counts_as_target_visual_evidence": false
+        },
+        {
+          "timestamp": "00:00:07",
+          "timestamp_seconds": 7,
+          "timebase": "posisi seek pada video sumber, tanpa offset",
+          "angle": "ujung mesin dekat cakram, close-up",
+          "features": "Emblem merah tiga berlian Mitsubishi terlihat sebagian pada penutup.",
+          "internals_visible": false,
+          "file": "frames/V07-7s.jpg",
+          "sha256": "f2054bbf8ac53d870a6cdf1488636c6a756c3f9c7c878713479e31b8b5bb0b7a",
+          "inspected": true,
+          "evidence_status": "OBSERVED",
+          "counts_as_target_visual_evidence": false
+        },
+        {
+          "timestamp": "00:00:10",
+          "timestamp_seconds": 10,
+          "timebase": "posisi seek pada video sumber, tanpa offset",
+          "angle": "ujung mesin dekat cakram",
+          "features": "Emblem merah tiga berlian Mitsubishi terlihat utuh pada penutup di atas guard berlubang dan cakram.",
+          "internals_visible": false,
+          "file": "frames/V07-10s.jpg",
+          "sha256": "67fb98f1fe0b77c8d7753d8188d8afb89a38c3a349d7abd50f767f84f63900d0",
+          "inspected": true,
+          "evidence_status": "OBSERVED",
+          "counts_as_target_visual_evidence": false
+        },
+        {
+          "timestamp": "00:00:13",
+          "timestamp_seconds": 13,
+          "timebase": "posisi seek pada video sumber, tanpa offset",
+          "angle": "ujung mesin dekat cakram, tiga perempat",
+          "features": "Emblem Mitsubishi tetap terlihat. Sudut ini memperlihatkan guard, cakram dan rangka penyangga.",
+          "internals_visible": false,
+          "file": "frames/V07-13s.jpg",
+          "sha256": "6d81f096b6b4acab0c318880d5d7f4d631db71bfbe6ba589641658f13b540a3d",
+          "inspected": true,
+          "evidence_status": "OBSERVED",
+          "counts_as_target_visual_evidence": false
+        }
+      ],
+      "limitation": "Tidak ada nameplate terbaca. Merek teramati pada penutup cukup untuk mengecualikan video sebagai bukti Yanmar; model Mitsubishi spesifik belum terkonfirmasi. Flash overlay dan perspektif membatasi inspeksi."
+    }
+  ],
+  "coverage": {
+    "depan": "UNVERIFIED",
+    "belakang": "UNVERIFIED",
+    "kiri": "UNVERIFIED",
+    "kanan": "UNVERIFIED",
+    "atas": "UNVERIFIED",
+    "tiga_perempat": "UNVERIFIED"
+  },
+  "verified_target_frame_count": 0,
+  "verified_target_view_count": 0,
+  "access_failures": [
+    {
+      "source_id": "V01",
+      "command": "timeout 65 /tmp/yanmar-video-venv/bin/yt-dlp --ignore-config --no-playlist --retries 0 --socket-timeout 12 -f 'best[height<=480]/bestvideo[height<=480]' --write-info-json -o 'V01.%(ext)s' https://youtu.be/gU4C8JgGfq8 > V01.log 2>&1",
+      "fatal_error": "ERROR: [youtube] gU4C8JgGfq8: Unable to download API page: <urlopen error Tunnel connection failed: 403 Forbidden> (caused by ProxyError('<urlopen error Tunnel connection failed: 403 Forbidden>')); please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate issue template. Confirm you are on the latest version using  yt-dlp -U",
+      "log": "V01.log",
+      "log_sha256": "eef84b4df7751e2b0e67fbc216d293dc17fab4aa62ae27a567bafd0664221f5f",
+      "web_open_error": "Failed to fetch https://www.youtube.com/watch?v=gU4C8JgGfq8: Error fetching https://www.youtube.com/watch?v=gU4C8JgGfq8"
+    },
+    {
+      "source_id": "V02",
+      "command": "timeout 65 /tmp/yanmar-video-venv/bin/yt-dlp --ignore-config --no-playlist --retries 0 --socket-timeout 12 -f 'best[height<=480]/bestvideo[height<=480]' --write-info-json -o 'V02.%(ext)s' https://youtu.be/aE9zL-1s6Xs > V02.log 2>&1",
+      "fatal_error": "ERROR: [youtube] aE9zL-1s6Xs: Unable to download API page: <urlopen error Tunnel connection failed: 403 Forbidden> (caused by ProxyError('<urlopen error Tunnel connection failed: 403 Forbidden>')); please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate issue template. Confirm you are on the latest version using  yt-dlp -U",
+      "log": "V02.log",
+      "log_sha256": "0ee90feb20ad15d04136a24bc0977210edab82c9cc9d21c61f354fe863462b7a",
+      "web_open_error": "Failed to fetch https://www.youtube.com/watch?v=aE9zL-1s6Xs: Error fetching https://www.youtube.com/watch?v=aE9zL-1s6Xs"
+    },
+    {
+      "source_id": "V03",
+      "command": "timeout 65 /tmp/yanmar-video-venv/bin/yt-dlp --ignore-config --no-playlist --retries 0 --socket-timeout 12 -f 'best[height<=480]/bestvideo[height<=480]' --write-info-json -o 'V03.%(ext)s' https://youtu.be/_Fee7TkfG7k > V03.log 2>&1",
+      "fatal_error": "ERROR: [youtube] _Fee7TkfG7k: Unable to download API page: <urlopen error Tunnel connection failed: 403 Forbidden> (caused by ProxyError('<urlopen error Tunnel connection failed: 403 Forbidden>')); please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate issue template. Confirm you are on the latest version using  yt-dlp -U",
+      "log": "V03.log",
+      "log_sha256": "7cf96ad5e933857a62a2676f5629962ffe52f8bb710070d46c21c2ec0933aea5",
+      "web_open_error": "Failed to fetch https://www.youtube.com/watch?v=_Fee7TkfG7k: Error fetching https://www.youtube.com/watch?v=_Fee7TkfG7k"
+    },
+    {
+      "source_id": "V04",
+      "command": "timeout 45 /tmp/yanmar-video-venv/bin/yt-dlp --ignore-config --no-playlist --retries 0 --socket-timeout 12 -f 'best[height<=480]/bestvideo[height<=480]' --write-info-json -o 'V04.%(ext)s' 'https://www.youtube.com/watch?v=N7XbfXXDH2I' > V04.log 2>&1",
+      "fatal_error": "ERROR: [youtube] N7XbfXXDH2I: Unable to download API page: <urlopen error Tunnel connection failed: 403 Forbidden> (caused by ProxyError('<urlopen error Tunnel connection failed: 403 Forbidden>')); please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate issue template. Confirm you are on the latest version using  yt-dlp -U",
+      "log": "V04.log",
+      "log_sha256": "ded75c7b38e63330d3df3f82ac9ff78e990faa7d14efe35728973b4693dc3704",
+      "web_open_error": null
+    },
+    {
+      "source_id": "V05",
+      "command": "timeout 45 /tmp/yanmar-video-venv/bin/yt-dlp --ignore-config --no-playlist --retries 0 --socket-timeout 12 -f 'best[height<=480]/bestvideo[height<=480]' --write-info-json -o 'V05.%(ext)s' 'https://www.youtube.com/watch?v=9qCvyd2iq1s' > V05.log 2>&1",
+      "fatal_error": "ERROR: [youtube] 9qCvyd2iq1s: Unable to download API page: <urlopen error Tunnel connection failed: 403 Forbidden> (caused by ProxyError('<urlopen error Tunnel connection failed: 403 Forbidden>')); please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate issue template. Confirm you are on the latest version using  yt-dlp -U",
+      "log": "V05.log",
+      "log_sha256": "bb85fd95c2f964e34c81b3fb1c48bfa2734bb84de3c3da430c0b6531b88d69c7",
+      "web_open_error": null
+    }
+  ],
+  "variant_context_urls": [
+    "https://www.yanmar.com/ph/marinecommercial/products/propulsion_engine-high_speed/6ayseries/",
+    "https://www.yanmar.com/eu/news/2021/06/30/94738.html"
+  ],
+  "gaps": [
+    "Tidak ada frame video target yang dapat dipakai untuk memeriksa casing, rute pipa, fastener, komponen internal atau gerakan.",
+    "Bukti yang paling langsung adalah cuplikan atau tangkapan layar lokal bertimestamp yang memperlihatkan nameplate, dua ujung mesin, kedua sisi dan tampak atas. Prioritaskan sudut yang masih terbuka pada register foto.",
+    "Untuk detail internal, gunakan cuplikan servis spesifik dengan identitas varian yang dapat dikaitkan ke nameplate atau dokumen unit."
+  ],
+  "inspection_method": "yt-dlp 2026.11.23 untuk akses publik YouTube, maksimal 480p. MP4 alternatif adalah media publik yang ditautkan langsung oleh listing independen. Frame sampel diekstrak dengan ffmpeg dan dibuka secara visual melalui view_image."
+}

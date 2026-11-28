@@ -1,0 +1,108 @@
+{
+  "machine_model": "Yanmar 6AYM-WET H/HD, 555 kW pada 1840 rpm",
+  "agent": "/root/photos",
+  "coverage": {
+    "foto_atas_langsung": "UNVERIFIED",
+    "foto_permukaan_atas_miring": "OBSERVED",
+    "gambar_teknik_atas": "OBSERVED",
+    "count_for_review_minimum": 5
+  },
+  "sources": [
+    {
+      "id": "P09",
+      "file": "P09.jpg",
+      "page_url": "https://www.yanmar.com/eu/news/2021/06/30/94738.html",
+      "image_url": "https://www.yanmar.com/media/news/2021/06/29100728/IMG_2350.jpg",
+      "publisher": "Yanmar Europe",
+      "variant": "Yanmar 6AYM-WET H/Heavy Duty 555 kW @ 1840 rpm (identifikasi halaman sumber)",
+      "sha256": "299bdab9347a8912910f8d6e389ee07f6b6ecd74a7aea5dfd710d18d9a73de06",
+      "verified_by": "multimodal view_image",
+      "inspection": "Reinspeksi crop sumber asli. Kamera hampir aksial dari ujung damper, sedikit menurun.",
+      "detail_file": "P09-top-detail.jpg",
+      "detail_sha256": "131236091f3ac22cfb502f5415e2bc93d774c5c4ae6621d53f84dc7881c6f8fb",
+      "observed_features": [
+        "Deret penutup kepala/rocker terpisah berada sepanjang sumbu silinder. Permukaan atas penutup memperlihatkan rusuk mendatar serta fastener di tengah/tepi pada unit terdekat.",
+        "Housing panjang berusuk terlihat di sebelah operation dari penutup. Housing pendingin air tawar melintang di foreground, dengan tutup/fastener di atas; turbo dan sambungan flange knalpot di sisi non-operation."
+      ],
+      "occlusion": "Housing pendingin melintang menutupi tepi penutup depan. Sudut aksial membuat penutup jauh saling tumpang tindih. Selang dan pipa instalasi menutup sebagian tepi, sehingga jumlah fastener pada setiap penutup, bidang milimeter, dan rute seluruh pipa tidak terverifikasi."
+    },
+    {
+      "id": "P10",
+      "file": "P10.jpg",
+      "page_url": "https://www.yanmar.com/eu/news/2021/06/30/94738.html",
+      "image_url": "https://www.yanmar.com/media/news/2021/06/29100735/IMG_2351.jpg",
+      "publisher": "Yanmar Europe",
+      "variant": "Yanmar 6AYM-WET H/Heavy Duty 555 kW @ 1840 rpm (identifikasi halaman sumber)",
+      "sha256": "02aba58481a4af071a684537057d7fc8745857b4951e2ccc989d9096f9511fae",
+      "verified_by": "multimodal view_image",
+      "inspection": "Reinspeksi foto dari belakang, menyudut dan sedikit dari atas ke sisi non-operation.",
+      "detail_file": "P10-oblique-detail.jpg",
+      "detail_sha256": "51fbb24bfeb90406a2e6d531218d195477099a4db20bd736f318508286fa989d",
+      "observed_features": [
+        "Intercooler melintang di belakang, dengan bidang atas terangkat pada satu ujung dan permukaan cembung pada badan utama.",
+        "Penutup kepala/rocker berusuk terlihat berturut-turut di belakang tepi intercooler; rumah memanjang di sisi operation tampak paralel. Housing turbo dan outlet berflensa terdapat di samping deret, menuju sisi non-operation."
+      ],
+      "occlusion": "Intercooler menyembunyikan area di belakangnya. Tiang putih, pipa exhaust kapal dan perspektif menutup sebagian area tengah/jauh. Foto membuktikan susunan yang terlihat secara lokal tanpa cakupan foto overhead penuh."
+    },
+    {
+      "id": "P21",
+      "file": "P21.jpg",
+      "sha256": "d1a6aa58b67bb3cab0776c20f21bc1a7b58060f371e785c53100228f65b1caf9",
+      "publisher": "RADEŽ d.d. (galangan pembangun Pelagos III)",
+      "page_url": "https://www.radez.hr/delivery-of-tuna-farm-workboat/",
+      "image_url": "https://www.radez.hr/wp-content/uploads/2020/08/pel-05.jpg",
+      "variant": "Pelagos III, Yanmar 555 kW menurut galangan; atribusi 6AYM-WET HD dikonfirmasi artikel Yanmar Europe dan kecocokan ruang mesin P09/P10.",
+      "variant_confirmation_url": "https://www.yanmar.com/eu/news/2021/06/30/94738.html",
+      "observed_features": [
+        "Pandangan 3/4 dari ujung damper pada Pelagos III, memperlihatkan housing melintang dan orientasi ke intake/drive. Peralatan yang lebih dekat kamera pada kiri dan kanan memakai saluran exhaust terpisah."
+      ],
+      "occlusion": "Mesin utama berada di latar tengah. Pipa exhaust, auxiliary set dan sudut rendah menyisakan sedikit permukaan atas; dipakai sebagai penguat atribusi dan pemisahan peralatan kapal, bukan sudut tambahan.",
+      "verified_by": "multimodal view_image",
+      "license": "Hak pakai belum diverifikasi; referensi privat."
+    },
+    {
+      "id": "GA01",
+      "file": "GA01.jpg",
+      "page_url": "https://www.scribd.com/document/786370241/YANMAR-6AYM-WET-Model",
+      "image_url": "https://imgv2-1-f.scribdassets.com/img/document/786370241/original/cb85ae3a0d/1?v=1",
+      "publisher": "Yanmar Co., Ltd. (title block); preview publik Scribd",
+      "title": "OUTLINE, B3-48660-4450, 1-31-2011",
+      "variant": "6AYM-WET engine-only sebagaimana dicetak pada tabel; rating tidak eksplisit",
+      "views": [
+        "atas (mesin)",
+        "atas (dudukan)",
+        "depan",
+        "belakang",
+        "samping",
+        "detail flywheel"
+      ],
+      "evidence_status": "OBSERVED",
+      "uncertainty": "Preview 768×543. Cukup untuk orientasi dan susunan komponen, tulisan kecil serta dimensi non-nominal perlu sumber resolusi lebih tinggi. Tampak atas mesin berada di tengah-atas, tampak atas dudukan berada di tengah-bawah. Tidak menambah hitungan sudut foto nyata.",
+      "license": "Hak cipta Yanmar. Preview publik untuk referensi privat.",
+      "sha256": "9e57964bfc936df3557bed27886854a6c4c91bd083002974f6cecbf03ab60b38",
+      "verified_by": "multimodal view_image"
+    }
+  ],
+  "searches_checked": [
+    {
+      "page_url": "https://www.radez.hr/delivery-of-tuna-farm-workboat/",
+      "result": "Enam foto galangan dilihat pada contact sheet; satu berisi mesin induk (P21)."
+    },
+    {
+      "page_url": "https://yanmarmarine.eu/no/yanmar-er-et-foretrukket-valg-for-statum-pusher-tug/",
+      "result": "Empat foto dilihat. Dua foto mesin merupakan panel foto Statum yang sudah masuk P14, dengan pandangan samping dan detail injeksi."
+    },
+    {
+      "page_url": "https://www.allcertifiedequipment.com/product/6aym-wet/",
+      "result": "Foto stok dilihat. Perspektif samping-belakang 3/4 yang juga dipakai brosur keluarga. Identitas unit foto dan penutup penuh belum bisa dipastikan."
+    },
+    {
+      "page_url": "https://rapidoengine.com/products/Yanmar-6AYM-WET-Marine-Propulsion-Engine-829-HP.html",
+      "result": "Kandidat hasil penelusuran mempunyai rating 829 HP/610 kW menurut listing. Dikecualikan dari penilaian H/HD 555 kW."
+    }
+  ],
+  "gaps": [
+    "Foto engine-only H/HD 555 kW langsung dari atas dengan seluruh penutup, fastener, dan jalur pipa terlihat.",
+    "Referensi foto yang mengonfirmasi rating/serial dari nameplate yang terbaca."
+  ]
+}

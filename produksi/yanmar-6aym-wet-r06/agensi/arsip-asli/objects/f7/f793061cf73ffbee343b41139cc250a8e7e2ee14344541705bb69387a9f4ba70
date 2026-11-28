@@ -1,0 +1,30 @@
+import bpy,sys
+from mathutils import Vector
+from mathutils.bvhtree import BVHTree
+from itertools import product
+glb=sys.argv[sys.argv.index('--')+1]
+bpy.ops.wm.read_factory_settings(use_empty=True)
+bpy.ops.import_scene.gltf(filepath=glb)
+bpy.context.view_layer.update()
+for i,j in [('EXT-ELECTRIC-02','EXT-ELECTRIC-52'),('EXT-COOLING-04','EXT-COOLING-35'),('EXT-FUEL-01','EXT-FUEL-21')]:
+ a,b=[bpy.data.objects[k] for k in (i,j)]
+ def tree(o):
+  vertices=[o.matrix_world@v.co for v in o.data.vertices]
+  o.data.calc_loop_triangles()
+  faces=[tuple(f.vertices) for f in o.data.loop_triangles if f.area>1e-12]
+  return (BVHTree.FromPolygons(vertices,faces,all_triangles=True),vertices,faces)
+ ta,va,fa=tree(a)
+ tb,vb,fb=tree(b)
+ overlaps=ta.overlap(tb)
+ print(i,j,len(overlaps))
+ for label, v, f, index in [(i,va,fa,0),(j,vb,fb,1)]:
+  p=[v[n] for face in {pair[index] for pair in overlaps} for n in f[face]]
+  if p:
+   lo=[round(min(q[dim] for q in p),6) for dim in range(3)]
+   hi=[round(max(q[dim] for q in p),6) for dim in range(3)]
+   print(label, 'x',lo[0],hi[0],'y',lo[2],hi[2],'z',-hi[1],-lo[1])
+   if j=='EXT-COOLING-35':
+    for axis in [0,1]:
+     sample=[q for q in p if ((q.z>.303)==bool(axis))]
+     if sample:
+      print('cube',axis, [(round(min(a[k] for a in sample),5),round(max(a[k] for a in sample),5)) for k in (0,2,1)])

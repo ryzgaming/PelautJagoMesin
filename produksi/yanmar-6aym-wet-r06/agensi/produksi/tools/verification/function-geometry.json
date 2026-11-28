@@ -1,0 +1,191 @@
+{
+  "exterior_sha256": "4d4b506f3c45a72449209d88247d2c78a39d2e48920d3b500b90c10c2b6e5ab7",
+  "flexible_impeller": {
+    "shape_keys": [
+      "VANE_01",
+      "VANE_02",
+      "VANE_03",
+      "VANE_04",
+      "VANE_05",
+      "VANE_06",
+      "VANE_07",
+      "VANE_08",
+      "VANE_09",
+      "VANE_10"
+    ],
+    "affected_vertices": [
+      148,
+      148,
+      148,
+      148,
+      148,
+      148,
+      148,
+      148,
+      148,
+      148
+    ],
+    "poses": 181,
+    "crossings_to_cam": 0,
+    "crossings_to_housing": 0,
+    "sampled_cam_nearest_vertex_gap_mm": [
+      0.6359627586789429,
+      1.5421876451000571
+    ]
+  },
+  "thermostat-1": {
+    "temperatures_c": [
+      71,
+      85
+    ],
+    "max_travel_mm": 8,
+    "poses": 17,
+    "valve": {
+      "EXT-COOLING-330/EXT-COOLING-55": 72,
+      "EXT-COOLING-330/EXT-COOLING-01": 0,
+      "EXT-COOLING-330/EXT-COOLING-50": 0,
+      "EXT-COOLING-330/EXT-COOLING-61": 0,
+      "EXT-COOLING-330/EXT-COOLING-62": 0
+    },
+    "spring": {
+      "EXT-COOLING-340/EXT-COOLING-55": 0,
+      "EXT-COOLING-340/EXT-COOLING-01": 0,
+      "EXT-COOLING-340/EXT-COOLING-50": 0,
+      "EXT-COOLING-340/EXT-COOLING-61": 0,
+      "EXT-COOLING-340/EXT-COOLING-62": 0
+    }
+  },
+  "thermostat-2": {
+    "temperatures_c": [
+      71,
+      85
+    ],
+    "max_travel_mm": 8,
+    "poses": 17,
+    "valve": {
+      "EXT-COOLING-331/EXT-COOLING-56": 65,
+      "EXT-COOLING-331/EXT-COOLING-01": 0,
+      "EXT-COOLING-331/EXT-COOLING-50": 0,
+      "EXT-COOLING-331/EXT-COOLING-61": 0,
+      "EXT-COOLING-331/EXT-COOLING-62": 0
+    },
+    "spring": {
+      "EXT-COOLING-341/EXT-COOLING-56": 0,
+      "EXT-COOLING-341/EXT-COOLING-01": 0,
+      "EXT-COOLING-341/EXT-COOLING-50": 0,
+      "EXT-COOLING-341/EXT-COOLING-61": 0,
+      "EXT-COOLING-341/EXT-COOLING-62": 0
+    }
+  },
+  "thermostat-3": {
+    "temperatures_c": [
+      71,
+      85
+    ],
+    "max_travel_mm": 8,
+    "poses": 17,
+    "valve": {
+      "EXT-COOLING-332/EXT-COOLING-57": 62,
+      "EXT-COOLING-332/EXT-COOLING-01": 0,
+      "EXT-COOLING-332/EXT-COOLING-50": 0,
+      "EXT-COOLING-332/EXT-COOLING-61": 0,
+      "EXT-COOLING-332/EXT-COOLING-62": 0
+    },
+    "spring": {
+      "EXT-COOLING-342/EXT-COOLING-57": 0,
+      "EXT-COOLING-342/EXT-COOLING-01": 0,
+      "EXT-COOLING-342/EXT-COOLING-50": 0,
+      "EXT-COOLING-342/EXT-COOLING-61": 0,
+      "EXT-COOLING-342/EXT-COOLING-62": 0
+    }
+  },
+  "thermostat-4": {
+    "temperatures_c": [
+      76.5,
+      90
+    ],
+    "max_travel_mm": 8,
+    "poses": 17,
+    "valve": {
+      "EXT-COOLING-333/EXT-COOLING-58": 70,
+      "EXT-COOLING-333/EXT-COOLING-01": 0,
+      "EXT-COOLING-333/EXT-COOLING-50": 0,
+      "EXT-COOLING-333/EXT-COOLING-61": 0,
+      "EXT-COOLING-333/EXT-COOLING-62": 0
+    },
+    "spring": {
+      "EXT-COOLING-343/EXT-COOLING-58": 0,
+      "EXT-COOLING-343/EXT-COOLING-01": 0,
+      "EXT-COOLING-343/EXT-COOLING-50": 0,
+      "EXT-COOLING-343/EXT-COOLING-61": 0,
+      "EXT-COOLING-343/EXT-COOLING-62": 0
+    }
+  },
+  "thermostat-5": {
+    "temperatures_c": [
+      76.5,
+      90
+    ],
+    "max_travel_mm": 8,
+    "poses": 17,
+    "valve": {
+      "EXT-COOLING-334/EXT-COOLING-59": 68,
+      "EXT-COOLING-334/EXT-COOLING-01": 0,
+      "EXT-COOLING-334/EXT-COOLING-50": 0,
+      "EXT-COOLING-334/EXT-COOLING-61": 0,
+      "EXT-COOLING-334/EXT-COOLING-62": 0
+    },
+    "spring": {
+      "EXT-COOLING-344/EXT-COOLING-59": 0,
+      "EXT-COOLING-344/EXT-COOLING-01": 0,
+      "EXT-COOLING-344/EXT-COOLING-50": 0,
+      "EXT-COOLING-344/EXT-COOLING-61": 0,
+      "EXT-COOLING-344/EXT-COOLING-62": 0
+    }
+  },
+  "thermostat-6": {
+    "temperatures_c": [
+      76.5,
+      90
+    ],
+    "max_travel_mm": 8,
+    "poses": 17,
+    "valve": {
+      "EXT-COOLING-335/EXT-COOLING-60": 66,
+      "EXT-COOLING-335/EXT-COOLING-01": 0,
+      "EXT-COOLING-335/EXT-COOLING-50": 0,
+      "EXT-COOLING-335/EXT-COOLING-61": 0,
+      "EXT-COOLING-335/EXT-COOLING-62": 0
+    },
+    "spring": {
+      "EXT-COOLING-345/EXT-COOLING-60": 0,
+      "EXT-COOLING-345/EXT-COOLING-01": 0,
+      "EXT-COOLING-345/EXT-COOLING-50": 0,
+      "EXT-COOLING-345/EXT-COOLING-61": 0,
+      "EXT-COOLING-345/EXT-COOLING-62": 0
+    }
+  },
+  "seal-coolant": {
+    "EXT-COOLING-380/EXT-COOLING-03": 0,
+    "EXT-COOLING-380/EXT-COOLING-24": 0
+  },
+  "seal-seawater": {
+    "EXT-COOLING-381/EXT-COOLING-04": 0,
+    "EXT-COOLING-381/EXT-COOLING-39": 0
+  },
+  "turbo-flinger-to-fixed": {
+    "EXT-EXHAUST-28/EXT-EXHAUST-27": 0,
+    "EXT-EXHAUST-28/EXT-EXHAUST-30": 0,
+    "EXT-EXHAUST-28/EXT-EXHAUST-31": 0
+  },
+  "turbo-journal-to-housing": {
+    "EXT-EXHAUST-22/EXT-EXHAUST-04": 0,
+    "EXT-EXHAUST-23/EXT-EXHAUST-04": 0
+  },
+  "cap-pressure": {
+    "EXT-COOLING-382/EXT-COOLING-02": 316
+  },
+  "cap-return": {
+    "EXT-COOLING-384/EXT-COOLING-02": 0
+  }
+}

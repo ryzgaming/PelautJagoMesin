@@ -1,0 +1,598 @@
+{
+  "status": "UNVERIFIED",
+  "owner_review_draft": true,
+  "final_assets": {
+    "exterior.glb": "defc58c070a871da2068b2ddd4388ff51b340a1014dfde2226f7e47946a89121",
+    "internal.glb": "526ce37f126203eb288388dbd7922dd85749b19ddf8ef82ee5bfcf9d472ec8f5",
+    "data.json": "329566981da8e0c2ba9d1096cd69c1d29fcce9acc71c1621d20016785fd6adad",
+    "studio.js": "febbfbcf65e8afef1539c1cafb8da88a20ea9f9bd0f278ab44ed904fbe7f9943",
+    "functional-motion.js": "0933f4bb115d46188055bbcac7444f011bf4a6becb51ad55027ec12053bf040a",
+    "engine-audio.js": "a2a0036e0f27f753db3549fba5e255f2b548d4cad15239ebfa923ae551407a9d",
+    "flow-ribbons.js": "34a74b961e2e975be8f10403274f3caa1ec7e0030e98ca36f72439ffad396f6e",
+    "combustion-glow.js": "46df6bfb3200b34d411d825c069f904c37375d6106c53c8ed464b575747fc7fb"
+  },
+  "mesh_delta_diagnostic": {
+    "before_sha256": "ab3e610ee8fc83861f10b4f3992e93dfcc5e1d7df5f51fa4afb047267174762b",
+    "after_sha256": "defc58c070a871da2068b2ddd4388ff51b340a1014dfde2226f7e47946a89121",
+    "unchanged_nodes": 504,
+    "modified_nodes": [
+      "EXT-BLOCK-01",
+      "EXT-COOLING-316",
+      "EXT-COOLING-318",
+      "EXT-COOLING-371",
+      "EXT-COOLING-373",
+      "EXT-ELECTRIC-71",
+      "EXT-ELECTRIC-73",
+      "EXT-ELECTRIC-75",
+      "EXT-EXHAUST-04",
+      "EXT-EXHAUST-27",
+      "EXT-EXHAUST-28",
+      "EXT-FRONT-11",
+      "EXT-FRONT-14",
+      "EXT-INTAKE-02"
+    ],
+    "added_nodes": [],
+    "removed_nodes": [],
+    "method": "Compares local scene transform, parent, primitive indices and attributes including morph target payloads."
+  },
+  "mesh_inheritance": null,
+  "scopes": {
+    "normal_native_lifecycle": "PASS",
+    "native_audio_analyser": "PASS",
+    "starter_camera_and_cutaway_visuals": "PASS",
+    "functional_target_motion": "PASS",
+    "scoped_collision": "PASS",
+    "coolant_conditioned_animation": "PASS",
+    "prior_r05_whole_engine_geometry": "UNVERIFIED",
+    "physical_device_and_speakers": "UNVERIFIED",
+    "OEM_measured_behaviors": "UNVERIFIED"
+  },
+  "matrix_coverage": {
+    "groups": 122,
+    "direct": 183,
+    "legacy": 77,
+    "stationary": 14,
+    "uniqueTargets": 260,
+    "frames": 535
+  },
+  "inventory_mesh_coverage": {
+    "legacy": 434,
+    "fixed_or_condition": 567,
+    "driven": 183
+  },
+  "unobserved_targets": [],
+  "stationary_drift": {
+    "EXT-LUBE-31": 0,
+    "INT-TIMING-IDLER-PIN": 0,
+    "EXT-ELECTRIC-45": 0,
+    "EXT-FRONT-04": 0,
+    "EXT-ELECTRIC-22": 0,
+    "EXT-ELECTRIC-23": 0,
+    "EXT-ELECTRIC-42": 0,
+    "EXT-COOLING-37": 0,
+    "EXT-COOLING-38": 0,
+    "EXT-COOLING-374": 0,
+    "EXT-FUEL-217": 0,
+    "EXT-FUEL-218": 0,
+    "EXT-EXHAUST-30": 0,
+    "EXT-EXHAUST-31": 0
+  },
+  "reset_matrix_max_error": 0,
+  "browser": [
+    {
+      "dims": [
+        1280,
+        800,
+        1
+      ],
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "stage_order": [
+        "off",
+        "engaging",
+        "cranking",
+        "firing",
+        "running",
+        "stopping"
+      ],
+      "elapsed_wall_ms_including_pause": 30426,
+      "recorded_frames": 0,
+      "peak_native_amplitude": 0.29863613843917847,
+      "phase_max_RMS": {
+        "engaging": 0.003825117735219655,
+        "cranking": 0.035560791771435125,
+        "firing": 0.08922521811537432,
+        "running": 0.07877308318356281,
+        "stopping": 0.0208174507385704
+      },
+      "pause_RMS": 0,
+      "stop_RMS": 0,
+      "errors": [],
+      "overflow_css_px": 0,
+      "loaded_hashes": {
+        "data.json": "329566981da8e0c2ba9d1096cd69c1d29fcce9acc71c1621d20016785fd6adad",
+        "exterior.glb": "defc58c070a871da2068b2ddd4388ff51b340a1014dfde2226f7e47946a89121",
+        "internal.glb": "526ce37f126203eb288388dbd7922dd85749b19ddf8ef82ee5bfcf9d472ec8f5",
+        "studio.js": "febbfbcf65e8afef1539c1cafb8da88a20ea9f9bd0f278ab44ed904fbe7f9943",
+        "functional-motion.js": "0933f4bb115d46188055bbcac7444f011bf4a6becb51ad55027ec12053bf040a",
+        "combustion-glow.js": "46df6bfb3200b34d411d825c069f904c37375d6106c53c8ed464b575747fc7fb",
+        "flow-ribbons.js": "34a74b961e2e975be8f10403274f3caa1ec7e0030e98ca36f72439ffad396f6e",
+        "engine-audio.js": "a2a0036e0f27f753db3549fba5e255f2b548d4cad15239ebfa923ae551407a9d"
+      },
+      "files_changing_after_load": []
+    },
+    {
+      "dims": [
+        390,
+        844,
+        2
+      ],
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "stage_order": [
+        "off",
+        "engaging",
+        "cranking",
+        "firing",
+        "running",
+        "stopping"
+      ],
+      "elapsed_wall_ms_including_pause": 21415,
+      "recorded_frames": 19,
+      "peak_native_amplitude": 0.30791234970092773,
+      "phase_max_RMS": {
+        "engaging": 0,
+        "cranking": 0.03549427782124034,
+        "firing": 0.08149576664866467,
+        "running": 0.07990637676162476,
+        "stopping": 0.019004643507607017
+      },
+      "pause_RMS": 0,
+      "stop_RMS": 0,
+      "errors": [],
+      "overflow_css_px": 0,
+      "loaded_hashes": {
+        "data.json": "329566981da8e0c2ba9d1096cd69c1d29fcce9acc71c1621d20016785fd6adad",
+        "exterior.glb": "defc58c070a871da2068b2ddd4388ff51b340a1014dfde2226f7e47946a89121",
+        "internal.glb": "526ce37f126203eb288388dbd7922dd85749b19ddf8ef82ee5bfcf9d472ec8f5",
+        "studio.js": "febbfbcf65e8afef1539c1cafb8da88a20ea9f9bd0f278ab44ed904fbe7f9943",
+        "functional-motion.js": "0933f4bb115d46188055bbcac7444f011bf4a6becb51ad55027ec12053bf040a",
+        "combustion-glow.js": "46df6bfb3200b34d411d825c069f904c37375d6106c53c8ed464b575747fc7fb",
+        "flow-ribbons.js": "34a74b961e2e975be8f10403274f3caa1ec7e0030e98ca36f72439ffad396f6e",
+        "engine-audio.js": "a2a0036e0f27f753db3549fba5e255f2b548d4cad15239ebfa923ae551407a9d"
+      },
+      "files_changing_after_load": []
+    }
+  ],
+  "cap_bench": [
+    {
+      "pressureKPa": null,
+      "measured": {
+        "EXT-COOLING-382": {
+          "yOffsetM": 0,
+          "matrixDifference": 0
+        },
+        "EXT-COOLING-383": {
+          "yOffsetM": 0,
+          "matrixDifference": 0
+        },
+        "EXT-COOLING-384": {
+          "yOffsetM": 0,
+          "matrixDifference": 0
+        }
+      }
+    },
+    {
+      "pressureKPa": 120,
+      "measured": {
+        "EXT-COOLING-382": {
+          "yOffsetM": 0.0030000000000000027,
+          "matrixDifference": 0.0030000000000000027
+        },
+        "EXT-COOLING-383": {
+          "yOffsetM": 0.0015014759302138803,
+          "matrixDifference": 0.1875
+        },
+        "EXT-COOLING-384": {
+          "yOffsetM": 0.0030000000000000027,
+          "matrixDifference": 0.0030000000000000027
+        }
+      }
+    },
+    {
+      "pressureKPa": -4,
+      "measured": {
+        "EXT-COOLING-382": {
+          "yOffsetM": 0,
+          "matrixDifference": 0
+        },
+        "EXT-COOLING-383": {
+          "yOffsetM": 0,
+          "matrixDifference": 0
+        },
+        "EXT-COOLING-384": {
+          "yOffsetM": -0.0011999999999999789,
+          "matrixDifference": 0.0011999999999999789
+        }
+      }
+    },
+    {
+      "pressureKPa": null,
+      "measured": {
+        "EXT-COOLING-382": {
+          "yOffsetM": 0,
+          "matrixDifference": 0
+        },
+        "EXT-COOLING-383": {
+          "yOffsetM": 0,
+          "matrixDifference": 0
+        },
+        "EXT-COOLING-384": {
+          "yOffsetM": 0,
+          "matrixDifference": 0
+        }
+      }
+    }
+  ],
+  "native_cap_ui": {
+    "seated": {
+      "pressure": null,
+      "matrices": {
+        "382": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          1.5119999647140503,
+          0.8820499777793884,
+          -0.14800000190734863,
+          1
+        ],
+        "383": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          1.511995792388916,
+          0.8914921283721924,
+          -0.14800076186656952,
+          1
+        ],
+        "384": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          1.5119999647140503,
+          0.8848749995231628,
+          -0.14800000190734863,
+          1
+        ]
+      }
+    },
+    "pressure": {
+      "pressure": 120,
+      "matrices": {
+        "382": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          1.5119999647140503,
+          0.8850499777793884,
+          -0.14800000190734863,
+          1
+        ],
+        "383": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0.8125,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          1.511995792388916,
+          0.8929936043024063,
+          -0.14800076186656952,
+          1
+        ],
+        "384": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          1.5119999647140503,
+          0.8878749995231628,
+          -0.14800000190734863,
+          1
+        ]
+      }
+    },
+    "vacuum": {
+      "pressure": -4,
+      "matrices": {
+        "382": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          1.5119999647140503,
+          0.8820499777793884,
+          -0.14800000190734863,
+          1
+        ],
+        "383": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          1.511995792388916,
+          0.8914921283721924,
+          -0.14800076186656952,
+          1
+        ],
+        "384": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          1.5119999647140503,
+          0.8836749995231629,
+          -0.14800000190734863,
+          1
+        ]
+      }
+    },
+    "reset": {
+      "pressure": null,
+      "matrices": {
+        "382": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          1.5119999647140503,
+          0.8820499777793884,
+          -0.14800000190734863,
+          1
+        ],
+        "383": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          1.511995792388916,
+          0.8914921283721924,
+          -0.14800076186656952,
+          1
+        ],
+        "384": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          1.5119999647140503,
+          0.8848749995231628,
+          -0.14800000190734863,
+          1
+        ]
+      }
+    }
+  },
+  "coolant": [
+    {
+      "temperature_c": 30,
+      "moving_branch": [
+        "FW-cold-bypass"
+      ]
+    },
+    {
+      "temperature_c": 86.39529007117173,
+      "moving_branch": [
+        "FW-cooler-shell",
+        "FW-return"
+      ]
+    }
+  ],
+  "focus_geometry": {
+    "hard_failures": [],
+    "exact_targeted_pair_scopes": 142,
+    "triangle_pair_queries": 54367,
+    "oil_signed_relative_ratio": -0.8888888888888887,
+    "thermostat_strokes": [
+      {
+        "id": "EXT-COOLING-330",
+        "zero_shift_below_71C": 0,
+        "largest_sampled_stroke_mm": 8.000000000000007,
+        "peak_tempc": 86.39529007117173
+      },
+      {
+        "id": "EXT-COOLING-331",
+        "zero_shift_below_71C": 0,
+        "largest_sampled_stroke_mm": 8.000000000000007,
+        "peak_tempc": 86.39529007117173
+      },
+      {
+        "id": "EXT-COOLING-332",
+        "zero_shift_below_71C": 0,
+        "largest_sampled_stroke_mm": 8.000000000000007,
+        "peak_tempc": 86.39529007117173
+      },
+      {
+        "id": "EXT-COOLING-333",
+        "zero_shift_below_71C": 0,
+        "largest_sampled_stroke_mm": 5.863875597731383,
+        "peak_tempc": 86.39529007117173
+      },
+      {
+        "id": "EXT-COOLING-334",
+        "zero_shift_below_71C": 0,
+        "largest_sampled_stroke_mm": 5.863875597731383,
+        "peak_tempc": 86.39529007117173
+      },
+      {
+        "id": "EXT-COOLING-335",
+        "zero_shift_below_71C": 0,
+        "largest_sampled_stroke_mm": 5.863875597731383,
+        "peak_tempc": 86.39529007117173
+      }
+    ]
+  },
+  "images": {
+    "perbandingan-desktop.png": "b87429907d173d8ed7616b671f317393be01a3814a5e1e6785098e89159ef18c",
+    "perbandingan-hp.png": "66579724199fb87769c350a29e183dfe8eb40dfcbdbee979b8bd0de502439254"
+  },
+  "cutaway_graphics": [
+    {
+      "phase": "firing",
+      "angle": 4.747295565424577,
+      "rpm": 500,
+      "realFlames": [
+        "api:2"
+      ],
+      "activeRibbons": false,
+      "camera": [
+        0.5940653667055882,
+        0.908052993076687,
+        -0.9640282458188849
+      ],
+      "target": [
+        0.409,
+        0.45999999999999996,
+        0.009999999999999995
+      ],
+      "triangles": 481725,
+      "gpu": false,
+      "crankingFlameCount": 0,
+      "errors": [],
+      "source_png": "definitive/desktop-firing-diagnostic.png",
+      "sha256": "9d41a8f7c7bb00201a0c4b97fe60f95add094b6066399b559eb95c3c98ce3460"
+    },
+    {
+      "phase": "firing",
+      "angle": 4.747295565424577,
+      "rpm": 500,
+      "realFlames": [
+        "api:2"
+      ],
+      "activeRibbons": false,
+      "camera": [
+        0.6983144339187837,
+        1.1604454715928445,
+        -1.512707546940966
+      ],
+      "target": [
+        0.409,
+        0.45999999999999996,
+        0.009999999999999995
+      ],
+      "triangles": 362690,
+      "gpu": false,
+      "crankingFlameCount": 0,
+      "errors": [],
+      "source_png": "definitive/hp-firing-diagnostic.png",
+      "sha256": "18b9191e6c42b51025aae378e2cd45309e446799e2a3d18c8da640a55be77503"
+    }
+  ],
+  "video": {
+    "sha256": "8d0a1c242f42f2450b375327b8986db44955f63817a7eafc44b6f2c2bae97242",
+    "source": "Actual mobile-emulated Chromium frames. Timing compressed for playback. No audio recorded."
+  },
+  "limitations": [
+    "Browser was real Chromium using software SwiftShader. HP is viewport emulation.",
+    "Audio waveform sampled at real WebAudio destination path. Device loudness/timbre remains unverified.",
+    "Cold bypass route is schematic; temperature rise, pressure response, starter sound/ratios beyond sources are educational.",
+    "Targeted reimport is sampled. R05 696 contacts without individual classification remain open; no whole-engine clearance claim."
+  ]
+}

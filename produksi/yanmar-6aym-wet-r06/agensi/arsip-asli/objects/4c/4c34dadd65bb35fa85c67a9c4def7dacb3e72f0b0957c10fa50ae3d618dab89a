@@ -1,0 +1,130 @@
+{
+  "id": "RAK-COOLANT-CAP",
+  "node_rakitan": "RAK-COOLANT-CAP",
+  "parent_rakitan": "RAK-COOLING",
+  "nama": "Tutup tekanan coolant dan katup balik",
+  "acuan": {
+    "no": 1,
+    "object_ids": [
+      "EXT-COOLING-02"
+    ]
+  },
+  "bagian": [
+    {
+      "no": 1,
+      "nama": "Leher, dudukan dan tutup tetap pengisian coolant",
+      "object_ids": [
+        "EXT-COOLING-02"
+      ],
+      "role": "shell",
+      "posisi": [],
+      "fungsi": "Badan menahan katup tekanan dan katup balik reservoir. Pembukaan utama pada rentang 93–123 kPa menurut D01.",
+      "sumber": [
+        "D01 PDF166–167 cetak 162–163, pressure cap and coolant reservoir",
+        "D05 Fig.57 ref.8 FILLER ASSY",
+        "P08 / penutup bagian atas"
+      ],
+      "status": "ESTIMATED"
+    },
+    {
+      "no": 2,
+      "nama": "Piringan katup tekanan dan seal dudukan",
+      "object_ids": [
+        "EXT-COOLING-382"
+      ],
+      "role": "valve",
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-382",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.09,
+          "urutan": 2
+        }
+      ],
+      "fungsi": "Terangkat melawan pegas ketika beda tekanan mencapai setelan. Travel contoh 3 mm.",
+      "sumber": [
+        "D01 PDF166–167 cetak 162–163, pressure cap and coolant reservoir",
+        "D05 Fig.57 ref.8 FILLER ASSY",
+        "P08 / penutup bagian atas"
+      ],
+      "status": "ESTIMATED"
+    },
+    {
+      "no": 3,
+      "nama": "Pegas katup pengaman tekanan",
+      "object_ids": [
+        "EXT-COOLING-383"
+      ],
+      "role": "spring",
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-383",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.12,
+          "urutan": 3
+        }
+      ],
+      "fungsi": "Menahan piringan agar tertutup sampai tekanan membuka katup.",
+      "sumber": [
+        "D01 PDF166–167 cetak 162–163, pressure cap and coolant reservoir",
+        "D05 Fig.57 ref.8 FILLER ASSY",
+        "P08 / penutup bagian atas"
+      ],
+      "status": "ESTIMATED"
+    },
+    {
+      "no": 4,
+      "nama": "Katup kecil pengembali reservoir",
+      "object_ids": [
+        "EXT-COOLING-384"
+      ],
+      "role": "valve",
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-384",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.145,
+          "urutan": 4
+        }
+      ],
+      "fungsi": "Buka ke arah tangki saat tekanan turun di bawah atmosfer, sehingga coolant dapat kembali.",
+      "sumber": [
+        "D01 PDF166–167 cetak 162–163, pressure cap and coolant reservoir",
+        "D05 Fig.57 ref.8 FILLER ASSY",
+        "P08 / penutup bagian atas"
+      ],
+      "status": "ESTIMATED"
+    }
+  ],
+  "diagram": {
+    "arah_pandang": [
+      0.25,
+      0.2,
+      0.95
+    ],
+    "atas": [
+      0,
+      1,
+      0
+    ]
+  },
+  "source_refs": [
+    "D01 PDF166–167 cetak 162–163, pressure cap and coolant reservoir",
+    "D05 Fig.57 ref.8 FILLER ASSY",
+    "P08 / penutup bagian atas"
+  ],
+  "status": "ESTIMATED",
+  "notes": "Fungsi dan rentang tekanan dari manual. Profil internal dan angkatan piringan adalah estimasi."
+}

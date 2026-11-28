@@ -1,0 +1,24 @@
+{
+  "before_sha256": "ab3e610ee8fc83861f10b4f3992e93dfcc5e1d7df5f51fa4afb047267174762b",
+  "after_sha256": "defc58c070a871da2068b2ddd4388ff51b340a1014dfde2226f7e47946a89121",
+  "unchanged_nodes": 504,
+  "modified_nodes": [
+    "EXT-BLOCK-01",
+    "EXT-COOLING-316",
+    "EXT-COOLING-318",
+    "EXT-COOLING-371",
+    "EXT-COOLING-373",
+    "EXT-ELECTRIC-71",
+    "EXT-ELECTRIC-73",
+    "EXT-ELECTRIC-75",
+    "EXT-EXHAUST-04",
+    "EXT-EXHAUST-27",
+    "EXT-EXHAUST-28",
+    "EXT-FRONT-11",
+    "EXT-FRONT-14",
+    "EXT-INTAKE-02"
+  ],
+  "added_nodes": [],
+  "removed_nodes": [],
+  "method": "Compares local scene transform, parent, primitive indices and attributes including morph target payloads."
+}

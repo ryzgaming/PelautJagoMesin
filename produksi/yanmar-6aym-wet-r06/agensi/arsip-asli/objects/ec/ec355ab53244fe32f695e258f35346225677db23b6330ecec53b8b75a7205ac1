@@ -1,0 +1,20 @@
+{
+  "model_sha256": {
+    "exterior": "defc58c070a871da2068b2ddd4388ff51b340a1014dfde2226f7e47946a89121",
+    "internal": "526ce37f126203eb288388dbd7922dd85749b19ddf8ef82ee5bfcf9d472ec8f5"
+  },
+  "source_sha256": {
+    "fuel-gas.json": "4f2eb40d7aee62152500bad5e141a770ea5affa2a763d1f23ab79c30518fab3b",
+    "water-lube.json": "6e122b4ee4896fe12c368aaccc42e4a4ba5f866c0aa25dfd787f1297af71f892",
+    "routes.json": "3a4d0f381a823bf85e1798b94d1d7c730e6523231cfeefdfe63e96869f7a162c"
+  },
+  "physical_route_count": 31,
+  "port_count": 160,
+  "merged_route_count": 164,
+  "different_centers_or_mesh_ids": [],
+  "missing_mesh_nodes": [],
+  "component_metadata_mismatch": [],
+  "missing_component_nodes": [],
+  "endpoint_offsets_above_0_2_mm": [],
+  "method": "Exact sampled centerline equality between authoring JSON and the merged graph, plus endpoints against declared ports. Geometry fit is audited separately."
+}

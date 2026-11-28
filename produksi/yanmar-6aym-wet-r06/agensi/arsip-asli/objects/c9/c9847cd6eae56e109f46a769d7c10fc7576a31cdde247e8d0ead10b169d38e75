@@ -1,0 +1,44 @@
+{
+  "revision": "r05",
+  "parent_revision": "r04",
+  "state": "available_for_owner_inspection",
+  "catalog_approved": false,
+  "catalog_record_written": false,
+  "private_site": {
+    "commit": "8feb4f4d1bea3e40cc0bb84047f8ede8402e3573",
+    "version_id": "appgprj_6b016e003e3c81919e93366a5a80b6d8~appgver_4a761b2c59b88191ae92e4fc33b93619",
+    "deployment_id": "appgdep_6b0aa06d00a88191aa9bcbadde2bfb5d",
+    "workspace": "https://yanmar-6aym-workspace.violetblackbird16.chatgpt.site/gpt-r05/?view=drives",
+    "access": "owner-only"
+  },
+  "assets_sha256": {
+    "exterior.glb": "3edb9db0135c2714e913c2f8a5b120c1f747dec10927024acba17cd4e09a8302",
+    "internal.glb": "46a8854081530e81d2a2af56dc936dbcd22e6b296343029510638e8d120252fa",
+    "data.json": "c58353523f9dafa36303d24b8c6480f176b9d8d75ecd235605718c642294c806",
+    "studio.js": "095877541cf7e5903e18b38c5f74e9b068c85a778b083dd7848064fd34c375c4",
+    "film/yanmar-6aym-r05.mp4": "aa7e755219b4ef6c315115cb595d266d85a97fa978fc3fd8121e646854e080e7",
+    "perbandingan-filter.jpg": "ca6e7fc1b45756916f8cbd05a8f994ad607fcea22276c0f4eae015be716f5abf",
+    "audit-gerak.txt": "99088089640afdf950de0cf2b07459d26fda4f4c15b627e1817956089d597a50"
+  },
+  "qa_report": "qa/r05/QA.md",
+  "overall_qa": "UNVERIFIED",
+  "contact_classifications": {
+    "INTENTIONAL_FIT": 106,
+    "FAIL": 0,
+    "UNVERIFIED": 696
+  },
+  "filter_modeled_gap_mm": 5.349138285964727,
+  "observed_blockers": [],
+  "specialist_profiles": [
+    "spesialis_kinematika_benturan"
+  ],
+  "production_guidance_pull_requests": [
+    37
+  ],
+  "model_counts": {
+    "parts": 1146,
+    "groups": 83,
+    "nested": 56,
+    "routes": 163
+  }
+}

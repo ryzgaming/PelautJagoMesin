@@ -1,0 +1,27 @@
+{
+  "exterior_sha256": "3edb9db0135c2714e913c2f8a5b120c1f747dec10927024acba17cd4e09a8302",
+  "vertices": {
+    "fly": 900,
+    "pin": 960,
+    "sun": 60,
+    "planet": 60,
+    "ring": 180
+  },
+  "observed_pose_count": 181,
+  "crank_sweep_deg": 2,
+  "sampled_minimum_and_maximum_gap_mm": {
+    "flywheel_pinion": [
+      0.07954349786145197,
+      0.1007131508143825
+    ],
+    "sun_planet": [
+      0.3537056250821299,
+      0.536643026295887
+    ],
+    "annulus_planet": [
+      0.3385316340043268,
+      0.40991627640978096
+    ]
+  },
+  "description": "Transverse projected tooth outlines from Blender-reimported glTF mesh sections. Distances measured on actual triangle-generated polygon edges, without bearing compliance or oil film."
+}

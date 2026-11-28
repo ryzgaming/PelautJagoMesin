@@ -1,0 +1,323 @@
+{
+  "id": "RAK-COOLING",
+  "nama": "Pendinginan",
+  "node_rakitan": "RAK-COOLING",
+  "acuan": {
+    "no": 1,
+    "object_ids": [
+      "EXT-COOLING-01"
+    ]
+  },
+  "diagram": {
+    "arah_pandang": [
+      0.31139957904815674,
+      0.5449492335319519,
+      0.7784989476203918
+    ],
+    "atas": [
+      0,
+      1,
+      0
+    ]
+  },
+  "bagian": [
+    {
+      "no": 1,
+      "nama": "Coran penukar panas air tawar",
+      "object_ids": [
+        "EXT-COOLING-01"
+      ],
+      "posisi": [],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D05 Parts Catalogue WET / Fig. 57 / pos. (1)",
+        "D01 PDF 166 cetak 162 & PDF 168 cetak 164"
+      ],
+      "fungsi": "Coran penukar panas air tawar",
+      "nomor_oem": null,
+      "role": "shell",
+      "ukuran": null
+    },
+    {
+      "no": 2,
+      "nama": "Leher dan tutup pengisian coolant",
+      "object_ids": [
+        "EXT-COOLING-02"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-02",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.4,
+          "urutan": 2
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 14 printed p. 10 / component locations, operation side",
+        "P08 / penutup bagian atas"
+      ],
+      "fungsi": "Leher dan tutup pengisian coolant",
+      "nomor_oem": null,
+      "role": null,
+      "ukuran": null
+    },
+    {
+      "no": 3,
+      "nama": "Rumah pompa air tawar",
+      "object_ids": [
+        "EXT-COOLING-03"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-03",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.4,
+          "urutan": 3
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D05 Parts Catalog 0CG10-M34300, Fig. 54, kolom A = 6AYM-WET, posisi 2",
+        "D01 PDF 164 cetak 160, potongan pompa coolant dan exploded pompa air laut; PDF 163 cetak 159"
+      ],
+      "fungsi": "Rumah pompa air tawar",
+      "nomor_oem": "148660-43100",
+      "role": "shell",
+      "ukuran": null
+    },
+    {
+      "no": 4,
+      "nama": "Rumah pompa air laut",
+      "object_ids": [
+        "EXT-COOLING-04"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-04",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.4,
+          "urutan": 4
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D05 Parts Catalog 0CG10-M34300, Fig. 55, kolom A = 6AYM-WET, posisi 4",
+        "D01 PDF 164 cetak 160, potongan pompa coolant dan exploded pompa air laut; PDF 163 cetak 159"
+      ],
+      "fungsi": "Rumah pompa air laut",
+      "nomor_oem": "148634-42100",
+      "role": "shell",
+      "ukuran": null
+    },
+    {
+      "no": 5,
+      "nama": "Sambungan laut ke pompa",
+      "object_ids": [
+        "EXT-COOLING-05"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-05",
+          "arah": [
+            0,
+            0,
+            -1
+          ],
+          "jarak_m": 0.4,
+          "urutan": 5
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 163, cetak 159, Cooling Water System",
+        "D05 Fig 66; P07, P18, siku belakang"
+      ],
+      "fungsi": "Sambungan laut ke pompa",
+      "nomor_oem": null,
+      "role": "pipe",
+      "ukuran": null
+    },
+    {
+      "no": 6,
+      "nama": "Siku balik pendingin ke pompa coolant",
+      "object_ids": [
+        "EXT-COOLING-06"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-06",
+          "arah": [
+            0,
+            0,
+            1
+          ],
+          "jarak_m": 0.4,
+          "urutan": 6
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 163, cetak 159, Cooling Water System",
+        "D05 Fig 63, bend 148660-49233"
+      ],
+      "fungsi": "Siku balik pendingin ke pompa coolant",
+      "nomor_oem": null,
+      "role": "pipe",
+      "ukuran": null
+    },
+    {
+      "no": 7,
+      "nama": "Pompa air laut ke intercooler",
+      "object_ids": [
+        "EXT-COOLING-300"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-300",
+          "arah": [
+            0,
+            0,
+            -1
+          ],
+          "jarak_m": 0.4,
+          "urutan": 7
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 163, cetak 159, Cooling Water System",
+        "D05 Fig 66, pipa dan selang air laut; P18"
+      ],
+      "fungsi": "Pompa air laut ke intercooler",
+      "nomor_oem": null,
+      "role": "pipe",
+      "ukuran": null
+    },
+    {
+      "no": 8,
+      "nama": "Intercooler ke penukar panas depan",
+      "object_ids": [
+        "EXT-COOLING-301"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-301",
+          "arah": [
+            0,
+            0,
+            -1
+          ],
+          "jarak_m": 0.4,
+          "urutan": 8
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 163, cetak 159, Cooling Water System",
+        "D05 Fig 66, C.S.W. pump–air cooler–F.W. cooler; P07/P18"
+      ],
+      "fungsi": "Intercooler ke penukar panas depan",
+      "nomor_oem": null,
+      "role": "pipe",
+      "ukuran": null
+    },
+    {
+      "no": 9,
+      "nama": "Pompa coolant ke pendingin oli",
+      "object_ids": [
+        "EXT-COOLING-302"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-302",
+          "arah": [
+            0,
+            0,
+            1
+          ],
+          "jarak_m": 0.4,
+          "urutan": 9
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 163, cetak 159, Cooling Water System",
+        "D05 Fig 65, pendingin oli–blok; PDF 163"
+      ],
+      "fungsi": "Pompa coolant ke pendingin oli",
+      "nomor_oem": null,
+      "role": "pipe",
+      "ukuran": null
+    },
+    {
+      "no": 10,
+      "nama": "Pendingin oli ke jaket blok",
+      "object_ids": [
+        "EXT-COOLING-303"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-303",
+          "arah": [
+            0,
+            0,
+            1
+          ],
+          "jarak_m": 0.4,
+          "urutan": 10
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 163, cetak 159, Cooling Water System",
+        "D05 Fig 65, pipa air dan gasket; P17"
+      ],
+      "fungsi": "Pendingin oli ke jaket blok",
+      "nomor_oem": null,
+      "role": "pipe",
+      "ukuran": null
+    },
+    {
+      "no": 11,
+      "nama": "Jaket manifold ke rumah termostat",
+      "object_ids": [
+        "EXT-COOLING-304"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-304",
+          "arah": [
+            0,
+            0,
+            1
+          ],
+          "jarak_m": 0.4,
+          "urutan": 11
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 163, cetak 159, Cooling Water System",
+        "D01 PDF 163; P17, bagian dalam sambungan tertutup"
+      ],
+      "fungsi": "Jaket manifold ke rumah termostat",
+      "nomor_oem": null,
+      "role": "pipe",
+      "ukuran": null
+    }
+  ],
+  "notes": "Nomor posisi model. Lintasan ilustrasi, belum diperiksa untuk interferensi."
+}

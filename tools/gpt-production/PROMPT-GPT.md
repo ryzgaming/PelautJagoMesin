@@ -15,7 +15,7 @@ Siapkan review privat hanya bila gerbang terpenuhi. Jangan terbitkan ke katalog 
 
 ## Aturan khusus Codex (menggantikan asumsi lingkungan pada contoh)
 
-- Baca AGENTS.md, docs/PROJECT_MEMORY.md, docs/WORKSPACE_UI.md, serta apps/alur-workflow/worker/README.md dari checkout terbaru. Cek alat nyata, jangan mengikuti path lama `/tmp/claude-0/c3512`.
+- Baca AGENTS.md, docs/PROJECT_MEMORY.md, docs/workspace/README.md, serta apps/alur-workflow/worker/README.md dari checkout terbaru. Cek alat nyata, jangan mengikuti path lama `/tmp/claude-0/c3512`.
 - Koordinator memakai model sesinya. Untuk subagen pilih persis `session.ai_model` jika tersedia; jangan mengganti model diam-diam. GPT-6.2 Sol, GPT-6.2 Astra, GPT-6.1 Terra, dan GPT-6 Luna adalah pilihan saat adaptasi ini dibuat; inventaris runtime tetap sumber kemampuan aktual.
 - Gunakan tool subagen yang benar-benar tersedia (spawn_agent, send_message, followup_task pada lingkungan yang mendukungnya). Jika override model mengharuskan konteks baru, gunakan fork_turns="none" dan kirim instruksi peran, path privat, sumber dan datum secara lengkap. Jangan mengarang tool bernama Agent/SendMessage milik Claude.
 - Batasi paralelisme menurut slot runtime; lima spesialis sistem maksimal dua bersamaan. Satu subagen per peran, QA terpisah dari pembuat. Tidak perlu semua peran hidup bersamaan.
@@ -28,15 +28,15 @@ Siapkan review privat hanya bila gerbang terpenuhi. Jangan terbitkan ke katalog 
 - QA/review pemilik bukan persetujuan jual. Katalog memerlukan persetujuan pemilik yang mengacu hash/revisi yang sama dan hak penggunaan aset. Perubahan model membatalkan audit terkait.
 - Untuk antrean, ikuti claim/heartbeat/history/checkpoint/finish dari README worker; kredensial hanya koordinator. Jangan membuat automasi atau mengklaim order baru hanya karena membaca prompt ini.
 
-Untuk simulasi mekanisme, tugaskan `spesialis_kinematika_benturan` memetakan tiap mesh ke bagian diam/bergerak per kondisi operasi. Gunakan [register gerak dan pemeriksaan benturan](MOTION-QA.md) hingga pengujian viewer.
+Untuk simulasi mekanisme, tugaskan `spesialis_kinematika_benturan` memetakan tiap mesh ke bagian diam/bergerak per kondisi operasi. Gunakan [register gerak dan pemeriksaan benturan](docs/MOTION-QA.md) hingga pengujian viewer.
 
-Untuk perpipaan, lorong cor dan animasi fluida, aktifkan agen lintas rakitan `spesialis_jalur_fluida` sesuai [petunjuk registrasi dan uji rute](FLOW-ROUTING.md).
+Untuk perpipaan, lorong cor dan animasi fluida, aktifkan agen lintas rakitan `spesialis_jalur_fluida` sesuai [petunjuk registrasi dan uji rute](docs/FLOW-ROUTING.md).
 
 Untuk animasi, pakai skill repo `.agents/skills/animasi-aliran-mesin` (aliran cairan/gas di viewer) dan `.agents/skills/blender-animasi-mesin` (mekanisme engkol, katup, kamera tur; Blender MCP bila tersedia). Isi SKILL.md keduanya juga ada di `production-guide.json`.
 
-Pada produksi dan revisi model mesin, koordinator juga [menugaskan spesialis tiap rakitan](SPECIALISTS.md) sebelum memodelkan. Gunakan daftar dari `specialist-briefs`, teruskan subkomponen yang diharapkan kepada modeler, dan periksa komponen tersembunyi hingga dapat dipilih melalui viewer.
+Pada produksi dan revisi model mesin, koordinator juga [menugaskan spesialis tiap rakitan](docs/SPECIALISTS.md) sebelum memodelkan. Gunakan daftar dari `specialist-briefs`, teruskan subkomponen yang diharapkan kepada modeler, dan periksa komponen tersembunyi hingga dapat dipilih melalui viewer.
 
-Gunakan profil proyek `referensi_visual`, `pemodel_eksterior`, dan `qa_visual_viewer` sesuai [instruksi peran](ROLE-PROMPTS.md#agen-proyek-untuk-kemiripan-dan-viewer).
+Gunakan profil proyek `referensi_visual`, `pemodel_eksterior`, dan `qa_visual_viewer` sesuai [instruksi peran](docs/ROLE-PROMPTS.md#agen-proyek-untuk-kemiripan-dan-viewer).
 
 ## Kontrak produksi
 
@@ -82,7 +82,7 @@ URUTAN KERJA DAN SUBAGEN
    - Internal: geometri dan fase crankpin dari bukti crankshaft serta firing order yang cocok, kinematics.json (rumus crank-slider, rasio cam 1:2, arah putar), uji benturan pada pose yang dicatat selama satu siklus; laporkan interval sampling, pasangan, clearance, kontak yang sah dan batas metode, bukan klaim bebas benturan kontinu, displacement dan rasio kompresi dicocokkan dengan dokumen.
    - Render material netral dan berwarna 6 sudut, bandingkan dengan foto/gambar resmi dari sudut yang sama, perbaiki, render ulang. compare.json mencatat temuan dan sisa selisih per sudut. Sudut tanpa referensi = gap.
    - Ekspor GLB (Y-up, modifier diterapkan).
-7. Integrator: viewer satu halaman, standar Studio Gelap (docs/WORKSPACE_UI.md):
+7. Integrator: viewer satu halaman, standar Studio Gelap (docs/workspace/README.md):
    - navigasi bawah Eksplor keseluruhan, Sistem, Pengoperasian, X-ray; Jarak urai 0–100% (awal 50%);
    - pilih komponen dari kanvas atau daftar dengan detail status dan sumber; isolasi; reset;
    - animasi dari kinematics.json; lima tab sistem; halaman sumber; label "belum diperiksa QA" sampai QA lolos;
@@ -118,4 +118,4 @@ KELUARAN AKHIR
 
 Baca [README](README.md) untuk `init`, `preflight`, `check-review`, renderer enam sudut dan format laporan. Input mesin baru selalu kosong/UNVERIFIED. Angka, bentuk, laporan PASS, hash dan foto Caterpillar tidak boleh dipakai untuk meluluskan mesin baru.
 
-Instruksi peran lebih rinci ada di [ROLE-PROMPTS.md](ROLE-PROMPTS.md). Lampiran historis disertakan di paket unduhan privat sebagai referensi dan tidak dieksekusi otomatis.
+Instruksi peran lebih rinci ada di [ROLE-PROMPTS.md](docs/ROLE-PROMPTS.md). Lampiran historis disertakan di paket unduhan privat sebagai referensi dan tidak dieksekusi otomatis.

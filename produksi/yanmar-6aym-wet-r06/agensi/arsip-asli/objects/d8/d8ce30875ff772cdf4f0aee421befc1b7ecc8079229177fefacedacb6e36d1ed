@@ -1,0 +1,133 @@
+{
+  "id": "RAK-SUMP-SERVICE",
+  "nama": "Karter dan drain",
+  "node_rakitan": "RAK-SUMP-SERVICE",
+  "parent_rakitan": "RAK-OILPAN",
+  "acuan": {
+    "no": 1,
+    "object_ids": [
+      "EXT-OILPAN-01"
+    ]
+  },
+  "diagram": {
+    "arah_pandang": [
+      -0.6,
+      0.45,
+      -0.66
+    ],
+    "atas": [
+      0,
+      1,
+      0
+    ]
+  },
+  "bagian": [
+    {
+      "no": 1,
+      "nama": "Carter oli bergaris rusuk vertikal",
+      "object_ids": [
+        "EXT-OILPAN-01"
+      ],
+      "role": "shell",
+      "fungsi": "Menampung oli mesin di bawah crankcase.",
+      "posisi": [],
+      "sumber": [
+        "D03 PDF 17 printed p. 33 / engine-only right elevation and front view",
+        "GA01 B3-48660-4450 / outline, top, end and rear housing details",
+        "P18 / sump bawah flywheel",
+        "D05 Parts catalog 0CG10-M34300 Fig.8,9,10,11 WET: variants of sump, M30 gasket and sump gasket",
+        "P18 / rear drain; GA01 side/front silhouette"
+      ],
+      "status": "ESTIMATED",
+      "nomor_oem": null
+    },
+    {
+      "no": 2,
+      "nama": "Gasket karter terbuka di sisi timing",
+      "object_ids": [
+        "EXT-OILPAN-20"
+      ],
+      "role": "seal",
+      "fungsi": "Menyekat sambungan karter dan crankcase.",
+      "posisi": [
+        {
+          "object_id": "EXT-OILPAN-20",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.075,
+          "urutan": 2
+        }
+      ],
+      "sumber": [
+        "D05 Parts catalog 0CG10-M34300 Fig.8,9,10,11 WET: variants of sump, M30 gasket and sump gasket",
+        "P18 / rear drain; GA01 side/front silhouette"
+      ],
+      "status": "ESTIMATED",
+      "nomor_oem": "148620-01771"
+    },
+    {
+      "no": 3,
+      "nama": "Sumbat buang oli",
+      "object_ids": [
+        "EXT-OILPAN-02"
+      ],
+      "role": "plug",
+      "fungsi": "Membuka saluran pembuangan oli pada karter.",
+      "posisi": [
+        {
+          "object_id": "EXT-OILPAN-02",
+          "arah": [
+            -1,
+            0,
+            0
+          ],
+          "jarak_m": 0.1,
+          "urutan": 3
+        }
+      ],
+      "sumber": [
+        "P18 / sumbat muka belakang",
+        "D05 Parts catalog 0CG10-M34300 Fig.8,9,10,11 WET: variants of sump, M30 gasket and sump gasket",
+        "P18 / rear drain; GA01 side/front silhouette"
+      ],
+      "status": "ESTIMATED",
+      "nomor_oem": null
+    },
+    {
+      "no": 4,
+      "nama": "Gasket sumbat karter M30",
+      "object_ids": [
+        "EXT-OILPAN-21"
+      ],
+      "role": "seal",
+      "fungsi": "Menyekat permukaan duduk plug.",
+      "posisi": [
+        {
+          "object_id": "EXT-OILPAN-21",
+          "arah": [
+            -1,
+            0,
+            0
+          ],
+          "jarak_m": 0.047,
+          "urutan": 4
+        }
+      ],
+      "sumber": [
+        "D05 Parts catalog 0CG10-M34300 Fig.8,9,10,11 WET: variants of sump, M30 gasket and sump gasket",
+        "P18 / rear drain; GA01 side/front silhouette"
+      ],
+      "status": "ESTIMATED",
+      "nomor_oem": "23414-300000"
+    }
+  ],
+  "source_refs": [
+    "D05 Parts catalog 0CG10-M34300 Fig.8,9,10,11 WET: variants of sump, M30 gasket and sump gasket",
+    "P18 / rear drain; GA01 side/front silhouette"
+  ],
+  "status": "UNVERIFIED",
+  "notes": "Kontur gasket dan letak lubang mengikuti flange model. Katalog memuat opsi sump standar, dangkal dan dudukan elastis. Kecocokan serial, posisi plug tambahan dan hardware belum terverifikasi."
+}

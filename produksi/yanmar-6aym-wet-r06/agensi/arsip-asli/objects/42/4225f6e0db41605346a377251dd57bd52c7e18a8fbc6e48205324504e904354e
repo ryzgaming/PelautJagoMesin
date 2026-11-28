@@ -1,0 +1,225 @@
+{
+  "id": "RAK-FUEL-FILTER-2",
+  "nama": "Filter bahan bakar 2",
+  "node_rakitan": "RAK-FUEL-FILTER-2",
+  "parent_rakitan": "RAK-FUEL",
+  "acuan": {
+    "no": 1,
+    "object_ids": [
+      "EXT-FUEL-11"
+    ]
+  },
+  "diagram": {
+    "arah_pandang": [
+      0.55,
+      0.22,
+      -0.82
+    ],
+    "atas": [
+      0,
+      1,
+      0
+    ]
+  },
+  "bagian": [
+    {
+      "no": 1,
+      "nama": "Rumah canister bahan bakar 2",
+      "object_ids": [
+        "EXT-FUEL-11"
+      ],
+      "posisi": [],
+      "sumber": [
+        "D01 PDF 155 printed p151 / Fuel filter, Fig. 000259; paper element and replacement",
+        "D05 Parts Catalog 0CG10-M34300 / Fig.83 FUEL STRAINER(DUPLEX), WET; positions 21–33",
+        "P07, P08, P14 / paired housings next to injection pump"
+      ],
+      "fungsi": "Rumah menampung bahan bakar di sisi luar media filter.",
+      "status": "ESTIMATED",
+      "role": "shell",
+      "nomor_oem": null,
+      "ukuran": null
+    },
+    {
+      "no": 2,
+      "nama": "Elemen kertas dan tutup ujung",
+      "object_ids": [
+        "EXT-FUEL-110"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-110",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.34,
+          "urutan": 1
+        }
+      ],
+      "sumber": [
+        "D01 PDF 155 printed p151 / Fuel filter, Fig. 000259; paper element and replacement",
+        "D05 Parts Catalog 0CG10-M34300 / Fig.83 FUEL STRAINER(DUPLEX), WET; positions 21–33",
+        "P07, P08, P14 / paired housings next to injection pump"
+      ],
+      "fungsi": "Bahan bakar melewati media kertas ke saluran tengah. Bentuk lipatan menggambarkan prinsip dan tidak menentukan jumlah lipatan OEM.",
+      "status": "ESTIMATED",
+      "role": "core",
+      "nomor_oem": "41650-501140",
+      "ukuran": null
+    },
+    {
+      "no": 3,
+      "nama": "O-ring di mulut rumah",
+      "object_ids": [
+        "EXT-FUEL-111"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-111",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.52,
+          "urutan": 2
+        }
+      ],
+      "sumber": [
+        "D01 PDF 155 printed p151 / Fuel filter, Fig. 000259; paper element and replacement",
+        "D05 Parts Catalog 0CG10-M34300 / Fig.83 FUEL STRAINER(DUPLEX), WET; positions 21–33",
+        "P07, P08, P14 / paired housings next to injection pump"
+      ],
+      "fungsi": "Menyekat sambungan rumah ke kepala. Posisi 25 pada gambar 83.",
+      "status": "ESTIMATED",
+      "role": "seal",
+      "nomor_oem": "41650-501170",
+      "ukuran": null
+    },
+    {
+      "no": 4,
+      "nama": "O-ring baut pusat",
+      "object_ids": [
+        "EXT-FUEL-112"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-112",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.091,
+          "urutan": 3
+        }
+      ],
+      "sumber": [
+        "D01 PDF 155 printed p151 / Fuel filter, Fig. 000259; paper element and replacement",
+        "D05 Parts Catalog 0CG10-M34300 / Fig.83 FUEL STRAINER(DUPLEX), WET; positions 21–33",
+        "P07, P08, P14 / paired housings next to injection pump"
+      ],
+      "fungsi": "Memisahkan jalur di sambungan baut pusat. Posisi 24. Posisi aksial diperkirakan.",
+      "status": "ESTIMATED",
+      "role": "seal",
+      "nomor_oem": "41650-501160",
+      "ukuran": null
+    },
+    {
+      "no": 5,
+      "nama": "Baut panjang pusat rumah",
+      "object_ids": [
+        "EXT-FUEL-113"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-113",
+          "arah": [
+            0,
+            -1,
+            0
+          ],
+          "jarak_m": 0.36,
+          "urutan": 4
+        }
+      ],
+      "sumber": [
+        "D01 PDF 155 printed p151 / Fuel filter, Fig. 000259; paper element and replacement",
+        "D05 Parts Catalog 0CG10-M34300 / Fig.83 FUEL STRAINER(DUPLEX), WET; positions 21–33",
+        "P07, P08, P14 / paired housings next to injection pump"
+      ],
+      "fungsi": "Menahan rumah terhadap kepala filter. Posisi 27.",
+      "status": "ESTIMATED",
+      "role": "fastener",
+      "nomor_oem": "41650-501150",
+      "ukuran": null
+    },
+    {
+      "no": 6,
+      "nama": "Ring dan pegas penahan elemen",
+      "object_ids": [
+        "EXT-FUEL-114"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-114",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.2,
+          "urutan": 5
+        }
+      ],
+      "sumber": [
+        "D01 PDF 155 printed p151 / Fuel filter, Fig. 000259; paper element and replacement",
+        "D05 Parts Catalog 0CG10-M34300 / Fig.83 FUEL STRAINER(DUPLEX), WET; positions 21–33",
+        "P07, P08, P14 / paired housings next to injection pump"
+      ],
+      "fungsi": "Menahan elemen terhadap dudukannya. Pegas dan ring ditampilkan bersama. Geometri pegas bersifat ilustratif.",
+      "status": "ESTIMATED",
+      "role": "retainer",
+      "nomor_oem": "X2772311701",
+      "ukuran": null
+    },
+    {
+      "no": 7,
+      "nama": "Sumbat kuras dan washer",
+      "object_ids": [
+        "EXT-FUEL-115"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-115",
+          "arah": [
+            0,
+            0,
+            -1
+          ],
+          "jarak_m": 0.08,
+          "urutan": 6
+        }
+      ],
+      "sumber": [
+        "D01 PDF 155 printed p151 / Fuel filter, Fig. 000259; paper element and replacement",
+        "D05 Parts Catalog 0CG10-M34300 / Fig.83 FUEL STRAINER(DUPLEX), WET; positions 21–33",
+        "P07, P08, P14 / paired housings next to injection pump"
+      ],
+      "fungsi": "Sumbat mengakses saluran kuras di bagian bawah. Posisi 32/33. Identitas sumbat pada unit foto belum terkonfirmasi.",
+      "status": "ESTIMATED",
+      "role": "drain",
+      "nomor_oem": null,
+      "ukuran": null
+    }
+  ],
+  "notes": "Fig.83 sistem duplex. Elemen kertas merupakan komponen pengganti. Jumlah lipatan, profil, warna dan rute lubang ditafsirkan dari gambar. Kepala dan selector berada pada rakitan induk.",
+  "source_refs": [
+    "D01 PDF 155 printed p151 / Fuel filter, Fig. 000259; paper element and replacement",
+    "D05 Parts Catalog 0CG10-M34300 / Fig.83 FUEL STRAINER(DUPLEX), WET; positions 21–33",
+    "P07, P08, P14 / paired housings next to injection pump"
+  ],
+  "status": "UNVERIFIED"
+}

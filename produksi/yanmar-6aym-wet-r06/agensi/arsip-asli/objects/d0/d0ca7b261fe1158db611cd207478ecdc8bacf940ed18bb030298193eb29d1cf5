@@ -1,0 +1,163 @@
+"""Blender diagnostic of actual GLBs and flow positions captured by viewer logic."""
+import argparse
+import hashlib
+import importlib.util
+import json
+import math
+from pathlib import Path
+import sys
+
+import bpy
+from mathutils import Vector
+
+xray_spec = importlib.util.spec_from_file_location('xray_util',Path(__file__).with_name('render-xray.py'))
+xray = importlib.util.module_from_spec(xray_spec)
+xray_spec.loader.exec_module(xray)
+coords = xray.scene_coordinates
+
+
+def linear_color(value):
+    def channel(normalized):
+        return normalized/12.92 if normalized<.04045 else ((normalized+.055)/1.055)**2.4
+    return (*[channel(((value >> shift)&255)/255) for shift in (16,8,0)],1.0)
+
+
+def glowing(name, color, brightness):
+    material = bpy.data.materials.new(name)
+    material.use_nodes = True
+    graph = material.node_tree
+    emitter = graph.nodes.new('ShaderNodeEmission')
+    emitter.inputs['Color'].default_value=linear_color(color)
+    emitter.inputs['Strength'].default_value=brightness
+    graph.links.new(emitter.outputs[0],graph.nodes['Material Output'].inputs['Surface'])
+    return material
+
+
+def draw_polylines(name,lines,material,radius):
+    if not lines:
+        return
+    data=bpy.data.curves.new(name,'CURVE')
+    data.dimensions='3D'
+    data.bevel_depth=radius
+    data.bevel_resolution=2
+    for points in lines:
+        spline=data.splines.new('POLY')
+        spline.points.add(len(points)-1)
+        for knot,world in zip(spline.points,points):
+            knot.co=(*world,1)
+    item=bpy.data.objects.new(name,data)
+    bpy.context.scene.collection.objects.link(item)
+    item.data.materials.append(material)
+
+
+def segments(points):
+    for a,b in zip(points,points[1:]):
+        length=(b-a).length
+        if length>1e-6:
+            yield a,b,length
+
+
+def draw_route(route,line,bead):
+    points=list(map(coords,route['points']))
+    route_segments=list(segments(points))
+    if len(route_segments)==0:
+        return
+    if route['kind']=='physical':
+        draw_polylines(route['id'],[points],line,.005)
+    else:
+        offset=0
+        dashes=[]
+        for start,end,length in route_segments:
+            cursor=0
+            while cursor<length:
+                phase=offset%.049
+                remain=(.028-phase) if phase<.028 else (.049-phase)
+                span=min(remain,length-cursor)
+                if phase<.028 and span>1e-6:
+                    dashes.append([start.lerp(end,cursor/length),start.lerp(end,(cursor+span)/length)])
+                cursor+=span
+                offset+=span+1e-8
+        draw_polylines(route['id']+' dashed',dashes,line,.0037)
+    if route.get('directional'):
+        distance=.69*sum(segment[2] for segment in route_segments)
+        for start,end,length in route_segments:
+            if length<distance:
+                distance-=length
+                continue
+            direction=(end-start).normalized()
+            advance=start.lerp(end,distance/length)
+            bpy.ops.mesh.primitive_cone_add(vertices=10,radius1=.013,radius2=0,depth=.031,location=advance)
+            arrow=bpy.context.object
+            arrow.rotation_euler=direction.to_track_quat('Z','Y').to_euler()
+            arrow.data.materials.append(line)
+            break
+    for center in route['beads']:
+        bpy.ops.mesh.primitive_ico_sphere_add(subdivisions=2,radius=.013,location=coords(center))
+        bpy.context.object.data.materials.append(bead)
+
+
+def render(exterior,interior,capture):
+    pose=json.loads(capture.read_text())
+    for label,path in [('exterior',exterior),('internal',interior)]:
+        digest=hashlib.sha256(path.read_bytes()).hexdigest()
+        if digest!=pose[label+'_sha256']:
+            raise SystemExit(label+' mismatches captured position hash: '+digest)
+    bpy.ops.wm.read_factory_settings(use_empty=True)
+    for source in [exterior,interior]:
+        bpy.ops.import_scene.gltf(filepath=str(source))
+    scene=bpy.context.scene
+    visible=set(pose['visible'])
+    for obj in scene.objects:
+        if obj.type!='MESH':
+            continue
+        obj.hide_render=obj.name not in visible
+        treatment=pose['materials'].get(obj.name)
+        if treatment=='cut':
+            xray.clip_diagnostic_mesh(obj,pose['clip'])
+        elif treatment=='ghost':
+            for slot in obj.material_slots:
+                if slot.material:
+                    slot.material=xray.transparent_copy(slot.material)
+    routes=pose['routes']
+    color=routes[0]['color']
+    line=glowing('Direction and path',color,1.4)
+    bead=glowing('Pulse',color,3)
+    for route in routes:
+        draw_route(route,line,bead)
+    origin=coords(pose['target'])
+    bpy.ops.object.camera_add(location=coords(pose['position']))
+    camera=bpy.context.object
+    scene.camera=camera
+    camera.data.sensor_fit='VERTICAL'
+    camera.data.angle_y=math.radians(pose['fov'])
+    camera.rotation_euler=(origin-camera.location).to_track_quat('-Z','Y').to_euler()
+    for offset,power,size in [((1,1.2,1.5),220,3.0),((-1,-1,1.2),190,2.8),((.6,1,-.4),90,2.2)]:
+        bpy.ops.object.light_add(type='AREA',location=origin+Vector(offset))
+        lamp=bpy.context.object
+        lamp.data.energy=power
+        lamp.data.size=size
+        lamp.rotation_euler=(origin-lamp.location).to_track_quat('-Z','Y').to_euler()
+    scene.world=bpy.data.worlds.new('Graphite')
+    scene.world.use_nodes=True
+    scene.world.node_tree.nodes['Background'].inputs['Color'].default_value=(.03,.043,.049,1)
+    scene.world.node_tree.nodes['Background'].inputs['Strength'].default_value=.72
+    scene.render.engine='CYCLES'
+    scene.cycles.samples=14
+    scene.cycles.use_denoising=False
+    width=640 if pose['aspect']<1 else 1120
+    scene.render.resolution_x=width
+    scene.render.resolution_y=round(width/pose['aspect'])
+    scene.render.resolution_percentage=100
+    scene.render.image_settings.file_format='PNG'
+    scene.render.filepath=str(capture.with_suffix('.png'))
+    bpy.ops.render.render(write_still=True)
+
+
+if __name__=='__main__':
+    parser=argparse.ArgumentParser()
+    parser.add_argument('exterior',type=lambda path:Path(path).resolve())
+    parser.add_argument('interior',type=lambda path:Path(path).resolve())
+    parser.add_argument('capture',nargs='+',type=lambda path:Path(path).resolve())
+    args=parser.parse_args(sys.argv[sys.argv.index('--')+1:])
+    for capture in args.capture:
+        render(args.exterior,args.interior,capture)

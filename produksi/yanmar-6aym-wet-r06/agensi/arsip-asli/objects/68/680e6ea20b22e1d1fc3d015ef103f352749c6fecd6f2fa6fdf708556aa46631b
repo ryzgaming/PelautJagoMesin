@@ -1,0 +1,283 @@
+{
+  "id": "RAK-BYPASS-ROTOR",
+  "nama": "Filter sentrifugal bypass",
+  "node_rakitan": "RAK-BYPASS-ROTOR",
+  "parent_rakitan": "RAK-LUBE",
+  "acuan": {
+    "no": 1,
+    "object_ids": [
+      "EXT-LUBE-04"
+    ]
+  },
+  "diagram": {
+    "arah_pandang": [
+      0.55,
+      0.22,
+      -0.82
+    ],
+    "atas": [
+      0,
+      1,
+      0
+    ]
+  },
+  "bagian": [
+    {
+      "no": 1,
+      "nama": "Tutup luar strainer sentrifugal",
+      "object_ids": [
+        "EXT-LUBE-04"
+      ],
+      "posisi": [],
+      "sumber": [
+        "D01 PDF 160 printed p156 / centrifugal bypass strainer exploded Fig.016205-01E",
+        "D05 Parts Catalog 0CG10-M34300 / Fig.47 LUB.OIL BY-PASS STRAINER",
+        "P17 / bypass unit on non-operation side"
+      ],
+      "fungsi": "Pelindung luar menutup rotor berputar di atas mangkuk dasar. Potongan memperlihatkan ruang rotor.",
+      "status": "ESTIMATED",
+      "role": "shell",
+      "nomor_oem": null,
+      "ukuran": null
+    },
+    {
+      "no": 2,
+      "nama": "Bak dasar dan dudukan spindle",
+      "object_ids": [
+        "EXT-LUBE-30"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-LUBE-30",
+          "arah": [
+            0,
+            -1,
+            0
+          ],
+          "jarak_m": 0.22,
+          "urutan": 1
+        }
+      ],
+      "sumber": [
+        "D01 PDF 160 printed p156 / centrifugal bypass strainer exploded Fig.016205-01E",
+        "D05 Parts Catalog 0CG10-M34300 / Fig.47 LUB.OIL BY-PASS STRAINER",
+        "P17 / bypass unit on non-operation side"
+      ],
+      "fungsi": "Bak dasar menerima oli buangan dari nozzle rotor.",
+      "status": "ESTIMATED",
+      "role": "body",
+      "nomor_oem": null,
+      "ukuran": null
+    },
+    {
+      "no": 3,
+      "nama": "Spindle berundak",
+      "object_ids": [
+        "EXT-LUBE-31"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-LUBE-31",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.42,
+          "urutan": 2
+        }
+      ],
+      "sumber": [
+        "D01 PDF 160 printed p156 / centrifugal bypass strainer exploded Fig.016205-01E",
+        "D05 Parts Catalog 0CG10-M34300 / Fig.47 LUB.OIL BY-PASS STRAINER",
+        "P17 / bypass unit on non-operation side"
+      ],
+      "fungsi": "Spindle menjadi poros diam yang membimbing rotor. Posisi 7 pada Fig.47.",
+      "status": "ESTIMATED",
+      "role": "shaft",
+      "nomor_oem": "135410-35940",
+      "ukuran": null
+    },
+    {
+      "no": 4,
+      "nama": "Badan rotor dan dua jet tangensial",
+      "object_ids": [
+        "EXT-LUBE-32"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-LUBE-32",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.15,
+          "urutan": 3
+        }
+      ],
+      "sumber": [
+        "D01 PDF 160 printed p156 / centrifugal bypass strainer exploded Fig.016205-01E",
+        "D05 Parts Catalog 0CG10-M34300 / Fig.47 LUB.OIL BY-PASS STRAINER",
+        "P17 / bypass unit on non-operation side"
+      ],
+      "fungsi": "Rotor menampung endapan. Jet tangensial membuat rotor berputar oleh aliran oli; jumlah dua mengikuti diagram servis.",
+      "status": "ESTIMATED",
+      "role": "core",
+      "nomor_oem": null,
+      "ukuran": null
+    },
+    {
+      "no": 5,
+      "nama": "Tutup rotor",
+      "object_ids": [
+        "EXT-LUBE-33"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-LUBE-33",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.3,
+          "urutan": 4
+        }
+      ],
+      "sumber": [
+        "D01 PDF 160 printed p156 / centrifugal bypass strainer exploded Fig.016205-01E",
+        "D05 Parts Catalog 0CG10-M34300 / Fig.47 LUB.OIL BY-PASS STRAINER",
+        "P17 / bypass unit on non-operation side"
+      ],
+      "fungsi": "Tutup ini menutup rotor, terpisah dari kap luar.",
+      "status": "ESTIMATED",
+      "role": "cover",
+      "nomor_oem": null,
+      "ukuran": null
+    },
+    {
+      "no": 6,
+      "nama": "Insulator dan pegas internal",
+      "object_ids": [
+        "EXT-LUBE-34"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-LUBE-34",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.22,
+          "urutan": 5
+        }
+      ],
+      "sumber": [
+        "D01 PDF 160 printed p156 / centrifugal bypass strainer exploded Fig.016205-01E",
+        "D05 Parts Catalog 0CG10-M34300 / Fig.47 LUB.OIL BY-PASS STRAINER",
+        "P17 / bypass unit on non-operation side"
+      ],
+      "fungsi": "Insulator dan pegas berada antara badan dan tutup rotor sesuai penampang urai servis.",
+      "status": "ESTIMATED",
+      "role": "spring",
+      "nomor_oem": null,
+      "ukuran": null
+    },
+    {
+      "no": 7,
+      "nama": "O-ring rotor dan packing tutup",
+      "object_ids": [
+        "EXT-LUBE-35"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-LUBE-35",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.265,
+          "urutan": 6
+        }
+      ],
+      "sumber": [
+        "D01 PDF 160 printed p156 / centrifugal bypass strainer exploded Fig.016205-01E",
+        "D05 Parts Catalog 0CG10-M34300 / Fig.47 LUB.OIL BY-PASS STRAINER",
+        "P17 / bypass unit on non-operation side"
+      ],
+      "fungsi": "Ring menutup kedua sambungan berbeda. Dimensi pemasangan pada model diperkirakan, sehingga PN per lokasi belum ditetapkan.",
+      "status": "ESTIMATED",
+      "role": "seal",
+      "nomor_oem": null,
+      "ukuran": null
+    },
+    {
+      "no": 8,
+      "nama": "Mur pengunci rotor dan washer",
+      "object_ids": [
+        "EXT-LUBE-36"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-LUBE-36",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.345,
+          "urutan": 7
+        }
+      ],
+      "sumber": [
+        "D01 PDF 160 printed p156 / centrifugal bypass strainer exploded Fig.016205-01E",
+        "D05 Parts Catalog 0CG10-M34300 / Fig.47 LUB.OIL BY-PASS STRAINER",
+        "P17 / bypass unit on non-operation side"
+      ],
+      "fungsi": "Mengunci tutup rotor terhadap dudukan poros.",
+      "status": "ESTIMATED",
+      "role": "fastener",
+      "nomor_oem": null,
+      "ukuran": null
+    },
+    {
+      "no": 9,
+      "nama": "Cap nut dan thrust collar",
+      "object_ids": [
+        "EXT-LUBE-37"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-LUBE-37",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.48,
+          "urutan": 8
+        }
+      ],
+      "sumber": [
+        "D01 PDF 160 printed p156 / centrifugal bypass strainer exploded Fig.016205-01E",
+        "D05 Parts Catalog 0CG10-M34300 / Fig.47 LUB.OIL BY-PASS STRAINER",
+        "P17 / bypass unit on non-operation side"
+      ],
+      "fungsi": "Menahan kap luar pada sumbu spindle.",
+      "status": "ESTIMATED",
+      "role": "fastener",
+      "nomor_oem": null,
+      "ukuran": null
+    }
+  ],
+  "notes": "D01 PDF 160 menggambarkan konstruksi rotor dan jet pada spindle. Fig.47 menyajikan beberapa seal dan pengikat di bawah nomor strainer utuh. Profil, kelonggaran dan sudut nozzle merupakan perkiraan; nomor seri belum teridentifikasi.",
+  "source_refs": [
+    "D01 PDF 160 printed p156 / centrifugal bypass strainer exploded Fig.016205-01E",
+    "D05 Parts Catalog 0CG10-M34300 / Fig.47 LUB.OIL BY-PASS STRAINER",
+    "P17 / bypass unit on non-operation side"
+  ],
+  "status": "UNVERIFIED"
+}

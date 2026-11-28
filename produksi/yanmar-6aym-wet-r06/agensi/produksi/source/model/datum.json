@@ -1,0 +1,1245 @@
+{
+  "machine_model": "Yanmar 6AYM-WET",
+  "unit": "m",
+  "status": "UNVERIFIED",
+  "variant": {
+    "selected": "H-rating 555 kW (755 mhp) at 1840 rpm, IMO Tier II",
+    "selection": "Representative exact WET configuration chosen because requested model has no rating and H has matched photos plus dimensioned references.",
+    "scope": "Engine only, heat exchanger, turbocharger/intercooler and engine-mounted port hardware; excludes YXH240/YXH240L marine gear, transmission-side output shaft and boat-side piping.",
+    "alternatives": [
+      "M-rating 610 kW at 1900 rpm is separate and used only for conflict context."
+    ],
+    "auxiliary_outline": "GA01 engine-only WET without clutch supplements interfaces and geometry common to WET. GA title block does not identify rating."
+  },
+  "axes": {
+    "x": "+X flywheel to damper",
+    "y": "+Y up",
+    "z": "+Z right when looking from flywheel toward damper",
+    "handedness": "right-handed"
+  },
+  "origin": {
+    "x": 0,
+    "y": 0,
+    "z": 0,
+    "description": "Intersection of crankshaft centerline and observed rear main crankcase/housing seam, photographed/imaged plane; gearbox mounting face is at approximately X=-0.135 m."
+  },
+  "ownership": {
+    "exterior": [
+      "flywheel",
+      "flywheel housing",
+      "damper",
+      "damper guard"
+    ],
+    "internal": [
+      "crankshaft",
+      "crankshaft interface journals and flanges"
+    ],
+    "requirement": "Do not duplicate components. Animate exterior-owned rotating flywheel and damper about crank X-axis in integration."
+  },
+  "dimensions": {
+    "nominal_catalogue_lwh": {
+      "value": [
+        2.0,
+        1.305,
+        1.431
+      ],
+      "unit": "m",
+      "status": "DOCUMENTED",
+      "source_ids": [
+        "D03"
+      ],
+      "source_refs": [
+        "D03 PDF 17, printed 32 Specifications"
+      ],
+      "method": "Catalogue L×W×H, separate from projected extrema."
+    },
+    "physical_drawn_x_min": {
+      "value": -0.263,
+      "unit": "m",
+      "status": "ESTIMATED",
+      "source_ids": [
+        "D03"
+      ],
+      "source_refs": [
+        "D03 PDF 17, printed 33 Engine only / Right side view, 600 dpi crop"
+      ],
+      "method": "Right view rear upper hardware at x≈113 px; shared origin x=222 px; 2.428 mm/px. Projected outline, ±0.010 m."
+    },
+    "physical_drawn_x_max": {
+      "value": 1.689,
+      "unit": "m",
+      "status": "ESTIMATED",
+      "source_ids": [
+        "D03"
+      ],
+      "source_refs": [
+        "D03 PDF 17, printed 33 Engine only / Right side view, 600 dpi crop"
+      ],
+      "method": "Right view forward hardware at x≈917 px; shared origin x=222 px; 2.428 mm/px. ±0.010 m."
+    },
+    "physical_drawn_x_span": {
+      "value": 1.952,
+      "unit": "m",
+      "status": "ESTIMATED",
+      "source_ids": [
+        "D03"
+      ],
+      "source_refs": [
+        "D03 PDF 17, printed 33 Engine only / Right side view, 600 dpi crop"
+      ],
+      "method": "Projected edge-to-edge (917−113) × 2.428 mm/px. ±0.015 m."
+    },
+    "physical_drawn_y_min": {
+      "value": -0.552,
+      "unit": "m",
+      "status": "DOCUMENTED",
+      "source_ids": [
+        "D03"
+      ],
+      "source_refs": [
+        "D03 PDF 17, printed 33 Engine only / Front view, 600 dpi crop"
+      ],
+      "method": "552 mm crank CL down to sump bottom."
+    },
+    "physical_drawn_y_max": {
+      "value": 1.008,
+      "unit": "m",
+      "status": "ESTIMATED",
+      "source_ids": [
+        "D03"
+      ],
+      "source_refs": [
+        "D03 PDF 17, printed 33 Engine only / Front view, 600 dpi crop"
+      ],
+      "method": "Top silhouette y≈280 px vs crank center y=695 px × 2.428 mm/px; upper 989 mm dimension leader targets y≈288 px within flange thickness. ±0.008 m."
+    },
+    "flange_outer_y_top": {
+      "value": 1.008,
+      "unit": "m",
+      "status": "ESTIMATED",
+      "source_ids": [
+        "D03"
+      ],
+      "source_refs": [
+        "D03 PDF 17, printed 33 Engine only / Front view, 600 dpi crop"
+      ],
+      "method": "Top silhouette y≈280 px vs crank center y=695 px × 2.428 mm/px; upper 989 mm dimension leader targets y≈288 px within flange thickness. ±0.008 m."
+    },
+    "physical_drawn_z_min": {
+      "value": -0.664,
+      "unit": "m",
+      "status": "DOCUMENTED",
+      "source_ids": [
+        "D03"
+      ],
+      "source_refs": [
+        "D03 PDF 17, printed 33 Engine only / Front view, 600 dpi crop"
+      ],
+      "method": "664 mm toward drawing right viewed from damper, corresponding to −Z."
+    },
+    "physical_drawn_z_max": {
+      "value": 0.641,
+      "unit": "m",
+      "status": "DOCUMENTED",
+      "source_ids": [
+        "D03"
+      ],
+      "source_refs": [
+        "D03 PDF 17, printed 33 Engine only / Front view, 600 dpi crop"
+      ],
+      "method": "641 mm toward drawing left viewed from damper, corresponding to +Z."
+    },
+    "crank_height_over_sump_bottom": {
+      "value": 0.552,
+      "unit": "m",
+      "status": "DOCUMENTED",
+      "source_ids": [
+        "D03"
+      ],
+      "source_refs": [
+        "D03 PDF 17, printed 33 Engine only / Front view, 600 dpi crop"
+      ],
+      "method": "Printed specification or dimension."
+    },
+    "crank_center_yz": {
+      "value": [
+        0,
+        0
+      ],
+      "unit": "m",
+      "status": "INFERRED",
+      "source_ids": [],
+      "source_refs": [],
+      "method": "Shared modeling coordinate convention; applies to entire crank main shaft."
+    },
+    "block_rear_x": {
+      "value": 0,
+      "unit": "m",
+      "status": "INFERRED",
+      "source_ids": [
+        "D03"
+      ],
+      "source_refs": [
+        "D03 PDF 17, printed 33 Engine only / Right side view, 600 dpi crop"
+      ],
+      "method": "Origin chosen at visible rear crankcase/housing seam near x=222 px; behind cylinder #1, approximately 0.135 m inboard of gearbox mating plane."
+    },
+    "block_front_x": {
+      "value": 1.335,
+      "unit": "m",
+      "status": "ESTIMATED",
+      "source_ids": [
+        "D03"
+      ],
+      "source_refs": [
+        "D03 PDF 17, printed 33 Engine only / Right side view, 600 dpi crop"
+      ],
+      "method": "Visible main crankcase/front cover seam near x=772 px; from datum x=222 px; excludes front add-ons. ±0.020 m."
+    },
+    "cylinder_count": {
+      "value": 6,
+      "unit": "count",
+      "status": "DOCUMENTED",
+      "source_ids": [
+        "D03"
+      ],
+      "source_refs": [
+        "D03 PDF 17, printed 32 Specifications"
+      ],
+      "method": "Six inline cylinders."
+    },
+    "cylinder_numbering": {
+      "value": "1 (flywheel) to 6 (damper)",
+      "unit": "text",
+      "status": "DOCUMENTED",
+      "source_ids": [
+        "D01",
+        "D03"
+      ],
+      "source_refs": [
+        "D01 PDF 13, printed 9, Engine Specifications, 6AYM-WET H column and row note",
+        "D03 PDF 17, printed 33 Engine only / Right side view, 600 dpi crop"
+      ],
+      "method": "No.1 and No.6 leaders explicitly marked; intermediate numbers consecutive."
+    },
+    "cylinder_1_to_6_span": {
+      "value": 1.0,
+      "unit": "m",
+      "status": "DOCUMENTED",
+      "source_ids": [
+        "D03"
+      ],
+      "source_refs": [
+        "D03 PDF 17, printed 33 Engine only / Right side view, 600 dpi crop"
+      ],
+      "method": "Printed specification or dimension."
+    },
+    "cylinder_pitch": {
+      "value": 0.2,
+      "unit": "m",
+      "status": "INFERRED",
+      "source_ids": [
+        "D03"
+      ],
+      "source_refs": [
+        "D03 PDF 17, printed 33 Engine only / Right side view, 600 dpi crop"
+      ],
+      "method": "1000 mm between cylinder 1 and 6 divided into five uniform intervals. CAD spacing assumption pending separate block drawing."
+    },
+    "cylinder_center_x": {
+      "value": [
+        0.209,
+        0.409,
+        0.609,
+        0.809,
+        1.009,
+        1.209
+      ],
+      "unit": "m",
+      "status": "ESTIMATED",
+      "source_ids": [
+        "D03"
+      ],
+      "source_refs": [
+        "D03 PDF 17, printed 33 Engine only / Right side view, 600 dpi crop"
+      ],
+      "method": "Cylinder #1 leader x=307.5 px relative to seam x=222; #6 x=719.5 px; documented 1 m end-to-end. Internal center positions from inferred even pitch. Absolute ±0.012 m."
+    },
+    "cylinder_center_z": {
+      "value": 0,
+      "unit": "m",
+      "status": "INFERRED",
+      "source_ids": [
+        "D03"
+      ],
+      "source_refs": [
+        "D03 PDF 17, printed 32 Specifications",
+        "D03 PDF 17, printed 33 Engine only / Front view, 600 dpi crop"
+      ],
+      "method": "Shared middle plane of inline cylinders and crank; section-based offset remains unverified."
+    },
+    "cylinder_axis_direction": {
+      "value": [
+        0,
+        1,
+        0
+      ],
+      "unit": "unit vector",
+      "status": "DOCUMENTED",
+      "source_ids": [
+        "D01"
+      ],
+      "source_refs": [
+        "D01 PDF 13, printed 9, Engine Specifications, 6AYM-WET H column and row note"
+      ],
+      "method": "Service type explicitly vertical and inline; direction normalized to shared coordinate convention."
+    },
+    "bore": {
+      "value": 0.155,
+      "unit": "m",
+      "status": "DOCUMENTED",
+      "source_ids": [
+        "D03"
+      ],
+      "source_refs": [
+        "D03 PDF 17, printed 32 Specifications"
+      ],
+      "method": "Printed specification or dimension."
+    },
+    "stroke": {
+      "value": 0.18,
+      "unit": "m",
+      "status": "DOCUMENTED",
+      "source_ids": [
+        "D03"
+      ],
+      "source_refs": [
+        "D03 PDF 17, printed 32 Specifications"
+      ],
+      "method": "Printed specification or dimension."
+    },
+    "crank_throw": {
+      "value": 0.09,
+      "unit": "m",
+      "status": "INFERRED",
+      "source_ids": [
+        "D03"
+      ],
+      "source_refs": [
+        "D03 PDF 17, printed 32 Specifications"
+      ],
+      "method": "Stroke/2."
+    },
+    "displacement": {
+      "value": 20.379,
+      "unit": "L",
+      "status": "DOCUMENTED",
+      "source_ids": [
+        "D03"
+      ],
+      "source_refs": [
+        "D03 PDF 17, printed 32 Specifications"
+      ],
+      "method": "Printed specification or dimension."
+    },
+    "deck_y": {
+      "value": 0.49,
+      "unit": "m",
+      "status": "ESTIMATED",
+      "source_ids": [
+        "D03"
+      ],
+      "source_refs": [
+        "D03 PDF 17, printed 33 Engine only / Right side view, 600 dpi crop"
+      ],
+      "method": "Candidate horizontal head-to-block seam around y=492 versus crank CL y=695. ±0.040 m, identify using manual section before treating as mechanical interface."
+    },
+    "nominal_upper_datum_y": {
+      "value": 0.879,
+      "unit": "m",
+      "status": "DOCUMENTED",
+      "source_ids": [
+        "D03"
+      ],
+      "source_refs": [
+        "D03 PDF 17, printed 33 Engine only / Front view, 600 dpi crop"
+      ],
+      "method": "Nominal H=1.431 corresponds to 879 mm above plus 552 mm below crank CL."
+    },
+    "central_secondary_upper_datum_y": {
+      "value": 0.946,
+      "unit": "m",
+      "status": "DOCUMENTED",
+      "source_ids": [
+        "GA01"
+      ],
+      "source_refs": [
+        "GA01 Yanmar outline B3-48660-4450, 2011-01-31 title block, 6AYM-WET without clutch, dimensioned front view"
+      ],
+      "method": "Piston-removal clearance explicit in GA note FOR REMOVING PISTON. Exclude this clearance volume from assembled geometry."
+    },
+    "engine_mount_bottom_y": {
+      "value": -0.167,
+      "unit": "m",
+      "status": "DOCUMENTED",
+      "source_ids": [
+        "D03"
+      ],
+      "source_refs": [
+        "D03 PDF 17, printed 33 Engine only / Front view, 600 dpi crop"
+      ],
+      "method": "Mount lower machining plane 167 mm below crank CL, 385 mm above sump bottom."
+    },
+    "engine_mount_top_y": {
+      "value": -0.145,
+      "unit": "m",
+      "status": "INFERRED",
+      "source_ids": [
+        "D03"
+      ],
+      "source_refs": [
+        "D03 PDF 17, printed 33 Engine only / Front view, 600 dpi crop"
+      ],
+      "method": "22 mm edge thickness over mounting baseline at −167 mm."
+    },
+    "engine_mount_transverse_width": {
+      "value": 0.962,
+      "unit": "m",
+      "status": "DOCUMENTED",
+      "source_ids": [
+        "D03"
+      ],
+      "source_refs": [
+        "D03 PDF 17, printed 33 Engine only / Front view, 600 dpi crop"
+      ],
+      "method": "Front projected outer-to-outer support pad extent; precise bolt coordinates require GA."
+    },
+    "flywheel_housing_mating_x": {
+      "value": -0.135,
+      "unit": "m",
+      "status": "ESTIMATED",
+      "source_ids": [
+        "D03"
+      ],
+      "source_refs": [
+        "D03 PDF 17, printed 33 Engine only / Right side view, 600 dpi crop"
+      ],
+      "method": "x=166.5 px rear transmission interface, x=222 px block seam. Same leader used for 1823 and 1609 mm."
+    },
+    "flywheel_housing_face_to_front_accessory": {
+      "value": 1.823,
+      "unit": "m",
+      "status": "DOCUMENTED",
+      "source_ids": [
+        "D03"
+      ],
+      "source_refs": [
+        "D03 PDF 17, printed 33 Engine only / Right side view, 600 dpi crop"
+      ],
+      "method": "Leader from rear transmission interface, not rear projected hardware, through foremost front accessory datum."
+    },
+    "flywheel_housing_face_to_front_foot": {
+      "value": 1.609,
+      "unit": "m",
+      "status": "DOCUMENTED",
+      "source_ids": [
+        "D03"
+      ],
+      "source_refs": [
+        "D03 PDF 17, printed 33 Engine only / Right side view, 600 dpi crop"
+      ],
+      "method": "Leader from rear transmission interface to foremost support plane."
+    },
+    "flywheel_housing_size": {
+      "value": "SAE #0",
+      "unit": "text",
+      "status": "DOCUMENTED",
+      "source_ids": [
+        "D03"
+      ],
+      "source_refs": [
+        "D03 PDF 17, printed 32 Specifications"
+      ],
+      "method": "Housing nominal interface family. Exact register, bolt PCD and boss details unpublished in this drawing."
+    },
+    "flywheel_nominal_size": {
+      "value": 18,
+      "unit": "in",
+      "status": "DOCUMENTED",
+      "source_ids": [
+        "D03"
+      ],
+      "source_refs": [
+        "D03 PDF 17, printed 32 Specifications"
+      ],
+      "method": "SAE nominal flywheel designation."
+    },
+    "flywheel_diameter_physical": {
+      "value": null,
+      "unit": "m",
+      "status": "UNKNOWN",
+      "source_ids": [
+        "D03"
+      ],
+      "source_refs": [
+        "D03 PDF 17, printed 32 Specifications"
+      ],
+      "method": "SAE 18 in designator does not identify outer ring gear diameter; use manual or parts drawing."
+    },
+    "damper_center_yz": {
+      "value": [
+        0,
+        0
+      ],
+      "unit": "m",
+      "status": "INFERRED",
+      "source_ids": [
+        "D03"
+      ],
+      "source_refs": [
+        "D03 PDF 17, printed 33 Engine only / Front view, 600 dpi crop"
+      ],
+      "method": "Centered on crankshaft; check D01 gear/damper drawing for axial interface."
+    },
+    "damper_outer_proj_diameter": {
+      "value": 0.394,
+      "unit": "m",
+      "status": "ESTIMATED",
+      "source_ids": [
+        "D03"
+      ],
+      "source_refs": [
+        "D03 PDF 17, printed 33 Engine only / Front view, 600 dpi crop"
+      ],
+      "method": "Front central ring silhouette x≈364 to 527 px; several outlines are nested. Approximate damper/front-cover ring diameter, ±0.020 m."
+    },
+    "damper_front_x": {
+      "value": null,
+      "unit": "m",
+      "status": "UNKNOWN",
+      "source_ids": [
+        "D03"
+      ],
+      "source_refs": [
+        "D03 PDF 17, printed 33 Engine only / Right side view, 600 dpi crop"
+      ],
+      "method": "Right-side stack partly occluded; no reliable separation of damper and front cover planes."
+    },
+    "oil_pan_bottom_y": {
+      "value": -0.552,
+      "unit": "m",
+      "status": "DOCUMENTED",
+      "source_ids": [
+        "D03"
+      ],
+      "source_refs": [
+        "D03 PDF 17, printed 33 Engine only / Front view, 600 dpi crop"
+      ],
+      "method": "Printed specification or dimension."
+    },
+    "oil_pan_flange_y": {
+      "value": -0.175,
+      "unit": "m",
+      "status": "ESTIMATED",
+      "source_ids": [
+        "D03"
+      ],
+      "source_refs": [
+        "D03 PDF 17, printed 33 Engine only / Right side view, 600 dpi crop"
+      ],
+      "method": "Side sump horizontal flange near y≈767 px vs crank CL=695 px. ±0.015 m."
+    },
+    "oil_pan_projection_x": {
+      "value": [
+        0.013,
+        1.335
+      ],
+      "unit": "m",
+      "status": "ESTIMATED",
+      "source_ids": [
+        "D03"
+      ],
+      "source_refs": [
+        "D03 PDF 17, printed 33 Engine only / Right side view, 600 dpi crop"
+      ],
+      "method": "Sump rear x≈227.5 px, front top lip x≈772 px. ±0.020 m."
+    },
+    "oil_pan_bottom_z": {
+      "value": [
+        -0.175,
+        0.177
+      ],
+      "unit": "m",
+      "status": "DOCUMENTED",
+      "source_ids": [
+        "D03"
+      ],
+      "source_refs": [
+        "D03 PDF 17, printed 33 Engine only / Front view, 600 dpi crop"
+      ],
+      "method": "175 and 177 mm from CL to low pan sides at front projected bottom region."
+    },
+    "turbo_exhaust_port_x_from_cylinder_1": {
+      "value": 0.28,
+      "unit": "m",
+      "status": "DOCUMENTED",
+      "source_ids": [
+        "D03"
+      ],
+      "source_refs": [
+        "D03 PDF 17, printed 33 Engine only / Right side view, 600 dpi crop"
+      ],
+      "method": "Printed specification or dimension."
+    },
+    "turbo_exhaust_port_z": {
+      "value": 0.481,
+      "unit": "m",
+      "status": "DOCUMENTED",
+      "source_ids": [
+        "D03"
+      ],
+      "source_refs": [
+        "D03 PDF 17, printed 33 Engine only / Front view, 600 dpi crop"
+      ],
+      "method": "Drawing front-left, corresponding to +Z."
+    },
+    "turbo_exhaust_port_center_xyz": {
+      "value": [
+        0.489,
+        0.989,
+        0.481
+      ],
+      "unit": "m",
+      "status": "ESTIMATED",
+      "source_ids": [
+        "D03"
+      ],
+      "source_refs": [
+        "D03 PDF 17, printed 33 Engine only / Right side view, 600 dpi crop",
+        "D03 PDF 17, printed 33 Engine only / Front view, 600 dpi crop"
+      ],
+      "method": "X from #1 + documented 280 mm, Z per dimension leader, Y per 817+172 mm. Y corresponds to upper flange reference, sketch face outer edge around 1.008 m."
+    },
+    "turbo_exhaust_port_normal": {
+      "value": [
+        0,
+        1,
+        0
+      ],
+      "unit": "unit vector",
+      "status": "OBSERVED",
+      "source_ids": [
+        "D03"
+      ],
+      "source_refs": [
+        "D03 PDF 17, printed 33 Engine only / Right side view, 600 dpi crop",
+        "D03 PDF 17, printed 33 Engine only / Front view, 600 dpi crop"
+      ],
+      "method": "Outlet flange horizontal in both views."
+    },
+    "turbo_exhaust_port_flange_outer": {
+      "value": 0.32,
+      "unit": "m",
+      "status": "ESTIMATED",
+      "source_ids": [
+        "D03"
+      ],
+      "source_refs": [
+        "D03 PDF 17, printed 33 Engine only / Right side view, 600 dpi crop",
+        "D03 PDF 17, printed 33 Engine only / Front view, 600 dpi crop"
+      ],
+      "method": "Outer flange projects ~132 px in both orthogonal views × 2.428 mm/px; silhouette width only ±0.010 m."
+    },
+    "turbo_exhaust_port_bore": {
+      "value": null,
+      "unit": "m",
+      "status": "UNKNOWN",
+      "source_ids": [
+        "D03"
+      ],
+      "source_refs": [
+        "D03 PDF 17, printed 33 Engine only / Right side view, 600 dpi crop",
+        "D03 PDF 17, printed 33 Engine only / Front view, 600 dpi crop"
+      ],
+      "method": "Outlet aperture not shown from above; projected flange width cannot supply bore diameter."
+    },
+    "turbo_exhaust_bellows_outer": {
+      "value": 0.232,
+      "unit": "m",
+      "status": "ESTIMATED",
+      "source_ids": [
+        "D03"
+      ],
+      "source_refs": [
+        "D03 PDF 17, printed 33 Engine only / Right side view, 600 dpi crop",
+        "D03 PDF 17, printed 33 Engine only / Front view, 600 dpi crop"
+      ],
+      "method": "Bellows body projected span ~96 px; ±0.012 m."
+    },
+    "turbo_housing_center_xyz": {
+      "value": [
+        0.6,
+        0.68,
+        0.481
+      ],
+      "unit": "m",
+      "status": "ESTIMATED",
+      "source_ids": [
+        "D03"
+      ],
+      "source_refs": [
+        "D03 PDF 17, printed 33 Engine only / Right side view, 600 dpi crop",
+        "D03 PDF 17, printed 33 Engine only / Front view, 600 dpi crop"
+      ],
+      "method": "Turbine visible near side x≈469–500 px and front ring center x≈247 px y≈416 px. X center near junction depends on which casing defines center. ±0.055 m X, ±0.02 m Y/Z."
+    },
+    "air_cleaner_center_xyz": {
+      "value": [
+        1.03,
+        0.67,
+        0.47
+      ],
+      "unit": "m",
+      "status": "ESTIMATED",
+      "source_ids": [
+        "D03",
+        "GA01"
+      ],
+      "source_refs": [
+        "GA01 Yanmar outline B3-48660-4450, 2011-01-31 title block, 6AYM-WET without clutch, uppermost top view",
+        "GA01 Yanmar outline B3-48660-4450, 2011-01-31 title block, 6AYM-WET without clutch, dimensioned right side view",
+        "D03 PDF 17, printed 33 Engine only / Right side view, 600 dpi crop"
+      ],
+      "method": "Identified by GA callout #5; top-view projection x≈367 px, y≈138 px relative to approximate rear-block x≈271 px and CL y≈93 px at 10.7 mm/px. H side gives air-filter center around casing group y≈420 px. Approximate placement ±0.05 m."
+    },
+    "aftercooler_xyz": {
+      "value": [
+        -0.13,
+        0.66,
+        null
+      ],
+      "unit": "m",
+      "status": "ESTIMATED",
+      "source_ids": [
+        "D01",
+        "D03",
+        "P06"
+      ],
+      "source_refs": [
+        "D03 PDF 17, printed 33 Engine only / Right side view, 600 dpi crop",
+        "D01 PDF 14, printed 10, Location of Components",
+        "P06 aft view, H 555 kW"
+      ],
+      "method": "Air cooler occupies rear upper transverse assembly; end projection around x≈169 px and y≈421 px. X/Y placement anchors ±0.05 m; transverse housing/ports need measured top view."
+    },
+    "heat_exchanger_xyz": {
+      "value": [
+        1.51,
+        0.64,
+        -0.055
+      ],
+      "unit": "m",
+      "status": "ESTIMATED",
+      "source_ids": [
+        "D01",
+        "D03",
+        "P07"
+      ],
+      "source_refs": [
+        "D03 PDF 17, printed 33 Engine only / Right side view, 600 dpi crop",
+        "D03 PDF 17, printed 33 Engine only / Front view, 600 dpi crop",
+        "D01 PDF 14, printed 10, Location of Components",
+        "P07 operation-side view, H 555 kW"
+      ],
+      "method": "Coolant tank and heat exchanger occupy front upper transverse assembly. Right projection circular end center about x≈844 y≈430; front transverse housing projected center x≈468 (CL=445). Placement ±0.07 m X/Y, ±0.04 m Z."
+    },
+    "fresh_water_pump_xyz": {
+      "value": [
+        1.53,
+        0.35,
+        null
+      ],
+      "unit": "m",
+      "status": "ESTIMATED",
+      "source_ids": [
+        "D01",
+        "D03"
+      ],
+      "source_refs": [
+        "D03 PDF 17, printed 33 Engine only / Right side view, 600 dpi crop",
+        "D01 PDF 14, printed 10, Location of Components"
+      ],
+      "method": "D01 identifies coolant pump at damper-end, non-operation side (+Z); D03 projections place it around x≈850,y≈550. ±0.06 m X/Y; Z position unavailable."
+    },
+    "sea_water_pump_xyz": {
+      "value": [
+        -0.22,
+        0.47,
+        null
+      ],
+      "unit": "m",
+      "status": "ESTIMATED",
+      "source_ids": [
+        "D01",
+        "D03",
+        "P06",
+        "P07"
+      ],
+      "source_refs": [
+        "D03 PDF 17, printed 33 Engine only / Right side view, 600 dpi crop",
+        "D01 PDF 14, printed 10, Location of Components",
+        "P06 aft view, H 555 kW",
+        "P07 operation-side view, H 555 kW"
+      ],
+      "method": "Aft end, operation side (−Z); rear downward-projected hardware around x≈131,y≈501. ±0.08 m X/Y; transverse plane unmeasured."
+    },
+    "starter_xyz": {
+      "value": [
+        0.16,
+        0.11,
+        null
+      ],
+      "unit": "m",
+      "status": "ESTIMATED",
+      "source_ids": [
+        "D01",
+        "D03",
+        "P05"
+      ],
+      "source_refs": [
+        "D03 PDF 17, printed 33 Engine only / Right side view, 600 dpi crop",
+        "D01 PDF 14, printed 10, Location of Components",
+        "P05 non-operation side view, H 555 kW"
+      ],
+      "method": "Lower aft near flywheel housing on non-operation side (+Z); x≈288,y≈650. ±0.05 m X/Y; Z unknown."
+    },
+    "coolant_fuel_port_interface_geometry": {
+      "value": null,
+      "unit": "m",
+      "status": "UNKNOWN",
+      "source_ids": [
+        "D03"
+      ],
+      "source_refs": [
+        "D03 PDF 17, printed 33 Engine only / Right side view, 600 dpi crop",
+        "D03 PDF 17, printed 33 Engine only / Front view, 600 dpi crop"
+      ],
+      "method": "Center, flange bore, exact bolt circle and clocking need WET installation drawing or appropriately scaled manual views."
+    },
+    "flange_drawing_upper_reference_y": {
+      "value": 0.989,
+      "unit": "m",
+      "status": "DOCUMENTED",
+      "source_ids": [
+        "D03"
+      ],
+      "source_refs": [
+        "D03 PDF 17, printed 33 Engine only / Front view, 600 dpi crop"
+      ],
+      "method": "817 mm CL-to-lower flange datum +172 mm between flange leader datum edges. Actual depicted outer edge is offset from upper leader."
+    },
+    "physical_drawn_y_span": {
+      "value": 1.56,
+      "unit": "m",
+      "status": "ESTIMATED",
+      "source_ids": [
+        "D03"
+      ],
+      "source_refs": [
+        "D03 PDF 17, printed 33 Engine only / Front view, 600 dpi crop"
+      ],
+      "method": "Sump minimum documented −.552, upper flange projected max about 1.008; sum. ±0.010 m."
+    },
+    "physical_drawn_z_span": {
+      "value": 1.305,
+      "unit": "m",
+      "status": "DOCUMENTED",
+      "source_ids": [
+        "D03"
+      ],
+      "source_refs": [
+        "D03 PDF 17, printed 33 Engine only / Front view, 600 dpi crop"
+      ],
+      "method": "641+664 mm across nominal width leader. Front silhouette roughly aligns with width line."
+    },
+    "cylinder_head_to_block_seam_alternatives": {
+      "value": null,
+      "unit": "m",
+      "status": "UNKNOWN",
+      "source_ids": [
+        "D01",
+        "D03"
+      ],
+      "source_refs": [
+        "D03 PDF 17, printed 33 Engine only / Right side view, 600 dpi crop",
+        "D01 PDF 14, printed 10, Location of Components"
+      ],
+      "method": "D03 line near y=493 is plausible. D01 illustrates a second closely spaced seam, and neither view isolates the head gasket. Maintain ±40mm estimated deck Y."
+    },
+    "crank_balance_weight_count": {
+      "value": 4,
+      "unit": "count",
+      "status": "DOCUMENTED",
+      "source_ids": [
+        "D01"
+      ],
+      "source_refs": [
+        "D01 PDF 104, printed 100, Crankshaft and Main Bearing"
+      ],
+      "method": "Printed specification or dimension."
+    },
+    "crank_main_journal_diameter_range": {
+      "value": [
+        0.13393,
+        0.133955
+      ],
+      "unit": "m",
+      "status": "DOCUMENTED",
+      "source_ids": [
+        "D01"
+      ],
+      "source_refs": [
+        "D01 PDF 105, printed 101, Crankshaft specifications"
+      ],
+      "method": "Standard/new diameter range shown by service manual."
+    },
+    "crank_pin_diameter_range": {
+      "value": [
+        0.10594,
+        0.10596
+      ],
+      "unit": "m",
+      "status": "DOCUMENTED",
+      "source_ids": [
+        "D01"
+      ],
+      "source_refs": [
+        "D01 PDF 105, printed 101, Crankshaft specifications"
+      ],
+      "method": "Standard/new diameter range shown by service manual."
+    },
+    "engine_only_outline_x_span": {
+      "value": 2.0,
+      "unit": "m",
+      "status": "DOCUMENTED",
+      "source_ids": [
+        "GA01"
+      ],
+      "source_refs": [
+        "GA01 Yanmar outline B3-48660-4450, 2011-01-31 title block, 6AYM-WET without clutch, dimensioned right side view"
+      ],
+      "method": "Overall 2000 mm chain: 520 mm rear equipment to #1 + 1000 mm #1–#6 + 480 mm #6 to front equipment."
+    },
+    "engine_only_outline_x_min": {
+      "value": -0.311,
+      "unit": "m",
+      "status": "ESTIMATED",
+      "source_ids": [
+        "D03",
+        "GA01"
+      ],
+      "source_refs": [
+        "GA01 Yanmar outline B3-48660-4450, 2011-01-31 title block, 6AYM-WET without clutch, dimensioned right side view",
+        "D03 PDF 17, printed 33 Engine only / Right side view, 600 dpi crop"
+      ],
+      "method": "GA rear extremity X = estimated shared-datum cylinder #1 at .209 m minus documented 0.520 m. GA title block has no explicit rating assignment. ±0.015 m shared origin registration."
+    },
+    "engine_only_outline_x_max": {
+      "value": 1.689,
+      "unit": "m",
+      "status": "ESTIMATED",
+      "source_ids": [
+        "D03",
+        "GA01"
+      ],
+      "source_refs": [
+        "GA01 Yanmar outline B3-48660-4450, 2011-01-31 title block, 6AYM-WET without clutch, dimensioned right side view",
+        "D03 PDF 17, printed 33 Engine only / Right side view, 600 dpi crop"
+      ],
+      "method": "Shared-datum cylinder #6 at ≈1.209 m plus 0.480 m documented GA and H guide. ±0.015 m shared origin registration."
+    },
+    "engine_only_outline_crank_height_over_sump_bottom": {
+      "value": 0.5515,
+      "unit": "m",
+      "status": "DOCUMENTED",
+      "source_ids": [
+        "GA01"
+      ],
+      "source_refs": [
+        "GA01 Yanmar outline B3-48660-4450, 2011-01-31 title block, 6AYM-WET without clutch, dimensioned front view"
+      ],
+      "method": "GA decimal matches H brochure 552 mm with rounding."
+    },
+    "engine_only_outline_exhaust_top_reference_y": {
+      "value": 0.9885,
+      "unit": "m",
+      "status": "DOCUMENTED",
+      "source_ids": [
+        "GA01"
+      ],
+      "source_refs": [
+        "GA01 Yanmar outline B3-48660-4450, 2011-01-31 title block, 6AYM-WET without clutch, dimensioned front view"
+      ],
+      "method": "Horizontal exhaust flange upper datum, 817 + 171.5 mm above crank CL."
+    },
+    "engine_only_outline_full_height_between_dimension_leaders": {
+      "value": 1.54,
+      "unit": "m",
+      "status": "INFERRED",
+      "source_ids": [
+        "GA01"
+      ],
+      "source_refs": [
+        "GA01 Yanmar outline B3-48660-4450, 2011-01-31 title block, 6AYM-WET without clutch, dimensioned front view"
+      ],
+      "method": "551.5 mm below crank + 988.5 mm upper flange datum. Landmark-to-landmark dimension chain; H brochure outer silhouette read around 1.560 m."
+    },
+    "engine_only_outline_nominal_height_between_dimension_leaders": {
+      "value": 1.4305,
+      "unit": "m",
+      "status": "DOCUMENTED",
+      "source_ids": [
+        "GA01"
+      ],
+      "source_refs": [
+        "GA01 Yanmar outline B3-48660-4450, 2011-01-31 title block, 6AYM-WET without clutch, dimensioned front view"
+      ],
+      "method": "Alternate nominal body extent upper datum +879/−551.5 mm; printed 1430.5 mm."
+    },
+    "engine_mount_pad_length": {
+      "value": null,
+      "unit": "m",
+      "status": "UNKNOWN",
+      "source_ids": [
+        "GA01"
+      ],
+      "source_refs": [
+        "GA01 Yanmar outline B3-48660-4450, 2011-01-31 title block, 6AYM-WET without clutch, dimensioned right side view"
+      ],
+      "method": "Mount positions are drawn and dimensioned, but foreshortening is hidden in the lateral projected pad outline. Refer to GA lower view for machining dimensions."
+    },
+    "engine_mount_bolt_hole_diameter": {
+      "value": 0.024,
+      "unit": "m",
+      "status": "DOCUMENTED",
+      "source_ids": [
+        "GA01"
+      ],
+      "source_refs": [
+        "GA01 Yanmar outline B3-48660-4450, 2011-01-31 title block, 6AYM-WET without clutch, VIEW FROM UPPER lower engine-bed plan"
+      ],
+      "method": "8 holes Ø24."
+    },
+    "engine_mount_jack_bolt_nominal": {
+      "value": "4×M16",
+      "unit": "text",
+      "status": "DOCUMENTED",
+      "source_ids": [
+        "GA01"
+      ],
+      "source_refs": [
+        "GA01 Yanmar outline B3-48660-4450, 2011-01-31 title block, 6AYM-WET without clutch, VIEW FROM UPPER lower engine-bed plan"
+      ],
+      "method": "Printed specification or dimension."
+    },
+    "flywheel_housing_mount_pitch_circle_diameter": {
+      "value": 0.6795,
+      "unit": "m",
+      "status": "DOCUMENTED",
+      "source_ids": [
+        "GA01"
+      ],
+      "source_refs": [
+        "GA01 Yanmar outline B3-48660-4450, 2011-01-31 title block, 6AYM-WET without clutch, flywheel and flywheel housing detail"
+      ],
+      "method": "Outer ring label PCØ679.5."
+    },
+    "flywheel_housing_mount_thread": {
+      "value": "16×M12, depth 26 mm",
+      "unit": "text",
+      "status": "DOCUMENTED",
+      "source_ids": [
+        "GA01"
+      ],
+      "source_refs": [
+        "GA01 Yanmar outline B3-48660-4450, 2011-01-31 title block, 6AYM-WET without clutch, flywheel and flywheel housing detail"
+      ],
+      "method": "Printed specification or dimension."
+    },
+    "flywheel_mount_pitch_circle_diameter": {
+      "value": 0.5429,
+      "unit": "m",
+      "status": "DOCUMENTED",
+      "source_ids": [
+        "GA01"
+      ],
+      "source_refs": [
+        "GA01 Yanmar outline B3-48660-4450, 2011-01-31 title block, 6AYM-WET without clutch, flywheel and flywheel housing detail"
+      ],
+      "method": "Inner ring label PCØ542.9."
+    },
+    "flywheel_mount_thread": {
+      "value": "12×M16×1.5, depth 22 mm",
+      "unit": "text",
+      "status": "DOCUMENTED",
+      "source_ids": [
+        "GA01"
+      ],
+      "source_refs": [
+        "GA01 Yanmar outline B3-48660-4450, 2011-01-31 title block, 6AYM-WET without clutch, flywheel and flywheel housing detail"
+      ],
+      "method": "Printed specification or dimension."
+    },
+    "flywheel_housing_detail_diameters": {
+      "value": [
+        0.5715,
+        0.632,
+        0.6477
+      ],
+      "unit": "m",
+      "status": "DOCUMENTED",
+      "source_ids": [
+        "GA01"
+      ],
+      "source_refs": [
+        "GA01 Yanmar outline B3-48660-4450, 2011-01-31 title block, 6AYM-WET without clutch, flywheel and flywheel housing detail"
+      ],
+      "method": "Visible stepped coaxial detail labels. Registration tolerances are illegible in the public preview; use manufacturer source at original resolution for machining."
+    },
+    "turbo_exhaust_port_x_from_cylinder_1_outline": {
+      "value": 0.2795,
+      "unit": "m",
+      "status": "DOCUMENTED",
+      "source_ids": [
+        "GA01"
+      ],
+      "source_refs": [
+        "GA01 Yanmar outline B3-48660-4450, 2011-01-31 title block, 6AYM-WET without clutch, dimensioned right side view"
+      ],
+      "method": "Exact 279.5 mm used by undated-rating GA; H brochure rounds to 280."
+    },
+    "visible_valve_cover_count": {
+      "value": 6,
+      "unit": "count",
+      "status": "OBSERVED",
+      "source_ids": [
+        "GA01"
+      ],
+      "source_refs": [
+        "GA01 Yanmar outline B3-48660-4450, 2011-01-31 title block, 6AYM-WET without clutch, uppermost top view"
+      ],
+      "method": "Six cover bodies separated by transverse boundaries in top drawing; independently matches six inline cylinders and first/last leaders."
+    },
+    "firing_order": {
+      "value": [
+        1,
+        4,
+        2,
+        6,
+        3,
+        5
+      ],
+      "unit": "cylinder numbers",
+      "status": "DOCUMENTED",
+      "source_ids": [
+        "D01"
+      ],
+      "source_refs": [
+        "D01 PDF 13, printed 9, Engine Specifications, 6AYM-WET H column and row note"
+      ],
+      "method": "Repeated sequence at No.1 on the flywheel side."
+    },
+    "crank_rotation_from_flywheel": {
+      "value": "counterclockwise",
+      "unit": "text",
+      "status": "DOCUMENTED",
+      "source_ids": [
+        "D01"
+      ],
+      "source_refs": [
+        "D01 PDF 13, printed 9, Engine Specifications, 6AYM-WET H column and row note"
+      ],
+      "method": "Viewed while looking +X from flywheel to damper. Equivalent to negative right-hand rotation about world +X."
+    },
+    "crankpin_phase_rh_about_x_at_cyl1_firing_tdc": {
+      "value": [
+        0,
+        240,
+        120,
+        120,
+        240,
+        0
+      ],
+      "unit": "degree",
+      "status": "INFERRED",
+      "source_ids": [
+        "D01"
+      ],
+      "source_refs": [
+        "D01 PDF 13, printed 9, Engine Specifications, 6AYM-WET H column and row note"
+      ],
+      "method": "Order by cylinder 1–6, angles from +Y using right-handed +X. Sequential firing spacing 720°/6=120° for an evenly spaced 4-cycle. World rotation is negative per documented rear-view counterclockwise, so initial RH phase equals firing offset modulo 360°. This does not establish cam timing."
+    },
+    "standard_oil_pan_capacity": {
+      "value": 91,
+      "unit": "L",
+      "status": "DOCUMENTED",
+      "source_ids": [
+        "D01"
+      ],
+      "source_refs": [
+        "D01 PDF 13, printed 9, Engine Specifications, 6AYM-WET H column and row note"
+      ],
+      "method": "Printed specification or dimension."
+    },
+    "shallow_oil_pan_capacity": {
+      "value": 53,
+      "unit": "L",
+      "status": "DOCUMENTED",
+      "source_ids": [
+        "D01"
+      ],
+      "source_refs": [
+        "D01 PDF 13, printed 9, Engine Specifications, 6AYM-WET H column and row note"
+      ],
+      "method": "Printed specification or dimension."
+    },
+    "turbo_model": {
+      "value": "TD13M",
+      "unit": "text",
+      "status": "DOCUMENTED",
+      "source_ids": [
+        "D01"
+      ],
+      "source_refs": [
+        "D01 PDF 13, printed 9, Engine Specifications, 6AYM-WET H column and row note"
+      ],
+      "method": "Printed specification or dimension."
+    },
+    "dry_mass_engine_only": {
+      "value": 2365,
+      "unit": "kg",
+      "status": "DOCUMENTED",
+      "source_ids": [
+        "D03"
+      ],
+      "source_refs": [
+        "D03 PDF 17, printed 32 Specifications"
+      ],
+      "method": "Printed specification or dimension."
+    }
+  },
+  "source_refs": [
+    "D03 PDF 17, printed 32 Specifications",
+    "D03 PDF 17, printed 33 Engine only / Right side view, 600 dpi crop",
+    "D03 PDF 17, printed 33 Engine only / Front view, 600 dpi crop",
+    "D03 PDF 18, printed 34–35 (M variant context)",
+    "D01 PDF 14, printed 10, Location of Components",
+    "D01 PDF 104, printed 100, Crankshaft and Main Bearing",
+    "D01 PDF 105, printed 101, Crankshaft specifications",
+    "GA01 Yanmar outline B3-48660-4450, 2011-01-31 title block, 6AYM-WET without clutch",
+    "GA01 Yanmar outline B3-48660-4450, 2011-01-31 title block, 6AYM-WET without clutch, uppermost top view",
+    "GA01 Yanmar outline B3-48660-4450, 2011-01-31 title block, 6AYM-WET without clutch, flywheel and flywheel housing detail",
+    "D01 PDF 13, printed 9, Engine Specifications, 6AYM-WET H column and row note"
+  ]
+}

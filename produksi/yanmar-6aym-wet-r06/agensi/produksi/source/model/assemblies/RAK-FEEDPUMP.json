@@ -1,0 +1,567 @@
+{
+  "id": "RAK-FEEDPUMP",
+  "parent_rakitan": "RAK-FUEL",
+  "node_rakitan": "RAK-FEEDPUMP",
+  "nama": "Pompa feed kerja ganda dan pompa priming",
+  "acuan": {
+    "no": 1,
+    "object_ids": [
+      "EXT-FUEL-12"
+    ]
+  },
+  "bagian": [
+    {
+      "no": 1,
+      "nama": "Pompa feed dan priming",
+      "object_ids": [
+        "EXT-FUEL-12"
+      ],
+      "posisi": [],
+      "role": "shell",
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 145 / cetak 141, fig.016382-00E, 016383-00E dan 016384-00E",
+        "D05 0CG10-M34300 fig.75 FUEL FEED PUMP, kolom A (WET)"
+      ],
+      "fungsi": "Rumah dan sambungan luar."
+    },
+    {
+      "no": 2,
+      "nama": "Piston pompa feed kerja ganda",
+      "object_ids": [
+        "EXT-FUEL-210"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-210",
+          "arah": [
+            0,
+            0,
+            -1
+          ],
+          "jarak_m": 0.06,
+          "urutan": 2
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 145 / cetak 141, fig.016382-00E, 016383-00E dan 016384-00E",
+        "D05 0CG10-M34300 fig.75 FUEL FEED PUMP, kolom A (WET)"
+      ],
+      "fungsi": "Piston memindahkan solar di kedua sisi ruang pompa."
+    },
+    {
+      "no": 3,
+      "nama": "Spindle dan pin roller feed",
+      "object_ids": [
+        "EXT-FUEL-211"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-211",
+          "arah": [
+            0,
+            0,
+            1
+          ],
+          "jarak_m": 0.055,
+          "urutan": 3
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 145 / cetak 141, fig.016382-00E, 016383-00E dan 016384-00E",
+        "D05 0CG10-M34300 fig.75 FUEL FEED PUMP, kolom A (WET)"
+      ],
+      "fungsi": "Spindle bergeser mengikuti roller di sisi luar eksentrik."
+    },
+    {
+      "no": 4,
+      "nama": "Roller feed pada eksentrik",
+      "object_ids": [
+        "EXT-FUEL-238"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-238",
+          "arah": [
+            1,
+            0,
+            0
+          ],
+          "jarak_m": 0.045,
+          "urutan": 4
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 145 / cetak 141, fig.016382-00E, 016383-00E dan 016384-00E",
+        "D05 0CG10-M34300 fig.75 FUEL FEED PUMP, kolom A (WET)"
+      ],
+      "fungsi": "Roller menyentuh sisi luar eksentrik dan berputar pada pin."
+    },
+    {
+      "no": 5,
+      "nama": "Dua seal tetap spindle",
+      "object_ids": [
+        "EXT-FUEL-219"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-219",
+          "arah": [
+            0,
+            0,
+            1
+          ],
+          "jarak_m": 0.072,
+          "urutan": 5
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 145 / cetak 141, fig.016382-00E, 016383-00E dan 016384-00E",
+        "D05 0CG10-M34300 fig.75 FUEL FEED PUMP, kolom A (WET)"
+      ],
+      "fungsi": "Seal terpasang pada rumah dan memisahkan ruang cam."
+    },
+    {
+      "no": 6,
+      "nama": "Pegas balik piston feed",
+      "object_ids": [
+        "EXT-FUEL-212"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-212",
+          "arah": [
+            0,
+            0,
+            -1
+          ],
+          "jarak_m": 0.095,
+          "urutan": 6
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 145 / cetak 141, fig.016382-00E, 016383-00E dan 016384-00E",
+        "D05 0CG10-M34300 fig.75 FUEL FEED PUMP, kolom A (WET)"
+      ],
+      "fungsi": "Pegas mengembalikan piston feed."
+    },
+    {
+      "no": 7,
+      "nama": "Dudukan pegas balik feed",
+      "object_ids": [
+        "EXT-FUEL-239"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-239",
+          "arah": [
+            0,
+            0,
+            -1
+          ],
+          "jarak_m": 0.085,
+          "urutan": 7
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 145 / cetak 141, fig.016382-00E, 016383-00E dan 016384-00E",
+        "D05 0CG10-M34300 fig.75 FUEL FEED PUMP, kolom A (WET)"
+      ],
+      "fungsi": "Muka diam di bagian dalam tutup penutup sisi piston."
+    },
+    {
+      "no": 8,
+      "nama": "Poppet katup satu arah feed 1",
+      "object_ids": [
+        "EXT-FUEL-213"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-213",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.04,
+          "urutan": 8
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 145 / cetak 141, fig.016382-00E, 016383-00E dan 016384-00E",
+        "D05 0CG10-M34300 fig.75 FUEL FEED PUMP, kolom A (WET)"
+      ],
+      "fungsi": "Poppet mengarahkan aliran selama dua langkah."
+    },
+    {
+      "no": 9,
+      "nama": "Dudukan tetap katup feed 1",
+      "object_ids": [
+        "EXT-FUEL-230"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-230",
+          "arah": [
+            0,
+            -1,
+            0
+          ],
+          "jarak_m": 0.051,
+          "urutan": 9
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 145 / cetak 141, fig.016382-00E, 016383-00E dan 016384-00E",
+        "D05 0CG10-M34300 fig.75 FUEL FEED PUMP, kolom A (WET)"
+      ],
+      "fungsi": "Dudukan tetap menutup port saat poppet menempel."
+    },
+    {
+      "no": 10,
+      "nama": "Pegas katup feed 1",
+      "object_ids": [
+        "EXT-FUEL-234"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-234",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.07,
+          "urutan": 10
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 145 / cetak 141, fig.016382-00E, 016383-00E dan 016384-00E",
+        "D05 0CG10-M34300 fig.75 FUEL FEED PUMP, kolom A (WET)"
+      ],
+      "fungsi": "Pegas membawa poppet kembali ke dudukan."
+    },
+    {
+      "no": 11,
+      "nama": "Poppet katup satu arah feed 2",
+      "object_ids": [
+        "EXT-FUEL-214"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-214",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.053,
+          "urutan": 11
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 145 / cetak 141, fig.016382-00E, 016383-00E dan 016384-00E",
+        "D05 0CG10-M34300 fig.75 FUEL FEED PUMP, kolom A (WET)"
+      ],
+      "fungsi": "Poppet mengarahkan aliran selama dua langkah."
+    },
+    {
+      "no": 12,
+      "nama": "Dudukan tetap katup feed 2",
+      "object_ids": [
+        "EXT-FUEL-231"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-231",
+          "arah": [
+            0,
+            -1,
+            0
+          ],
+          "jarak_m": 0.062,
+          "urutan": 12
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 145 / cetak 141, fig.016382-00E, 016383-00E dan 016384-00E",
+        "D05 0CG10-M34300 fig.75 FUEL FEED PUMP, kolom A (WET)"
+      ],
+      "fungsi": "Dudukan tetap menutup port saat poppet menempel."
+    },
+    {
+      "no": 13,
+      "nama": "Pegas katup feed 2",
+      "object_ids": [
+        "EXT-FUEL-235"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-235",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.083,
+          "urutan": 13
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 145 / cetak 141, fig.016382-00E, 016383-00E dan 016384-00E",
+        "D05 0CG10-M34300 fig.75 FUEL FEED PUMP, kolom A (WET)"
+      ],
+      "fungsi": "Pegas membawa poppet kembali ke dudukan."
+    },
+    {
+      "no": 14,
+      "nama": "Poppet katup satu arah feed 3",
+      "object_ids": [
+        "EXT-FUEL-215"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-215",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.066,
+          "urutan": 14
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 145 / cetak 141, fig.016382-00E, 016383-00E dan 016384-00E",
+        "D05 0CG10-M34300 fig.75 FUEL FEED PUMP, kolom A (WET)"
+      ],
+      "fungsi": "Poppet mengarahkan aliran selama dua langkah."
+    },
+    {
+      "no": 15,
+      "nama": "Dudukan tetap katup feed 3",
+      "object_ids": [
+        "EXT-FUEL-232"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-232",
+          "arah": [
+            0,
+            -1,
+            0
+          ],
+          "jarak_m": 0.073,
+          "urutan": 15
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 145 / cetak 141, fig.016382-00E, 016383-00E dan 016384-00E",
+        "D05 0CG10-M34300 fig.75 FUEL FEED PUMP, kolom A (WET)"
+      ],
+      "fungsi": "Dudukan tetap menutup port saat poppet menempel."
+    },
+    {
+      "no": 16,
+      "nama": "Pegas katup feed 3",
+      "object_ids": [
+        "EXT-FUEL-236"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-236",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.096,
+          "urutan": 16
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 145 / cetak 141, fig.016382-00E, 016383-00E dan 016384-00E",
+        "D05 0CG10-M34300 fig.75 FUEL FEED PUMP, kolom A (WET)"
+      ],
+      "fungsi": "Pegas membawa poppet kembali ke dudukan."
+    },
+    {
+      "no": 17,
+      "nama": "Poppet katup satu arah feed 4",
+      "object_ids": [
+        "EXT-FUEL-216"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-216",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.079,
+          "urutan": 17
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 145 / cetak 141, fig.016382-00E, 016383-00E dan 016384-00E",
+        "D05 0CG10-M34300 fig.75 FUEL FEED PUMP, kolom A (WET)"
+      ],
+      "fungsi": "Poppet mengarahkan aliran selama dua langkah."
+    },
+    {
+      "no": 18,
+      "nama": "Dudukan tetap katup feed 4",
+      "object_ids": [
+        "EXT-FUEL-233"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-233",
+          "arah": [
+            0,
+            -1,
+            0
+          ],
+          "jarak_m": 0.08399999999999999,
+          "urutan": 18
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 145 / cetak 141, fig.016382-00E, 016383-00E dan 016384-00E",
+        "D05 0CG10-M34300 fig.75 FUEL FEED PUMP, kolom A (WET)"
+      ],
+      "fungsi": "Dudukan tetap menutup port saat poppet menempel."
+    },
+    {
+      "no": 19,
+      "nama": "Pegas katup feed 4",
+      "object_ids": [
+        "EXT-FUEL-237"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-237",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.10900000000000001,
+          "urutan": 19
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 145 / cetak 141, fig.016382-00E, 016383-00E dan 016384-00E",
+        "D05 0CG10-M34300 fig.75 FUEL FEED PUMP, kolom A (WET)"
+      ],
+      "fungsi": "Pegas membawa poppet kembali ke dudukan."
+    },
+    {
+      "no": 20,
+      "nama": "Piston tangan priming dan packing",
+      "object_ids": [
+        "EXT-FUEL-217"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-217",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.085,
+          "urutan": 20
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 145 / cetak 141, fig.016382-00E, 016383-00E dan 016384-00E",
+        "D05 0CG10-M34300 fig.75 FUEL FEED PUMP, kolom A (WET)"
+      ],
+      "fungsi": "Gerak tangan memindahkan piston untuk priming."
+    },
+    {
+      "no": 21,
+      "nama": "Pegas priming dan penahan",
+      "object_ids": [
+        "EXT-FUEL-218"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-218",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.108,
+          "urutan": 21
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 145 / cetak 141, fig.016382-00E, 016383-00E dan 016384-00E",
+        "D05 0CG10-M34300 fig.75 FUEL FEED PUMP, kolom A (WET)"
+      ],
+      "fungsi": "Pegas mendorong mekanisme priming kembali."
+    }
+  ],
+  "diagram": {
+    "arah_pandang": [
+      0.45,
+      0.34,
+      -0.83
+    ],
+    "atas": [
+      0,
+      1,
+      0
+    ]
+  },
+  "source_refs": [
+    "D01 PDF 145 / cetak 141, fig.016382-00E, 016383-00E dan 016384-00E",
+    "D05 0CG10-M34300 fig.75 FUEL FEED PUMP, kolom A (WET)"
+  ],
+  "notes": "Dimensi, bentuk kecil, peletakan dan posisi gerak merupakan perkiraan edukasi. Posisi terpasang mengikuti foto bodi. Rasio tuas, jalur bor, tekanan dan setelan belum terverifikasi.",
+  "status": "ESTIMATED"
+}

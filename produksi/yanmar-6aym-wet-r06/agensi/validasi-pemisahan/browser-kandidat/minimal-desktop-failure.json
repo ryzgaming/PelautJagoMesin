@@ -1,0 +1,90 @@
+{
+  "ui": "minimal",
+  "name": "desktop",
+  "initial": {
+    "state": {
+      "ready": true,
+      "phase": "off",
+      "paused": false,
+      "running": false,
+      "phaseTime": 0,
+      "rpm": 0,
+      "crankAngle": 0,
+      "starterEngagement": 0,
+      "selection": null,
+      "xray": false,
+      "mode": "operation",
+      "flow": "fuel",
+      "drive": "timing-01",
+      "audioSupported": true,
+      "muted": false
+    },
+    "canvas": {
+      "geometry": [
+        true,
+        true
+      ],
+      "triangles": 986968,
+      "gpu": "WebKit WebGL",
+      "contextLost": false,
+      "audio": {
+        "phase": "off",
+        "rpm": 0,
+        "elapsed": 0,
+        "paused": true,
+        "unlocked": false,
+        "muted": false,
+        "volume": 0.35,
+        "hidden": false,
+        "disposed": false,
+        "contextState": "uncreated",
+        "firingHz": 0,
+        "audible": false,
+        "nodes": 0,
+        "activeOneShots": 0,
+        "lastClickElapsed": null,
+        "targets": null
+      },
+      "viewport": [
+        1280,
+        800,
+        null
+      ]
+    },
+    "parts": 1184,
+    "overflow": 0,
+    "studioCanvas": false,
+    "minimalCanvas": true,
+    "foreignStudioLayout": 0
+  },
+  "phases": [
+    "off",
+    "engaging",
+    "cranking",
+    "firing",
+    "running",
+    "stopping",
+    "off"
+  ],
+  "selected": "EXT-FUEL-03",
+  "requests": [
+    "http://127.0.0.1:4197/yanmar-6aym-wet-r06/model/assets/data.json",
+    "http://127.0.0.1:4197/yanmar-6aym-wet-r06/model/assets/exterior.glb",
+    "http://127.0.0.1:4197/yanmar-6aym-wet-r06/model/assets/internal.glb",
+    "http://127.0.0.1:4197/yanmar-6aym-wet-r06/model/manifest.json",
+    "http://127.0.0.1:4197/yanmar-6aym-wet-r06/model/runtime/engine-session.js",
+    "http://127.0.0.1:4197/yanmar-6aym-wet-r06/model/runtime/powertrain.js",
+    "http://127.0.0.1:4197/yanmar-6aym-wet-r06/model/runtime/vendor/combustion-glow.js",
+    "http://127.0.0.1:4197/yanmar-6aym-wet-r06/model/runtime/vendor/engine-audio.js",
+    "http://127.0.0.1:4197/yanmar-6aym-wet-r06/model/runtime/vendor/flow-ribbons.js",
+    "http://127.0.0.1:4197/yanmar-6aym-wet-r06/model/runtime/vendor/functional-motion.js",
+    "http://127.0.0.1:4197/yanmar-6aym-wet-r06/model/runtime/vendor/three-bundle.js",
+    "http://127.0.0.1:4197/yanmar-6aym-wet-r06/ui-workspace/minimal.css",
+    "http://127.0.0.1:4197/yanmar-6aym-wet-r06/ui-workspace/minimal.html",
+    "http://127.0.0.1:4197/yanmar-6aym-wet-r06/ui-workspace/minimal.js"
+  ],
+  "error": "page.screenshot: Target page, context or browser has been closed\nBrowser logs:\n\n<launching> /usr/bin/chromium --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,BoundaryEventDispatchTracksNodeRemoval,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,Translate,AutoDeElevate,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --no-sandbox --use-gl=angle --use-angle=swiftshader --enable-unsafe-swiftshader --user-data-dir=/tmp/playwright_chromiumdev_profile-9pVMnz --remote-debugging-pipe --no-startup-window\n<launched> pid=74508\n[pid=74508][err] [74508:74539:1128/133044.155532:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory\n[pid=74508][err] [74508:74539:1128/133044.155577:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are \"tcp\" and on UNIX \"unix\")\n[pid=74508][err] [74508:74539:1128/133044.155598:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory\n[pid=74508][err] [74508:74539:1128/133044.155611:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory\n[pid=74508][err] [74508:74539:1128/133044.155625:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory\n[pid=74508][err] [74508:74539:1128/133044.155634:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are \"tcp\" and on UNIX \"unix\")\n[pid=74508][err] [74508:74539:1128/133044.157092:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are \"tcp\" and on UNIX \"unix\")\n[pid=74508][err] [74508:74539:1128/133044.203864:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are \"tcp\" and on UNIX \"unix\")\n[pid=74508][err] [74508:74508:1128/133044.228043:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: \n[pid=74508][err] [74508:74508:1128/133044.228136:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: \n[pid=74508][err] [74508:74539:1128/133044.228214:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are \"tcp\" and on UNIX \"unix\")\n[pid=74508][err] [74508:74539:1128/133044.228237:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are \"tcp\" and on UNIX \"unix\")\n[pid=74508][err] [74508:74508:1128/133044.233118:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: \n[pid=74508][err] [74508:74539:1128/133044.233214:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are \"tcp\" and on UNIX \"unix\")\n[pid=74508][err] [74508:74539:1128/133044.236272:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory\n[pid=74508][err] [74508:74508:1128/133044.236280:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: \n[pid=74508][err] [74508:74539:1128/133044.236290:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory\n[pid=74508][err] [74508:74508:1128/133044.236294:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: \n[pid=74508][err] [74508:74539:1128/133044.236495:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are \"tcp\" and on UNIX \"unix\")\n[pid=74508][err] [74508:74508:1128/133044.237287:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: \n[pid=74508][err] [74508:74508:1128/133044.238500:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.Properties.GetAll: object_path= /org/freedesktop/UPower/devices/DisplayDevice: unknown error type: \n[pid=74508][err] [74508:74508:1128/133044.238551:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: \n[pid=74508][err] [74508:74539:1128/133044.238597:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are \"tcp\" and on UNIX \"unix\")\n[pid=74508][err] [74508:74508:1128/133044.240692:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: \n[pid=74508][err] [74508:74539:1128/133044.242519:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are \"tcp\" and on UNIX \"unix\")\n[pid=74508][err] [74508:74508:1128/133044.243880:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: \n[pid=74508][err] [74508:74508:1128/133259.505106:ERROR:chrome/browser/ui/views/user_education/impl/browser_user_education_interface_impl.cc:186] Attempting to show IPH IPH_ExtensionsZeroStatePromo before browser initialization complete; IPH will not be shown.\n[pid=74508][err] Warning: vkCreateInstance: Found no drivers!\n[pid=74508][err] Warning: vkCreateInstance failed with VK_ERROR_INCOMPATIBLE_DRIVER\n[pid=74508][err]     at CheckVkSuccessImpl (../../third_party/dawn/src/dawn/native/vulkan/VulkanError.cpp:106)\n[pid=74508][err] \nCall log:\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n",
+  "probe": null,
+  "errors": [],
+  "bad": []
+}

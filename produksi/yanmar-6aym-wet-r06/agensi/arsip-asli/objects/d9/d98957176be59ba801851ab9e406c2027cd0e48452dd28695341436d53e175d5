@@ -1,0 +1,69 @@
+{
+  "assembly": "RAK-INJECTION",
+  "parent": "RAK-FUEL",
+  "proxy": "EXT-FUEL-01",
+  "manufacturer_model": "YANMAR YPE-1615 on Yanmar 6AYM-WET",
+  "sources": [
+    "D01 service PDF 115, printed 111, section fig. 020523-00E / YPE-1615 WET table",
+    "D05 0CG10-M34300 Fig.74 FUEL INJECTION PUMP, WET column A"
+  ],
+  "evidence": "Source shows lower cam, roller tappet and spring, plunger/barrel with port, control rack/pinion, delivery valve and holder. The cutaway is a family drawing; WET table identifies YPE-1615 and plunger OD 16 mm.",
+  "units": "The coordinates of the six pumps follow r02 delivery-head locations. Cast cavity, lobe profiles, spring turns, all lengths and fits other than plunger OD are estimated for education.",
+  "coverage": [
+    {
+      "reference": "Fig.74 camshaft and D01 camshaft",
+      "ids": [
+        "EXT-FUEL-21"
+      ],
+      "geometry": "shaft and six shaped lobes"
+    },
+    {
+      "reference": "Fig.74 rack / pinion, D01 control rack",
+      "ids": [
+        "EXT-FUEL-22",
+        "EXT-FUEL-41–46"
+      ],
+      "geometry": "rack with six tooth groups and educational pinions"
+    },
+    {
+      "reference": "Fig.74 tappet assemblies",
+      "ids": [
+        "EXT-FUEL-23–28"
+      ],
+      "geometry": "body, roller, axle and cheeks, six stations"
+    },
+    {
+      "reference": "Fig.74 springs and retainers",
+      "ids": [
+        "EXT-FUEL-29–34"
+      ],
+      "geometry": "helical springs and seats"
+    },
+    {
+      "reference": "Fig.74 plunger assemblies and barrel support; D01 section",
+      "ids": [
+        "EXT-FUEL-35–40",
+        "EXT-FUEL-41–46"
+      ],
+      "geometry": "16 mm plunger sliding in ported barrel; metering helix not reproduced"
+    },
+    {
+      "reference": "Fig.74 delivery valve and spring",
+      "ids": [
+        "EXT-FUEL-47–52",
+        "EXT-FUEL-13–18"
+      ],
+      "geometry": "seat, poppet and small delivery spring group; existing outer fitting maintained"
+    }
+  ],
+  "open": [
+    "metering helix and ports not shape-accurate",
+    "OEM calibration and full ranges of motion",
+    "cam journals, shims, individual fasteners and service adjustments",
+    "source geometry is not survey of particular H serial unit",
+    "coupling/boost compensator; detailed link calibration, feed port drilling and remaining governor/feed fasteners"
+  ],
+  "original_correction": "r02 cutaway showed joined solid shell behind six external delivery fittings. r03 cuts physical cavity, access port and six outlet bores before adding separate mechanism meshes.",
+  "scratch_test": "Rebuilt Blender source; extracted GLB JSON. All 33 physical children of RAK-INJECTION match its 33 recipe rows, including 32 new internal part groups.",
+  "related_accessories": "accessories.json"
+}

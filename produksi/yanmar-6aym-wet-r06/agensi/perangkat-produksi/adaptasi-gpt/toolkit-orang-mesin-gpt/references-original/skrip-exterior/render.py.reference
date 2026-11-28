@@ -1,0 +1,80 @@
+import bpy, math, os, sys
+from mathutils import Vector, Euler
+OUT = "/tmp/claude-0/c3512/model/exterior"
+TAG = os.environ.get("TAG", "")
+bpy.ops.wm.open_mainfile(filepath=os.path.join(OUT, "exterior.blend"))
+sc = bpy.context.scene
+sc.render.engine = "CYCLES"
+sc.cycles.device = "CPU"; sc.cycles.samples = int(os.environ.get("SPP","24")); sc.cycles.use_denoising = True
+try:
+    sc.cycles.denoiser = "OPENIMAGEDENOISE"
+except Exception: pass
+sc.cycles.max_bounces = 3
+sc.render.use_freestyle = True; sc.render.line_thickness_mode = "ABSOLUTE"; sc.render.line_thickness = 0.8
+lsx = sc.view_layers[0].freestyle_settings.linesets[0] if sc.view_layers[0].freestyle_settings.linesets else sc.view_layers[0].freestyle_settings.linesets.new("L")
+lsx.select_by_visibility = True; lsx.select_crease = True; lsx.select_silhouette = True; lsx.select_border = True
+sc.view_layers[0].freestyle_settings.crease_angle = 2.4
+sc.view_layers[0].use_freestyle = True
+if lsx.linestyle is None: lsx.linestyle = bpy.data.linestyles.new("LS")
+lsx.linestyle.color = (0.05, 0.05, 0.05); lsx.linestyle.thickness = 0.8
+NEU = bpy.data.materials.new("NEUTRAL"); NEU.use_nodes = True
+NEU.node_tree.nodes["Principled BSDF"].inputs["Base Color"].default_value = (0.62, 0.62, 0.62, 1)
+NEU.node_tree.nodes["Principled BSDF"].inputs["Roughness"].default_value = 0.6
+for i, (rot, en) in enumerate((((math.radians(50), 0, math.radians(30)), 3.0), ((math.radians(60), 0, math.radians(200)), 1.2))):
+    ld = bpy.data.lights.new(f"sun{i}", "SUN"); ld.energy = en; ld.angle = math.radians(8)
+    lo = bpy.data.objects.new(f"sun{i}", ld); lo.rotation_euler = rot; sc.collection.objects.link(lo)
+sc.render.resolution_x, sc.render.resolution_y = 1200, 900
+sc.render.resolution_percentage = 100
+sc.render.film_transparent = False
+sc.world = bpy.data.worlds.new("W") if sc.world is None else sc.world
+sc.world.use_nodes = True
+bg = sc.world.node_tree.nodes["Background"]; bg.inputs[0].default_value = (0.85, 0.87, 0.9, 1); bg.inputs[1].default_value = 0.9
+
+sc.view_settings.view_transform = "Standard"
+
+def B(x, y, z):  # datum -> blender
+    return Vector((x, -z, y))
+
+cam_d = bpy.data.cameras.new("cam"); cam = bpy.data.objects.new("cam", cam_d); sc.collection.objects.link(cam); sc.camera = cam
+CEN = B(0.85, 0.30, 0.0)
+views = {
+    "depan":  (B(8, 0.30, 0.0), 3.2, (0.0, 0.30, 0.0)),
+    "belakang": (B(-8, 0.30, 0.0), 3.2, (0.0, 0.30, 0.0)),
+    "kanan":  (B(0.85, 0.30, 8), 3.6, None),
+    "kiri":   (B(0.85, 0.30, -8), 3.6, None),
+    "atas":   (B(0.85, 8, 0.0), 3.6, None),
+}
+def look(pos, target, up=Vector((0, 0, 1))):
+    d = (target - pos).normalized()
+    q = d.to_track_quat("-Z", "Y")
+    return q.to_euler()
+
+ONLY = os.environ.get("VIEWS", "depan,belakang,kanan,kiri,atas,tigaperempat").split(",")
+for name, (pos, osc, tgt) in views.items():
+    if name not in ONLY: continue
+    cam_d.type = "ORTHO"; cam_d.ortho_scale = osc
+    cam_d.clip_end = 50
+    cam.location = pos
+    if name == "atas":
+        cam.rotation_euler = Euler((0, 0, 0))   # gambar kanan = +X (depan), gambar atas = -Z datum (kiri)
+    else:
+        t = Vector(pos);
+        if name in ("depan", "belakang"): t = B(0.85, 0.30, 0.0); t.x = 0.85 if False else t.x
+        target = B(0.85, 0.30, 0.0) if name not in ("depan", "belakang") else Vector((0.85, 0, 0.30))
+        if name in ("depan", "belakang"):
+            target = Vector((0.0, 0, 0.30)); cam.location = Vector((pos.x, 0, 0.30))
+        cam.rotation_euler = look(cam.location, target)
+    for mode in ("neutral", "color"):
+        sc.view_layers[0].material_override = NEU if mode == "neutral" else None
+        sc.render.filepath = os.path.join(OUT, "render", f"{TAG}{mode}_{name}.png")
+        bpy.ops.render.render(write_still=True)
+# perspektif 3/4 depan-kanan-atas
+if "tigaperempat" not in ONLY: raise SystemExit
+cam_d.type = "PERSP"; cam_d.lens = 40
+cam.location = B(4.4, 2.7, 3.9)
+cam.rotation_euler = look(cam.location, B(0.9, 0.35, 0.0))
+for mode in ("neutral", "color"):
+    sc.view_layers[0].material_override = NEU if mode == "neutral" else None
+    sc.render.filepath = os.path.join(OUT, "render", f"{TAG}{mode}_tigaperempat.png")
+    bpy.ops.render.render(write_still=True)
+print("DONE")

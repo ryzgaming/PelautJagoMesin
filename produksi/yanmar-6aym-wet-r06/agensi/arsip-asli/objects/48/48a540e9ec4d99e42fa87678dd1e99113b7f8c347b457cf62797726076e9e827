@@ -1,0 +1,114 @@
+"""Audit the imported injector group and its selected near neighbors."""
+import hashlib
+import itertools
+import math
+import json
+from pathlib import Path
+import sys
+
+import bpy
+from mathutils import Vector
+from mathutils.bvhtree import BVHTree
+
+sys.path.insert(0,str(Path(__file__).resolve().parent))
+from injector import part_id, PARTS
+
+OUT=Path(__file__).resolve().parent
+scene=bpy.context.scene
+bpy.ops.wm.read_factory_settings(use_empty=True)
+scene=bpy.context.scene
+bpy.ops.import_scene.gltf(filepath=str(OUT/'internal.glb'))
+parts={o.name:o for o in scene.objects if o.type=="MESH"}
+inventory=json.loads((OUT/'inventory.json').read_text())
+
+def data(obj):
+    obj.data.calc_loop_triangles()
+    coord=[obj.matrix_world@p.co for p in obj.data.vertices]
+    tris=obj.data.loop_triangles
+    return BVHTree.FromPolygons(coord,[t.vertices[:] for t in tris],all_triangles=True),sum(t.area<=1.e-12 for t in tris)
+
+def write(data):
+    (OUT/'injector-audit.json').write_text(json.dumps(data,indent=2)+"\n")
+
+audit=dict(
+    source="Blender 4.3.2 reimport GLB",
+    internal_glb_sha256=hashlib.sha256((OUT/'internal.glb').read_bytes()).hexdigest(),
+    inventoried_and_exported_ids_identical=sorted(parts)==sorted(r['id'] for r in inventory['components']),
+    parts_by_cylinder={},groups={},near_zero_triangles={},surface_crossing_pairs={},
+    test_scope="BVH crossings of reimported surface triangles at rest. No certification of solid-volume clearance, service fit, rates, or pressures.",
+)
+for i in range(1,7):
+    root=f"RAK-INJECTOR-{i}"
+    ids=[part_id(i,j) for j,*_ in PARTS]
+    trees={p:data(parts[p]) for p in ids}
+    assert all(parts[p].parent.name==root for p in ids)
+    assert scene.objects[root].parent.name=="RAK-INT-FUELINJ"
+    recipe=json.loads((OUT.parent/'assemblies'/f'{root}.json').read_text())
+    assert recipe['acuan']['object_ids']==[part_id(i,1)]
+    assert [r['object_ids'][0] for r in recipe['bagian']]==ids
+    audit["parts_by_cylinder"][str(i)]=len(ids)
+    audit["groups"][root]=dict(ref=ids[0],cap=ids[1])
+    for p,(tree,small) in trees.items():
+        if small:
+            audit["near_zero_triangles"][p]=small
+    for p,q in itertools.combinations(ids,2):
+        k=len(trees[p][0].overlap(trees[q][0]))
+        if k:
+            audit["surface_crossing_pairs"][f'{p} / {q}']=k
+    for p in ids:
+        for reff,obj in parts.items():
+            # Independent checks against the distinct valvetrain and fuel assembly, at rest.
+            if not (reff.startswith("INT-VALVE-") and reff.split('-')[-1].zfill(3)[0]==str(i)):
+                continue
+            k=len(trees[p][0].overlap(data(obj)[0]))
+            if k:
+                audit["surface_crossing_pairs"][f'{p} / {reff}']=k
+kin=json.loads((OUT/'kinematics.json').read_text())
+injector_body={i:data(parts[part_id(i,1)])[0] for i in range(1,7)}
+baseline={row["valve_root"]:scene.objects[row["valve_root"]].location.copy() for row in kin['valve_train']}
+sample_hits=[]
+for angle in range(0,721,10):
+    for row in kin['valve_train']:
+        root=scene.objects[row["valve_root"]]
+        d=(angle-row["lift_center_deg"]+360)%720-360
+        lift=row["lift_max_m"]*math.cos(d*math.pi/(2*row["half_window_deg"]))**2 if abs(d)<row["half_window_deg"] else 0
+        root.location.z=baseline[root.name].z-lift
+    bpy.context.view_layer.update()
+    for i in range(1,7):
+        for m in [5,15]:
+            ob=parts[f"INT-VALVE-{i*100+m:03d}"]
+            hits=len(injector_body[i].overlap(data(ob)[0]))
+            if hits:
+                sample_hits.append(dict(cylinder=i,crank_angle_deg=angle,bridge=ob.name,triangle_hits=hits))
+for name,location in baseline.items():
+    scene.objects[name].location=location
+bpy.context.view_layer.update()
+audit["valve_bridge_samples"]=dict(total=876,interval_deg=10,triangle_crossings=sample_hits)
+nozzle=parts[part_id(1,14)]
+origin=scene.objects["RAK-INJECTOR-1"].matrix_world.translation
+t=data(nozzle)[0]
+hole_rays=[]
+for count,angle,diameter,h,clock in [(8,80,.30,2.72,0),(4,45,.22,1.22,math.pi/8)]:
+    a=math.radians(angle)
+    for i in range(count):
+        phi=clock+math.tau*i/count
+        direction=Vector((math.sin(a)*math.cos(phi),-math.sin(a)*math.sin(phi),-math.cos(a)))
+        o=origin+Vector((0,0,h*.001))+direction*.00020
+        aperture_open=t.ray_cast(o,direction,.006)[0] is None
+        hole_rays.append(dict(diameter_mm=diameter,clock_deg=math.degrees(phi),centerline_open=aperture_open))
+audit["nozzle_centerline_checks"]=hole_rays
+exterior = OUT.parent/"exterior"/"exterior.glb"
+if exterior.exists():
+    bpy.ops.import_scene.gltf(filepath=str(exterior))
+    audit["exterior_glb_sha256"]=hashlib.sha256(exterior.read_bytes()).hexdigest()
+    audit["head_surface_crossings"]={}
+    for i in range(1,7):
+        ext={f'EXT-HEADS-{j:02d}':data(scene.objects[f'EXT-HEADS-{j:02d}'])[0] for j in (i,i+6)}
+        for j,*_ in PARTS:
+            p=parts[part_id(i,j)]
+            geo=data(p)[0]
+            for key,s in ext.items():
+                k=len(s.overlap(geo))
+                if k:
+                    audit['head_surface_crossings'][f'{p.name} / {key}']=k
+write(audit)

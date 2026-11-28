@@ -1,0 +1,13 @@
+Yanmar 6AYM-WET H, draf review privat r05
+Buka mode Penggerak, pilih mekanisme, lalu tekan Mulai. Pilih Starter atau Idle untuk meninjau peralihan kerja motor starter. Titik pada komponen bergerak dan bagian diam diperlihatkan di video untuk memudahkan penilaian visual.
+
+Workspace
+https://yanmar-6aym-workspace.violetblackbird16.chatgpt.site/gpt-r05/?view=drives
+
+Perbandingan saringan udara dan manifold
+https://yanmar-6aym-workspace.violetblackbird16.chatgpt.site/gpt-r05/assets/perbandingan-filter.jpg
+
+Film gerak mekanis
+https://yanmar-6aym-workspace.violetblackbird16.chatgpt.site/gpt-r05/assets/film/yanmar-6aym-r05.mp4
+
+Kinematika, dimensi port, fase roda gigi dan kecepatan aksesori dalam model dipakai untuk pembelajaran. Bukti tiap komponen tersimpan dalam model/motion dan qa/r05. Kondisi belum diverifikasi meliputi kecepatan turbo pada beban nyata, kecocokan nomor seri, toleransi OEM serta beberapa geometri tersembunyi. Tinggi model sampai flange exhaust 1.541 mm mengikuti proyeksi gambar pemasangan; datum tinggi katalog 1.431 mm masih terbuka. Pengujian pada ponsel fisik juga masih terbuka. Persetujuan katalog belum diberikan.

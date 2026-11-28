@@ -1,0 +1,163 @@
+{
+  "video_sha256": "aa7e755219b4ef6c315115cb595d266d85a97fa978fc3fd8121e646854e080e7",
+  "poster_sha256": "64b22d05eea8fe00a852b0905ce4e0817c1bc66b728b661b4e6dcdeb6c99ef68",
+  "source_glb_sha256": {
+    "exterior": "3edb9db0135c2714e913c2f8a5b120c1f747dec10927024acba17cd4e09a8302",
+    "internal": "46a8854081530e81d2a2af56dc936dbcd22e6b296343029510638e8d120252fa"
+  },
+  "mesh_shaft_sections": {
+    "starter": {
+      "mesh": "EXT-ELECTRIC-40",
+      "circular_sections": 24,
+      "candidate_sections": 24,
+      "independent_center_m": [
+        0.07244999706745148,
+        0.02199999998221789,
+        0.3317713762810131
+      ],
+      "registry_pivot_m": [
+        0.002,
+        0.022,
+        0.3317713821293211
+      ],
+      "axis_offset_m": 5.848335038229796e-09,
+      "moving_geometric_axis_max_lateral_drift_m": 2.4857078512850306e-08
+    },
+    "timing": {
+      "mesh": "INT-TIMING-01",
+      "circular_sections": 3,
+      "candidate_sections": 3,
+      "independent_center_m": [
+        0.023000000044703484,
+        4.0723969279788734e-10,
+        3.8016846875404964e-10
+      ],
+      "registry_pivot_m": [
+        0.023,
+        0.0,
+        0.0
+      ],
+      "axis_offset_m": 5.571106102246811e-10,
+      "moving_geometric_axis_max_lateral_drift_m": 1.1142133550691787e-09
+    },
+    "alternator": {
+      "mesh": "EXT-ELECTRIC-21",
+      "circular_sections": 22,
+      "candidate_sections": 22,
+      "independent_center_m": [
+        1.3387500047683716,
+        0.2749999987480963,
+        -0.33999999860164437
+      ],
+      "registry_pivot_m": [
+        1.453,
+        0.275,
+        -0.34
+      ],
+      "axis_offset_m": 1.876875469029522e-09,
+      "moving_geometric_axis_max_lateral_drift_m": 2.1308178493407394e-08
+    },
+    "turbo": {
+      "mesh": "EXT-EXHAUST-21",
+      "circular_sections": 18,
+      "candidate_sections": 18,
+      "independent_center_m": [
+        0.5989999771118164,
+        0.6800000013378036,
+        0.48100000030640927
+      ],
+      "registry_pivot_m": [
+        0.6,
+        0.68,
+        0.481
+      ],
+      "axis_offset_m": 1.372444879874253e-09,
+      "moving_geometric_axis_max_lateral_drift_m": 3.3567243839794925e-08
+    },
+    "freshwater": {
+      "mesh": "EXT-COOLING-21",
+      "circular_sections": 12,
+      "candidate_sections": 12,
+      "independent_center_m": [
+        1.3720999956130981,
+        0.3028680411320594,
+        -0.08244692079600507
+      ],
+      "registry_pivot_m": [
+        1.354,
+        0.30286802649431643,
+        -0.08244692982389899
+      ],
+      "axis_offset_m": 1.7197859972427683e-08,
+      "moving_geometric_axis_max_lateral_drift_m": 4.152912721407096e-08
+    },
+    "seawater": {
+      "mesh": "EXT-COOLING-36",
+      "circular_sections": 5,
+      "candidate_sections": 5,
+      "independent_center_m": [
+        0.06199999898672104,
+        0.4246963817265481,
+        -0.4300000050541977
+      ],
+      "registry_pivot_m": [
+        0.057,
+        0.42469647085514484,
+        -0.43
+      ],
+      "axis_offset_m": 8.927178540210913e-08,
+      "moving_geometric_axis_max_lateral_drift_m": 1.8712870331424773e-07
+    },
+    "injection": {
+      "mesh": "EXT-FUEL-21",
+      "circular_sections": 18,
+      "candidate_sections": 18,
+      "independent_center_m": [
+        0.6865000128746033,
+        0.2000000014480411,
+        -0.4269999967682117
+      ],
+      "registry_pivot_m": [
+        0.695,
+        0.2,
+        -0.427
+      ],
+      "axis_offset_m": 3.5413667493781347e-09,
+      "moving_geometric_axis_max_lateral_drift_m": 1.9944987270021097e-08
+    },
+    "oil": {
+      "mesh": "INT-OILPUMP-01",
+      "circular_sections": 6,
+      "candidate_sections": 6,
+      "independent_center_m": [
+        0.04649999737739563,
+        -0.15000000159528018,
+        -7.055035780567914e-11
+      ],
+      "registry_pivot_m": [
+        0.09,
+        -0.15,
+        0
+      ],
+      "axis_offset_m": 1.5968394483997427e-09,
+      "moving_geometric_axis_max_lateral_drift_m": 9.45049696574102e-09
+    }
+  },
+  "route_manifest_sha256": "45c94947affb76bfe49698bbb75329ef0c05adca5dd3248c29f8dca9086a387d",
+  "drivetrain_sha256": "4b8d55ff94dc8e470b4510dfa2cdf6c9de9fed816c8bf2db5aa04ddc514f5deb",
+  "viewer_sha256": "095877541cf7e5903e18b38c5f74e9b068c85a778b083dd7848064fd34c375c4",
+  "frame_matrices_sha256": "6ec7834aa614886b13491cb4ef2256ec50b7e29f7125a0ca04b58332fc1659ea",
+  "kinematics_sha256": "bb5f4ea377459df31d975f44b359e6e56fd98bf957a2c6986a4c804204705f5d",
+  "render_sha256": "69c1d51ea6357285cdd38968005df6af3db6791d8d5a5a9bc26002bcf87e151d",
+  "draw_sha256": "5b3be81c3297795a8cba36c478295c5a298a7019eba6421b90e042fc5a3edc2c",
+  "sampler_sha256": "ba4b8c402fc8bc29dedaccee33f2359f96869f6e170678ad3c00d0f1d5e1be62",
+  "size": [
+    576,
+    864
+  ],
+  "duration_s": 28.75,
+  "fps": 24,
+  "frames": 690,
+  "route_count": 163,
+  "bytes": 4218084
+}

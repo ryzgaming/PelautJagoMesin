@@ -1,0 +1,81 @@
+{
+  "id": "INT-CAM",
+  "nama": "Camshaft dan tappet",
+  "node_rakitan": "RAK-INT-CAM",
+  "acuan": [
+    {
+      "no": 1,
+      "object_ids": [
+        "INT-CAM-01",
+        "INT-CAM-02",
+        "INT-CAM-03",
+        "INT-CAM-04",
+        "INT-CAM-05",
+        "INT-CAM-06",
+        "INT-CAM-07",
+        "INT-CAM-08",
+        "INT-CAM-12",
+        "INT-CAM-14",
+        "INT-CAM-16",
+        "INT-CAM-18",
+        "INT-CAM-13",
+        "INT-CAM-15",
+        "INT-CAM-17",
+        "INT-CAM-19",
+        "INT-CAM-22",
+        "INT-CAM-24",
+        "INT-CAM-26",
+        "INT-CAM-28",
+        "INT-CAM-23",
+        "INT-CAM-25",
+        "INT-CAM-27",
+        "INT-CAM-29",
+        "INT-CAM-32",
+        "INT-CAM-34",
+        "INT-CAM-36",
+        "INT-CAM-38",
+        "INT-CAM-33",
+        "INT-CAM-35",
+        "INT-CAM-37",
+        "INT-CAM-39",
+        "INT-CAM-42",
+        "INT-CAM-44",
+        "INT-CAM-46",
+        "INT-CAM-48",
+        "INT-CAM-43",
+        "INT-CAM-45",
+        "INT-CAM-47",
+        "INT-CAM-49",
+        "INT-CAM-52",
+        "INT-CAM-54",
+        "INT-CAM-56",
+        "INT-CAM-58",
+        "INT-CAM-53",
+        "INT-CAM-55",
+        "INT-CAM-57",
+        "INT-CAM-59",
+        "INT-CAM-62",
+        "INT-CAM-64",
+        "INT-CAM-66",
+        "INT-CAM-68",
+        "INT-CAM-63",
+        "INT-CAM-65",
+        "INT-CAM-67",
+        "INT-CAM-69"
+      ],
+      "sumber": "D01 PDF 107–110 / cetak 103–106"
+    }
+  ],
+  "diagram": {
+    "arah_pandang": [
+      1,
+      0.7,
+      1
+    ],
+    "atas": [
+      0,
+      1,
+      0
+    ]
+  }
+}

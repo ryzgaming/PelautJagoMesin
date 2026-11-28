@@ -1,0 +1,146 @@
+"""Render original TP2 teaching plates from the assembled Blender geometry.
+
+Usage: blender -b internal.blend -t 4 --python render_injector_plate.py
+"""
+import math
+import json
+import sys
+from pathlib import Path
+
+import bpy
+from bpy_extras.object_utils import world_to_camera_view
+from mathutils import Vector
+
+OUT=Path(__file__).resolve().parent
+sys.path.insert(0,str(OUT))
+from injector import part_id, PARTS
+scene=bpy.context.scene
+base=bpy.data.objects["RAK-INJECTOR-1"].matrix_world.translation.copy()
+original_objects=[bpy.data.objects[part_id(1,n)] for n,*_ in PARTS]
+for obj in scene.objects:
+    obj.hide_render=True
+source=[]
+for template in original_objects:
+    obj=template.copy()
+    obj.data=template.data.copy()
+    scene.collection.objects.link(obj)
+    obj.parent=None
+    obj.matrix_world=template.matrix_world
+    obj.location-=base
+    obj.hide_render=False
+    source.append(obj)
+bpy.context.view_layer.update()
+camera=bpy.data.objects.new('Injector plate camera',bpy.data.cameras.new('Injector plate camera'))
+scene.collection.objects.link(camera)
+scene.camera=camera
+camera.data.type="ORTHO"
+# Same physical Y-up pose modeled as Blender Z-up.
+def v(p):
+    return Vector((p[0],-p[2],p[1]))
+
+def move_camera(pos,target,scale,w,h):
+    camera.location=v(pos)
+    camera.rotation_euler=(v(target)-camera.location).to_track_quat("-Z","Y").to_euler()
+    camera.data.ortho_scale=scale
+    scene.render.resolution_x=w
+    scene.render.resolution_y=h
+
+def area(name,pos,target,w,power):
+    d=bpy.data.lights.new(name,"AREA")
+    d.energy=power
+    d.shape='DISK'
+    d.size=w
+    ob=bpy.data.objects.new(name,d)
+    scene.collection.objects.link(ob)
+    ob.location=v(pos)
+    ob.rotation_euler=(v(target)-ob.location).to_track_quat("-Z","Y").to_euler()
+
+area("Injector key",(.24,.27,-.24),(0,.09,0),.28,5.4)
+area("Injector fill",(.20,.08,.24),(0,.10,0),.31,4.8)
+area("Injector rim",(-.21,.24,.12),(0,.10,0),.23,4.5)
+area("Injector tip fill",(.13,-.09,-.15),(0,.04,0),.14,2.1)
+scene.world.node_tree.nodes["Background"].inputs[0].default_value=(.22,.25,.31,1)
+scene.world.node_tree.nodes["Background"].inputs[1].default_value=.62
+scene.render.engine="CYCLES"
+scene.cycles.device="CPU"
+scene.cycles.samples=32
+scene.cycles.use_denoising=False
+scene.render.film_transparent=True
+scene.render.image_settings.color_mode="RGBA"
+scene.render.resolution_percentage=100
+scene.view_settings.view_transform="AgX"
+scene.view_settings.look="AgX - Medium High Contrast"
+scene.view_settings.exposure=.05
+raw=OUT/'plates'/'raw'
+raw.mkdir(parents=True,exist_ok=True)
+
+def project(point):
+    bpy.context.view_layer.update()
+    ndc=world_to_camera_view(scene,camera,v(point))
+    return [ndc.x*scene.render.resolution_x,(1-ndc.y)*scene.render.resolution_y]
+
+def render(name):
+    scene.render.filepath=str(raw/(name+'.png'))
+    bpy.ops.render.render(write_still=True)
+
+offsets=[]
+for ob,part in zip(source,PARTS):
+    offsets.append(ob.location.copy())
+    ob.location+=v(tuple(q*.001 for q in part[5:8]))
+move_camera((.513,.25,-.81),(0,.025,0),.648,840,1490)
+render("exploded")
+explode_points={}
+for ob,part in zip(source,PARTS):
+    midpoint=sum((Vector(p) for p in ob.bound_box),Vector((0,0,0)))/8
+    x,z,y=ob.matrix_world@midpoint
+    explode_points[str(part[0])]=project((x,y,-z))
+for ob,pos in zip(source,offsets):
+    ob.location=pos
+
+# Boolean-cut the original casing at X=0. Keep the central needle and spring
+# visible as solid parts. Cut faces receive a separate material for readability.
+saw=bpy.data.materials.new("Injector plate · exposed section")
+saw.use_nodes=True
+pr=saw.node_tree.nodes.get("Principled BSDF")
+pr.inputs['Base Color'].default_value=(.36,.40,.47,1)
+pr.inputs['Metallic'].default_value=.22
+pr.inputs['Roughness'].default_value=.55
+for j,(ob,part) in enumerate(zip(source,PARTS),1):
+    if part[2] not in ('shell','seal') and j not in (4,10):
+        continue
+    ob.data.materials.append(saw)
+    # Small axial side port is on the negative-Z face.
+    bpy.ops.mesh.primitive_cube_add(size=1,location=(.15,0,.104))
+    tool=bpy.context.object
+    tool.scale=(.3,.4,.42)
+    tool.data.materials.append(saw)
+    bpy.context.view_layer.update()
+    mod=ob.modifiers.new("Longitudinal teaching cut","BOOLEAN")
+    mod.object=tool
+    mod.operation='DIFFERENCE'
+    mod.material_mode='TRANSFER'
+    bpy.context.view_layer.objects.active=ob
+    bpy.ops.object.modifier_apply(modifier=mod.name)
+    bpy.data.objects.remove(tool,do_unlink=True)
+
+move_camera((.646,.178,-.157),(0,.102,-.003),.244,840,1490)
+render("section")
+section_points={
+ "2":project((0,.186,-.005)),
+ "3":project((0,.163,.001)),
+ "4":project((0,.151,.005)),
+ "1":project((0,.1084,-.028)),
+ "8":project((0,.096,.004)),
+ "16":project((0,.100,-.021)),
+ "17":project((0,.0719,-.016)),
+ "9":project((0,.059,.005)),
+ "10":project((0,.047,-.011)),
+ "13":project((0,.033,.003)),
+ "14":project((0,.019,.0047)),
+ "15":project((0,.039,-.016)),
+ "99":project((0,.002,-.0015)),
+}
+move_camera((.556,.073,-.060),(0,.0080,0),.021,640,850)
+render("tip")
+tip_points={"99":project((0,.002,-.0015)),"13":project((0,.012,-.0017)),"14":project((0,.007,.004))}
+(raw/"markers.json").write_text(json.dumps(dict(exploded=explode_points,section=section_points,tip=tip_points),indent=2))

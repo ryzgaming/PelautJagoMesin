@@ -1,0 +1,138 @@
+{
+  "starter": {
+    "mesh": "EXT-ELECTRIC-40",
+    "circular_sections": 24,
+    "candidate_sections": 24,
+    "independent_center_m": [
+      0.07244999706745148,
+      0.02199999998221789,
+      0.3317713762810131
+    ],
+    "registry_pivot_m": [
+      0.002,
+      0.022,
+      0.3317713821293211
+    ],
+    "axis_offset_m": 5.848335038229796e-09,
+    "moving_geometric_axis_max_lateral_drift_m": 2.4857078512850306e-08
+  },
+  "timing": {
+    "mesh": "INT-TIMING-01",
+    "circular_sections": 3,
+    "candidate_sections": 3,
+    "independent_center_m": [
+      0.023000000044703484,
+      4.0723969279788734e-10,
+      3.8016846875404964e-10
+    ],
+    "registry_pivot_m": [
+      0.023,
+      0.0,
+      0.0
+    ],
+    "axis_offset_m": 5.571106102246811e-10,
+    "moving_geometric_axis_max_lateral_drift_m": 1.1142133550691787e-09
+  },
+  "alternator": {
+    "mesh": "EXT-ELECTRIC-21",
+    "circular_sections": 22,
+    "candidate_sections": 22,
+    "independent_center_m": [
+      1.3387500047683716,
+      0.2749999987480963,
+      -0.33999999860164437
+    ],
+    "registry_pivot_m": [
+      1.453,
+      0.275,
+      -0.34
+    ],
+    "axis_offset_m": 1.876875469029522e-09,
+    "moving_geometric_axis_max_lateral_drift_m": 2.1308178493407394e-08
+  },
+  "turbo": {
+    "mesh": "EXT-EXHAUST-21",
+    "circular_sections": 18,
+    "candidate_sections": 18,
+    "independent_center_m": [
+      0.5989999771118164,
+      0.6800000013378036,
+      0.48100000030640927
+    ],
+    "registry_pivot_m": [
+      0.6,
+      0.68,
+      0.481
+    ],
+    "axis_offset_m": 1.372444879874253e-09,
+    "moving_geometric_axis_max_lateral_drift_m": 3.3567243839794925e-08
+  },
+  "freshwater": {
+    "mesh": "EXT-COOLING-21",
+    "circular_sections": 12,
+    "candidate_sections": 12,
+    "independent_center_m": [
+      1.3720999956130981,
+      0.3028680411320594,
+      -0.08244692079600507
+    ],
+    "registry_pivot_m": [
+      1.354,
+      0.30286802649431643,
+      -0.08244692982389899
+    ],
+    "axis_offset_m": 1.7197859972427683e-08,
+    "moving_geometric_axis_max_lateral_drift_m": 4.152912721407096e-08
+  },
+  "seawater": {
+    "mesh": "EXT-COOLING-36",
+    "circular_sections": 5,
+    "candidate_sections": 5,
+    "independent_center_m": [
+      0.06199999898672104,
+      0.4246963817265481,
+      -0.4300000050541977
+    ],
+    "registry_pivot_m": [
+      0.057,
+      0.42469647085514484,
+      -0.43
+    ],
+    "axis_offset_m": 8.927178540210913e-08,
+    "moving_geometric_axis_max_lateral_drift_m": 1.8712870331424773e-07
+  },
+  "injection": {
+    "mesh": "EXT-FUEL-21",
+    "circular_sections": 18,
+    "candidate_sections": 18,
+    "independent_center_m": [
+      0.6865000128746033,
+      0.2000000014480411,
+      -0.4269999967682117
+    ],
+    "registry_pivot_m": [
+      0.695,
+      0.2,
+      -0.427
+    ],
+    "axis_offset_m": 3.5413667493781347e-09,
+    "moving_geometric_axis_max_lateral_drift_m": 1.9944987270021097e-08
+  },
+  "oil": {
+    "mesh": "INT-OILPUMP-01",
+    "circular_sections": 6,
+    "candidate_sections": 6,
+    "independent_center_m": [
+      0.04649999737739563,
+      -0.15000000159528018,
+      -7.055035780567914e-11
+    ],
+    "registry_pivot_m": [
+      0.09,
+      -0.15,
+      0
+    ],
+    "axis_offset_m": 1.5968394483997427e-09,
+    "moving_geometric_axis_max_lateral_drift_m": 9.45049696574102e-09
+  }
+}

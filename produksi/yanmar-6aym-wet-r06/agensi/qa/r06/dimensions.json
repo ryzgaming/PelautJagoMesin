@@ -1,0 +1,171 @@
+{
+  "source_note": "D03 PDF17 cetak32–33 dan GA01 publik. Saat datum/bidang tidak sepadan, selisih hanya deskriptif. Target 1% terbatas pada kecocokan nominal edukasi.",
+  "dimensions_mm": {
+    "catalog_L": {
+      "source_mm": 2000,
+      "model_mm": 2002.67696,
+      "delta_mm": 2.67696,
+      "delta_percent": 0.13385
+    },
+    "catalog_W": {
+      "source_mm": 1305,
+      "model_mm": 1305.00007,
+      "delta_mm": 7e-05,
+      "delta_percent": 1e-05
+    },
+    "catalog_H_vs_full_AABB_different_endpoints": {
+      "source_mm": 1431,
+      "model_mm": 1541.00001,
+      "delta_mm": 110.00001,
+      "delta_percent": 7.68693
+    },
+    "GA_flange_y_from_CL": {
+      "source_mm": 988.5,
+      "model_mm": 989.00002,
+      "delta_mm": 0.50002,
+      "delta_percent": 0.05058
+    },
+    "GA_height_flange_to_sump": {
+      "source_mm": 1540,
+      "model_mm": 1541.00001,
+      "delta_mm": 1.00001,
+      "delta_percent": 0.06494
+    },
+    "H_fig_flange_y_from_CL": {
+      "source_mm": 989,
+      "model_mm": 989.00002,
+      "delta_mm": 2e-05,
+      "delta_percent": 0.0
+    },
+    "H_estimated_outer_flange_y": {
+      "source_mm": 1008,
+      "model_mm": 989.00002,
+      "delta_mm": -18.99998,
+      "delta_percent": -1.88492
+    },
+    "H_fig_crank_to_sump": {
+      "source_mm": 552,
+      "model_mm": 551.99999,
+      "delta_mm": -1e-05,
+      "delta_percent": -0.0
+    },
+    "H_fig_mating_to_forward": {
+      "source_mm": 1823,
+      "model_mm": 1827.17697,
+      "delta_mm": 4.17697,
+      "delta_percent": 0.22913
+    },
+    "H_fig_projected_outer_l_estimated": {
+      "source_mm": 1952,
+      "model_mm": 2002.67696,
+      "delta_mm": 50.67696,
+      "delta_percent": 2.59616
+    },
+    "H_fig_trial_candidate_upper_body_datum": {
+      "source_mm": 879,
+      "model_mm": 865.49997,
+      "delta_mm": -13.50003,
+      "delta_percent": -1.53584
+    },
+    "H_fig_trial_candidate_body_H": {
+      "source_mm": 1431,
+      "model_mm": 1417.49996,
+      "delta_mm": -13.50004,
+      "delta_percent": -0.9434
+    },
+    "H_fig_cylinder_1_to_6": {
+      "source_mm": 1000,
+      "model_mm": 1000.0,
+      "delta_mm": -0.0,
+      "delta_percent": -0.0
+    },
+    "cylinder_1_bore_nominal": {
+      "source_mm": 155,
+      "model_mm": 154.99998,
+      "delta_mm": -2e-05,
+      "delta_percent": -1e-05
+    },
+    "cylinder_2_bore_nominal": {
+      "source_mm": 155,
+      "model_mm": 154.99996,
+      "delta_mm": -4e-05,
+      "delta_percent": -3e-05
+    },
+    "cylinder_3_bore_nominal": {
+      "source_mm": 155,
+      "model_mm": 154.99994,
+      "delta_mm": -6e-05,
+      "delta_percent": -4e-05
+    },
+    "cylinder_4_bore_nominal": {
+      "source_mm": 155,
+      "model_mm": 154.99992,
+      "delta_mm": -8e-05,
+      "delta_percent": -5e-05
+    },
+    "cylinder_5_bore_nominal": {
+      "source_mm": 155,
+      "model_mm": 154.99989,
+      "delta_mm": -0.00011,
+      "delta_percent": -7e-05
+    },
+    "cylinder_6_bore_nominal": {
+      "source_mm": 155,
+      "model_mm": 154.99988,
+      "delta_mm": -0.00012,
+      "delta_percent": -8e-05
+    },
+    "cylinder_1_stroke_from_crankpin_throw": {
+      "source_mm": 180,
+      "model_mm": 180.0,
+      "delta_mm": 0.0,
+      "delta_percent": 0.0
+    },
+    "cylinder_2_stroke_from_crankpin_throw": {
+      "source_mm": 180,
+      "model_mm": 180.0,
+      "delta_mm": -0.0,
+      "delta_percent": -0.0
+    },
+    "cylinder_3_stroke_from_crankpin_throw": {
+      "source_mm": 180,
+      "model_mm": 180.0,
+      "delta_mm": -0.0,
+      "delta_percent": -0.0
+    },
+    "cylinder_4_stroke_from_crankpin_throw": {
+      "source_mm": 180,
+      "model_mm": 180.0,
+      "delta_mm": -0.0,
+      "delta_percent": -0.0
+    },
+    "cylinder_5_stroke_from_crankpin_throw": {
+      "source_mm": 180,
+      "model_mm": 180.0,
+      "delta_mm": -0.0,
+      "delta_percent": -0.0
+    },
+    "cylinder_6_stroke_from_crankpin_throw": {
+      "source_mm": 180,
+      "model_mm": 180.0,
+      "delta_mm": 0.0,
+      "delta_percent": 0.0
+    }
+  },
+  "mesh_extrema": {
+    "x": {
+      "min": "EXT-INTAKE-02",
+      "max": "EXT-COOLING-01"
+    },
+    "y": {
+      "min": "EXT-OILPAN-01",
+      "max": "EXT-EXHAUST-05"
+    },
+    "z": {
+      "min": "EXT-COOLING-05",
+      "max": "EXT-EXHAUST-05"
+    }
+  },
+  "axis_order": "GLB Y-up. AABB ditulis sebagai L X, W Z, H Y.",
+  "upper_body_candidate_note": "Permukaan teratas housing cooler depan EXT-COOLING-01 y=865.5 mm dipakai sebagai kandidat pembanding terhadap +879. Filler neck terpisah. Kepastian identitas persis bidang leader UNVERIFIED."
+}

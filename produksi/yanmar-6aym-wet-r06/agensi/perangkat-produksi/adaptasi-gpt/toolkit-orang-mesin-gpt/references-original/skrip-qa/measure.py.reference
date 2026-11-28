@@ -1,0 +1,26 @@
+import bpy, json, sys, mathutils
+bpy.ops.wm.read_factory_settings(use_empty=True)
+out={}
+B='/tmp/claude-0/c3512/model/'
+def imp(path,tag):
+    before=set(bpy.data.objects)
+    bpy.ops.import_scene.gltf(filepath=path)
+    new=[o for o in bpy.data.objects if o not in before]
+    for o in new: o['src']=tag
+    return new
+ex=imp(B+'exterior/exterior.glb','ext'); inn=imp(B+'internal/internal.glb','int')
+bpy.context.view_layer.update()
+def bb(o):
+    pts=[o.matrix_world@mathutils.Vector(c) for c in o.bound_box]
+    # convert blender (x,y,z) -> datum (X=x, Y=z, Z=-y)
+    P=[(p.x,p.z,-p.y) for p in pts]
+    return [min(p[i] for p in P) for i in range(3)],[max(p[i] for p in P) for i in range(3)]
+rec={}
+for o in ex+inn:
+    if o.type!='MESH': continue
+    mn,mx=bb(o)
+    rec[o.name]={'src':o['src'],'min':[round(v,4) for v in mn],'max':[round(v,4) for v in mx],'tris':sum(len(p.vertices)-2 for p in o.data.polygons),'parent':o.parent.name if o.parent else None}
+allnames={'ext':[o.name for o in ex],'int':[o.name for o in inn]}
+json.dump({'meshes':rec,'all':allnames,'types':{o.name:o.type for o in ex+inn}},open('/tmp/claude-0/c3512/qa/scripts/bbox.json','w'),indent=0)
+print('ext objs',len(ex),'mesh',sum(o.type=='MESH' for o in ex),'int objs',len(inn),'mesh',sum(o.type=='MESH' for o in inn))
+bpy.ops.wm.save_as_mainfile(filepath='/tmp/claude-0/c3512/qa/scripts/combined.blend')

@@ -1,0 +1,21 @@
+{
+  "missing_r02_mesh_ids": [],
+  "same_position_attributes_and_indices": {
+    "EXT-FUEL-03": true,
+    "EXT-FUEL-04": true,
+    "EXT-FUEL-05": true,
+    "EXT-FUEL-06": true,
+    "EXT-FUEL-07": true,
+    "EXT-FUEL-08": true,
+    "EXT-FUEL-13": true,
+    "EXT-FUEL-14": true,
+    "EXT-FUEL-15": true,
+    "EXT-FUEL-16": true,
+    "EXT-FUEL-17": true,
+    "EXT-FUEL-18": true
+  },
+  "unit": "m",
+  "absolute_position_tolerance": 1e-07,
+  "baseline_mesh_count": 83,
+  "r03_mesh_count": 307
+}

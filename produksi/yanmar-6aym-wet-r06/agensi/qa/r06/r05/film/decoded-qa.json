@@ -1,0 +1,201 @@
+{
+  "video_sha256": "aa7e755219b4ef6c315115cb595d266d85a97fa978fc3fd8121e646854e080e7",
+  "duration_s": 28.75,
+  "decoded_frames": 690,
+  "distinct_machine_area_images": 690,
+  "codec": "h264",
+  "pixel_format": "yuv420p",
+  "faststart": true,
+  "phase_sheet_sha256": "0942e956ca6b50383224b0edd825a6b67a2c087e865587d1e93f513abe5b4a9a",
+  "locked_camera_phase_checks": {
+    "starter": {
+      "moving_part": "EXT-ELECTRIC-40",
+      "stationary_part": "EXT-ELECTRIC-02",
+      "driver": "starter-armature",
+      "driver_kind": "spin",
+      "sampled_signed_ratio": -31.99755,
+      "authored_signed_ratio": 72.0,
+      "maximum_step_angle_error_degrees": 4e-05,
+      "max_landmark_travel_m": 0.0774461,
+      "stationary_drift_m": 0.0,
+      "fixed_axis_radius_spread_m": 4e-08,
+      "max_projected_excursion_px": 98.833,
+      "phase_frames": [
+        33,
+        45,
+        73
+      ],
+      "unmarked_geometry_pixels_delta_over_12": 21594,
+      "largest_visible_tracking_offset_px": 0.93,
+      "largest_visible_fixed_tracking_offset_px": 0.31
+    },
+    "timing": {
+      "moving_part": "INT-TIMING-01",
+      "stationary_part": "EXT-FLYWHEEL-01",
+      "driver": "timing-01",
+      "driver_kind": "spin",
+      "sampled_signed_ratio": -1.0,
+      "authored_signed_ratio": -1,
+      "maximum_step_angle_error_degrees": 0.0,
+      "max_landmark_travel_m": 0.1687635,
+      "stationary_drift_m": 0.0,
+      "fixed_axis_radius_spread_m": 1e-08,
+      "max_projected_excursion_px": 99.053,
+      "phase_frames": [
+        81,
+        94,
+        106
+      ],
+      "unmarked_geometry_pixels_delta_over_12": 9241,
+      "largest_visible_tracking_offset_px": 1.53,
+      "largest_visible_fixed_tracking_offset_px": 0.0
+    },
+    "belt": {
+      "moving_part": "EXT-FRONT-05",
+      "stationary_part": "EXT-FRONT-03",
+      "driver": "alternator-belt-travel",
+      "driver_kind": "belt",
+      "maximum_witness_offset_from_belt_pitchline_m": 0.007146,
+      "measured_travel_m_per_crank_rad": 0.094537,
+      "authored_travel_m_per_crank_rad": 0.0945,
+      "max_landmark_travel_m": 0.302492,
+      "stationary_drift_m": 0.0,
+      "fixed_axis_radius_spread_m": null,
+      "max_projected_excursion_px": 423.428,
+      "phase_frames": [
+        189,
+        202,
+        218
+      ],
+      "unmarked_geometry_pixels_delta_over_12": 4482,
+      "largest_visible_tracking_offset_px": 0.85,
+      "largest_visible_fixed_tracking_offset_px": 0.31
+    },
+    "alternator": {
+      "moving_part": "EXT-ELECTRIC-21",
+      "stationary_part": "EXT-ELECTRIC-20",
+      "driver": "alternator-rotor",
+      "driver_kind": "spin",
+      "sampled_signed_ratio": 1.78302,
+      "authored_signed_ratio": 1.7830188679245285,
+      "maximum_step_angle_error_degrees": 4e-05,
+      "max_landmark_travel_m": 0.1029959,
+      "stationary_drift_m": 0.0,
+      "fixed_axis_radius_spread_m": 6e-08,
+      "max_projected_excursion_px": 198.978,
+      "phase_frames": [
+        231,
+        242,
+        276
+      ],
+      "unmarked_geometry_pixels_delta_over_12": 28307,
+      "largest_visible_tracking_offset_px": 1.07,
+      "largest_visible_fixed_tracking_offset_px": 0.23
+    },
+    "turbo": {
+      "moving_part": "EXT-EXHAUST-20",
+      "stationary_part": "EXT-EXHAUST-03",
+      "driver": "turbo-rotor",
+      "driver_kind": "spin",
+      "sampled_signed_ratio": 4.0,
+      "authored_signed_ratio": 4.0,
+      "maximum_step_angle_error_degrees": 5e-05,
+      "max_landmark_travel_m": 0.1359706,
+      "stationary_drift_m": 0.0,
+      "fixed_axis_radius_spread_m": 6e-08,
+      "max_projected_excursion_px": 184.058,
+      "phase_frames": [
+        285,
+        326,
+        329
+      ],
+      "unmarked_geometry_pixels_delta_over_12": 8323,
+      "largest_visible_tracking_offset_px": 0.88,
+      "largest_visible_fixed_tracking_offset_px": 0.31
+    },
+    "freshwater": {
+      "moving_part": "EXT-COOLING-20",
+      "stationary_part": "EXT-COOLING-03",
+      "driver": "coolant-shaft",
+      "driver_kind": "spin",
+      "sampled_signed_ratio": 1.33333,
+      "authored_signed_ratio": 1.3333333333333333,
+      "maximum_step_angle_error_degrees": 2e-05,
+      "max_landmark_travel_m": 0.1739623,
+      "stationary_drift_m": 0.0,
+      "fixed_axis_radius_spread_m": 4e-08,
+      "max_projected_excursion_px": 353.602,
+      "phase_frames": [
+        375,
+        393,
+        402
+      ],
+      "unmarked_geometry_pixels_delta_over_12": 30550,
+      "largest_visible_tracking_offset_px": 0.78,
+      "largest_visible_fixed_tracking_offset_px": 0.0
+    },
+    "seawater": {
+      "moving_part": "EXT-COOLING-35",
+      "stationary_part": "EXT-COOLING-04",
+      "driver": "seawater-shaft",
+      "driver_kind": "spin",
+      "sampled_signed_ratio": -0.82759,
+      "authored_signed_ratio": -0.8275862068965517,
+      "maximum_step_angle_error_degrees": 3e-05,
+      "max_landmark_travel_m": 0.1615716,
+      "stationary_drift_m": 0.0,
+      "fixed_axis_radius_spread_m": 6e-08,
+      "max_projected_excursion_px": 262.665,
+      "phase_frames": [
+        423,
+        450,
+        464
+      ],
+      "unmarked_geometry_pixels_delta_over_12": 45034,
+      "largest_visible_tracking_offset_px": 1.08,
+      "largest_visible_fixed_tracking_offset_px": 0.39
+    },
+    "injection": {
+      "moving_part": "EXT-FUEL-21",
+      "stationary_part": "EXT-FUEL-01",
+      "driver": "fuel-pump-cam",
+      "driver_kind": "spin",
+      "sampled_signed_ratio": 0.5,
+      "authored_signed_ratio": 0.5,
+      "maximum_step_angle_error_degrees": 4e-05,
+      "max_landmark_travel_m": 0.0635708,
+      "stationary_drift_m": 0.0,
+      "fixed_axis_radius_spread_m": 4e-08,
+      "max_projected_excursion_px": 51.144,
+      "phase_frames": [
+        507,
+        524,
+        547
+      ],
+      "unmarked_geometry_pixels_delta_over_12": 10012,
+      "largest_visible_tracking_offset_px": 1.18,
+      "largest_visible_fixed_tracking_offset_px": 0.31
+    },
+    "oil": {
+      "moving_part": "INT-OILPUMP-03",
+      "stationary_part": "INT-OILPUMP-02",
+      "driver": "oil-pump-driver",
+      "driver_kind": "spin",
+      "sampled_signed_ratio": 1.14286,
+      "authored_signed_ratio": 1.1428571428571428,
+      "maximum_step_angle_error_degrees": 5e-05,
+      "max_landmark_travel_m": 0.0483953,
+      "stationary_drift_m": 0.0,
+      "fixed_axis_radius_spread_m": 1e-08,
+      "max_projected_excursion_px": 144.855,
+      "phase_frames": [
+        597,
+        608,
+        619
+      ],
+      "unmarked_geometry_pixels_delta_over_12": 11661,
+      "largest_visible_tracking_offset_px": 1.75,
+      "largest_visible_fixed_tracking_offset_px": 0.23
+    }
+  }
+}

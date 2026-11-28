@@ -1,0 +1,51 @@
+{
+  "asset_sha256": "e5c59a8a6a906eff94a493c1b94eeeb6ccd1e954a1fae3de57b304382da09dd2",
+  "drawing": "GA01 B3-48660-4450, 2011-01-31, rating not printed",
+  "method": "Single isometric scale per view. Axes registered to crank centerline and drawing landmarks. Triangle masks projected orthographically, contours only. Interpret occluded/internal lines and line weight descriptively.",
+  "views": {
+    "kanan": {
+      "crop": [
+        231,
+        223,
+        445,
+        387
+      ],
+      "axis": 0,
+      "scale": 93.39999999999998,
+      "u_base": 290.6,
+      "u_ref_m": 0.209,
+      "direction": 1,
+      "v_base": 322.4,
+      "locator": "GA01 / center right-side elevation. No.1 leader x290.6, No.6 x384.0; crank horizontal y322.4.",
+      "projected_model_extrema_px": [
+        242.03201293945312,
+        429.08203125,
+        230.0273895263672,
+        373.956787109375
+      ],
+      "pixel_denominator_m": 0.010706638115631694
+    },
+    "depan": {
+      "crop": [
+        490,
+        223,
+        629,
+        380
+      ],
+      "axis": 2,
+      "scale": 93.86973180076633,
+      "u_base": 557.5,
+      "u_ref_m": 0,
+      "direction": -1,
+      "v_base": 322.4,
+      "locator": "GA01 / right front projection. Crank center x557.5, y322.4; 1305 width limits x497.7..620.2.",
+      "projected_model_extrema_px": [
+        497.3294982910156,
+        619.8295288085938,
+        229.56283569335938,
+        374.2160949707031
+      ],
+      "pixel_denominator_m": 0.01065306122448979
+    }
+  }
+}

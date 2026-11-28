@@ -1,0 +1,218 @@
+"""WET Air Cooler, D05 Fig. 37 / operation column A and P18."""
+from math import cos, pi, sin, sqrt
+from mathutils import Vector
+from mathutils.geometry import delaunay_2d_cdt
+
+# Model coordinates only; D05 is a schematic, not a dimensional drawing.
+GROUP='RAK-AIRCOOLER'
+BODY_X=-.158
+BODY_Y=.720
+LEFT=-.370
+RIGHT=.244
+LEFT_FACE=-.3715
+RIGHT_FACE=.2455
+PCD=.246
+CAT='D05 Parts Catalog 0CG10-M34300EN / Fig. 37 AIR COOLER, column A 6AYM-WET'
+FIG='D05-37 exploded image / original OEM callouts; geometry schematic'
+PHOTO='P18 / actual WET H flywheel end and end covers'
+
+def angular_loop(center, radius, segments):
+    return [Vector((center[0]+radius*cos(i*2*pi/segments),
+                    center[1]+radius*sin(i*2*pi/segments))) for i in range(segments)]
+
+def perforated_sheet(api, z0, z1, radius, holes):
+    """CDT end planes; link every selected boundary edge to make a perforated solid."""
+    points=[]
+    loops=[]
+    for loop in [angular_loop((BODY_X,BODY_Y),radius,72),
+                 *[angular_loop((x,y),.00465,12) for x,y in holes]]:
+        loops.append(list(range(len(points),len(points)+len(loop))))
+        points.extend(loop)
+    xy,_,candidates,_,_,labels=delaunay_2d_cdt(points,[],loops,0,1e-8)
+    faces_2d=[f for f,owners in zip(candidates,labels) if owners==[0]]
+    count=len(xy)
+    verts=[(v.x,v.y,z) for z in (z0,z1) for v in xy]
+    edge_uses={}
+    for f in faces_2d:
+        for a,b in zip(f,f[1:]+f[:1]):
+            edge=tuple(sorted((a,b)))
+            edge_uses[edge]=edge_uses.get(edge,0)+1
+    faces=[tuple(reversed(f)) for f in faces_2d]
+    faces.extend(tuple(i+count for i in f) for f in faces_2d)
+    faces.extend((a,b,b+count,a+count) for (a,b),n in edge_uses.items() if n==1)
+    return api['mesh'](verts,faces,api['steel'])
+
+def build(api):
+    add=api['add']
+    box,ring,annulus=api['box'],api['ring'],api['annulus']
+    prism,loft,sweep=api['prism'],api['polygon_loft'],api['sweep']
+    cylinder,bolt,subtract=api['cylinder'],api['bolt'],api['subtract']
+    gray,shadow,steel,rubber=api['cover'],api['cast'],api['steel'],api['rubber']
+    axis=(0,0,1)
+    core_mat=api['appearance']('Air cooler tube bundle · warm metal illustration',(.37,.24,.10),.63,.34)
+    seal_mat=api['appearance']('Air cooler sealing ring · dark elastomer illustration',(.028,.075,.057),.0,.48)
+    origins={}
+
+    def part(no,name,shapes,refs,role,note,side=None,distance=0,stage=1,
+             oem=None,count=1,xray=False,status='ESTIMATED'):
+        refs=[CAT,FIG,*refs]
+        obj=add('INTAKE',no,name,shapes,refs,note,status=status,xray=xray,
+                direction=side,parent=GROUP,nested_under='RAK-INTAKE',role=role,
+                oem=oem,quantity=count)
+        id=obj.name
+        origins[id]={'no':len(origins)+1,'nama':name,'object_ids':[id],
+            'posisi':[] if side is None else [{'object_id':id,'arah':list(side),
+                                             'jarak_m':distance,'urutan':stage}],
+            'status':status,'role':role,'sumber':refs,'fungsi':note,
+            'nomor_oem':oem,'ukuran':None}
+        return obj
+
+    segments=72
+    def profile(z,dx,dy,power):
+        def coord(a,r):
+            return (1 if a>=0 else -1)*abs(a)**power*r
+        return [(BODY_X+coord(cos(i*2*pi/segments),dx),
+               BODY_Y+coord(sin(i*2*pi/segments),dy),z) for i in range(segments)]
+    def circle(z,r):
+        return profile(z,r,r,1)
+
+    # Sculpted outer casting and machined cylindrical opening. The enlarged
+    # chamber leaves clearance around the removable tube bundle.
+    rings=[profile(LEFT,.144,.124,.53),profile(LEFT+.023,.151,.137,.60),
+           profile(LEFT+.063,.153,.141,.56),profile(-.176,.153,.141,.56),
+           profile(-.154,.153,.126,.55),profile(.148,.153,.126,.55),profile(RIGHT-.030,.149,.127,.58),
+           profile(RIGHT,.140,.125,.53),
+           circle(RIGHT,.0995),circle(RIGHT-.035,.1025),circle(RIGHT-.063,.111),
+           profile(-.064,.124,.112,.79),circle(LEFT+.061,.112),circle(LEFT+.035,.1035),
+           circle(LEFT,.0995)]
+    center=loft(rings,gray,.0028,True)
+    # The rectangular charge-air opening lies on the +X side. Its placement
+    # follows the casting drawing. Exact blind passage details are unresolved.
+    subtract(center,box((-.024,.747,-.130),(.105,.118,.245),gray,.012))
+    cast=[center,box((-.051,.800,-.128),(.061,.018,.276),gray,.008),
+          box((-.304,.749,-.065),(.014,.019,.551),gray,.004)]
+    for z in (-.293,-.186,-.075,.037,.150):
+        # Tapered external webs continue into the mounting lugs.
+        cast.append(prism([(-.296,.647),(-.250,.607),(-.197,.584),
+                           (-.202,.569),(-.278,.601),(-.305,.650)],
+                          'z',z-.007,z+.007,shadow,.003))
+    lug_axis=(-1,0,0)
+    for z in (-.278,-.168,-.063,.044,.150):
+        cast.append(annulus((-.192,.580,z),lug_axis,.015,.007,.018,gray))
+    for z in (LEFT+.005,RIGHT-.005):
+        for i in range(6):
+            a=i*pi/3+pi/6
+            x=BODY_X+PCD*.5*cos(a)
+            y=BODY_Y+PCD*.5*sin(a)
+            cast.append(annulus((x,y,z),axis,.014,.0055,.010,gray))
+            # Clearance bores align with the separate cover hardware.
+            inward=1 if z<0 else -1
+            depth=.071 if i in (2,5) else .038
+            subtract(center,cylinder((x,y,z+inward*(depth*.5-.006)),axis,.0055,
+                        depth,gray,20,0))
+    api['clean_boolean'](center)
+    part(2,'Rumah air cooler',cast,[PHOTO],'shell',
+         'No. 2. Coran berlubang dengan plenum udara dan dudukan insert. Dimensi pukal mengikuti P18/GA. Bentuk rongga ditafsirkan.',
+         oem='148699-18500',xray=True)
+
+    def header(side):
+        z=LEFT_FACE if side<0 else RIGHT_FACE
+        rad=.132 if side<0 else .129
+        # Open-sided cup, not a solid closing plate.
+        shell=ring((BODY_X,BODY_Y,z),(0,0,side),[(0,.094),(-.001,rad),
+           (.012,rad),(.028,.120),(.043,.109),(.060,.076),(.065,.008),
+           (.052,.008),(.052,.065),(.033,.097),(.017,.103),(0,.103)],gray,72)
+        center=cylinder((BODY_X,BODY_Y,z+side*.0585),axis,.00802,.013,gray,72,0)
+        result=[shell,center]
+        for i in range(6):
+            a=i*pi/3+pi/6
+            x=BODY_X+PCD*.5*cos(a)
+            y=BODY_Y+PCD*.5*sin(a)
+            result.append(annulus((x,y,z+side*.006),axis,.016,.0054,.014,gray))
+            subtract(shell,cylinder((x,y,z+side*.019),axis,.0054,.045,gray,20,0))
+        if side<0:
+            # Two external necks; D05 Fig. 37 shows the divider in this #3 header.
+            for x,y,reach,ro in ((-.178,.685,.061,.027),(-.141,.760,.052,.021)):
+                tool=cylinder((x,y,z-.044),axis,ro*.61,.061,gray,32,0)
+                subtract(shell,tool)
+                result += [annulus((x,y,z-reach+.002),axis,ro,ro*.61,.042,gray),
+                           annulus((x,y,z-reach-.020),axis,ro*.96,ro*.61,.012,steel)]
+        else:
+            # Two raised, visibly separate plug bosses at the domed return cap.
+            for x,y,d in ((-.184,.759,.046),(-.126,.744,.047)):
+                result.extend([cylinder((x,y,z+d),axis,.019,.025,gray,24,.004),
+                               bolt((x,y,z+d+.014),axis,.013)])
+        api['clean_boolean'](shell)
+        return result
+
+    part(6,'Tutup air cooler sisi operasi',header(-1),[PHOTO],'cover',
+         'No. 3. Tutup ruang air berkaitan dengan rib pemisah dan dua sambungan; profil port dimodelkan dari skema dan foto.',
+         (0,0,-1),.98,2,'148699-18510',xray=True)
+    part(7,'Tutup balik air cooler',header(1),[PHOTO],'cover',
+         'No. 4. Tutup kubah pada sisi non-operasi dengan dua boss; detail port tidak berdimensi.',
+         (0,0,1),.30,2,'148660-18520',xray=True)
+
+    hole_pitch=.0160
+    holes=[(BODY_X+hole_pitch*(i+j/2),BODY_Y+.5*sqrt(3)*hole_pitch*j)
+           for i in range(-5,6) for j in range(-5,6) if abs(i+j)<=5]
+    end_left=-.344
+    end_right=.220
+    core=[perforated_sheet(api,end_left-.004,end_left+.006,.092,holes),
+          perforated_sheet(api,end_right-.006,end_right+.004,.092,holes)]
+    for x,y in holes:
+        core.append(ring((x,y,0),axis,[(end_left-.004,.00345),(end_left-.004,.00460),
+             (end_right+.004,.00460),(end_right+.004,.00345)],core_mat,12))
+    core.extend([annulus((BODY_X,BODY_Y,z),axis,.092,.085,.010,gray) for z in (-.181,-.073,.105)])
+    part(8,'Bundel inti air cooler',core,[],'core',
+         'No. 5. Tabung lurus longitudinal, dua pelat ujung berlubang, dan penahan yang terlihat di skema. Jumlah 91 tabung, pitch, radius dan posisi penahan pada model adalah estimasi edukasi.',
+         (0,0,-1),.69,3,'133615-18621')
+
+    def o_ring(z,mean=.0975,thick=.00235):
+        return ring((BODY_X,BODY_Y,z),axis,[(thick*sin(i*2*pi/10),
+                   mean+thick*cos(i*2*pi/10)) for i in range(10)],seal_mat,72)
+    for no,z,name,side,distance,phase in [
+        (9,-.371,'O-ring tutup sisi operasi',(0,0,-1),.84,2),
+        (10,.245,'O-ring tutup sisi non-operasi',(0,0,1),.18,2),
+        (11,-.073,'O-ring keliling bundel inti',(0,0,-1),.69,3)]:
+        shapes=[o_ring(z)] if no!=11 else [o_ring(z,.0935,.0021)]
+        part(no,name,shapes,[],'seal','No. 8. Tiga O-ring D05; penampang dan dudukan geometri diperkirakan.',
+             side,distance,phase,'24326-001900')
+
+    for no,side,z,distance in [(12,-1,LEFT_FACE,1.12),(13,1,RIGHT_FACE,.39)]:
+        fasteners=[]
+        for i in range(6):
+            a=i*pi/3+pi/6
+            x=BODY_X+PCD*.5*cos(a)
+            y=BODY_Y+PCD*.5*sin(a)
+            length=.075 if i in (2,5) else .035
+            fasteners.append(cylinder((x,y,z+side*(.016-length*.5)),axis,.00485,length,steel,16,.0008))
+            fasteners.append(bolt((x,y,z+side*.018),(0,0,side),.010))
+        part(no,'Set baut tutup '+('sisi operasi' if side<0 else 'sisi non-operasi'),fasteners,[],'fastener',
+             'No. 13 dan 14. Jumlah gabungan 8 × M10X35 dan 4 × M10X75. Pembagian menurut sisi dan posisi model diperkirakan. Ulir disederhanakan.',
+             (0,0,side),distance,1,count=6)
+
+    drain=[cylinder((-.253,.581,-.200),(0,1,0),.016,.027,gray,24,.002),
+           ring((-.253,.552,-.200),(0,1,0),[(-.017,.006),(-.017,.012),(.014,.013),
+                (.020,.013),(.020,.006)],steel,24),
+           bolt((-.253,.538,-.200),(0,-1,0),.010)]
+    part(14,'Katup auto drain air cooler',drain,[PHOTO],'drain',
+         'No. 15. Auto drain terletak di bawah housing. Mekanisme katup internal tidak tersedia.',
+         (0,-1,0),.14,1,'148660-18640')
+    rib=[box((BODY_X,BODY_Y,LEFT+.004),(.174,.013,.013),gray,.002),
+         box((BODY_X-.038,BODY_Y,LEFT+.009),(.056,.020,.009),gray,.002)]
+    part(15,'Rib pemisah ruang air',rib,[],'divider',
+         'No. 6. Tujuan visual membagi ruang tutup sisi operasi. Profil penampang dan orientasi putar tidak dipastikan.',
+         (0,0,-1),.76,2,'133615-18970')
+    part(16,'Seal rib pemisah',box((BODY_X,BODY_Y,LEFT-.004),(.174,.007,.004),seal_mat,.001),[],'seal',
+         'No. 7. Seal memanjang di dekat bidang penutup. Geometri penerapan ditafsirkan.',
+         (0,0,-1),.80,2,'133615-18980')
+
+    api['register_recipe']({
+        'id':GROUP,'nama':'Air cooler / intercooler','node_rakitan':GROUP,
+        'parent_rakitan':'RAK-INTAKE','status':'UNVERIFIED',
+        'source_refs':[CAT,FIG,PHOTO],
+        'acuan':{'no':1,'object_ids':['EXT-INTAKE-02']},
+        'diagram':{'arah_pandang':[-.76,.32,-.566],'atas':[0,1,0]},
+        'bagian':list(origins.values()),
+        'notes':'Nomor posisi model. Gerak aksial mengikuti sisi tutup no. 3 yang diperlihatkan pada diagram. Urutan hanya untuk pembelajaran. Jalur internal, geometri segel dan jumlah tabung berbasis interpretasi visual; bentuk dan jumlah tabung model bukan spesifikasi OEM.',
+    })

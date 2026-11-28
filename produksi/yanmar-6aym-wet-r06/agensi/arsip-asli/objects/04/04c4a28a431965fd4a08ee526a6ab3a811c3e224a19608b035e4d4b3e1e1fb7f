@@ -1,0 +1,36 @@
+{
+  "id": "INT-OILPUMP",
+  "nama": "Lubricating oil pump",
+  "node_rakitan": "RAK-INT-OILPUMP",
+  "acuan": [
+    {
+      "no": 1,
+      "object_ids": [
+        "INT-OILPUMP-01",
+        "INT-OILPUMP-02",
+        "INT-OILPUMP-03",
+        "INT-OILPUMP-04",
+        "INT-OILPUMP-05",
+        "INT-OILPUMP-06",
+        "INT-OILPUMP-07",
+        "INT-OILPUMP-08",
+        "INT-OILPUMP-09",
+        "INT-OILPUMP-10",
+        "INT-OILPUMP-11"
+      ],
+      "sumber": "D01 PDF 13 / cetak 9 dan PDF 112 / cetak 108"
+    }
+  ],
+  "diagram": {
+    "arah_pandang": [
+      1,
+      0.7,
+      1
+    ],
+    "atas": [
+      0,
+      1,
+      0
+    ]
+  }
+}

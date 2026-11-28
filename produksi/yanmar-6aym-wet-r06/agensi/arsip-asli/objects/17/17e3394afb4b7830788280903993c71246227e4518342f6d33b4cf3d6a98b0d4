@@ -1,0 +1,242 @@
+{
+  "machine_model": "Yanmar 6AYM-WET",
+  "system": "freshwater",
+  "status": "UNVERIFIED",
+  "applicability": "Model edukasi 6AYM-WET H-rating, engine only, mengikuti datum r01. D03 mengonfirmasi heat-exchanger cooling pada H-rating. D01 meliputi 6AYM-WGT/WET/WST. Alur fungsional pada D01 menjadi dasar inferensi untuk H-rating. Reservoir pemulihan tampil sebagai konteks skematis sampai lokasi pemasangan unit terverifikasi.",
+  "author": {
+    "agent_id": "/root/freshwater",
+    "role": "Spesialis sistem freshwater",
+    "revision": "r01"
+  },
+  "nodes": [
+    {
+      "id": "FW-PUMP",
+      "name": "Coolant pump",
+      "kind": "pump",
+      "location_hint": "Sisi non-operation, di bawah ujung rakitan coolant tank. Potongan manual menunjukkan pompa centrifugal volute dengan penggerak gear.",
+      "status": "INFERRED",
+      "source_refs": [
+        "D01 cetak 10 / PDF 14, Location of Components",
+        "D01 cetak 160 / PDF 164, Water pump (coolant), Water pump construction dan potongan"
+      ]
+    },
+    {
+      "id": "FW-ENGINE-OIL-COOLER",
+      "name": "Engine lubricating oil cooler",
+      "kind": "heat_exchanger",
+      "location_hint": "Sisi non-operation. Node ini mewakili sisi coolant pada engine oil cooler.",
+      "status": "INFERRED",
+      "source_refs": [
+        "D01 cetak 10 / PDF 14, Location of Components",
+        "D01 cetak 159 / PDF 163, Cooling Water System, Coolant system dan diagram"
+      ]
+    },
+    {
+      "id": "FW-JACKET",
+      "name": "Cylinder block jacket",
+      "kind": "internal_passage",
+      "location_hint": "Di dalam blok dan kepala silinder. Manual menyebut pendinginan cylinder, cylinder liner dan cylinder head.",
+      "status": "INFERRED",
+      "source_refs": [
+        "D01 cetak 159 / PDF 163, Cooling Water System, Coolant system dan diagram"
+      ]
+    },
+    {
+      "id": "FW-EXHAUST-MANIFOLD",
+      "name": "Exhaust manifold coolant passage",
+      "kind": "internal_passage",
+      "location_hint": "Jalur coolant di rakitan exhaust manifold pada sisi non-operation.",
+      "status": "INFERRED",
+      "source_refs": [
+        "D01 cetak 10 / PDF 14, Location of Components",
+        "D01 cetak 159 / PDF 163, Cooling Water System, Coolant system dan diagram"
+      ]
+    },
+    {
+      "id": "FW-THERMOSTAT",
+      "name": "Thermostat",
+      "kind": "valve_group",
+      "location_hint": "Di dalam coolant tank menurut manual keluarga. Tabel keluarga mencantumkan masing-masing tiga thermostat tipe A dan B.",
+      "status": "INFERRED",
+      "source_refs": [
+        "D01 cetak 164 / PDF 168, Thermostat, tabel dan ilustrasi A/B",
+        "D01 cetak 11 / PDF 15, Piping Diagram, Cooling water system"
+      ]
+    },
+    {
+      "id": "FW-HEAT-EXCHANGER",
+      "name": "Coolant tank dan heat exchanger",
+      "kind": "heat_exchanger",
+      "location_hint": "Rakitan di bagian atas ujung mesin menurut gambar manual keluarga. Pada potongan manual, coolant mengalir di luar tube core dan air laut di dalam tube.",
+      "status": "DOCUMENTED",
+      "source_refs": [
+        "D03 PDF 17 / cetak 32–33, 6AYM-WET H-rating, Specifications dan Engine only",
+        "D01 cetak 10 / PDF 14, Location of Components",
+        "D01 cetak 162 / PDF 166, Heat exchanger (coolant cooler) dan Pressure cap"
+      ]
+    },
+    {
+      "id": "FW-PRESSURE-CAP",
+      "name": "Filler / pressure cap",
+      "kind": "pressure_cap",
+      "location_hint": "Pada filler neck coolant tank. Sambungan overflow menuju reservoir.",
+      "status": "INFERRED",
+      "source_refs": [
+        "D01 cetak 10 / PDF 14, Location of Components",
+        "D01 cetak 162 / PDF 166, Heat exchanger (coolant cooler) dan Pressure cap",
+        "D01 cetak 163 / PDF 167, Coolant reservoir, teks dan skema"
+      ]
+    },
+    {
+      "id": "FW-RESERVOIR",
+      "name": "Coolant recovery reservoir",
+      "kind": "external_context",
+      "location_hint": "Terpisah dari coolant tank pada skema keluarga. Posisi terpasang pada unit H-rating belum diketahui.",
+      "status": "INFERRED",
+      "source_refs": [
+        "D01 cetak 163 / PDF 167, Coolant reservoir, teks dan skema",
+        "D01 cetak 164 / PDF 168, Thermostat, tabel dan ilustrasi A/B"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "FW-PUMP",
+      "to": "FW-ENGINE-OIL-COOLER",
+      "purpose": "Pompa mensirkulasikan coolant melalui engine oil cooler.",
+      "operating_condition": "Mesin berputar.",
+      "status": "INFERRED",
+      "source_refs": [
+        "D01 cetak 159 / PDF 163, Cooling Water System, Coolant system dan diagram"
+      ]
+    },
+    {
+      "from": "FW-ENGINE-OIL-COOLER",
+      "to": "FW-JACKET",
+      "purpose": "Coolant menuju jacket untuk menyerap panas dari cylinder, cylinder liner dan cylinder head.",
+      "operating_condition": "Coolant bersirkulasi.",
+      "status": "INFERRED",
+      "source_refs": [
+        "D01 cetak 159 / PDF 163, Cooling Water System, Coolant system dan diagram"
+      ]
+    },
+    {
+      "from": "FW-JACKET",
+      "to": "FW-EXHAUST-MANIFOLD",
+      "purpose": "Coolant keluar dari jacket menuju jalur coolant exhaust manifold.",
+      "operating_condition": "Coolant bersirkulasi.",
+      "status": "INFERRED",
+      "source_refs": [
+        "D01 cetak 159 / PDF 163, Cooling Water System, Coolant system dan diagram"
+      ]
+    },
+    {
+      "from": "FW-EXHAUST-MANIFOLD",
+      "to": "FW-THERMOSTAT",
+      "purpose": "Coolant dari manifold masuk ke thermostat.",
+      "operating_condition": "Coolant bersirkulasi.",
+      "status": "INFERRED",
+      "source_refs": [
+        "D01 cetak 159 / PDF 163, Cooling Water System, Coolant system dan diagram"
+      ]
+    },
+    {
+      "from": "FW-THERMOSTAT",
+      "to": "FW-PUMP",
+      "purpose": "Bypass pada diagram mengembalikan coolant ke sisi masuk pompa.",
+      "operating_condition": "Ilustrasi pemanasan mesin saat jalur heat exchanger masih terbatas. Pembagian debit dan posisi katup per suhu belum diketahui.",
+      "status": "INFERRED",
+      "source_refs": [
+        "D01 cetak 11 / PDF 15, Piping Diagram, Cooling water system",
+        "D01 cetak 159 / PDF 163, Cooling Water System, Coolant system dan diagram",
+        "D01 cetak 161 / PDF 165, Inspection of water pump (coolant)",
+        "D01 cetak 164 / PDF 168, Thermostat, tabel dan ilustrasi A/B"
+      ]
+    },
+    {
+      "from": "FW-THERMOSTAT",
+      "to": "FW-HEAT-EXCHANGER",
+      "purpose": "Thermostat mengalirkan coolant ke coolant tank dan heat exchanger untuk melepas panas.",
+      "operating_condition": "Jalur heat exchanger dibuka oleh thermostat sesuai temperatur coolant.",
+      "status": "INFERRED",
+      "source_refs": [
+        "D01 cetak 11 / PDF 15, Piping Diagram, Cooling water system",
+        "D01 cetak 159 / PDF 163, Cooling Water System, Coolant system dan diagram",
+        "D01 cetak 162 / PDF 166, Heat exchanger (coolant cooler) dan Pressure cap",
+        "D01 cetak 164 / PDF 168, Thermostat, tabel dan ilustrasi A/B"
+      ]
+    },
+    {
+      "from": "FW-HEAT-EXCHANGER",
+      "to": "FW-PUMP",
+      "purpose": "Coolant kembali ke sisi masuk pompa setelah melewati heat exchanger.",
+      "operating_condition": "Coolant mengalir melalui heat exchanger.",
+      "status": "INFERRED",
+      "source_refs": [
+        "D01 cetak 159 / PDF 163, Cooling Water System, Coolant system dan diagram"
+      ]
+    },
+    {
+      "from": "FW-HEAT-EXCHANGER",
+      "to": "FW-PRESSURE-CAP",
+      "purpose": "Filler neck menghubungkan ruang coolant tank dengan katup tekanan pada filler cap.",
+      "operating_condition": "Tekanan coolant tank cukup untuk membuka katup tekanan.",
+      "status": "INFERRED",
+      "source_refs": [
+        "D01 cetak 162 / PDF 166, Heat exchanger (coolant cooler) dan Pressure cap",
+        "D01 cetak 163 / PDF 167, Coolant reservoir, teks dan skema"
+      ]
+    },
+    {
+      "from": "FW-PRESSURE-CAP",
+      "to": "FW-RESERVOIR",
+      "purpose": "Uap melalui overflow tube menuju reservoir dan mengembun.",
+      "operating_condition": "Katup tekanan terbuka saat tekanan coolant tank naik.",
+      "status": "INFERRED",
+      "source_refs": [
+        "D01 cetak 162 / PDF 166, Heat exchanger (coolant cooler) dan Pressure cap",
+        "D01 cetak 163 / PDF 167, Coolant reservoir, teks dan skema"
+      ]
+    },
+    {
+      "from": "FW-RESERVOIR",
+      "to": "FW-PRESSURE-CAP",
+      "purpose": "Coolant ditarik dari reservoir melalui overflow tube.",
+      "operating_condition": "Tekanan coolant tank turun saat coolant mendingin.",
+      "status": "INFERRED",
+      "source_refs": [
+        "D01 cetak 162 / PDF 166, Heat exchanger (coolant cooler) dan Pressure cap",
+        "D01 cetak 163 / PDF 167, Coolant reservoir, teks dan skema"
+      ]
+    },
+    {
+      "from": "FW-PRESSURE-CAP",
+      "to": "FW-HEAT-EXCHANGER",
+      "purpose": "Coolant pemulihan kembali ke coolant tank melalui filler neck.",
+      "operating_condition": "Tekanan turun dan jalur pemulihan terbuka.",
+      "status": "INFERRED",
+      "source_refs": [
+        "D01 cetak 162 / PDF 166, Heat exchanger (coolant cooler) dan Pressure cap",
+        "D01 cetak 163 / PDF 167, Coolant reservoir, teks dan skema"
+      ]
+    }
+  ],
+  "gaps": [
+    "Skema dan teks D01 mendukung hubungan fungsional tingkat keluarga. Rute selang, port, diameter, dan pembagian aliran di dalam jacket belum terverifikasi untuk WET H-rating.",
+    "D01 cetak 160 menyebut air cooler pada deskripsi coolant pump, sedangkan dua skema dan narasi cetak 159 menempatkan air cooler pada jalur seawater. Pemetaan ini mengikuti skema dan narasi yang saling cocok. Sambungan coolant tersendiri ke air cooler belum didukung bukti varian.",
+    "Tabel thermostat, spesifikasi pompa, konfigurasi tube bundle dan lokasi reservoir memerlukan parts catalog atau gambar perakitan H-rating yang sesuai serial.",
+    "D03 M-rating juga menyebut heat exchanger. Ruang lingkup geometri dan konfigurasi tetap mengikuti pilihan H-rating pada datum."
+  ],
+  "inspected_source_refs": [
+    "D01 cetak 10 / PDF 14, Location of Components",
+    "D01 cetak 11 / PDF 15, Piping Diagram, Cooling water system",
+    "D01 cetak 159 / PDF 163, Cooling Water System, Coolant system dan diagram",
+    "D01 cetak 160 / PDF 164, Water pump (coolant), Water pump construction dan potongan",
+    "D01 cetak 161 / PDF 165, Inspection of water pump (coolant)",
+    "D01 cetak 162 / PDF 166, Heat exchanger (coolant cooler) dan Pressure cap",
+    "D01 cetak 163 / PDF 167, Coolant reservoir, teks dan skema",
+    "D01 cetak 164 / PDF 168, Thermostat, tabel dan ilustrasi A/B",
+    "D03 PDF 17 / cetak 32–33, 6AYM-WET H-rating, Specifications dan Engine only",
+    "D03 PDF 18 / cetak 34–35, 6AYM-WET M-rating, Specifications dan Engine only"
+  ]
+}

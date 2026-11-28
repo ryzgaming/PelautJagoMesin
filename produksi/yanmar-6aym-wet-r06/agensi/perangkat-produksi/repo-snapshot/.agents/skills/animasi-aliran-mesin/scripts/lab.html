@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lab efek mesin — Orang Mesin</title>
+<style>
+  html,body{margin:0;height:100%;background:#12171c;color:#dfe7ec;font:14px/1.4 system-ui,sans-serif;overflow:hidden}
+  canvas{display:block;width:100%;height:100%}
+  .bar{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);display:flex;gap:6px;flex-wrap:wrap;justify-content:center;
+    padding:6px;border:1px solid #2a3540;border-radius:12px;background:#0d151bcc;max-width:calc(100vw - 24px)}
+  button{font:inherit;color:inherit;background:#18222b;border:1px solid #2a3540;border-radius:8px;padding:8px 12px;cursor:pointer}
+  button[aria-pressed=true]{border-color:#2fc4b2;color:#2fc4b2}
+  .legend{position:fixed;left:12px;top:12px;display:grid;gap:4px;padding:8px 10px;border:1px solid #2a3540;border-radius:10px;background:#0d151bcc;font-size:12px}
+  .legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+  .badge{position:fixed;right:12px;top:12px;padding:6px 10px;border:1px solid #2a3540;border-radius:10px;background:#0d151bcc;font-size:12px}
+  .note{color:#8fa1ad}
+  @media(max-width:759px){
+    .badge{top:160px;left:12px;right:auto}
+    .bar{width:calc(100vw - 40px);box-sizing:border-box}
+    button{min-height:44px}
+  }
+</style>
+</head>
+<body>
+<canvas id="c"></canvas>
+<div class="legend" id="legend"></div>
+<div class="badge" id="badge"></div>
+<div class="bar">
+  <button id="start">Start</button><button id="pause">Jeda</button><button id="xray" aria-pressed="false">X-ray</button>
+  <button id="slow" aria-pressed="true">Gerak lambat</button><button id="fast" aria-pressed="false">Putaran nyata</button>
+</div>
+<!--
+  LAB EFEK — mesin 4 silinder SINTETIS (bukan data mesin nyata) untuk memoles tampilan aliran dan
+  pembakaran. Firing order 1-3-4-2 hanya contoh. Parameter URL:
+    ?style=<url gaya-efek.json>  (default ../references/gaya-efek.json)
+    ?auto=<detik isi>  langsung Start      ?xray   X-ray menyala      ?real   putaran nyata
+    ?three=<url three.js>  (default three r128 milik repo)
+  window.__flow, window.__fire, window.__fps tersedia untuk capture_flow.py dan QA.
+-->
+<script>
+  const q0 = new URLSearchParams(location.search);
+  document.write('<script src="' + (q0.get("three") || "../../../../dist/assets/three.min.js") + '"><\/script>');
+</script>
+<script src="flow-ribbons.js"></script>
+<script src="combustion-glow.js"></script>
+<script>
+(async function () {
+  const q = new URLSearchParams(location.search);
+  let style = null;
+  try { style = await (await fetch(q.get("style") || "../references/gaya-efek.json")).json(); } catch (e) { console.warn("gaya-efek.json tidak terbaca, pakai bawaan"); }
+  const slowRpm = (style && style.tampilan && style.tampilan.rpm_gerak_lambat) || 40, ratedRpm = 1800;
+
+  const renderer = new THREE.WebGLRenderer({canvas: document.getElementById("c"), antialias: true, preserveDrawingBuffer: true});
+  renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+  const scene = new THREE.Scene(); scene.background = new THREE.Color("#12171c");
+  const camera = new THREE.PerspectiveCamera(36, 1, 0.01, 50);
+  camera.position.set(1.55, 1.05, 1.75); camera.lookAt(0, 0.3, 0);
+  scene.add(new THREE.HemisphereLight(0xdfe9f2, 0x1a1f24, 0.75));
+  const sun = new THREE.DirectionalLight(0xffffff, 0.75); sun.position.set(2, 3, 2); scene.add(sun);
+
+  // ---- Mesin sintetis (Y-up, meter) ----
+  const R = 0.12, L = 0.36, BORE = 0.18, PIN_TO_CROWN = 0.06, XS = [-0.33, -0.11, 0.11, 0.33];
+  const metal = new THREE.MeshStandardMaterial({color: 0x9aa4ab, metalness: 0.8, roughness: 0.35});
+  const dark = new THREE.MeshStandardMaterial({color: 0x59636b, metalness: 0.6, roughness: 0.5});
+  const housing = new THREE.MeshStandardMaterial({color: 0x5f6b73, metalness: 0.45, roughness: 0.5, transparent: true, opacity: 1});
+  const add = (geo, mat, x, y, z) => { const m = new THREE.Mesh(geo, mat); m.position.set(x, y, z); scene.add(m); return m; };
+  add(new THREE.BoxGeometry(0.96, 0.5, 0.42), housing, 0, 0.42, 0);              // blok
+  add(new THREE.BoxGeometry(0.96, 0.14, 0.42), housing, 0, 0.74, 0);             // kepala
+  add(new THREE.BoxGeometry(0.92, 0.26, 0.38), housing, 0, -0.08, 0);            // karter
+  const crank = add(new THREE.CylinderGeometry(0.035, 0.035, 1.0, 16), metal, 0, 0, 0); crank.rotation.z = Math.PI / 2;
+  const pistons = [], rods = [];
+  for (const x of XS) {
+    pistons.push(add(new THREE.CylinderGeometry(BORE / 2 * 0.96, BORE / 2 * 0.96, 0.12, 24), metal, x, 0, 0));
+    rods.push(add(new THREE.BoxGeometry(0.035, 1, 0.05), dark, x, 0, 0));
+    const inj = add(new THREE.CylinderGeometry(0.012, 0.012, 0.16, 10), dark, x, 0.78, 0);
+  }
+
+  // ---- Rute aliran sintetis (format routes.json) ----
+  const P = (...a) => a, links = {};
+  links.jacket = {geometry_basis: "DOCUMENTED", spans: [
+    {kind: "exposed", carrier: "jw-in", passage: "jw-in", points: [P(0.75,0.25,0.3),P(0.58,0.25,0.3),P(0.5,0.32,0.22)]},
+    {kind: "hidden", carrier: "block", passage: "jw-jacket", points: [P(0.46,0.36,0.17),P(0.2,0.4,0.17),P(-0.2,0.44,0.17),P(-0.46,0.48,0.17)]},
+    {kind: "exposed", carrier: "jw-out", passage: "jw-out", points: [P(-0.5,0.52,0.22),P(-0.62,0.68,0.24),P(-0.5,0.9,0.2),P(-0.1,0.95,0.12)]}]};
+  links.lube = {geometry_basis: "DOCUMENTED", spans: [
+    {kind: "hidden", carrier: "sump", passage: "lo-suction", points: [P(0.3,-0.16,0),P(0.05,-0.17,0),P(-0.2,-0.12,-0.08)]},
+    {kind: "hidden", carrier: "block", passage: "lo-gallery", points: [P(-0.22,-0.05,-0.15),P(-0.22,0.12,-0.16),P(0.4,0.12,-0.16)]},
+    {kind: "exposed", carrier: "lo-cooler", passage: "lo-ext", points: [P(0.5,0.12,-0.24),P(0.66,0.14,-0.32),P(0.66,0.34,-0.32),P(0.5,0.4,-0.24)]}]};
+  links.fuel_rail = {geometry_basis: "DOCUMENTED", spans: [
+    {kind: "exposed", carrier: "fuel-rail", passage: "fo-rail", points: [P(0.7,0.86,-0.1),P(0.33,0.88,-0.1),P(-0.33,0.88,-0.1)]}]};
+  XS.forEach((x, i) => links["fuel_" + (i + 1)] = {geometry_basis: "DOCUMENTED", spans: [
+    {kind: "exposed", carrier: "hp-pipe-" + (i + 1), passage: "fo-" + (i + 1), points: [P(x,0.88,-0.1),P(x,0.9,-0.04),P(x,0.86,0)]}]});
+  links.exhaust = {geometry_basis: "OBSERVED", spans: [
+    {kind: "exposed", carrier: "manifold", passage: "exh", points: [P(-0.33,0.66,-0.24),P(0,0.68,-0.3),P(0.33,0.68,-0.3),P(0.6,0.8,-0.2),P(0.7,1.0,-0.12)]}]};
+  const scope = {links: {jacket: {circuit: "jw"}, lube: {circuit: "lo"}, exhaust: {circuit: "eg"}, fuel_rail: {circuit: "fo"},
+      fuel_1: {circuit: "fo"}, fuel_2: {circuit: "fo"}, fuel_3: {circuit: "fo"}, fuel_4: {circuit: "fo"}},
+    circuits: {jw: {medium: "jacket water"}, lo: {medium: "lube oil"}, eg: {medium: "exhaust gas"}, fo: {medium: "fuel oil"}}};
+
+  const mobile = innerWidth < 760;
+  const flow = OrangMesinFlow.create(THREE, {routes: {links}, scope, style, mobile, ratedRpm, radius: 0.013,
+    radiusByMedium: {fuel: 0.007}});
+  scene.add(flow.group);
+  const fire = OrangMesinFire.create(THREE, {style, mobile, ratedRpm, cycleDeg: 720, firingOrder: ["c1", "c3", "c4", "c2"],
+    kinematics: {stroke_m: 2 * R, rod_length_m: L},
+    cylinders: XS.map((x, i) => ({id: "c" + (i + 1), position: [x, R + L + PIN_TO_CROWN + 0.045, 0], axis: [0, 1, 0], bore_m: BORE,
+      injector: [x, 0.7, 0]}))});
+  scene.add(fire.group);
+  window.__flow = flow; window.__fire = fire;
+
+  // Piston dan batang mengikuti sudut engkol yang sama dengan efek pembakaran (rumus slider-crank).
+  const phases = fire.phases();
+  function mechanism(theta) {
+    XS.forEach((x, i) => {
+      const a = (theta - phases["c" + (i + 1)]) * Math.PI / 180;
+      const pinY = R * Math.cos(a) + Math.sqrt(L * L - Math.pow(R * Math.sin(a), 2)), pinZ = 0;
+      const cpY = R * Math.cos(a), cpZ = R * Math.sin(a);
+      pistons[i].position.set(x, pinY + PIN_TO_CROWN - 0.06, 0);
+      const rod = rods[i], dy = pinY - cpY, dz = pinZ - cpZ, len = Math.hypot(dy, dz);
+      rod.position.set(x, (pinY + cpY) / 2, (pinZ + cpZ) / 2); rod.scale.set(1, len, 1); rod.rotation.x = Math.atan2(-dz, dy);
+    });
+    crank.rotation.x = theta * Math.PI / 180;
+  }
+
+  const legend = flow.links().reduce((m, l) => (m[l.medium] = l.label, m), {});
+  document.getElementById("legend").innerHTML = Object.entries(legend).map(([k, label]) =>
+    `<span><i style="background:${flow.media[k].color}"></i>${label}</span>`).join("") +
+    `<span><i style="background:${fire.style.warna_api}"></i>Pembakaran (urutan 1-3-4-2, contoh)</span><span class="note">Mesin sintetis untuk lab efek</span>`;
+
+  const $ = id => document.getElementById(id);
+  let rpm = slowRpm, xray = false;
+  function setRpm(v) {
+    rpm = v; flow.setRpm(v); fire.setRpm(v);
+    $("slow").setAttribute("aria-pressed", v === slowRpm); $("fast").setAttribute("aria-pressed", v !== slowRpm);
+    $("badge").textContent = v === slowRpm ? `${(style && style.tampilan && style.tampilan.label_gerak_lambat) || "Gerak lambat"} · ${v} rpm tampilan` : `${v} rpm`;
+  }
+  $("start").onclick = () => { flow.start({fillSeconds: 2.5}); fire.start(); };
+  $("pause").onclick = () => { const on = !fire.running; on ? (flow.resume(), fire.resume()) : (flow.pause(), fire.pause()); $("pause").textContent = on ? "Jeda" : "Lanjut"; };
+  $("xray").onclick = () => { xray = !xray; flow.setXray(xray); housing.opacity = xray ? 0.16 : 1; housing.depthWrite = !xray; $("xray").setAttribute("aria-pressed", xray); };
+  $("slow").onclick = () => setRpm(slowRpm); $("fast").onclick = () => setRpm(ratedRpm);
+  setRpm(q.has("real") ? ratedRpm : slowRpm);
+  if (q.has("xray")) $("xray").click();
+  if (q.has("auto")) { flow.start({fillSeconds: Number(q.get("auto")) || 0}); fire.start(); }
+
+  const clock = new THREE.Clock(); let frames = 0, t0 = performance.now(); window.__fps = 0;
+  function resize() { const w = innerWidth, h = innerHeight; renderer.setSize(w, h, false); camera.aspect = w / h;
+    camera.position.set(w < 760 ? 2.3 : 1.75, w < 760 ? 1.55 : 1.2, w < 760 ? 2.8 : 2.0); camera.lookAt(0.05, 0.38, 0); camera.zoom = w < 760 ? 0.72 : 1; camera.updateProjectionMatrix(); }
+  addEventListener("resize", resize); resize();
+  (function loop() {
+    const dt = clock.getDelta();
+    flow.update(dt); fire.update(dt); mechanism(fire.crankDeg);
+    renderer.render(scene, camera);
+    frames++; const now = performance.now(); if (now - t0 > 1000) { window.__fps = Math.round(frames * 1000 / (now - t0)); frames = 0; t0 = now; }
+    requestAnimationFrame(loop);
+  })();
+  window.__ready = true;
+})();
+</script>
+</body>
+</html>

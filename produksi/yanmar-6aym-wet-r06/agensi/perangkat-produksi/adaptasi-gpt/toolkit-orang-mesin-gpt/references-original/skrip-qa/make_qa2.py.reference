@@ -1,0 +1,74 @@
+import json, os
+Q='/tmp/claude-0/c3512/qa/'
+rak=json.load(open(Q+'scripts/rakitan_bbox.json'))
+viewer=json.load(open(Q+'viewer-desktop.json'))+json.load(open(Q+'viewer-hp.json'))
+ov_min=[-0.725,-0.805,-1.02]; ov_max=[2.4329,1.4166,1.02]
+L=ov_max[0]-(-0.238); H=ov_max[1]-ov_min[1]; W=ov_max[2]-ov_min[2]
+pct=lambda a,b: round((a-b)/b*100,2)
+P='/tmp/claude-0/c3512/qa/render/'
+
+pengukuran={
+ 'integritas_glb':{'exterior_sha256':'92fa071e6128f879a1b26a95cd6a34d044fc4099878a5b81ffec70033906d1b1','internal_sha256':'31b2e0847aa8ddbd2f19c63931e3efb22d766e7cd5c6b43f27518fe510e7acb3',
+   'base64_halaman_identik':True,'folder_review_lama':'kosong (tidak ada GLB lain); find *.glb* di /tmp/claude-0 hanya menemukan 2 GLB asli + 2 base64 halaman'},
+ 'impor_blender':{'exterior_mesh':87,'internal_mesh':457,'satu_adegan':True},
+ 'dimensi_keseluruhan_m':{
+   'bbox_gabungan':{'min':ov_min,'max':ov_max},
+   'panjang_definisi_D02':{'model':round(L,4),'D02':2.647,'selisih_pct':pct(L,2.647),'hasil':'PASS'},
+   'panjang_ekstrem':{'model':3.1579,'D03':3.153,'selisih_pct':pct(3.1579,3.153),'hasil':'PASS'},
+   'lebar':{'model':round(W,4),'D02':2.037,'selisih_pct':pct(W,2.037),'hasil':'PASS','penentu':'EXT-AIRCLBRK-R Z 1.020, air cleaner Z ±1.015'},
+   'tinggi':{'model':round(H,4),'D02':2.223,'selisih_pct':pct(H,2.223),'hasil':'PASS','penentu':'oil pan -0.805 (=datum), puncak EXT-PIPAUDARA-L/R 1.4166 (shield tetap 1.398)'}},
+ 'bbox_rakitan_m':rak,
+ 'sumbu_bank_V60':{
+   'silinder_1_kanan':{'puncak_liner':0.6197,'flens_liner_a':[0.598,0.6197],'deck_blok':0.620,'dasar_kepala':0.620,'atas_kepala':0.781,'crown_piston_TDC':0.6185,'tutup_katup':[0.779,0.940],'puncak_rocker':0.858,'dasar_katup':0.621,'ujung_injektor':0.612},
+   'silinder_2_kiri':{'puncak_liner':0.6197,'deck_blok':0.620,'dasar_kepala':0.620,'puncak_rocker':0.8675},
+   'liner_ke_kepala_mm':0.0,'celah_crown_deck_TDC_mm':1.5,'celah_katup_crown_TDC_mm':[2.5,2.3],
+   'offset_bank_kiri_m':0.065,'hasil':'PASS (QA-01 tertutup: liner tidak lagi masuk ke kepala; inventaris dan data.json a_range [0.33,0.6197] sesuai GLB)'},
+ 'tabrakan_internal_vs_exterior':{
+   'pasangan':433,
+   'camshaft_vs_blok':{'putaran1':[1087,1020],'putaran2':[114,48],'lokasi':'x 0.01-0.02 (dinding belakang blok, wajar) dan x 0.54-0.56 / 1.10-1.14, Y 0.13-0.22 (rusuk dalam blok, tidak tampak dari luar)'},
+   'gear_cam_vs_fwhousing':{'putaran1':[965,959],'putaran2':0},
+   'flywheel_damper':'hanya node eksterior; INT-FLYWHEEL/INT-DAMPER tidak ada di GLB; inventaris internal memuat REF-EXT-FLYWHEEL-01 dan REF-EXT-DAMPER-01 jumlah 0. Crank berakhir x 1.9295, damper eksterior mulai x 1.930.',
+   'katup_injektor_vs_kepala':'wajar (kepala kini berongga; internal hanya tampil di X-ray)',
+   'oil_pump_vs_oilpan':'334 segitiga di x 1.70-1.80 di dalam pan (tidak tampak); sama seperti putaran 1'},
+ 'jumlah_dan_kecocokan':{'tutup_katup':'6+6 di GLB; render kanan 5 + 1 tertutup panel (sama dengan D01/D02), kiri 6','silinder':12,
+   'id_vs_node':'exterior 87/87; internal 457 mesh = 457 ID inventaris ber-mesh + 2 entri REF-EXT (jumlah 0, tanpa mesh, disengaja); 0 ganda, 0 hilang',
+   'status':{'exterior':{'ESTIMATED':39,'ILLUSTRATIVE':25,'OBSERVED':15,'INFERRED':8},'internal':{'ILLUSTRATIVE':358,'INFERRED':62,'ESTIMATED':37,'DOCUMENTED':2},
+     'catatan':'DOCUMENTED internal hanya dua entri REF-EXT berjumlah 0 (keberadaan flywheel D01 hlm.1, damper D02 hlm.1, bersumber). data.json = inventaris (0 selisih status). Sumber D01-D07 cocok dengan register. P09 tidak dipakai.'}},
+ 'viewer':[{k:r.get(k) for k in ['name','scene','hscroll0','hscroll1','selHighlighted','afterCanvasClickTitle','xray','xrayOff','urai','rot','anim','fps','small','errs']} for r in viewer],
+}
+def s(sudut,ref,putusan,cat,**kw):
+    d={'sudut':sudut,'render':P+'qa_'+sudut+'.png','referensi':ref,'putusan':putusan,'catatan':cat}
+    for k in ['siluet','proporsi','turbo','pipa','manifold','tutup_katup','sambungan']: d[k]=kw.get(k,'UNVERIFIED' if putusan.startswith('UNVERIFIED') else 'PASS')
+    return d
+per_sudut=[
+ s('depan',['P23','doc/img/front-1.png','D01 Front'],'PASS','Tidak berubah dari putaran 1; tangki, pelat X tanpa merek, guard damper.',tutup_katup='TIDAK BERLAKU'),
+ s('belakang',['P14','P10/P11/P18 (genset/frac)'],'PASS','Flywheel kini berpola baut dan ring gear; tetap tanpa foto belakang marine (gap).',tutup_katup='TIDAK BERLAKU'),
+ s('kanan',['doc/img/side-1.png','D01 Right Side','P03','P22'],'PASS','Kepala kini berusuk dan berport.'),
+ s('kiri',['P26','P08'],'PASS','Ditambah harness, pipa air bawah, kotak terminal; 6 tutup katup.'),
+ s('atas',['P12 (bukan tegak lurus)'],'UNVERIFIED (gap)','Tidak ada referensi tampak atas sejati.'),
+ s('tigaperempat',['P01','P22'],'PASS','Tidak ada regresi.'),
+]
+R=[('EXT:BLOK','PASS',''),('EXT:KEPALA','PASS','Kepala kini berusuk, boss baut, port (qa_detail_kepala_blok.png); QA-06 tertutup.'),
+ ('EXT:TURBO','PASS',''),('EXT:EXHAUST','PASS',''),('EXT:AFTERCOOLER','PASS',''),('EXT:AIRCLEANER','PASS',''),('EXT:PENDINGIN','PASS',''),
+ ('EXT:POMPA','PASS',''),('EXT:DEPAN','PASS',''),('EXT:FLYWHEEL','PASS','Flywheel dengan lingkar baut, hub, ring gear (5188 segitiga, sebelumnya 1256); housing tetap tanpa rusuk (catatan, bukan blokir).'),
+ ('EXT:SISIKANAN','PASS',''),('EXT:SISIKIRI','PASS','Rakitan baru: harness, pipa air, kotak terminal.'),('EXT:OILPAN','PASS',''),('EXT:REL','PASS',''),
+ ('INT:CRANKSHAFT','PASS',''),('INT:PISTON','PASS',''),('INT:CONNECTING_ROD','PASS',''),('INT:CYLINDER_LINER','PASS','Flens di 0.598-0.6197, di bawah deck.'),
+ ('INT:CAMSHAFT','PASS','Tabrakan turun 90-95%, sisa di dalam blok.'),('INT:VALVE_TRAIN','PASS',''),('INT:INJECTOR','PASS',''),('INT:GEAR_TRAIN','PASS','Tidak lagi memotong flywheel housing.'),
+ ('INT:OIL_PUMP','PASS',''),('INT:FLYWHEEL/DAMPER','TIDAK BERLAKU','Dihapus dari internal; diwakili node eksterior yang berputar di animasi.')]
+per_rakitan=[{'rakitan':a,'putusan':b,'alasan':c,'bbox':rak.get(a)} for a,b,c in R]
+
+status_p1={'QA-01':'TERTUTUP','QA-02':'TERTUTUP (lebar +0.15%)','QA-03':'TERTUTUP (tinggi -0.06%)','QA-04':'TERTUTUP','QA-05':'TERTUTUP (sisa kecil di dalam blok)','QA-06':'TERTUTUP','QA-07':'TERTUTUP','QA-08':'TERTUTUP','QA-09':'TERTUTUP','QA-10':'TERTUTUP (0 target < 44 px di desktop dan HP)','QA-11':'TERBUKA (perlu perangkat nyata)'}
+temuan=[
+ {'id':'QA-11','status':'TERBUKA','keparahan':'minor','peran':'integrator','judul':'Frame rate belum terverifikasi','bukti':'SwiftShader CPU: 0.9 fps desktop, 1.0 fps HP (632 mesh); bukan ukuran perangkat nyata.','saran':'Ukur di HP nyata; gabungkan mesh valve train bila < 30 fps.'},
+ {'id':'QA-12','status':'BARU','keparahan':'minor','peran':'exterior','judul':'EXT-TERMBOX-L dan EXT-HARNESS-L berstatus OBSERVED dari foto genset',
+  'bukti':'Sumber hanya P11/P10 (genset LLA01020, bukan marine); register evidence-foto2 gaps: "Sisi kiri marine belum ada".','saran':'Turunkan ke INFERRED/ILLUSTRATIVE dengan catatan "dari unit genset", atau beri bukti marine.'},
+ {'id':'QA-13','status':'BARU','keparahan':'minor','peran':'exterior','judul':'Titik tertinggi kini pipa udara, bukan heat shield datum',
+  'bukti':'EXT-PIPAUDARA-L/R Y 1.4166 vs datum exhaust_manifold.top_shield y_top 1.398 (+18.6 mm); tinggi total tetap dalam toleransi.','saran':'Catat alasan dan sumber kenaikan pipa di inventaris (ESTIMATED dari D01) agar tidak tampak sebagai penyesuaian demi angka.'},
+ {'id':'QA-14','status':'LAMA-CATATAN','keparahan':'minor','peran':'internal','judul':'12 INT-PIN ESTIMATED tanpa sumber','bukti':'INT-PIN-01..12 status ESTIMATED, sumber kosong.','saran':'Beri dasar perkiraan (mis. proporsi bore) atau ubah ke ILLUSTRATIVE.'},
+]
+out={'putaran':2,'verdict':'PASS','alasan_verdict':'Semua temuan kritis/mayor putaran 1 tertutup dan diverifikasi ulang: dimensi dalam ±1% D02, liner di bawah deck, flywheel/damper tunggal, tabrakan cam/gear hilang, viewer lolos termasuk target sentuh. Sisa hanya minor (QA-11 sampai QA-14) dan tampak atas UNVERIFIED karena gap referensi.',
+ 'tanggal':'2026-11-27','penguji':'QA independen (Claude)','status_temuan_putaran1':status_p1,'per_sudut':per_sudut,'per_rakitan':per_rakitan,'pengukuran':pengukuran,'temuan':temuan,
+ 'kepatuhan_brief':{'1_impor_dan_ukur':'DIKERJAKAN','2_render_6_sudut':'DIKERJAKAN (atas UNVERIFIED)','3_aturan_bentuk':'DIKERJAKAN','4_jumlah_dan_kecocokan':'DIKERJAKAN','5_viewer':'DIKERJAKAN (fps UNVERIFIED)','6_kejujuran_data':'DIKERJAKAN'},
+ 'berkas':{'render':sorted(P+f for f in os.listdir(P)),'tangkapan_layar':sorted(Q+'shots/'+f for f in os.listdir(Q+'shots')),'putaran1':Q+'qa-putaran1.json, '+Q+'putaran1/'}}
+json.dump(out,open(Q+'qa.json','w'),indent=1,ensure_ascii=False)
+print('ok',out['verdict'],round(L,4),round(W,4),round(H,4))

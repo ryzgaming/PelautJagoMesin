@@ -1,0 +1,51 @@
+{
+  "results": [
+    {
+      "preset": "default",
+      "media": [
+        "fresh_water",
+        "sea_water",
+        "lube_oil",
+        "fuel",
+        "charge_air",
+        "start_air",
+        "exhaust"
+      ],
+      "materials": 7,
+      "finite": true,
+      "gl_error": 0,
+      "programs": [
+        {
+          "runnable": true
+        },
+        {
+          "runnable": true
+        }
+      ]
+    },
+    {
+      "preset": "legacy",
+      "media": [
+        "fresh_water",
+        "sea_water",
+        "lube_oil",
+        "fuel",
+        "charge_air",
+        "start_air",
+        "exhaust"
+      ],
+      "materials": 7,
+      "finite": true,
+      "gl_error": 0,
+      "programs": [
+        {
+          "runnable": true
+        },
+        {
+          "runnable": true
+        }
+      ]
+    }
+  ],
+  "errors": []
+}

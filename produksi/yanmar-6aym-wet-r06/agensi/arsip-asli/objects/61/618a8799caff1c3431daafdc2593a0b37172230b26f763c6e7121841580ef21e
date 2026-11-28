@@ -1,0 +1,33 @@
+import bpy,sys,json,math,hashlib,collections
+from mathutils.bvhtree import BVHTree
+from pathlib import Path
+out=Path(__file__).resolve().parent
+root=out.parent
+bpy.ops.wm.read_factory_settings(use_empty=True)
+bpy.ops.import_scene.gltf(filepath=str(root/'internal.glb'))
+obs=bpy.context.scene.objects
+def tree(name):
+    o=obs[name];o.data.calc_loop_triangles()
+    return BVHTree.FromPolygons([o.matrix_world@v.co for v in o.data.vertices],[tuple(t.vertices) for t in o.data.loop_triangles],all_triangles=True)
+counts=collections.Counter(); collisions=[]
+for level in (0,.0045,.009):
+    for i in range(1,7):
+        for j in range(1,3):
+            lift=obs[f'MOT-INT-VALVE-{i}-{j}'];lift.location.z=.492-level
+            for k in (1,2):
+                spring=obs[f'MOT-INT-SPRING-{i}-{j}-{k}']
+                spring.scale.z=(.05-level)/.05
+    bpy.context.view_layer.update()
+    for path in sorted((root.parent/'assemblies').glob('RAK-KATUP*.json')):
+        file=json.loads(path.read_text());ids=[p['object_ids'][0] for p in file['bagian']];ts=[tree(p) for p in ids]
+        for i in range(len(ids)):
+            for j in range(i+1,len(ids)):
+                n=len(ts[i].overlap(ts[j]));counts[str(level)]+=1
+                if n:collisions.append([level,ids[i],ids[j],n])
+torque=[]
+for i in range(1,8):
+    p=f'INT-CAM-BUSH-{i}';q=f'INT-CAM-{i+1:02d}';a=tree(p);b=tree(q);n=len(a.overlap(b))
+    if n:torque.append([p,q,n])
+audit=dict(sha256=hashlib.sha256((root/'internal.glb').read_bytes()).hexdigest(),valve_scope_count=24,valve_checks=dict(counts),collisions=collisions,cam_vs_journal_crossings=torque,limits='Uji permukaan mesh pada tiga posisi diskret. Tidak memverifikasi celah, preload atau operasi sesungguhnya.')
+(out/'fit.json').write_text(json.dumps(audit,indent=2)+'\n')
+print('COLLISIONS',len(collisions),collisions[:12],torque)

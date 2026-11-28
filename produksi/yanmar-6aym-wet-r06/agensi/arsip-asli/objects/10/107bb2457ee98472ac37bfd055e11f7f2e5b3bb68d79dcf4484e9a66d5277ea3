@@ -1,0 +1,426 @@
+{
+  "id": "RAK-STARTER",
+  "nama": "Isi starter · contoh katalog earth-float",
+  "node_rakitan": "RAK-STARTER",
+  "parent_rakitan": "RAK-ELECTRIC",
+  "status": "UNVERIFIED",
+  "source_refs": [
+    "D05 0CG10-M34300, WET (A) / Fig. 106",
+    "D01 PDF 14 / component locations; P08 guard, P17 starter"
+  ],
+  "acuan": {
+    "no": 1,
+    "object_ids": [
+      "EXT-ELECTRIC-02"
+    ]
+  },
+  "diagram": {
+    "arah_pandang": [
+      0.42,
+      0.36,
+      -0.83
+    ],
+    "atas": [
+      0,
+      1,
+      0
+    ]
+  },
+  "bagian": [
+    {
+      "no": 1,
+      "nama": "Yoke starter dan sepatu kutub",
+      "object_ids": [
+        "EXT-ELECTRIC-02"
+      ],
+      "posisi": [],
+      "status": "ESTIMATED",
+      "role": "shell",
+      "sumber": [
+        "D05 0CG10-M34300, WET (A) / Fig. 106 pos. 2"
+      ],
+      "fungsi": "Menopang medan magnet yang bekerja pada armature.",
+      "nomor_oem": "X131015520X0",
+      "ukuran": null
+    },
+    {
+      "no": 2,
+      "nama": "Armature, lilitan dan komutator",
+      "object_ids": [
+        "EXT-ELECTRIC-40"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-ELECTRIC-40",
+          "arah": [
+            1,
+            0,
+            0
+          ],
+          "jarak_m": 0.275,
+          "urutan": 2
+        }
+      ],
+      "status": "ESTIMATED",
+      "role": "rotor",
+      "sumber": [
+        "D05 0CG10-M34300, WET (A) / Fig. 106 pos. 9"
+      ],
+      "fungsi": "Arus pada lilitan menghasilkan torsi; komutator berhubungan dengan sikat.",
+      "nomor_oem": "X132014210X0",
+      "ukuran": null
+    },
+    {
+      "no": 3,
+      "nama": "Bracket belakang starter",
+      "object_ids": [
+        "EXT-ELECTRIC-41"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-ELECTRIC-41",
+          "arah": [
+            1,
+            0,
+            0
+          ],
+          "jarak_m": 0.46,
+          "urutan": 3
+        }
+      ],
+      "status": "ESTIMATED",
+      "role": "cover",
+      "sumber": [
+        "D05 0CG10-M34300, WET (A) / Fig. 106 pos. 4"
+      ],
+      "fungsi": "Menutup ujung komutator dan menyangga bantalan belakang.",
+      "nomor_oem": "X224033900X0",
+      "ukuran": null
+    },
+    {
+      "no": 4,
+      "nama": "Bantalan armature",
+      "object_ids": [
+        "EXT-ELECTRIC-42"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-ELECTRIC-42",
+          "arah": [
+            1,
+            0,
+            0
+          ],
+          "jarak_m": 0.38,
+          "urutan": 4
+        }
+      ],
+      "status": "ESTIMATED",
+      "role": "bearing",
+      "sumber": [
+        "D05 0CG10-M34300, WET (A) / Fig. 106 pos. 10"
+      ],
+      "fungsi": "Menjaga pusat putaran ujung poros.",
+      "nomor_oem": "X620605500X0",
+      "ukuran": null
+    },
+    {
+      "no": 5,
+      "nama": "Set sikat armature",
+      "object_ids": [
+        "EXT-ELECTRIC-43"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-ELECTRIC-43",
+          "arah": [
+            1,
+            0,
+            0
+          ],
+          "jarak_m": 0.335,
+          "urutan": 5
+        }
+      ],
+      "status": "ESTIMATED",
+      "role": "brush",
+      "sumber": [
+        "D05 0CG10-M34300, WET (A) / Fig. 106 pos. 6"
+      ],
+      "fungsi": "Menyalurkan arus ke segmen komutator saat motor berputar.",
+      "nomor_oem": "X266010620X0",
+      "ukuran": null
+    },
+    {
+      "no": 6,
+      "nama": "Dudukan sikat starter",
+      "object_ids": [
+        "EXT-ELECTRIC-44"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-ELECTRIC-44",
+          "arah": [
+            1,
+            0,
+            0
+          ],
+          "jarak_m": 0.36,
+          "urutan": 6
+        }
+      ],
+      "status": "ESTIMATED",
+      "role": "holder",
+      "sumber": [
+        "D05 0CG10-M34300, WET (A) / Fig. 106 pos. 3"
+      ],
+      "fungsi": "Memegang sikat pada ujung komutator.",
+      "nomor_oem": "X133107510X0",
+      "ukuran": null
+    },
+    {
+      "no": 7,
+      "nama": "Roda gigi internal reduksi",
+      "object_ids": [
+        "EXT-ELECTRIC-45"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-ELECTRIC-45",
+          "arah": [
+            -1,
+            0,
+            0
+          ],
+          "jarak_m": 0.16,
+          "urutan": 7
+        }
+      ],
+      "status": "ESTIMATED",
+      "role": "drive",
+      "sumber": [
+        "D05 0CG10-M34300, WET (A) / Fig. 106 pos. 13"
+      ],
+      "fungsi": "Ring gear menutup rangkaian reduksi planetary.",
+      "nomor_oem": "X365003300X0",
+      "ukuran": null
+    },
+    {
+      "no": 8,
+      "nama": "Gear planet dan carrier",
+      "object_ids": [
+        "EXT-ELECTRIC-46"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-ELECTRIC-46",
+          "arah": [
+            -1,
+            0,
+            0
+          ],
+          "jarak_m": 0.22,
+          "urutan": 8
+        }
+      ],
+      "status": "ESTIMATED",
+      "role": "gear",
+      "sumber": [
+        "D05 0CG10-M34300, WET (A) / Fig. 106 pos. 14"
+      ],
+      "fungsi": "Menurunkan kecepatan dan menaikkan torsi menuju pinion.",
+      "nomor_oem": "X137100020X0",
+      "ukuran": null
+    },
+    {
+      "no": 9,
+      "nama": "Poros penggerak pinion",
+      "object_ids": [
+        "EXT-ELECTRIC-47"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-ELECTRIC-47",
+          "arah": [
+            -1,
+            0,
+            0
+          ],
+          "jarak_m": 0.28,
+          "urutan": 9
+        }
+      ],
+      "status": "ESTIMATED",
+      "role": "shaft",
+      "sumber": [
+        "D05 0CG10-M34300, WET (A) / Fig. 106 pos. 16"
+      ],
+      "fungsi": "Menghubungkan reduksi planetary ke kopling pinion.",
+      "nomor_oem": "X137300010X0",
+      "ukuran": null
+    },
+    {
+      "no": 10,
+      "nama": "Kopling searah dan pinion",
+      "object_ids": [
+        "EXT-ELECTRIC-48"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-ELECTRIC-48",
+          "arah": [
+            -1,
+            0,
+            0
+          ],
+          "jarak_m": 0.35,
+          "urutan": 10
+        }
+      ],
+      "status": "ESTIMATED",
+      "role": "clutch",
+      "sumber": [
+        "D05 0CG10-M34300, WET (A) / Fig. 106 pos. 21"
+      ],
+      "fungsi": "Pinion menggerakkan flywheel; kopling searah membatasi balik penggerak.",
+      "nomor_oem": "X136107400X0",
+      "ukuran": null
+    },
+    {
+      "no": 11,
+      "nama": "Rumah ujung pinion",
+      "object_ids": [
+        "EXT-ELECTRIC-49"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-ELECTRIC-49",
+          "arah": [
+            -1,
+            0,
+            0
+          ],
+          "jarak_m": 0.44,
+          "urutan": 11
+        }
+      ],
+      "status": "ESTIMATED",
+      "role": "cover",
+      "sumber": [
+        "D05 0CG10-M34300, WET (A) / Fig. 106 pos. 25"
+      ],
+      "fungsi": "Melindungi pinion dan memusatkan motor pada housing flywheel.",
+      "nomor_oem": "X134100200X0",
+      "ukuran": null
+    },
+    {
+      "no": 12,
+      "nama": "Rumah sakelar elektromagnet starter",
+      "object_ids": [
+        "EXT-ELECTRIC-50"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-ELECTRIC-50",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.18,
+          "urutan": 12
+        }
+      ],
+      "status": "ESTIMATED",
+      "role": "shell",
+      "sumber": [
+        "D05 0CG10-M34300, WET (A) / Fig. 106 pos. 28"
+      ],
+      "fungsi": "Sakelar elektromagnet menarik linkage dan menyambungkan daya starter.",
+      "nomor_oem": "X135017810X9",
+      "ukuran": null
+    },
+    {
+      "no": 13,
+      "nama": "Kumparan solenoid",
+      "object_ids": [
+        "EXT-ELECTRIC-51"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-ELECTRIC-51",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.1,
+          "urutan": 13
+        }
+      ],
+      "status": "ESTIMATED",
+      "role": "winding",
+      "sumber": [
+        "D05 0CG10-M34300, WET (A) / Fig. 106 (section)"
+      ],
+      "fungsi": "Bagian edukasi sakelar Fig.106. Kumparan menggerakkan plunger saat diberi arus.",
+      "nomor_oem": null,
+      "ukuran": null
+    },
+    {
+      "no": 14,
+      "nama": "Plunger solenoid dan batang",
+      "object_ids": [
+        "EXT-ELECTRIC-52"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-ELECTRIC-52",
+          "arah": [
+            -1,
+            0,
+            0
+          ],
+          "jarak_m": 0.14,
+          "urutan": 14
+        }
+      ],
+      "status": "ESTIMATED",
+      "role": "core",
+      "sumber": [
+        "D05 0CG10-M34300, WET (A) / Fig. 106 (section)"
+      ],
+      "fungsi": "Bagian edukasi sakelar Fig.106. Menggerakkan lever menuju pinion.",
+      "nomor_oem": null,
+      "ukuran": null
+    },
+    {
+      "no": 15,
+      "nama": "Lever penggeser pinion",
+      "object_ids": [
+        "EXT-ELECTRIC-53"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-ELECTRIC-53",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.125,
+          "urutan": 15
+        }
+      ],
+      "status": "ESTIMATED",
+      "role": "lever",
+      "sumber": [
+        "D05 0CG10-M34300, WET (A) / Fig. 106 pos. 20"
+      ],
+      "fungsi": "Mengubah gerak plunger menjadi gerak aksial pinion.",
+      "nomor_oem": "X323205410X0",
+      "ukuran": null
+    }
+  ],
+  "notes": "Contoh katalog starter earth-float Fig.106. Fig.105 menunjukkan varian earth; identitas dan ukuran komponen unit aktual belum terverifikasi."
+}

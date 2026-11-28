@@ -1,8 +1,8 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {agents,divisions,accuracyStandards,definitionOfDone,agentByKind,agentKind} from '../src/organization.ts';
-import {organizationGraph,divisionOrder,organizationId} from '../src/organization-graph.ts';
-import {validate,execute,label,step} from '../src/flow.ts';
+import {agents,divisions,accuracyStandards,definitionOfDone,agentByKind,agentKind} from '../src/features/agents/organization.ts';
+import {organizationGraph,divisionOrder,organizationId} from '../src/features/agents/organization-graph.ts';
+import {validate,execute,label,step} from '../src/features/workflow/flow.ts';
 
 test('struktur organisasi berisi 57 agent unik di 8 divisi', () => {
   assert.equal(agents.length, 57);

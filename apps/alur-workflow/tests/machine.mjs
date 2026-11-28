@@ -1,8 +1,8 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {step,validate,execute,label} from '../src/flow.ts';
-import {machinePrompt,spliceMachine} from '../src/machine.ts';
-import {agentByKind} from '../src/organization.ts';
+import {step,validate,execute,label} from '../src/features/workflow/flow.ts';
+import {machinePrompt,spliceMachine} from '../src/features/machines/machine.ts';
+import {agentByKind} from '../src/features/agents/organization.ts';
 const kinds = [...agentByKind.keys()];
 
 const data = {nama:'',email:'',catatan:''};

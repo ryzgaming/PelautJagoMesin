@@ -1,0 +1,372 @@
+{
+  "id": "RAK-ALTERNATOR",
+  "nama": "Isi alternator · contoh katalog 600 W",
+  "node_rakitan": "RAK-ALTERNATOR",
+  "parent_rakitan": "RAK-ELECTRIC",
+  "status": "UNVERIFIED",
+  "source_refs": [
+    "D05 0CG10-M34300, WET (A) / Fig. 109",
+    "D01 PDF 14 / component locations; P08 guard, P17 starter"
+  ],
+  "acuan": {
+    "no": 1,
+    "object_ids": [
+      "EXT-ELECTRIC-01"
+    ]
+  },
+  "diagram": {
+    "arah_pandang": [
+      0.42,
+      0.36,
+      -0.83
+    ],
+    "atas": [
+      0,
+      1,
+      0
+    ]
+  },
+  "bagian": [
+    {
+      "no": 1,
+      "nama": "Rumah belakang alternator • opsi 600 W",
+      "object_ids": [
+        "EXT-ELECTRIC-01"
+      ],
+      "posisi": [],
+      "status": "ESTIMATED",
+      "role": "shell",
+      "sumber": [
+        "D05 0CG10-M34300, WET (A) / Fig. 109 pos. 4"
+      ],
+      "fungsi": "Menopang stator dan dudukan bantalan sisi belakang.",
+      "nomor_oem": "X224015400",
+      "ukuran": null
+    },
+    {
+      "no": 2,
+      "nama": "Stator dengan inti dan kumparan",
+      "object_ids": [
+        "EXT-ELECTRIC-20"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-ELECTRIC-20",
+          "arah": [
+            1,
+            0,
+            0
+          ],
+          "jarak_m": 0.174,
+          "urutan": 2
+        }
+      ],
+      "status": "ESTIMATED",
+      "role": "core",
+      "sumber": [
+        "D05 0CG10-M34300, WET (A) / Fig. 109 pos. 2"
+      ],
+      "fungsi": "Kumparan stator menerima fluks rotor dan menghasilkan arus bolak-balik.",
+      "nomor_oem": "X121100320",
+      "ukuran": null
+    },
+    {
+      "no": 3,
+      "nama": "Rotor kutub cakar, poros dan slip ring",
+      "object_ids": [
+        "EXT-ELECTRIC-21"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-ELECTRIC-21",
+          "arah": [
+            1,
+            0,
+            0
+          ],
+          "jarak_m": 0.31,
+          "urutan": 3
+        }
+      ],
+      "status": "ESTIMATED",
+      "role": "rotor",
+      "sumber": [
+        "D05 0CG10-M34300, WET (A) / Fig. 109 pos. 23"
+      ],
+      "fungsi": "Medan magnet berputar di dalam stator; slip ring membawa arus eksitasi.",
+      "nomor_oem": "X122105800",
+      "ukuran": null
+    },
+    {
+      "no": 4,
+      "nama": "Bantalan belakang alternator",
+      "object_ids": [
+        "EXT-ELECTRIC-22"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-ELECTRIC-22",
+          "arah": [
+            -1,
+            0,
+            0
+          ],
+          "jarak_m": 0.15,
+          "urutan": 4
+        }
+      ],
+      "status": "ESTIMATED",
+      "role": "bearing",
+      "sumber": [
+        "D05 0CG10-M34300, WET (A) / Fig. 109 pos. 24"
+      ],
+      "fungsi": "Menumpu ujung rotor sisi belakang.",
+      "nomor_oem": "X620600760",
+      "ukuran": null
+    },
+    {
+      "no": 5,
+      "nama": "Bantalan depan alternator",
+      "object_ids": [
+        "EXT-ELECTRIC-23"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-ELECTRIC-23",
+          "arah": [
+            1,
+            0,
+            0
+          ],
+          "jarak_m": 0.413,
+          "urutan": 5
+        }
+      ],
+      "status": "ESTIMATED",
+      "role": "bearing",
+      "sumber": [
+        "D05 0CG10-M34300, WET (A) / Fig. 109 pos. 28"
+      ],
+      "fungsi": "Menumpu ujung rotor sisi pulley.",
+      "nomor_oem": "X620600710",
+      "ukuran": null
+    },
+    {
+      "no": 6,
+      "nama": "Bracket depan berventilasi",
+      "object_ids": [
+        "EXT-ELECTRIC-24"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-ELECTRIC-24",
+          "arah": [
+            1,
+            0,
+            0
+          ],
+          "jarak_m": 0.49,
+          "urutan": 6
+        }
+      ],
+      "status": "ESTIMATED",
+      "role": "cover",
+      "sumber": [
+        "D05 0CG10-M34300, WET (A) / Fig. 109 pos. 27"
+      ],
+      "fungsi": "Menyangga bantalan depan dan menyediakan bukaan pendinginan.",
+      "nomor_oem": "X224206901",
+      "ukuran": null
+    },
+    {
+      "no": 7,
+      "nama": "Pulley dengan alur V dan kipas",
+      "object_ids": [
+        "EXT-ELECTRIC-25"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-ELECTRIC-25",
+          "arah": [
+            1,
+            0,
+            0
+          ],
+          "jarak_m": 0.57,
+          "urutan": 7
+        }
+      ],
+      "status": "ESTIMATED",
+      "role": "drive",
+      "sumber": [
+        "D05 0CG10-M34300, WET (A) / Fig. 109 pos. 36"
+      ],
+      "fungsi": "Meneruskan gerak belt; sirip belakang mengalirkan udara.",
+      "nomor_oem": "X198010300",
+      "ukuran": null
+    },
+    {
+      "no": 8,
+      "nama": "Pasak puli alternator",
+      "object_ids": [
+        "EXT-ELECTRIC-30"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-ELECTRIC-30",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.11,
+          "urutan": 8
+        }
+      ],
+      "status": "ESTIMATED",
+      "role": "key",
+      "sumber": [
+        "D05 0CG10-M34300, WET (A) / Fig. 109 pos. 34"
+      ],
+      "fungsi": "Meneruskan torsi antara alur puli dan poros rotor.",
+      "nomor_oem": "X8590407160",
+      "ukuran": null
+    },
+    {
+      "no": 9,
+      "nama": "Mur penahan puli alternator",
+      "object_ids": [
+        "EXT-ELECTRIC-31"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-ELECTRIC-31",
+          "arah": [
+            1,
+            0,
+            0
+          ],
+          "jarak_m": 0.65,
+          "urutan": 9
+        }
+      ],
+      "status": "ESTIMATED",
+      "role": "nut",
+      "sumber": [
+        "D05 0CG10-M34300, WET (A) / Fig. 109 pos. 35"
+      ],
+      "fungsi": "Menahan puli pada ujung poros rotor.",
+      "nomor_oem": "X8264143005",
+      "ukuran": null
+    },
+    {
+      "no": 10,
+      "nama": "Pelat penyearah dan heat sink",
+      "object_ids": [
+        "EXT-ELECTRIC-26"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-ELECTRIC-26",
+          "arah": [
+            -1,
+            0,
+            0
+          ],
+          "jarak_m": 0.22,
+          "urutan": 10
+        }
+      ],
+      "status": "ESTIMATED",
+      "role": "rectifier",
+      "sumber": [
+        "D05 0CG10-M34300, WET (A) / Fig. 109 pos. 5"
+      ],
+      "fungsi": "Pelat menyerap panas dari penyearah keluaran.",
+      "nomor_oem": "X123500010",
+      "ukuran": null
+    },
+    {
+      "no": 11,
+      "nama": "Sikat eksitasi",
+      "object_ids": [
+        "EXT-ELECTRIC-27"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-ELECTRIC-27",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.085,
+          "urutan": 11
+        }
+      ],
+      "status": "ESTIMATED",
+      "role": "brush",
+      "sumber": [
+        "D05 0CG10-M34300, WET (A) / Fig. 109 pos. 21"
+      ],
+      "fungsi": "Kontak geser meneruskan arus ke kedua slip ring.",
+      "nomor_oem": "X266000110",
+      "ukuran": null
+    },
+    {
+      "no": 12,
+      "nama": "Dudukan sikat",
+      "object_ids": [
+        "EXT-ELECTRIC-28"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-ELECTRIC-28",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.125,
+          "urutan": 12
+        }
+      ],
+      "status": "ESTIMATED",
+      "role": "holder",
+      "sumber": [
+        "D05 0CG10-M34300, WET (A) / Fig. 109 pos. 20"
+      ],
+      "fungsi": "Mengarahkan sikat eksitasi menuju slip ring.",
+      "nomor_oem": "X123104800",
+      "ukuran": null
+    },
+    {
+      "no": 13,
+      "nama": "Regulator alternator",
+      "object_ids": [
+        "EXT-ELECTRIC-29"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-ELECTRIC-29",
+          "arah": [
+            -1,
+            0,
+            0
+          ],
+          "jarak_m": 0.29,
+          "urutan": 13
+        }
+      ],
+      "status": "ESTIMATED",
+      "role": "regulator",
+      "sumber": [
+        "D05 0CG10-M34300, WET (A) / Fig. 109 pos. 37"
+      ],
+      "fungsi": "Mengatur arus eksitasi sesuai tegangan keluaran.",
+      "nomor_oem": "X129100300",
+      "ukuran": null
+    }
+  ],
+  "notes": "Opsi 600 W pada katalog; identitas unit terpasang, lilitan, ukuran dan celah belum terverifikasi. Alternatif 24 V–1 kW dirinci terpisah di Fig.108."
+}

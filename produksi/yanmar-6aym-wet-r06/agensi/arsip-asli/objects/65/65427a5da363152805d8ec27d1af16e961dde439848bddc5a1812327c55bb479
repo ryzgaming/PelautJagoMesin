@@ -1,0 +1,561 @@
+"""Editable internal assembly for the 6AYM-WET review. Run with Blender 4.3."""
+import bpy
+import bmesh
+import json
+import math
+import sys
+from pathlib import Path
+from mathutils import Vector
+
+OUT = Path(__file__).resolve().parent
+sys.path.insert(0,str(OUT))
+DATUM = json.loads((OUT.parent / "datum.json").read_text())
+D = next(v for v in DATUM.values() if isinstance(v, dict) and "cylinder_center_x" in v)
+C = D["cylinder_center_x"]["value"]
+DECK = D["deck_y"]["value"]
+BORE = D["bore"]["value"]
+THROW = D["crank_throw"]["value"]
+TAU = math.tau
+JOURNAL = .1339425
+CRANKPIN = .10595
+WRIST = .0619755
+HEAD_CLEAR = .001560
+CROWN_FROM_PIN = .078
+ROD = DECK - HEAD_CLEAR - THROW - CROWN_FROM_PIN
+PHASE = [0,120,240,240,120,0]
+CAM_Y, CAM_Z = .158, -.150
+
+bpy.ops.wm.read_factory_settings(use_empty=True)
+scene = bpy.context.scene
+scene.unit_settings.system = 'METRIC'
+P = {}
+ITEMS = []
+GROUPS = {}
+MOTION = {}
+
+def v(point):
+    x,y,z = point
+    return Vector((x,-z,y))
+
+def mat(name, color, rough, metal=.0):
+    m = bpy.data.materials.new(name)
+    m.diffuse_color = (*color,1)
+    m.use_nodes = True
+    shader = m.node_tree.nodes.get('Principled BSDF')
+    shader.inputs['Base Color'].default_value = (*color,1)
+    shader.inputs['Roughness'].default_value = rough
+    shader.inputs['Metallic'].default_value = metal
+    return m
+
+steel = mat('Forged steel',(.19,.22,.24),.39,.75)
+turned = mat('Machined steel',(.48,.55,.61),.26,.82)
+cast = mat('Machined cast iron',(.27,.31,.34),.42,.62)
+bronze = mat('Bearing alloy appearance',(.47,.28,.11),.38,.63)
+rubber = mat('Seal appearance',(.035,.043,.049),.66)
+piston_m = mat('Piston metal appearance',(.57,.58,.61),.35,.72)
+spring_m = mat('Spring steel',(.32,.35,.41),.31,.72)
+grey = mat('Neutral geometry',(.34,.34,.34),.58)
+
+SOURCES = {
+    "CRANK":"D01 PDF 104–106 / cetak 100–102",
+    "MAIN":"D01 PDF 104 & 106 / cetak 100 & 102",
+    "PISTON":"D01 PDF 96–99 / cetak 92–95",
+    "ROD":"D01 PDF 100–103 / cetak 96–99",
+    "LINER":"D01 PDF 94–95 / cetak 90–91",
+    "CAM":"D01 PDF 107–110 / cetak 103–106",
+    "VALVE":"D01 PDF 86–93 / cetak 82–89 dan D03 PDF 17 / cetak 32",
+    "FUELINJ":"D01 PDF 150–152 / cetak 146–148 dan D05 Fig. 79",
+    "TIMING":"D01 PDF 111–112 / cetak 107–108",
+    "OILPUMP":"D01 PDF 13 / cetak 9 dan PDF 112 / cetak 108",
+}
+NAMES = dict(CRANK="Crankshaft",MAIN="Main bearings",PISTON="Piston dan ring",ROD="Connecting rod",LINER="Wet liner",CAM="Camshaft dan tappet",VALVE="Valve train",FUELINJ="Fuel injector",TIMING="Timing gears",OILPUMP="Lubricating oil pump")
+
+def empty(name, p=(0,0,0), parent=None, axis=None):
+    ob = bpy.data.objects.new(name,None)
+    scene.collection.objects.link(ob)
+    ob.location = v(p)
+    ob.empty_display_size = .025
+    ob.parent = parent
+    if axis:
+        MOTION[name] = dict(parent=parent.name, rest_translation_m=list(p),axis=list(axis))
+    return ob
+
+for group in NAMES:
+    GROUPS[group] = empty('RAK-INT-' + group)
+
+def make(part, name, group, verts, faces, material, parent=None, pivot=(0,0,0), smooth=False, status="OBSERVED", dimensions=None, note=None):
+    mesh = bpy.data.meshes.new(part)
+    base = v(pivot)
+    mesh.from_pydata([v(p)-base for p in verts],[],faces)
+    bm = bmesh.new()
+    bm.from_mesh(mesh)
+    bmesh.ops.recalc_face_normals(bm,faces=list(bm.faces))
+    bm.to_mesh(mesh)
+    bm.free()
+    mesh.update()
+    obj = bpy.data.objects.new(part,mesh)
+    scene.collection.objects.link(obj)
+    obj.parent = parent or GROUPS[group]
+    obj.location = base
+    obj.data.materials.append(material)
+    if smooth:
+        for poly in mesh.polygons:
+            poly.use_smooth = True
+        for edge in mesh.edges:
+            edge.use_edge_sharp = False
+        mesh.set_sharp_from_angle(angle=.67)
+    obj["part_label"] = name
+    obj["evidence_status"] = status
+    obj["source"] = SOURCES[group]
+    ITEMS.append(dict(id=part,name=name,assembly='RAK-INT-'+group,node=part,parent=obj.parent.name,part_number=None,quantity=1,status=status,source_refs=[SOURCES[group]],dimensions=dimensions or {},notes=note or "Detail ukuran dan radius tepi belum ditetapkan oleh gambar berdimensi.",appearance_material=material.name))
+    return obj
+
+def axis_coords(axis, center, h, r, a):
+    u,w = r*math.cos(a),r*math.sin(a)
+    x,y,z = center
+    return ((x+h,y+u,z+w),(x+u,y+h,z+w),(x+u,y+w,z+h))[axis]
+
+def lathe(part,name,group,axis,center,profile,material,parent=None,pivot=None,n=48,closed=True,arc=TAU,begin=0,**meta):
+    full = math.isclose(arc,TAU)
+    count = n if full else n+1
+    verts = []
+    for h,r in profile:
+        for i in range(count):
+            verts.append(axis_coords(axis,center,h,r,begin+arc*i/n))
+    faces = []
+    rows = len(profile)
+    for j in range(rows if closed else rows-1):
+        for i in range(n):
+            u,w = j*count,((j+1)%rows)*count
+            i1 = (i+1)%count
+            faces.append((u+i,u+i1,w+i1,w+i))
+    if not closed:
+        faces += [tuple(range(count)),tuple((rows-1)*count+i for i in reversed(range(count)))]
+    elif not full:
+        faces += [tuple(j*count for j in range(rows)),tuple(j*count+n for j in reversed(range(rows)))]
+    return make(part,name,group,verts,faces,material,parent,pivot or center,True,**meta)
+
+def cyl(part,name,group,axis,center,r,width,material,parent=None,n=48,**meta):
+    b = min(.001,width*.13,r*.12)
+    return lathe(part,name,group,axis,center,[(-width/2,r-b),(-width/2+b,r),(width/2-b,r),(width/2,r-b)],material,parent,n=n,closed=False,**meta)
+
+def ring(part,name,group,axis,center,inner,outer,width,material,parent=None,n=48,arc=TAU,begin=0,**meta):
+    return lathe(part,name,group,axis,center,[(-width/2,inner),(-width/2,outer),(width/2,outer),(width/2,inner)],material,parent,n=n,arc=arc,begin=begin,**meta)
+
+def prism(part,name,group,axis,center,coords,width,material,parent=None,**meta):
+    i,j,k = center
+    n = len(coords)
+    verts = []
+    for a in [-width/2,width/2]:
+        for b,c in coords:
+            verts.append(((i+a,j+b,k+c),(i+b,j+a,k+c),(i+b,j+c,k+a))[axis])
+    faces = [tuple(reversed(range(n))),tuple(n+i for i in range(n))]
+    faces += [(i,(i+1)%n,(i+1)%n+n,i+n) for i in range(n)]
+    return make(part,name,group,verts,faces,material,parent,center,**meta)
+
+def beam(part,name,group,a,b,r,material,parent=None,n=16,**meta):
+    center = tuple((q+w)/2 for q,w in zip(a,b))
+    length = (v(b)-v(a)).length
+    ob = cyl(part,name,group,1,center,r,length,material,parent,n=n,**meta)
+    ob.rotation_mode = "QUATERNION"
+    ob.rotation_quaternion = (v(b)-v(a)).normalized().to_track_quat('Z','Y')
+    return ob
+
+def curve_tube(part,name,group,points,r,material,parent=None,ns=8,**meta):
+    verts = []
+    for j,(x,y,z) in enumerate(points):
+        p = Vector((x,y,z))
+        t = Vector(points[min(j+1,len(points)-1)])-Vector(points[max(j-1,0)])
+        t.normalize()
+        axis = Vector((0,1,0)) if abs(t.y)<.95 else Vector((1,0,0))
+        u = t.cross(axis).normalized()
+        w = t.cross(u)
+        verts.extend(tuple(p+r*(u*math.cos(TAU*k/ns)+w*math.sin(TAU*k/ns))) for k in range(ns))
+    faces = [tuple(reversed(range(ns)))]
+    for j in range(len(points)-1):
+        faces.extend((j*ns+k,j*ns+(k+1)%ns,(j+1)*ns+(k+1)%ns,(j+1)*ns+k) for k in range(ns))
+    faces.append(tuple((len(points)-1)*ns+k for k in range(ns)))
+    return make(part,name,group,verts,faces,material,parent,points[0],True,**meta)
+
+def mount_bolt(part,name,group,x,y,z,parent=None,r=.010,width=.017):
+    return cyl(part,name,group,1,(x,y,z),r,width,turned,parent,n=6,status="ILLUSTRATIVE")
+
+def boolean_bore(obj, axis, location, radius, length):
+    bpy.ops.mesh.primitive_cylinder_add(vertices=48, radius=radius, depth=length, location=v(location))
+    tool = bpy.context.object
+    tool.parent = obj.parent
+    axis_dirs = ((1,0,0),(0,0,1),(0,-1,0))
+    tool.rotation_mode = 'QUATERNION'
+    tool.rotation_quaternion = Vector(axis_dirs[axis]).to_track_quat('Z','Y')
+    bpy.context.view_layer.update()
+    mod = obj.modifiers.new('Pin bore','BOOLEAN')
+    mod.operation = 'DIFFERENCE'
+    mod.object = tool
+    bpy.context.view_layer.objects.active = obj
+    bpy.ops.object.modifier_apply(modifier=mod.name)
+    bpy.data.objects.remove(tool,do_unlink=True)
+    bm=bmesh.new()
+    bm.from_mesh(obj.data)
+    bmesh.ops.remove_doubles(bm,verts=list(bm.verts),dist=1e-7)
+    bmesh.ops.recalc_face_normals(bm,faces=list(bm.faces))
+    bm.to_mesh(obj.data)
+    bm.free()
+    obj.data.update()
+
+crank = empty("MOT-INT-CRANK",(0,0,0),GROUPS["CRANK"],(1,0,0))
+cam = empty("MOT-INT-CAM",(0,CAM_Y,CAM_Z),GROUPS["CAM"],(1,0,0))
+mains = [.114,.309,.509,.709,.909,1.109,1.303]
+for i,x in enumerate(mains,1):
+    cyl(f"INT-CRANK-{i:02d}","Main journal "+str(i),"CRANK",0,(x,0,0),JOURNAL/2,.039,turned,crank,dimensions={"journal_diameter_m":{"value":JOURNAL,"status":"DOCUMENTED","standard_range":[.133930,.133955]}})
+    for j,(begin,matl) in enumerate([(0,bronze),(math.pi,bronze)],1):
+        ring(f"INT-MAIN-{i*10+j:02d}","Main bearing half shell","MAIN",0,(x,0,0),JOURNAL/2+.00015,.071,.035,matl,n=40,arc=math.pi-.008,begin=begin-math.pi/2+.004)
+    base=[(-.090,-.104),(-.090,.104),(-.029,.104),(.005,.078),(-.044,.068),(-.070,.044),(-.075,0),(-.070,-.044),(-.044,-.068),(.005,-.078),(-.029,-.104)]
+    prism(f"INT-MAIN-{i*10+3:02d}","Main bearing cap","MAIN",0,(x,0,0),base,.033,cast)
+    for j,z in enumerate([-.092,.092],4):
+        mount_bolt(f"INT-MAIN-{i*10+j:02d}","Main bearing cap bolt","MAIN",x,-.093,z,None,.010,.017)
+
+cyl("INT-CRANK-08","Crankshaft rear flange","CRANK",0,(-.023,0,0),.094,.054,turned,crank)
+cyl("INT-CRANK-09","Crankshaft front nose","CRANK",0,(1.343,0,0),.046,.044,turned,crank)
+cyl("INT-CRANK-10","Rear crankshaft extension","CRANK",0,(.053,0,0),.064,.102,steel,crank)
+
+def pin(angle):
+    a=math.radians(angle)
+    return THROW*math.cos(a),-THROW*math.sin(a)
+
+def pin_y(cy,cz):
+    return cy+math.sqrt(ROD*ROD-cz*cz)
+
+for i,(x,ph) in enumerate(zip(C,PHASE),1):
+    cy,cz=pin(ph)
+    top=cyl(f"INT-CRANK-{i*10+10:02d}",f"Crankpin {i}","CRANK",0,(x,cy,cz),CRANKPIN/2,.108,turned,crank,dimensions={"crankpin_diameter_m":{"value":CRANKPIN,"status":"DOCUMENTED","standard_range":[.105940,.105960]},"throw_m":{"value":THROW,"status":"INFERRED","method":"Setengah stroke D01 PDF 13"}})
+    front_angle=math.atan2(cz,cy)
+    for s in [-1,1]:
+        pts=[]
+        for j in range(30):
+            a=front_angle-math.pi*.5+math.pi*j/29
+            pts.append((cy+.077*math.cos(a),cz+.077*math.sin(a)))
+        for j in range(30):
+            a=front_angle+math.pi*.5+math.pi*j/29
+            pts.append((.075*math.cos(a),.075*math.sin(a)))
+        prism(f"INT-CRANK-{i*10+10+(1 if s<0 else 2):02d}","Crank web","CRANK",0,(x+s*.064,0,0),pts,.026,steel,crank)
+        if (i,s) in [(1,-1),(2,1),(5,-1),(6,1)]:
+            pts=[]
+            for rad, orient in [(.174,-1),(.066,1)]:
+                for j in range(20):
+                    a=front_angle+math.pi+orient*(-.82+1.64*j/19)
+                    pts.append((rad*math.cos(a),rad*math.sin(a)))
+            prism(f"INT-CRANK-{i*10+10+(3 if s<0 else 4):02d}","Counterweight","CRANK",0,(x+s*.067,0,0),pts,.032,steel,crank,note="Empat bobot tercatat pada D01 PDF 104; sektor, profil, dan penempatan aksial ilustratif.")
+
+    yy=pin_y(cy,cz)
+    pist=empty(f"MOT-INT-PISTON-{i}",(x,yy,0),GROUPS["PISTON"],(0,1,0))
+    rod=empty(f"MOT-INT-ROD-{i}",(x,cy,cz),GROUPS["ROD"],(1,0,0))
+    rod.rotation_euler.x=math.atan2(-cz,yy-cy)
+    prof=[(-.065,.068),(-.064,.074),(-.056,.077),(-.018,.07746),(.027,.0773),(.033,.0773),(.033,.0726),(.037,.0726),(.037,.07725),(.046,.07725),(.046,.0703),(.0492,.0703),(.0492,.07725),(.058,.07725),(.058,.07135),(.0617,.07135),(.0617,.07725),(.0755,.07725),(.078,.075),(.078,.056),(.077,.052),(.075,.046),(.068,.045),(.059,.039),(.052,.027),(.051,.014),(.052,.004)]
+    prof=[(.047,.004),(.046,.027),(.045,.050),(.038,.061),(.015,.065),(-.058,.065)]+prof
+    piston=lathe(f"INT-PISTON-{i*10+1:02d}","Piston dengan bowl, skirt dan ring grooves","PISTON",1,(0,0,0),prof,piston_m,pist,n=72,closed=False,dimensions={"crown_to_pin_m":{"value":CROWN_FROM_PIN,"status":"ILLUSTRATIVE"},"piston_od_m":{"value":.154920,"status":"DOCUMENTED","standard_range":[.154915,.154925],"method":"D01 PDF 96 midpoint size S measured 47 mm from skirt bottom."}})
+    for s in [-1,1]:
+        boss=ring(f"INT-PISTON-{i*10+(6 if s<0 else 7):02d}","Piston pin boss","PISTON",0,(s*.050,0,0),WRIST/2+.0001,.038,.039,piston_m,pist,n=48)
+    boolean_bore(piston,0,(0,0,0),WRIST/2+.0003,.169)
+    ring(f"INT-PISTON-{i*10+2:02d}","Hollow piston pin","PISTON",0,(0,0,0),.014,WRIST/2,.149,turned,pist,dimensions={"pin_diameter_m":{"value":WRIST,"status":"DOCUMENTED","standard_range":[.061971,.061980]}})
+    for s in [-1,1]:
+        ring(f"INT-PISTON-{i*10+(8 if s<0 else 9):02d}","Piston pin retaining circlip","PISTON",0,(s*.0749,0,0),.0287,.0315,.0016,spring_m,pist,n=48,arc=TAU-.34)
+    ring(f"INT-PISTON-{i*10+10:02d}","Oil ring spring expander","PISTON",1,(0,.035,0),.0729,.07445,.0026,spring_m,pist,n=60)
+    for j,(h,r,width,label,gap) in enumerate([(.05985,.0057,.00348,"Top compression ring",.000475),(.0476,.0067,.00298,"Second compression ring",.000625),(.035,.003,.00398,"Oil control ring",.0005)],3):
+        ring(f"INT-PISTON-{i*10+j:02d}",label,"PISTON",1,(0,h,0),.07748-r,.07748,width,steel,pist,n=72,arc=TAU-gap/.07748,begin=(j-3)*2*math.pi/3,dimensions={"width_m":{"value":width,"status":"DOCUMENTED","source":"D01 PDF 98, midpoint standard width"},"radial_thickness_m":{"value":r,"status":"DOCUMENTED","source":"D01 PDF 98, midpoint standard ring thickness"}})
+
+    for j,(begin,name,outer,w,material) in enumerate([(0,"Rod big-end",.073,.103,steel),(math.pi,"Rod cap",.073,.103,steel),(0,"Upper connecting rod bearing shell",.057,.101,bronze),(math.pi,"Lower connecting rod bearing shell",.057,.101,bronze)],1):
+        ring(f"INT-ROD-{i*10+j:02d}",name,"ROD",0,(0,0,0),(.057 if j<3 else CRANKPIN/2+.00015),outer,w,material,rod,n=36,arc=math.pi-.008,begin=begin-math.pi/2+.004)
+    ring(f"INT-ROD-{i*10+5:02d}","Rod small-end eye","ROD",0,(0,ROD,0),.034,.043,.058,steel,rod)
+    ring(f"INT-ROD-{i*10+6:02d}","Piston pin bushing","ROD",0,(0,ROD,0),WRIST/2+.00012,.034,.058,bronze,rod)
+    profile=[(.061,-.035),(.119,-.024),(ROD-.068,-.018),(ROD-.035,-.028),(ROD-.035,.028),(ROD-.068,.018),(.119,.024),(.061,.035)]
+    prism(f"INT-ROD-{i*10+7:02d}","Tapered connecting rod web","ROD",0,(0,0,0),profile,.025,steel,rod,dimensions={"rod_centers_m":{"value":ROD,"status":"ILLUSTRATIVE","method":"Deck minus nominal TDC clearance, throw dan compression height ilustratif."}})
+    for s in [-1,1]:
+        prism(f"INT-ROD-{i*10+(8 if s<0 else 9):02d}","Connecting rod I-beam flange","ROD",0,(s*.019,0,0),profile,.014,steel,rod)
+    for j,z in enumerate([-.064,.064],90):
+        cyl(f"INT-ROD-{i*10+j:03d}","Rod cap bolt","ROD",1,(0,-.018,z),.008,.049,turned,rod,n=18)
+        mount_bolt(f"INT-ROD-{i*10+j+60:03d}","Rod cap nut","ROD",0,-.043,z,rod,.013,.013)
+        mount_bolt(f"INT-ROD-{i*10+j+140:03d}","Rod bolt head","ROD",0,.013,z,rod,.010,.010)
+
+    lp=[(-.316,BORE/2),(-.001,BORE/2),(-.001,.0905),(-.012,.0905),(-.014,.087),(-.018,.085),(-.023,.085),(-.023,.088),(-.030,.088),(-.033,.084),(-.251,.084),(-.253,.087),(-.268,.087),(-.268,.084),(-.273,.084),(-.273,.087),(-.285,.087),(-.285,.084),(-.290,.084),(-.290,.087),(-.311,.087),(-.316,.084)]
+    lathe(f"INT-LINER-{i*10+1:02d}","Wet cylinder liner dengan flange dan alur seal","LINER",1,(x,DECK+.001,0),lp,cast,n=180,dimensions={"bore_m":{"value":BORE,"status":"DOCUMENTED","source":"D01 PDF 13 (nominal); PDF 94 grade S 155.000–155.010 mm"},"flange_od_m":{"value":.181,"status":"ILLUSTRATIVE"},"length_m":{"value":.315,"status":"ILLUSTRATIVE"}})
+    for j,(h,r) in enumerate([(-.0205,.086),(-.2705,.085),(-.2875,.085)],2):
+        profile=[(h+.0024*math.sin(TAU*k/12),r+.0024*math.cos(TAU*k/12)) for k in range(12)]
+        lathe(f"INT-LINER-{i*10+j:02d}","Liner O-ring","LINER",1,(x,DECK+.001,0),profile,rubber,n=48)
+
+cyl("INT-CAM-01","Camshaft core","CAM",0,(.695,0,0),.026,1.228,steel,cam)
+for i,x in enumerate(mains,1):
+    cyl(f"INT-CAM-{i+1:02d}","Camshaft journal","CAM",0,(x,0,0),.031,.032,turned,cam)
+phase720 = {number: 120*index for index,number in enumerate([1,4,2,6,3,5])}
+valve_train = []
+for i,x in enumerate(C,1):
+    cyl(f"INT-VALVE-{i*100+1:03d}","Rocker shaft","VALVE",0,(x,.635,-.089),.0319785/2,.157,turned,dimensions={"shaft_od_m":{"value":.0319785,"status":"DOCUMENTED","source":"D01 PDF 92 / cetak 88","standard_range":[.031966,.031991]}})
+    for j,(timing,z,head_r) in enumerate([("Intake",-.034,.025),("Exhaust",.034,.023)]):
+        firing = phase720[i]
+        center_angle = (firing+(450 if j==0 else 270))%720
+        dx = -.050 if j==0 else .050
+        lobe_angle=math.radians(center_angle/2)
+        pts=[]
+        for k in range(64):
+            a=TAU*k/64
+            delta=(a-lobe_angle+math.pi)%TAU-math.pi
+            rad=.036+.0072*math.cos(delta*math.pi/(2*math.radians(42)))**2 if abs(delta)<math.radians(42) else .036
+            pts.append((rad*math.cos(a),rad*math.sin(a)))
+        prism(f"INT-CAM-{i*10+j+2:02d}",f"{timing} cam lobe {i}","CAM",0,(x+dx,0,0),pts,.020,steel,cam,status="ILLUSTRATIVE",note="Lobe profile and clocking visualize an illustrative four-stroke event.")
+        tappet=empty(f"MOT-INT-TAPPET-{i}-{j+1}",(x+dx,.198,CAM_Z),GROUPS["CAM"],(0,1,0))
+        cyl(f"INT-CAM-{i*10+j+4:02d}","Cam follower foot","CAM",1,(0,.002,0),.015,.011,turned,tappet)
+        cyl(f"INT-CAM-{i*10+j+6:02d}","Tappet","CAM",1,(0,.019,0),.009,.034,steel,tappet)
+        beam(f"INT-CAM-{i*10+j+8:02d}","Push rod","CAM",(0,.025,0),(0,.425,-.001),.0045,turned,tappet)
+        arm=empty(f"MOT-INT-ROCKER-{i}-{j+1}",(x+dx,.635,-.089),GROUPS["VALVE"],(1,0,0))
+        ring(f"INT-VALVE-{i*100+10*j+2:03d}","Rocker pivot bushing","VALVE",0,(0,0,0),.0161,.019,.024,bronze,arm,n=32)
+        arm_prof=[(-.021,-.067),(.007,-.067),(.018,-.045),(.017,-.012),(.014,.021),(.008,.087+z),(-.012,.092+z),(-.016,.064+z),(-.019,.008)]
+        prism(f"INT-VALVE-{i*100+10*j+3:03d}","Rocker arm","VALVE",0,(0,0,0),arm_prof,.014,steel,arm)
+        mount_bolt(f"INT-VALVE-{i*100+10*j+4:03d}","Rocker lash adjuster","VALVE",0,-.012,-.059,arm,.008,.017)
+        lift=empty(f"MOT-INT-VALVE-{i}-{j+1}",(x,DECK+.002,z),GROUPS["VALVE"],(0,1,0))
+        beam(f"INT-VALVE-{i*100+10*j+5:03d}","Valve bridge","VALVE",(-.049,.132,0),(.049,.132,0),.0075,cast,lift)
+        for k,s in enumerate([-1,1]):
+            lx=s*.035
+            q=i*100+20*j+30+k*7
+            lathe(f"INT-VALVE-{q:03d}",f"{timing} poppet valve","VALVE",1,(lx,0,0),[(0,head_r-.002),(.002,head_r),(.005,head_r-.003),(.010,.009),(.018,.005),(.1105,.005),(.1108,.00445),(.1149,.00445),(.1153,.005),(.128,.005),(.129,.004)],turned,lift,n=40,closed=False)
+            lathe(f"INT-VALVE-{q+1:03d}","Rotator katup","VALVE",1,(lx,.113,0),[(-.0019,.0063),(-.0019,.0149),(-.0009,.0168),(.001,.0168),(.001,.0158),(.004,.0158),(.004,.00765)],steel,lift,n=40)
+            ring(f"INT-VALVE-{q+2:03d}","Valve guide","VALVE",1,(x+lx,.532,z),.00535,.008,.034,bronze,n=28)
+            ring(f"INT-VALVE-{q+3:03d}","Valve spring seat","VALVE",1,(x+lx,.5505,z),.01075,.017,.004,steel,n=28)
+            spring=empty(f"MOT-INT-SPRING-{i}-{j+1}-{k+1}",(x+lx,.553,z),GROUPS["VALVE"],(0,1,0))
+            coil=[(.013*math.cos(TAU*6*u/144),.0022+.0456*u/144,.013*math.sin(TAU*6*u/144)) for u in range(145)]
+            curve_tube(f"INT-VALVE-{q+4:03d}","Valve spring","VALVE",coil,.00225,spring_m,spring)
+        valve_train.append(dict(cylinder=i,kind=timing,firing_deg=firing,lift_center_deg=center_angle,lift_max_m=.009,half_window_deg=84,valve_root=lift.name,tappet_root=tappet.name,rocker_root=arm.name,pushrod_ratio=.80,springs=[f"MOT-INT-SPRING-{i}-{j+1}-{k+1}" for k in range(2)],spring_height_m=.05,rocker_lever_m=.089+z))
+
+from mechanical_service import build as build_mechanics
+build_mechanics(globals())
+
+from injector import build as build_injectors
+build_injectors(globals(),C,DECK)
+
+def gear(part,label,group,pivot,pr,width,teeth,inner,hand,parent=None,phase=0,**meta):
+    center=(0,0,0) if parent else pivot
+    x,y,z=center
+    count=teeth*6
+    vertices=[]
+    for axial,radial,twist in [(-width/2,0,0),(-width/2,1,-.18*hand),(0,1,0),(width/2,1,.18*hand),(width/2,0,0)]:
+        for q in range(count):
+            s=q%6
+            r=inner if radial==0 else pr + [-.0029,-.0029,.0024,.0024,.0024,-.0029][s]
+            a=phase+TAU*(q+twist)/count
+            vertices.append((x+axial,y+r*math.cos(a),z+r*math.sin(a)))
+    faces=[]
+    for row in range(5):
+        for q in range(count):
+            s=(q+1)%count
+            a,b=row*count,((row+1)%5)*count
+            faces.append((a+q,a+s,b+s,b+q))
+    return make(part,label,group,vertices,faces,turned,parent,center,False,**meta)
+
+def rear(name,num,x,y,z,r,teeth,inner,hand,rate):
+    node=empty(f"MOT-INT-GEAR-{num:02d}",(x,y,z),GROUPS["TIMING"],(1,0,0))
+    gear(f"INT-TIMING-{num:02d}",name,"TIMING",(x,y,z),r,.029,teeth,inner,hand,node,status="ILLUSTRATIVE",note="Posisi dan rasio edukatif berdasarkan D01 PDF 112; jumlah gigi, helix, dan mounting tidak terverifikasi.")
+    MOTION[node.name]["signed_crank_rotation_ratio"]=rate
+
+# The rear gear diagram uses two coaxial, axially separated idlers.
+# Pitch radii use the same common 5 mm pitch diameter per tooth for the demonstration.
+rear("Rear crankshaft timing gear",1,.023,0,0,.075,30,.061,1,1)
+rear("Compound idler gear B",2,.023,.149271156,.014768951,.075,30,.030,-1,-1)
+rear("Compound idler gear A",3,.057,.149271156,.014768951,.055,22,.030,-1,-1)
+rear("Rear camshaft timing gear",4,.057,CAM_Y,CAM_Z,.110,44,.029,1,.5)
+rear("Injection pump driving gear",5,.057,.111,-.308,.055,22,.021,-1,-1)
+rear("Sea-water pump driving gear",6,.057,.186,-.328,.0225,9,.010,1,22/9)
+rear("Lubricating oil pump driving gear",7,.023,-.150,0,.075,30,.025,-1,-1)
+rear("Front camshaft driving gear",8,1.292,CAM_Y,CAM_Z,.110,44,.029,-1,.5)
+rear("Front coolant pump gear",9,1.292,.247,-.277,.045,18,.020,1,-22/18)
+rear("Front alternator gear",10,1.292,.282,-.057,.045,18,.020,1,-22/18)
+MOTION["MOT-INT-GEAR-04"]["signed_crank_rotation_ratio"] = .5
+
+for i,x in enumerate([.023,.057],11):
+    cyl(f"INT-TIMING-{i:02d}","Compound idler hub","TIMING",0,(x,.149271156,.014768951),.029,.030,bronze)
+cyl("INT-OILPUMP-01","Oil pump drive shaft","OILPUMP",0,(.061,-.150,0),.024,.104,steel)
+pump_shape=[(-.207,-.065),(-.194,-.083),(-.117,-.083),(-.091,-.064),(-.091,.028),(-.105,.050),(-.193,.050),(-.207,.027)]
+ob=prism("INT-OILPUMP-02","Oil pump body","OILPUMP",0,(.090,0,0),pump_shape,.051,cast,status="ILLUSTRATIVE",note="D01 documents the gear-driven oil pump; pump casting outline and pickup routing are illustrative.")
+for z in [0,-.043]:
+    boolean_bore(ob,0,(.09,-.150,z),.023,.070)
+for i,z in enumerate([0,-.043],3):
+    gear(f"INT-OILPUMP-{i:02d}","Oil pump rotor","OILPUMP",(.090,-.150,z),.020,.040,14,.009,0,status="ILLUSTRATIVE")
+prism("INT-OILPUMP-05","Oil pump cover plate","OILPUMP",0,(.119,0,0),pump_shape,.007,steel,status="ILLUSTRATIVE")
+for i,(y,z) in enumerate([(-.115,.036),(-.186,.036),(-.115,-.067),(-.186,-.067)],6):
+    cyl(f"INT-OILPUMP-{i:02d}","Oil pump cover bolt","OILPUMP",0,(.125,y,z),.006,.010,turned,n=6,status="ILLUSTRATIVE")
+tube=[(.09,-.20,-.031),(.09,-.222,-.031),(.092,-.245,-.032),(.103,-.266,-.032),(.133,-.298,-.031),(.157,-.325,-.024),(.169,-.371,-.012),(.186,-.445,0),(.201,-.482,0)]
+curve_tube("INT-OILPUMP-10","Sump pickup pipe","OILPUMP",tube,.014,steel,ns=16,status="ILLUSTRATIVE")
+lathe("INT-OILPUMP-11","Oil pickup screen housing","OILPUMP",1,(.201,-.485,0),[(-.020,.055),(-.016,.058),(-.009,.058),(0,.050),(.011,.022),(.016,.019)],cast,closed=False,status="ILLUSTRATIVE")
+
+def catalog_reference(row):
+    part, label = row["id"],row["name"]
+    if part.startswith("INT-CRANK-"):
+        return "D05 Fig. 38 ref 1/1B–1G", None, "Main crankshaft assembly; serial/weight option unresolved."
+    if part == "INT-TIMING-01":
+        return "D05 Fig. 38 ref 3","148620-21201",None
+    if label.startswith("Piston dengan"):
+        return "D05 Fig. 39 ref 1",None,"748699-22800 is the complete piston assembly number."
+    if label == "Hollow piston pin":
+        return "D05 Fig. 39 ref 9","148620-22310",None
+    if label == "Piston pin retaining circlip":
+        return "D05 Fig. 39 ref 10","22252-000620",None
+    if part.startswith("INT-PISTON-") and "ring" in label.lower():
+        return "D05 Fig. 39 ref 3",None,"748660-22500 denotes the ring set."
+    if label in {"Rod cap bolt","Rod bolt head"}:
+        return "D05 Fig. 39 ref 15","148620-23202",None
+    if label == "Rod cap nut":
+        return "D05 Fig. 39 ref 16","148620-23220",None
+    if label == "Piston pin bushing":
+        return "D05 Fig. 39 ref 19","148620-23820",None
+    if part.startswith("INT-ROD-") and "shell" in label:
+        return "D05 Fig. 39 ref 17",None,"748620-23600 denotes the standard bearing shell set; service undersizes also listed."
+    if part.startswith("INT-ROD-"):
+        return "D05 Fig. 39 ref 11",None,"Rod and cap assigned to observed assembly; exact catalog option unverified."
+    return None,None,None
+
+# Local part transforms and source IDs also travel with GLB extras for the inspector.
+bpy.context.view_layer.update()
+for row in ITEMS:
+    obj = bpy.data.objects[row["id"]]
+    row["parent"] = obj.parent.name if obj.parent else None
+    xx,zz,yy=obj.location
+    row["rest_translation_m"]=[xx,yy,-zz]
+    row["blender_rest_quaternion_xyzw"]=list(obj.rotation_quaternion[1:])+[obj.rotation_quaternion.w] if obj.rotation_mode=="QUATERNION" else list(obj.rotation_euler.to_quaternion()[1:])+[obj.rotation_euler.to_quaternion().w]
+    ref,pn,note=catalog_reference(row)
+    if ref:
+        row["source_refs"].append(ref)
+        obj["source"] += "; "+ref
+    if pn:
+        row["part_number"]=pn
+        obj["part_number"]=pn
+    if note:
+        row["notes"]+=" "+note
+    row["source"] = row["source_refs"][0]
+    obj["part_id"]=row["id"]
+    obj["assembly"]=row["assembly"]
+    obj.select_set(True)
+for root in [o for o in scene.objects if o.type == 'EMPTY']:
+    root.select_set(True)
+
+def write(name,payload,folder=OUT):
+    (folder/name).write_text(json.dumps(payload,indent=2,ensure_ascii=False)+"\n")
+
+write("inventory.json",dict(machine_model="Yanmar 6AYM-WET H 555 kW",status="UNVERIFIED",source_coverage=SOURCES,components=ITEMS))
+kin=dict(
+    status="UNVERIFIED",units={"length":"m","angle":"deg (viewer applies rad)"},
+    datum={"crank_axis":"+X","up":"+Y","direction":"-X yaw, CCW viewed from flywheel; +θ elapsed","rest":"No.1 compression TDC crank reference; exported valve baseline closed, evaluate all valve events at θ=0 when animated"},
+    crank_root=crank.name,cam_root=cam.name,crank_signed_rotation_ratio=-1,cam_signed_rotation_ratio=-.5,
+    firing_order=[1,4,2,6,3,5],cylinder_center_x_m=C,throw_m=THROW,stroke_m=2*THROW,
+    crankpin_phase_degrees=PHASE,cylinder_firing_degrees=phase720,rod_center_to_center_m=ROD,
+    cylinders=[dict(number=i,x_m=x,crankpin_phase_deg=ph,firing_deg=phase720[i],rod_root=f"MOT-INT-ROD-{i}",piston_root=f"MOT-INT-PISTON-{i}") for i,(x,ph) in enumerate(zip(C,PHASE),1)],
+    equations={"a":"radians(elapsed + phase[i])","crankpin":"[x,throw*cos(a),-throw*sin(a)]","piston_pin_y":"crankpin.y+sqrt(rod_cc^2-crankpin.z^2)","rod_rotation_x":"atan2(-crankpin.z,piston_pin_y-crankpin.y)","valve_lift":"max(0,cos(pi*wrappedDistance720(elapsed,center_angle)/(2*half_window)))^2*max_lift inside half_window only","valve_root_y":"rest_y - lift","tappet_root_y":"rest_y + lift*pushrod_ratio","rocker_rotation_x":"lift/rocker_lever","spring_scale_y":"(spring_height_m - lift)/spring_height_m"},
+    motion_roots=MOTION,valve_train=valve_train,
+    documented={"firing_order":"D01 PDF 13","stroke":"D01 PDF 13","crankshaft_rotation":"D01 PDF 13","crankpin_phase":"INFERRED from D01 firing and even 120° combustion intervals","cam_ratio":"INFERRED 1:2 relationship from four-stroke OHV cycle"},
+    illustrative=["Rod center distance and piston compression height","Valve lift, events, spring travel, rocker geometry","Gear tooth profile/count and non-cam ratios","Discrete event and crank-slider demonstration"],
+)
+write("kinematics.json",kin)
+assembly_dir=OUT.parent/"assemblies"
+for group,n in NAMES.items():
+    ids=[it["id"] for it in ITEMS if it["assembly"]=="RAK-INT-"+group]
+    write("INT-"+group+".json",dict(id="INT-"+group,nama=n,node_rakitan="RAK-INT-"+group,acuan=[dict(no=1,object_ids=ids,sumber=SOURCES[group])],diagram=dict(arah_pandang=[1,.7,1],atas=[0,1,0])),assembly_dir)
+
+samples=[]
+for elapsed in range(0,721,10):
+    minima=dict(piston_to_head=20,piston_skirt_to_crankpin=20,valve_to_crown=20,ring_to_liner_radial=(BORE/2)*math.cos(math.pi/180)-.07748)
+    for i,a in enumerate(PHASE,1):
+        cy,cz=pin(a+elapsed)
+        py=pin_y(cy,cz)
+        crown=py+CROWN_FROM_PIN
+        minima["piston_to_head"]=min(minima["piston_to_head"],DECK-crown)
+        minima["piston_skirt_to_crankpin"]=min(minima["piston_skirt_to_crankpin"],py-.065-cy-CRANKPIN/2)
+        for row in valve_train:
+            if row["cylinder"]==i:
+                delta=(elapsed-row["lift_center_deg"]+360)%720-360
+                lift=0
+                if abs(delta)<row["half_window_deg"]:
+                    lift=row["lift_max_m"]*math.cos(delta*math.pi/(2*row["half_window_deg"]))**2
+                minima["valve_to_crown"]=min(minima["valve_to_crown"],DECK+.002-lift-crown)
+    samples.append(dict(crank_deg=elapsed,**minima))
+displacement=6*math.pi*(BORE/2)**2*(THROW*2)*1000
+write("sampled-pose-audit.json",dict(status="UNVERIFIED",method="Analytic clearance envelopes sampled each 10° crank, 0–720° inclusive. Axial fits computed from generated profile parameters. Gear mesh phasing, elastic seals, cap/block contacts, materials and continuous swept volumes are outside this envelope.",samples=samples,minima_m={k:min(s[k] for s in samples) for k in samples[0] if k!="crank_deg"},displacement_liters={"model":displacement,"D03":20.379},compression_ratio={"status":"UNVERIFIED","method":"Requires OEM H variant ratio and volumes including combustion bowl, gasket and recess actual geometry."},known_contacts=["Main bearings surround center journals","Rod shell/rod cap and pin bosses contact by design","O-ring seating compresses in illustration","Stepped rotor and existing mating surfaces nominal"],evidence_gaps=["Exterior collision check pending combined model.","OEM gear and valve timing profiles absent."]))
+
+bpy.ops.export_scene.gltf(filepath=str(OUT/'internal.glb'),export_format='GLB',use_selection=True,export_yup=True,export_apply=True,export_extras=True)
+bpy.ops.object.select_all(action='DESELECT')
+
+def area(name,coord,energy,size,target):
+    data=bpy.data.lights.new(name,'AREA')
+    data.energy=energy
+    data.shape='DISK'
+    data.size=size
+    ob=bpy.data.objects.new(name,data)
+    scene.collection.objects.link(ob)
+    ob.location=v(coord)
+    ob.rotation_euler=(v(target)-ob.location).to_track_quat('-Z','Y').to_euler()
+
+world=bpy.data.worlds.new("Neutral world")
+scene.world=world
+world.use_nodes=True
+world.node_tree.nodes['Background'].inputs[0].default_value=(.14,.147,.155,1)
+world.node_tree.nodes['Background'].inputs[1].default_value=.65
+target=(.66,.098,0)
+area("Large key",(.9,2.0,1.4),450,2.5,target)
+area("Fill",(-.7,.62,-1.1),280,1.5,target)
+area("Top rim",(1.55,1.1,-.92),320,1.4,target)
+area("Side fill",(.65,-.9,.9),140,1.8,target)
+camera=bpy.data.objects.new("Internal QA camera",bpy.data.cameras.new("Internal QA camera"))
+scene.collection.objects.link(camera)
+scene.camera=camera
+camera.data.type='ORTHO'
+camera.data.ortho_scale=1.86
+scene.render.engine='CYCLES'
+scene.cycles.device='CPU'
+scene.cycles.samples=24
+scene.cycles.use_denoising=False
+scene.render.threads_mode='FIXED'
+scene.render.threads=4
+scene.render.resolution_x=800
+scene.render.resolution_y=650
+scene.render.resolution_percentage=100
+scene.view_settings.view_transform='AgX'
+view_positions = {"front":(2.9,.098,0),"rear":(-1.8,.098,0),"right":(.66,.098,2.25),"left":(.66,.098,-2.25),"top":(.66,2.38,0),"three-quarter":(2.01,1.28,1.62)}
+angles={}
+def set_view(name):
+    p=view_positions[name]
+    camera.location=v(p)
+    direction=v(target)-camera.location
+    camera.rotation_euler=direction.to_track_quat('-Z','Y').to_euler()
+    if name=="top":
+        camera.rotation_euler=(0,0,0)
+    elif name in ["front","rear"]:
+        camera.data.ortho_scale=1.76
+    else:
+        camera.data.ortho_scale=1.86
+
+set_view("three-quarter")
+bpy.context.preferences.filepaths.save_version=0
+bpy.ops.wm.save_as_mainfile(filepath=str(OUT/'internal.blend'))
+if '--export-only' in sys.argv:
+    print('Saved internal model and recipes.')
+    raise SystemExit(0)
+render_dir=OUT/'renders'
+render_dir.mkdir(exist_ok=True)
+for neutral in (True,False):
+    bpy.context.view_layer.material_override=grey if neutral else None
+    for name in view_positions:
+        set_view(name)
+        filename=f"{'neutral' if neutral else 'color'}-{name}.png"
+        scene.render.filepath=str(render_dir/filename)
+        bpy.ops.render.render(write_still=True)
+        angles[filename]=dict(camera_m=view_positions[name],target_m=target,ortho_scale=camera.data.ortho_scale)
+write("render-settings.json",dict(blender=bpy.app.version_string,engine="Cycles CPU",samples=24,denoise=False,resolution=[800,650],tone_mapping="AgX",views=angles))
+
+# Show a real source mesh group in a supplemental teaching close-up.
+lift = bpy.data.objects['MOT-INT-PISTON-1']
+rod = bpy.data.objects['MOT-INT-ROD-1']
+for obj in scene.objects:
+    if obj.type != 'MESH':
+        continue
+    obj.hide_render = not (obj.parent in (lift,rod) or obj.name == 'INT-LINER-11')
+bpy.data.objects['INT-LINER-11'].location.y -= .208
+camera.location=v((1.05,.53,.80))
+camera.rotation_euler=(v((.209,.262,.092))-camera.location).to_track_quat('-Z','Y').to_euler()
+camera.data.ortho_scale=.74
+scene.render.filepath=str(render_dir/'color-detail-piston-rod.png')
+bpy.ops.render.render(write_still=True)

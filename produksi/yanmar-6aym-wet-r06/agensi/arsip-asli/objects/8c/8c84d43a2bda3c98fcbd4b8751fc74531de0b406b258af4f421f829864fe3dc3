@@ -1,0 +1,1773 @@
+{
+  "assets": {
+    "exterior.glb": "ab3e610ee8fc83861f10b4f3992e93dfcc5e1d7df5f51fa4afb047267174762b",
+    "internal.glb": "526ce37f126203eb288388dbd7922dd85749b19ddf8ef82ee5bfcf9d472ec8f5"
+  },
+  "runtime": {
+    "exterior.glb": "ab3e610ee8fc83861f10b4f3992e93dfcc5e1d7df5f51fa4afb047267174762b",
+    "internal.glb": "526ce37f126203eb288388dbd7922dd85749b19ddf8ef82ee5bfcf9d472ec8f5",
+    "studio.js": "11e5ebf48c21aab655633025bd0ee4eaf7bad50ad115b6ca07ebcb11aaac5529",
+    "data.json": "16542960f433b5dfe6e4179a8090ffe39e60ac1e8b09b219ec3f46ac53dc856f",
+    "functional-motion.js": "0933f4bb115d46188055bbcac7444f011bf4a6becb51ad55027ec12053bf040a"
+  },
+  "interval": "two 720\u00b0 turns at 4\u00b0, fine starter first 24\u00b0 at 0.25\u00b0, interpolated warm and spin-down poses",
+  "samples": 535,
+  "missing_ids": [],
+  "pairs": [
+    {
+      "family": "rear oil train",
+      "parts": [
+        "INT-TIMING-07",
+        "EXT-OILPAN-01"
+      ],
+      "kind": "hard",
+      "tested": 535,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "rear oil train",
+      "parts": [
+        "INT-TIMING-07",
+        "EXT-OILPAN-20"
+      ],
+      "kind": "hard",
+      "tested": 535,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "rear oil train",
+      "parts": [
+        "INT-TIMING-07",
+        "EXT-BLOCK-01"
+      ],
+      "kind": "hard",
+      "tested": 535,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "rear oil train",
+      "parts": [
+        "INT-TIMING-07",
+        "EXT-FLYWHEEL-01"
+      ],
+      "kind": "hard",
+      "tested": 535,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "rear oil train",
+      "parts": [
+        "INT-OILPUMP-01",
+        "EXT-OILPAN-01"
+      ],
+      "kind": "hard",
+      "tested": 535,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "rear oil train",
+      "parts": [
+        "INT-OILPUMP-01",
+        "EXT-OILPAN-20"
+      ],
+      "kind": "hard",
+      "tested": 535,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "rear oil train",
+      "parts": [
+        "INT-OILPUMP-01",
+        "EXT-BLOCK-01"
+      ],
+      "kind": "hard",
+      "tested": 535,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "rear oil train",
+      "parts": [
+        "INT-OILPUMP-01",
+        "EXT-FLYWHEEL-01"
+      ],
+      "kind": "hard",
+      "tested": 535,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "rotating mechanical seals",
+      "parts": [
+        "EXT-COOLING-380",
+        "EXT-COOLING-03"
+      ],
+      "kind": "hard",
+      "tested": 535,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "rotating mechanical seals",
+      "parts": [
+        "EXT-COOLING-381",
+        "EXT-COOLING-04"
+      ],
+      "kind": "hard",
+      "tested": 535,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "floating turbo bushes",
+      "parts": [
+        "EXT-EXHAUST-22",
+        "EXT-EXHAUST-02"
+      ],
+      "kind": "hard",
+      "tested": 535,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "floating turbo bushes",
+      "parts": [
+        "EXT-EXHAUST-22",
+        "EXT-EXHAUST-03"
+      ],
+      "kind": "hard",
+      "tested": 535,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "floating turbo bushes",
+      "parts": [
+        "EXT-EXHAUST-23",
+        "EXT-EXHAUST-02"
+      ],
+      "kind": "hard",
+      "tested": 535,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "floating turbo bushes",
+      "parts": [
+        "EXT-EXHAUST-23",
+        "EXT-EXHAUST-03"
+      ],
+      "kind": "hard",
+      "tested": 535,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "rear gear mesh",
+      "parts": [
+        "INT-TIMING-01",
+        "INT-TIMING-07"
+      ],
+      "kind": "gear_teeth",
+      "tested": 535,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "rear gear mesh",
+      "parts": [
+        "INT-TIMING-01",
+        "INT-TIMING-02"
+      ],
+      "kind": "gear_teeth",
+      "tested": 535,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "rear idlers",
+      "parts": [
+        "INT-TIMING-02",
+        "EXT-BLOCK-01"
+      ],
+      "kind": "hard",
+      "tested": 535,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "rear idlers",
+      "parts": [
+        "INT-TIMING-02",
+        "INT-CAM-01"
+      ],
+      "kind": "hard",
+      "tested": 535,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "rear idlers",
+      "parts": [
+        "INT-TIMING-02",
+        "INT-CRANK-10"
+      ],
+      "kind": "hard",
+      "tested": 535,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "rear idlers",
+      "parts": [
+        "INT-TIMING-03",
+        "EXT-BLOCK-01"
+      ],
+      "kind": "hard",
+      "tested": 535,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "rear idlers",
+      "parts": [
+        "INT-TIMING-03",
+        "INT-CAM-01"
+      ],
+      "kind": "hard",
+      "tested": 535,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "rear idlers",
+      "parts": [
+        "INT-TIMING-03",
+        "INT-CRANK-10"
+      ],
+      "kind": "hard",
+      "tested": 535,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "starter clutch",
+      "parts": [
+        "EXT-ELECTRIC-48",
+        "EXT-FLYWHEEL-01"
+      ],
+      "kind": "hard",
+      "tested": 322,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "starter clutch",
+      "parts": [
+        "EXT-ELECTRIC-48",
+        "EXT-BLOCK-15"
+      ],
+      "kind": "hard",
+      "tested": 322,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "starter clutch",
+      "parts": [
+        "EXT-ELECTRIC-48",
+        "EXT-FLYWHEEL-02"
+      ],
+      "kind": "hard",
+      "tested": 322,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "starter clutch",
+      "parts": [
+        "EXT-ELECTRIC-57",
+        "EXT-FLYWHEEL-01"
+      ],
+      "kind": "hard",
+      "tested": 322,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "starter clutch",
+      "parts": [
+        "EXT-ELECTRIC-57",
+        "EXT-BLOCK-15"
+      ],
+      "kind": "hard",
+      "tested": 322,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "starter clutch",
+      "parts": [
+        "EXT-ELECTRIC-57",
+        "EXT-FLYWHEEL-02"
+      ],
+      "kind": "hard",
+      "tested": 322,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "starter clutch",
+      "parts": [
+        "EXT-ELECTRIC-58",
+        "EXT-FLYWHEEL-01"
+      ],
+      "kind": "hard",
+      "tested": 322,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "starter clutch",
+      "parts": [
+        "EXT-ELECTRIC-58",
+        "EXT-BLOCK-15"
+      ],
+      "kind": "hard",
+      "tested": 322,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "starter clutch",
+      "parts": [
+        "EXT-ELECTRIC-58",
+        "EXT-FLYWHEEL-02"
+      ],
+      "kind": "hard",
+      "tested": 322,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "starter tooth",
+      "parts": [
+        "EXT-ELECTRIC-48",
+        "EXT-FLYWHEEL-20"
+      ],
+      "kind": "gear_teeth",
+      "tested": 322,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "starter reducer",
+      "parts": [
+        "EXT-ELECTRIC-46",
+        "EXT-ELECTRIC-45"
+      ],
+      "kind": "hard",
+      "tested": 322,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "governor",
+      "parts": [
+        "EXT-FUEL-201",
+        "EXT-FUEL-01"
+      ],
+      "kind": "hard",
+      "tested": 535,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "governor",
+      "parts": [
+        "EXT-FUEL-201",
+        "EXT-FUEL-02"
+      ],
+      "kind": "hard",
+      "tested": 535,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "governor",
+      "parts": [
+        "EXT-FUEL-202",
+        "EXT-FUEL-01"
+      ],
+      "kind": "hard",
+      "tested": 535,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "governor",
+      "parts": [
+        "EXT-FUEL-202",
+        "EXT-FUEL-02"
+      ],
+      "kind": "hard",
+      "tested": 535,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "metering rack",
+      "parts": [
+        "EXT-FUEL-22",
+        "EXT-FUEL-01"
+      ],
+      "kind": "hard",
+      "tested": 535,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "metering external",
+      "parts": [
+        "EXT-FUEL-22",
+        "EXT-FUEL-330"
+      ],
+      "kind": "gear_teeth",
+      "tested": 535,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "metering enclosure",
+      "parts": [
+        "EXT-FUEL-330",
+        "EXT-FUEL-01"
+      ],
+      "kind": "hard",
+      "tested": 535,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "metering enclosure",
+      "parts": [
+        "EXT-FUEL-330",
+        "EXT-FUEL-21"
+      ],
+      "kind": "hard",
+      "tested": 535,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "metering enclosure",
+      "parts": [
+        "EXT-FUEL-35",
+        "EXT-FUEL-01"
+      ],
+      "kind": "hard",
+      "tested": 535,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "metering enclosure",
+      "parts": [
+        "EXT-FUEL-35",
+        "EXT-FUEL-21"
+      ],
+      "kind": "hard",
+      "tested": 535,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "metering seats",
+      "parts": [
+        "EXT-FUEL-330",
+        "EXT-FUEL-41"
+      ],
+      "kind": "mating",
+      "tested": 535,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "metering seats",
+      "parts": [
+        "EXT-FUEL-35",
+        "EXT-FUEL-41"
+      ],
+      "kind": "mating",
+      "tested": 535,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "thermostat clearances",
+      "parts": [
+        "EXT-COOLING-330",
+        "EXT-COOLING-01"
+      ],
+      "kind": "hard",
+      "tested": 214,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "thermostat clearances",
+      "parts": [
+        "EXT-COOLING-330",
+        "EXT-COOLING-50"
+      ],
+      "kind": "hard",
+      "tested": 214,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "thermostat clearances",
+      "parts": [
+        "EXT-COOLING-330",
+        "EXT-COOLING-61"
+      ],
+      "kind": "hard",
+      "tested": 214,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "thermostat clearances",
+      "parts": [
+        "EXT-COOLING-330",
+        "EXT-COOLING-62"
+      ],
+      "kind": "hard",
+      "tested": 214,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "thermostat clearances",
+      "parts": [
+        "EXT-COOLING-340",
+        "EXT-COOLING-01"
+      ],
+      "kind": "hard",
+      "tested": 214,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "thermostat clearances",
+      "parts": [
+        "EXT-COOLING-340",
+        "EXT-COOLING-50"
+      ],
+      "kind": "hard",
+      "tested": 214,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "thermostat clearances",
+      "parts": [
+        "EXT-COOLING-340",
+        "EXT-COOLING-61"
+      ],
+      "kind": "hard",
+      "tested": 214,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "thermostat clearances",
+      "parts": [
+        "EXT-COOLING-340",
+        "EXT-COOLING-62"
+      ],
+      "kind": "hard",
+      "tested": 214,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "thermostat seating",
+      "parts": [
+        "EXT-COOLING-330",
+        "EXT-COOLING-55"
+      ],
+      "kind": "mating",
+      "tested": 214,
+      "intersect_count": 186,
+      "worst_triangles": 72,
+      "first": {
+        "phase": "engaging",
+        "angle": 0,
+        "warm": 30,
+        "engagement": 0,
+        "sample": 0
+      }
+    },
+    {
+      "family": "thermostat seating",
+      "parts": [
+        "EXT-COOLING-340",
+        "EXT-COOLING-55"
+      ],
+      "kind": "mating",
+      "tested": 214,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "metering external",
+      "parts": [
+        "EXT-FUEL-22",
+        "EXT-FUEL-331"
+      ],
+      "kind": "gear_teeth",
+      "tested": 535,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "metering enclosure",
+      "parts": [
+        "EXT-FUEL-331",
+        "EXT-FUEL-01"
+      ],
+      "kind": "hard",
+      "tested": 535,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "metering enclosure",
+      "parts": [
+        "EXT-FUEL-331",
+        "EXT-FUEL-21"
+      ],
+      "kind": "hard",
+      "tested": 535,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "metering enclosure",
+      "parts": [
+        "EXT-FUEL-36",
+        "EXT-FUEL-01"
+      ],
+      "kind": "hard",
+      "tested": 535,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "metering enclosure",
+      "parts": [
+        "EXT-FUEL-36",
+        "EXT-FUEL-21"
+      ],
+      "kind": "hard",
+      "tested": 535,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "metering seats",
+      "parts": [
+        "EXT-FUEL-331",
+        "EXT-FUEL-42"
+      ],
+      "kind": "mating",
+      "tested": 535,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "metering seats",
+      "parts": [
+        "EXT-FUEL-36",
+        "EXT-FUEL-42"
+      ],
+      "kind": "mating",
+      "tested": 535,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "thermostat clearances",
+      "parts": [
+        "EXT-COOLING-331",
+        "EXT-COOLING-01"
+      ],
+      "kind": "hard",
+      "tested": 214,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "thermostat clearances",
+      "parts": [
+        "EXT-COOLING-331",
+        "EXT-COOLING-50"
+      ],
+      "kind": "hard",
+      "tested": 214,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "thermostat clearances",
+      "parts": [
+        "EXT-COOLING-331",
+        "EXT-COOLING-61"
+      ],
+      "kind": "hard",
+      "tested": 214,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "thermostat clearances",
+      "parts": [
+        "EXT-COOLING-331",
+        "EXT-COOLING-62"
+      ],
+      "kind": "hard",
+      "tested": 214,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "thermostat clearances",
+      "parts": [
+        "EXT-COOLING-341",
+        "EXT-COOLING-01"
+      ],
+      "kind": "hard",
+      "tested": 214,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "thermostat clearances",
+      "parts": [
+        "EXT-COOLING-341",
+        "EXT-COOLING-50"
+      ],
+      "kind": "hard",
+      "tested": 214,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "thermostat clearances",
+      "parts": [
+        "EXT-COOLING-341",
+        "EXT-COOLING-61"
+      ],
+      "kind": "hard",
+      "tested": 214,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "thermostat clearances",
+      "parts": [
+        "EXT-COOLING-341",
+        "EXT-COOLING-62"
+      ],
+      "kind": "hard",
+      "tested": 214,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "thermostat seating",
+      "parts": [
+        "EXT-COOLING-331",
+        "EXT-COOLING-56"
+      ],
+      "kind": "mating",
+      "tested": 214,
+      "intersect_count": 186,
+      "worst_triangles": 65,
+      "first": {
+        "phase": "engaging",
+        "angle": 0,
+        "warm": 30,
+        "engagement": 0,
+        "sample": 0
+      }
+    },
+    {
+      "family": "thermostat seating",
+      "parts": [
+        "EXT-COOLING-341",
+        "EXT-COOLING-56"
+      ],
+      "kind": "mating",
+      "tested": 214,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "metering external",
+      "parts": [
+        "EXT-FUEL-22",
+        "EXT-FUEL-332"
+      ],
+      "kind": "gear_teeth",
+      "tested": 535,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "metering enclosure",
+      "parts": [
+        "EXT-FUEL-332",
+        "EXT-FUEL-01"
+      ],
+      "kind": "hard",
+      "tested": 535,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "metering enclosure",
+      "parts": [
+        "EXT-FUEL-332",
+        "EXT-FUEL-21"
+      ],
+      "kind": "hard",
+      "tested": 535,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "metering enclosure",
+      "parts": [
+        "EXT-FUEL-37",
+        "EXT-FUEL-01"
+      ],
+      "kind": "hard",
+      "tested": 535,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "metering enclosure",
+      "parts": [
+        "EXT-FUEL-37",
+        "EXT-FUEL-21"
+      ],
+      "kind": "hard",
+      "tested": 535,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "metering seats",
+      "parts": [
+        "EXT-FUEL-332",
+        "EXT-FUEL-43"
+      ],
+      "kind": "mating",
+      "tested": 535,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "metering seats",
+      "parts": [
+        "EXT-FUEL-37",
+        "EXT-FUEL-43"
+      ],
+      "kind": "mating",
+      "tested": 535,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "thermostat clearances",
+      "parts": [
+        "EXT-COOLING-332",
+        "EXT-COOLING-01"
+      ],
+      "kind": "hard",
+      "tested": 214,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "thermostat clearances",
+      "parts": [
+        "EXT-COOLING-332",
+        "EXT-COOLING-50"
+      ],
+      "kind": "hard",
+      "tested": 214,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "thermostat clearances",
+      "parts": [
+        "EXT-COOLING-332",
+        "EXT-COOLING-61"
+      ],
+      "kind": "hard",
+      "tested": 214,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "thermostat clearances",
+      "parts": [
+        "EXT-COOLING-332",
+        "EXT-COOLING-62"
+      ],
+      "kind": "hard",
+      "tested": 214,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "thermostat clearances",
+      "parts": [
+        "EXT-COOLING-342",
+        "EXT-COOLING-01"
+      ],
+      "kind": "hard",
+      "tested": 214,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "thermostat clearances",
+      "parts": [
+        "EXT-COOLING-342",
+        "EXT-COOLING-50"
+      ],
+      "kind": "hard",
+      "tested": 214,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "thermostat clearances",
+      "parts": [
+        "EXT-COOLING-342",
+        "EXT-COOLING-61"
+      ],
+      "kind": "hard",
+      "tested": 214,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "thermostat clearances",
+      "parts": [
+        "EXT-COOLING-342",
+        "EXT-COOLING-62"
+      ],
+      "kind": "hard",
+      "tested": 214,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "thermostat seating",
+      "parts": [
+        "EXT-COOLING-332",
+        "EXT-COOLING-57"
+      ],
+      "kind": "mating",
+      "tested": 214,
+      "intersect_count": 186,
+      "worst_triangles": 62,
+      "first": {
+        "phase": "engaging",
+        "angle": 0,
+        "warm": 30,
+        "engagement": 0,
+        "sample": 0
+      }
+    },
+    {
+      "family": "thermostat seating",
+      "parts": [
+        "EXT-COOLING-342",
+        "EXT-COOLING-57"
+      ],
+      "kind": "mating",
+      "tested": 214,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "metering external",
+      "parts": [
+        "EXT-FUEL-22",
+        "EXT-FUEL-333"
+      ],
+      "kind": "gear_teeth",
+      "tested": 535,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "metering enclosure",
+      "parts": [
+        "EXT-FUEL-333",
+        "EXT-FUEL-01"
+      ],
+      "kind": "hard",
+      "tested": 535,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "metering enclosure",
+      "parts": [
+        "EXT-FUEL-333",
+        "EXT-FUEL-21"
+      ],
+      "kind": "hard",
+      "tested": 535,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "metering enclosure",
+      "parts": [
+        "EXT-FUEL-38",
+        "EXT-FUEL-01"
+      ],
+      "kind": "hard",
+      "tested": 535,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "metering enclosure",
+      "parts": [
+        "EXT-FUEL-38",
+        "EXT-FUEL-21"
+      ],
+      "kind": "hard",
+      "tested": 535,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "metering seats",
+      "parts": [
+        "EXT-FUEL-333",
+        "EXT-FUEL-44"
+      ],
+      "kind": "mating",
+      "tested": 535,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "metering seats",
+      "parts": [
+        "EXT-FUEL-38",
+        "EXT-FUEL-44"
+      ],
+      "kind": "mating",
+      "tested": 535,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "thermostat clearances",
+      "parts": [
+        "EXT-COOLING-333",
+        "EXT-COOLING-01"
+      ],
+      "kind": "hard",
+      "tested": 214,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "thermostat clearances",
+      "parts": [
+        "EXT-COOLING-333",
+        "EXT-COOLING-50"
+      ],
+      "kind": "hard",
+      "tested": 214,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "thermostat clearances",
+      "parts": [
+        "EXT-COOLING-333",
+        "EXT-COOLING-61"
+      ],
+      "kind": "hard",
+      "tested": 214,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "thermostat clearances",
+      "parts": [
+        "EXT-COOLING-333",
+        "EXT-COOLING-62"
+      ],
+      "kind": "hard",
+      "tested": 214,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "thermostat clearances",
+      "parts": [
+        "EXT-COOLING-343",
+        "EXT-COOLING-01"
+      ],
+      "kind": "hard",
+      "tested": 214,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "thermostat clearances",
+      "parts": [
+        "EXT-COOLING-343",
+        "EXT-COOLING-50"
+      ],
+      "kind": "hard",
+      "tested": 214,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "thermostat clearances",
+      "parts": [
+        "EXT-COOLING-343",
+        "EXT-COOLING-61"
+      ],
+      "kind": "hard",
+      "tested": 214,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "thermostat clearances",
+      "parts": [
+        "EXT-COOLING-343",
+        "EXT-COOLING-62"
+      ],
+      "kind": "hard",
+      "tested": 214,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "thermostat seating",
+      "parts": [
+        "EXT-COOLING-333",
+        "EXT-COOLING-58"
+      ],
+      "kind": "mating",
+      "tested": 214,
+      "intersect_count": 188,
+      "worst_triangles": 70,
+      "first": {
+        "phase": "engaging",
+        "angle": 0,
+        "warm": 30,
+        "engagement": 0,
+        "sample": 0
+      }
+    },
+    {
+      "family": "thermostat seating",
+      "parts": [
+        "EXT-COOLING-343",
+        "EXT-COOLING-58"
+      ],
+      "kind": "mating",
+      "tested": 214,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "metering external",
+      "parts": [
+        "EXT-FUEL-22",
+        "EXT-FUEL-334"
+      ],
+      "kind": "gear_teeth",
+      "tested": 535,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "metering enclosure",
+      "parts": [
+        "EXT-FUEL-334",
+        "EXT-FUEL-01"
+      ],
+      "kind": "hard",
+      "tested": 535,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "metering enclosure",
+      "parts": [
+        "EXT-FUEL-334",
+        "EXT-FUEL-21"
+      ],
+      "kind": "hard",
+      "tested": 535,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "metering enclosure",
+      "parts": [
+        "EXT-FUEL-39",
+        "EXT-FUEL-01"
+      ],
+      "kind": "hard",
+      "tested": 535,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "metering enclosure",
+      "parts": [
+        "EXT-FUEL-39",
+        "EXT-FUEL-21"
+      ],
+      "kind": "hard",
+      "tested": 535,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "metering seats",
+      "parts": [
+        "EXT-FUEL-334",
+        "EXT-FUEL-45"
+      ],
+      "kind": "mating",
+      "tested": 535,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "metering seats",
+      "parts": [
+        "EXT-FUEL-39",
+        "EXT-FUEL-45"
+      ],
+      "kind": "mating",
+      "tested": 535,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "thermostat clearances",
+      "parts": [
+        "EXT-COOLING-334",
+        "EXT-COOLING-01"
+      ],
+      "kind": "hard",
+      "tested": 214,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "thermostat clearances",
+      "parts": [
+        "EXT-COOLING-334",
+        "EXT-COOLING-50"
+      ],
+      "kind": "hard",
+      "tested": 214,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "thermostat clearances",
+      "parts": [
+        "EXT-COOLING-334",
+        "EXT-COOLING-61"
+      ],
+      "kind": "hard",
+      "tested": 214,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "thermostat clearances",
+      "parts": [
+        "EXT-COOLING-334",
+        "EXT-COOLING-62"
+      ],
+      "kind": "hard",
+      "tested": 214,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "thermostat clearances",
+      "parts": [
+        "EXT-COOLING-344",
+        "EXT-COOLING-01"
+      ],
+      "kind": "hard",
+      "tested": 214,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "thermostat clearances",
+      "parts": [
+        "EXT-COOLING-344",
+        "EXT-COOLING-50"
+      ],
+      "kind": "hard",
+      "tested": 214,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "thermostat clearances",
+      "parts": [
+        "EXT-COOLING-344",
+        "EXT-COOLING-61"
+      ],
+      "kind": "hard",
+      "tested": 214,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "thermostat clearances",
+      "parts": [
+        "EXT-COOLING-344",
+        "EXT-COOLING-62"
+      ],
+      "kind": "hard",
+      "tested": 214,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "thermostat seating",
+      "parts": [
+        "EXT-COOLING-334",
+        "EXT-COOLING-59"
+      ],
+      "kind": "mating",
+      "tested": 214,
+      "intersect_count": 188,
+      "worst_triangles": 68,
+      "first": {
+        "phase": "engaging",
+        "angle": 0,
+        "warm": 30,
+        "engagement": 0,
+        "sample": 0
+      }
+    },
+    {
+      "family": "thermostat seating",
+      "parts": [
+        "EXT-COOLING-344",
+        "EXT-COOLING-59"
+      ],
+      "kind": "mating",
+      "tested": 214,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "metering external",
+      "parts": [
+        "EXT-FUEL-22",
+        "EXT-FUEL-335"
+      ],
+      "kind": "gear_teeth",
+      "tested": 535,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "metering enclosure",
+      "parts": [
+        "EXT-FUEL-335",
+        "EXT-FUEL-01"
+      ],
+      "kind": "hard",
+      "tested": 535,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "metering enclosure",
+      "parts": [
+        "EXT-FUEL-335",
+        "EXT-FUEL-21"
+      ],
+      "kind": "hard",
+      "tested": 535,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "metering enclosure",
+      "parts": [
+        "EXT-FUEL-40",
+        "EXT-FUEL-01"
+      ],
+      "kind": "hard",
+      "tested": 535,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "metering enclosure",
+      "parts": [
+        "EXT-FUEL-40",
+        "EXT-FUEL-21"
+      ],
+      "kind": "hard",
+      "tested": 535,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "metering seats",
+      "parts": [
+        "EXT-FUEL-335",
+        "EXT-FUEL-46"
+      ],
+      "kind": "mating",
+      "tested": 535,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "metering seats",
+      "parts": [
+        "EXT-FUEL-40",
+        "EXT-FUEL-46"
+      ],
+      "kind": "mating",
+      "tested": 535,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "thermostat clearances",
+      "parts": [
+        "EXT-COOLING-335",
+        "EXT-COOLING-01"
+      ],
+      "kind": "hard",
+      "tested": 214,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "thermostat clearances",
+      "parts": [
+        "EXT-COOLING-335",
+        "EXT-COOLING-50"
+      ],
+      "kind": "hard",
+      "tested": 214,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "thermostat clearances",
+      "parts": [
+        "EXT-COOLING-335",
+        "EXT-COOLING-61"
+      ],
+      "kind": "hard",
+      "tested": 214,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "thermostat clearances",
+      "parts": [
+        "EXT-COOLING-335",
+        "EXT-COOLING-62"
+      ],
+      "kind": "hard",
+      "tested": 214,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "thermostat clearances",
+      "parts": [
+        "EXT-COOLING-345",
+        "EXT-COOLING-01"
+      ],
+      "kind": "hard",
+      "tested": 214,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "thermostat clearances",
+      "parts": [
+        "EXT-COOLING-345",
+        "EXT-COOLING-50"
+      ],
+      "kind": "hard",
+      "tested": 214,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "thermostat clearances",
+      "parts": [
+        "EXT-COOLING-345",
+        "EXT-COOLING-61"
+      ],
+      "kind": "hard",
+      "tested": 214,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "thermostat clearances",
+      "parts": [
+        "EXT-COOLING-345",
+        "EXT-COOLING-62"
+      ],
+      "kind": "hard",
+      "tested": 214,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "thermostat seating",
+      "parts": [
+        "EXT-COOLING-335",
+        "EXT-COOLING-60"
+      ],
+      "kind": "mating",
+      "tested": 214,
+      "intersect_count": 188,
+      "worst_triangles": 66,
+      "first": {
+        "phase": "engaging",
+        "angle": 0,
+        "warm": 30,
+        "engagement": 0,
+        "sample": 0
+      }
+    },
+    {
+      "family": "thermostat seating",
+      "parts": [
+        "EXT-COOLING-345",
+        "EXT-COOLING-60"
+      ],
+      "kind": "mating",
+      "tested": 214,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    }
+  ],
+  "oil_measured_signed_ratio_to_crank": -0.8888888888888887,
+  "thermostats": [
+    {
+      "id": "EXT-COOLING-330",
+      "zero_shift_below_71C": 0,
+      "largest_sampled_stroke_mm": 8.000000000000007,
+      "peak_tempc": 86.39529007117173
+    },
+    {
+      "id": "EXT-COOLING-331",
+      "zero_shift_below_71C": 0,
+      "largest_sampled_stroke_mm": 8.000000000000007,
+      "peak_tempc": 86.39529007117173
+    },
+    {
+      "id": "EXT-COOLING-332",
+      "zero_shift_below_71C": 0,
+      "largest_sampled_stroke_mm": 8.000000000000007,
+      "peak_tempc": 86.39529007117173
+    },
+    {
+      "id": "EXT-COOLING-333",
+      "zero_shift_below_71C": 0,
+      "largest_sampled_stroke_mm": 5.863875597731383,
+      "peak_tempc": 86.39529007117173
+    },
+    {
+      "id": "EXT-COOLING-334",
+      "zero_shift_below_71C": 0,
+      "largest_sampled_stroke_mm": 5.863875597731383,
+      "peak_tempc": 86.39529007117173
+    },
+    {
+      "id": "EXT-COOLING-335",
+      "zero_shift_below_71C": 0,
+      "largest_sampled_stroke_mm": 5.863875597731383,
+      "peak_tempc": 86.39529007117173
+    }
+  ]
+}

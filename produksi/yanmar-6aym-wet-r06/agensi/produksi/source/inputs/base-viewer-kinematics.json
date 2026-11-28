@@ -1,0 +1,307 @@
+{
+  "enabled": true,
+  "rotators": [
+    {
+      "node": "MOT-INT-CRANK",
+      "factor": -1
+    },
+    {
+      "node": "EXT-FLYWHEEL-02",
+      "factor": -1
+    },
+    {
+      "node": "EXT-FRONT-02",
+      "factor": -1
+    },
+    {
+      "node": "EXT-FLYWHEEL-20",
+      "factor": -1
+    },
+    {
+      "node": "MOT-INT-CAM",
+      "factor": -0.5
+    }
+  ],
+  "valves": [
+    {
+      "initial_lift_m": 0,
+      "cylinder": 1,
+      "kind": "Intake",
+      "firing_deg": 0,
+      "lift_center_deg": 450,
+      "lift_max_m": 0.009,
+      "half_window_deg": 112,
+      "valve_root": "MOT-INT-VALVE-1-1",
+      "tappet_root": "MOT-INT-TAPPET-1-1",
+      "rocker_root": "MOT-INT-ROCKER-1-1",
+      "pushrod_ratio": 0.8,
+      "springs": [
+        "MOT-INT-SPRING-1-1-1",
+        "MOT-INT-SPRING-1-1-2"
+      ],
+      "spring_height_m": 0.05,
+      "rocker_lever_m": 0.05499999999999999
+    },
+    {
+      "initial_lift_m": 0,
+      "cylinder": 1,
+      "kind": "Exhaust",
+      "firing_deg": 0,
+      "lift_center_deg": 270,
+      "lift_max_m": 0.009,
+      "half_window_deg": 112,
+      "valve_root": "MOT-INT-VALVE-1-2",
+      "tappet_root": "MOT-INT-TAPPET-1-2",
+      "rocker_root": "MOT-INT-ROCKER-1-2",
+      "pushrod_ratio": 0.8,
+      "springs": [
+        "MOT-INT-SPRING-1-2-1",
+        "MOT-INT-SPRING-1-2-2"
+      ],
+      "spring_height_m": 0.05,
+      "rocker_lever_m": 0.123
+    },
+    {
+      "initial_lift_m": 0.007498559600784017,
+      "cylinder": 2,
+      "kind": "Intake",
+      "firing_deg": 240,
+      "lift_center_deg": 690,
+      "lift_max_m": 0.009,
+      "half_window_deg": 112,
+      "valve_root": "MOT-INT-VALVE-2-1",
+      "tappet_root": "MOT-INT-TAPPET-2-1",
+      "rocker_root": "MOT-INT-ROCKER-2-1",
+      "pushrod_ratio": 0.8,
+      "springs": [
+        "MOT-INT-SPRING-2-1-1",
+        "MOT-INT-SPRING-2-1-2"
+      ],
+      "spring_height_m": 0.05,
+      "rocker_lever_m": 0.05499999999999999
+    },
+    {
+      "initial_lift_m": 0,
+      "cylinder": 2,
+      "kind": "Exhaust",
+      "firing_deg": 240,
+      "lift_center_deg": 510,
+      "lift_max_m": 0.009,
+      "half_window_deg": 112,
+      "valve_root": "MOT-INT-VALVE-2-2",
+      "tappet_root": "MOT-INT-TAPPET-2-2",
+      "rocker_root": "MOT-INT-ROCKER-2-2",
+      "pushrod_ratio": 0.8,
+      "springs": [
+        "MOT-INT-SPRING-2-2-1",
+        "MOT-INT-SPRING-2-2-2"
+      ],
+      "spring_height_m": 0.05,
+      "rocker_lever_m": 0.123
+    },
+    {
+      "initial_lift_m": 0,
+      "cylinder": 3,
+      "kind": "Intake",
+      "firing_deg": 480,
+      "lift_center_deg": 210,
+      "lift_max_m": 0.009,
+      "half_window_deg": 112,
+      "valve_root": "MOT-INT-VALVE-3-1",
+      "tappet_root": "MOT-INT-TAPPET-3-1",
+      "rocker_root": "MOT-INT-ROCKER-3-1",
+      "pushrod_ratio": 0.8,
+      "springs": [
+        "MOT-INT-SPRING-3-1-1",
+        "MOT-INT-SPRING-3-1-2"
+      ],
+      "spring_height_m": 0.05,
+      "rocker_lever_m": 0.05499999999999999
+    },
+    {
+      "initial_lift_m": 0.007498559600784017,
+      "cylinder": 3,
+      "kind": "Exhaust",
+      "firing_deg": 480,
+      "lift_center_deg": 30,
+      "lift_max_m": 0.009,
+      "half_window_deg": 112,
+      "valve_root": "MOT-INT-VALVE-3-2",
+      "tappet_root": "MOT-INT-TAPPET-3-2",
+      "rocker_root": "MOT-INT-ROCKER-3-2",
+      "pushrod_ratio": 0.8,
+      "springs": [
+        "MOT-INT-SPRING-3-2-1",
+        "MOT-INT-SPRING-3-2-2"
+      ],
+      "spring_height_m": 0.05,
+      "rocker_lever_m": 0.123
+    },
+    {
+      "initial_lift_m": 0,
+      "cylinder": 4,
+      "kind": "Intake",
+      "firing_deg": 120,
+      "lift_center_deg": 570,
+      "lift_max_m": 0.009,
+      "half_window_deg": 112,
+      "valve_root": "MOT-INT-VALVE-4-1",
+      "tappet_root": "MOT-INT-TAPPET-4-1",
+      "rocker_root": "MOT-INT-ROCKER-4-1",
+      "pushrod_ratio": 0.8,
+      "springs": [
+        "MOT-INT-SPRING-4-1-1",
+        "MOT-INT-SPRING-4-1-2"
+      ],
+      "spring_height_m": 0.05,
+      "rocker_lever_m": 0.05499999999999999
+    },
+    {
+      "initial_lift_m": 0,
+      "cylinder": 4,
+      "kind": "Exhaust",
+      "firing_deg": 120,
+      "lift_center_deg": 390,
+      "lift_max_m": 0.009,
+      "half_window_deg": 112,
+      "valve_root": "MOT-INT-VALVE-4-2",
+      "tappet_root": "MOT-INT-TAPPET-4-2",
+      "rocker_root": "MOT-INT-ROCKER-4-2",
+      "pushrod_ratio": 0.8,
+      "springs": [
+        "MOT-INT-SPRING-4-2-1",
+        "MOT-INT-SPRING-4-2-2"
+      ],
+      "spring_height_m": 0.05,
+      "rocker_lever_m": 0.123
+    },
+    {
+      "initial_lift_m": 0,
+      "cylinder": 5,
+      "kind": "Intake",
+      "firing_deg": 600,
+      "lift_center_deg": 330,
+      "lift_max_m": 0.009,
+      "half_window_deg": 112,
+      "valve_root": "MOT-INT-VALVE-5-1",
+      "tappet_root": "MOT-INT-TAPPET-5-1",
+      "rocker_root": "MOT-INT-ROCKER-5-1",
+      "pushrod_ratio": 0.8,
+      "springs": [
+        "MOT-INT-SPRING-5-1-1",
+        "MOT-INT-SPRING-5-1-2"
+      ],
+      "spring_height_m": 0.05,
+      "rocker_lever_m": 0.05499999999999999
+    },
+    {
+      "initial_lift_m": 0,
+      "cylinder": 5,
+      "kind": "Exhaust",
+      "firing_deg": 600,
+      "lift_center_deg": 150,
+      "lift_max_m": 0.009,
+      "half_window_deg": 112,
+      "valve_root": "MOT-INT-VALVE-5-2",
+      "tappet_root": "MOT-INT-TAPPET-5-2",
+      "rocker_root": "MOT-INT-ROCKER-5-2",
+      "pushrod_ratio": 0.8,
+      "springs": [
+        "MOT-INT-SPRING-5-2-1",
+        "MOT-INT-SPRING-5-2-2"
+      ],
+      "spring_height_m": 0.05,
+      "rocker_lever_m": 0.123
+    },
+    {
+      "initial_lift_m": 0.0008299760896833294,
+      "cylinder": 6,
+      "kind": "Intake",
+      "firing_deg": 360,
+      "lift_center_deg": 90,
+      "lift_max_m": 0.009,
+      "half_window_deg": 112,
+      "valve_root": "MOT-INT-VALVE-6-1",
+      "tappet_root": "MOT-INT-TAPPET-6-1",
+      "rocker_root": "MOT-INT-ROCKER-6-1",
+      "pushrod_ratio": 0.8,
+      "springs": [
+        "MOT-INT-SPRING-6-1-1",
+        "MOT-INT-SPRING-6-1-2"
+      ],
+      "spring_height_m": 0.05,
+      "rocker_lever_m": 0.05499999999999999
+    },
+    {
+      "initial_lift_m": 0.0008299760896833294,
+      "cylinder": 6,
+      "kind": "Exhaust",
+      "firing_deg": 360,
+      "lift_center_deg": 630,
+      "lift_max_m": 0.009,
+      "half_window_deg": 112,
+      "valve_root": "MOT-INT-VALVE-6-2",
+      "tappet_root": "MOT-INT-TAPPET-6-2",
+      "rocker_root": "MOT-INT-ROCKER-6-2",
+      "pushrod_ratio": 0.8,
+      "springs": [
+        "MOT-INT-SPRING-6-2-1",
+        "MOT-INT-SPRING-6-2-2"
+      ],
+      "spring_height_m": 0.05,
+      "rocker_lever_m": 0.123
+    }
+  ],
+  "throw_m": 0.09,
+  "rod_cc_m": 0.32044,
+  "firing_order": [
+    1,
+    4,
+    2,
+    6,
+    3,
+    5
+  ],
+  "cylinder_centers": [
+    0.209,
+    0.409,
+    0.609,
+    0.809,
+    1.009,
+    1.209
+  ],
+  "bore_m": 0.155,
+  "combustion_y": 0.475,
+  "cylinders": [
+    {
+      "rod": "MOT-INT-ROD-1",
+      "piston": "MOT-INT-PISTON-1",
+      "phase_deg": 0
+    },
+    {
+      "rod": "MOT-INT-ROD-2",
+      "piston": "MOT-INT-PISTON-2",
+      "phase_deg": 120
+    },
+    {
+      "rod": "MOT-INT-ROD-3",
+      "piston": "MOT-INT-PISTON-3",
+      "phase_deg": 240
+    },
+    {
+      "rod": "MOT-INT-ROD-4",
+      "piston": "MOT-INT-PISTON-4",
+      "phase_deg": 240
+    },
+    {
+      "rod": "MOT-INT-ROD-5",
+      "piston": "MOT-INT-PISTON-5",
+      "phase_deg": 120
+    },
+    {
+      "rod": "MOT-INT-ROD-6",
+      "piston": "MOT-INT-PISTON-6",
+      "phase_deg": 0
+    }
+  ]
+}

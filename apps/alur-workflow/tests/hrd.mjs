@@ -1,8 +1,8 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {hrdPlan,applyHiring,vacancy} from '../src/hrd.ts';
-import {step,validate,execute,label} from '../src/flow.ts';
-import {promptWarnings as promptWarningsOf} from '../src/prompt-router.ts';
+import {hrdPlan,applyHiring,vacancy} from '../src/features/agents/hrd.ts';
+import {step,validate,execute,label} from '../src/features/workflow/flow.ts';
+import {promptWarnings as promptWarningsOf} from '../src/features/agents/prompt-router.ts';
 
 function graph(prompt, ids = ['parts-inventory','modeling-3d','diesel-specialist']) {
   const nodes = [step('trigger','start',0,0), step('prompt','prompt',250,0), step('hrd','hrd',500,0), step('router','router',750,0),

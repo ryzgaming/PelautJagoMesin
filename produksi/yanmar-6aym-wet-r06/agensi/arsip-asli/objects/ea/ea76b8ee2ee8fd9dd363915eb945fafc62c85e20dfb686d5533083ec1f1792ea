@@ -1,0 +1,129 @@
+"""Blender reimport checks for the exported source and named interface surfaces."""
+import bpy
+import json
+import math
+from pathlib import Path
+from mathutils.bvhtree import BVHTree
+
+OUT=Path(__file__).resolve().parent
+kin=json.loads((OUT/'kinematics.json').read_text())
+inventory=json.loads((OUT/'inventory.json').read_text())
+bpy.ops.wm.read_factory_settings(use_empty=True)
+bpy.ops.import_scene.gltf(filepath=str(OUT/'internal.glb'))
+parts={o.name:o for o in bpy.context.scene.objects if o.type=="MESH"}
+refs={r["id"]:r for r in inventory["components"]}
+scene=bpy.context.scene
+
+def triangles(obj):
+    obj.data.calc_loop_triangles()
+    return obj.data.loop_triangles
+
+def tree(obj):
+    vs=[obj.matrix_world@v.co for v in obj.data.vertices]
+    fs=[t.vertices[:] for t in triangles(obj)]
+    return BVHTree.FromPolygons(vs,fs,all_triangles=True)
+
+def min_max(obj,axis):
+    coords=[(obj.matrix_world@v.co)[axis] for v in obj.data.vertices]
+    return min(coords),max(coords)
+
+def overlap(a,b):
+    return len(tree(a).overlap(tree(b)))
+
+def model_radial_d(obj,axis,center,accept=None):
+    axes=[i for i in range(3) if i!=axis]
+    points=[obj.matrix_world@v.co for v in obj.data.vertices]
+    values=[(math.hypot(*[(p[i]-center[i]) for i in axes]),p[axis]) for p in points]
+    return 2*max(r for r,h in values if accept is None or accept(r,h))
+
+liner=parts['INT-LINER-11']
+shaft=parts['INT-CRANK-01']
+rod_r=parts['INT-CRANK-20']
+wr=parts['INT-PISTON-12']
+t=kin["throw_m"]
+l=kin["rod_center_to_center_m"]
+x=kin["cylinder_center_x_m"][0]
+py=t+l
+diameters_m={
+ "bore":model_radial_d(liner,2,(x,0,0),lambda r,h:r<.080),
+ "main_journal":model_radial_d(shaft,0,(0,0,0)),
+ "crankpin":model_radial_d(rod_r,0,(x,0,t)),
+ "piston_pin":model_radial_d(wr,0,(x,0,py)),
+}
+tiny = {o.name:sum(t.area<=1e-12 for t in triangles(o)) for o in parts.values()}
+tiny = {key:value for key,value in tiny.items() if value}
+counts={key:0 for key in ["piston_body_liner","ring_liner","valve_crown","rod_bearing_crankpin"]}
+scene.objects[kin["crank_root"]].rotation_mode="XYZ"
+for row in kin["cylinders"]:
+    scene.objects[row["rod_root"]].rotation_mode="XYZ"
+checked=0
+for angle in range(0,721,10):
+    scene.objects[kin["crank_root"]].rotation_euler.x=-math.radians(angle)
+    for row in kin["valve_train"]:
+        delta=(angle-row["lift_center_deg"]+360)%720-360
+        lift=row["lift_max_m"]*math.cos(delta*math.pi/(2*row["half_window_deg"]))**2 if abs(delta)<row["half_window_deg"] else 0
+        node=scene.objects[row["valve_root"]]
+        node.location.z=kin["motion_roots"][row["valve_root"]]["rest_translation_m"][1]-lift
+    for row in kin["cylinders"]:
+        a=math.radians(angle+row["crankpin_phase_deg"])
+        cy,cz=t*math.cos(a),-t*math.sin(a)
+        py=cy+math.sqrt(l*l-cz*cz)
+        scene.objects[row["rod_root"]].location.y=-cz
+        scene.objects[row["rod_root"]].location.z=cy
+        scene.objects[row["rod_root"]].rotation_euler.x=math.atan2(-cz,py-cy)
+        scene.objects[row["piston_root"]].location.z=py
+    bpy.context.view_layer.update()
+    for row in kin["cylinders"]:
+        i=row["number"]
+        body=parts[f'INT-PISTON-{i*10+1:02d}']
+        liner=parts[f'INT-LINER-{i*10+1:02d}']
+        liner_tree=tree(liner)
+        body_tree=tree(body)
+        counts["piston_body_liner"]+=bool(body_tree.overlap(liner_tree))
+        for j in [3,4,5]:
+            counts["ring_liner"]+=bool(tree(parts[f'INT-PISTON-{i*10+j:02d}']).overlap(liner_tree))
+        for j in [30,37,50,57]:
+            counts["valve_crown"]+=bool(tree(parts[f'INT-VALVE-{i*100+j:03d}']).overlap(body_tree))
+        rod_pin=tree(parts[f'INT-CRANK-{i*10+10:02d}'])
+        for j in [3,4]:
+            counts["rod_bearing_crankpin"]+=bool(tree(parts[f'INT-ROD-{i*10+j:02d}']).overlap(rod_pin))
+        checked+=1
+
+exterior=OUT.parent/'exterior'/'exterior.glb'
+ext_hits={}
+import hashlib
+sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
+if exterior.exists():
+    bpy.ops.import_scene.gltf(filepath=str(exterior))
+    scene.objects[kin["crank_root"]].rotation_euler.x=0
+    bpy.context.view_layer.update()
+    for name in ["EXT-BLOCK-01","EXT-HEADS-01","EXT-HEADS-07","EXT-FLYWHEEL-01","EXT-FLYWHEEL-02","EXT-FRONT-01","EXT-FRONT-02","EXT-OILPAN-01"]:
+        ext=scene.objects.get(name)
+        if ext is None or ext.type!="MESH":
+            continue
+        ext_tree=tree(ext)
+        ext_hits[name]={}
+        for p in parts.values():
+            hits=len(ext_tree.overlap(tree(p)))
+            if hits:
+                ext_hits[name][p.name]=hits
+report={
+ "model_status":"UNVERIFIED",
+ "internal_glb_sha256":sha(OUT/"internal.glb"),
+ "exterior_glb_sha256":sha(exterior) if exterior.exists() else None,
+ "discrete_internal_status":"PASS" if not any(counts.values()) else "FAIL",
+ "sampled_pair_overlap_counts":counts,
+ "cylinder_poses":checked,
+ "triangle_pairs_for_exterior_at_rest_angle_0":ext_hits,
+ "all_inventory_matches":sorted(parts)==sorted(refs),
+ "missing_parts":sorted(set(refs)-set(parts)),
+ "extra_parts":sorted(set(parts)-set(refs)),
+ "mesh_count":len(parts),
+ "triangles":sum(len(triangles(o)) for o in parts.values()),
+ "near_zero_area_triangles":tiny,
+ "measured_diameters_m":diameters_m,
+ "measure_method":"Blender 4.3.2 GLB reimport in Z-up. Circumscribed radial vertex dimension around design center; Blender float32.",
+ "overlap_method":"BVHTree world-space exported triangle surface crossings sampled at 10-degree crank steps. Surfaces wholly contained by other solids, tangencies, unsampled intermediate angles, and engineering load/material deformation not assessed.",
+ "exterior_method":"Existing exterior GLB imported as available. Lists every triangle surface overlap in selected shells and interfaces at angle zero, before classifying known mating contact versus unintentional penetrations."
+}
+(OUT/'reimport-audit.json').write_text(json.dumps(report,indent=2)+"\n")

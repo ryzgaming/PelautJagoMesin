@@ -1,0 +1,46 @@
+{
+  "id": "RAK-OILPAN",
+  "nama": "Carter oli",
+  "node_rakitan": "RAK-OILPAN",
+  "acuan": {
+    "no": 1,
+    "object_ids": [
+      "EXT-OILPAN-01"
+    ]
+  },
+  "diagram": {
+    "arah_pandang": [
+      0.0,
+      -0.7071067690849304,
+      -0.7071067690849304
+    ],
+    "atas": [
+      0,
+      1,
+      0
+    ]
+  },
+  "bagian": [
+    {
+      "no": 1,
+      "nama": "Carter oli bergaris rusuk vertikal",
+      "object_ids": [
+        "EXT-OILPAN-01"
+      ],
+      "posisi": [],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D03 PDF 17 printed p. 33 / engine-only right elevation and front view",
+        "GA01 B3-48660-4450 / outline, top, end and rear housing details",
+        "P18 / sump bawah flywheel",
+        "D05 Parts catalog 0CG10-M34300 Fig.8,9,10,11 WET: variants of sump, M30 gasket and sump gasket",
+        "P18 / rear drain; GA01 side/front silhouette"
+      ],
+      "fungsi": "Carter oli bergaris rusuk vertikal",
+      "nomor_oem": null,
+      "role": "shell",
+      "ukuran": null
+    }
+  ],
+  "notes": "Nomor posisi model. Lintasan ilustrasi, belum diperiksa untuk interferensi."
+}

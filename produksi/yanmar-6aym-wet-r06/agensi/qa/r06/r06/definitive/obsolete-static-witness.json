@@ -1,0 +1,2522 @@
+{
+  "error": "Fixed-parts drift",
+  "evidence": {
+    "state": {
+      "mode": "drives",
+      "selected": null,
+      "isolated": false,
+      "xray": true,
+      "system": "fuel",
+      "angle": 0,
+      "running": false,
+      "simTime": 0,
+      "enginePhase": "off",
+      "phaseTime": 0,
+      "rpm": 0,
+      "stopRPM": 0,
+      "stopEngagement": 0,
+      "starterEngagement": 0,
+      "driveAngles": {
+        "running": 0,
+        "starting": 0,
+        "both": 0
+      },
+      "driveId": "cap-pressure",
+      "flow": "fuel",
+      "route": null,
+      "tour": null,
+      "tourSpread": 0,
+      "flowCut": false,
+      "combustionFocus": false,
+      "poseOverview": false,
+      "filter": "",
+      "cutaway": false,
+      "cutawayNormal": null
+    },
+    "trace": {
+      "trace": [
+        {
+          "phase": "off",
+          "stage": 0,
+          "elapsed": 0,
+          "rpm": 0,
+          "engage": 0,
+          "status": "Mesin mati",
+          "running": false,
+          "clock": 0,
+          "angle": 0,
+          "wall": 14888.5,
+          "fixedDrift": 0,
+          "maxMotion": 0,
+          "effects": false,
+          "visibleCylinders": [],
+          "audio": {
+            "phase": "off",
+            "rpm": 0,
+            "elapsed": 0,
+            "paused": false,
+            "unlocked": false,
+            "muted": false,
+            "volume": 0.35,
+            "hidden": false,
+            "disposed": false,
+            "contextState": "uncreated",
+            "firingHz": 0,
+            "audible": false,
+            "nodes": 0,
+            "activeOneShots": 0,
+            "lastClickElapsed": null,
+            "targets": null
+          },
+          "rms": 0,
+          "peak": 0,
+          "sinks": 0
+        },
+        {
+          "phase": "off",
+          "stage": 0,
+          "elapsed": 0,
+          "rpm": 0,
+          "engage": 0,
+          "status": "Mesin mati",
+          "running": false,
+          "clock": 0,
+          "angle": 0,
+          "wall": 17938.4,
+          "fixedDrift": 0,
+          "maxMotion": 0,
+          "effects": false,
+          "visibleCylinders": [],
+          "audio": {
+            "phase": "off",
+            "rpm": 0,
+            "elapsed": 0,
+            "paused": false,
+            "unlocked": false,
+            "muted": false,
+            "volume": 0.35,
+            "hidden": false,
+            "disposed": false,
+            "contextState": "uncreated",
+            "firingHz": 0,
+            "audible": false,
+            "nodes": 0,
+            "activeOneShots": 0,
+            "lastClickElapsed": null,
+            "targets": null
+          },
+          "rms": 0,
+          "peak": 0,
+          "sinks": 0
+        },
+        {
+          "phase": "engaging",
+          "stage": 1,
+          "elapsed": 0.03330000000000291,
+          "rpm": 0,
+          "engage": 0.02543399244315299,
+          "status": "Pinion masuk",
+          "running": true,
+          "clock": 0,
+          "angle": 0,
+          "wall": 17988.4,
+          "fixedDrift": 0,
+          "maxMotion": 0.05365835550318062,
+          "effects": false,
+          "visibleCylinders": [],
+          "audio": {
+            "phase": "engaging",
+            "rpm": 0,
+            "elapsed": 0.03330000000000291,
+            "paused": false,
+            "unlocked": true,
+            "muted": false,
+            "volume": 0.35,
+            "hidden": false,
+            "disposed": false,
+            "contextState": "running",
+            "firingHz": 0,
+            "audible": true,
+            "nodes": 18,
+            "activeOneShots": 1,
+            "lastClickElapsed": 0,
+            "targets": {
+              "master": 0.35,
+              "starter": 0,
+              "combustion": 0
+            }
+          },
+          "rms": 0.00940946397591092,
+          "peak": 0.040927909314632416,
+          "sinks": 1
+        },
+        {
+          "phase": "engaging",
+          "stage": 1,
+          "elapsed": 0.2333000000000029,
+          "rpm": 0,
+          "engage": 0.7406137475452006,
+          "status": "Pinion masuk",
+          "running": true,
+          "clock": 0,
+          "angle": 0,
+          "wall": 19238.3,
+          "fixedDrift": 0,
+          "maxMotion": 0.31884992501210474,
+          "effects": false,
+          "visibleCylinders": [],
+          "audio": {
+            "phase": "engaging",
+            "rpm": 0,
+            "elapsed": 0.2333000000000029,
+            "paused": false,
+            "unlocked": true,
+            "muted": false,
+            "volume": 0.35,
+            "hidden": false,
+            "disposed": false,
+            "contextState": "running",
+            "firingHz": 0,
+            "audible": true,
+            "nodes": 18,
+            "activeOneShots": 0,
+            "lastClickElapsed": 0,
+            "targets": {
+              "master": 0.35,
+              "starter": 0,
+              "combustion": 0
+            }
+          },
+          "rms": 0,
+          "peak": 0,
+          "sinks": 1
+        },
+        {
+          "phase": "cranking",
+          "stage": 2,
+          "elapsed": 0.08330000000000291,
+          "rpm": 63.19310344827807,
+          "engage": 1,
+          "status": "Starter memutar",
+          "running": true,
+          "clock": 0.025460158620691294,
+          "angle": 0.025460158620691294,
+          "wall": 20455,
+          "fixedDrift": 0,
+          "maxMotion": 1.259336460292858,
+          "effects": true,
+          "visibleCylinders": [],
+          "audio": {
+            "phase": "cranking",
+            "rpm": 63.19310344827807,
+            "elapsed": 0.08330000000000291,
+            "paused": false,
+            "unlocked": true,
+            "muted": false,
+            "volume": 0.35,
+            "hidden": false,
+            "disposed": false,
+            "contextState": "running",
+            "firingHz": 3.1596551724139035,
+            "audible": true,
+            "nodes": 18,
+            "activeOneShots": 0,
+            "lastClickElapsed": 0,
+            "targets": {
+              "master": 0.35,
+              "starter": 0.14,
+              "combustion": 0
+            }
+          },
+          "rms": 0.020444426742973466,
+          "peak": 0.05527510866522789,
+          "sinks": 1
+        },
+        {
+          "phase": "cranking",
+          "stage": 2,
+          "elapsed": 0.2833000000000029,
+          "rpm": 214.91724137931254,
+          "engage": 1,
+          "status": "Starter memutar",
+          "running": true,
+          "clock": 0.22657740000000448,
+          "angle": 0.22657740000000448,
+          "wall": 24154.8,
+          "fixedDrift": 0,
+          "maxMotion": 1.8221552661469524,
+          "effects": true,
+          "visibleCylinders": [],
+          "audio": {
+            "phase": "cranking",
+            "rpm": 214.91724137931254,
+            "elapsed": 0.2833000000000029,
+            "paused": false,
+            "unlocked": true,
+            "muted": false,
+            "volume": 0.35,
+            "hidden": false,
+            "disposed": false,
+            "contextState": "running",
+            "firingHz": 10.745862068965627,
+            "audible": true,
+            "nodes": 18,
+            "activeOneShots": 0,
+            "lastClickElapsed": 0,
+            "targets": {
+              "master": 0.35,
+              "starter": 0.14,
+              "combustion": 0
+            }
+          },
+          "rms": 0.022295360513412053,
+          "peak": 0.05527510866522789,
+          "sinks": 1
+        },
+        {
+          "phase": "cranking",
+          "stage": 2,
+          "elapsed": 0.3667000000000043,
+          "rpm": 220,
+          "engage": 1,
+          "status": "Starter memutar",
+          "running": true,
+          "clock": 0.3433374000000065,
+          "angle": 0.3433374000000065,
+          "wall": 24238.2,
+          "fixedDrift": 0,
+          "maxMotion": 1.9131589134426434,
+          "effects": true,
+          "visibleCylinders": [],
+          "audio": {
+            "phase": "cranking",
+            "rpm": 220,
+            "elapsed": 0.3667000000000043,
+            "paused": false,
+            "unlocked": true,
+            "muted": false,
+            "volume": 0.35,
+            "hidden": false,
+            "disposed": false,
+            "contextState": "running",
+            "firingHz": 11,
+            "audible": true,
+            "nodes": 18,
+            "activeOneShots": 0,
+            "lastClickElapsed": 0,
+            "targets": {
+              "master": 0.35,
+              "starter": 0.14,
+              "combustion": 0
+            }
+          },
+          "rms": 0.03288641430087693,
+          "peak": 0.07452258467674255,
+          "sinks": 1
+        },
+        {
+          "phase": "cranking",
+          "stage": 2,
+          "elapsed": 0.5667000000000043,
+          "rpm": 220,
+          "engage": 1,
+          "status": "Starter memutar",
+          "running": true,
+          "clock": 0.6233374000000065,
+          "angle": 0.6233374000000065,
+          "wall": 25688.1,
+          "fixedDrift": 0,
+          "maxMotion": 1.9008825617354388,
+          "effects": true,
+          "visibleCylinders": [],
+          "audio": {
+            "phase": "cranking",
+            "rpm": 220,
+            "elapsed": 0.5667000000000043,
+            "paused": false,
+            "unlocked": true,
+            "muted": false,
+            "volume": 0.35,
+            "hidden": false,
+            "disposed": false,
+            "contextState": "running",
+            "firingHz": 11,
+            "audible": true,
+            "nodes": 18,
+            "activeOneShots": 0,
+            "lastClickElapsed": 0,
+            "targets": {
+              "master": 0.35,
+              "starter": 0.14,
+              "combustion": 0
+            }
+          },
+          "rms": 0.034518024769668365,
+          "peak": 0.07835689187049866,
+          "sinks": 1
+        },
+        {
+          "phase": "cranking",
+          "stage": 2,
+          "elapsed": 0.5667000000000043,
+          "rpm": 220,
+          "engage": 1,
+          "status": "Jeda · Starter memutar",
+          "running": false,
+          "clock": 0.6233374000000065,
+          "angle": 0.6233374000000065,
+          "wall": 27204.7,
+          "fixedDrift": 0,
+          "maxMotion": 1.9008825617354388,
+          "effects": true,
+          "visibleCylinders": [],
+          "audio": {
+            "phase": "cranking",
+            "rpm": 220,
+            "elapsed": 0.5667000000000043,
+            "paused": true,
+            "unlocked": true,
+            "muted": false,
+            "volume": 0.35,
+            "hidden": false,
+            "disposed": false,
+            "contextState": "running",
+            "firingHz": 11,
+            "audible": false,
+            "nodes": 18,
+            "activeOneShots": 0,
+            "lastClickElapsed": 0,
+            "targets": {
+              "master": 0,
+              "starter": 0.14,
+              "combustion": 0
+            }
+          },
+          "rms": 0,
+          "peak": 0,
+          "sinks": 1
+        },
+        {
+          "phase": "cranking",
+          "stage": 2,
+          "elapsed": 0.5667000000000043,
+          "rpm": 220,
+          "engage": 1,
+          "status": "Jeda · Starter memutar",
+          "running": false,
+          "clock": 0.6233374000000065,
+          "angle": 0.6233374000000065,
+          "wall": 28788,
+          "fixedDrift": 0,
+          "maxMotion": 1.9008825617354388,
+          "effects": true,
+          "visibleCylinders": [],
+          "audio": {
+            "phase": "cranking",
+            "rpm": 220,
+            "elapsed": 0.5667000000000043,
+            "paused": true,
+            "unlocked": true,
+            "muted": false,
+            "volume": 0.35,
+            "hidden": false,
+            "disposed": false,
+            "contextState": "running",
+            "firingHz": 11,
+            "audible": false,
+            "nodes": 18,
+            "activeOneShots": 0,
+            "lastClickElapsed": 0,
+            "targets": {
+              "master": 0,
+              "starter": 0.14,
+              "combustion": 0
+            }
+          },
+          "rms": 0,
+          "peak": 0,
+          "sinks": 1
+        },
+        {
+          "phase": "cranking",
+          "stage": 2,
+          "elapsed": 0.7667000000000045,
+          "rpm": 220,
+          "engage": 1,
+          "status": "Starter memutar",
+          "running": true,
+          "clock": 0.9033374000000063,
+          "angle": 0.9033374000000063,
+          "wall": 30937.9,
+          "fixedDrift": 0,
+          "maxMotion": 1.8514197907014454,
+          "effects": true,
+          "visibleCylinders": [],
+          "audio": {
+            "phase": "cranking",
+            "rpm": 220,
+            "elapsed": 0.7667000000000045,
+            "paused": false,
+            "unlocked": true,
+            "muted": false,
+            "volume": 0.35,
+            "hidden": false,
+            "disposed": false,
+            "contextState": "running",
+            "firingHz": 11,
+            "audible": true,
+            "nodes": 18,
+            "activeOneShots": 0,
+            "lastClickElapsed": 0,
+            "targets": {
+              "master": 0.35,
+              "starter": 0.14,
+              "combustion": 0
+            }
+          },
+          "rms": 0.035046767208378134,
+          "peak": 0.07631055265665054,
+          "sinks": 1
+        },
+        {
+          "phase": "cranking",
+          "stage": 2,
+          "elapsed": 0.9667000000000047,
+          "rpm": 220,
+          "engage": 1,
+          "status": "Starter memutar",
+          "running": true,
+          "clock": 1.1833374000000063,
+          "angle": 1.1833374000000063,
+          "wall": 31554.6,
+          "fixedDrift": 0,
+          "maxMotion": 1.9296659939207257,
+          "effects": true,
+          "visibleCylinders": [],
+          "audio": {
+            "phase": "cranking",
+            "rpm": 220,
+            "elapsed": 0.9667000000000047,
+            "paused": false,
+            "unlocked": true,
+            "muted": false,
+            "volume": 0.35,
+            "hidden": false,
+            "disposed": false,
+            "contextState": "running",
+            "firingHz": 11,
+            "audible": true,
+            "nodes": 18,
+            "activeOneShots": 0,
+            "lastClickElapsed": 0,
+            "targets": {
+              "master": 0.35,
+              "starter": 0.14,
+              "combustion": 0
+            }
+          },
+          "rms": 0.03391934384416155,
+          "peak": 0.07231944799423218,
+          "sinks": 1
+        },
+        {
+          "phase": "cranking",
+          "stage": 2,
+          "elapsed": 1.1667000000000047,
+          "rpm": 220,
+          "engage": 1,
+          "status": "Starter memutar",
+          "running": true,
+          "clock": 1.4633374000000066,
+          "angle": 1.4633374000000066,
+          "wall": 32787.8,
+          "fixedDrift": 0,
+          "maxMotion": 1.9071149544328283,
+          "effects": true,
+          "visibleCylinders": [],
+          "audio": {
+            "phase": "cranking",
+            "rpm": 220,
+            "elapsed": 1.1667000000000047,
+            "paused": false,
+            "unlocked": true,
+            "muted": false,
+            "volume": 0.35,
+            "hidden": false,
+            "disposed": false,
+            "contextState": "running",
+            "firingHz": 11,
+            "audible": true,
+            "nodes": 18,
+            "activeOneShots": 0,
+            "lastClickElapsed": 0,
+            "targets": {
+              "master": 0.35,
+              "starter": 0.14,
+              "combustion": 0
+            }
+          },
+          "rms": 0.03551984088679162,
+          "peak": 0.08050533384084702,
+          "sinks": 1
+        },
+        {
+          "phase": "cranking",
+          "stage": 2,
+          "elapsed": 1.366700000000005,
+          "rpm": 220,
+          "engage": 1,
+          "status": "Starter memutar",
+          "running": true,
+          "clock": 1.7433374000000068,
+          "angle": 1.7433374000000068,
+          "wall": 34071.1,
+          "fixedDrift": 0,
+          "maxMotion": 1.9994492898449148,
+          "effects": true,
+          "visibleCylinders": [],
+          "audio": {
+            "phase": "cranking",
+            "rpm": 220,
+            "elapsed": 1.366700000000005,
+            "paused": false,
+            "unlocked": true,
+            "muted": false,
+            "volume": 0.35,
+            "hidden": false,
+            "disposed": false,
+            "contextState": "running",
+            "firingHz": 11,
+            "audible": true,
+            "nodes": 18,
+            "activeOneShots": 0,
+            "lastClickElapsed": 0,
+            "targets": {
+              "master": 0.35,
+              "starter": 0.14,
+              "combustion": 0
+            }
+          },
+          "rms": 0.03347155988127212,
+          "peak": 0.07120811939239502,
+          "sinks": 1
+        },
+        {
+          "phase": "firing",
+          "stage": 3,
+          "elapsed": 0.11670000000000502,
+          "rpm": 242.0904438783979,
+          "engage": 1,
+          "status": "Pembakaran mulai",
+          "running": true,
+          "clock": 2.0256263296080026,
+          "angle": 2.0256263296080026,
+          "wall": 35321.1,
+          "fixedDrift": 0.01458445945792081,
+          "maxMotion": 1.9946844287787289,
+          "effects": true,
+          "visibleCylinders": [],
+          "audio": {
+            "phase": "firing",
+            "rpm": 242.0904438783979,
+            "elapsed": 0.11670000000000502,
+            "paused": false,
+            "unlocked": true,
+            "muted": false,
+            "volume": 0.35,
+            "hidden": false,
+            "disposed": false,
+            "contextState": "running",
+            "firingHz": 12.104522193919895,
+            "audible": true,
+            "nodes": 18,
+            "activeOneShots": 0,
+            "lastClickElapsed": 0,
+            "targets": {
+              "master": 0.35,
+              "starter": 0,
+              "combustion": 0.38
+            }
+          },
+          "rms": 0.06287960624583547,
+          "peak": 0.10875698179006577,
+          "sinks": 1
+        },
+        {
+          "phase": "firing",
+          "stage": 3,
+          "elapsed": 0.316700000000005,
+          "rpm": 354.598211450148,
+          "engage": 1,
+          "status": "Pembakaran mulai",
+          "running": true,
+          "clock": 2.3339318853667823,
+          "angle": 2.3339318853667823,
+          "wall": 39304.2,
+          "fixedDrift": 0.10611017003949783,
+          "maxMotion": 1.9995594780594022,
+          "effects": true,
+          "visibleCylinders": [
+            4
+          ],
+          "audio": {
+            "phase": "firing",
+            "rpm": 354.598211450148,
+            "elapsed": 0.316700000000005,
+            "paused": false,
+            "unlocked": true,
+            "muted": false,
+            "volume": 0.35,
+            "hidden": false,
+            "disposed": false,
+            "contextState": "running",
+            "firingHz": 17.7299105725074,
+            "audible": true,
+            "nodes": 18,
+            "activeOneShots": 0,
+            "lastClickElapsed": 0,
+            "targets": {
+              "master": 0.35,
+              "starter": 0,
+              "combustion": 0.38
+            }
+          },
+          "rms": 0.05503410929577223,
+          "peak": 0.12300659716129303,
+          "sinks": 1
+        },
+        {
+          "phase": "firing",
+          "stage": 3,
+          "elapsed": 0.3501000000000064,
+          "rpm": 378.75253724265076,
+          "engage": 1,
+          "status": "Pembakaran mulai",
+          "running": true,
+          "clock": 2.38932359308942,
+          "angle": 2.38932359308942,
+          "wall": 39337.6,
+          "fixedDrift": 0.12989310272626808,
+          "maxMotion": 1.9990245697663824,
+          "effects": true,
+          "visibleCylinders": [
+            4
+          ],
+          "audio": {
+            "phase": "firing",
+            "rpm": 378.75253724265076,
+            "elapsed": 0.3501000000000064,
+            "paused": false,
+            "unlocked": true,
+            "muted": false,
+            "volume": 0.35,
+            "hidden": false,
+            "disposed": false,
+            "contextState": "running",
+            "firingHz": 18.93762686213254,
+            "audible": true,
+            "nodes": 18,
+            "activeOneShots": 0,
+            "lastClickElapsed": 0,
+            "targets": {
+              "master": 0.35,
+              "starter": 0,
+              "combustion": 0.38
+            }
+          },
+          "rms": 0.05665634258208758,
+          "peak": 0.1011972576379776,
+          "sinks": 1
+        },
+        {
+          "phase": "firing",
+          "stage": 3,
+          "elapsed": 0.566700000000005,
+          "rpm": 538.5410015173165,
+          "engage": 1,
+          "status": "Pembakaran mulai",
+          "running": true,
+          "clock": 2.7832440275396197,
+          "angle": 2.7832440275396197,
+          "wall": 40620.8,
+          "fixedDrift": 0.3473280660555601,
+          "maxMotion": 1.9364772837937194,
+          "effects": true,
+          "visibleCylinders": [
+            4
+          ],
+          "audio": {
+            "phase": "firing",
+            "rpm": 538.5410015173165,
+            "elapsed": 0.566700000000005,
+            "paused": false,
+            "unlocked": true,
+            "muted": false,
+            "volume": 0.35,
+            "hidden": false,
+            "disposed": false,
+            "contextState": "running",
+            "firingHz": 26.92705007586583,
+            "audible": true,
+            "nodes": 18,
+            "activeOneShots": 0,
+            "lastClickElapsed": 0,
+            "targets": {
+              "master": 0.35,
+              "starter": 0,
+              "combustion": 0.38
+            }
+          },
+          "rms": 0.0718579853521742,
+          "peak": 0.11702956259250641,
+          "sinks": 1
+        },
+        {
+          "phase": "firing",
+          "stage": 3,
+          "elapsed": 0.7667000000000052,
+          "rpm": 638.4202651200014,
+          "engage": 1,
+          "status": "Pembakaran mulai",
+          "running": true,
+          "clock": 3.189345552490339,
+          "angle": 3.189345552490339,
+          "wall": 41887.4,
+          "fixedDrift": 0.6304702228078262,
+          "maxMotion": 1.9988600469713107,
+          "effects": true,
+          "visibleCylinders": [
+            4
+          ],
+          "audio": {
+            "phase": "firing",
+            "rpm": 638.4202651200014,
+            "elapsed": 0.7667000000000052,
+            "paused": false,
+            "unlocked": true,
+            "muted": false,
+            "volume": 0.35,
+            "hidden": false,
+            "disposed": false,
+            "contextState": "running",
+            "firingHz": 31.921013256000073,
+            "audible": true,
+            "nodes": 18,
+            "activeOneShots": 0,
+            "lastClickElapsed": 0,
+            "targets": {
+              "master": 0.35,
+              "starter": 0,
+              "combustion": 0.38
+            }
+          },
+          "rms": 0.0841755876516318,
+          "peak": 0.2758883833885193,
+          "sinks": 1
+        },
+        {
+          "phase": "running",
+          "stage": 4,
+          "elapsed": 0.11670000000000524,
+          "rpm": 650,
+          "engage": 0.5206198007812172,
+          "status": "Mesin hidup",
+          "running": true,
+          "clock": 3.6091886078782323,
+          "angle": 3.6091886078782323,
+          "wall": 43204.1,
+          "fixedDrift": 0.9022540709198053,
+          "maxMotion": 1.997784703236956,
+          "effects": true,
+          "visibleCylinders": [
+            4
+          ],
+          "audio": {
+            "phase": "running",
+            "rpm": 650,
+            "elapsed": 0.11670000000000524,
+            "paused": false,
+            "unlocked": true,
+            "muted": false,
+            "volume": 0.35,
+            "hidden": false,
+            "disposed": false,
+            "contextState": "running",
+            "firingHz": 32.5,
+            "audible": true,
+            "nodes": 18,
+            "activeOneShots": 0,
+            "lastClickElapsed": 0,
+            "targets": {
+              "master": 0.35,
+              "starter": 0,
+              "combustion": 0.38
+            }
+          },
+          "rms": 0.07504955211486654,
+          "peak": 0.2333833873271942,
+          "sinks": 1
+        },
+        {
+          "phase": "running",
+          "stage": 4,
+          "elapsed": 0.3167000000000052,
+          "rpm": 650,
+          "engage": 0,
+          "status": "Mesin hidup",
+          "running": true,
+          "clock": 4.029188607878233,
+          "angle": 4.029188607878233,
+          "wall": 44504,
+          "fixedDrift": 1.0898136182482543,
+          "maxMotion": 1.9945176850865352,
+          "effects": true,
+          "visibleCylinders": [],
+          "audio": {
+            "phase": "running",
+            "rpm": 650,
+            "elapsed": 0.3167000000000052,
+            "paused": false,
+            "unlocked": true,
+            "muted": false,
+            "volume": 0.35,
+            "hidden": false,
+            "disposed": false,
+            "contextState": "running",
+            "firingHz": 32.5,
+            "audible": true,
+            "nodes": 18,
+            "activeOneShots": 0,
+            "lastClickElapsed": 0,
+            "targets": {
+              "master": 0.35,
+              "starter": 0,
+              "combustion": 0.38
+            }
+          },
+          "rms": 0.07835687848333436,
+          "peak": 0.26038986444473267,
+          "sinks": 1
+        },
+        {
+          "phase": "running",
+          "stage": 4,
+          "elapsed": 0.5167000000000052,
+          "rpm": 650,
+          "engage": 0,
+          "status": "Mesin hidup",
+          "running": true,
+          "clock": 4.449188607878234,
+          "angle": 4.449188607878234,
+          "wall": 45770.6,
+          "fixedDrift": 1.6418517733261502,
+          "maxMotion": 1.999992765476076,
+          "effects": true,
+          "visibleCylinders": [
+            2
+          ],
+          "audio": {
+            "phase": "running",
+            "rpm": 650,
+            "elapsed": 0.5167000000000052,
+            "paused": false,
+            "unlocked": true,
+            "muted": false,
+            "volume": 0.35,
+            "hidden": false,
+            "disposed": false,
+            "contextState": "running",
+            "firingHz": 32.5,
+            "audible": true,
+            "nodes": 18,
+            "activeOneShots": 0,
+            "lastClickElapsed": 0,
+            "targets": {
+              "master": 0.35,
+              "starter": 0,
+              "combustion": 0.38
+            }
+          },
+          "rms": 0.07628249465219736,
+          "peak": 0.26457494497299194,
+          "sinks": 1
+        },
+        {
+          "phase": "running",
+          "stage": 4,
+          "elapsed": 0.7167000000000053,
+          "rpm": 650,
+          "engage": 0,
+          "status": "Mesin hidup",
+          "running": true,
+          "clock": 4.869188607878236,
+          "angle": 4.869188607878236,
+          "wall": 47103.9,
+          "fixedDrift": 1.9775350815506914,
+          "maxMotion": 1.9995212630297896,
+          "effects": true,
+          "visibleCylinders": [
+            2
+          ],
+          "audio": {
+            "phase": "running",
+            "rpm": 650,
+            "elapsed": 0.7167000000000053,
+            "paused": false,
+            "unlocked": true,
+            "muted": false,
+            "volume": 0.35,
+            "hidden": false,
+            "disposed": false,
+            "contextState": "running",
+            "firingHz": 32.5,
+            "audible": true,
+            "nodes": 18,
+            "activeOneShots": 0,
+            "lastClickElapsed": 0,
+            "targets": {
+              "master": 0.35,
+              "starter": 0,
+              "combustion": 0.38
+            }
+          },
+          "rms": 0.07280874093424099,
+          "peak": 0.11627531051635742,
+          "sinks": 1
+        },
+        {
+          "phase": "running",
+          "stage": 4,
+          "elapsed": 0.9167000000000055,
+          "rpm": 650,
+          "engage": 0,
+          "status": "Mesin hidup",
+          "running": true,
+          "clock": 5.289188607878238,
+          "angle": 5.289188607878238,
+          "wall": 48487.2,
+          "fixedDrift": 1.88189392471166,
+          "maxMotion": 1.9999823278077797,
+          "effects": true,
+          "visibleCylinders": [
+            2
+          ],
+          "audio": {
+            "phase": "running",
+            "rpm": 650,
+            "elapsed": 0.9167000000000055,
+            "paused": false,
+            "unlocked": true,
+            "muted": true,
+            "volume": 0.35,
+            "hidden": false,
+            "disposed": false,
+            "contextState": "running",
+            "firingHz": 32.5,
+            "audible": false,
+            "nodes": 18,
+            "activeOneShots": 0,
+            "lastClickElapsed": 0,
+            "targets": {
+              "master": 0,
+              "starter": 0,
+              "combustion": 0.38
+            }
+          },
+          "rms": 0,
+          "peak": 0,
+          "sinks": 1
+        },
+        {
+          "phase": "running",
+          "stage": 4,
+          "elapsed": 1.1167000000000056,
+          "rpm": 650,
+          "engage": 0,
+          "status": "Mesin hidup",
+          "running": true,
+          "clock": 5.7091886078782395,
+          "angle": 5.7091886078782395,
+          "wall": 49687.2,
+          "fixedDrift": 1.3377910143990148,
+          "maxMotion": 1.9988833662475975,
+          "effects": true,
+          "visibleCylinders": [
+            2
+          ],
+          "audio": {
+            "phase": "running",
+            "rpm": 650,
+            "elapsed": 1.1167000000000056,
+            "paused": false,
+            "unlocked": true,
+            "muted": true,
+            "volume": 0.35,
+            "hidden": false,
+            "disposed": false,
+            "contextState": "running",
+            "firingHz": 32.5,
+            "audible": false,
+            "nodes": 18,
+            "activeOneShots": 0,
+            "lastClickElapsed": 0,
+            "targets": {
+              "master": 0,
+              "starter": 0,
+              "combustion": 0.38
+            }
+          },
+          "rms": 0,
+          "peak": 0,
+          "sinks": 1
+        },
+        {
+          "phase": "running",
+          "stage": 4,
+          "elapsed": 1.3167000000000058,
+          "rpm": 650,
+          "engage": 0,
+          "status": "Mesin hidup",
+          "running": true,
+          "clock": 6.129188607878241,
+          "angle": 6.129188607878241,
+          "wall": 50937.1,
+          "fixedDrift": 0.9150215883785384,
+          "maxMotion": 1.9970370913706017,
+          "effects": true,
+          "visibleCylinders": [],
+          "audio": {
+            "phase": "running",
+            "rpm": 650,
+            "elapsed": 1.3167000000000058,
+            "paused": false,
+            "unlocked": true,
+            "muted": false,
+            "volume": 0.35,
+            "hidden": false,
+            "disposed": false,
+            "contextState": "running",
+            "firingHz": 32.5,
+            "audible": true,
+            "nodes": 18,
+            "activeOneShots": 0,
+            "lastClickElapsed": 0,
+            "targets": {
+              "master": 0.35,
+              "starter": 0,
+              "combustion": 0.38
+            }
+          },
+          "rms": 0.07172239055498326,
+          "peak": 0.2578859329223633,
+          "sinks": 1
+        },
+        {
+          "phase": "running",
+          "stage": 4,
+          "elapsed": 1.516700000000006,
+          "rpm": 650,
+          "engage": 0,
+          "status": "Mesin hidup",
+          "running": true,
+          "clock": 6.549188607878243,
+          "angle": 6.549188607878243,
+          "wall": 52187,
+          "fixedDrift": 0.3681197247322476,
+          "maxMotion": 1.9911683109938372,
+          "effects": true,
+          "visibleCylinders": [
+            6
+          ],
+          "audio": {
+            "phase": "running",
+            "rpm": 650,
+            "elapsed": 1.516700000000006,
+            "paused": false,
+            "unlocked": true,
+            "muted": false,
+            "volume": 0.35,
+            "hidden": false,
+            "disposed": false,
+            "contextState": "running",
+            "firingHz": 32.5,
+            "audible": true,
+            "nodes": 18,
+            "activeOneShots": 0,
+            "lastClickElapsed": 0,
+            "targets": {
+              "master": 0.35,
+              "starter": 0,
+              "combustion": 0.38
+            }
+          },
+          "rms": 0.07302865931474922,
+          "peak": 0.11498242616653442,
+          "sinks": 1
+        },
+        {
+          "phase": "running",
+          "stage": 4,
+          "elapsed": 1.716700000000006,
+          "rpm": 650,
+          "engage": 0,
+          "status": "Mesin hidup",
+          "running": true,
+          "clock": 6.969188607878245,
+          "angle": 6.969188607878245,
+          "wall": 53437,
+          "fixedDrift": 0.4040749467287172,
+          "maxMotion": 1.9912312109008168,
+          "effects": true,
+          "visibleCylinders": [
+            6
+          ],
+          "audio": {
+            "phase": "running",
+            "rpm": 650,
+            "elapsed": 1.716700000000006,
+            "paused": false,
+            "unlocked": true,
+            "muted": false,
+            "volume": 0.35,
+            "hidden": false,
+            "disposed": false,
+            "contextState": "running",
+            "firingHz": 32.5,
+            "audible": true,
+            "nodes": 18,
+            "activeOneShots": 0,
+            "lastClickElapsed": 0,
+            "targets": {
+              "master": 0.35,
+              "starter": 0,
+              "combustion": 0.38
+            }
+          },
+          "rms": 0.07174394677844945,
+          "peak": 0.24059821665287018,
+          "sinks": 1
+        },
+        {
+          "phase": "stopping",
+          "stage": 5,
+          "elapsed": 0.2,
+          "rpm": 526.1904761904761,
+          "engage": 0,
+          "status": "Mesin melambat",
+          "running": true,
+          "clock": 7.339188607878244,
+          "angle": 7.339188607878244,
+          "wall": 54653.6,
+          "fixedDrift": 0.9145022483799549,
+          "maxMotion": 1.943324470564316,
+          "effects": false,
+          "visibleCylinders": [],
+          "audio": {
+            "phase": "stopping",
+            "rpm": 526.1904761904761,
+            "elapsed": 0.2,
+            "paused": false,
+            "unlocked": true,
+            "muted": false,
+            "volume": 0.35,
+            "hidden": false,
+            "disposed": false,
+            "contextState": "running",
+            "firingHz": 26.309523809523807,
+            "audible": true,
+            "nodes": 18,
+            "activeOneShots": 0,
+            "lastClickElapsed": 0,
+            "targets": {
+              "master": 0.35,
+              "starter": 0,
+              "combustion": 0
+            }
+          },
+          "rms": 0.01819748350554997,
+          "peak": 0.033246032893657684,
+          "sinks": 1
+        },
+        {
+          "phase": "stopping",
+          "stage": 5,
+          "elapsed": 0.39999999999999997,
+          "rpm": 402.3809523809524,
+          "engage": 0,
+          "status": "Mesin melambat",
+          "running": true,
+          "clock": 7.629188607878245,
+          "angle": 7.629188607878245,
+          "wall": 55853.5,
+          "fixedDrift": 1.2110261941471885,
+          "maxMotion": 1.943324470564316,
+          "effects": false,
+          "visibleCylinders": [],
+          "audio": {
+            "phase": "stopping",
+            "rpm": 402.3809523809524,
+            "elapsed": 0.39999999999999997,
+            "paused": false,
+            "unlocked": true,
+            "muted": false,
+            "volume": 0.35,
+            "hidden": false,
+            "disposed": false,
+            "contextState": "running",
+            "firingHz": 20.11904761904762,
+            "audible": true,
+            "nodes": 18,
+            "activeOneShots": 0,
+            "lastClickElapsed": 0,
+            "targets": {
+              "master": 0.35,
+              "starter": 0,
+              "combustion": 0
+            }
+          },
+          "rms": 0.017683047930182827,
+          "peak": 0.031851161271333694,
+          "sinks": 1
+        },
+        {
+          "phase": "stopping",
+          "stage": 5,
+          "elapsed": 0.6,
+          "rpm": 278.5714285714286,
+          "engage": 0,
+          "status": "Mesin melambat",
+          "running": true,
+          "clock": 7.839188607878244,
+          "angle": 7.839188607878244,
+          "wall": 57103.5,
+          "fixedDrift": 1.6807212407564769,
+          "maxMotion": 1.943324470564316,
+          "effects": false,
+          "visibleCylinders": [],
+          "audio": {
+            "phase": "stopping",
+            "rpm": 278.5714285714286,
+            "elapsed": 0.6,
+            "paused": false,
+            "unlocked": true,
+            "muted": false,
+            "volume": 0.35,
+            "hidden": false,
+            "disposed": false,
+            "contextState": "running",
+            "firingHz": 13.92857142857143,
+            "audible": true,
+            "nodes": 18,
+            "activeOneShots": 0,
+            "lastClickElapsed": 0,
+            "targets": {
+              "master": 0.35,
+              "starter": 0,
+              "combustion": 0
+            }
+          },
+          "rms": 0.01663517907882809,
+          "peak": 0.03189284726977348,
+          "sinks": 1
+        },
+        {
+          "phase": "stopping",
+          "stage": 5,
+          "elapsed": 0.8000000000000002,
+          "rpm": 154.76190476190473,
+          "engage": 0,
+          "status": "Mesin melambat",
+          "running": true,
+          "clock": 7.969188607878245,
+          "angle": 7.969188607878245,
+          "wall": 58420.1,
+          "fixedDrift": 1.9340536133534818,
+          "maxMotion": 1.943324470564316,
+          "effects": false,
+          "visibleCylinders": [],
+          "audio": {
+            "phase": "stopping",
+            "rpm": 154.76190476190473,
+            "elapsed": 0.8000000000000002,
+            "paused": false,
+            "unlocked": true,
+            "muted": false,
+            "volume": 0.35,
+            "hidden": false,
+            "disposed": false,
+            "contextState": "running",
+            "firingHz": 7.738095238095236,
+            "audible": true,
+            "nodes": 18,
+            "activeOneShots": 0,
+            "lastClickElapsed": 0,
+            "targets": {
+              "master": 0.35,
+              "starter": 0,
+              "combustion": 0
+            }
+          },
+          "rms": 0.019797634814239712,
+          "peak": 0.032194070518016815,
+          "sinks": 1
+        },
+        {
+          "phase": "stopping",
+          "stage": 5,
+          "elapsed": 1.0000000000000002,
+          "rpm": 30.952380952380842,
+          "engage": 0,
+          "status": "Mesin melambat",
+          "running": true,
+          "clock": 8.019188607878245,
+          "angle": 8.019188607878245,
+          "wall": 59670.1,
+          "fixedDrift": 1.9997094147478707,
+          "maxMotion": 1.9997094147478707,
+          "effects": false,
+          "visibleCylinders": [],
+          "audio": {
+            "phase": "stopping",
+            "rpm": 30.952380952380842,
+            "elapsed": 1.0000000000000002,
+            "paused": false,
+            "unlocked": true,
+            "muted": false,
+            "volume": 0.35,
+            "hidden": false,
+            "disposed": false,
+            "contextState": "running",
+            "firingHz": 1.5476190476190421,
+            "audible": true,
+            "nodes": 18,
+            "activeOneShots": 0,
+            "lastClickElapsed": 0,
+            "targets": {
+              "master": 0.35,
+              "starter": 0,
+              "combustion": 0
+            }
+          },
+          "rms": 0.015349429992332507,
+          "peak": 0.030793579295277596,
+          "sinks": 1
+        },
+        {
+          "phase": "off",
+          "stage": 6,
+          "elapsed": 0,
+          "rpm": 0,
+          "engage": 0,
+          "status": "Mesin mati",
+          "running": false,
+          "clock": 8.019188607878245,
+          "angle": 8.019188607878245,
+          "wall": 61636.7,
+          "fixedDrift": 1.993725118289585,
+          "maxMotion": 1.993725118289585,
+          "effects": false,
+          "visibleCylinders": [],
+          "audio": {
+            "phase": "off",
+            "rpm": 0,
+            "elapsed": 0,
+            "paused": true,
+            "unlocked": true,
+            "muted": false,
+            "volume": 0.35,
+            "hidden": false,
+            "disposed": false,
+            "contextState": "running",
+            "firingHz": 0,
+            "audible": false,
+            "nodes": 18,
+            "activeOneShots": 0,
+            "lastClickElapsed": 0,
+            "targets": {
+              "master": 0,
+              "starter": 0,
+              "combustion": 0
+            }
+          },
+          "rms": 0.019517261637818265,
+          "peak": 0.031666554510593414,
+          "sinks": 1
+        },
+        {
+          "phase": "off",
+          "stage": 6,
+          "elapsed": 0,
+          "rpm": 0,
+          "engage": 0,
+          "status": "Mesin mati",
+          "running": false,
+          "clock": 8.019188607878245,
+          "angle": 8.019188607878245,
+          "wall": 63386.6,
+          "fixedDrift": 1.993725118289585,
+          "maxMotion": 1.993725118289585,
+          "effects": false,
+          "visibleCylinders": [],
+          "audio": {
+            "phase": "off",
+            "rpm": 0,
+            "elapsed": 0,
+            "paused": true,
+            "unlocked": true,
+            "muted": false,
+            "volume": 0.35,
+            "hidden": false,
+            "disposed": false,
+            "contextState": "running",
+            "firingHz": 0,
+            "audible": false,
+            "nodes": 18,
+            "activeOneShots": 0,
+            "lastClickElapsed": 0,
+            "targets": {
+              "master": 0,
+              "starter": 0,
+              "combustion": 0
+            }
+          },
+          "rms": 0,
+          "peak": 0,
+          "sinks": 1
+        },
+        {
+          "phase": "off",
+          "stage": 6,
+          "elapsed": 0,
+          "rpm": 0,
+          "engage": 0,
+          "status": "Mesin mati",
+          "running": false,
+          "clock": 8.019188607878245,
+          "angle": 8.019188607878245,
+          "wall": 65086.5,
+          "fixedDrift": 1.993725118289585,
+          "maxMotion": 1.993725118289585,
+          "effects": false,
+          "visibleCylinders": [],
+          "audio": {
+            "phase": "off",
+            "rpm": 0,
+            "elapsed": 0,
+            "paused": true,
+            "unlocked": true,
+            "muted": false,
+            "volume": 0.35,
+            "hidden": false,
+            "disposed": false,
+            "contextState": "running",
+            "firingHz": 0,
+            "audible": false,
+            "nodes": 18,
+            "activeOneShots": 0,
+            "lastClickElapsed": 0,
+            "targets": {
+              "master": 0,
+              "starter": 0,
+              "combustion": 0
+            }
+          },
+          "rms": 0,
+          "peak": 0,
+          "sinks": 1
+        },
+        {
+          "phase": "engaging",
+          "stage": 7,
+          "elapsed": 0.2,
+          "rpm": 0,
+          "engage": 0.6064139941690964,
+          "status": "Pinion masuk",
+          "running": true,
+          "clock": 8.019188607878245,
+          "angle": 8.019188607878245,
+          "wall": 66486.4,
+          "fixedDrift": 1.908623617983557,
+          "maxMotion": 1.9951337444612796,
+          "effects": false,
+          "visibleCylinders": [],
+          "audio": {
+            "phase": "engaging",
+            "rpm": 0,
+            "elapsed": 0.2,
+            "paused": false,
+            "unlocked": true,
+            "muted": false,
+            "volume": 0.35,
+            "hidden": false,
+            "disposed": false,
+            "contextState": "running",
+            "firingHz": 0,
+            "audible": true,
+            "nodes": 18,
+            "activeOneShots": 0,
+            "lastClickElapsed": 0,
+            "targets": {
+              "master": 0.35,
+              "starter": 0,
+              "combustion": 0
+            }
+          },
+          "rms": 0,
+          "peak": 0,
+          "sinks": 1
+        },
+        {
+          "phase": "cranking",
+          "stage": 8,
+          "elapsed": 0.05000000000000003,
+          "rpm": 37.93103448275864,
+          "engage": 1,
+          "status": "Starter memutar",
+          "running": true,
+          "clock": 8.031257573395486,
+          "angle": 8.031257573395486,
+          "wall": 67869.7,
+          "fixedDrift": 1.763275427188313,
+          "maxMotion": 1.982664669057875,
+          "effects": true,
+          "visibleCylinders": [],
+          "audio": {
+            "phase": "cranking",
+            "rpm": 37.93103448275864,
+            "elapsed": 0.05000000000000003,
+            "paused": false,
+            "unlocked": true,
+            "muted": false,
+            "volume": 0.35,
+            "hidden": false,
+            "disposed": false,
+            "contextState": "running",
+            "firingHz": 1.896551724137932,
+            "audible": true,
+            "nodes": 18,
+            "activeOneShots": 0,
+            "lastClickElapsed": 0,
+            "targets": {
+              "master": 0.35,
+              "starter": 0.14,
+              "combustion": 0
+            }
+          },
+          "rms": 0.0008770428136983574,
+          "peak": 0.006896623410284519,
+          "sinks": 1
+        },
+        {
+          "phase": "cranking",
+          "stage": 8,
+          "elapsed": 0.25,
+          "rpm": 189.6551724137931,
+          "engage": 1,
+          "status": "Starter memutar",
+          "running": true,
+          "clock": 8.200223090636864,
+          "angle": 8.200223090636864,
+          "wall": 69203,
+          "fixedDrift": 1.5947207481354435,
+          "maxMotion": 1.998707971922112,
+          "effects": true,
+          "visibleCylinders": [],
+          "audio": {
+            "phase": "cranking",
+            "rpm": 189.6551724137931,
+            "elapsed": 0.25,
+            "paused": false,
+            "unlocked": true,
+            "muted": false,
+            "volume": 0.35,
+            "hidden": false,
+            "disposed": false,
+            "contextState": "running",
+            "firingHz": 9.482758620689655,
+            "audible": true,
+            "nodes": 18,
+            "activeOneShots": 0,
+            "lastClickElapsed": 0,
+            "targets": {
+              "master": 0.35,
+              "starter": 0.14,
+              "combustion": 0
+            }
+          },
+          "rms": 0.021471368693503405,
+          "peak": 0.04806000739336014,
+          "sinks": 1
+        },
+        {
+          "phase": "cranking",
+          "stage": 8,
+          "elapsed": 0.44999999999999996,
+          "rpm": 220,
+          "engage": 1,
+          "status": "Starter memutar",
+          "running": true,
+          "clock": 8.480223090636866,
+          "angle": 8.480223090636866,
+          "wall": 70952.9,
+          "fixedDrift": 1.425658931402307,
+          "maxMotion": 1.9998088940792775,
+          "effects": true,
+          "visibleCylinders": [],
+          "audio": {
+            "phase": "cranking",
+            "rpm": 220,
+            "elapsed": 0.44999999999999996,
+            "paused": false,
+            "unlocked": true,
+            "muted": false,
+            "volume": 0.35,
+            "hidden": false,
+            "disposed": false,
+            "contextState": "running",
+            "firingHz": 11,
+            "audible": true,
+            "nodes": 18,
+            "activeOneShots": 0,
+            "lastClickElapsed": 0,
+            "targets": {
+              "master": 0.35,
+              "starter": 0.14,
+              "combustion": 0
+            }
+          },
+          "rms": 0.029781116118631146,
+          "peak": 0.06889063119888306,
+          "sinks": 1
+        },
+        {
+          "phase": "cranking",
+          "stage": 8,
+          "elapsed": 0.65,
+          "rpm": 220,
+          "engage": 1,
+          "status": "Starter memutar",
+          "running": true,
+          "clock": 8.760223090636867,
+          "angle": 8.760223090636867,
+          "wall": 72586.2,
+          "fixedDrift": 1.2682953738424008,
+          "maxMotion": 1.9961023048821624,
+          "effects": true,
+          "visibleCylinders": [],
+          "audio": {
+            "phase": "cranking",
+            "rpm": 220,
+            "elapsed": 0.65,
+            "paused": false,
+            "unlocked": true,
+            "muted": false,
+            "volume": 0.35,
+            "hidden": false,
+            "disposed": false,
+            "contextState": "running",
+            "firingHz": 11,
+            "audible": true,
+            "nodes": 18,
+            "activeOneShots": 0,
+            "lastClickElapsed": 0,
+            "targets": {
+              "master": 0.35,
+              "starter": 0.14,
+              "combustion": 0
+            }
+          },
+          "rms": 0.035106078291315825,
+          "peak": 0.08086583018302917,
+          "sinks": 1
+        },
+        {
+          "phase": "cranking",
+          "stage": 8,
+          "elapsed": 0.8500000000000002,
+          "rpm": 220,
+          "engage": 1,
+          "status": "Starter memutar",
+          "running": true,
+          "clock": 9.040223090636868,
+          "angle": 9.040223090636868,
+          "wall": 74152.8,
+          "fixedDrift": 1.1280533880164043,
+          "maxMotion": 1.969698440091329,
+          "effects": true,
+          "visibleCylinders": [],
+          "audio": {
+            "phase": "cranking",
+            "rpm": 220,
+            "elapsed": 0.8500000000000002,
+            "paused": false,
+            "unlocked": true,
+            "muted": false,
+            "volume": 0.35,
+            "hidden": false,
+            "disposed": false,
+            "contextState": "running",
+            "firingHz": 11,
+            "audible": true,
+            "nodes": 18,
+            "activeOneShots": 0,
+            "lastClickElapsed": 0,
+            "targets": {
+              "master": 0.35,
+              "starter": 0.14,
+              "combustion": 0
+            }
+          },
+          "rms": 0.03326700731746269,
+          "peak": 0.07389164716005325,
+          "sinks": 1
+        }
+      ],
+      "moving": {
+        "starter-pinion": {
+          "engaging": 0.16707983507845878,
+          "cranking": 1.998707971922112,
+          "firing": 1.390087746506202,
+          "running": 1.9092414357885064,
+          "stopping": 1.1676448549720888,
+          "off": 1.1676448549720888
+        },
+        "starter-solenoid": {
+          "engaging": 0.008168709922320078,
+          "cranking": 0.011029649327190662,
+          "firing": 0.011029649327190662,
+          "running": 0.005742253835408689
+        },
+        "starter-lever": {
+          "engaging": 0.31884992501210474,
+          "cranking": 0.4207918900079772,
+          "firing": 0.4207918900079772,
+          "running": 0.22728500648301125
+        },
+        "fuel-control-rack": {
+          "engaging": 0.0038366393688601397,
+          "cranking": 0.004999890538436413,
+          "firing": 0.0040359997275872805,
+          "running": 0.0016926370777414768,
+          "stopping": 0.00000527762308211166
+        },
+        "metering-plunger-1": {
+          "engaging": 0.21748449636112857,
+          "cranking": 0.28183685074210035,
+          "firing": 0.2285894821802672,
+          "running": 0.09657138063865309,
+          "stopping": 0.010045160129272646,
+          "off": 0.010041625685096367
+        },
+        "fuel-control-pinion-1": {
+          "engaging": 0.21748449636112857,
+          "cranking": 0.28183685074210035,
+          "firing": 0.2285894821802672,
+          "running": 0.09657138063865309,
+          "stopping": 0.0003015784572619488
+        },
+        "metering-plunger-2": {
+          "engaging": 0.21748449636112857,
+          "cranking": 0.28183685074210035,
+          "firing": 0.2285894821802672,
+          "running": 0.09657138063865309,
+          "stopping": 0.0003015784572619488,
+          "off": 0.00004162568509635811
+        },
+        "fuel-control-pinion-2": {
+          "engaging": 0.21748449636112857,
+          "cranking": 0.28183685074210035,
+          "firing": 0.2285894821802672,
+          "running": 0.09657138063865309,
+          "stopping": 0.0003015784572619488
+        },
+        "metering-plunger-3": {
+          "engaging": 0.21748449636112857,
+          "cranking": 0.28183685074210035,
+          "firing": 0.2285894821802672,
+          "running": 0.09657138063865309,
+          "stopping": 0.009619216871401826,
+          "off": 0.009619216871401826
+        },
+        "fuel-control-pinion-3": {
+          "engaging": 0.21748449636112857,
+          "cranking": 0.28183685074210035,
+          "firing": 0.2285894821802672,
+          "running": 0.09657138063865309,
+          "stopping": 0.0003015784572619488
+        },
+        "metering-plunger-4": {
+          "engaging": 0.21748449636112857,
+          "cranking": 0.28183685074210035,
+          "firing": 0.2285894821802672,
+          "running": 0.09657138063865309,
+          "stopping": 0.002159840429709292,
+          "off": 0.0021563066850963652
+        },
+        "fuel-control-pinion-4": {
+          "engaging": 0.21748449636112857,
+          "cranking": 0.28183685074210035,
+          "firing": 0.2285894821802672,
+          "running": 0.09657138063865309,
+          "stopping": 0.0003015784572619488
+        },
+        "metering-plunger-5": {
+          "engaging": 0.21748449636112857,
+          "cranking": 0.28183685074210035,
+          "firing": 0.2285894821802672,
+          "running": 0.09657138063865309,
+          "stopping": 0.002117303054269104,
+          "off": 0.0012962568029536436
+        },
+        "fuel-control-pinion-5": {
+          "engaging": 0.21748449636112857,
+          "cranking": 0.28183685074210035,
+          "firing": 0.2285894821802672,
+          "running": 0.09657138063865309,
+          "stopping": 0.0003015784572619488
+        },
+        "metering-plunger-6": {
+          "engaging": 0.21748449636112857,
+          "cranking": 0.28183685074210035,
+          "firing": 0.2285894821802672,
+          "running": 0.09657138063865309,
+          "stopping": 0.007206293673537312,
+          "off": 0.003850177142028177
+        },
+        "fuel-control-pinion-6": {
+          "engaging": 0.21748449636112857,
+          "cranking": 0.28183685074210035,
+          "firing": 0.2285894821802672,
+          "running": 0.09657138063865309,
+          "stopping": 0.0003015784572619488
+        },
+        "starter-clutch-driver": {
+          "engaging": 0.16707983507845878,
+          "cranking": 1.998707971922112,
+          "firing": 1.5690302280302324,
+          "running": 0.4312564907756729,
+          "stopping": 0.4261002148467415,
+          "off": 0.4261002148467415
+        },
+        "timing-01": {
+          "cranking": 1.926965513438242,
+          "firing": 1.9988600469713107,
+          "running": 1.8926544700991903,
+          "stopping": 1.1644564903286354,
+          "off": 1.1644564903286354,
+          "engaging": 1.1644564903286354
+        },
+        "timing-02": {
+          "cranking": 1.926965513438242,
+          "firing": 1.9988600469713107,
+          "running": 1.8926544700991903,
+          "stopping": 1.1644564903286354,
+          "off": 1.1644564903286354,
+          "engaging": 1.1644564903286354
+        },
+        "timing-03": {
+          "cranking": 1.926965513438242,
+          "firing": 1.9988600469713107,
+          "running": 1.8926544700991903,
+          "stopping": 1.1644564903286354,
+          "off": 1.1644564903286354,
+          "engaging": 1.1644564903286354
+        },
+        "timing-04": {
+          "cranking": 1.6417363700631462,
+          "firing": 1.0238741809146326,
+          "running": 1.9970370913706017,
+          "stopping": 1.8638155794513067,
+          "off": 1.6463526551625534,
+          "engaging": 1.6463526551625534
+        },
+        "timing-05": {
+          "cranking": 1.6417363700631462,
+          "firing": 1.0238741809146326,
+          "running": 1.9970370913706017,
+          "stopping": 1.8638155794513067,
+          "off": 1.6463526551625534,
+          "engaging": 1.6463526551625534
+        },
+        "timing-07": {
+          "cranking": 1.1807728831350497,
+          "firing": 1.9533595796041698,
+          "running": 1.997784703236956,
+          "stopping": 0.7479593933966049,
+          "off": 0.7479593933966049,
+          "engaging": 0.7479593933966049
+        },
+        "timing-08": {
+          "cranking": 1.6417363700631462,
+          "firing": 1.0238741809146326,
+          "running": 1.9970370913706017,
+          "stopping": 1.8638155794513067,
+          "off": 1.6463526551625534,
+          "engaging": 1.6463526551625534
+        },
+        "timing-10": {
+          "cranking": 1.864527651588894,
+          "firing": 1.9946844287787289,
+          "running": 1.97343906422251,
+          "stopping": 0.9999127673909546,
+          "off": 0.5120654492639164,
+          "engaging": 0.5120654492639164
+        },
+        "oil-pump-driver": {
+          "cranking": 1.1807728831350497,
+          "firing": 1.9533595796041698,
+          "running": 1.997784703236956,
+          "stopping": 0.7479593933966049,
+          "off": 0.7479593933966049,
+          "engaging": 0.7479593933966049
+        },
+        "oil-pump-follower": {
+          "cranking": 1.1807728831350497,
+          "firing": 1.9533595796041698,
+          "running": 1.997784703236956,
+          "stopping": 0.7479593933966049,
+          "off": 0.7479593933966049,
+          "engaging": 0.7479593933966049
+        },
+        "coolant-shaft": {
+          "cranking": 1.6843074591597125,
+          "firing": 1.9995594780594022,
+          "running": 1.9912312109008168,
+          "stopping": 1.935612286699589,
+          "off": 1.298692971407045,
+          "engaging": 1.298692971407045
+        },
+        "coolant-bearing-1": {
+          "cranking": 1.4711497445950121,
+          "firing": 1.1055515552147823,
+          "running": 1.9967743994630889,
+          "stopping": 1.7541731415940536,
+          "off": 1.4767362347569926,
+          "engaging": 1.4767362347569926
+        },
+        "coolant-bearing-2": {
+          "cranking": 1.3518220700725982,
+          "firing": 1.15714725530204,
+          "running": 1.9988833662475975,
+          "stopping": 1.6702994957369024,
+          "off": 1.3579375703078866,
+          "engaging": 1.3579375703078866
+        },
+        "seawater-shaft": {
+          "cranking": 0.9918147945170552,
+          "firing": 1.876557342633351,
+          "running": 1.9880611986306236,
+          "stopping": 0.3460752149698265,
+          "off": 0.3460752149698265,
+          "engaging": 0.3460752149698265
+        },
+        "alternator-intermediate": {
+          "cranking": 1.864527651588894,
+          "firing": 1.9946844287787289,
+          "running": 1.97343906422251,
+          "stopping": 0.9999127673909546,
+          "off": 0.5120654492639164,
+          "engaging": 0.5120654492639164
+        },
+        "alternator-bearing-cages": {
+          "cranking": 0.9617185694469894,
+          "firing": 1.3993495019090612,
+          "running": 1.9932483272773058,
+          "stopping": 1.1518164878474604,
+          "off": 0.9637464444607924,
+          "engaging": 0.9637464444607924
+        },
+        "alternator-rotor": {
+          "cranking": 1.9994492898449148,
+          "firing": 1.8915060933107444,
+          "running": 1.9999823278077797,
+          "stopping": 1.1605004469378226,
+          "off": 1.1605004469378226,
+          "engaging": 1.1605004469378226
+        },
+        "alternator-belt-travel": {
+          "cranking": 0.16097467898598306,
+          "firing": 1.510706476725648,
+          "running": 1.9945176850865414,
+          "stopping": 0.7379538816062048,
+          "off": 0.010637300928067236,
+          "engaging": 0.010637300928067236
+        },
+        "centrifugal-oil-rotor": {
+          "cranking": 1.982664669057875,
+          "firing": 0.9883488746403832,
+          "running": 1.9995212630297896,
+          "stopping": 1.8594449774631199,
+          "off": 1.9043713956740995,
+          "engaging": 1.9951337444612796
+        },
+        "fuel-pump-cam": {
+          "cranking": 1.6417363700631462,
+          "firing": 1.0238741809146326,
+          "running": 1.9970370913706017,
+          "stopping": 1.8638155794513067,
+          "off": 1.6463526551625534,
+          "engaging": 1.6463526551625534
+        },
+        "governor-flyweights": {
+          "cranking": 1.6417363700631462,
+          "firing": 1.0238741809146326,
+          "running": 1.9970370913706017,
+          "stopping": 1.8638155794513067,
+          "off": 1.6463526551625534,
+          "engaging": 1.6463526551625534
+        },
+        "fuel-plunger-1": {
+          "cranking": 0.01004676967221782,
+          "firing": 0.010019315105743276,
+          "running": 0.01004389718407489,
+          "stopping": 0.010045160129272646,
+          "off": 0.010041625685096367,
+          "engaging": 0.010041625685096367
+        },
+        "fuel-cam-roller-1": {
+          "cranking": 1.7516140082209262,
+          "firing": 1.9950062206950878,
+          "running": 1.9677513557283959,
+          "stopping": 1.7189265742179984,
+          "off": 0.9899083529427052,
+          "engaging": 0.9899083529427052
+        },
+        "fuel-plunger-spring-1": {
+          "cranking": 0.2643886755846796,
+          "firing": 0.2636661869932444,
+          "running": 0.2643130837914449,
+          "stopping": 0.26434631919138507,
+          "off": 0.26425330750253573,
+          "engaging": 0.26425330750253573
+        },
+        "fuel-plunger-2": {
+          "cranking": 0.0008369189719580339,
+          "firing": 0.007483649046465257,
+          "running": 0.009812683959623536,
+          "stopping": 0.000045160129272636684,
+          "off": 0.00004162568509635811,
+          "engaging": 0.00004162568509635811
+        },
+        "fuel-cam-roller-2": {
+          "cranking": 1.7516140082209262,
+          "firing": 1.9950062206950878,
+          "running": 1.9677513557283959,
+          "stopping": 1.7189265742179984,
+          "off": 0.9899083529427052,
+          "engaging": 0.9899083529427052
+        },
+        "fuel-plunger-spring-2": {
+          "cranking": 0.017435811915792576,
+          "firing": 0.15590935513469295,
+          "running": 0.2044309158254901,
+          "stopping": 0.00094083602651307,
+          "off": 0.000867201772840609,
+          "engaging": 0.000867201772840609
+        },
+        "fuel-plunger-3": {
+          "cranking": 0.009870504841664185,
+          "firing": 0.00004161693656562493,
+          "running": 0.0055030541496273455,
+          "stopping": 0.00961921687140177,
+          "off": 0.00961921687140177,
+          "engaging": 0.00961921687140177
+        },
+        "fuel-cam-roller-3": {
+          "cranking": 1.7516140082209262,
+          "firing": 1.9950062206950878,
+          "running": 1.9677513557283959,
+          "stopping": 1.7189265742179984,
+          "off": 0.9899083529427052,
+          "engaging": 0.9899083529427052
+        },
+        "fuel-plunger-spring-3": {
+          "cranking": 0.20563551753467013,
+          "firing": 0.0008670195117832513,
+          "running": 0.11464696145056963,
+          "stopping": 0.20040035148753754,
+          "off": 0.20040035148753754,
+          "engaging": 0.20040035148753754
+        },
+        "fuel-plunger-4": {
+          "cranking": 0.0075285784116258525,
+          "firing": 0.007806393990575311,
+          "running": 0.002883661327793774,
+          "stopping": 0.00215984042970932,
+          "off": 0.0021563066850963652,
+          "engaging": 0.0021563066850963652
+        },
+        "fuel-cam-roller-4": {
+          "cranking": 1.7516140082209262,
+          "firing": 1.9950062206950878,
+          "running": 1.9677513557283959,
+          "stopping": 1.7189265742179984,
+          "off": 0.9899083529427052,
+          "engaging": 0.9899083529427052
+        },
+        "fuel-plunger-spring-4": {
+          "cranking": 0.16407379386889553,
+          "firing": 0.17012835736573573,
+          "running": 0.06284496599696876,
+          "stopping": 0.04707040215010583,
+          "off": 0.04699338961818911,
+          "engaging": 0.04699338961818911
+        },
+        "fuel-plunger-5": {
+          "cranking": 0.003285654259235049,
+          "firing": 0.0021562979365656043,
+          "running": 0.0021585781840748886,
+          "stopping": 0.002117303054269132,
+          "off": 0.0012962568029536436,
+          "engaging": 0.0012962568029536436
+        },
+        "fuel-cam-roller-5": {
+          "cranking": 1.7516140082209262,
+          "firing": 1.9950062206950878,
+          "running": 1.9677513557283959,
+          "stopping": 1.7189265742179984,
+          "off": 0.9899083529427052,
+          "engaging": 0.9899083529427052
+        },
+        "fuel-plunger-spring-5": {
+          "cranking": 0.07160578401119067,
+          "firing": 0.04699319895740928,
+          "running": 0.04704289344677437,
+          "stopping": 0.046143365439042405,
+          "off": 0.02824992446921204,
+          "engaging": 0.02824992446921204
+        },
+        "fuel-plunger-6": {
+          "cranking": 0.0037963186563331752,
+          "firing": 0.00004161693656562493,
+          "running": 0.009816997792641946,
+          "stopping": 0.007206293673537312,
+          "off": 0.003850177142028177,
+          "engaging": 0.003850177142028177
+        },
+        "fuel-cam-roller-6": {
+          "cranking": 1.7516140082209262,
+          "firing": 1.9950062206950878,
+          "running": 1.9677513557283959,
+          "stopping": 1.7189265742179984,
+          "off": 0.9899083529427052,
+          "engaging": 0.9899083529427052
+        },
+        "fuel-plunger-spring-6": {
+          "cranking": 0.07908997200694112,
+          "firing": 0.0008670195117832513,
+          "running": 0.20452078734670676,
+          "stopping": 0.15013111819869385,
+          "off": 0.08021202379225323,
+          "engaging": 0.08021202379225323
+        },
+        "feed-piston": {
+          "cranking": 0.0038679575937417554,
+          "firing": 0.0023345003106001183,
+          "running": 0.004792066305038201,
+          "stopping": 0.004441967327361185,
+          "off": 0.0038797387249714377,
+          "engaging": 0.0038797387249714377
+        },
+        "feed-roller": {
+          "cranking": 1.9998088940792775,
+          "firing": 1.8220376820020912,
+          "running": 1.9358189609758707,
+          "stopping": 1.6429410221837684,
+          "off": 1.6429410221837684,
+          "engaging": 1.6429410221837684
+        },
+        "feed-return-spring": {
+          "cranking": 0.18418845684484686,
+          "firing": 0.1111666814571477,
+          "running": 0.22819363357324818,
+          "stopping": 0.21152225368386723,
+          "off": 0.18474946309387819,
+          "engaging": 0.18474946309387819
+        },
+        "feed-check-1": {
+          "cranking": 0.0004100884856083342,
+          "firing": 0.000699551467338716,
+          "running": 0.0006623837952621225
+        },
+        "feed-check-spring-1": {
+          "cranking": 0.04100884856083442,
+          "firing": 0.06995514673387149,
+          "running": 0.06623837952621137
+        },
+        "feed-check-4": {
+          "cranking": 0.0004100884856083342,
+          "firing": 0.000699551467338716,
+          "running": 0.0006623837952621225
+        },
+        "feed-check-spring-4": {
+          "cranking": 0.04100884856083442,
+          "firing": 0.06995514673387149,
+          "running": 0.06623837952621137
+        },
+        "starter-armature": {
+          "cranking": 1.9296659939207257,
+          "firing": 1.9975270391033026,
+          "running": 1.2111423734949216,
+          "stopping": 1.1887748290461762,
+          "off": 1.1887748290461762,
+          "engaging": 0.6221363539089052
+        },
+        "starter-carrier": {
+          "cranking": 1.998707971922112,
+          "firing": 1.5690302280302324,
+          "running": 0.4312564907756729,
+          "stopping": 0.4261002148467415,
+          "off": 0.4261002148467415,
+          "engaging": 0.16707983507845878
+        },
+        "starter-planet-1": {
+          "cranking": 1.910497165766924,
+          "firing": 1.352409199175724,
+          "running": 0.7781845454308728,
+          "stopping": 0.7709652485832906,
+          "off": 0.7709652485832906,
+          "engaging": 0.32946251128939014
+        },
+        "starter-planet-2": {
+          "cranking": 1.910497165766924,
+          "firing": 1.352409199175724,
+          "running": 0.7781845454308728,
+          "stopping": 0.7709652485832906,
+          "off": 0.7709652485832906,
+          "engaging": 0.32946251128939014
+        },
+        "starter-planet-3": {
+          "cranking": 1.910497165766924,
+          "firing": 1.352409199175724,
+          "running": 0.7781845454308728,
+          "stopping": 0.7709652485832906,
+          "off": 0.7709652485832906,
+          "engaging": 0.32946251128939014
+        },
+        "governor-weight-1": {
+          "cranking": 1.6417363700631462,
+          "firing": 1.0238741809146328,
+          "running": 1.997037091370601,
+          "stopping": 1.8638155794513067,
+          "off": 1.6463526551625534,
+          "engaging": 1.6463526551625531
+        },
+        "governor-weight-2": {
+          "cranking": 1.6417363700631462,
+          "firing": 1.0238741809146328,
+          "running": 1.997037091370601,
+          "stopping": 1.8638155794513067,
+          "off": 1.6463526551625534,
+          "engaging": 1.6463526551625531
+        },
+        "governor-shifter": {
+          "cranking": 0.00018317840003900798,
+          "firing": 0.001251720891260799,
+          "running": 0.0015999954246026515,
+          "stopping": 0.0013113112913216707,
+          "off": 0.00006313505459010216,
+          "engaging": 0.000018088495990165043
+        },
+        "governor-return": {
+          "cranking": 0.0035226615392104366,
+          "firing": 0.024071555601167582,
+          "running": 0.03076914278082199,
+          "stopping": 0.025217524833110794,
+          "off": 0.0012141356651950153,
+          "engaging": 0.0003478556921177045
+        },
+        "governor-control-lever": {
+          "cranking": 0.005724293738918977,
+          "firing": 0.039106303421793734,
+          "running": 0.049979026468202056,
+          "stopping": 0.04096701006323929,
+          "off": 0.0019729691759398376,
+          "engaging": 0.0005652654695878218
+        },
+        "seawater-bearing-balls": {
+          "cranking": 1.969698440091329,
+          "firing": 0.8527706310371113,
+          "running": 1.613766729422413,
+          "stopping": 1.839871106580247,
+          "off": 1.839871106580247,
+          "engaging": 1.839871106580247
+        },
+        "alternator-bearing-1": {
+          "cranking": 0.9509962855564943,
+          "firing": 1.665228393641593,
+          "running": 1.9978891577634181,
+          "stopping": 0.8380789493475631,
+          "off": 0.48264209590420154,
+          "engaging": 0.48264209590420154
+        },
+        "alternator-bearing-2": {
+          "cranking": 0.9433111822554353,
+          "firing": 1.6318533543424465,
+          "running": 1.999992765476076,
+          "stopping": 0.8887796423624754,
+          "off": 0.5760949992872766,
+          "engaging": 0.5760949992872766
+        },
+        "starter-bearing-balls": {
+          "cranking": 1.975817642887207,
+          "firing": 1.9308339544422697,
+          "running": 1.943324470564316,
+          "stopping": 1.943324470564316,
+          "off": 1.943324470564316,
+          "engaging": 1.9921112401993242
+        },
+        "turbo-rotor": {
+          "firing": 0.9787589158223667,
+          "running": 1.9838670279543136,
+          "stopping": 1.910935890767507,
+          "off": 0.22229601382304578,
+          "engaging": 0.7589115160092855,
+          "cranking": 1.9672046596350403
+        },
+        "delivery-valve-4": {
+          "firing": 0.00039153740007358273
+        },
+        "delivery-valve-spring-4": {
+          "firing": 0.04350415556372911
+        },
+        "nozzle-needle-4": {
+          "firing": 0.00036752005536072607
+        },
+        "nozzle-spring-4": {
+          "firing": 0.006459051939555649
+        },
+        "turbo-floating-bushes": {
+          "firing": 0.6304702228078262,
+          "running": 1.9775350815506914,
+          "stopping": 1.9997094147478707,
+          "off": 1.993725118289585,
+          "engaging": 1.908623617983557,
+          "cranking": 1.763275427188313
+        },
+        "delivery-valve-2": {
+          "running": 0.0007329570293908017
+        },
+        "delivery-valve-spring-2": {
+          "running": 0.08143966993231011
+        },
+        "nozzle-needle-2": {
+          "running": 0.00023193776170182812
+        },
+        "nozzle-spring-2": {
+          "running": 0.0040762348277996185
+        },
+        "delivery-valve-6": {
+          "running": 0.0007517687518256988
+        },
+        "delivery-valve-spring-6": {
+          "running": 0.083529861313968
+        },
+        "nozzle-needle-6": {
+          "running": 0.00027207988388594506
+        },
+        "nozzle-spring-6": {
+          "running": 0.004781720279190993
+        },
+        "feed-check-2": {
+          "running": 0.00007921278080583183,
+          "stopping": 0.00040755334096245766,
+          "off": 0.00040755334096245766,
+          "engaging": 0.00040755334096245766,
+          "cranking": 0.0006744343599896785
+        },
+        "feed-check-spring-2": {
+          "running": 0.007921278080582406,
+          "stopping": 0.040755334096245766,
+          "off": 0.040755334096245766,
+          "engaging": 0.040755334096245766,
+          "cranking": 0.06744343599896663
+        },
+        "feed-check-3": {
+          "running": 0.00007921278080583183,
+          "stopping": 0.00040755334096245766,
+          "off": 0.00040755334096245766,
+          "engaging": 0.00040755334096245766,
+          "cranking": 0.0006744343599896785
+        },
+        "feed-check-spring-3": {
+          "running": 0.007921278080582406,
+          "stopping": 0.040755334096245766,
+          "off": 0.040755334096245766,
+          "engaging": 0.040755334096245766,
+          "cranking": 0.06744343599896663
+        },
+        "delivery-valve-3": {
+          "cranking": 0.0006599573468576425
+        },
+        "delivery-valve-spring-3": {
+          "cranking": 0.07332859409529058
+        },
+        "nozzle-needle-3": {
+          "cranking": 0.00011488588495101038
+        },
+        "nozzle-spring-3": {
+          "cranking": 0.0020190840940426114
+        }
+      },
+      "history": [
+        {
+          "phase": "off",
+          "time": 14888.5,
+          "angle": 0,
+          "phaseTime": 0
+        },
+        {
+          "phase": "engaging",
+          "time": 17988.4,
+          "angle": 0,
+          "phaseTime": 0.03330000000000291
+        },
+        {
+          "phase": "cranking",
+          "time": 20455,
+          "angle": 0.025460158620691294,
+          "phaseTime": 0.08330000000000291
+        },
+        {
+          "phase": "firing",
+          "time": 35321.1,
+          "angle": 2.0256263296080026,
+          "phaseTime": 0.11670000000000502
+        },
+        {
+          "phase": "running",
+          "time": 43204.1,
+          "angle": 3.6091886078782323,
+          "phaseTime": 0.11670000000000524
+        },
+        {
+          "phase": "stopping",
+          "time": 54653.6,
+          "angle": 7.339188607878244,
+          "phaseTime": 0.2
+        },
+        {
+          "phase": "off",
+          "time": 61636.7,
+          "angle": 8.019188607878245,
+          "phaseTime": 0
+        },
+        {
+          "phase": "engaging",
+          "time": 66486.4,
+          "angle": 8.019188607878245,
+          "phaseTime": 0.2
+        },
+        {
+          "phase": "cranking",
+          "time": 67869.7,
+          "angle": 8.031257573395486,
+          "phaseTime": 0.05000000000000003
+        }
+      ],
+      "stop": true
+    }
+  },
+  "errors": []
+}

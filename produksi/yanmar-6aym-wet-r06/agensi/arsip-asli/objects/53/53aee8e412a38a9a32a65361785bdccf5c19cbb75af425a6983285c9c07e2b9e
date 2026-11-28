@@ -1,0 +1,12 @@
+{
+  "sha256": "4b69ad9975928cfa80be62ddc7c6a1c5caa241900bd3aef299081c1e6406ae05",
+  "valve_scope_count": 24,
+  "valve_checks": {
+    "0": 864,
+    "0.0045": 864,
+    "0.009": 864
+  },
+  "collisions": [],
+  "cam_vs_journal_crossings": [],
+  "limits": "Uji permukaan mesh pada tiga posisi diskret. Tidak memverifikasi celah, preload atau operasi sesungguhnya."
+}

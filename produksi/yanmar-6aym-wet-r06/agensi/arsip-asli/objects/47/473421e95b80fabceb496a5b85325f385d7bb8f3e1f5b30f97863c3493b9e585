@@ -1,0 +1,95 @@
+{
+  "status": "ESTIMATED · review privat",
+  "intended": "Yanmar 6AYM-WET H, mesin saja",
+  "evidence": [
+    {
+      "source": "D01",
+      "locator": "PDF 112, cetak 108. Skema depan memperlihatkan cam berpasangan langsung dengan gear pompa dan gear penggerak alternator. Gigi heliks. Skema belakang memperlihatkan gear air laut bertemu gear pompa injeksi.",
+      "role": "Keberadaan pasangan gear depan dan belakang",
+      "data": null
+    },
+    {
+      "source": "D01",
+      "locator": "PDF 163, cetak 159, Specifications of the seawater pump",
+      "role": "Tolok ukur rasio air laut",
+      "data": {
+        "test_crank_rpm": 1900,
+        "test_pump_rpm": 1572
+      }
+    },
+    {
+      "source": "D01",
+      "locator": "PDF 164, cetak 160, Specifications of water pump (coolant)",
+      "role": "Tolok ukur rasio air tawar",
+      "data": {
+        "test_crank_rpm": 1900,
+        "test_pump_rpm": 2533
+      }
+    },
+    {
+      "source": "D05",
+      "locator": "Fig 54, ref 2–17 serta 22–25; katalog WET set 748660-43010",
+      "role": "Susunan poros, seal, bantalan, impeler, 5 baut dudukan, pasak, roda, mur dan ring",
+      "data": null
+    },
+    {
+      "source": "D05",
+      "locator": "Fig 55, ref 2–21; opsi serial tercantum pada impeler",
+      "role": "Susunan pompa air laut, gear dan pasak",
+      "data": null
+    },
+    {
+      "source": "D03/P17",
+      "locator": "Brosur D03 PDF 17 cetak 33 tampak depan dan samping; D01 PDF 14 cetak 10 menunjukkan sisi non-operation dari pompa air tawar. Foto P17 menguatkan susunan eksternal kanan. Sumbu OEM dan pusat lateral tidak diberi ukuran.",
+      "role": "Penempatan dan siluet",
+      "data": null
+    }
+  ],
+  "model": {
+    "freshwater": {
+      "axis_xyz_m": [
+        1.354,
+        0.30286802649431643,
+        -0.08244692982389899
+      ],
+      "volute_xyz_m": [
+        1.505,
+        0.30286802649431643,
+        -0.08244692982389899
+      ],
+      "driver_teeth": 48,
+      "driven_teeth": 18,
+      "driver_pitch_radius_m": 0.11625031388909238,
+      "driven_pitch_radius_m": 0.043593867708409645,
+      "model_signed_elapsed_ratio": 1.3333333333333333,
+      "model_absolute_rpm_at_1900": 2533.3333333333335,
+      "model_absolute_rpm_at_H1840": 2453.3333333333335
+    },
+    "seawater": {
+      "axis_xyz_m": [
+        0.057,
+        0.42469647085514484,
+        -0.43
+      ],
+      "driver_teeth": 48,
+      "driven_teeth": 29,
+      "driver_pitch_radius_m": 0.14008301110413068,
+      "driven_pitch_radius_m": 0.08463348587541229,
+      "model_signed_elapsed_ratio": -0.8275862068965517,
+      "model_absolute_rpm_at_1900": 1572.4137931034484,
+      "model_absolute_rpm_at_H1840": 1522.7586206896551
+    }
+  },
+  "image_registration": {
+    "old_y_m": 0.387,
+    "new_y_m": 0.30286802649431643,
+    "brochure_side_model_estimate_y_m": 0.35,
+    "brochure_side_estimate_uncertainty_m": 0.06,
+    "old_x_m": 1.41,
+    "new_x_m": 1.505,
+    "brochure_side_model_estimate_x_m": 1.53,
+    "brochure_side_estimate_uncertainty_x_m": 0.06,
+    "lateral_evidence": "Port pompa dan leher selang menghadap sisi +Z. Z dalam rekonstruksi dipilih terhadap siluet depan dan diagram hubungan gear."
+  },
+  "bounds": "Katalog mengenali gear dan B.O.M. Jumlah gigi manufaktur, profil dan sudut heliks, gaya pengencangan, ulir, lokasi OEM Z, dimensi bore, dan cam timing per nomor seri belum diukur. Angka pompa pada 1.840 rpm adalah hasil model; tabel manual menggunakan 1.900 rpm. Beberapa elemen kerja air laut seperti defleksi sudu elastomer tidak disimulasikan."
+}

@@ -1,0 +1,110 @@
+[
+  {
+    "id": "USER-START",
+    "title": "Contoh starter dari pemilik",
+    "url": "https://pin.it/1xWNBjn2J",
+    "publisher": null,
+    "access": "sampled_frames_viewed",
+    "scope": "Pinion masuk/keluar ring gear; flywheel berputar; casing starter tetap",
+    "limitations": "Kompilasi split-screen animasi+bench. Pembuat, mesin, gigi, rasio, ukuran dan timing real tidak teridentifikasi. Bukan bukti geometri OEM."
+  },
+  {
+    "id": "DENSO-MAN",
+    "title": "Starters & Alternators Technical Manual, edition 2 October 2016",
+    "url": "https://assets.denso-am.eu/production/attachments/Starter-Alternator-Manual-English.pdf",
+    "publisher": "DENSO Europe",
+    "access": "pdf_pages_viewed",
+    "scope": "Engagement/disengagement starter dan rotor/stator alternator",
+    "limitations": "Desain generik beberapa tipe; bukan starter exact 6AYM."
+  },
+  {
+    "id": "GARRETT-VID",
+    "title": "How a Turbocharger Works",
+    "url": "https://www.garrettmotion.com/news/video-center/video/how-a-turbocharger-works/",
+    "publisher": "Garrett Motion",
+    "access": "sampled_frames_viewed",
+    "scope": "Turbine, poros bersama, compressor, charge air cooler dan aliran masuk/buang",
+    "limitations": "Animasi automotive generik. 280000RPM pada40s bukan RPM Yanmar dan tidak boleh ditransfer."
+  },
+  {
+    "id": "JABSCO-VID",
+    "title": "How a Jabsco Flexible Impeller Pump Works",
+    "url": "https://www.youtube.com/watch?v=ECv1VwW6RTo",
+    "publisher": "Jabsco Flojet Rule",
+    "access": "metadata_only",
+    "scope": "Demonstrasi OEM clear end-cover untuk lenturan vane",
+    "limitations": "Deskripsi mengonfirmasi demonstrasi aktual; video gagal fetch, tanpa timestamp pengamatan."
+  },
+  {
+    "id": "GRUNDFOS-VID",
+    "title": "The Fundamentals of Centrifugal Pumps - Part 1",
+    "url": "https://www.youtube.com/watch?v=_bVukK4ZD0I",
+    "publisher": "Grundfos",
+    "access": "metadata_only",
+    "scope": "Prinsip pompa sentrifugal",
+    "limitations": "Tidak ditonton; analogi fungsi, bukan geometri/jumlah sudu/rasio pompa Yanmar."
+  },
+  {
+    "id": "PUMP-VID",
+    "title": "The Governor Operation in a Mechanical In-Line Fuel Injection Pump / CLIP",
+    "url": "https://www.youtube.com/watch?v=gQpCCeq9HIQ",
+    "publisher": "Mr Lopez",
+    "access": "metadata_only",
+    "scope": "Kandidat pendidikan governor pompa inline",
+    "limitations": "Non-OEM, frame tidak dilihat. Referensi implementasi tetap YM-SERVICE PDF115–116."
+  },
+  {
+    "id": "INJECTOR-VID",
+    "title": "Video on working of diesel fuel Injector and how nozzle spray (judul tautan kurikulum)",
+    "url": "https://www.youtube.com/watch?v=P5-yxENaLDU",
+    "publisher": null,
+    "access": "curriculum_link_only",
+    "scope": "Kandidat inspeksi mekanisme injektor",
+    "limitations": "Judul asli/channel/frame belum terverifikasi; tidak dijadikan bukti teknis. Tolak transfer piezo/commonrail ke injector mekanis Yanmar."
+  },
+  {
+    "id": "FOURSTROKE-VID",
+    "title": "How Four Stroke Engines Work (How It Works - 4 Stroke)",
+    "url": "https://www.youtube.com/watch?v=nx9Fos8ZQbc",
+    "publisher": "saVRee",
+    "access": "indexed_metadata",
+    "scope": "Kandidat analogi empat langkah",
+    "limitations": "Frame belum dilihat; fase/urutan Yanmar memakai manualexisting."
+  },
+  {
+    "id": "OILGEAR-VID",
+    "title": "Bosch Rexroth: External gear pump - CKD - Conversion of a Basic Pump to a Primary Pump",
+    "url": "https://www.youtube.com/watch?v=0wykeiH4KwI",
+    "publisher": "Bosch Rexroth (judul terindeks; channel belum diperiksa)",
+    "access": "metadata_only",
+    "scope": "Kandidat struktur gearpump",
+    "limitations": "Video assembly bukan bukti debit/putaran Yanmar. Rasio harus YM-SERVICE PDF157."
+  },
+  {
+    "id": "OILFILTER-VID",
+    "title": "MANN-FILTER Oil Filters",
+    "url": "https://www.youtube.com/watch?v=AajTItBn148",
+    "publisher": "MANN-FILTER (brand dalam judul; channel belum diperiksa)",
+    "access": "metadata_only",
+    "scope": "Kandidat filter oli",
+    "limitations": "Tidak ditonton, bypass pressure/flowdirection Yanmar ditentukan diagrammanual."
+  },
+  {
+    "id": "COOLER-VID",
+    "title": "How Does a Shell and Tube Heat Exchanger Work? | 3D Animation",
+    "url": "https://www.youtube.com/watch?v=OyQ3SaU4KKU",
+    "publisher": "saVRee",
+    "access": "metadata_only",
+    "scope": "Kandidat aliran terpisah shell/tube dan heat transfer",
+    "limitations": "Frame belum dilihat. Bukan OEM Yanmar; jumlah tube dan pass tidak dipindah."
+  },
+  {
+    "id": "YM-SERVICE",
+    "title": "Service Manual 6AYM-WGT / 6AYM-WET / 6AYM-WST, 0B6AY-EN0010",
+    "url": "https://dealer.yanmar.com.au/bulletins/SERVICE/6AYM-W_Service_manual.pdf",
+    "publisher": "YANMAR",
+    "access": "pdf_pages_viewed",
+    "scope": "Pompa injeksi/governor/feedpump/pompaoli/rute pendingin Yanmar",
+    "limitations": "Kolom WET dipilih. Gambar keluarga tidak menetapkan serial/clearance/cam law lengkap."
+  }
+]

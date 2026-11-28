@@ -1,0 +1,11 @@
+{
+  "asset_sha256": "dcf4ebcb5eaaff499b7772025afc2e12444c783b449a2d6d202ebd94ec614453",
+  "parts": [
+    "EXT-INTAKE-04",
+    "EXT-EXHAUST-01"
+  ],
+  "triangle_crossing_pairs": 0,
+  "surface_clearance_mm": 5.349138285964727,
+  "edge_candidate_triangle_pairs": 2180,
+  "method": "Triangle BVH intersection, both vertex-to-triangle closest distances plus interior segment-to-segment closest distances in radius-pruned candidate triangle pairs. Distance is for imported meshes."
+}

@@ -1,0 +1,141 @@
+"""Wet-side interfaces: a single sampled centerline drives both the review and the tube walls."""
+import json
+from math import cos, pi, sin
+from mathutils import Vector
+
+def pipe(api, points, radii, material):
+    sides=20
+    outer=[]
+    inner=[]
+    normal=None
+    distance=0.
+    total=sum((b-a).length for a,b in zip(points,points[1:]))
+    for i,p in enumerate(points):
+        if i:
+            distance+=(p-points[i-1]).length
+        along=(points[min(i+1,len(points)-1)]-points[max(i-1,0)]).normalized()
+        if normal is None:
+            _,normal,_=api['vec_basis'](along)
+        normal=(normal-normal.dot(along)*along).normalized()
+        across=along.cross(normal)
+        start,mid,end=radii
+        a=min(1.,distance/(max(start,mid)*1.8))
+        b=min(1.,(total-distance)/(max(end,mid)*1.8))
+        r=mid+(start-mid)*(1-a)+(end-mid)*(1-b)
+        radials=[normal*cos(2*pi*j/sides)+across*sin(2*pi*j/sides) for j in range(sides)]
+        outer.append([p+r*v for v in radials])
+        inner.append([p+r*.83*v for v in radials])
+    return api['polygon_loft']([*outer,*reversed(inner)],material,0,True)
+
+def bore(api,obj,p,axis,rad,length):
+    """Cut individual connected castings. Booleaning joined overlapping castings destroys other shells."""
+    import bmesh
+    import bpy
+    p=api['world'](p)
+    n=api['world'](axis).normalized()
+    guide=abs(n.x),abs(n.y),abs(n.z)
+    extent=Vector([length*.5*c+rad*(max(0.,1-c*c)**.5)+.0001 for c in guide])
+    bm=bmesh.new()
+    bm.from_mesh(obj.data)
+    remaining=set(bm.verts)
+    cut_islands=[]
+    while remaining:
+        seed=remaining.pop()
+        island={seed}
+        stack=[seed]
+        while stack:
+            for e in stack.pop().link_edges:
+                for other in e.verts:
+                    if other in remaining:
+                        remaining.remove(other)
+                        island.add(other)
+                        stack.append(other)
+        world=[obj.matrix_world@v.co for v in island]
+        if any(max(v[i] for v in world)<p[i]-extent[i] or min(v[i] for v in world)>p[i]+extent[i] for i in range(3)):
+            continue
+        cut_islands.append(island)
+    for index,island in enumerate(cut_islands):
+        faces=sorted({f for v in island for f in v.link_faces},key=lambda f:f.index)
+        vs=sorted(island,key=lambda v:v.index)
+        vertex_id={v:i for i,v in enumerate(vs)}
+        data=bpy.data.meshes.new('Wet-side bore section')
+        data.from_pydata([v.co for v in vs],[],[[vertex_id[v] for v in f.verts] for f in faces])
+        for poly,f in zip(data.polygons,faces):
+            poly.material_index=f.material_index
+            poly.use_smooth=f.smooth
+        data.update()
+        for mat in obj.data.materials:
+            data.materials.append(mat)
+        tmp=bpy.data.objects.new('Wet-side bore section',data)
+        bpy.context.collection.objects.link(tmp)
+        tmp.matrix_world=obj.matrix_world.copy()
+        tool=api['cylinder']((p.x,p.z,-p.y),axis,rad,length,api['cast'],32,0)
+        api['subtract'](tmp,tool)
+        if not len(tmp.data.polygons):
+            raise ValueError(f'Empty section after opening port in {obj.name} at {tuple(p)}')
+        bmesh.ops.delete(bm,geom=list(island),context='VERTS')
+        bm.from_mesh(tmp.data)
+        bpy.data.objects.remove(tmp,do_unlink=True)
+        if data.users==0:bpy.data.meshes.remove(data)
+    bm.to_mesh(obj.data)
+    bm.free()
+    obj.data.update()
+
+def build(api):
+    db=json.loads((api['OUT'].parent/'flow'/'water-lube.json').read_text())
+    routes=[r for r in db['routes'] if (r.get('mesh_id') or '').startswith('EXT-')]
+    api['remove_part']('EXT-COOLING-05')
+    api['remove_part']('EXT-COOLING-06')
+    # Superseded solid proxy overlaps the Fig 42 cooler and leaves a false thermostat flange.
+    # The actual Fig 65 wet connection is authored below, with the Fig 57 thermostat in the exchanger.
+    api['remove_part']('EXT-COOLING-07')
+    # Pipe outside radii at the actual port plane; sea intercooler fittings reduce to their smaller nipples.
+    ends={'SW-suction':(.046,.040),'SW-delivery':(.043,.021),'SW-transfer':(.017,.021),
+          'FW-pump-cooler':(.044,.026),'FW-cooler-block':(.023,.021),'FW-return':(.029,.040),
+          'FW-to-stat':(.023,.025)}
+    for r in routes:
+        component=r['mesh_id']
+        _,group,num=component.split('-')
+        points=list(map(Vector,r['points']))
+        rad=r['radius_m']
+        first,last=ends.get(r['id'],(rad,rad))
+        mat=api['cover'] if group=='COOLING' else api['steel']
+        shapes=[pipe(api,points,(first,rad,last),mat)]
+        for p,n,v in [(points[0],(points[1]-points[0]).normalized(),first),
+                      (points[-1],(points[-2]-points[-1]).normalized(),last)]:
+            depth=min(v*.70,.016)
+            if r['id']=='SW-suction' and p==points[0]:
+                shapes.extend(api['flange'](p+n*depth*.5,n,.064,.038,depth,api['cast'],5))
+            elif group=='LUBE':
+                # Accurately open nut body; its hex exterior distinguishes the compression fittings.
+                shapes.append(api['ring'](p+n*depth*.56,n,[(-depth*.56,v*.84),(-depth*.56,v*1.45),
+                                (0,v*1.62),(depth*.64,v*1.45),(depth*.64,v*.84)],api['steel'],6))
+            else:
+                shapes.append(api['annulus'](p+n*depth*.57,n,v*1.28,v*.84,depth,api['cast']))
+                shapes.append(api['annulus'](p+n*(depth*1.4),n,v*1.08,v*.86,depth*.36,api['steel']))
+        if r['id']=='SW-transfer':
+            # Two rubber sections with clamps and a matte steel-painted transfer run in between.
+            for i in (9,14,len(points)-16,len(points)-10):
+                axis=(points[i+1]-points[i-1]).normalized()
+                shapes.append(api['annulus'](points[i],axis,rad*1.14,rad*.97,.009,api['steel']))
+        api['add'](group,int(num),r['name'],shapes,r['source_refs'],r['note'],
+                   direction=(0,0,-1 if r['system']=='seawater' else 1),role='pipe')
+    # Drill coolant shell-side entrances separate from the sea tube headers. The bottom outlet
+    # and upper entry avoid the oil-side ports and the perimeter of the core's end seal.
+    holes=[('EXT-COOLING-01',(1.502,.59,.157),(0,1,0),.023,.082),
+           ('EXT-COOLING-01',(1.377,.735,.011),(1,0,0),.019,.089),
+           ('EXT-LUBE-05',(1.076,.355,.374),(1,0,0),.020,.055),
+           ('EXT-LUBE-05',(.251,.331,.373),(1,0,0),.018,.055),
+           ('EXT-COOLING-51',(1.566,.741,-.424),(0,0,1),.0176,.085),
+           ('EXT-COOLING-52',(1.566,.741,.291),(0,0,1),.0176,.085),
+           ('EXT-LUBE-01',(1.087,.281,.446),(0,0,1),.0083,.054),
+           ('EXT-EXHAUST-04',(.677,.715,.481),(0,1,0),.0065,.052),
+           ('EXT-EXHAUST-04',(.677,.648,.481),(0,1,0),.0085,.042),
+           ('EXT-EXHAUST-01',(1.275,.641,.272),(1,0,0),.0186,.062),
+           ('EXT-BLOCK-01',(.180,.304,.270),(0,0,1),.0174,.081),
+           ('EXT-BLOCK-01',(.224,.208,.285),(0,0,1),.0080,.074),
+           ('EXT-BLOCK-01',(.682,.217,.288),(0,0,1),.0073,.084),
+           ('EXT-BLOCK-01',(.481,.119,.309),(0,0,1),.0119,.072)]
+    for component,p,axis,rad,length in holes:
+        ob=api['bpy'].data.objects[component]
+        bore(api,ob,p,axis,rad,length)

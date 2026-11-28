@@ -1,0 +1,139 @@
+# Internal vs exterior interference: static (phi=0) + swept (phi 0..690 step 30) for moving parts.
+import bpy, bmesh, math, json
+from mathutils import Matrix, Vector
+from mathutils.bvhtree import BVHTree
+OUT = '/tmp/claude-0/c3512/model/internal'
+bpy.ops.wm.open_mainfile(filepath=OUT + '/internal.blend')
+kin = json.load(open(OUT + '/kinematics.json'))
+with bpy.data.libraries.load('/tmp/claude-0/c3512/model/exterior/exterior.blend') as (src, dst):
+    dst.objects = list(src.objects)
+C = Matrix.Rotation(-math.pi / 2, 4, 'X')        # exterior blend is Z-up; datum = (x, z, -y)
+for o in dst.objects:
+    if o is not None and o.name not in bpy.context.scene.collection.objects:
+        bpy.context.scene.collection.objects.link(o)
+bpy.context.view_layer.update()
+EXT = {}
+for o in dst.objects:
+    if o is None or o.type != 'MESH':
+        continue
+    bm = bmesh.new(); bm.from_mesh(o.data)
+    bmesh.ops.triangulate(bm, faces=bm.faces[:], quad_method='BEAUTY', ngon_method='EAR_CLIP')
+    bm.transform(C @ o.matrix_world)
+    vs = [v.co.copy() for v in bm.verts]
+    tris = [tuple(v.index for v in f.verts) for f in bm.faces]
+    bm.free()
+    EXT[o.name] = (BVHTree.FromPolygons(vs, tris), Vector(map(min, *vs)), Vector(map(max, *vs)), vs, tris)
+INT = {o.name: o for o in bpy.data.objects if o.name.startswith('INT-') and o.type == 'MESH'}
+
+def ibvh(o):
+    vs = [o.matrix_world @ v.co for v in o.data.vertices]
+    ps = [tuple(p.vertices) for p in o.data.polygons]
+    return BVHTree.FromPolygons(vs, ps), vs, ps, Vector(map(min, *vs)), Vector(map(max, *vs))
+
+def bank_a(c, p):
+    b = 1 if c % 2 else -1
+    return p.y * math.cos(math.pi / 6) + p.z * 0.5 * b
+
+def cls(i, e, xs, as_, eb, fx=0.0):
+    k = i.split('-')[1]
+    if k in ('CAM', 'CRANK', 'GEAR') and fx > 0.999:
+        return 'lintasan bidang melintang (|normal X| > 0.6) cangkang pejal: muka blok/housing/front cover dan sekat internal mesh blok; tidak memotong kulit samping/atas'
+    if abs(eb[0][0] - eb[1][0]) < 1e-3 and (abs(eb[0][0]) < 1e-3 or abs(eb[0][0] - 1.883) < 1e-3):
+        return 'lintasan muka blok (x=0 ke flywheel housing atau x=1.883 ke front cover)'
+    if abs(eb[0][1] - eb[1][1]) < 1e-3 and abs(eb[0][1] + 0.264) < 2e-3:
+        return 'lintasan batas blok/oil pan (bidang y=-0.264)'
+    if e.startswith('EXT-KEPALA') or e.startswith('EXT-TUTUPKATUP') or (e == 'EXT-BLOK-01' and k in ('LINER', 'KATUP', 'INJ', 'PUSHROD') and as_ and as_[0] <= 0.6205 and as_[1] >= 0.6195):
+        return 'lintasan bidang batas blok/kepala/tutup katup (cangkang pejal)'
+    if k in ('CAM', 'CRANK', 'GEAR') and e in ('EXT-BLOK-01', 'EXT-FWHOUSING-01', 'EXT-FRONTCOVER-01') and (xs[1] <= 0.002 or xs[0] >= 1.879):
+        return 'lintasan muka blok (x=0 atau x=1.883) ke flywheel housing/front cover'
+    if k == 'OILPUMP' and e == 'EXT-OILPAN-01':
+        return 'lintasan batas blok/oil pan (pompa di dalam oil pan)'
+    return 'PERLU DITINJAU'
+
+def check(tag):
+    res = []
+    for n, o in INT.items():
+        t, vs, ps, lo, hi = ibvh(o)
+        for en, (te, elo, ehi, evs, etr) in EXT.items():
+            if any(hi[i] < elo[i] or ehi[i] < lo[i] for i in range(3)):
+                continue
+            pr = t.overlap(te)
+            if not pr:
+                continue
+            pts = [vs[j] for a, _ in pr for j in ps[a]]
+            xs = [round(min(p.x for p in pts), 3), round(max(p.x for p in pts), 3)]
+            try:
+                c = int(n.split('-')[2])
+                as_ = [round(min(bank_a(c, p) for p in pts), 3), round(max(bank_a(c, p) for p in pts), 3)]
+            except Exception:
+                as_ = None
+            ep = [evs[j] for _, b in pr for j in etr[b]]
+            elo_, ehi_ = Vector(map(min, *ep)), Vector(map(max, *ep))
+            ebox = [[round(v, 3) for v in elo_], [round(v, 3) for v in ehi_]]
+            nx = []
+            for _, b in pr:
+                P = [evs[j] for j in etr[b]]
+                nn = (P[1] - P[0]).cross(P[2] - P[0])
+                nx.append(abs(nn.normalized().x) > 0.6 if nn.length > 1e-12 else True)
+            frac_x = sum(nx) / len(nx)
+            res.append(dict(internal=n, exterior=en, segitiga=len(pr), x=xs, a=as_, muka_exterior=ebox, frac_muka_normal_X=round(frac_x, 3), kelas=cls(n, en, xs, as_, ebox, frac_x)))
+    return res
+
+static = check('static')
+# sweep movers
+R = kin['radius_engkol']; L = kin['panjang_rod']
+base = {n: o.matrix_world.copy() for n, o in INT.items()}
+def ydir(b): return Vector((0, math.cos(math.radians(b)), math.sin(math.radians(b))))
+sweep = {}
+movers = ['INT-CRANK-01', 'INT-GEAR-R-CRANK', 'INT-GEAR-F-CRANK', 'INT-CAM-R', 'INT-CAM-L']
+for c in kin['silinder']:
+    i = c['silinder']
+    movers += [c['piston'], c['rod']] + c['ikut_piston'] + c['ikut_rod']
+keep = dict(INT);
+for phi in range(30, 720, 30):
+    Rc = Matrix.Rotation(-math.radians(phi), 4, 'X')
+    for n in ('INT-CRANK-01', 'INT-GEAR-R-CRANK', 'INT-GEAR-F-CRANK'):
+        INT[n].matrix_world = Rc @ base[n]
+    for n in ('INT-CAM-R', 'INT-CAM-L'):
+        INT[n].matrix_world = base[n] @ Matrix.Rotation(-math.radians(phi / 2), 4, 'X')
+    for c in kin['silinder']:
+        bb = 30.0 if c['silinder'] % 2 else -30.0
+        u = ydir(bb)
+        def s_(al): return R * math.cos(al) + math.sqrt(L * L - (R * math.sin(al)) ** 2)
+        a0 = math.radians(c['beta_crankpin_0_deg'] - bb); a1 = math.radians(c['beta_crankpin_0_deg'] - phi - bb)
+        T = Matrix.Translation((s_(a1) - s_(a0)) * u)
+        for n in [c['piston']] + c['ikut_piston']:
+            INT[n].matrix_world = T @ base[n]
+        b1 = math.radians(c['beta_crankpin_0_deg'] - phi)
+        P = Vector((c['crankpin_x'] * 0 + c['rod_x'], R * math.cos(b1), R * math.sin(b1)))
+        Q = Vector((c['x_silinder'], 0, 0)) + s_(a1) * u
+        d = Q - P
+        Mr = Matrix.Translation(P) @ Matrix.Rotation(math.atan2(d.z, d.y), 4, 'X')
+        M0 = base[c['rod']]
+        for n in [c['rod']] + c['ikut_rod']:
+            INT[n].matrix_world = Mr @ M0.inverted() @ base[n]
+    bpy.context.view_layer.update()
+    sub = {n: INT[n] for n in movers}
+    saved = INT
+    INT = sub
+    for r in check('sweep'):
+        if r['kelas'] == 'PERLU DITINJAU':
+            sweep.setdefault(r['internal'] + ' x ' + r['exterior'], []).append(phi)
+    INT = saved
+for n, M in base.items():
+    INT[n].matrix_world = M
+summary = {}
+for r in static:
+    k = r['kelas']
+    summary.setdefault(k, set()).add(r['internal'].split('-')[1] + ' x ' + r['exterior'].rsplit('-', 1)[0] if r['exterior'][-1].isdigit() and 'KEPALA' in r['exterior'] or 'TUTUP' in r['exterior'] else r['internal'].split('-')[1] + ' x ' + r['exterior'])
+out = dict(statis=static, ringkas={k: sorted(v) for k, v in summary.items()},
+           jumlah_pasangan=len(static), perlu_ditinjau=[r for r in static if r['kelas'] == 'PERLU DITINJAU'],
+           sapuan_perlu_ditinjau=sweep)
+json.dump(out, open(OUT + '/_ext_clash.json', 'w'), indent=1)
+print('PAIRS', len(static), 'REVIEW', len(out['perlu_ditinjau']), 'SWEEP_REVIEW', len(sweep))
+for r in out['perlu_ditinjau'][:40]:
+    print(' ', r['internal'], r['exterior'], r['segitiga'], r['x'], r['a'])
+for k, v in list(sweep.items())[:20]:
+    print(' S', k, v[:8])
+for k, v in out['ringkas'].items():
+    print(k, len(v))

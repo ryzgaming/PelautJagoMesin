@@ -1,0 +1,437 @@
+{
+  "method": "World-space radial AABB midpoint projected onto two perpendicular directions. Axisymmetric shafts are good alignment probes; asymmetric fans and low tooth count envelopes can offset the midpoint.",
+  "parts": [
+    {
+      "id": "INT-TIMING-01",
+      "axis": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "pivot_m": [
+        0.023000000044703484,
+        0.0,
+        0.0
+      ],
+      "radial_bounding_midpoint_offset_mm": 0.0,
+      "axial_range_from_pivot_mm": [
+        -12.000000104308128,
+        12.000000104308128
+      ]
+    },
+    {
+      "id": "INT-TIMING-02",
+      "axis": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "pivot_m": [
+        0.023000000044703484,
+        0.14836300909519196,
+        0.05990340933203697
+      ],
+      "radial_bounding_midpoint_offset_mm": 0.0,
+      "axial_range_from_pivot_mm": [
+        -12.000000104308128,
+        12.000000104308128
+      ]
+    },
+    {
+      "id": "INT-TIMING-03",
+      "axis": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "pivot_m": [
+        0.05700000002980232,
+        0.14836300909519196,
+        0.05990340933203697
+      ],
+      "radial_bounding_midpoint_offset_mm": 5.890201144234053e-06,
+      "axial_range_from_pivot_mm": [
+        -11.99999824166298,
+        11.99999824166298
+      ]
+    },
+    {
+      "id": "INT-TIMING-04",
+      "axis": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "pivot_m": [
+        0.05700000002980232,
+        0.15800000727176666,
+        -0.15000000596046448
+      ],
+      "radial_bounding_midpoint_offset_mm": 5.268356063861754e-06,
+      "axial_range_from_pivot_mm": [
+        -11.99999824166298,
+        11.99999824166298
+      ]
+    },
+    {
+      "id": "INT-TIMING-05",
+      "axis": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "pivot_m": [
+        0.05700000002980232,
+        0.20000000298023224,
+        -0.4269999861717224
+      ],
+      "radial_bounding_midpoint_offset_mm": 3.725290298461914e-06,
+      "axial_range_from_pivot_mm": [
+        -11.99999824166298,
+        11.99999824166298
+      ]
+    },
+    {
+      "id": "INT-TIMING-07",
+      "axis": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "pivot_m": [
+        0.023000000044703484,
+        -0.15000000596046448,
+        0.0
+      ],
+      "radial_bounding_midpoint_offset_mm": 0.0,
+      "axial_range_from_pivot_mm": [
+        -12.000000104308128,
+        12.000000104308128
+      ]
+    },
+    {
+      "id": "INT-TIMING-08",
+      "axis": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "pivot_m": [
+        1.3539999723434448,
+        0.15800000727176666,
+        -0.15000000596046448
+      ],
+      "radial_bounding_midpoint_offset_mm": 2.634178031930877e-06,
+      "axial_range_from_pivot_mm": [
+        -11.999964714050293,
+        11.999964714050293
+      ]
+    },
+    {
+      "id": "INT-TIMING-10",
+      "axis": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "pivot_m": [
+        1.3539999723434448,
+        0.09075500071048737,
+        -0.2896539866924286
+      ],
+      "radial_bounding_midpoint_offset_mm": 2.7939677238464355e-06,
+      "axial_range_from_pivot_mm": [
+        -11.999964714050293,
+        11.999964714050293
+      ]
+    },
+    {
+      "id": "INT-OILPUMP-01",
+      "axis": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "pivot_m": [
+        0.09000000357627869,
+        -0.15000000596046448,
+        0.0
+      ],
+      "radial_bounding_midpoint_offset_mm": 7.243989587809912e-06,
+      "axial_range_from_pivot_mm": [
+        -81.00000023841858,
+        21.99999988079071
+      ]
+    },
+    {
+      "id": "INT-OILPUMP-03",
+      "axis": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "pivot_m": [
+        0.09000000357627869,
+        -0.15000000596046448,
+        0.0
+      ],
+      "radial_bounding_midpoint_offset_mm": 0.0,
+      "axial_range_from_pivot_mm": [
+        -20.000003278255463,
+        19.999995827674866
+      ]
+    },
+    {
+      "id": "INT-OILPUMP-04",
+      "axis": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "pivot_m": [
+        0.09000000357627869,
+        -0.15000000596046448,
+        -0.0430000014603138
+      ],
+      "radial_bounding_midpoint_offset_mm": 8.145745696749492e-06,
+      "axial_range_from_pivot_mm": [
+        -20.000003278255463,
+        19.999995827674866
+      ]
+    },
+    {
+      "id": "EXT-COOLING-20",
+      "axis": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "pivot_m": [
+        1.409999966621399,
+        0.3869999945163727,
+        0.2930000126361847
+      ],
+      "radial_bounding_midpoint_offset_mm": 0.0,
+      "axial_range_from_pivot_mm": [
+        -21.499991416931152,
+        29.000043869018555
+      ]
+    },
+    {
+      "id": "EXT-COOLING-21",
+      "axis": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "pivot_m": [
+        1.409999966621399,
+        0.3869999945163727,
+        0.2930000126361847
+      ],
+      "radial_bounding_midpoint_offset_mm": 0.0,
+      "axial_range_from_pivot_mm": [
+        -167.9999828338623,
+        31.00001811981201
+      ]
+    },
+    {
+      "id": "EXT-COOLING-26",
+      "axis": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "pivot_m": [
+        1.409999966621399,
+        0.3869999945163727,
+        0.2930000126361847
+      ],
+      "radial_bounding_midpoint_offset_mm": 0.0,
+      "axial_range_from_pivot_mm": [
+        -163.49995136260986,
+        -140.49994945526123
+      ]
+    },
+    {
+      "id": "EXT-COOLING-35",
+      "axis": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "pivot_m": [
+        0.05700000002980232,
+        0.3950924873352051,
+        -0.4300000071525574
+      ],
+      "radial_bounding_midpoint_offset_mm": 95.82609917281226,
+      "axial_range_from_pivot_mm": [
+        -63.00000101327896,
+        -18.999997526407242
+      ]
+    },
+    {
+      "id": "EXT-COOLING-36",
+      "axis": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "pivot_m": [
+        0.05700000002980232,
+        0.3950924873352051,
+        -0.4300000071525574
+      ],
+      "radial_bounding_midpoint_offset_mm": 94.09247864821151,
+      "axial_range_from_pivot_mm": [
+        -71.99999690055847,
+        127.00000405311584
+      ]
+    },
+    {
+      "id": "EXT-COOLING-41",
+      "axis": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "pivot_m": [
+        0.05700000002980232,
+        0.3950924873352051,
+        -0.4300000071525574
+      ],
+      "radial_bounding_midpoint_offset_mm": 94.09247864821151,
+      "axial_range_from_pivot_mm": [
+        99.50000047683716,
+        122.50000238418579
+      ]
+    },
+    {
+      "id": "EXT-FUEL-21",
+      "axis": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "pivot_m": [
+        0.6949999928474426,
+        0.20000000298023224,
+        -0.4269999861717224
+      ],
+      "radial_bounding_midpoint_offset_mm": 1.4487979175619824e-05,
+      "axial_range_from_pivot_mm": [
+        -251.4999806880951,
+        247.99996614456177
+      ]
+    },
+    {
+      "id": "EXT-EXHAUST-20",
+      "axis": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "pivot_m": [
+        0.6000000238418579,
+        0.6800000071525574,
+        0.48100000619888306
+      ],
+      "radial_bounding_midpoint_offset_mm": 2.2506426970650575e-05,
+      "axial_range_from_pivot_mm": [
+        144.99998092651367,
+        218.999981880188
+      ]
+    },
+    {
+      "id": "EXT-EXHAUST-21",
+      "axis": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "pivot_m": [
+        0.6000000238418579,
+        0.6800000071525574,
+        0.48100000619888306
+      ],
+      "radial_bounding_midpoint_offset_mm": 0.9890952079729068,
+      "axial_range_from_pivot_mm": [
+        -63.00002336502075,
+        226.99999809265137
+      ]
+    },
+    {
+      "id": "EXT-ELECTRIC-40",
+      "axis": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "pivot_m": [
+        0.0020000000949949026,
+        0.02199999988079071,
+        0.367000013589859
+      ],
+      "radial_bounding_midpoint_offset_mm": 3.10145799170187e-05,
+      "axial_range_from_pivot_mm": [
+        -35.50000116229057,
+        163.49999606609344
+      ]
+    },
+    {
+      "id": "EXT-ELECTRIC-48",
+      "axis": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "pivot_m": [
+        0.0020000000949949026,
+        0.02199999988079071,
+        0.367000013589859
+      ],
+      "radial_bounding_midpoint_offset_mm": 0.0,
+      "axial_range_from_pivot_mm": [
+        -71.99999690055847,
+        -21.500002592802048
+      ]
+    },
+    {
+      "id": "EXT-ELECTRIC-21",
+      "axis": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "pivot_m": [
+        1.4529999494552612,
+        0.2750000059604645,
+        -0.3400000035762787
+      ],
+      "radial_bounding_midpoint_offset_mm": 4.656612873077393e-06,
+      "axial_range_from_pivot_mm": [
+        -152.49991416931152,
+        18.500089645385742
+      ]
+    },
+    {
+      "id": "EXT-ELECTRIC-25",
+      "axis": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "pivot_m": [
+        1.4529999494552612,
+        0.2750000059604645,
+        -0.3400000035762787
+      ],
+      "radial_bounding_midpoint_offset_mm": 1.249500351492198e-05,
+      "axial_range_from_pivot_mm": [
+        -13.000011444091797,
+        14.0000581741333
+      ]
+    }
+  ]
+}

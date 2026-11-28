@@ -1,0 +1,2257 @@
+'use strict';
+
+const $ = (id) => document.getElementById(id);
+const stage = $('stage');
+const panel = $('panel');
+const panelBody = $('panel-body');
+const state = {mode:'home', selected:null, isolated:false, xray:false, system:null, angle:0, running:false, simTime:0, enginePhase:'off', phaseTime:0, rpm:0, stopRPM:0, stopEngagement:0, starterEngagement:0, driveAngles:{running:0,starting:0,both:0}, driveId:null, flow:'fuel', route:null, tour:null, tourSpread:0, flowCut:false, combustionFocus:false, poseOverview:false, filter:'', cutaway:false, cutawayNormal:null};
+// P08 front-left, with the injection side dominant.
+const initialView = [.32,.26,-1];
+const entries = new Map();
+const groups = new Map();
+const shellMaterials = new Map();
+const previousViews = [];
+const scopesByPart = new Map();
+const scopesById = new Map();
+const flowViews = new Map();
+const flowPipes = new Map();
+const driveViews = new Map();
+const allDriveCovers=new Set();
+const driveCategories={timing:'Roda gigi timing',starter:'Starter',alternator:'Alternator dan sabuk',
+  freshwater:'Pompa air tawar',seawater:'Pompa air laut',lubrication:'Pelumasan',fuel:'Bahan bakar',turbo:'Turbocharger'};
+const fluid = {
+  fuel:{label:'Bahan bakar',color:0xf6c55c,speed:.56},
+  lubrication:{label:'Pelumas',color:0xee9c42,speed:.45},
+  freshwater:{label:'Air tawar',color:0x33d5eb,speed:.58},
+  seawater:{label:'Air laut',color:0x408ffe,speed:.62},
+  intake:{label:'Udara masuk',color:0x56d3f9,speed:.84},
+  exhaust:{label:'Gas buang',color:0xff7c55,speed:.78}
+};
+const flowEngineModes = ['systems','operation'];
+const engineModes = [...flowEngineModes,'drives'];
+const starterRadiansPerSecond = 1.4;
+const crankRadiansPerSecond = 2.1;
+function injectionWindow(kind) {
+  return data.drivetrain?.injection_timing?.[kind+'_window_deg'] || (kind==='nozzle' ? [-12,0] : [-16,0]);
+}
+const tourStages = [
+  {title:'Katup dan piston',duration:3.2,fluid:'none',eye:[.35,.29,-1],target:[.66,.28,-.03],distance:2.8,operate:true},
+  {title:'Udara masuk',duration:3.2,fluid:'intake',eye:[.37,.60,-1],target:[.63,.55,-.04],distance:3.4,operate:true},
+  {title:'Pelumas dan poros engkol',duration:3.2,fluid:'lubrication',eye:[.29,.13,-1],target:[.68,.02,-.03],distance:3.3,operate:true},
+  {title:'Siklus pembakaran',duration:4.3,fluid:'none',eye:[1,.15,-.27],target:[.70,.25,0],distance:3.9,operate:true,fire:true,speed:3.15},
+  {title:'Urai rakitan',duration:2.1,fluid:'none',eye:[.32,.26,-1],spread:[0,.55]},
+  {title:'Rapatkan rakitan',duration:2.1,fluid:'none',eye:[.32,.26,-1],spread:[.55,0]}
+];
+let flowGroup, combustionGroup, routeRibbons, chamberFire;
+let thermostatOpens=Infinity;
+const reducedMotion = () => window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches === true;
+
+let T, scene, camera, controls, renderer, roots, data, stopDiagram, selectionBox, clipPlane, syncViewportSize;
+const labels = {
+  BLOCK:'Blok silinder', HEADS:'Kepala silinder', OILPAN:'Bak oli', FLYWHEEL:'Roda gila',
+  FRONT:'Ujung peredam', INTAKE:'Pemasukan udara', EXHAUST:'Gas buang', FUEL:'Bahan bakar',
+  COOLING:'Pendinginan', LUBE:'Pelumasan', ELECTRIC:'Kelistrikan', CRANK:'Poros engkol',
+  MAIN:'Bantalan utama', PISTON:'Piston dan ring', ROD:'Batang penghubung', LINER:'Liner silinder',
+  CAM:'Poros nok', VALVE:'Mekanisme katup', FUELINJ:'Injektor', TIMING:'Roda gigi timing',
+  OILPUMP:'Pompa oli', AIRCOOLER:'Intercooler', INJECTION:'Pompa injeksi',
+  'COOLANT-PUMP':'Pompa air tawar','SEAWATER-PUMP':'Pompa air laut'
+};
+const systemLabels = {
+  fuel:'Bahan bakar', lubrication:'Pelumasan', freshwater:'Air tawar', seawater:'Air laut',
+  'intake-exhaust':'Udara dan gas buang', 'air-exhaust':'Udara dan gas buang', air_exhaust:'Udara dan gas buang'
+};
+// Vectors are in the shared meter datum. Parts on the same interface stay together.
+const spreadVectors = {
+  BLOCK:[0,0,0], HEADS:[0,.38,0], OILPAN:[0,-.35,0], FLYWHEEL:[-.43,0,0],
+  FRONT:[.33,0,0], INTAKE:[0,.67,0], EXHAUST:[0,0,.41], FUEL:[0,0,-.42],
+  COOLING:[.59,0,0], LUBE:[0,-.14,-.33], ELECTRIC:[-.44,0,-.28], CRANK:[0,0,0],
+  MAIN:[0,-.13,0], PISTON:[0,.17,0], ROD:[0,.09,0], LINER:[0,.28,0],
+  CAM:[0,0,.22], VALVE:[0,.55,0], FUELINJ:[0,.48,0], TIMING:[.12,0,0], OILPUMP:[0,-.19,0]
+};
+
+function element(tag, text, className) {
+  const node = document.createElement(tag);
+  if (text !== undefined) node.textContent = text;
+  if (className) node.className = className;
+  return node;
+}
+function button(text, handler, pressed) {
+  const node = element('button', text);
+  node.type = 'button';
+  node.addEventListener('click', handler);
+  if (pressed !== undefined) node.setAttribute('aria-pressed', String(pressed));
+  return node;
+}
+function groupName(id) {
+  return labels[id.replace(/^RAK-(?:INT-)?/, '')] || data?.assemblies[id]?.name || id;
+}
+function componentEntry(id) {
+  return entries.get(id) || entries.get(data?.aliases?.[id]);
+}
+function componentName(entry) {
+  return entry.nama || entry.name || entry.id;
+}
+function componentGroup(entry) {
+  return entry.parent?.startsWith('RAK-') ? entry.parent
+    : entry.rakitan || entry.assembly || 'Komponen';
+}
+function setPanel(title, render) {
+  $('panel-title').textContent = title;
+  panelBody.replaceChildren();
+  render(panelBody);
+  panel.hidden = false;
+  $('parts').setAttribute('aria-expanded', String(state.mode === 'parts'));
+}
+function closePanel() {
+  panel.hidden = true;
+  $('parts').setAttribute('aria-expanded','false');
+}
+function figureRefs(line) {
+  return (String(line).includes('D05') ? String(line).match(/\bfig(?:ure)?\.?\s*(\d{1,3})\b/i)?.[1] : null) ||
+    String(line).match(/\bD05-(\d{1,3})\b/)?.[1];
+}
+function sourceLinks(parent, refs = [], partReference = false) {
+  if (!Array.isArray(refs)) refs = [refs];
+  const list = element('ul', undefined, 'registry');
+  let catalogLinked = false;
+  for (const ref of refs) {
+    if (!ref) continue;
+    const line = typeof ref === 'string' ? ref : ref.locator || ref.id || JSON.stringify(ref);
+    const item = element('li', line);
+    const figure = figureRefs(line);
+    const source = (figure && data.sources.find(({id})=>id==='D05-'+figure)) ||
+      data.sources.find(({id}) => line.startsWith(id) || line.includes(' '+id));
+    const exactURL = figure && data.figureSources?.[figure];
+    const url = exactURL || source?.url;
+    if (url) {
+      if (exactURL || source?.id.startsWith('D05')) catalogLinked = true;
+      const link = element('a', 'Buka sumber');
+      link.href = url;
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+      item.append(document.createTextNode(' · '), link);
+    }
+    list.append(item);
+  }
+  if (partReference && !catalogLinked) {
+    const url = data.sources.find(({id})=>id==='D05')?.url;
+    if (url) {
+      const item = element('li');
+      const link = element('a','Katalog umum 6AYM-WET');
+      link.href = url;
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+      item.append(link);
+      list.append(item);
+    }
+  }
+  if (list.children.length) parent.append(list);
+}
+function showParts() {
+  setPanel('Komponen', (body) => {
+    const byGroup = new Map();
+    for (const entry of entries.values()) {
+      const group = componentGroup(entry);
+      if (!byGroup.has(group)) byGroup.set(group, []);
+      byGroup.get(group).push(entry);
+    }
+    const field = element('input');
+    field.id = 'part-filter';
+    field.type = 'search';
+    field.value = state.filter;
+    field.placeholder = 'Contoh: fitting, pipa, EXT-FUEL';
+    const label = element('label','Cari nama atau ID komponen');
+    label.htmlFor = field.id;
+    const search = element('div',undefined,'parts-search');
+    search.append(label,field);
+    const results = element('div',undefined,'parts-results');
+    body.append(search,results);
+    const render = () => {
+      const query = state.filter.toLocaleLowerCase('id-ID').trim();
+      const exact = componentEntry(query.toUpperCase());
+      results.replaceChildren();
+      for (const [key, parts] of byGroup) {
+        const visible = parts.filter(entry=>exact ? entry === exact :
+          !query || (componentName(entry)+' '+entry.id+' '+groupName(key)).toLocaleLowerCase('id-ID').includes(query));
+        if (!visible.length) continue;
+        const section = element('details');
+        section.open = Boolean(query) || visible.some(({id}) => id === state.selected);
+        section.append(element('summary', groupName(key) + ' · ' + visible.length));
+        const list = element('div', undefined, 'group-items');
+        for (const entry of visible) {
+          const action = button(componentName(entry), () => select(entry.id), entry.id === state.selected);
+          action.append(element('small',entry.id));
+          list.append(action);
+        }
+        section.append(list);
+        results.append(section);
+      }
+      if (!results.children.length) results.append(element('p', entries.size ?
+        'Tidak ada komponen yang cocok.' : 'Inventaris model belum tersedia.'));
+    };
+    field.addEventListener('input',()=>{ state.filter = field.value; render(); });
+    render();
+  });
+}
+function scopedMembers(scope) {
+  return scope.parts.map(({id})=>entries.get(id)).filter(part=>part?.object);
+}
+function scopeFor(entry) {
+  return entry ? scopesByPart.get(entry.id) : null;
+}
+function rowsInScope(part, parent) {
+  const child = scopeFor(part);
+  if (child?.parent === parent && child.anchor === part.id) {
+    return scopedMembers(child).flatMap(member=>rowsInScope(member,child.id));
+  }
+  return [part];
+}
+function rowProxy(entry, target) {
+  let part = entry;
+  let scope = scopeFor(part);
+  while (scope && scope.id !== target) {
+    part = entries.get(scope.anchor);
+    if (scope.parent === target) break;
+    scope = scopesById.get(scope.parent);
+  }
+  return part?.id;
+}
+function scopeReady(scope) {
+  if (!scope) return false;
+  const shells = scopedMembers(scope).some(part=>part.xray_shell);
+  return shells && scope.parts.some(({id,role})=>{
+    const part = entries.get(id);
+    return part?.object && !part.xray_shell &&
+      (part.xray_content || /core|internal|interior|inner|mechanism|element|inti/.test(String(role).toLowerCase()));
+  });
+}
+function shellCanReveal(entry) {
+  if (state.mode==='drives') {
+    const view=driveViews.get(state.driveId);
+    return view?.covers.has(entry.id) === true || (view?.spec.system==='starter' &&
+      ['EXT-FLYWHEEL-01','EXT-FLYWHEEL-02'].includes(entry.id));
+  }
+  if (activeFlowMode() && !state.isolated && allDriveCovers.has(entry.id)) return true;
+  const scope = scopeFor(entry);
+  if (scope) return scopeReady(scope);
+  if (['EXT-INTAKE-01','EXT-COOLING-01','EXT-EXHAUST-01','EXT-INTAKE-02','EXT-FUEL-01'].includes(entry.id)) return false;
+  if (!roots?.[1] && !['RAK-FLYWHEEL','RAK-FRONT'].includes(componentGroup(entry))) return false;
+  if (state.mode === 'assembly') return ['RAK-FLYWHEEL','RAK-FRONT'].includes(state.assemblyGroup);
+  return !state.isolated;
+}
+function appendNotes(parent, notes) {
+  for (const note of [].concat(notes || [])) {
+    const text = typeof note === 'string' ? note : note?.text || note?.summary || note?.note;
+    if (text) parent.append(element('p',text));
+  }
+}
+function appendCoverage(parent, entry) {
+  const scope = scopeFor(entry);
+  const object = data.coverage?.by_object?.[entry.id];
+  const coverage = object || data.coverage?.by_assembly?.[componentGroup(entry)] ||
+    data.coverage?.by_assembly?.[componentGroup(entry).replace(/^RAK-INT-/,'INT-')];
+  if (entry.xray_shell && !shellCanReveal(entry)) {
+    parent.append(element('p',scope
+      ? 'Model isi belum tersedia pada tampilan ini.'
+      : 'Isi rakitan belum tersedia pada tampilan ini. Rumah tetap terlihat buram saat X-ray aktif.', 'coverage-note'));
+  }
+  if (!scope && coverage) {
+    const details = element('details',undefined,'details');
+    details.append(element('summary','Cakupan bukti'+(coverage.status ? ' · '+coverage.status : '')));
+    appendNotes(details, coverage.summary);
+    appendNotes(details, coverage.open);
+    sourceLinks(details,coverage.source_refs);
+    parent.append(details);
+  }
+}
+function partFunction(entry, recipe) {
+  const text = entry.function || entry.fungsi ||
+    recipe?.parts?.find(({id})=>id===entry.id)?.function ||
+    scopeFor(entry)?.parts?.find(({id})=>id===entry.id)?.function;
+  return text === componentName(entry) ? undefined : text;
+}
+function scopeInspectable(scope) {
+  return Boolean(scope && scopedMembers(scope).length > 1);
+}
+function scopeLabel(scope) {
+  return (scopeReady(scope) ? 'Lihat isi ' : 'Lihat bagian ')+scope.content_name;
+}
+function openContents(entry) {
+  const scope = scopeFor(entry);
+  if (!scopeInspectable(scope)) return;
+  const reveal = scopeReady(scope);
+  if (reveal) state.xray = true;
+  openDiagram(entry, scope.id, {spread:!reveal});
+}
+function contentButton(entry) {
+  const scope = scopeFor(entry);
+  if (!scopeInspectable(scope) || state.assemblyGroup === scope.id) return null;
+  return button(scopeLabel(scope), () => openContents(entry));
+}
+function updateContentsTool() {
+  const tool = $('inspect-contents');
+  const scope = scopeFor(entries.get(state.selected));
+  tool.hidden = state.mode !== 'assembly' || !scopeInspectable(scope) || state.assemblyGroup === scope.id;
+  if (!tool.hidden) {
+    tool.textContent = scopeReady(scope) ? 'Isi rakitan' : 'Bagian rakitan';
+    tool.setAttribute('aria-label',scopeLabel(scope));
+  }
+}
+function appendInspectionLinks(parent, entry) {
+  const targets = data.inspectionLinks?.[componentGroup(entry)] ||
+    data.inspectionLinks?.[scopeFor(entry)?.parent] || [];
+  const valid = targets.filter(id=>groups.has(id) && assemblyRows(id,entry).length);
+  if (!valid.length) return;
+  const list = element('details',undefined,'evidence');
+  list.append(element('summary','Mekanisme terkait'));
+  const actions = element('div',undefined,'actions');
+  for (const id of valid) actions.append(button(groupName(id),()=>openDiagram(entry,id)));
+  list.append(actions);
+  parent.append(list);
+}
+function appendInjectorPlates(parent, entry) {
+  if (scopeFor(entry)?.parent !== 'RAK-INT-FUELINJ') return;
+  const inline = $('embedded-injector-plates');
+  if (!inline) {
+    const link = element('a','Diagram injektor berlabel');
+    link.href = './assets/injector-plates/injector-legend.html';
+    parent.append(link);
+    return;
+  }
+  const assets = JSON.parse(inline.textContent);
+  const plates = element('details',undefined,'injector-plates');
+  plates.append(element('summary','Diagram injektor berlabel'));
+  for (const [name,alt] of [['section','Potongan injektor mekanis berlabel'],
+    ['exploded','Tampak urai injektor mekanis berlabel']]) {
+    const image = element('img');
+    image.src = assets[name];
+    image.alt = alt;
+    image.loading = 'lazy';
+    plates.append(image);
+  }
+  const pdf = element('a','Unduh diagram dan daftar fungsi (PDF)');
+  pdf.href = assets.pdf;
+  pdf.download = 'diagram-injektor-6aym-wet.pdf';
+  plates.append(pdf);
+  parent.append(plates);
+}
+function appendFunctionalProfile(body,entry) {
+  const registry=data?.functionRegistry;
+  const row=registry?.components?.[entry.id];
+  const profile=registry?.profiles?.[row?.profile];
+  if (!profile) return;
+  const details=element('details',undefined,'details');
+  details.append(element('summary','Cara kerja · '+(profile.label || row.category || row.profile)));
+  appendNotes(details,profile.function);
+  for (const [key,label] of [['off','Mesin mati'],['starting','Mulai'],['running','Berjalan'],['stopping','Stop']]) {
+    if (profile[key]) details.append(element('p',label+' · '+profile[key]));
+  }
+  if (profile.status) details.append(element('small',profile.status));
+  appendNotes(details,row.limits);
+  sourceLinks(details,(row.source_refs || []).map(ref=>Number.isInteger(ref) ? registry.source_refs?.[ref] : ref));
+  body.append(details);
+}
+function renderComponent(entry) {
+  setPanel(componentName(entry), (body) => {
+    const actions = element('div', undefined, 'actions');
+    const contents = contentButton(entry);
+    if (contents) actions.append(contents);
+    const functionRow=data.functionRegistry?.components?.[entry.id];
+    const drive=driveViews.get(functionRow?.controller);
+    if (drive) actions.append(button('Lihat saat bekerja',()=>{
+      changeMode('drives');
+      selectDrive(drive.spec.id);
+    }));
+    const route=flowViews.get(functionRow?.route_ids?.[0])?.route;
+    if (route) actions.append(button('Sorot aliran',()=>{
+      changeMode('operation');
+      pickFlow(route.system);
+      state.route=route.id;
+      updateFlowAppearance();
+      updateOperationDock();
+    }));
+    actions.append(button('Daftar komponen', () => changeMode('parts')));
+    if (entry.object) actions.append(button(state.isolated ? 'Tampilkan semua' : 'Isolasi', () => {
+      state.isolated = !state.isolated;
+      applyPose();
+      frame();
+      renderComponent(entry);
+    }, state.isolated));
+    const scope = scopeFor(entry);
+    const group = scope?.anchor === entry.id ? scope.parent : componentGroup(entry);
+    const parts = assemblyRows(group, entry);
+    if (entry.object && (parts.length > 1 || (parts.length && scope?.anchor === entry.id))) {
+      actions.append(button('Eksplor rakitan', () => openDiagram(entry,group)));
+    }
+    body.append(element('span', (entry.status || 'UNVERIFIED').toString() + ' · ' + entry.id, 'status'),actions);
+    appendNotes(body,partFunction(entry,data.assemblies[componentGroup(entry)]));
+    appendNotes(body,entry.notes || entry.catatan || entry.note);
+    const partNumbers = [].concat(entry.part_number || entry.nomor_oem || []).filter(Boolean);
+    if (partNumbers.length) body.append(element('p', 'Nomor katalog ' + partNumbers.join(', ')));
+    body.append(element('small','Jumlah pada model '+(entry.quantity || entry.count || entry.jumlah || 1)));
+    appendCoverage(body,entry);
+    appendFunctionalProfile(body,entry);
+    appendInspectionLinks(body,entry);
+    appendInjectorPlates(body,entry);
+    sourceLinks(body, entry.source_refs || entry.sumber,true);
+  });
+}
+function showAssemblySelection(entry) {
+  if (!entry) return;
+  const selectedRow = rowProxy(entry,state.assemblyGroup);
+  for (const [key, control] of state.assemblyControls) control.setAttribute('aria-pressed', String(key === selectedRow));
+  const detail = $('assembly-detail');
+  detail.replaceChildren(element('h3', componentName(entry)), element('p', (entry.status || 'UNVERIFIED')+' · '+entry.id));
+  const action = contentButton(entry);
+  if (action) detail.append(action);
+  appendNotes(detail,partFunction(entry,data.assemblies[state.assemblyGroup]));
+  appendCoverage(detail,entry);
+  appendFunctionalProfile(detail,entry);
+  appendInspectionLinks(detail,entry);
+  appendInjectorPlates(detail,entry);
+  updateContentsTool();
+  const number = [].concat(entry.part_number || entry.nomor_oem || []).filter(Boolean);
+  if (number.length) detail.append(element('small','Nomor katalog '+number.join(', ')));
+  const evidence = element('details',undefined,'evidence');
+  evidence.append(element('summary','Catatan dan sumber komponen'));
+  appendNotes(evidence,entry.notes || entry.catatan || entry.note);
+  sourceLinks(evidence,entry.source_refs || entry.sumber,true);
+  if (evidence.children.length > 1) detail.append(evidence);
+}
+function select(id) {
+  const entry = componentEntry(id);
+  if (!entry) return;
+  id=entry.id;
+  if (state.mode === 'assembly') {
+    state.selected = id;
+    refreshHighlight();
+    showAssemblySelection(entry);
+    return;
+  }
+  state.isolated = state.isolated && state.selected === id;
+  state.selected = id;
+  changeMode('component');
+}
+function assemblyRows(group, anchor) {
+  const recipe = data.assemblies[group];
+  if (recipe?.parts?.length) return scopedMembers(recipe);
+  const scopedCylinder = ['RAK-INT-PISTON','RAK-INT-ROD','RAK-INT-LINER','RAK-INT-VALVE','RAK-INT-FUELINJ'].includes(group);
+  const cylinder = (entry) => {
+    const parsedParent = entry.parent?.match(/^MOT-INT-[A-Z]+-(\d)(?:-|$)/)?.[1];
+    if (parsedParent) return Number(parsedParent);
+    const center = new T.Box3().setFromObject(entry.object).getCenter(new T.Vector3());
+    return Math.max(1,Math.min(6,Math.round((center.x-.209)/.2)+1));
+  };
+  const localCylinder = scopedCylinder && anchor?.object ? cylinder(anchor) : null;
+  return Array.from(entries.values()).filter(entry => {
+    const scope = scopeFor(entry);
+    const member = componentGroup(entry) === group || (scope?.parent === group && scope.anchor === entry.id);
+    return member && entry.object && (!localCylinder || cylinder(entry) === localCylinder);
+  });
+}
+function openDiagram(entry, id = componentGroup(entry), options = {}) {
+  const group = groups.get(id)?.object;
+  const components = assemblyRows(id,entry);
+  if (!group || !components.length) return;
+  if (options.remember !== false) previousViews.push({
+    mode:state.mode, selected:state.selected, isolated:state.isolated, group:state.assemblyGroup,
+    spread:state.assemblySpread, cutaway:state.cutaway,
+    cutawayNormal:state.cutawayNormal?.clone(), position:camera.position.clone(), target:controls.target.clone(),
+    aspect:camera.aspect
+  });
+  leaveDiagram();
+  state.mode = 'assembly';
+  state.running = false;
+  state.simTime=0;
+  state.angle=0;
+  clearDriveClocks();
+  state.assemblyGroup = id;
+  state.assemblyControls = new Map();
+  state.assemblySpread = options.spread !== false;
+  state.cutaway = Boolean(options.cutaway && state.xray);
+  state.cutawayNormal = options.cutawayNormal || null;
+  const membersByRow = new Map(components.map(part=>[part.id,rowsInScope(part,id)]));
+  state.assemblyParts = new Set(Array.from(membersByRow.values()).flat().map(part=>part.id));
+  applyPose();
+  const authored = data.assemblies[id] || {};
+  const sheetHost = element('div',undefined,'diagram-host');
+  const actions = element('div',undefined,'actions');
+  setPanel('Eksplor rakitan', body => {
+    const toolbar = element('div',undefined,'assembly-toolbar');
+    actions.append(button('Kembali', restoreDiagram));
+    const activeScope = scopeFor(entries.get(authored.anchor));
+    if (activeScope?.id === id && scopeReady(activeScope)) {
+      const cut = button('Potongan rumah',()=>toggleCutaway(activeScope),state.cutaway);
+      cut.id = 'cutaway';
+      actions.append(cut);
+    }
+    toolbar.append(actions);
+    const detail = element('section', undefined, 'details');
+    detail.id = 'assembly-detail';
+    toolbar.append(detail);
+    body.append(toolbar);
+    if (authored.parent) {
+      const context = element('details',undefined,'details');
+      context.append(element('summary','Cakupan model'+(authored.status ? ' · '+authored.status : '')));
+      const instructions = scopeReady(activeScope)
+        ? 'Potongan rumah memperlihatkan satu sisi rumah. X-ray membuat rumah transparan. Gunakan Uraikan untuk memisahkan bagian.'
+        : 'Gunakan Uraikan untuk memisahkan bagian yang tersedia.';
+      context.append(element('p',instructions));
+      appendNotes(context,authored.notes);
+      sourceLinks(context,authored.source_refs);
+      body.append(context);
+    }
+    body.append(sheetHost);
+  });
+  const boxes = components.map(({object}) => new T.Box3().setFromObject(object));
+  const order = components.map((part, index) => ({part,index,center:boxes[index].getCenter(new T.Vector3())}));
+  const vector = new T.Vector3(...(spreadVectors[id.replace(/^RAK-(?:INT-)?/,'')] || [1,0,0]));
+  const direction = vector.lengthSq() ? vector.normalize() : new T.Vector3(1,0,0);
+  order.sort((a,b) => a.center.dot(direction)-b.center.dot(direction));
+  const offsets = new Map(order.map(({part}, index) => {
+    const item = authored.parts?.find(row => row.id === part.id);
+    const offset = item?.offset_m;
+    const magnitude = Math.min(.065, .4 / components.length);
+    return [part.id, Array.isArray(offset) ? new T.Vector3(...offset) :
+      direction.clone().multiplyScalar((index-(order.length-1)/2)*magnitude)];
+  }));
+  const meshes = [];
+  const rows = [];
+  const trows = [];
+  for (const part of components) {
+    const key = part.id;
+    const number = [].concat(part.part_number || part.nomor_oem || []).filter(Boolean).join(', ');
+    rows.push([key, componentName(part), part.quantity || part.count || part.jumlah || 1, number,
+      partFunction(part,authored)]);
+    const control = button(componentName(part), () => select(key), state.selected === key);
+    state.assemblyControls.set(key, control);
+    trows.push(control);
+    for (const member of membersByRow.get(key)) member.object.traverse(mesh => {
+      if (!mesh.isMesh || mesh.userData.component !== member.id) return;
+      const inverseRotation = mesh.parent.getWorldQuaternion(new T.Quaternion()).invert();
+      mesh.userData.no = key;
+      mesh.userData.ws = mesh.position.clone();
+      mesh.userData.ev = offsets.get(key).clone().applyQuaternion(inverseRotation);
+      mesh.userData.authoredOffset = Array.isArray(authored.parts?.find(row=>row.id===key)?.offset_m);
+      meshes.push(mesh);
+    });
+  }
+  const part = {group,rows,meshes,trows,idn:groupName(id)};
+  const model = {camera, axis:'x', cfg:{nosLabel:'No. katalog'}, initialSpread:state.assemblySpread, toggleHost:actions,
+    onPose:(spread,changed)=> {
+      state.assemblySpread = spread;
+      refreshHighlight();
+      updateClipPlane();
+      if (changed) frame();
+    },
+    rowStatus:(_part,row) => ({jumlah:'ilustrasi', nomor:row[3] ? 'katalog' : 'model', identifier:row[3]})};
+  stopDiagram = window.openAssemblyDiagram(model, part, stage, sheetHost);
+  select(state.assemblyParts.has(entry.id) ? entry.id : components[0].id);
+  if (options.reposition !== false) {
+    if (authored.view?.some(Boolean)) {
+      const view = new T.Vector3(...authored.view).normalize();
+      if (Math.abs(view.y) > .95) view.x = .24;
+      camera.position.copy(controls.target).add(view);
+    }
+    requestAnimationFrame(() => { if (state.assemblyGroup === id) frame(); });
+  }
+  updateNav();
+}
+function leaveDiagram() {
+  if (!stopDiagram) return;
+  stopDiagram();
+  stopDiagram = null;
+  state.assemblyControls = null;
+  state.assemblyGroup = null;
+  state.assemblyParts = null;
+  state.cutaway = false;
+  state.cutawayNormal = null;
+}
+function restoreDiagram() {
+  const view = previousViews.pop();
+  leaveDiagram();
+  if (!view) return;
+  state.selected = view.selected;
+  state.isolated = view.isolated;
+  if (view.mode === 'assembly') openDiagram(entries.get(view.selected),view.group,{
+    remember:false,spread:view.spread,reposition:false,cutaway:view.cutaway,cutawayNormal:view.cutawayNormal
+  });
+  else changeMode(view.mode);
+  camera.position.copy(view.position);
+  controls.target.copy(view.target);
+  controls.update();
+  if (Math.abs(camera.aspect/view.aspect-1) > .04) frame();
+}
+function activeFlowMode() {
+  return flowEngineModes.includes(state.mode);
+}
+function activeEngineMode() {
+  return engineModes.includes(state.mode);
+}
+const phaseDuration = {engaging:.35, cranking:1.45, firing:.85, stopping:1.05};
+const phaseNext = {engaging:'cranking', cranking:'firing', firing:'running', stopping:'off'};
+const phaseLabels = {off:'Mesin mati',engaging:'Pinion masuk',cranking:'Starter memutar',firing:'Pembakaran mulai',running:'Mesin hidup',stopping:'Mesin melambat'};
+const idleRPM = 650; // Illustrative idle used for the educational model.
+let engineAudio, mechanics;
+const audioSetting='yanmar-6aym-audio-muted';
+let muted=false;
+try { muted=window.localStorage?.getItem(audioSetting)==='true'; } catch {}
+function updateAudioControls() {
+  const toggle=$('audio-toggle');
+  toggle.textContent=muted ? 'Suara' : 'Suara aktif';
+  toggle.setAttribute('aria-pressed',String(!muted));
+  toggle.title=muted ? 'Aktifkan suara ilustrasi' : 'Matikan suara ilustrasi. Volume tersedia di Opsi.';
+  $('audio-field').hidden=muted;
+}
+function unlockSound() {
+  if (!engineAudio || muted) return;
+  engineAudio.unlock().then(unlocked=>{
+    if (unlocked || muted) return;
+    muted=true;
+    engineAudio.setMuted(true);
+    updateAudioControls();
+    $('audio-toggle').title='Audio belum tersedia. Ketuk untuk mencoba lagi.';
+  });
+}
+function publishSound() {
+  const stage=state.tour && tourStages[state.tour.index];
+  engineAudio?.update({phase:state.enginePhase,rpm:state.rpm,elapsed:state.phaseTime,
+    paused:!state.running || Boolean(stage && !stage.operate)});
+}
+function phaseChange(phase) {
+  state.phaseTime=0;
+  if (phase==='engaging') {
+    mechanics?.setCapTest?.(null);
+    const pitch=2*Math.PI/180;
+    const difference=state.driveAngles.both-state.driveAngles.starting;
+    state.driveAngles.starting+=difference-Math.round(difference/pitch)*pitch;
+  }
+  if (phase==='stopping') {
+    state.stopRPM=state.rpm;
+    state.stopEngagement=state.starterEngagement;
+  }
+  if (phase==='off') {
+    state.rpm=0;
+    state.starterEngagement=0;
+  }
+  state.enginePhase=phase;
+  if ((phase==='engaging' || phase==='off') && state.mode==='drives' && state.driveId?.startsWith('cap-') && !panel.hidden) {
+    showDriveDetails();
+  }
+  updateOperationDock();
+  publishSound();
+}
+function clearDriveClocks() {
+  state.phaseTime=0;
+  state.rpm=0;
+  state.stopRPM=0;
+  state.stopEngagement=0;
+  state.starterEngagement=0;
+  state.enginePhase='off';
+  for (const phase of Object.keys(state.driveAngles)) state.driveAngles[phase]=0;
+  mechanics?.reset();
+  publishSound();
+}
+function smoothstep(x) {
+  return x*x*(3-2*x);
+}
+function advancePowertrain(delta, stage) {
+  while (delta>0 && state.enginePhase!=='off') {
+    const phase=state.enginePhase;
+    const duration=phaseDuration[phase] ?? Infinity;
+    const slice=Math.min(.05,delta,Math.max(0,duration-state.phaseTime));
+    state.phaseTime+=slice;
+    delta-=slice;
+    const progress=Math.min(1,state.phaseTime/duration);
+    let speed=0;
+    if (phase==='engaging') state.starterEngagement=smoothstep(progress);
+    if (phase==='cranking') {
+      state.rpm=220*Math.min(1,progress*5);
+      speed=starterRadiansPerSecond*state.rpm/220;
+    }
+    if (phase==='firing') {
+      state.rpm=220+(idleRPM-220)*smoothstep(progress);
+      speed=starterRadiansPerSecond+(crankRadiansPerSecond-starterRadiansPerSecond)*smoothstep(progress);
+    }
+    if (phase==='running') {
+      state.rpm=idleRPM;
+      state.starterEngagement=1-smoothstep(Math.min(1,state.phaseTime/.24));
+      speed=stage?.speed || crankRadiansPerSecond;
+    }
+    if (phase==='stopping') {
+      state.rpm=state.stopRPM*(1-progress);
+      state.starterEngagement=state.stopEngagement*(1-smoothstep(Math.min(1,state.phaseTime/.24)));
+      speed=crankRadiansPerSecond*state.rpm/idleRPM;
+    }
+    const step=speed*slice;
+    state.driveAngles.both+=step;
+    state.driveAngles.running+=step;
+    if (state.starterEngagement>0) state.driveAngles.starting+=step;
+    state.angle=state.driveAngles.both%(4*Math.PI);
+    state.simTime+=slice*(state.rpm/idleRPM);
+    if (slice>0) mechanics?.tick({phase,phaseTime:state.phaseTime,dt:slice,rpm:state.rpm,
+      crankRadians:state.driveAngles.both,starterRadians:state.driveAngles.starting,engagement:state.starterEngagement});
+    if (Number.isFinite(duration) && state.phaseTime>=duration) {
+      phaseChange(phaseNext[phase]);
+      updateFlowAppearance();
+      if (state.enginePhase==='off' && !state.tour) {
+        state.running=false;
+        updateOperationDock();
+      }
+    }
+  }
+  publishSound();
+}
+function routeList() {
+  return data?.flows?.routes?.filter(route=>route.system===state.flow) || [];
+}
+function unsetDetailFilter() {
+  state.route = null;
+  updateFlowAppearance();
+}
+function pickFlow(key) {
+  state.flow = key in fluid ? key : 'none';
+  $('flow-select').value = state.flow;
+  unsetDetailFilter();
+  updateOperationDock();
+}
+function systemFlow(key) {
+  return key === 'intake-exhaust' ? (['intake','exhaust'].includes(state.flow) ? state.flow : 'intake') : key;
+}
+function routeEvidence(body) {
+  const figure = routeList();
+  if (state.flow === 'none') return;
+  if (!figure.length) {
+    body.append(element('p','Rute 3D untuk aliran ini belum tersedia.'));
+    return;
+  }
+  body.append(element('h3','Rute pada model'));
+  if (state.flow==='freshwater') body.append(element('p','Saat dingin, pompa mensirkulasikan air melalui bypass. Saat termostat membuka dalam simulasi pemanasan, aliran menuju penukar panas. Bypass digunakan sebagai skema arah.'));
+  const ports = new Map((data.flows?.ports || []).map(port=>[port.id,port.name || port.id]));
+  const container = element('div',undefined,'flow-detail');
+  container.append(button('Tampilkan seluruh rute',()=>{
+    unsetDetailFilter();
+    return state.mode === 'systems' ? showSystems() : showOperation();
+  },!state.route));
+  for (const route of figure) {
+    const card = element('details',undefined,'details');
+    card.open = state.route === route.id;
+    card.append(element('summary',route.name || route.id));
+    card.append(element('small',(route.kind === 'physical' ? 'Jalur model' : 'Skematis')+
+      ' · Geometri '+(route.geometry_status || 'UNVERIFIED')+' · Arah '+(route.direction_status || 'UNKNOWN')));
+    const labels = [ports.get(route.from) || route.from,ports.get(route.to) || route.to];
+    if (labels.every(Boolean)) card.append(element('p',labels.join(flowDirectionKnown(route) ? ' → ' : ' · ')));
+    const action = button('Sorot rute',()=>{
+      state.route = route.id;
+      updateFlowAppearance();
+      updateOperationDock();
+      return state.mode === 'systems' ? showSystems() : showOperation();
+    },state.route===route.id);
+    card.append(action);
+    appendNotes(card,route.note || route.condition);
+    sourceLinks(card,route.source_refs);
+    container.append(card);
+  }
+  body.append(container);
+}
+function appendFlowGaps(body) {
+  const gaps=data.flows?.gaps;
+  if (!gaps?.length) return;
+  const details=element('details',undefined,'details');
+  details.append(element('summary','Batas pemetaan'));
+  for (const gap of gaps) {
+    appendNotes(details,gap);
+    if (gap?.source_refs) sourceLinks(details,gap.source_refs);
+  }
+  body.append(details);
+}
+function showSystems() {
+  setPanel('Sistem', body => {
+    const tabs = element('div', undefined, 'tabs');
+    tabs.setAttribute('aria-label','Pilih sistem');
+    for (const graph of data.systems) tabs.append(button(systemLabels[graph.system] || graph.system,
+      () => { state.system = graph.system; pickFlow(systemFlow(graph.system)); showSystems(); }, state.system === graph.system));
+    body.append(tabs);
+    const graph = data.systems.find(({system}) => system === state.system);
+    if (!graph) { body.append(element('p', 'Data sistem belum tersedia.')); return; }
+    body.append(element('span', graph.status, 'status'), element('p', graph.applicability));
+    routeEvidence(body);
+    appendFlowGaps(body);
+    const names = new Map(graph.nodes.map(node => [node.id, node.name || node.label || node.id]));
+    const list = element('ol', undefined, 'system-edges');
+    for (const edge of graph.edges) {
+      const item = element('li');
+      const known = ['DOCUMENTED','OBSERVED','INFERRED'].includes(edge.status);
+      const separator = known ? ' → ' : ' · ';
+      item.append(element('h3', (names.get(edge.from) || edge.from) + separator + (names.get(edge.to) || edge.to)),
+        element('span', edge.status || 'UNKNOWN', 'status'));
+      if (edge.purpose) item.append(element('p', edge.purpose));
+      if (edge.operating_condition) item.append(element('small', edge.operating_condition));
+      const detail = element('details');
+      detail.append(element('summary','Rujukan hubungan'));
+      sourceLinks(detail, edge.source_refs);
+      item.append(detail);
+      list.append(item);
+    }
+    body.append(list);
+    if (graph.gaps?.length) {
+      const details = element('details');
+      details.append(element('summary','Batas verifikasi'));
+      for (const gap of graph.gaps) details.append(element('p', gap));
+      body.append(details);
+    }
+  });
+}
+function filmLink(parent) {
+  const url=data?.film;
+  if (!url || !['http:','https:'].includes(window.location?.protocol)) return;
+  const view = element('a','Tonton film operasi r06');
+  view.href = url;
+  view.className = 'film-link';
+  parent.append(view);
+}
+function reviewLink(parent) {
+  if (!data?.revisionReview || !['http:','https:'].includes(window.location?.protocol)) return;
+  const link=element('a','Bandingkan starting r05–r06');
+  link.href=data.revisionReview;
+  link.className='film-link';
+  parent.append(link);
+}
+function comparisonLink(parent) {
+  if (!data?.comparison || !['http:','https:'].includes(window.location?.protocol)) return;
+  const link=element('a','Bandingkan area filter dengan foto');
+  link.href=data.comparison;
+  link.className='film-link';
+  parent.append(link);
+}
+function driveAuditLink(parent) {
+  if (!data?.driveAudit || !['http:','https:'].includes(window.location?.protocol)) return;
+  const link=element('a','Baca ringkasan audit gerak');
+  link.href=data.driveAudit;
+  link.className='film-link';
+  parent.append(link);
+}
+function showOperation() {
+  setPanel('Rute dan pengoperasian', body => {
+    body.append(element('p','Tekan Mulai untuk menjalankan urutan pengaitan starter, putaran, pembakaran, dan idle. Ketuk Suara untuk membisukan atau menyalakan kembali.'),
+      element('p','Gerak poros dan partikel diperlambat. Suara sintetis mengikuti RPM simulasi, sementara sudut engkol ditampilkan dalam gerak lambat.'),
+      element('p','Putaran cranking 220 rpm dan idle 650 rpm adalah setelan peragaan.'),
+      element('p','Garis utuh mengikuti pipa yang dimodelkan. Garis putus-putus menunjukkan bagian skematis. Penanda bergerak mengikuti arah jalur yang tersedia.'),
+      element('p','Pulsa per silinder mengikuti urutan 1–4–2–6–3–5. Pada Potongan blok, proyeksi nyala menandai ruang bakar. Bentuk semprotan bersifat ilustratif.'),
+      element('p','Manual mencatat awal suplai pompa 16° sebelum TMA. Jeda hidraulik, durasi semprotan dan waktu tempuh penanda diperagakan.'));
+    if (driveViews.size) body.append(button('Lihat penggerak',()=>changeMode('drives')));
+    if (driveViews.has('starter-pinion')) body.append(button('Fokus starter',showStarter));
+    routeEvidence(body);
+    appendFlowGaps(body);
+    filmLink(body);
+    reviewLink(body);
+    comparisonLink(body);
+    sourceLinks(body, ['D02 · Operation Manual','D03 · H-rating']);
+  });
+  updateOperationDock();
+}
+function updateOperationDock() {
+  if (!data) return;
+  $('operation-controls').hidden = !activeEngineMode();
+  if (!activeEngineMode()) return;
+  const onDrives=state.mode==='drives';
+  const tour = state.tour && tourStages[state.tour.index];
+  $('drive-controls').hidden=!onDrives;
+  $('tour-controls').hidden=onDrives;
+  $('drive-field').hidden=!onDrives;
+  $('flow-field').hidden=onDrives;
+  const running = $('operation-toggle');
+  running.disabled = !renderer || (!kinematicParts() && !flowViews.size && !driveViews.size);
+  running.textContent = state.running ? 'Jeda' : state.enginePhase==='off' && !tour ? 'Mulai' : 'Lanjut';
+  $('operation-stop').disabled=running.disabled || (state.enginePhase==='off' && !tour);
+  running.setAttribute('aria-pressed',String(state.running));
+  $('operation-info').textContent=onDrives ? 'Rincian' : 'Rute';
+  $('operation-info').setAttribute('aria-expanded',String(!panel.hidden));
+  const cut = $('flow-cut');
+  const chamber=$('chamber-focus');
+  chamber.hidden=onDrives || !state.flowCut || Boolean(tour);
+  chamber.textContent=state.combustionFocus ? 'Seluruh potongan' : 'Fokus ruang bakar';
+  chamber.setAttribute('aria-pressed',String(state.combustionFocus));
+  cut.hidden = onDrives || !renderer || !roots?.[0] || Boolean(tour);
+  cut.setAttribute('aria-pressed',String(state.flowCut));
+  const status = $('operation-status');
+  const clock=phaseLabels[state.enginePhase];
+  status.textContent=tour
+    ? tour.title+' · '+(state.running ? (tour.operate ? clock : 'Mesin berhenti') : 'Jeda')
+    : (state.running || state.enginePhase==='off' ? '' : 'Jeda · ')+clock;
+  $('flow-select').value = state.flow;
+  $('flow-select').disabled = Boolean(tour);
+  $('operation-tour').hidden = state.mode !== 'operation';
+  $('operation-tour').textContent = tour ? 'Keluar tur' : 'Tur animasi';
+  $('drive-entry').hidden = state.mode !== 'operation' || Boolean(tour) || !driveViews.size;
+  $('starter-entry').hidden=state.mode!=='operation' || Boolean(tour) || !driveViews.has('starter-pinion');
+  $('tour-next').hidden = !tour;
+  $('tour-next').textContent = state.tour?.index === tourStages.length-1 ? 'Selesai' : 'Lewati';
+  $('drive-select').value=state.driveId || '';
+  $('drive-select').disabled=!driveViews.size;
+  $('drive-focus').disabled=!driveViews.has(state.driveId);
+  $('drive-starter').hidden=![...driveViews.values()].some(({spec})=>spec.mode==='starting');
+  $('drive-starter').textContent='Starter';
+  const theme = fluid[state.flow];
+  const key = $('flow-key');
+  key.textContent = onDrives ? 'Gerak diperlambat' :
+    theme ? theme.label+' · '+(state.route ? 'Rute terpilih' :
+    routeList().length ? (state.xray ? 'utuh = pipa · putus = skema' : 'pipa terpilih · X-ray untuk skema') : 'Rute 3D belum tersedia') :
+    tour?.fire ? 'Cahaya jingga · pembakaran ilustratif' : '';
+  if (state.flowCut) key.textContent=state.combustionFocus ? 'Ruang bakar · potongan blok' : 'Potongan blok · proyeksi nyala';
+  if (!onDrives && !tour) key.textContent=(key.textContent ? key.textContent+' · ' : '')+'Gerak diperlambat';
+  key.style.setProperty('--flow-color',onDrives ? '#79ead0' : theme ? '#'+theme.color.toString(16).padStart(6,'0') : '#ff9d52');
+}
+function showSources() {
+  setPanel('Sumber dan batas model', body => {
+    body.append(element('p','Varian H 555 kW pada 1.840 rpm dipilih sebagai konfigurasi rujukan. Cakupan mencakup peralatan yang terpasang pada mesin.'),
+      element('h3','Ukuran katalog nominal'),
+      element('p','2,000 × 1,305 × 1,431 m (panjang × lebar × tinggi). D03, halaman PDF 17.'),
+      element('h3','Ekstrem proyeksi gambar teknik'));
+    const ext = data.extrema;
+    if (ext?.length === 3) {
+      const values = ext.map(value => Number(value).toLocaleString('id-ID',{minimumFractionDigits:3,maximumFractionDigits:3}));
+      body.append(element('p', values.join(' × ') + ' m (panjang × lebar × tinggi). Estimasi tepi-ke-tepi pada gambar D03. Tepi komponen mengikuti datum gambar dan batas pandang.'));
+    }
+    body.append(element('p','Rekonstruksi pembelajaran independen. Afiliasi dengan Yanmar tidak ada.'));
+    if (['http:','https:'].includes(window.location?.protocol)) {
+      const catalogue = element('a','Telusuri daftar suku cadang Yanmar');
+      catalogue.href = './suku-cadang.html';
+      body.append(catalogue);
+    }
+    reviewLink(body);
+    comparisonLink(body);
+    driveAuditLink(body);
+    const registered = element('ul',undefined,'registry');
+    for (const source of data.sources) {
+      const li = element('li');
+      const link = element('a', source.id + ' · ' + source.title);
+      link.href = source.url;
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+      li.append(link);
+      if (source.status) li.append(element('small', source.status));
+      registered.append(li);
+    }
+    body.append(registered);
+    appendFunctionSources(body);
+  });
+}
+function appendFunctionSources(parent,ids) {
+  const sources=(data?.functionSources || []).filter(source=>!ids || ids.includes(source.id));
+  if (!sources.length) return;
+  const details=element('details',undefined,'details');
+  details.open=Boolean(ids);
+  details.append(element('summary','Video dan manual cara kerja'));
+  const list=element('ul',undefined,'registry');
+  for (const source of sources) {
+    const item=element('li');
+    const link=element('a',source.title);
+    link.href=source.url;
+    link.target='_blank';
+    link.rel='noopener noreferrer';
+    item.append(link,element('small',[source.scope,source.limitations].filter(Boolean).join(' · ')));
+    list.append(item);
+  }
+  details.append(list);
+  parent.append(details);
+}
+function updateNav() {
+  for (const node of document.querySelectorAll('[data-mode]')) node.setAttribute('aria-pressed',
+    String(node.dataset.mode === state.mode || (node.dataset.mode==='operation' && state.mode==='drives')));
+  $('xray').setAttribute('aria-pressed',String(state.xray));
+  $('spread-box').hidden = state.mode !== 'overview';
+  document.body.classList.toggle('overview-open',state.mode === 'overview');
+  updateContentsTool();
+  updateOperationDock();
+}
+function changeMode(mode) {
+  if (!data) return;
+  leaveDiagram();
+  previousViews.length = 0;
+  if (state.tour && mode !== 'operation') finishTour();
+  if (mode!=='drives') mechanics?.setCapTest?.(null);
+  state.combustionFocus=false;
+  state.mode = mode;
+  $('operation-options').open=false;
+  if (!engineModes.includes(mode)) {
+    state.running = false; state.angle = 0; state.simTime = 0; state.flowCut = false;
+    clearDriveClocks();
+  }
+  if (mode==='drives') {
+    state.xray=true;
+    state.flowCut=false;
+  }
+  if (mode === 'systems') state.flow = systemFlow(state.system);
+  state.route = null;
+  if (['home','overview',...engineModes].includes(mode)) {
+    state.poseOverview = mode === 'overview';
+    state.selected = null;
+    state.isolated = false;
+  }
+  updateNav();
+  if (mode === 'parts') showParts();
+  else if (mode === 'systems') showSystems();
+  else if (mode === 'operation' || mode==='drives') closePanel();
+  else if (mode === 'component') renderComponent(entries.get(state.selected));
+  else if (mode === 'sources') showSources();
+  else closePanel();
+  applyPose();
+  updateOperationDock();
+  if (['home','overview',...engineModes].includes(mode) && renderer && roots?.some(Boolean)) {
+    if (!syncViewportSize?.(true)) {
+      if (state.mode==='drives') focusDrive();
+      else frame();
+      renderer.render(scene,camera);
+    }
+  }
+}
+
+function assemblyGroupVisible(object) {
+  const active = groups.get(state.assemblyGroup)?.object;
+  for (let parent = active; parent; parent = parent.parent) if (parent === object) return true;
+  for (let parent = object; parent; parent = parent.parent) if (parent === active) return true;
+  return false;
+}
+function scopeCutObject(scope) {
+  const anchor = entries.get(scope?.anchor);
+  if (anchor?.xray_shell) return anchor.object;
+  return scope ? scopedMembers(scope).find(part=>part.xray_shell)?.object : null;
+}
+function updateClipPlane() {
+  if (state.flowCut && activeFlowMode()) {
+    clipPlane.set(new T.Vector3(0,0,camera.position.z>=0 ? -1 : 1),0);
+    return;
+  }
+  if (!state.cutaway || !state.cutawayNormal) return;
+  const object = scopeCutObject(scopesById.get(state.assemblyGroup));
+  if (!object) return;
+  object.updateWorldMatrix(true,true);
+  const center = new T.Box3().setFromObject(object).getCenter(new T.Vector3());
+  clipPlane.setFromNormalAndCoplanarPoint(state.cutawayNormal,center);
+}
+function toggleCutaway(scope) {
+  state.cutaway = !state.cutaway;
+  if (state.cutaway) {
+    state.xray = true;
+    const object = scopeCutObject(scope);
+    const box = new T.Box3().setFromObject(object);
+    const center = box.getCenter(new T.Vector3());
+    const size = box.getSize(new T.Vector3()).toArray();
+    const major = size.indexOf(Math.max(...size));
+    const direction = center.sub(camera.position).normalize();
+    const longAxis = scope.cut_axis ? new T.Vector3(...scope.cut_axis).normalize() :
+      new T.Vector3().setComponent(major,1);
+    direction.addScaledVector(longAxis,-direction.dot(longAxis));
+    const authored = scope.cut_normal ? new T.Vector3(...scope.cut_normal) : null;
+    if (authored?.lengthSq()) {
+      if (authored.dot(direction)<0) authored.negate();
+      direction.copy(authored);
+    }
+    const transverse = Math.abs(longAxis.x) > .9 ? new T.Vector3(0,0,1) : new T.Vector3(1,0,0);
+    state.cutawayNormal = direction.lengthSq() > .001 ? direction.normalize() :
+      longAxis.clone().cross(transverse).normalize();
+  } else state.cutawayNormal = null;
+  $('cutaway')?.setAttribute('aria-pressed',String(state.cutaway));
+  updateNav();
+  applyPose();
+}
+const chamberGroups=new Set(['RAK-BLOCK','RAK-HEADS','RAK-INT-LINER','RAK-INT-PISTON',
+  'RAK-INT-VALVE','RAK-INT-FUELINJ','RAK-INT-ROD']);
+function inChamberView(object) {
+  for (let group=object; group; group=group.parent) if (chamberGroups.has(group.name)) return true;
+  return false;
+}
+const linerShell = id => /^INT-LINER-[1-6]1$/.test(id);
+const pistonBody = id => /^INT-PISTON-[1-6]1$/.test(id);
+function inBlockSection(id) {
+  return ['EXT-BLOCK-01','EXT-OILPAN-01','EXT-INTAKE-01','EXT-EXHAUST-01'].includes(id) ||
+    id.startsWith('EXT-HEADS-') || linerShell(id);
+}
+function applyPose() {
+  if (!renderer || !roots) return;
+  const spread = state.tourSpread || (state.poseOverview && state.mode !== 'assembly' ? Number($('spread').value)/100 : 0);
+  for (const [id, {object,base}] of groups) {
+    const vector = spreadVectors[id.replace(/^RAK-(?:INT-)?/,'')];
+    object.position.copy(base);
+    if (vector) object.position.addScaledVector(new T.Vector3(...vector), spread);
+    object.visible = state.mode === 'assembly' ? assemblyGroupVisible(object)
+      : !state.combustionFocus || inChamberView(object);
+  }
+  const selectedScope = scopeFor(entries.get(state.selected));
+  for (const entry of entries.values()) {
+    if (!entry.object) continue;
+    const visible = state.mode === 'assembly' ? state.assemblyParts.has(entry.id)
+      : !state.isolated || entry.id === state.selected || Boolean(selectedScope && selectedScope === scopeFor(entry));
+    entry.object.visible = visible && (!entry.id.startsWith('INT-') ||
+      state.xray || state.mode === 'assembly' || entry.id === state.selected);
+  }
+  updateClipPlane();
+  for (const [mesh, {entry, solid, transparent, sliced, chamberSlice}] of shellMaterials) {
+    const diagnosticCut = state.cutaway && scopeFor(entry)?.id === state.assemblyGroup;
+    const operatingCut = state.flowCut && activeFlowMode() && inBlockSection(entry.id);
+    if (operatingCut && state.combustionFocus) mesh.material=chamberSlice;
+    else if (diagnosticCut || operatingCut || (state.combustionFocus && pistonBody(entry.id))) mesh.material=sliced;
+    else mesh.material=state.xray && !linerShell(entry.id) && !pistonBody(entry.id) && shellCanReveal(entry) ? transparent : solid;
+  }
+  applyKinematics();
+  applyDrivetrain();
+  updateFlowAppearance();
+  refreshHighlight();
+}
+function refreshHighlight() {
+  if (!selectionBox) return;
+  const selected = entries.get(state.selected)?.object;
+  selectionBox.visible = Boolean(selected && selected.visible);
+  if (!selectionBox.visible) return;
+  selected.updateWorldMatrix(true,true);
+  selectionBox.box.setFromObject(selected);
+}
+
+let motion;
+function kinematicParts() {
+  if (motion) return motion;
+  if (!roots || !data.kinematics) return null;
+  const config = data.kinematics.viewer;
+  if (!config?.enabled || !Array.isArray(config.rotators) || !Array.isArray(config.cylinders)
+      || !Number.isFinite(config.throw_m) || !Number.isFinite(config.rod_cc_m)
+      || config.rod_cc_m <= config.throw_m) return null;
+  const lookup = (id) => roots.map(root => root?.getObjectByName(id)).find(Boolean);
+  const rotators = config.rotators.map(entry => ({...entry, object:lookup(entry.node)}));
+  const cylinders = config.cylinders.map(entry => ({...entry, rod:lookup(entry.rod), piston:lookup(entry.piston)}));
+  if (!rotators.length || !cylinders.length || rotators.some(({object, factor})=>!object || !Number.isFinite(factor))
+      || cylinders.some(entry => !entry.rod || !entry.piston || !Number.isFinite(entry.phase_deg))) return null;
+  for (const entry of rotators) entry.base = entry.object.quaternion.clone();
+  for (const entry of cylinders) {
+    entry.rodBase = entry.rod.quaternion.clone();
+    entry.pistonBase = entry.piston.position.clone();
+    entry.rodPosition = entry.rod.position.clone();
+  }
+  const cylindersValves = (config.valves || []).flatMap(spec=>{
+    const valve=lookup(spec.valve_root), tappet=lookup(spec.tappet_root), rocker=lookup(spec.rocker_root);
+    if (!valve || !tappet || !rocker) return [];
+    return [{spec,valve,tappet,rocker,valveY:valve.position.y,tappetY:tappet.position.y,
+      rockerRest:rocker.quaternion.clone(), springs:(spec.springs || []).map(lookup).filter(Boolean)
+        .map(object=>({object,y:object.scale.y}))}];
+  });
+  motion = {...config, rotators, cylinders,cylindersValves, axis:new T.Vector3(1,0,0)};
+  return motion;
+}
+function applyKinematics() {
+  const config = kinematicParts();
+  if (!config) return;
+  const {axis,rotators,cylinders} = config;
+  const rotation = new T.Quaternion();
+  for (const {object,base,factor} of rotators) {
+    object.quaternion.copy(base).premultiply(rotation.setFromAxisAngle(axis,state.angle * factor));
+  }
+  for (const entry of cylinders) {
+    const phase = entry.phase_deg * Math.PI/180;
+    const theta = state.angle + phase;
+    const pin = (angle) => {
+      const y = config.throw_m * Math.cos(angle);
+      const z = -config.throw_m * Math.sin(angle);
+      return {y,z,wrist:y+Math.sqrt(config.rod_cc_m ** 2-z ** 2)};
+    };
+    const start = pin(phase);
+    const now = pin(theta);
+    entry.rod.position.copy(entry.rodPosition);
+    entry.rod.position.y += now.y-start.y;
+    entry.rod.position.z += now.z-start.z;
+    const offset = Math.atan2(-now.z,now.wrist-now.y) - Math.atan2(-start.z,start.wrist-start.y);
+    entry.rod.quaternion.copy(entry.rodBase).premultiply(rotation.setFromAxisAngle(axis,offset));
+    entry.piston.position.copy(entry.pistonBase);
+    entry.piston.position.y += now.wrist-start.wrist;
+  }
+  for (const {spec,valve,tappet,rocker,valveY,tappetY,rockerRest,springs} of config.cylindersValves) {
+    const theta=state.angle*180/Math.PI;
+    const window=((theta-spec.lift_center_deg+1080)%720)-360;
+    const initial=spec.initial_lift_m || 0;
+    const legacyRest=spec.initial_lift_m===undefined && state.simTime===0;
+    const lift=!legacyRest && Math.abs(window)<=spec.half_window_deg
+      ? Math.cos(Math.PI*window/(2*spec.half_window_deg))**2*spec.lift_max_m : 0;
+    const change=Math.abs(lift-initial)<1e-10 ? 0 : lift-initial;
+    valve.position.y=valveY-change;
+    tappet.position.y=tappetY+change*spec.pushrod_ratio;
+    rocker.quaternion.copy(rockerRest);
+    if (change) rocker.quaternion.premultiply(rotation.setFromAxisAngle(axis,change/spec.rocker_lever_m));
+    for (const {object,y} of springs) {
+      object.scale.y=change ? y*(1-lift/spec.spring_height_m)/(1-initial/spec.spring_height_m) : y;
+    }
+  }
+}
+function frame() {
+  if (!renderer || !roots) return;
+  if (state.combustionFocus) return frameChamber();
+  scene.updateMatrixWorld(true);
+  const box = new T.Box3();
+  for (const root of roots) root?.traverseVisible(object => {
+    if (!object.isMesh) return;
+    if (!object.geometry.boundingBox) object.geometry.computeBoundingBox();
+    box.union(object.geometry.boundingBox.clone().applyMatrix4(object.matrixWorld));
+  });
+  frameBounds(box);
+}
+function frameChamber() {
+  const x=data.kinematics.viewer.cylinder_centers[1], y=data.kinematics.viewer.combustion_y;
+  frameBounds(new T.Box3(new T.Vector3(x-.305,y-.24,-.10),new T.Vector3(x+.305,y+.21,.12)),[.19,.46,-1]);
+}
+function frameBounds(box, eye) {
+  if (box.isEmpty()) return;
+  const target = box.getCenter(new T.Vector3());
+  const radius = box.getSize(new T.Vector3()).length() / 2;
+  const slope = Math.tan(T.MathUtils.degToRad(camera.fov/2));
+  const direction = eye ? new T.Vector3(...eye).normalize() : camera.position.clone().sub(controls.target).normalize();
+  if (Math.abs(direction.y)>.98) direction.setX(.23).normalize();
+  const right = camera.up.clone().cross(direction).normalize();
+  const up = direction.clone().cross(right).normalize();
+  let distance = .1;
+  for (const x of [box.min.x,box.max.x]) for (const y of [box.min.y,box.max.y]) for (const z of [box.min.z,box.max.z]) {
+    const delta = new T.Vector3(x,y,z).sub(target);
+    const needed = Math.max(Math.abs(delta.dot(right))/(slope*camera.aspect),Math.abs(delta.dot(up))/slope);
+    distance = Math.max(distance,delta.dot(direction)+needed*1.19);
+  }
+  controls.target.copy(target);
+  camera.position.copy(target).addScaledVector(direction, distance);
+  controls.minDistance = Math.max(.08,radius*.18);
+  controls.maxDistance = Math.max(15,distance*3);
+  controls.update();
+}
+function driveCoverIds(spec) {
+  const covers=new Set(spec.cover_ids || spec.case_ids || []);
+  for (const id of spec.targets || []) {
+    if (id.startsWith('INT-OILPUMP-')) {
+      covers.add('EXT-BLOCK-01');covers.add('EXT-OILPAN-01');
+    }
+    const cylinder=id.match(/^INT-FUELINJ-([1-6])\d/)?.[1];
+    if (cylinder) {
+      covers.add('EXT-HEADS-0'+cylinder);
+      covers.add('EXT-HEADS-'+String(+cylinder+6).padStart(2,'0'));
+    }
+  }
+  return covers;
+}
+function installModels(results) {
+  for (const spec of data.drivetrain?.groups || []) for (const id of driveCoverIds(spec)) allDriveCovers.add(id);
+  roots = results.map(result => result.status === 'fulfilled' ? result.value.scene : null);
+  for (const root of roots) {
+    if (!root) continue;
+    scene.add(root);
+    root.updateMatrixWorld(true);
+    root.traverse(object => {
+      if (object.name.startsWith('RAK-')) groups.set(object.name,{object,base:object.position.clone()});
+      const id = object.userData.id || object.name;
+      const entry = entries.get(id);
+      if (!entry) return;
+      entry.object = object;
+      object.traverse(mesh => {
+        if (!mesh.isMesh) return;
+        mesh.userData.component = id;
+        if (!entry.xray_shell && !allDriveCovers.has(id) && !linerShell(id) && !pistonBody(id)) return;
+        const hide = (material) => {
+          const copy = material.clone();
+          copy.transparent = true;
+          copy.opacity = .18;
+          copy.depthWrite = false;
+          return copy;
+        };
+        const slice = (material) => {
+          const copy = material.clone();
+          copy.clippingPlanes = [clipPlane];
+          copy.side = T.DoubleSide;
+          return copy;
+        };
+        const chamberCut=material=>{
+          const copy=slice(material);
+          copy.transparent=true;
+          copy.opacity=linerShell(id) ? .20 : .26;
+          copy.depthWrite=false;
+          return copy;
+        };
+        shellMaterials.set(mesh,{entry,solid:mesh.material,
+          chamberSlice:inBlockSection(id) ?
+            (Array.isArray(mesh.material) ? mesh.material.map(chamberCut) : chamberCut(mesh.material)) : null,
+          transparent:Array.isArray(mesh.material) ? mesh.material.map(hide) : hide(mesh.material),
+          sliced:Array.isArray(mesh.material) ? mesh.material.map(slice) : slice(mesh.material)});
+      });
+    });
+  }
+  applyPose();
+  frame();
+}
+function visibleIntersection(raycaster) {
+  const visible = [];
+  for (const root of roots) root?.traverseVisible(mesh => {
+    if (mesh.isMesh && mesh.userData.component) visible.push(mesh);
+  });
+  const hits = raycaster.intersectObjects(visible,false).filter(({object,point})=>{
+    const shell = shellMaterials.get(object);
+    return object.material !== shell?.sliced || clipPlane.distanceToPoint(point) >= 0;
+  });
+  return hits.find(({object})=>{
+    const shell = shellMaterials.get(object);
+    return !shell || object.material !== shell.transparent;
+  }) || hits[0];
+}
+function objectForDrive(id) {
+  return componentEntry(id)?.object || groups.get(id)?.object ||
+    roots?.map(root=>root?.getObjectByName(id)).find(Boolean);
+}
+function installDrivetrain() {
+  scene.updateMatrixWorld(true);
+  const choose=$('drive-select');
+  choose.replaceChildren();
+  const categories=new Map();
+  for (const spec of data.drivetrain?.groups || []) {
+    const axis=new T.Vector3(...(spec.axis || [1,0,0])).normalize();
+    const pivot=new T.Vector3(...(spec.pivot_m || [0,0,0]));
+    const covers=driveCoverIds(spec);
+    const parts=[];
+    for (const id of spec.targets || []) {
+      const object=objectForDrive(id);
+      if (!object?.parent) continue;
+      const scope=scopeFor(entries.get(id));
+      for (const entry of scope ? scopedMembers(scope) : []) if (entry.xray_shell) covers.add(entry.id);
+      object.updateMatrix();
+      parts.push({id,object,rest:object.matrix.clone(),parent:object.parent.matrixWorld.clone(),
+        invertParent:object.parent.matrixWorld.clone().invert(),
+        position:object.position.clone(),orientation:object.quaternion.clone(),scale:object.scale.clone()});
+    }
+    const beltPath=spec.path_m || spec.points_m || spec.orbit_m;
+    const belt=spec.kind==='belt' && beltPath?.length>=3 ? makeBeltPath(beltPath,axis) : null;
+    if (!parts.length || (spec.kind==='belt' && !belt)) continue;
+    const category=spec.system || 'other';
+    if (!categories.has(category)) {
+      const section=element('optgroup');
+      section.label=driveCategories[category] || 'Penggerak lain';
+      categories.set(category,section);
+      choose.append(section);
+    }
+    const option=element('option',spec.label || spec.id);
+    option.value=spec.id;
+    categories.get(category).append(option);
+    driveViews.set(spec.id,{spec,axis,pivot,parts,covers,belt});
+  }
+  thermostatOpens=Math.min(Infinity,...[...driveViews.values()].filter(({spec})=>
+    spec.actuation==='thermostat').map(({spec})=>spec.opens_c));
+  state.driveId=driveViews.keys().next().value || null;
+  applyDrivetrain();
+  updateOperationDock();
+}
+function makeBeltPath(points,axis) {
+  const polyline=new T.CurvePath();
+  const vertices=points.map(point=>new T.Vector3(...point));
+  for (let i=1;i<vertices.length;i++) if (vertices[i].distanceToSquared(vertices[i-1])>1e-12) {
+    polyline.add(new T.LineCurve3(vertices[i-1],vertices[i]));
+  }
+  if (vertices.at(-1).distanceTo(vertices[0])>.0001) polyline.add(new T.LineCurve3(vertices.at(-1),vertices[0]));
+  const tangent=polyline.getPoint(.0002).sub(vertices[0]);
+  tangent.addScaledVector(axis,-tangent.dot(axis)).normalize();
+  return {polyline,start:vertices[0],tangent,length:polyline.getLength()};
+}
+function motionProfile(spec, radians) {
+  const profile=spec.profile;
+  if (Array.isArray(profile?.samples) && profile.samples.length>1) {
+    const {samples,cycle_deg:cycle,step_deg:step}=profile;
+    const theta=((radians*180/Math.PI)%cycle+cycle)%cycle;
+    const slot=theta/step;
+    const index=Math.floor(slot);
+    const local=slot-index;
+    return (samples[index%samples.length]*(1-local)+samples[(index+1)%samples.length]*local)-samples[0];
+  }
+  const angle=radians*(spec.ratio || 0);
+  const offset=spec.phase_rad || spec.offset_rad || 0;
+  return (Math.cos(offset)-Math.cos(angle+offset))/2;
+}
+function applyDrivetrain() {
+  if (!driveViews.size || (state.mode==='assembly' && stopDiagram)) return;
+  const op=new T.Matrix4(), inner=new T.Matrix4(), temp=new T.Matrix4();
+  const direction=new T.Quaternion(), ay=new T.Vector3(0,1,0), secondary=new T.Vector3();
+  const negative=new T.Vector3(), tangent=new T.Vector3();
+  const revolve=(destination,axis,point,angle)=>{
+    destination.multiply(temp.makeTranslation(point.x,point.y,point.z))
+      .multiply(temp.makeRotationAxis(axis,angle))
+      .multiply(temp.makeTranslation(-point.x,-point.y,-point.z));
+  };
+  for (const view of driveViews.values()) {
+    const {spec,axis,pivot,parts,belt}=view;
+    const moving=activeEngineMode();
+    const actuation=moving ? mechanics?.sample(spec) : null;
+    const clock=moving ? actuation?.clock ?? state.driveAngles[spec.mode] ?? state.driveAngles.both : 0;
+    const angle=clock*(spec.ratio || 0);
+    const engagement=moving && spec.mode==='starting' ? actuation?.engagement ?? state.starterEngagement : 0;
+    const engage=engagement*(spec.mode_offset_m || 0);
+    const engageAngle=engagement*(spec.mode_angle_rad || 0);
+    const travel=actuation?.travel || 0;
+    const action=actuation?.angle || 0;
+    if (spec.actuation==='seawater_vanes') for (const {object} of parts) {
+      window.FunctionalMotion?.applyVanes(object,angle);
+    }
+    if (!clock && !engage && !engageAngle && !travel && !action) {
+      for (const {object,position,orientation,scale} of parts) {
+        object.position.copy(position); object.quaternion.copy(orientation); object.scale.copy(scale);
+      }
+      continue;
+    }
+    const stroke=motionProfile(spec,clock)*(actuation?.scaleStroke ?? 1);
+    const sampled=Array.isArray(spec.profile?.samples);
+    op.makeTranslation(axis.x*engage,axis.y*engage,axis.z*engage);
+    if (spec.kind==='belt') {
+      const distance=clock*(spec.travel_m_per_rad || 0);
+      const progress=((distance/belt.length)%1+1)%1;
+      const point=belt.polyline.getPoint(progress);
+      tangent.copy(belt.polyline.getPoint((progress+.0002)%1)).sub(point);
+      tangent.addScaledVector(axis,-tangent.dot(axis)).normalize();
+      const yaw=Math.atan2(axis.dot(negative.crossVectors(belt.tangent,tangent)),belt.tangent.dot(tangent));
+      op.multiply(temp.makeTranslation(point.x,point.y,point.z))
+        .multiply(temp.makeRotationAxis(axis,yaw))
+        .multiply(temp.makeTranslation(-belt.start.x,-belt.start.y,-belt.start.z));
+    } else if (spec.kind==='reciprocate') {
+      const distance=(sampled ? stroke : stroke*(spec.amplitude_m || 0))+travel;
+      op.multiply(temp.makeTranslation(axis.x*distance,axis.y*distance,axis.z*distance));
+      if (spec.spin_ratio) revolve(op,secondary.fromArray(spec.spin_axis || [1,0,0]).normalize(),pivot,clock*spec.spin_ratio);
+      if (action) revolve(op,axis,pivot,action);
+    } else if (spec.kind==='spring') {
+      const distance=(sampled ? stroke : stroke*(spec.amplitude_m || 0))+travel;
+      const ratio=Math.max(.15,1+distance/(spec.length_m || .04));
+      direction.setFromUnitVectors(ay,axis);
+      op.multiply(temp.makeTranslation(pivot.x,pivot.y,pivot.z))
+        .multiply(temp.makeRotationFromQuaternion(direction))
+        .multiply(temp.makeScale(1,ratio,1))
+        .multiply(temp.makeRotationFromQuaternion(direction.invert()))
+        .multiply(temp.makeTranslation(-pivot.x,-pivot.y,-pivot.z));
+    } else if (spec.kind==='orbit') {
+      revolve(op,axis,pivot,angle);
+      revolve(op,axis,secondary.fromArray(spec.secondary_pivot_m),clock*spec.secondary_ratio);
+    } else {
+      const rotation=spec.kind==='rock' ? (sampled ? stroke : stroke*(spec.angle_rad || 0)) : angle;
+      const hinged=spec.actuation==='governor-weight' && spec.secondary_axis && spec.secondary_pivot_m;
+      revolve(op,axis,pivot,rotation+engageAngle+(hinged ? 0 : action));
+      if (hinged) revolve(op,secondary.fromArray(spec.secondary_axis).normalize(),negative.fromArray(spec.secondary_pivot_m),action);
+    }
+    for (const {object,rest,parent,invertParent} of parts) {
+      inner.copy(invertParent).multiply(op).multiply(parent).multiply(rest);
+      inner.decompose(object.position,object.quaternion,object.scale);
+    }
+  }
+}
+function focusDrive() {
+  if (!camera || !roots) return;
+  const view=driveViews.get(state.driveId);
+  if (!view) return frame();
+  scene.updateMatrixWorld(true);
+  const box=new T.Box3();
+  for (const part of view.parts) box.expandByObject(part.object);
+  const center=box.getCenter(new T.Vector3());
+  for (const id of new Set([...(view.spec.assembly_ids || []),...view.covers])) {
+    const object=objectForDrive(id);
+    if (!object) continue;
+    const local=new T.Box3().setFromObject(object);
+    if (local.getSize(new T.Vector3()).length()<1 && local.getCenter(new T.Vector3()).distanceTo(center)<.55) {
+      box.union(local);
+    }
+  }
+  if (box.isEmpty()) return frame();
+  const eye=view.spec.view || (view.spec.system==='starter' ? [-.28,.28,1] : [view.pivot.x>.7?.48:-.45,.24,-1]);
+  frameBounds(box,eye);
+}
+function showStarter() {
+  if (!driveViews.has('starter-pinion')) return;
+  if (state.mode!=='drives') changeMode('drives');
+  selectDrive('starter-pinion');
+}
+function selectDrive(id) {
+  if (!driveViews.has(id)) return;
+  if (!id.startsWith('cap-')) mechanics?.setCapTest?.(null);
+  state.driveId=id;
+  applyPose();
+  focusDrive();
+  if (!panel.hidden) showDriveDetails();
+  updateOperationDock();
+}
+function showDriveDetails() {
+  setPanel('Mekanisme penggerak',body=>{
+    driveAuditLink(body);
+    const view=driveViews.get(state.driveId);
+    if (!view) {
+      body.append(element('p','Data gerak penggerak belum tersedia pada model ini.'));
+      filmLink(body);
+      return;
+    }
+    const {spec}=view;
+    body.append(element('h3',spec.label || spec.id),
+      element('p',spec.status || 'UNVERIFIED','status'));
+    appendNotes(body,spec.note || spec.notes);
+    if (view.covers.size) body.append(element('p','X-ray memperlihatkan bagian bergerak di balik rumah yang terkait.'));
+    if (spec.id.startsWith('cap-') && mechanics?.setCapTest) {
+      const choices=element('div',undefined,'actions');
+      for (const [label,pressure] of [['Duduk normal',null],['Relief +120 kPa',120],['Alir balik −4 kPa',-4]]) {
+        const control=button(label,()=>{
+          if (state.enginePhase!=='off') return;
+          mechanics.setCapTest(pressure);
+          applyDrivetrain();
+          showDriveDetails();
+        },mechanics.inspect().capPressure===pressure);
+        control.disabled=state.enginePhase!=='off';
+        choices.append(control);
+      }
+      body.append(element('h3','Peragaan tekanan pada tutup'),
+        element('p','Gunakan saat mesin mati. Angka merupakan contoh tekanan relatif untuk memperlihatkan buka dan tutup katup.'), choices);
+    }
+    if (spec.mode==='starting') {
+      body.append(element('p','Tekan Mulai. Pinion bergeser masuk sebelum poros engkol berputar, lalu mundur saat mesin hidup. Aktifkan X-ray untuk melihatnya.'));
+      appendFunctionSources(body,['USER-START','DENSO-MAN']);
+    }
+    const details=element('details',undefined,'details');
+    details.append(element('summary','Bagian yang bergerak'));
+    const list=element('ul',undefined,'registry');
+    for (const id of spec.targets || []) {
+      const entry=entries.get(id);
+      list.append(element('li',entry ? componentName(entry) : id));
+    }
+    details.append(list);
+    body.append(details);
+    if (view.covers.size) {
+      const stationary=element('details',undefined,'details');
+      stationary.append(element('summary','Rumah yang tetap diam'));
+      const fixed=element('ul',undefined,'registry');
+      for (const id of view.covers) {
+        const entry=entries.get(id);
+        if (entry?.object) fixed.append(element('li',componentName(entry)));
+      }
+      if (fixed.children.length) { stationary.append(fixed); body.append(stationary); }
+    }
+    sourceLinks(body,spec.source_refs);
+    const analogies={turbo:['GARRETT-VID'],seawater:['JABSCO-VID'],freshwater:['GRUNDFOS-VID'],fuel:['YM-SERVICE']};
+    if (analogies[spec.system]) appendFunctionSources(body,analogies[spec.system]);
+    const gaps=data.drivetrain?.gaps || [];
+    if (gaps.length) {
+      const caveats=element('details',undefined,'details');
+      caveats.append(element('summary','Batas peragaan'));
+      appendNotes(caveats,gaps);
+      body.append(caveats);
+    }
+    filmLink(body);
+    reviewLink(body);
+    comparisonLink(body);
+  });
+}
+function flowDirectionKnown(route) {
+  return /^(DOCUMENTED|OBSERVED|INFERRED|VERIFIED|ESTIMATED)\b/i.test(route.direction_status || '');
+}
+function installFlowModel() {
+  flowGroup = new T.Group();
+  flowGroup.name = 'ALIRAN-FLUIDA';
+  combustionGroup = new T.Group();
+  combustionGroup.name = 'PULSA-PEMBAKARAN-ILUSTRATIF';
+  scene.add(flowGroup,combustionGroup);
+  for (const route of data.flows?.routes || []) {
+    const theme = fluid[route.system];
+    if (!theme || route.points?.length < 2) continue;
+    const points = route.points.map(point=>new T.Vector3(...point));
+    const curve = new T.CurvePath();
+    for (let i=1;i<points.length;i++) if (points[i].distanceToSquared(points[i-1])>1e-10) {
+      curve.add(new T.LineCurve3(points[i-1],points[i]));
+    }
+    const length = curve.getLength();
+    if (!length) continue;
+    const group = new T.Group();
+    group.name = route.id;
+    const depthTest=route.kind==='physical';
+    const builtin = {color:theme.color, transparent:true, opacity:depthTest?.87:.59,depthWrite:false,depthTest};
+    const line = new T.Line(new T.BufferGeometry().setFromPoints(points), route.kind==='physical'
+      ? new T.LineBasicMaterial(builtin)
+      : new T.LineDashedMaterial({...builtin,dashSize:.030,gapSize:.021}));
+    line.renderOrder = 20;
+    line.computeLineDistances();
+    group.add(line);
+    let arrow;
+    const count = route.event ? 1 : Math.max(1,Math.min(4,Math.ceil(length/.27)));
+    const particles = [];
+    if (flowDirectionKnown(route)) {
+      const anchor = curve.getPoint(.67);
+      const direction = curve.getPoint(.69).sub(curve.getPoint(.65)).normalize();
+      const size = Math.min(.075,Math.max(.026,length*.18));
+      if (direction.lengthSq()) {
+        arrow = new T.ArrowHelper(direction,anchor,size,theme.color,size*.5,size*.43);
+        arrow.traverse(child=>{
+          child.renderOrder = 21;
+          if (child.material) { child.material.depthWrite=false;child.material.depthTest=depthTest; }
+        });
+        group.add(arrow);
+      }
+      const radius = Math.max(.009,Math.min(.022,(route.radius_m || .012)*.66));
+      const geometry = new T.SphereGeometry(radius,10,8);
+      const material = new T.MeshBasicMaterial({color:theme.color,depthWrite:false,depthTest});
+      for (let i=0;i<count;i++) {
+        const bead = new T.Mesh(geometry,material);
+        bead.renderOrder=22;
+        group.add(bead);
+        particles.push(bead);
+      }
+    }
+    flowGroup.add(group);
+    const distances=[0];
+    for (let i=1;i<points.length;i++) distances.push(distances[i-1]+points[i].distanceTo(points[i-1]));
+    flowViews.set(route.id,{group,route,curve,length,particles,line,arrow,points,distances,
+      moved:route.motion==='crank_drain' ? points.map(point=>point.clone()) : null});
+    if (depthTest) for (const id of route.component_ids || []) {
+      const entry=entries.get(id);
+      if (!entry?.object || !/pipa|selang|siku|duct|adaptor|elbow|tube|hose/i.test(componentName(entry)) || flowPipes.has(id)) continue;
+      const shells=[];
+      entry.object.traverse(mesh=>{
+        if (!mesh.isMesh || shellMaterials.has(mesh)) return;
+        const copy=material=>{
+          const ghost=material.clone();
+          ghost.transparent=true;
+          ghost.opacity=.28;
+          ghost.depthWrite=false;
+          return ghost;
+        };
+        shells.push({mesh,solid:mesh.material,ghost:Array.isArray(mesh.material)?mesh.material.map(copy):copy(mesh.material)});
+      });
+      flowPipes.set(id,shells);
+    }
+  }
+  setEventIntervals();
+  installFlowEffects();
+  const centers = data.kinematics.viewer.cylinder_centers || [];
+  const core = new T.SphereGeometry(.037,14,10);
+  const deck = data.kinematics.viewer.combustion_y;
+  for (const [index,x] of centers.entries()) {
+    const material=new T.MeshBasicMaterial({color:0xff9d52,transparent:true,opacity:0,depthTest:false,depthWrite:false});
+    const bead = new T.Mesh(core,material);
+    bead.position.set(x,deck,0);
+    bead.userData.cylinder=index+1;
+    bead.renderOrder=23;
+    combustionGroup.add(bead);
+  }
+  updateFlowAppearance();
+}
+function installFlowEffects() {
+  const mobile=window.matchMedia?.('(max-width: 680px), (pointer: coarse)')?.matches === true;
+  // Tube shaders follow only fixed, directed centerlines. Event chains and crank-mounted
+  // passages keep the existing sampled 3D markers so their phase/geometry stays exact.
+  if (window.OrangMesinFlow) {
+    const links={};
+    const style=window.OrangMesinFlow;
+    for (const {route} of flowViews.values()) {
+      if (route.motion || route.event || !flowDirectionKnown(route)) continue;
+      links[route.id]={polyline:true, medium:route.system, status:route.kind==='physical' ? route.geometry_status : 'UNVERIFIED',
+        geometry_basis:route.geometry_status,
+        radius_m:Math.max(.004,Math.min(.018,(route.radius_m || .010)*.66)),
+        spans:[{kind:route.kind==='physical' ? 'visible' : 'hidden',points:route.points}]};
+    }
+    if (Object.keys(links).length) {
+      routeRibbons=window.OrangMesinFlow.create(T,{routes:{links},mobile,ratedRpm:idleRPM,
+        palette:Object.fromEntries(Object.entries(fluid).map(([key,{color}])=>[style.mediumKey(key),{color}]))});
+      routeRibbons.start({fillSeconds:0});
+      routeRibbons.pause();
+      scene.add(routeRibbons.group);
+    }
+  }
+  const viewer=data.kinematics.viewer;
+  if (!window.OrangMesinFire || !viewer.enabled || !viewer.bore_m) return;
+  const chambers=(viewer.cylinder_centers || []).map((x,index)=>{
+    const id=index+1;
+    const nozzle=flowViews.get('nozzle-bore-'+id)?.route.points.at(-1);
+    return {id, axis:[0,1,0], bore_m:viewer.bore_m, half_height_m:.013, position:[x,viewer.combustion_y,0], injector:nozzle};
+  });
+  if (chambers.length!==viewer.firing_order?.length) return;
+  const [sprayStart,sprayEnd]=injectionWindow('nozzle');
+  chamberFire=window.OrangMesinFire.create(T,{cylinders:chambers, firingOrder:viewer.firing_order, mobile,
+    kinematics:{stroke_m:2*viewer.throw_m,rod_length_m:viewer.rod_cc_m},
+    timing:{semburan_mulai_deg:sprayStart,semburan_selesai_deg:sprayEnd,padam_deg:16,ukuran:.55,cahaya:false,
+      ...(reducedMotion() ? {terang:.8,turbulensi:.16} : {})}});
+  scene.add(chamberFire.group);
+}
+function coolantIsWarm() {
+  return !mechanics || mechanics.inspect().tempC>thermostatOpens;
+}
+function routeIsActive(route, warm) {
+  if (route.thermal_branch==='bypass') return !warm;
+  if (route.thermal_branch==='exchanger') return warm;
+  return true;
+}
+function tickFlowEffects(delta) {
+  if (routeRibbons && flowGroup?.visible) {
+    const rpm=state.rpm;
+    routeRibbons.setRpm(rpm);
+    if (state.running && rpm>0) routeRibbons.resume();
+    else routeRibbons.pause();
+    routeRibbons.update(delta);
+  }
+  if (chamberFire) {
+    const visible=chamberFire.group.visible;
+    const playing=state.running && visible;
+    if (playing) chamberFire.resume();
+    else chamberFire.pause();
+    const degrees=state.angle*180/Math.PI;
+    if (visible && (playing || Math.abs(chamberFire.crankDeg-degrees)>1e-8)) chamberFire.setCrank(degrees,reducedMotion() ? 0 : delta);
+    if (visible && state.enginePhase==='cranking') {
+      for (const part of chamberFire.group.children) if (part.name.startsWith('api:')) part.visible=false;
+    }
+  }
+}
+function setEventIntervals() {
+  const families = new Map();
+  for (const item of flowViews.values()) {
+    const {route}=item;
+    if (!route.event || !item.particles.length) continue;
+    const key=[route.system,route.event,route.cylinder].join(':');
+    if (!families.has(key)) families.set(key,[]);
+    families.get(key).push(item);
+  }
+  for (const family of families.values()) {
+    const bySource=new Map();
+    const incoming=new Set();
+    for (const item of family) {
+      if (!bySource.has(item.route.from)) bySource.set(item.route.from,[]);
+      bySource.get(item.route.from).push(item);
+      incoming.add(item.route.to);
+    }
+    const assigned=new Set();
+    const ordered=[...family.filter(item=>!incoming.has(item.route.from)),...family];
+    for (const seed of ordered) {
+      if (assigned.has(seed)) continue;
+      const offsets=new Map();
+      const walk=(item,offset)=>{
+        if (assigned.has(item) || offsets.has(item)) return;
+        offsets.set(item,offset);
+        for (const next of bySource.get(item.route.to) || []) walk(next,offset+item.length);
+      };
+      walk(seed,0);
+      const length=Math.max(...Array.from(offsets,([item,offset])=>offset+item.length));
+      const nozzle=[...offsets].find(([item])=>item.route.id.startsWith('nozzle-bore-'));
+      const upstream=nozzle?.[1];
+      const [deliveryStart,deliveryEnd]=injectionWindow('delivery');
+      const [nozzleStart]=injectionWindow('nozzle');
+      const delay=(nozzleStart-deliveryStart)/(deliveryEnd-deliveryStart);
+      const fraction=distance=>{
+        if (!(upstream>0 && upstream<length && delay>0 && delay<1)) return distance/length;
+        return distance<upstream ? distance/upstream*delay : delay+(distance-upstream)/(length-upstream)*(1-delay);
+      };
+      for (const [item,offset] of offsets) {
+        item.eventInterval=[fraction(offset),fraction(offset+item.length)];
+        assigned.add(item);
+      }
+    }
+  }
+}
+function eventProgress(cylinder,event) {
+  const order = data.kinematics.viewer.firing_order || [];
+  const sequence = order.indexOf(cylinder);
+  if (sequence<0 || state.simTime<=0) return null;
+  const [deliveryStart,deliveryEnd]=injectionWindow('delivery');
+  const timing = {
+    injection:[720+deliveryStart,deliveryEnd-deliveryStart],intake:[360,180],exhaust:[180,180],combustion:[0,39]
+  }[event];
+  if (!timing) return null;
+  const angle = state.angle*180/Math.PI;
+  const elapsed = ((angle-sequence*120-timing[0])%720+720)%720;
+  return elapsed<=timing[1] ? elapsed/timing[1] : null;
+}
+function motionPoint(item,progress,target) {
+  if (!item.moved) return target.copy(item.curve.getPoint(progress));
+  const distance=progress*item.length;
+  let i=1;
+  while (i<item.distances.length-1 && item.distances[i]<distance) i++;
+  const low=item.distances[i-1], interval=item.distances[i]-low;
+  return target.copy(item.moved[i-1]).lerp(item.moved[i],interval>0?(distance-low)/interval:0);
+}
+function updateRouteMotion(item) {
+  if (item.route.motion==='crank') {
+    item.group.rotation.x=-state.angle;
+    return;
+  }
+  if (!item.moved) return;
+  const cosine=Math.cos(state.angle),sine=Math.sin(state.angle);
+  const position=item.line.geometry.attributes.position;
+  for (const [i,point] of item.points.entries()) {
+    const weight=item.route.motion_weights?.[i] ?? 0;
+    const y=point.y+weight*(point.y*cosine+point.z*sine-point.y);
+    const z=point.z+weight*(point.z*cosine-point.y*sine-point.z);
+    item.moved[i].set(point.x,y,z);
+    position.setXYZ(i,point.x,y,z);
+  }
+  position.needsUpdate=true;
+  item.line.geometry.computeBoundingSphere();
+  item.line.computeLineDistances();
+  if (item.arrow) {
+    motionPoint(item,.67,item.arrow.position);
+    const direction=motionPoint(item,.69,new T.Vector3()).sub(motionPoint(item,.65,new T.Vector3())).normalize();
+    if (direction.lengthSq()) item.arrow.setDirection(direction);
+  }
+}
+function updateFlowParticles() {
+  const warm=state.flow!=='freshwater' || coolantIsWarm();
+  if (routeRibbons && state.flow==='freshwater') for (const mesh of routeRibbons.group.children) {
+    const item=flowViews.get(mesh.userData.flow.link);
+    if (item.route.system===state.flow) mesh.visible=item.group.visible && routeIsActive(item.route,warm);
+  }
+  const hasInjection=['cranking','firing','running'].includes(state.enginePhase);
+  for (const item of flowViews.values()) {
+    const {group,route,length,particles,eventInterval}=item;
+    if (!group.visible) continue;
+    updateRouteMotion(item);
+    const phase = route.event && (route.event!=='injection' || hasInjection) ? eventProgress(route.cylinder,route.event) : null;
+    const [start,end]=eventInterval || [0,1];
+    const eventVisible=phase!==null && phase>=start && phase<end;
+    for (const [i,bead] of particles.entries()) {
+      bead.visible = state.rpm>0 && routeIsActive(route,warm) && (!route.event || eventVisible);
+      if (!bead.visible) continue;
+      const progress = route.event ? (phase-start)/(end-start) :
+        (state.simTime*fluid[route.system].speed/length+i/particles.length)%1;
+      motionPoint(item,progress,bead.position);
+      bead.scale.setScalar(route.event ? 1 : Math.max(.21,Math.min(1,progress*10,(1-progress)*10)));
+    }
+  }
+  if (!combustionGroup?.visible) return;
+  for (const bead of combustionGroup.children) {
+    const phase=eventProgress(bead.userData.cylinder,'combustion');
+    bead.visible=!chamberFire && phase!==null;
+    if (bead.visible) {
+      bead.material.opacity=.89*(1-phase);
+      bead.scale.setScalar(.60+phase*.7);
+    }
+  }
+}
+function updateFlowAppearance() {
+  if (!flowGroup) return;
+  const stage = state.tour && tourStages[state.tour.index];
+  const engineTogether = activeFlowMode() && !state.tourSpread && (!stage || stage.operate);
+  const showFlows=Boolean(engineTogether && !state.combustionFocus);
+  flowGroup.visible = showFlows;
+  combustionGroup.visible = Boolean(engineTogether && (stage?.fire || state.xray)
+    && ['firing','running'].includes(state.enginePhase));
+  if (chamberFire) {
+    chamberFire.group.visible=combustionGroup.visible
+      || Boolean(engineTogether && state.xray && state.enginePhase==='cranking');
+    // In the explicitly selected block section, project the cue at the
+    // modeled chamber so nearby port walls cannot mask the learning marker.
+    for (const part of chamberFire.group.children) if (part.material) part.material.depthTest=!state.flowCut || state.combustionFocus;
+  }
+  if (routeRibbons) {
+    routeRibbons.setXray(state.xray || Boolean(state.route));
+    routeRibbons.group.visible=Boolean(showFlows && state.rpm>0);
+  }
+  const litPipes=new Set();
+  for (const {group,route} of flowViews.values()) {
+    group.visible = Boolean(showFlows && route.system===state.flow &&
+      (!state.route || state.route===route.id) && (route.kind==='physical' || state.xray || state.route===route.id));
+    if (group.visible && route.kind==='physical') for (const id of route.component_ids || []) litPipes.add(id);
+  }
+  if (routeRibbons) for (const mesh of routeRibbons.group.children) {
+    mesh.visible=Boolean(flowViews.get(mesh.userData.flow.link)?.group.visible);
+  }
+  for (const [id,parts] of flowPipes) for (const {mesh,solid,ghost} of parts) mesh.material=litPipes.has(id)?ghost:solid;
+  updateFlowParticles();
+}
+function tourView(spec) {
+  const direction = new T.Vector3(...spec.eye).normalize();
+  if (!spec.target) {
+    camera.position.copy(controls.target).add(direction);
+    frame();
+    return;
+  }
+  const target = new T.Vector3(...spec.target);
+  const distance = spec.distance*Math.max(1,.72/camera.aspect);
+  const position = target.clone().addScaledVector(direction,distance);
+  state.tour.camera = {from:camera.position.clone(),fromTarget:controls.target.clone(),position,target};
+  if (reducedMotion() || !state.running) moveTourCamera(1);
+}
+function moveTourCamera(progress) {
+  const view = state.tour?.camera;
+  if (!view) return;
+  const blend = progress*progress*(3-2*progress);
+  camera.position.copy(view.from).lerp(view.position,blend);
+  controls.target.copy(view.fromTarget).lerp(view.target,blend);
+  controls.update();
+}
+function setTourStage(index) {
+  if (!state.tour || index>=tourStages.length) return finishTour();
+  state.tour.index=index;
+  state.tour.elapsed=0;
+  state.tour.camera=null;
+  const stage = tourStages[index];
+  state.tour.staticReveal=Boolean(reducedMotion() || !state.running);
+  state.tourSpread=stage.spread?.[state.tour.staticReveal ? 1 : 0] || 0;
+  pickFlow(stage.fluid);
+  applyPose();
+  publishSound();
+  tourView(stage);
+  updateOperationDock();
+}
+function beginTour(play) {
+  if (!renderer || !roots?.some(Boolean) || state.tour) return;
+  state.tour={index:0,elapsed:0,flow:state.flow,xray:state.xray,flowCut:state.flowCut};
+  state.flowCut=false;
+  state.combustionFocus=false;
+  state.running=play;
+  state.angle=0;
+  state.simTime=0;
+  clearDriveClocks();
+  if (play) {
+    phaseChange('engaging');
+    unlockSound();
+  }
+  state.xray=true;
+  closePanel();
+  setTourStage(0);
+  updateNav();
+}
+function nextTour() {
+  if (state.tour) setTourStage(state.tour.index+1);
+}
+function finishTour() {
+  if (!state.tour) return;
+  const {xray,flow,flowCut}=state.tour;
+  state.tour=null;
+  state.tourSpread=0;
+  state.running=false;
+  state.angle=0;
+  state.simTime=0;
+  clearDriveClocks();
+  state.xray=xray;
+  state.flowCut=flowCut;
+  pickFlow(flow);
+  applyPose();
+  if (camera) {
+    camera.position.copy(controls.target).add(new T.Vector3(...initialView));
+    frame();
+  }
+  updateNav();
+}
+function resetOperation() {
+  if (!activeEngineMode()) return;
+  state.running=false;
+  state.simTime=0;
+  state.angle=0;
+  clearDriveClocks();
+  if (state.tour) setTourStage(0);
+  applyPose();
+  updateOperationDock();
+}
+function advanceSimulation(delta) {
+  let stage=state.tour && tourStages[state.tour.index];
+  if (stage) {
+    state.tour.elapsed+=delta;
+    const elapsed=state.tour.elapsed;
+    if (elapsed>=stage.duration) {
+      setTourStage(state.tour.index+1);
+      stage=state.tour && tourStages[state.tour.index];
+      if (!state.running) return;
+    } else {
+      if (!reducedMotion() && elapsed <= .95) moveTourCamera(Math.min(1,elapsed/.9));
+      if (stage.spread) {
+        const progress = state.tour.staticReveal ? 1 : Math.min(1,elapsed/stage.duration);
+        state.tourSpread = stage.spread[0]+(stage.spread[1]-stage.spread[0])*progress;
+        applyPose();
+        frame();
+      }
+    }
+  }
+  if (!stage || stage.operate) {
+    advancePowertrain(delta,stage);
+    applyKinematics();
+    applyDrivetrain();
+    updateFlowParticles();
+    if (routeRibbons) routeRibbons.group.visible=Boolean(flowGroup.visible && state.rpm>0);
+  } else publishSound();
+}
+function initializeViewport() {
+  T = window.THREE;
+  if (!T?.GLTFLoader || !T?.OrbitControls) throw new Error('Pustaka 3D tidak dapat dibuka.');
+  const host = $('canvas');
+  clipPlane = new T.Plane();
+  scene = new T.Scene();
+  selectionBox = new T.Box3Helper(new T.Box3(),0x79ead0);
+  selectionBox.visible = false;
+  scene.add(selectionBox);
+  camera = new T.PerspectiveCamera(35,1,.025,80);
+  camera.position.set(...initialView);
+  renderer = new T.WebGLRenderer({alpha:true,antialias:true,powerPreference:'high-performance'});
+  renderer.outputEncoding = T.sRGBEncoding;
+  renderer.localClippingEnabled = true;
+  renderer.setPixelRatio(Math.min(1.7,window.devicePixelRatio || 1));
+  host.append(renderer.domElement);
+  const ambient = new T.HemisphereLight(0xeaf8f6,0x5a4943,1.02);
+  scene.add(ambient);
+  for (const [x,y,z,color,intensity] of [[1,2,-3,0xfff5df,1.95],[-3,1,2,0xbbdce8,1.3],[4,1,2,0xffffff,.72]]) {
+    const light = new T.DirectionalLight(color,intensity);
+    light.position.set(x,y,z);
+    scene.add(light);
+  }
+  controls = new T.OrbitControls(camera,renderer.domElement);
+  controls.enableDamping = true;
+  let start;
+  const pointer = new T.Vector2();
+  const raycaster = new T.Raycaster();
+  renderer.domElement.addEventListener('pointerdown',event => {
+    start = event.isPrimary && event.button === 0 ? [event.clientX,event.clientY] : null;
+  });
+  renderer.domElement.addEventListener('pointerup',event => {
+    if (!start || Math.hypot(event.clientX-start[0],event.clientY-start[1])>6 || !roots) return;
+    const rect = renderer.domElement.getBoundingClientRect();
+    pointer.set(2*(event.clientX-rect.left)/rect.width-1,1-2*(event.clientY-rect.top)/rect.height);
+    raycaster.setFromCamera(pointer,camera);
+    const hit = visibleIntersection(raycaster);
+    if (hit) select(hit.object.userData.component);
+  });
+  renderer.domElement.addEventListener('webglcontextlost',event=>{
+    event.preventDefault();
+    $('loading').textContent='Tampilan 3D terputus. Informasi komponen masih dapat dibuka.';
+    $('loading').hidden=false;
+    filmLink($('loading'));
+    reviewLink($('loading'));
+  });
+  renderer.domElement.addEventListener('webglcontextrestored',()=>{
+    if (roots?.every(Boolean)) $('loading').hidden=true;
+  });
+  let oldWidth, oldHeight;
+  syncViewportSize=(forceFrame=false)=>{
+    const width=host.clientWidth, height=host.clientHeight;
+    if (!width || !height || (width===oldWidth && height===oldHeight)) return;
+    const oldAspect=oldWidth/oldHeight;
+    const aspect=width/height;
+    oldWidth=width;
+    oldHeight=height;
+    renderer.setSize(width,height,false);
+    camera.aspect=aspect;
+    camera.updateProjectionMatrix();
+    if (state.mode !== 'component' || state.isolated) {
+      if (forceFrame || !Number.isFinite(oldAspect) || Math.abs(aspect/oldAspect-1)>.04) {
+        if (state.mode==='drives') focusDrive();
+        else frame();
+      }
+    }
+    // Drawing-buffer resize clears the canvas. Repaint before the browser can
+    // present the resized frame, particularly when the operation dock appears.
+    renderer.render(scene,camera);
+    return true;
+  };
+  new ResizeObserver(()=>syncViewportSize()).observe(host);
+  let before;
+  renderer.setAnimationLoop((time) => {
+    const delta = Math.min(.2,(time-(before ?? time))/1000);
+    before = time;
+    if (state.running) advanceSimulation(delta);
+    else if (state.enginePhase==='off' && activeEngineMode() && mechanics?.coasting?.()) {
+      mechanics.tick({phase:'off',phaseTime:0,dt:delta,rpm:0,crankRadians:state.driveAngles.both,
+        starterRadians:state.driveAngles.starting,engagement:0});
+      applyDrivetrain();
+    }
+    tickFlowEffects(delta);
+    controls.update();
+    renderer.render(scene,camera);
+  });
+}
+async function start() {
+  const params = new URLSearchParams(window.location?.search || '');
+  const requested = params.get('part');
+  const view = params.get('view');
+  try {
+    const embedded = $('embedded-data');
+    if (embedded) data = JSON.parse(embedded.textContent);
+    else {
+      const response = await fetch('assets/data.json');
+      if (!response.ok) throw new Error('Informasi komponen tidak dapat dibuka.');
+      data = await response.json();
+    }
+    for (const entry of data.components) entries.set(entry.id,entry);
+    for (const [id,recipe] of Object.entries(data.assemblies)) {
+      if (!recipe.parent || !recipe.anchor) continue;
+      const scope = {...recipe,id,content_name:recipe.content_name || groupName(id).toLocaleLowerCase('id-ID')};
+      scopesById.set(id,scope);
+    }
+    for (const scope of scopesById.values()) for (const part of scope.parts) {
+      const existing = scopesByPart.get(part.id);
+      if (!existing || scope.parent === existing.id) scopesByPart.set(part.id,scope);
+    }
+    state.system = data.systems[0]?.system;
+    if (data.reviewApproved === true) $('review-status').hidden = true;
+    mechanics=window.FunctionalMotion?.create();
+    engineAudio=(window.AudioContext || window.webkitAudioContext) ? window.OrangMesinAudio?.create() : null;
+    if (engineAudio) {
+      engineAudio.setMuted(muted);
+      engineAudio.setVolume(Number($('audio-volume').value)/100);
+      $('audio-toggle').hidden=false;
+      updateAudioControls();
+    }
+    initializeViewport();
+    const loader = new T.GLTFLoader();
+    const loadModel = (name) => {
+      const asset = $('embedded-'+name);
+      if (!asset) return loader.loadAsync('assets/'+name+'.glb');
+      return new Promise((resolve,reject) => {
+        const encoded = asset.textContent;
+        const bytes = new Uint8Array(encoded.length/4*3-(encoded.endsWith('==') ? 2 : Number(encoded.endsWith('='))));
+        const chunkSize = 64*1024;
+        let write = 0;
+        for (let index=0;index<encoded.length;index+=chunkSize) {
+          const chunk = atob(encoded.slice(index,index+chunkSize));
+          for (let offset=0;offset<chunk.length;offset++) bytes[write++]=chunk.charCodeAt(offset);
+        }
+        loader.parse(bytes.buffer,'',resolve,reject);
+      });
+    };
+    const results = await Promise.allSettled(['exterior','internal'].map(loadModel));
+    installModels(results);
+    installDrivetrain();
+    installFlowModel();
+    if (!roots[0] && !roots[1]) throw new Error('Kedua model 3D gagal dimuat. Buka Komponen untuk melihat inventaris.');
+    if (!roots[0] || !roots[1]) {
+      $('loading').textContent = 'Sebagian aset 3D gagal dimuat. Inventaris komponen tetap tersedia.';
+    } else $('loading').hidden = true;
+    if (activeEngineMode()) updateOperationDock();
+    if (state.mode === 'component') renderComponent(entries.get(state.selected));
+  } catch (error) {
+    $('loading').textContent = error.message || 'Model 3D tidak dapat ditampilkan pada perangkat ini.';
+    filmLink($('loading'));
+    reviewLink($('loading'));
+  }
+  const entry = componentEntry(requested);
+  if (!entry) {
+    if (['operation','tour','drives'].includes(view) && data) changeMode(view==='drives' ? 'drives' : 'operation');
+    if (view==='drives' && driveViews.has(params.get('drive'))) selectDrive(params.get('drive'));
+    if (view === 'tour' && renderer && roots?.some(Boolean)) beginTour(false);
+    return;
+  }
+  select(entry.id);
+  const scope = scopeFor(entry);
+  if (!['section','exploded'].includes(view)) return;
+  const section = view === 'section';
+  if (section ? !scopeReady(scope) : !scopeInspectable(scope)) return;
+  state.xray = section;
+  openDiagram(entry,scope.id,{spread:!section});
+  if (section) requestAnimationFrame(()=>{
+    if (state.assemblyGroup === scope.id && !state.cutaway) toggleCutaway(scope);
+  });
+}
+for (const node of document.querySelectorAll('[data-mode]')) node.addEventListener('click', () => changeMode(node.dataset.mode));
+$('inspect-contents').addEventListener('click',()=>openContents(entries.get(state.selected)));
+$('parts').addEventListener('click', () => changeMode('parts'));
+$('sources').addEventListener('click', () => changeMode('sources'));
+$('reset').addEventListener('click', () => {
+  state.xray = false;
+  state.running = false;
+  state.angle = 0;
+  state.simTime = 0;
+  clearDriveClocks();
+  state.filter = '';
+  $('spread').value = 50;
+  $('spread-value').value = '50%';
+  if (camera) camera.position.copy(controls.target).add(new T.Vector3(...initialView));
+  changeMode('home');
+});
+$('close').addEventListener('click', () => {
+  if (state.mode === 'assembly') restoreDiagram();
+  else { closePanel(); updateOperationDock(); }
+});
+$('operation-toggle').addEventListener('click',()=>{
+  if (!activeEngineMode() || $('operation-toggle').disabled) return;
+  state.running = !state.running;
+  if (state.running && state.enginePhase==='off') phaseChange('engaging');
+  if (state.running) unlockSound();
+  publishSound();
+  updateFlowAppearance();
+  updateOperationDock();
+});
+$('audio-toggle').addEventListener('click',async()=>{
+  if (!engineAudio) return;
+  const toggle=$('audio-toggle');
+  if (muted) {
+    toggle.disabled=true;
+    const unlocked=await engineAudio.unlock();
+    toggle.disabled=false;
+    if (!unlocked) {
+      toggle.textContent='Suara';
+      toggle.title='Audio tidak dapat dibuka. Ketuk untuk mencoba lagi.';
+      return;
+    }
+  }
+  muted=!muted;
+  try { window.localStorage?.setItem(audioSetting,String(muted)); } catch {}
+  engineAudio.setMuted(muted);
+  updateAudioControls();
+  publishSound();
+});
+$('audio-volume').addEventListener('input',()=>{
+  engineAudio?.setVolume(Number($('audio-volume').value)/100);
+});
+$('operation-stop').addEventListener('click',()=>{
+  if (state.tour) return finishTour();
+  if (['off','stopping'].includes(state.enginePhase)) return;
+  state.running=true;
+  phaseChange('stopping');
+  updateFlowAppearance();
+});
+$('operation-reset').addEventListener('click',()=>{
+  $('operation-options').open=false;
+  resetOperation();
+});
+$('flow-select').addEventListener('change',()=>{
+  pickFlow($('flow-select').value);
+  if (!panel.hidden) (state.mode === 'systems' ? showSystems : showOperation)();
+});
+$('operation-info').addEventListener('click',()=>{
+  if (!panel.hidden) closePanel();
+  else if (state.mode === 'systems') showSystems();
+  else if (state.mode === 'drives') showDriveDetails();
+  else showOperation();
+  updateOperationDock();
+});
+$('operation-tour').addEventListener('click',()=>{
+  $('operation-options').open=false;
+  if (state.tour) finishTour();
+  else beginTour(!reducedMotion());
+});
+$('drive-entry').addEventListener('click',()=>changeMode('drives'));
+$('drive-back').addEventListener('click',()=>changeMode('operation'));
+$('drive-focus').addEventListener('click',()=>focusDrive());
+$('drive-select').addEventListener('change',()=>selectDrive($('drive-select').value));
+$('drive-starter').addEventListener('click',showStarter);
+$('starter-entry').addEventListener('click',showStarter);
+$('tour-next').addEventListener('click',()=>nextTour());
+$('flow-cut').addEventListener('click',()=>{
+  if (!activeFlowMode() || !renderer || state.tour) return;
+  $('operation-options').open=false;
+  state.flowCut=!state.flowCut;
+  state.combustionFocus=false;
+  if (state.flowCut) state.xray=true;
+  applyPose();
+  updateNav();
+});
+
+$('chamber-focus').addEventListener('click',()=>{
+  if (!state.flowCut || !activeFlowMode() || !renderer) return;
+  $('operation-options').open=false;
+  state.combustionFocus=!state.combustionFocus;
+  if (state.combustionFocus) frameChamber();
+  applyPose();
+  if (!state.combustionFocus) frame();
+  updateOperationDock();
+});
+$('xray').addEventListener('click',() => {
+  state.xray = !state.xray;
+  const wasFocused=state.combustionFocus;
+  if (!state.xray) {
+    state.flowCut = false;
+    state.combustionFocus=false;
+    state.cutaway = false;
+    state.cutawayNormal = null;
+    $('cutaway')?.setAttribute('aria-pressed','false');
+  }
+  updateNav();
+  applyPose();
+  if (wasFocused && !state.combustionFocus) frame();
+  if (state.mode === 'assembly') showAssemblySelection(entries.get(state.selected));
+});
+$('spread').addEventListener('input', () => { $('spread-value').value = $('spread').value + '%'; applyPose(); });
+$('spread').addEventListener('change', () => frame());
+window.addEventListener('keydown',event => {
+  if (event.key !== 'Escape') return;
+  if (state.mode === 'assembly') restoreDiagram();
+  else if (!panel.hidden) { closePanel(); updateOperationDock(); }
+});
+start();

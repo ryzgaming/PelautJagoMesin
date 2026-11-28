@@ -1,0 +1,205 @@
+{
+ "id": "EXT-TRB-R",
+ "nama": "Turbocharger bank kanan",
+ "node_rakitan": "RAK-TRB-R",
+ "acuan": {
+  "no": 2,
+  "object_ids": [
+   "EXT-TRB-R-CHRA-1"
+  ]
+ },
+ "diagram": {
+  "arah_pandang": [
+   0.8,
+   -0.45,
+   -0.4
+  ],
+  "atas": [
+   0,
+   1,
+   0
+  ]
+ },
+ "bagian": [
+  {
+   "no": 1,
+   "nama": "Rumah kompresor (compressor housing, keong) dengan nosel inlet dan flens outlet",
+   "object_ids": [
+    "EXT-TRB-R-KOMPRESOR-1"
+   ],
+   "posisi": [
+    {
+     "object_id": "EXT-TRB-R-KOMPRESOR-1",
+     "arah": [
+      0.0,
+      0.0,
+      1.0
+     ],
+     "jarak_m": 0.3,
+     "urutan": 2
+    }
+   ],
+   "status": "INFERRED",
+   "sumber": "D02 hlm. 1 dan D03 hlm. 1 (dual turbochargers; D01 hlm. 2 water-cooled bearings); posisi datum.turbochargers.approx_center (-0.28, 0.833) INFERRED; P14 (genset, belakang)",
+   "fungsi": "mengumpulkan udara bertekanan dari roda kompresor dan mengalirkannya ke aftercooler",
+   "nomor_oem": null,
+   "ukuran": null
+  },
+  {
+   "no": 2,
+   "nama": "Center housing / bearing housing (CHRA, acuan, berpendingin air)",
+   "object_ids": [
+    "EXT-TRB-R-CHRA-1"
+   ],
+   "posisi": [
+    {
+     "object_id": "EXT-TRB-R-CHRA-1",
+     "arah": [
+      0,
+      0,
+      0
+     ],
+     "jarak_m": 0.0,
+     "urutan": 0
+    }
+   ],
+   "status": "INFERRED",
+   "sumber": "D02 hlm. 1 dan D03 hlm. 1 (dual turbochargers; D01 hlm. 2 water-cooled bearings); posisi datum.turbochargers.approx_center (-0.28, 0.833) INFERRED; P14 (genset, belakang); D01 hlm. 2 (water-cooled bearings)",
+   "fungsi": "menyangga poros rotor pada bantalan berpelumas oli dan didinginkan air",
+   "nomor_oem": null,
+   "ukuran": null
+  },
+  {
+   "no": 3,
+   "nama": "Rumah turbin (turbine housing, keong) dengan stub inlet berflens dan outlet aksial",
+   "object_ids": [
+    "EXT-TRB-R-TURBIN-1"
+   ],
+   "posisi": [
+    {
+     "object_id": "EXT-TRB-R-TURBIN-1",
+     "arah": [
+      0.0,
+      0.0,
+      -1.0
+     ],
+     "jarak_m": 0.25,
+     "urutan": 2
+    }
+   ],
+   "status": "INFERRED",
+   "sumber": "D02 hlm. 1 dan D03 hlm. 1 (dual turbochargers; D01 hlm. 2 water-cooled bearings); posisi datum.turbochargers.approx_center (-0.28, 0.833) INFERRED; P14 (genset, belakang)",
+   "fungsi": "mengarahkan gas buang dari manifold ke roda turbin lalu ke outlet buang",
+   "nomor_oem": null,
+   "ukuran": null
+  },
+  {
+   "no": 4,
+   "nama": "Roda kompresor (compressor wheel)",
+   "object_ids": [
+    "EXT-TRB-R-RODAKOMP-1"
+   ],
+   "posisi": [
+    {
+     "object_id": "EXT-TRB-R-RODAKOMP-1",
+     "arah": [
+      0.0,
+      0.0,
+      1.0
+     ],
+     "jarak_m": 0.16,
+     "urutan": 3
+    }
+   ],
+   "status": "ILLUSTRATIVE",
+   "sumber": "tidak terlihat; bagian lazim turbocharger",
+   "fungsi": "menghisap dan memampatkan udara masuk; seporos dengan roda turbin",
+   "nomor_oem": null,
+   "ukuran": null
+  },
+  {
+   "no": 5,
+   "nama": "Roda turbin (turbine wheel) dengan poros",
+   "object_ids": [
+    "EXT-TRB-R-RODATURB-1"
+   ],
+   "posisi": [
+    {
+     "object_id": "EXT-TRB-R-RODATURB-1",
+     "arah": [
+      0.0,
+      0.0,
+      -1.0
+     ],
+     "jarak_m": 0.12,
+     "urutan": 3
+    }
+   ],
+   "status": "ILLUSTRATIVE",
+   "sumber": "tidak terlihat; bagian lazim turbocharger",
+   "fungsi": "diputar gas buang dan memutar roda kompresor lewat poros",
+   "nomor_oem": null,
+   "ukuran": null
+  },
+  {
+   "no": 6,
+   "nama": "Clamp V-band",
+   "object_ids": [
+    "EXT-TRB-R-VBAND-1",
+    "EXT-TRB-R-VBAND-2"
+   ],
+   "posisi": [
+    {
+     "object_id": "EXT-TRB-R-VBAND-1",
+     "arah": [
+      0.0,
+      0.0,
+      1.0
+     ],
+     "jarak_m": 0.2,
+     "urutan": 1
+    },
+    {
+     "object_id": "EXT-TRB-R-VBAND-2",
+     "arah": [
+      0.0,
+      0.0,
+      -1.0
+     ],
+     "jarak_m": 0.06,
+     "urutan": 1
+    }
+   ],
+   "status": "ILLUSTRATIVE",
+   "sumber": "tidak terlihat; cara sambungan rumah keong ke center housing ILLUSTRATIVE",
+   "fungsi": "menjepit rumah kompresor dan rumah turbin ke center housing; dibuka pertama saat membongkar",
+   "nomor_oem": null,
+   "ukuran": null
+  },
+  {
+   "no": 7,
+   "nama": "Heat shield rumah turbin (setengah cangkang)",
+   "object_ids": [
+    "EXT-SHIELD-TR"
+   ],
+   "posisi": [
+    {
+     "object_id": "EXT-SHIELD-TR",
+     "arah": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "jarak_m": 0.25,
+     "urutan": 1
+    }
+   ],
+   "status": "ESTIMATED",
+   "sumber": "D02 hlm. 1 render 3D samping kanan dan depan (img/side-1.png, img/front-1.png) (penutup abu-abu di atas turbo); D03 hlm. 1 (SOLAS shield)",
+   "fungsi": "melindungi awak dan komponen sekitar dari panas rumah turbin",
+   "nomor_oem": null,
+   "ukuran": null
+  }
+ ],
+ "catatan": "Nomor = nomor posisi model (bukan nomor OEM; parts book 3512C tidak publik). arah dalam koordinat dunia datum/glTF (m, +Y atas, +X depan, +Z kanan). jarak_m = pergeseran pada eksplor penuh; urutan = urutan pelepasan (1 pertama). Tabrakan dengan rakitan lain di luar rakitan ini tidak diperiksa."
+}

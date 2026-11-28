@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "brand": "Yanmar",
+  "model": "6AYM-WET",
+  "ai_model": "gpt-6.2-sol",
+  "revision": "r03",
+  "purpose": "educational",
+  "catalog_approval": null,
+  "dimension_target_percent": 1,
+  "dimension_target_kind": "educational_nominal_not_manufacturing",
+  "variant": "H-rating 555 kW at 1840 rpm, engine-only",
+  "source_revision": "D03 legacy H / D01 service; GA rating unprinted",
+  "prior_review_site": "appgprj_6b016e003e3c81919e93366a5a80b6d8",
+  "parent_revision": "r02",
+  "coordinator_model": "gpt-6.2-astra",
+  "scope": "Internal coverage by physical subassembly; X-ray and nested inspection on mobile.",
+  "reference_unit": {
+    "primary_photo_set": "AAM P05–P08, probable number 9502 on packaging",
+    "serial_nameplate_confirmed": false,
+    "separate_reference": "RESALE 9501 (seller listing; P01–04)",
+    "starter_stock_rating": "24 V, 7 kW",
+    "installed_electrical_arrangement": null,
+    "source_register": "doc/unit-identity/evidence.json"
+  }
+}

@@ -1,0 +1,1231 @@
+{
+ "putaran": 2,
+ "verdict": "PASS",
+ "alasan_verdict": "Semua temuan kritis/mayor putaran 1 tertutup dan diverifikasi ulang: dimensi dalam ±1% D02, liner di bawah deck, flywheel/damper tunggal, tabrakan cam/gear hilang, viewer lolos termasuk target sentuh. Sisa hanya minor (QA-11 sampai QA-14) dan tampak atas UNVERIFIED karena gap referensi.",
+ "tanggal": "2026-11-27",
+ "penguji": "QA independen (Claude)",
+ "status_temuan_putaran1": {
+  "QA-01": "TERTUTUP",
+  "QA-02": "TERTUTUP (lebar +0.15%)",
+  "QA-03": "TERTUTUP (tinggi -0.06%)",
+  "QA-04": "TERTUTUP",
+  "QA-05": "TERTUTUP (sisa kecil di dalam blok)",
+  "QA-06": "TERTUTUP",
+  "QA-07": "TERTUTUP",
+  "QA-08": "TERTUTUP",
+  "QA-09": "TERTUTUP",
+  "QA-10": "TERTUTUP (0 target < 44 px di desktop dan HP)",
+  "QA-11": "TERBUKA (perlu perangkat nyata)"
+ },
+ "per_sudut": [
+  {
+   "sudut": "depan",
+   "render": "/tmp/claude-0/c3512/qa/render/qa_depan.png",
+   "referensi": [
+    "P23",
+    "doc/img/front-1.png",
+    "D01 Front"
+   ],
+   "putusan": "PASS",
+   "catatan": "Tidak berubah dari putaran 1; tangki, pelat X tanpa merek, guard damper.",
+   "siluet": "PASS",
+   "proporsi": "PASS",
+   "turbo": "PASS",
+   "pipa": "PASS",
+   "manifold": "PASS",
+   "tutup_katup": "TIDAK BERLAKU",
+   "sambungan": "PASS"
+  },
+  {
+   "sudut": "belakang",
+   "render": "/tmp/claude-0/c3512/qa/render/qa_belakang.png",
+   "referensi": [
+    "P14",
+    "P10/P11/P18 (genset/frac)"
+   ],
+   "putusan": "PASS",
+   "catatan": "Flywheel kini berpola baut dan ring gear; tetap tanpa foto belakang marine (gap).",
+   "siluet": "PASS",
+   "proporsi": "PASS",
+   "turbo": "PASS",
+   "pipa": "PASS",
+   "manifold": "PASS",
+   "tutup_katup": "TIDAK BERLAKU",
+   "sambungan": "PASS"
+  },
+  {
+   "sudut": "kanan",
+   "render": "/tmp/claude-0/c3512/qa/render/qa_kanan.png",
+   "referensi": [
+    "doc/img/side-1.png",
+    "D01 Right Side",
+    "P03",
+    "P22"
+   ],
+   "putusan": "PASS",
+   "catatan": "Kepala kini berusuk dan berport.",
+   "siluet": "PASS",
+   "proporsi": "PASS",
+   "turbo": "PASS",
+   "pipa": "PASS",
+   "manifold": "PASS",
+   "tutup_katup": "PASS",
+   "sambungan": "PASS"
+  },
+  {
+   "sudut": "kiri",
+   "render": "/tmp/claude-0/c3512/qa/render/qa_kiri.png",
+   "referensi": [
+    "P26",
+    "P08"
+   ],
+   "putusan": "PASS",
+   "catatan": "Ditambah harness, pipa air bawah, kotak terminal; 6 tutup katup.",
+   "siluet": "PASS",
+   "proporsi": "PASS",
+   "turbo": "PASS",
+   "pipa": "PASS",
+   "manifold": "PASS",
+   "tutup_katup": "PASS",
+   "sambungan": "PASS"
+  },
+  {
+   "sudut": "atas",
+   "render": "/tmp/claude-0/c3512/qa/render/qa_atas.png",
+   "referensi": [
+    "P12 (bukan tegak lurus)"
+   ],
+   "putusan": "UNVERIFIED (gap)",
+   "catatan": "Tidak ada referensi tampak atas sejati.",
+   "siluet": "UNVERIFIED",
+   "proporsi": "UNVERIFIED",
+   "turbo": "UNVERIFIED",
+   "pipa": "UNVERIFIED",
+   "manifold": "UNVERIFIED",
+   "tutup_katup": "UNVERIFIED",
+   "sambungan": "UNVERIFIED"
+  },
+  {
+   "sudut": "tigaperempat",
+   "render": "/tmp/claude-0/c3512/qa/render/qa_tigaperempat.png",
+   "referensi": [
+    "P01",
+    "P22"
+   ],
+   "putusan": "PASS",
+   "catatan": "Tidak ada regresi.",
+   "siluet": "PASS",
+   "proporsi": "PASS",
+   "turbo": "PASS",
+   "pipa": "PASS",
+   "manifold": "PASS",
+   "tutup_katup": "PASS",
+   "sambungan": "PASS"
+  }
+ ],
+ "per_rakitan": [
+  {
+   "rakitan": "EXT:BLOK",
+   "putusan": "PASS",
+   "alasan": "",
+   "bbox": {
+    "n": 13,
+    "min": [
+     0.0,
+     -0.264,
+     -0.499
+    ],
+    "max": [
+     1.883,
+     0.612,
+     0.499
+    ],
+    "tris": 8820
+   }
+  },
+  {
+   "rakitan": "EXT:KEPALA",
+   "putusan": "PASS",
+   "alasan": "Kepala kini berusuk, boss baut, port (qa_detail_kepala_blok.png); QA-06 tertutup.",
+   "bbox": {
+    "n": 24,
+    "min": [
+     0.015,
+     0.465,
+     -0.557
+    ],
+    "max": [
+     1.696,
+     0.829,
+     0.557
+    ],
+    "tris": 23568
+   }
+  },
+  {
+   "rakitan": "EXT:TURBO",
+   "putusan": "PASS",
+   "alasan": "",
+   "bbox": {
+    "n": 6,
+    "min": [
+     -0.495,
+     0.642,
+     -0.758
+    ],
+    "max": [
+     0.595,
+     1.417,
+     0.758
+    ],
+    "tris": 18724
+   }
+  },
+  {
+   "rakitan": "EXT:EXHAUST",
+   "putusan": "PASS",
+   "alasan": "",
+   "bbox": {
+    "n": 3,
+    "min": [
+     -0.725,
+     0.637,
+     -0.442
+    ],
+    "max": [
+     1.7,
+     1.158,
+     0.442
+    ],
+    "tris": 14720
+   }
+  },
+  {
+   "rakitan": "EXT:AFTERCOOLER",
+   "putusan": "PASS",
+   "alasan": "",
+   "bbox": {
+    "n": 4,
+    "min": [
+     0.04,
+     0.702,
+     -0.358
+    ],
+    "max": [
+     1.687,
+     1.398,
+     0.358
+    ],
+    "tris": 14944
+   }
+  },
+  {
+   "rakitan": "EXT:AIRCLEANER",
+   "putusan": "PASS",
+   "alasan": "",
+   "bbox": {
+    "n": 4,
+    "min": [
+     -0.556,
+     0.265,
+     -1.02
+    ],
+    "max": [
+     -0.004,
+     1.143,
+     1.02
+    ],
+    "tris": 7976
+   }
+  },
+  {
+   "rakitan": "EXT:PENDINGIN",
+   "putusan": "PASS",
+   "alasan": "",
+   "bbox": {
+    "n": 5,
+    "min": [
+     2.091,
+     0.5,
+     -0.562
+    ],
+    "max": [
+     2.433,
+     1.207,
+     0.562
+    ],
+    "tris": 3884
+   }
+  },
+  {
+   "rakitan": "EXT:POMPA",
+   "putusan": "PASS",
+   "alasan": "",
+   "bbox": {
+    "n": 8,
+    "min": [
+     1.393,
+     -0.547,
+     -0.651
+    ],
+    "max": [
+     2.323,
+     1.195,
+     0.573
+    ],
+    "tris": 18032
+   }
+  },
+  {
+   "rakitan": "EXT:DEPAN",
+   "putusan": "PASS",
+   "alasan": "",
+   "bbox": {
+    "n": 3,
+    "min": [
+     1.883,
+     -0.342,
+     -0.48
+    ],
+    "max": [
+     2.09,
+     0.678,
+     0.48
+    ],
+    "tris": 15508
+   }
+  },
+  {
+   "rakitan": "EXT:FLYWHEEL",
+   "putusan": "PASS",
+   "alasan": "Flywheel dengan lingkar baut, hub, ring gear (5188 segitiga, sebelumnya 1256); housing tetap tanpa rusuk (catatan, bukan blokir).",
+   "bbox": {
+    "n": 3,
+    "min": [
+     -0.238,
+     -0.52,
+     -0.52
+    ],
+    "max": [
+     0.3,
+     0.55,
+     0.67
+    ],
+    "tris": 9232
+   }
+  },
+  {
+   "rakitan": "EXT:SISIKANAN",
+   "putusan": "PASS",
+   "alasan": "",
+   "bbox": {
+    "n": 6,
+    "min": [
+     0.06,
+     -0.3,
+     0.46
+    ],
+    "max": [
+     1.87,
+     1.02,
+     0.71
+    ],
+    "tris": 4564
+   }
+  },
+  {
+   "rakitan": "EXT:SISIKIRI",
+   "putusan": "PASS",
+   "alasan": "Rakitan baru: harness, pipa air, kotak terminal.",
+   "bbox": {
+    "n": 3,
+    "min": [
+     -0.031,
+     -0.21,
+     -0.606
+    ],
+    "max": [
+     1.92,
+     0.463,
+     -0.375
+    ],
+    "tris": 2236
+   }
+  },
+  {
+   "rakitan": "EXT:OILPAN",
+   "putusan": "PASS",
+   "alasan": "",
+   "bbox": {
+    "n": 1,
+    "min": [
+     -0.025,
+     -0.805,
+     -0.49
+    ],
+    "max": [
+     1.891,
+     -0.252,
+     0.49
+    ],
+    "tris": 1348
+   }
+  },
+  {
+   "rakitan": "EXT:REL",
+   "putusan": "PASS",
+   "alasan": "",
+   "bbox": {
+    "n": 4,
+    "min": [
+     -0.295,
+     -0.528,
+     -0.601
+    ],
+    "max": [
+     1.905,
+     -0.255,
+     0.601
+    ],
+    "tris": 2168
+   }
+  },
+  {
+   "rakitan": "INT:CRANKSHAFT",
+   "putusan": "PASS",
+   "alasan": "",
+   "bbox": {
+    "n": 1,
+    "min": [
+     -0.168,
+     -0.175,
+     -0.183
+    ],
+    "max": [
+     1.929,
+     0.175,
+     0.175
+    ],
+    "tris": 3944
+   }
+  },
+  {
+   "rakitan": "INT:PISTON",
+   "putusan": "PASS",
+   "alasan": "",
+   "bbox": {
+    "n": 60,
+    "min": [
+     0.063,
+     0.134,
+     -0.35
+    ],
+    "max": [
+     1.648,
+     0.578,
+     0.382
+    ],
+    "tris": 46512
+   }
+  },
+  {
+   "rakitan": "INT:CONNECTING_ROD",
+   "putusan": "PASS",
+   "alasan": "",
+   "bbox": {
+    "n": 48,
+    "min": [
+     0.12,
+     -0.205,
+     -0.284
+    ],
+    "max": [
+     1.591,
+     0.489,
+     0.343
+    ],
+    "tris": 13680
+   }
+  },
+  {
+   "rakitan": "INT:CYLINDER_LINER",
+   "putusan": "PASS",
+   "alasan": "Flens di 0.598-0.6197, di bawah deck.",
+   "bbox": {
+    "n": 12,
+    "min": [
+     0.041,
+     0.232,
+     -0.403
+    ],
+    "max": [
+     1.67,
+     0.59,
+     0.403
+    ],
+    "tris": 18432
+   }
+  },
+  {
+   "rakitan": "INT:CAMSHAFT",
+   "putusan": "PASS",
+   "alasan": "Tabrakan turun 90-95%, sisa di dalam blok.",
+   "bbox": {
+    "n": 2,
+    "min": [
+     -0.015,
+     0.126,
+     -0.327
+    ],
+    "max": [
+     1.718,
+     0.222,
+     0.327
+    ],
+    "tris": 11056
+   }
+  },
+  {
+   "rakitan": "INT:VALVE_TRAIN",
+   "putusan": "PASS",
+   "alasan": "",
+   "bbox": {
+    "n": 288,
+    "min": [
+     0.083,
+     0.197,
+     -0.545
+    ],
+    "max": [
+     1.628,
+     0.756,
+     0.545
+    ],
+    "tris": 98304
+   }
+  },
+  {
+   "rakitan": "INT:INJECTOR",
+   "putusan": "PASS",
+   "alasan": "",
+   "bbox": {
+    "n": 36,
+    "min": [
+     0.129,
+     0.52,
+     -0.444
+    ],
+    "max": [
+     1.582,
+     0.75,
+     0.444
+    ],
+    "tris": 12504
+   }
+  },
+  {
+   "rakitan": "INT:GEAR_TRAIN",
+   "putusan": "PASS",
+   "alasan": "Tidak lagi memotong flywheel housing.",
+   "bbox": {
+    "n": 6,
+    "min": [
+     -0.015,
+     -0.089,
+     -0.409
+    ],
+    "max": [
+     1.83,
+     0.303,
+     0.409
+    ],
+    "tris": 14592
+   }
+  },
+  {
+   "rakitan": "INT:OIL_PUMP",
+   "putusan": "PASS",
+   "alasan": "",
+   "bbox": {
+    "n": 4,
+    "min": [
+     1.64,
+     -0.715,
+     -0.066
+    ],
+    "max": [
+     1.835,
+     -0.08,
+     0.087
+    ],
+    "tris": 3428
+   }
+  },
+  {
+   "rakitan": "INT:FLYWHEEL/DAMPER",
+   "putusan": "TIDAK BERLAKU",
+   "alasan": "Dihapus dari internal; diwakili node eksterior yang berputar di animasi.",
+   "bbox": null
+  }
+ ],
+ "pengukuran": {
+  "integritas_glb": {
+   "exterior_sha256": "92fa071e6128f879a1b26a95cd6a34d044fc4099878a5b81ffec70033906d1b1",
+   "internal_sha256": "31b2e0847aa8ddbd2f19c63931e3efb22d766e7cd5c6b43f27518fe510e7acb3",
+   "base64_halaman_identik": true,
+   "folder_review_lama": "kosong (tidak ada GLB lain); find *.glb* di /tmp/claude-0 hanya menemukan 2 GLB asli + 2 base64 halaman"
+  },
+  "impor_blender": {
+   "exterior_mesh": 87,
+   "internal_mesh": 457,
+   "satu_adegan": true
+  },
+  "dimensi_keseluruhan_m": {
+   "bbox_gabungan": {
+    "min": [
+     -0.725,
+     -0.805,
+     -1.02
+    ],
+    "max": [
+     2.4329,
+     1.4166,
+     1.02
+    ]
+   },
+   "panjang_definisi_D02": {
+    "model": 2.6709,
+    "D02": 2.647,
+    "selisih_pct": 0.9,
+    "hasil": "PASS"
+   },
+   "panjang_ekstrem": {
+    "model": 3.1579,
+    "D03": 3.153,
+    "selisih_pct": 0.16,
+    "hasil": "PASS"
+   },
+   "lebar": {
+    "model": 2.04,
+    "D02": 2.037,
+    "selisih_pct": 0.15,
+    "hasil": "PASS",
+    "penentu": "EXT-AIRCLBRK-R Z 1.020, air cleaner Z ±1.015"
+   },
+   "tinggi": {
+    "model": 2.2216,
+    "D02": 2.223,
+    "selisih_pct": -0.06,
+    "hasil": "PASS",
+    "penentu": "oil pan -0.805 (=datum), puncak EXT-PIPAUDARA-L/R 1.4166 (shield tetap 1.398)"
+   }
+  },
+  "bbox_rakitan_m": {
+   "EXT:REL": {
+    "n": 4,
+    "min": [
+     -0.295,
+     -0.528,
+     -0.601
+    ],
+    "max": [
+     1.905,
+     -0.255,
+     0.601
+    ],
+    "tris": 2168
+   },
+   "EXT:OILPAN": {
+    "n": 1,
+    "min": [
+     -0.025,
+     -0.805,
+     -0.49
+    ],
+    "max": [
+     1.891,
+     -0.252,
+     0.49
+    ],
+    "tris": 1348
+   },
+   "EXT:BLOK": {
+    "n": 13,
+    "min": [
+     0.0,
+     -0.264,
+     -0.499
+    ],
+    "max": [
+     1.883,
+     0.612,
+     0.499
+    ],
+    "tris": 8820
+   },
+   "EXT:KEPALA": {
+    "n": 24,
+    "min": [
+     0.015,
+     0.465,
+     -0.557
+    ],
+    "max": [
+     1.696,
+     0.829,
+     0.557
+    ],
+    "tris": 23568
+   },
+   "EXT:EXHAUST": {
+    "n": 3,
+    "min": [
+     -0.725,
+     0.637,
+     -0.442
+    ],
+    "max": [
+     1.7,
+     1.158,
+     0.442
+    ],
+    "tris": 14720
+   },
+   "EXT:TURBO": {
+    "n": 6,
+    "min": [
+     -0.495,
+     0.642,
+     -0.758
+    ],
+    "max": [
+     0.595,
+     1.417,
+     0.758
+    ],
+    "tris": 18724
+   },
+   "EXT:AIRCLEANER": {
+    "n": 4,
+    "min": [
+     -0.556,
+     0.265,
+     -1.02
+    ],
+    "max": [
+     -0.004,
+     1.143,
+     1.02
+    ],
+    "tris": 7976
+   },
+   "EXT:AFTERCOOLER": {
+    "n": 4,
+    "min": [
+     0.04,
+     0.702,
+     -0.358
+    ],
+    "max": [
+     1.687,
+     1.398,
+     0.358
+    ],
+    "tris": 14944
+   },
+   "EXT:FLYWHEEL": {
+    "n": 3,
+    "min": [
+     -0.238,
+     -0.52,
+     -0.52
+    ],
+    "max": [
+     0.3,
+     0.55,
+     0.67
+    ],
+    "tris": 9232
+   },
+   "EXT:DEPAN": {
+    "n": 3,
+    "min": [
+     1.883,
+     -0.342,
+     -0.48
+    ],
+    "max": [
+     2.09,
+     0.678,
+     0.48
+    ],
+    "tris": 15508
+   },
+   "EXT:PENDINGIN": {
+    "n": 5,
+    "min": [
+     2.091,
+     0.5,
+     -0.562
+    ],
+    "max": [
+     2.433,
+     1.207,
+     0.562
+    ],
+    "tris": 3884
+   },
+   "EXT:POMPA": {
+    "n": 8,
+    "min": [
+     1.393,
+     -0.547,
+     -0.651
+    ],
+    "max": [
+     2.323,
+     1.195,
+     0.573
+    ],
+    "tris": 18032
+   },
+   "EXT:SISIKANAN": {
+    "n": 6,
+    "min": [
+     0.06,
+     -0.3,
+     0.46
+    ],
+    "max": [
+     1.87,
+     1.02,
+     0.71
+    ],
+    "tris": 4564
+   },
+   "EXT:SISIKIRI": {
+    "n": 3,
+    "min": [
+     -0.031,
+     -0.21,
+     -0.606
+    ],
+    "max": [
+     1.92,
+     0.463,
+     -0.375
+    ],
+    "tris": 2236
+   },
+   "INT:CRANKSHAFT": {
+    "n": 1,
+    "min": [
+     -0.168,
+     -0.175,
+     -0.183
+    ],
+    "max": [
+     1.929,
+     0.175,
+     0.175
+    ],
+    "tris": 3944
+   },
+   "INT:PISTON": {
+    "n": 60,
+    "min": [
+     0.063,
+     0.134,
+     -0.35
+    ],
+    "max": [
+     1.648,
+     0.578,
+     0.382
+    ],
+    "tris": 46512
+   },
+   "INT:CONNECTING_ROD": {
+    "n": 48,
+    "min": [
+     0.12,
+     -0.205,
+     -0.284
+    ],
+    "max": [
+     1.591,
+     0.489,
+     0.343
+    ],
+    "tris": 13680
+   },
+   "INT:CYLINDER_LINER": {
+    "n": 12,
+    "min": [
+     0.041,
+     0.232,
+     -0.403
+    ],
+    "max": [
+     1.67,
+     0.59,
+     0.403
+    ],
+    "tris": 18432
+   },
+   "INT:CAMSHAFT": {
+    "n": 2,
+    "min": [
+     -0.015,
+     0.126,
+     -0.327
+    ],
+    "max": [
+     1.718,
+     0.222,
+     0.327
+    ],
+    "tris": 11056
+   },
+   "INT:GEAR_TRAIN": {
+    "n": 6,
+    "min": [
+     -0.015,
+     -0.089,
+     -0.409
+    ],
+    "max": [
+     1.83,
+     0.303,
+     0.409
+    ],
+    "tris": 14592
+   },
+   "INT:OIL_PUMP": {
+    "n": 4,
+    "min": [
+     1.64,
+     -0.715,
+     -0.066
+    ],
+    "max": [
+     1.835,
+     -0.08,
+     0.087
+    ],
+    "tris": 3428
+   },
+   "INT:VALVE_TRAIN": {
+    "n": 288,
+    "min": [
+     0.083,
+     0.197,
+     -0.545
+    ],
+    "max": [
+     1.628,
+     0.756,
+     0.545
+    ],
+    "tris": 98304
+   },
+   "INT:INJECTOR": {
+    "n": 36,
+    "min": [
+     0.129,
+     0.52,
+     -0.444
+    ],
+    "max": [
+     1.582,
+     0.75,
+     0.444
+    ],
+    "tris": 12504
+   }
+  },
+  "sumbu_bank_V60": {
+   "silinder_1_kanan": {
+    "puncak_liner": 0.6197,
+    "flens_liner_a": [
+     0.598,
+     0.6197
+    ],
+    "deck_blok": 0.62,
+    "dasar_kepala": 0.62,
+    "atas_kepala": 0.781,
+    "crown_piston_TDC": 0.6185,
+    "tutup_katup": [
+     0.779,
+     0.94
+    ],
+    "puncak_rocker": 0.858,
+    "dasar_katup": 0.621,
+    "ujung_injektor": 0.612
+   },
+   "silinder_2_kiri": {
+    "puncak_liner": 0.6197,
+    "deck_blok": 0.62,
+    "dasar_kepala": 0.62,
+    "puncak_rocker": 0.8675
+   },
+   "liner_ke_kepala_mm": 0.0,
+   "celah_crown_deck_TDC_mm": 1.5,
+   "celah_katup_crown_TDC_mm": [
+    2.5,
+    2.3
+   ],
+   "offset_bank_kiri_m": 0.065,
+   "hasil": "PASS (QA-01 tertutup: liner tidak lagi masuk ke kepala; inventaris dan data.json a_range [0.33,0.6197] sesuai GLB)"
+  },
+  "tabrakan_internal_vs_exterior": {
+   "pasangan": 433,
+   "camshaft_vs_blok": {
+    "putaran1": [
+     1087,
+     1020
+    ],
+    "putaran2": [
+     114,
+     48
+    ],
+    "lokasi": "x 0.01-0.02 (dinding belakang blok, wajar) dan x 0.54-0.56 / 1.10-1.14, Y 0.13-0.22 (rusuk dalam blok, tidak tampak dari luar)"
+   },
+   "gear_cam_vs_fwhousing": {
+    "putaran1": [
+     965,
+     959
+    ],
+    "putaran2": 0
+   },
+   "flywheel_damper": "hanya node eksterior; INT-FLYWHEEL/INT-DAMPER tidak ada di GLB; inventaris internal memuat REF-EXT-FLYWHEEL-01 dan REF-EXT-DAMPER-01 jumlah 0. Crank berakhir x 1.9295, damper eksterior mulai x 1.930.",
+   "katup_injektor_vs_kepala": "wajar (kepala kini berongga; internal hanya tampil di X-ray)",
+   "oil_pump_vs_oilpan": "334 segitiga di x 1.70-1.80 di dalam pan (tidak tampak); sama seperti putaran 1"
+  },
+  "jumlah_dan_kecocokan": {
+   "tutup_katup": "6+6 di GLB; render kanan 5 + 1 tertutup panel (sama dengan D01/D02), kiri 6",
+   "silinder": 12,
+   "id_vs_node": "exterior 87/87; internal 457 mesh = 457 ID inventaris ber-mesh + 2 entri REF-EXT (jumlah 0, tanpa mesh, disengaja); 0 ganda, 0 hilang",
+   "status": {
+    "exterior": {
+     "ESTIMATED": 39,
+     "ILLUSTRATIVE": 25,
+     "OBSERVED": 15,
+     "INFERRED": 8
+    },
+    "internal": {
+     "ILLUSTRATIVE": 358,
+     "INFERRED": 62,
+     "ESTIMATED": 37,
+     "DOCUMENTED": 2
+    },
+    "catatan": "DOCUMENTED internal hanya dua entri REF-EXT berjumlah 0 (keberadaan flywheel D01 hlm.1, damper D02 hlm.1, bersumber). data.json = inventaris (0 selisih status). Sumber D01-D07 cocok dengan register. P09 tidak dipakai."
+   }
+  },
+  "viewer": [
+   {
+    "name": "desktop",
+    "scene": {
+     "meshes": 632,
+     "ext": 174,
+     "int": 457,
+     "intMsg": "Komponen internal dimuat · aktifkan X-ray untuk melihat"
+    },
+    "hscroll0": {
+     "sw": 1280,
+     "cw": 1280,
+     "bsw": 1280
+    },
+    "hscroll1": {
+     "sw": 1280,
+     "cw": 1280,
+     "bsw": 1280
+    },
+    "selHighlighted": true,
+    "afterCanvasClickTitle": "Detail komponen",
+    "xray": {
+     "intVisible": 457,
+     "extTransparent": 82
+    },
+    "xrayOff": {
+     "intVisible": 0
+    },
+    "urai": {
+     "moved": 14,
+     "total": 14,
+     "returned": true
+    },
+    "rot": {
+     "EXT-DAMPER-01": true,
+     "EXT-FLYWHEEL-01": true,
+     "INT-CRANK-01": true
+    },
+    "anim": {
+     "hasRun": true,
+     "pos0": [
+      1.562999963760376,
+      0.4230533838272095,
+      0.24425005912780762
+     ],
+     "pos1": [
+      1.562999963760376,
+      0.41724029395779283,
+      0.24089386856205222
+     ],
+     "moved": true,
+     "phi": "φ 23° · TDC pembakaran terdekat: silinder 1"
+    },
+    "fps": 0.9,
+    "small": [],
+    "errs": [
+     "reqfail https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Space+Grotesk:wght@500; net::ERR_FAILED",
+     "error: Failed to load resource: net::ERR_FAILED",
+     "warning: [.WebGL-0x73c001c5000]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+     "warning: [.WebGL-0x73c001c5000]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+     "warning: [.WebGL-0x73c001c5000]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+     "warning: [.WebGL-0x73c001c5000]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat)"
+    ]
+   },
+   {
+    "name": "hp",
+    "scene": {
+     "meshes": 632,
+     "ext": 174,
+     "int": 457,
+     "intMsg": "Komponen internal dimuat · aktifkan X-ray untuk melihat"
+    },
+    "hscroll0": {
+     "sw": 390,
+     "cw": 390,
+     "bsw": 390
+    },
+    "hscroll1": {
+     "sw": 390,
+     "cw": 390,
+     "bsw": 390
+    },
+    "selHighlighted": true,
+    "afterCanvasClickTitle": "Detail komponen",
+    "xray": {
+     "intVisible": 457,
+     "extTransparent": 82
+    },
+    "xrayOff": {
+     "intVisible": 0
+    },
+    "urai": {
+     "moved": 14,
+     "total": 14,
+     "returned": true
+    },
+    "rot": {
+     "EXT-DAMPER-01": true,
+     "EXT-FLYWHEEL-01": true,
+     "INT-CRANK-01": true
+    },
+    "anim": {
+     "hasRun": true,
+     "pos0": [
+      1.562999963760376,
+      0.4230533838272095,
+      0.24425005912780762
+     ],
+     "pos1": [
+      1.562999963760376,
+      0.41724029395779283,
+      0.24089386856205222
+     ],
+     "moved": true,
+     "phi": "φ 23° · TDC pembakaran terdekat: silinder 1"
+    },
+    "fps": 1,
+    "small": [],
+    "errs": [
+     "reqfail https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Space+Grotesk:wght@500; net::ERR_FAILED",
+     "error: Failed to load resource: net::ERR_FAILED",
+     "warning: [.WebGL-0x118c001c3200]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+     "warning: [.WebGL-0x118c001c3200]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+     "warning: [.WebGL-0x118c001c3200]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+     "warning: [.WebGL-0x118c001c3200]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat)"
+    ]
+   }
+  ]
+ },
+ "temuan": [
+  {
+   "id": "QA-11",
+   "status": "TERBUKA",
+   "keparahan": "minor",
+   "peran": "integrator",
+   "judul": "Frame rate belum terverifikasi",
+   "bukti": "SwiftShader CPU: 0.9 fps desktop, 1.0 fps HP (632 mesh); bukan ukuran perangkat nyata.",
+   "saran": "Ukur di HP nyata; gabungkan mesh valve train bila < 30 fps."
+  },
+  {
+   "id": "QA-12",
+   "status": "BARU",
+   "keparahan": "minor",
+   "peran": "exterior",
+   "judul": "EXT-TERMBOX-L dan EXT-HARNESS-L berstatus OBSERVED dari foto genset",
+   "bukti": "Sumber hanya P11/P10 (genset LLA01020, bukan marine); register evidence-foto2 gaps: \"Sisi kiri marine belum ada\".",
+   "saran": "Turunkan ke INFERRED/ILLUSTRATIVE dengan catatan \"dari unit genset\", atau beri bukti marine."
+  },
+  {
+   "id": "QA-13",
+   "status": "BARU",
+   "keparahan": "minor",
+   "peran": "exterior",
+   "judul": "Titik tertinggi kini pipa udara, bukan heat shield datum",
+   "bukti": "EXT-PIPAUDARA-L/R Y 1.4166 vs datum exhaust_manifold.top_shield y_top 1.398 (+18.6 mm); tinggi total tetap dalam toleransi.",
+   "saran": "Catat alasan dan sumber kenaikan pipa di inventaris (ESTIMATED dari D01) agar tidak tampak sebagai penyesuaian demi angka."
+  },
+  {
+   "id": "QA-14",
+   "status": "LAMA-CATATAN",
+   "keparahan": "minor",
+   "peran": "internal",
+   "judul": "12 INT-PIN ESTIMATED tanpa sumber",
+   "bukti": "INT-PIN-01..12 status ESTIMATED, sumber kosong.",
+   "saran": "Beri dasar perkiraan (mis. proporsi bore) atau ubah ke ILLUSTRATIVE."
+  }
+ ],
+ "kepatuhan_brief": {
+  "1_impor_dan_ukur": "DIKERJAKAN",
+  "2_render_6_sudut": "DIKERJAKAN (atas UNVERIFIED)",
+  "3_aturan_bentuk": "DIKERJAKAN",
+  "4_jumlah_dan_kecocokan": "DIKERJAKAN",
+  "5_viewer": "DIKERJAKAN (fps UNVERIFIED)",
+  "6_kejujuran_data": "DIKERJAKAN"
+ },
+ "berkas": {
+  "render": [
+   "/tmp/claude-0/c3512/qa/render/qa_atas.png",
+   "/tmp/claude-0/c3512/qa/render/qa_belakang.png",
+   "/tmp/claude-0/c3512/qa/render/qa_depan.png",
+   "/tmp/claude-0/c3512/qa/render/qa_detail_flywheel.png",
+   "/tmp/claude-0/c3512/qa/render/qa_detail_internal_xsec.png",
+   "/tmp/claude-0/c3512/qa/render/qa_detail_kepala_blok.png",
+   "/tmp/claude-0/c3512/qa/render/qa_detail_turbo.png",
+   "/tmp/claude-0/c3512/qa/render/qa_kanan.png",
+   "/tmp/claude-0/c3512/qa/render/qa_kiri.png",
+   "/tmp/claude-0/c3512/qa/render/qa_tigaperempat.png"
+  ],
+  "tangkapan_layar": [
+   "/tmp/claude-0/c3512/qa/shots/desktop-1-awal.png",
+   "/tmp/claude-0/c3512/qa/shots/desktop-2-pilih.png",
+   "/tmp/claude-0/c3512/qa/shots/desktop-3-xray.png",
+   "/tmp/claude-0/c3512/qa/shots/desktop-4-urai.png",
+   "/tmp/claude-0/c3512/qa/shots/desktop-5-sistem.png",
+   "/tmp/claude-0/c3512/qa/shots/desktop-6-operasi.png",
+   "/tmp/claude-0/c3512/qa/shots/desktop-7-sumber.png",
+   "/tmp/claude-0/c3512/qa/shots/hp-1-awal.png",
+   "/tmp/claude-0/c3512/qa/shots/hp-2-pilih.png",
+   "/tmp/claude-0/c3512/qa/shots/hp-3-xray.png",
+   "/tmp/claude-0/c3512/qa/shots/hp-4-urai.png",
+   "/tmp/claude-0/c3512/qa/shots/hp-5-sistem.png",
+   "/tmp/claude-0/c3512/qa/shots/hp-6-operasi.png",
+   "/tmp/claude-0/c3512/qa/shots/hp-7-sumber.png"
+  ],
+  "putaran1": "/tmp/claude-0/c3512/qa/qa-putaran1.json, /tmp/claude-0/c3512/qa/putaran1/"
+ }
+}

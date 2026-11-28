@@ -1,0 +1,626 @@
+{
+  "pass": true,
+  "fingerprints": {
+    "model/manifest.json": "04480ed3b3a838151f104a67839df551205db1c3279e1b0c017a836b02c059af",
+    "runtime/manifest.json": "3b0de1a9be7a066772241b51c5e6b3084cafd5a19a79bfb580a093592dbae9cd",
+    "runtime/engine-session.js": "b18d507be58df1fdec3315f0864501c2b1486252aab773f59cde5b307cb98bfa",
+    "runtime/powertrain.js": "178a96fc9d794b0e674ecd7f6efaa62ea677e3b6f9868fff40448d132021edf2",
+    "model/assets/exterior.glb": "defc58c070a871da2068b2ddd4388ff51b340a1014dfde2226f7e47946a89121",
+    "model/assets/internal.glb": "526ce37f126203eb288388dbd7922dd85749b19ddf8ef82ee5bfcf9d472ec8f5",
+    "model/assets/data.json": "329566981da8e0c2ba9d1096cd69c1d29fcce9acc71c1621d20016785fd6adad",
+    "ui-workspace/index.html": "7f63feaed5be59ff60cb32100a8120890fc9f5d4dcf8464d80589c50b1c39152",
+    "ui-workspace/studio.js": "51a9c8c568215258d587d84b300c521196276d2eec4b6cd8ce07a54dbf300abc",
+    "ui-workspace/minimal.html": "f335a995203c89cd53f995e6c3314fa70e1e6f9357c2ef0cb9e0ba433c814d22",
+    "ui-workspace/minimal.js": "a12b4359bec5e6a7154d6a43dabe63ec9edefd3addc854edf93a6ae4b0d9931f"
+  },
+  "results": [
+    {
+      "ui": "studio",
+      "name": "desktop",
+      "initial": {
+        "state": {
+          "ready": true,
+          "phase": "off",
+          "paused": false,
+          "running": false,
+          "phaseTime": 0,
+          "rpm": 0,
+          "crankAngle": 0,
+          "starterEngagement": 0,
+          "selection": null,
+          "xray": false,
+          "mode": "operation",
+          "flow": "fuel",
+          "drive": "timing-01",
+          "audioSupported": true,
+          "muted": false,
+          "capTestSupported": true,
+          "capPressure": null
+        },
+        "canvas": {
+          "geometry": [
+            true,
+            true
+          ],
+          "triangles": 986968,
+          "gpu": "WebKit WebGL",
+          "contextLost": false,
+          "audio": {
+            "phase": "off",
+            "rpm": 0,
+            "elapsed": 0,
+            "paused": false,
+            "unlocked": false,
+            "muted": false,
+            "volume": 0.35,
+            "hidden": false,
+            "disposed": false,
+            "contextState": "uncreated",
+            "firingHz": 0,
+            "audible": false,
+            "nodes": 0,
+            "activeOneShots": 0,
+            "lastClickElapsed": null,
+            "targets": null
+          },
+          "viewport": [
+            1280,
+            800,
+            1
+          ]
+        },
+        "parts": 1184,
+        "overflow": 0,
+        "studioCanvas": true,
+        "minimalCanvas": false,
+        "foreignStudioLayout": 3
+      },
+      "phases": [
+        "off",
+        "engaging",
+        "cranking",
+        "firing",
+        "running",
+        "stopping",
+        "off"
+      ],
+      "selected": "EXT-FUEL-03",
+      "requests": [
+        "http://127.0.0.1:4211/produksi/yanmar-6aym-wet-r06/model/assets/data.json",
+        "http://127.0.0.1:4211/produksi/yanmar-6aym-wet-r06/model/assets/exterior.glb",
+        "http://127.0.0.1:4211/produksi/yanmar-6aym-wet-r06/model/assets/internal.glb",
+        "http://127.0.0.1:4211/produksi/yanmar-6aym-wet-r06/model/manifest.json",
+        "http://127.0.0.1:4211/produksi/yanmar-6aym-wet-r06/runtime/engine-session.js",
+        "http://127.0.0.1:4211/produksi/yanmar-6aym-wet-r06/runtime/powertrain.js",
+        "http://127.0.0.1:4211/produksi/yanmar-6aym-wet-r06/runtime/vendor/combustion-glow.js",
+        "http://127.0.0.1:4211/produksi/yanmar-6aym-wet-r06/runtime/vendor/engine-audio.js",
+        "http://127.0.0.1:4211/produksi/yanmar-6aym-wet-r06/runtime/vendor/flow-ribbons.js",
+        "http://127.0.0.1:4211/produksi/yanmar-6aym-wet-r06/runtime/vendor/functional-motion.js",
+        "http://127.0.0.1:4211/produksi/yanmar-6aym-wet-r06/runtime/vendor/three-bundle.js",
+        "http://127.0.0.1:4211/produksi/yanmar-6aym-wet-r06/ui-workspace/?view=operation",
+        "http://127.0.0.1:4211/produksi/yanmar-6aym-wet-r06/ui-workspace/assets/assembly-diagram.js",
+        "http://127.0.0.1:4211/produksi/yanmar-6aym-wet-r06/ui-workspace/assets/studio.css",
+        "http://127.0.0.1:4211/produksi/yanmar-6aym-wet-r06/ui-workspace/presentation.js",
+        "http://127.0.0.1:4211/produksi/yanmar-6aym-wet-r06/ui-workspace/studio.js"
+      ],
+      "matrixRows": [
+        {
+          "at": 0,
+          "phase": "engaging",
+          "hash": "022c0f39906a5f7af96c363ee929969308d3757ba08477acda27f1abf7c03013"
+        },
+        {
+          "at": 10,
+          "phase": "engaging",
+          "hash": "a81243d300dfe2719bb8a962d7b1efe4bfffdf52151ca6fe70c76808e5f12d15"
+        },
+        {
+          "at": 35,
+          "phase": "cranking",
+          "hash": "da92bb3becb3ebaa4c62830cafbfb4cd8e5443d786c5d4c1ed9fcd0d50a13814"
+        },
+        {
+          "at": 55,
+          "phase": "cranking",
+          "hash": "72694bbacf8f24b60d517a6c4a9efff4e1205c8bbf10ff98266c4594ab62f05c"
+        },
+        {
+          "at": 90,
+          "phase": "firing",
+          "hash": "a49c5887c4989add6881d202ba79782b9523ddfe3a4668c587e9d78b792eeb28"
+        },
+        {
+          "at": 105,
+          "phase": "firing",
+          "hash": "75c67b33378c990520b7e6047778bf696ae9b94a0a95aececfb9085959776762"
+        },
+        {
+          "at": 145,
+          "phase": "running",
+          "hash": "201eecc5d7a61b4a393f271237913a523cfd9bda64659a15e346bc5fbfd1329c"
+        },
+        {
+          "at": 175,
+          "phase": "running",
+          "hash": "bb9c017e69ac860638fa1986d5f11f74f783937bdc7fd700b29008c526ad1dab"
+        },
+        {
+          "at": 205,
+          "phase": "running",
+          "hash": "83daf5860e3b01f77902f00e6cd0b40fe9cad4776115ea62a1e570660b5fbbce"
+        },
+        {
+          "at": "reset",
+          "phase": "off",
+          "hash": "022c0f39906a5f7af96c363ee929969308d3757ba08477acda27f1abf7c03013"
+        }
+      ],
+      "coreModuleSha256": "b18d507be58df1fdec3315f0864501c2b1486252aab773f59cde5b307cb98bfa",
+      "error": null,
+      "screenshot": {
+        "file": "studio-desktop.png",
+        "pixels": [
+          1280,
+          800
+        ],
+        "sha256": "36fdc8854f3fcbbfd22d47ca0166d9a8223bcd7f491dfad24227ca9ffd26ba09"
+      }
+    },
+    {
+      "ui": "studio",
+      "name": "hp",
+      "initial": {
+        "state": {
+          "ready": true,
+          "phase": "off",
+          "paused": false,
+          "running": false,
+          "phaseTime": 0,
+          "rpm": 0,
+          "crankAngle": 0,
+          "starterEngagement": 0,
+          "selection": null,
+          "xray": false,
+          "mode": "operation",
+          "flow": "fuel",
+          "drive": "timing-01",
+          "audioSupported": true,
+          "muted": false,
+          "capTestSupported": true,
+          "capPressure": null
+        },
+        "canvas": {
+          "geometry": [
+            true,
+            true
+          ],
+          "triangles": 986968,
+          "gpu": "WebKit WebGL",
+          "contextLost": false,
+          "audio": {
+            "phase": "off",
+            "rpm": 0,
+            "elapsed": 0,
+            "paused": false,
+            "unlocked": false,
+            "muted": false,
+            "volume": 0.35,
+            "hidden": false,
+            "disposed": false,
+            "contextState": "uncreated",
+            "firingHz": 0,
+            "audible": false,
+            "nodes": 0,
+            "activeOneShots": 0,
+            "lastClickElapsed": null,
+            "targets": null
+          },
+          "viewport": [
+            390,
+            844,
+            2
+          ]
+        },
+        "parts": 1184,
+        "overflow": 0,
+        "studioCanvas": true,
+        "minimalCanvas": false,
+        "foreignStudioLayout": 3
+      },
+      "phases": [
+        "off",
+        "engaging",
+        "cranking",
+        "firing",
+        "running",
+        "stopping",
+        "off"
+      ],
+      "selected": "EXT-FUEL-03",
+      "requests": [
+        "http://127.0.0.1:4211/produksi/yanmar-6aym-wet-r06/model/assets/data.json",
+        "http://127.0.0.1:4211/produksi/yanmar-6aym-wet-r06/model/assets/exterior.glb",
+        "http://127.0.0.1:4211/produksi/yanmar-6aym-wet-r06/model/assets/internal.glb",
+        "http://127.0.0.1:4211/produksi/yanmar-6aym-wet-r06/model/manifest.json",
+        "http://127.0.0.1:4211/produksi/yanmar-6aym-wet-r06/runtime/engine-session.js",
+        "http://127.0.0.1:4211/produksi/yanmar-6aym-wet-r06/runtime/powertrain.js",
+        "http://127.0.0.1:4211/produksi/yanmar-6aym-wet-r06/runtime/vendor/combustion-glow.js",
+        "http://127.0.0.1:4211/produksi/yanmar-6aym-wet-r06/runtime/vendor/engine-audio.js",
+        "http://127.0.0.1:4211/produksi/yanmar-6aym-wet-r06/runtime/vendor/flow-ribbons.js",
+        "http://127.0.0.1:4211/produksi/yanmar-6aym-wet-r06/runtime/vendor/functional-motion.js",
+        "http://127.0.0.1:4211/produksi/yanmar-6aym-wet-r06/runtime/vendor/three-bundle.js",
+        "http://127.0.0.1:4211/produksi/yanmar-6aym-wet-r06/ui-workspace/?view=operation",
+        "http://127.0.0.1:4211/produksi/yanmar-6aym-wet-r06/ui-workspace/assets/assembly-diagram.js",
+        "http://127.0.0.1:4211/produksi/yanmar-6aym-wet-r06/ui-workspace/assets/studio.css",
+        "http://127.0.0.1:4211/produksi/yanmar-6aym-wet-r06/ui-workspace/presentation.js",
+        "http://127.0.0.1:4211/produksi/yanmar-6aym-wet-r06/ui-workspace/studio.js"
+      ],
+      "matrixRows": [
+        {
+          "at": 0,
+          "phase": "engaging",
+          "hash": "022c0f39906a5f7af96c363ee929969308d3757ba08477acda27f1abf7c03013"
+        },
+        {
+          "at": 10,
+          "phase": "engaging",
+          "hash": "a81243d300dfe2719bb8a962d7b1efe4bfffdf52151ca6fe70c76808e5f12d15"
+        },
+        {
+          "at": 35,
+          "phase": "cranking",
+          "hash": "da92bb3becb3ebaa4c62830cafbfb4cd8e5443d786c5d4c1ed9fcd0d50a13814"
+        },
+        {
+          "at": 55,
+          "phase": "cranking",
+          "hash": "72694bbacf8f24b60d517a6c4a9efff4e1205c8bbf10ff98266c4594ab62f05c"
+        },
+        {
+          "at": 90,
+          "phase": "firing",
+          "hash": "a49c5887c4989add6881d202ba79782b9523ddfe3a4668c587e9d78b792eeb28"
+        },
+        {
+          "at": 105,
+          "phase": "firing",
+          "hash": "75c67b33378c990520b7e6047778bf696ae9b94a0a95aececfb9085959776762"
+        },
+        {
+          "at": 145,
+          "phase": "running",
+          "hash": "201eecc5d7a61b4a393f271237913a523cfd9bda64659a15e346bc5fbfd1329c"
+        },
+        {
+          "at": 175,
+          "phase": "running",
+          "hash": "bb9c017e69ac860638fa1986d5f11f74f783937bdc7fd700b29008c526ad1dab"
+        },
+        {
+          "at": 205,
+          "phase": "running",
+          "hash": "83daf5860e3b01f77902f00e6cd0b40fe9cad4776115ea62a1e570660b5fbbce"
+        },
+        {
+          "at": "reset",
+          "phase": "off",
+          "hash": "022c0f39906a5f7af96c363ee929969308d3757ba08477acda27f1abf7c03013"
+        }
+      ],
+      "coreModuleSha256": "b18d507be58df1fdec3315f0864501c2b1486252aab773f59cde5b307cb98bfa",
+      "error": null,
+      "screenshot": {
+        "file": "studio-hp.png",
+        "pixels": [
+          780,
+          1688
+        ],
+        "sha256": "9dee0ef5e85e9993bb1ec2231ea786b10188294d8a934c71e295ef710e5f6a82"
+      }
+    },
+    {
+      "ui": "minimal",
+      "name": "desktop",
+      "initial": {
+        "state": {
+          "ready": true,
+          "phase": "off",
+          "paused": false,
+          "running": false,
+          "phaseTime": 0,
+          "rpm": 0,
+          "crankAngle": 0,
+          "starterEngagement": 0,
+          "selection": null,
+          "xray": false,
+          "mode": "operation",
+          "flow": "fuel",
+          "drive": "timing-01",
+          "audioSupported": true,
+          "muted": false,
+          "capTestSupported": true,
+          "capPressure": null
+        },
+        "canvas": {
+          "geometry": [
+            true,
+            true
+          ],
+          "triangles": 986968,
+          "gpu": "WebKit WebGL",
+          "contextLost": false,
+          "audio": {
+            "phase": "off",
+            "rpm": 0,
+            "elapsed": 0,
+            "paused": true,
+            "unlocked": false,
+            "muted": false,
+            "volume": 0.35,
+            "hidden": false,
+            "disposed": false,
+            "contextState": "uncreated",
+            "firingHz": 0,
+            "audible": false,
+            "nodes": 0,
+            "activeOneShots": 0,
+            "lastClickElapsed": null,
+            "targets": null
+          },
+          "viewport": [
+            1280,
+            800,
+            1
+          ]
+        },
+        "parts": 1184,
+        "overflow": 0,
+        "studioCanvas": false,
+        "minimalCanvas": true,
+        "foreignStudioLayout": 0
+      },
+      "phases": [
+        "off",
+        "engaging",
+        "cranking",
+        "firing",
+        "running",
+        "stopping",
+        "off"
+      ],
+      "selected": "EXT-FUEL-03",
+      "requests": [
+        "http://127.0.0.1:4211/produksi/yanmar-6aym-wet-r06/model/assets/data.json",
+        "http://127.0.0.1:4211/produksi/yanmar-6aym-wet-r06/model/assets/exterior.glb",
+        "http://127.0.0.1:4211/produksi/yanmar-6aym-wet-r06/model/assets/internal.glb",
+        "http://127.0.0.1:4211/produksi/yanmar-6aym-wet-r06/model/manifest.json",
+        "http://127.0.0.1:4211/produksi/yanmar-6aym-wet-r06/runtime/engine-session.js",
+        "http://127.0.0.1:4211/produksi/yanmar-6aym-wet-r06/runtime/powertrain.js",
+        "http://127.0.0.1:4211/produksi/yanmar-6aym-wet-r06/runtime/vendor/combustion-glow.js",
+        "http://127.0.0.1:4211/produksi/yanmar-6aym-wet-r06/runtime/vendor/engine-audio.js",
+        "http://127.0.0.1:4211/produksi/yanmar-6aym-wet-r06/runtime/vendor/flow-ribbons.js",
+        "http://127.0.0.1:4211/produksi/yanmar-6aym-wet-r06/runtime/vendor/functional-motion.js",
+        "http://127.0.0.1:4211/produksi/yanmar-6aym-wet-r06/runtime/vendor/three-bundle.js",
+        "http://127.0.0.1:4211/produksi/yanmar-6aym-wet-r06/ui-workspace/minimal.css",
+        "http://127.0.0.1:4211/produksi/yanmar-6aym-wet-r06/ui-workspace/minimal.html",
+        "http://127.0.0.1:4211/produksi/yanmar-6aym-wet-r06/ui-workspace/minimal.js"
+      ],
+      "matrixRows": [
+        {
+          "at": 0,
+          "phase": "engaging",
+          "hash": "022c0f39906a5f7af96c363ee929969308d3757ba08477acda27f1abf7c03013"
+        },
+        {
+          "at": 10,
+          "phase": "engaging",
+          "hash": "a81243d300dfe2719bb8a962d7b1efe4bfffdf52151ca6fe70c76808e5f12d15"
+        },
+        {
+          "at": 35,
+          "phase": "cranking",
+          "hash": "da92bb3becb3ebaa4c62830cafbfb4cd8e5443d786c5d4c1ed9fcd0d50a13814"
+        },
+        {
+          "at": 55,
+          "phase": "cranking",
+          "hash": "72694bbacf8f24b60d517a6c4a9efff4e1205c8bbf10ff98266c4594ab62f05c"
+        },
+        {
+          "at": 90,
+          "phase": "firing",
+          "hash": "a49c5887c4989add6881d202ba79782b9523ddfe3a4668c587e9d78b792eeb28"
+        },
+        {
+          "at": 105,
+          "phase": "firing",
+          "hash": "75c67b33378c990520b7e6047778bf696ae9b94a0a95aececfb9085959776762"
+        },
+        {
+          "at": 145,
+          "phase": "running",
+          "hash": "201eecc5d7a61b4a393f271237913a523cfd9bda64659a15e346bc5fbfd1329c"
+        },
+        {
+          "at": 175,
+          "phase": "running",
+          "hash": "bb9c017e69ac860638fa1986d5f11f74f783937bdc7fd700b29008c526ad1dab"
+        },
+        {
+          "at": 205,
+          "phase": "running",
+          "hash": "83daf5860e3b01f77902f00e6cd0b40fe9cad4776115ea62a1e570660b5fbbce"
+        },
+        {
+          "at": "reset",
+          "phase": "off",
+          "hash": "022c0f39906a5f7af96c363ee929969308d3757ba08477acda27f1abf7c03013"
+        }
+      ],
+      "coreModuleSha256": "b18d507be58df1fdec3315f0864501c2b1486252aab773f59cde5b307cb98bfa",
+      "error": null,
+      "screenshot": {
+        "file": "minimal-desktop.png",
+        "pixels": [
+          1280,
+          800
+        ],
+        "sha256": "af69ce66bcb49272889c0940d86b6c254a6b1e1e2e267cad033064b6625c32ec"
+      }
+    },
+    {
+      "ui": "minimal",
+      "name": "hp",
+      "initial": {
+        "state": {
+          "ready": true,
+          "phase": "off",
+          "paused": false,
+          "running": false,
+          "phaseTime": 0,
+          "rpm": 0,
+          "crankAngle": 0,
+          "starterEngagement": 0,
+          "selection": null,
+          "xray": false,
+          "mode": "operation",
+          "flow": "fuel",
+          "drive": "timing-01",
+          "audioSupported": true,
+          "muted": false,
+          "capTestSupported": true,
+          "capPressure": null
+        },
+        "canvas": {
+          "geometry": [
+            true,
+            true
+          ],
+          "triangles": 986968,
+          "gpu": "WebKit WebGL",
+          "contextLost": false,
+          "audio": {
+            "phase": "off",
+            "rpm": 0,
+            "elapsed": 0,
+            "paused": true,
+            "unlocked": false,
+            "muted": false,
+            "volume": 0.35,
+            "hidden": false,
+            "disposed": false,
+            "contextState": "uncreated",
+            "firingHz": 0,
+            "audible": false,
+            "nodes": 0,
+            "activeOneShots": 0,
+            "lastClickElapsed": null,
+            "targets": null
+          },
+          "viewport": [
+            390,
+            844,
+            2
+          ]
+        },
+        "parts": 1184,
+        "overflow": 0,
+        "studioCanvas": false,
+        "minimalCanvas": true,
+        "foreignStudioLayout": 0
+      },
+      "phases": [
+        "off",
+        "engaging",
+        "cranking",
+        "firing",
+        "running",
+        "stopping",
+        "off"
+      ],
+      "selected": "EXT-FUEL-03",
+      "requests": [
+        "http://127.0.0.1:4211/produksi/yanmar-6aym-wet-r06/model/assets/data.json",
+        "http://127.0.0.1:4211/produksi/yanmar-6aym-wet-r06/model/assets/exterior.glb",
+        "http://127.0.0.1:4211/produksi/yanmar-6aym-wet-r06/model/assets/internal.glb",
+        "http://127.0.0.1:4211/produksi/yanmar-6aym-wet-r06/model/manifest.json",
+        "http://127.0.0.1:4211/produksi/yanmar-6aym-wet-r06/runtime/engine-session.js",
+        "http://127.0.0.1:4211/produksi/yanmar-6aym-wet-r06/runtime/powertrain.js",
+        "http://127.0.0.1:4211/produksi/yanmar-6aym-wet-r06/runtime/vendor/combustion-glow.js",
+        "http://127.0.0.1:4211/produksi/yanmar-6aym-wet-r06/runtime/vendor/engine-audio.js",
+        "http://127.0.0.1:4211/produksi/yanmar-6aym-wet-r06/runtime/vendor/flow-ribbons.js",
+        "http://127.0.0.1:4211/produksi/yanmar-6aym-wet-r06/runtime/vendor/functional-motion.js",
+        "http://127.0.0.1:4211/produksi/yanmar-6aym-wet-r06/runtime/vendor/three-bundle.js",
+        "http://127.0.0.1:4211/produksi/yanmar-6aym-wet-r06/ui-workspace/minimal.css",
+        "http://127.0.0.1:4211/produksi/yanmar-6aym-wet-r06/ui-workspace/minimal.html",
+        "http://127.0.0.1:4211/produksi/yanmar-6aym-wet-r06/ui-workspace/minimal.js"
+      ],
+      "matrixRows": [
+        {
+          "at": 0,
+          "phase": "engaging",
+          "hash": "022c0f39906a5f7af96c363ee929969308d3757ba08477acda27f1abf7c03013"
+        },
+        {
+          "at": 10,
+          "phase": "engaging",
+          "hash": "a81243d300dfe2719bb8a962d7b1efe4bfffdf52151ca6fe70c76808e5f12d15"
+        },
+        {
+          "at": 35,
+          "phase": "cranking",
+          "hash": "da92bb3becb3ebaa4c62830cafbfb4cd8e5443d786c5d4c1ed9fcd0d50a13814"
+        },
+        {
+          "at": 55,
+          "phase": "cranking",
+          "hash": "72694bbacf8f24b60d517a6c4a9efff4e1205c8bbf10ff98266c4594ab62f05c"
+        },
+        {
+          "at": 90,
+          "phase": "firing",
+          "hash": "a49c5887c4989add6881d202ba79782b9523ddfe3a4668c587e9d78b792eeb28"
+        },
+        {
+          "at": 105,
+          "phase": "firing",
+          "hash": "75c67b33378c990520b7e6047778bf696ae9b94a0a95aececfb9085959776762"
+        },
+        {
+          "at": 145,
+          "phase": "running",
+          "hash": "201eecc5d7a61b4a393f271237913a523cfd9bda64659a15e346bc5fbfd1329c"
+        },
+        {
+          "at": 175,
+          "phase": "running",
+          "hash": "bb9c017e69ac860638fa1986d5f11f74f783937bdc7fd700b29008c526ad1dab"
+        },
+        {
+          "at": 205,
+          "phase": "running",
+          "hash": "83daf5860e3b01f77902f00e6cd0b40fe9cad4776115ea62a1e570660b5fbbce"
+        },
+        {
+          "at": "reset",
+          "phase": "off",
+          "hash": "022c0f39906a5f7af96c363ee929969308d3757ba08477acda27f1abf7c03013"
+        }
+      ],
+      "coreModuleSha256": "b18d507be58df1fdec3315f0864501c2b1486252aab773f59cde5b307cb98bfa",
+      "error": null,
+      "screenshot": {
+        "file": "minimal-hp.png",
+        "pixels": [
+          780,
+          1688
+        ],
+        "sha256": "c519f4f27787a72c45a785377213c2ffe5540596dbe5ac386c3aa5f4a6d725c3"
+      }
+    }
+  ],
+  "sameFrameFullMatrixIdentity": true,
+  "sourceObservationOnly": true,
+  "sameFrameComparedToLayoutV1": true,
+  "scope": "Chromium WebGL emulasi viewport; observer QA mencuplik matriks pada waktu deterministik yang sama."
+}

@@ -1,9 +1,9 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {applyStructure,spliceStructure,structurePlan} from '../src/structure.ts';
-import {applyHiring} from '../src/hrd.ts';
-import {step,validate,execute,label} from '../src/flow.ts';
-import {routerTargets} from '../src/prompt-router.ts';
+import {applyStructure,spliceStructure,structurePlan} from '../src/features/agents/structure.ts';
+import {applyHiring} from '../src/features/agents/hrd.ts';
+import {step,validate,execute,label} from '../src/features/workflow/flow.ts';
+import {routerTargets} from '../src/features/agents/prompt-router.ts';
 
 const team = ['modeling-3d','assembly-kinematics','geometry-qa','visual-qa','oem-documentation'];
 function graph(prompt, ids = team) {

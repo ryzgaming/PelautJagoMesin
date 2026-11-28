@@ -1,0 +1,155 @@
+{
+  "method": "Blender 4.3.2: physical point sets vs tube mesh triangles at 7 mm or finer. Minimum clearance to all attributed mesh includes fluid endpoints on engine bodies. Turbo tube vs turbine/elbow checks all triangle overlap pairs and nearest surface for every oil pipe vertex.",
+  "routes": [
+    {
+      "route": "SW-suction",
+      "mesh": "EXT-COOLING-05",
+      "minimum_pipe_midline_to_wall_mm": 27.86,
+      "minimum_any_attributed_mesh_mm": 24.672,
+      "nearest_at_m": [
+        -0.058688949793577194,
+        0.2678895592689514,
+        -0.5648314952850342
+      ],
+      "points_within_point2mm_own_wall": 0
+    },
+    {
+      "route": "SW-delivery",
+      "mesh": "EXT-COOLING-300",
+      "minimum_pipe_midline_to_wall_mm": 13.831,
+      "minimum_any_attributed_mesh_mm": 13.831,
+      "nearest_at_m": [
+        -0.17477360367774963,
+        0.6782959699630737,
+        -0.4874548017978668
+      ],
+      "points_within_point2mm_own_wall": 0
+    },
+    {
+      "route": "SW-transfer",
+      "mesh": "EXT-COOLING-301",
+      "minimum_pipe_midline_to_wall_mm": 13.475,
+      "minimum_any_attributed_mesh_mm": 13.214,
+      "nearest_at_m": [
+        -0.1409386247396469,
+        0.7599760890007019,
+        -0.45125484466552734
+      ],
+      "points_within_point2mm_own_wall": 0
+    },
+    {
+      "route": "FW-pump-cooler",
+      "mesh": "EXT-COOLING-302",
+      "minimum_pipe_midline_to_wall_mm": 21.395,
+      "minimum_any_attributed_mesh_mm": 20.106,
+      "nearest_at_m": [
+        1.088864803314209,
+        0.3310000002384186,
+        0.3740028142929077
+      ],
+      "points_within_point2mm_own_wall": 0
+    },
+    {
+      "route": "FW-cooler-block",
+      "mesh": "EXT-COOLING-303",
+      "minimum_pipe_midline_to_wall_mm": 17.189,
+      "minimum_any_attributed_mesh_mm": 17.189,
+      "nearest_at_m": [
+        0.17256949841976166,
+        0.3109886050224304,
+        0.35289210081100464
+      ],
+      "points_within_point2mm_own_wall": 0
+    },
+    {
+      "route": "FW-to-stat",
+      "mesh": "EXT-COOLING-304",
+      "minimum_pipe_midline_to_wall_mm": 16.042,
+      "minimum_any_attributed_mesh_mm": 16.042,
+      "nearest_at_m": [
+        1.3166662454605103,
+        0.6450744867324829,
+        0.26607584953308105
+      ],
+      "points_within_point2mm_own_wall": 0
+    },
+    {
+      "route": "FW-return",
+      "mesh": "EXT-COOLING-06",
+      "minimum_pipe_midline_to_wall_mm": 20.458,
+      "minimum_any_attributed_mesh_mm": 20.458,
+      "nearest_at_m": [
+        1.5136693716049194,
+        0.5164839625358582,
+        0.16757835447788239
+      ],
+      "points_within_point2mm_own_wall": 0
+    },
+    {
+      "route": "LO-cooler-feed",
+      "mesh": "EXT-LUBE-300",
+      "minimum_pipe_midline_to_wall_mm": 7.052,
+      "minimum_any_attributed_mesh_mm": 7.052,
+      "nearest_at_m": [
+        0.29111117124557495,
+        0.3343813419342041,
+        0.44188573956489563
+      ],
+      "points_within_point2mm_own_wall": 0
+    },
+    {
+      "route": "LO-cooler-out",
+      "mesh": "EXT-LUBE-301",
+      "minimum_pipe_midline_to_wall_mm": 6.868,
+      "minimum_any_attributed_mesh_mm": 6.868,
+      "nearest_at_m": [
+        1.0869078636169434,
+        0.2817637026309967,
+        0.4643849730491638
+      ],
+      "points_within_point2mm_own_wall": 0
+    },
+    {
+      "route": "LO-turbo-line",
+      "mesh": "EXT-LUBE-302",
+      "minimum_pipe_midline_to_wall_mm": 5.946,
+      "minimum_any_attributed_mesh_mm": 5.946,
+      "nearest_at_m": [
+        0.6769999861717224,
+        0.7515876889228821,
+        0.481931209564209
+      ],
+      "points_within_point2mm_own_wall": 0
+    },
+    {
+      "route": "LO-turbo-return",
+      "mesh": "EXT-LUBE-303",
+      "minimum_pipe_midline_to_wall_mm": 10.74,
+      "minimum_any_attributed_mesh_mm": 8.563,
+      "nearest_at_m": [
+        0.6769970059394836,
+        0.6362425684928894,
+        0.4810304343700409
+      ],
+      "points_within_point2mm_own_wall": 0
+    }
+  ],
+  "turbo_clearance": [
+    {
+      "pair": [
+        "EXT-LUBE-302",
+        "EXT-EXHAUST-02"
+      ],
+      "overlapping_triangles": 0,
+      "oil_mesh_vertices_nearest_other_surface_mm": 39.44
+    },
+    {
+      "pair": [
+        "EXT-LUBE-302",
+        "EXT-EXHAUST-05"
+      ],
+      "overlapping_triangles": 0,
+      "oil_mesh_vertices_nearest_other_surface_mm": 78.56
+    }
+  ]
+}

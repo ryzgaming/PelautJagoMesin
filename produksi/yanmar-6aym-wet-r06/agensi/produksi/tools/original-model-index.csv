@@ -1,0 +1,736 @@
+original_r06_path,classification,delivery_path_or_archive_section,bytes,sha256
+model/assemblies/INT-CAM.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/INT-CAM.json,1754,ca09fd79e8caa21311bbe3ed7a273f512cfe4be93c871e3b9abe1dc0762a0549
+model/assemblies/INT-CRANK.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/INT-CRANK.json,1134,852cf066997169a17815beaedac81fa4644e53171c54d5d84139d64e445501fc
+model/assemblies/INT-FUELINJ.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/INT-FUELINJ.json,3280,acd2260833bf5035a7c7cf596d4ce198e14b05dd60791aa26296453d0a3a9b8a
+model/assemblies/INT-LINER.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/INT-LINER.json,906,267a8dcda18d57f1a80be9badee235b1f12d695ba2142748117da4e67139bfb9
+model/assemblies/INT-MAIN.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/INT-MAIN.json,1265,0fab4884aecbab60a1086f39e418f8075e3afa1497b38d84b0f9363851c8993d
+model/assemblies/INT-OILPUMP.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/INT-OILPUMP.json,644,69a61f381637ca6fddbb973138c42dcd3e9ec69dd370a88428ac5603a833b208
+model/assemblies/INT-PISTON.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/INT-PISTON.json,1838,79134471b4bc2a089892b9f07f6d6840a30cd5f30b67d2a8d694991f77de3479
+model/assemblies/INT-ROD.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/INT-ROD.json,2349,db794f4d4d085339664e25d6b8bcded07362640b646ceec471c6bd8bb00cbd85
+model/assemblies/INT-TIMING.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/INT-TIMING.json,688,7134a5e22e1a57751ee4f2bd7225f32f39e73b900471c51f6341134cc55ce9ea
+model/assemblies/INT-VALVE.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/INT-VALVE.json,1708,b5f3635df9faba8d45d1bf185dd32de11f759a7aaf3fe9a2fb8216774ce9c6ee
+model/assemblies/RAK-AIRCOOLER.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-AIRCOOLER.json,10015,1124a667008a8043f08de6b549c7c1a60215e6a6525be3dd7b42443a2e9f4628
+model/assemblies/RAK-ALTDRIVE.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-ALTDRIVE.json,16850,00d53b63427b40685d70f26725a8ae28c7ee5d249db3ed03b7d30941ecdef6d1
+model/assemblies/RAK-ALTERNATOR.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-ALTERNATOR.json,10834,a6ac571ba85fdb3f45145c89e7910d213a1d72364d50bde39fc7ccceca7635f9
+model/assemblies/RAK-BLOCK.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-BLOCK.json,10506,4400541f3869f59aa4d60a32c6e283252cf7bfb05e311cc8eefd63234480d131
+model/assemblies/RAK-BONNET-1.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-BONNET-1.json,3946,cac57bfcfb8cc3dc2cb5b37a09ef44f2afce66cb54618d16b5eebc94207ba74e
+model/assemblies/RAK-BONNET-2.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-BONNET-2.json,3946,94190652fa8c1b809a3729bca854c6898a946e82eab2056fd587f6458cc903d6
+model/assemblies/RAK-BONNET-3.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-BONNET-3.json,3946,ae28b1ec4f7e83832010c45ae03ba0132fdd7698486c2f190c8ffe72dc606c91
+model/assemblies/RAK-BONNET-4.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-BONNET-4.json,3946,b477723fb7825c3bdcf7c2faf9676d3a3522350f683f5359ce094ab38c598316
+model/assemblies/RAK-BONNET-5.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-BONNET-5.json,3946,b762649e3759025d95d7cb0f88b9955f76e76102d2d8153dc44e2ac2da901cae
+model/assemblies/RAK-BONNET-6.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-BONNET-6.json,3946,38cb60f43271b104197d5bc3175bff4876e72da10f1e541cd5a1d06e808eb5b2
+model/assemblies/RAK-BYPASS-ROTOR.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-BYPASS-ROTOR.json,8306,bfc056f5fb4e60fb21a50e1c09a6cf00b9c7b5afc99652aff0a40bdc1c163e9d
+model/assemblies/RAK-CHARGEDUCT.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-CHARGEDUCT.json,41272,74079c71ec3f75b257d56ff804318b7ffd237123a02c8d6557a9c21e739120f6
+model/assemblies/RAK-COOLANT-CAP.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-COOLANT-CAP.json,3262,4c34dadd65bb35fa85c67a9c4def7dacb3e72f0b0957c10fa50ae3d618dab89a
+model/assemblies/RAK-COOLANT-PUMP.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-COOLANT-PUMP.json,21641,c50cffe732dc52925548e6267ca6aae698a16f448790beffd1559516cc7af383
+model/assemblies/RAK-COOLING.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-COOLING.json,7395,d5633f655a542773fdfa1d232dc44f17d0662f28a8f905a5e6a88457380cbe01
+model/assemblies/RAK-ELECTRIC.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-ELECTRIC.json,2624,ff6648dde60626d595fe3fe7d2b657227fb5dbfaa5f8a0279939c940f155edff
+model/assemblies/RAK-EXHAUST.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-EXHAUST.json,2995,b279d22b7c491dfc512fc66ed53b20382218b590632c08d086f5893188c067d3
+model/assemblies/RAK-FEEDPUMP.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-FEEDPUMP.json,13696,ca4e3eb636c7804c88dba7616b5c0ad41f2708679a0ee50561f5269b0855a6dc
+model/assemblies/RAK-FLYWHEEL-DISK.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-FLYWHEEL-DISK.json,2316,8a5f1a1d108af440697c6a6ffaa72678b5604e68512b0699fea75a1e95cfed75
+model/assemblies/RAK-FLYWHEEL.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-FLYWHEEL.json,1704,d2c07aeb2ea355e10ae66cf67ca85e1890c5765e9aa8bfbc9e091fc37bc739c7
+model/assemblies/RAK-FRONT.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-FRONT.json,2879,b05907b42331f9d3df2cdb9461f61a6be53caf895e2484db1305e020c3aac71e
+model/assemblies/RAK-FUEL-FILTER-1.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-FUEL-FILTER-1.json,6472,94a320beab743e97b0411771635a1fe4ccb232a9b0b65981c192dbfe856d2ca2
+model/assemblies/RAK-FUEL-FILTER-2.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-FUEL-FILTER-2.json,6472,4225f6e0db41605346a377251dd57bd52c7e18a8fbc6e48205324504e904354e
+model/assemblies/RAK-FUEL.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-FUEL.json,17631,1bd76997c013c6cf5b881a6ad3606816708b20186f3ada5d4ec4de923c5b6920
+model/assemblies/RAK-FW-COOLER.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-FW-COOLER.json,19751,a3f71b47f764bf9f98472e6d69d13af2e7dc791624e5f3cc919bd3e6c14b9eb5
+model/assemblies/RAK-GOVERNOR.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-GOVERNOR.json,6224,ab0f528c28412204127352c62d71c8bcef9c96cc9c8b1c00303e6ec2329623ed
+model/assemblies/RAK-HEADS.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-HEADS.json,8332,d4a274bc3db4e2bee903f596d8551b02bf083229feba4f83a09d8b9894055192
+model/assemblies/RAK-INJECTION.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-INJECTION.json,46521,eb4eaca7d17ec659e599e8f12a6d29bc451447393c5c4100c7726d7dca5befdf
+model/assemblies/RAK-INJECTOR-1.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-INJECTOR-1.json,17426,5a4d76abaa4805ac4c4fd3a6087d15c46bdb9cc9769adfffa61fca7cbb4c9883
+model/assemblies/RAK-INJECTOR-2.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-INJECTOR-2.json,17426,ab7f16adf83f3c974be3aac3a3e428eb1875d7957c7c57cb886a2a75cd550294
+model/assemblies/RAK-INJECTOR-3.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-INJECTOR-3.json,17426,9ecd47810b3d5107356d8abc41cd87df9dc9c5d79bb2caa5b0f15ee0da646453
+model/assemblies/RAK-INJECTOR-4.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-INJECTOR-4.json,17426,ddbbba4f524fc80a559c0681e4ce9d5fff19c33b632cfd06bbcd4791b89756d2
+model/assemblies/RAK-INJECTOR-5.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-INJECTOR-5.json,17426,7fc378446a1a6f4db280e3c159b565eb9bfa06a92c7a0bb4f7f4be7e8d9159e9
+model/assemblies/RAK-INJECTOR-6.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-INJECTOR-6.json,17426,d0a962337cc169e4391ab6eee8857c0ca50c0c0dbce360f807770b1eed221d58
+model/assemblies/RAK-INTAKE.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-INTAKE.json,3681,703177827700d1117fb0087d27a40a886324bc35a87273fea768ea0aef525c68
+model/assemblies/RAK-KATUP-1-1-1.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-KATUP-1-1-1.json,6819,186de219555390af7cb442b438fdbaf02f799cb0d846c1cb7ea4330acb463c19
+model/assemblies/RAK-KATUP-1-1-2.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-KATUP-1-1-2.json,6819,20e6a8b610c3b8898acec87b01e389e3eba46a9a1a1288fdf64e6f34dd0ad4cc
+model/assemblies/RAK-KATUP-1-2-1.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-KATUP-1-2-1.json,6815,b55f8c293487d869546bf10c9232c0bc88cae943f5d30a1d722256f47eb71ddf
+model/assemblies/RAK-KATUP-1-2-2.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-KATUP-1-2-2.json,6815,413e79ce4c3c5ed9b389de8fae1d1c92c90f007e9768b91811ec7e66644b7f04
+model/assemblies/RAK-KATUP-2-1-1.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-KATUP-2-1-1.json,6819,a4a8a54f5f7bbb096f4b57932ed77aa97317d7c70c45e9368068bdb11a0d497c
+model/assemblies/RAK-KATUP-2-1-2.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-KATUP-2-1-2.json,6819,1f78c94d1ff9d9f6983ac6a7e318d1da278e181ba08c338cafd5f3275f5691a2
+model/assemblies/RAK-KATUP-2-2-1.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-KATUP-2-2-1.json,6815,3fa1bc0bae584bb8b38a8386e28e48acb3319fe2946be8359d028ba1772aa23e
+model/assemblies/RAK-KATUP-2-2-2.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-KATUP-2-2-2.json,6815,2a78568d9a034174bdb791ac6ea45225da9050e7d636afcd56bcd648e65b88f6
+model/assemblies/RAK-KATUP-3-1-1.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-KATUP-3-1-1.json,6819,45eb2502cd05645e676f6789c560c6757f4d2173e6b5e488cf6f01419761ca8a
+model/assemblies/RAK-KATUP-3-1-2.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-KATUP-3-1-2.json,6819,08021557947736297fd800916227ae1ad001cba9418dc4163e0f14357e3dbffb
+model/assemblies/RAK-KATUP-3-2-1.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-KATUP-3-2-1.json,6815,f010625c19e1b7d7ddadd2ac58c790a4bb5bf7ae9cd82eabd8ae763d2fc5ff90
+model/assemblies/RAK-KATUP-3-2-2.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-KATUP-3-2-2.json,6815,ecf20ffde584b20e0a5c5bcdf9d70c5b7492e4b48159c83609b1b7f0713b18d4
+model/assemblies/RAK-KATUP-4-1-1.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-KATUP-4-1-1.json,6819,0c13cbbcb6d3fd5895c83d244f5486f3fed711e098a57555adf41bfa6a46c2b0
+model/assemblies/RAK-KATUP-4-1-2.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-KATUP-4-1-2.json,6819,8c4c8f7d2917c050ba70dd6ced81b4e76b4916305696d4bae0b11c28f8605891
+model/assemblies/RAK-KATUP-4-2-1.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-KATUP-4-2-1.json,6815,a3070c63036a1606032d7a9043b84da852c40ee84f85140c46d40e33c2761f35
+model/assemblies/RAK-KATUP-4-2-2.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-KATUP-4-2-2.json,6815,539555bd3ebc0dcc6a9ea0a70427ffc325923fe0de2c7fa087f0b2ebc5fd33db
+model/assemblies/RAK-KATUP-5-1-1.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-KATUP-5-1-1.json,6819,2739ab3b592f2e4899295c3b2f5eb2a21b2e5e4adc4ba59cc0daa1efac430829
+model/assemblies/RAK-KATUP-5-1-2.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-KATUP-5-1-2.json,6819,87cd01eb34c926864d0c78f977ff8348cbaa45477d206911d662c258f5e9b1b1
+model/assemblies/RAK-KATUP-5-2-1.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-KATUP-5-2-1.json,6815,fddcff903ef7d104e77c03077a1da3a3602b17f7762290db8a7c0f0e29b518e2
+model/assemblies/RAK-KATUP-5-2-2.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-KATUP-5-2-2.json,6815,0e5f97a7a8489afbb42678b911f509060f365b8f4c4acb744a9a87d70e8b1be4
+model/assemblies/RAK-KATUP-6-1-1.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-KATUP-6-1-1.json,6819,6009ae1725eb6383e27701a74ccc21d4cec35ce3ca82fbf6c935934cd64c8a12
+model/assemblies/RAK-KATUP-6-1-2.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-KATUP-6-1-2.json,6819,50968dd89e853687ac1562e2e9a9eb78067c50ad173ef88c59b2dbb96cb06175
+model/assemblies/RAK-KATUP-6-2-1.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-KATUP-6-2-1.json,6815,290f8ed75b36503a8fe9000c542dd9a8e33b4ba7338dc540b13002b588678ce0
+model/assemblies/RAK-KATUP-6-2-2.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-KATUP-6-2-2.json,6815,898988c91651cc2c186028a3880ff1e0ddd483c24e173fec3c1e570fd97c189b
+model/assemblies/RAK-LUBE.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-LUBE.json,6225,f68ac2d43bf369b0078b1fb571db8dd4d6194ef665216ce320b4957274969173
+model/assemblies/RAK-OIL-COOLER.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-OIL-COOLER.json,6804,2149f4cad3ddfd344e47750f3bfc5a45f1db1475331e9f95cc98af25c4a0a21e
+model/assemblies/RAK-OIL-FILTER-1.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-OIL-FILTER-1.json,4036,751741dd91cd3a1250a5a3b4a4cc7cdacdf212825d3683d699a07e7f76a64bf2
+model/assemblies/RAK-OIL-FILTER-2.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-OIL-FILTER-2.json,4036,b13d0c2bac302e0848502c3f3550a167500c913b9945e6b1ae4e7babe71562de
+model/assemblies/RAK-OILPAN.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-OILPAN.json,1115,d864a1d90f7e7beaaf87b25b0953490820c985e99e673cbb5a9dbea57bd4ee2f
+model/assemblies/RAK-SEAWATER-PUMP.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-SEAWATER-PUMP.json,14554,82d77a932d0c98d7402d8dea194e9fc85683e97b0817cb5c6b95086102f87b6b
+model/assemblies/RAK-STARTER.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-STARTER.json,14340,ffd23b68a3138263cc68e4553fc77490de34b2123d7e56dc01df1c4283bb07ed
+model/assemblies/RAK-SUMP-SERVICE.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-SUMP-SERVICE.json,3481,d8ce30875ff772cdf4f0aee421befc1b7ecc8079229177fefacedacb6e36d1ed
+model/assemblies/RAK-TURBO.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-TURBO.json,37681,4bd9930cb9db88a5e6d3ca44f22d9ff7f88e5ae3bcb2f651cdb53c6c1975ee8e
+model/datum.json,source_data,agensi/produksi/source/model/datum.json,39054,a63304de589ea4ece2c5f62c1a7f24f9c3fa43aafbfd869bf76f598aeb42efbd
+model/dimension-report.json,source_data,agensi/produksi/source/model/dimension-report.json,8554,097972506e9fdb3cb881b976a9fe745d71abcfd813dfddc348d59bb7385deb24
+model/exterior/__pycache__/build.cpython-312.pyc,original_cache,agensi/arsip-asli/ (R06),97627,3362a81724ed0095e3b87a7e24486f189dd40c74801ceab6ae219d340b76c86a
+model/exterior/__pycache__/charge_duct.cpython-312.pyc,original_cache,agensi/arsip-asli/ (R06),15266,78274e5d16eb9de184f21d99f91610789fd1251d4d37096477127e2bd52ef0a4
+model/exterior/__pycache__/check_export.cpython-312.pyc,original_cache,agensi/arsip-asli/ (R06),4595,3f3712492a7651ff05f96c9f1f2e8e7d39f8a120a3e663260c8df25536668357
+model/exterior/__pycache__/check_r03_interface_fit.cpython-312.pyc,original_cache,agensi/arsip-asli/ (R06),4062,d68590e14537531c104d2bd0ce768b1dc0269156a8ea789d74cd92a65b3692fc
+model/exterior/__pycache__/check_r04_compatibility.cpython-312.pyc,original_cache,agensi/arsip-asli/ (R06),2958,b463816ec569b47ee685cd63edc80496a1114e1d8d5c44b6065c71f561290f30
+model/exterior/__pycache__/check_r04_host_surfaces.cpython-312.pyc,original_cache,agensi/arsip-asli/ (R06),10680,607e80e6be8eab31f08bab9ee44cb936571d8f59c7a89956569863ffb2b64af8
+model/exterior/__pycache__/compare_r03_pump.cpython-312.pyc,original_cache,agensi/arsip-asli/ (R06),4810,3d15ffd57adfff61746343ae34872af522e245a5764ec2930cdcd0a580a2b849
+model/exterior/__pycache__/piping_ports.cpython-312.pyc,original_cache,agensi/arsip-asli/ (R06),7493,140a274bdfa869fd1f08290e3b61f0f2be2a475d0488c924c21dc0ca2908b2ec
+model/exterior/__pycache__/render_comparison.cpython-312.pyc,original_cache,agensi/arsip-asli/ (R06),6906,178e436ea2f108a93db5f85999ef04948bc6451261cb50353c733b4adc9a7019
+model/exterior/__pycache__/render_r03_aircooler.cpython-312.pyc,original_cache,agensi/arsip-asli/ (R06),12803,0a160dac660a9afc66a73c996c7e75b09c46c7f01d616d1baa50332cb2b0efcd
+model/exterior/__pycache__/render_r04_charge_duct.cpython-312.pyc,original_cache,agensi/arsip-asli/ (R06),8554,a3067c4e3cb81f3aa3d7086be4e5393b87eb2f111e85ea14c68f04f4bd63c480
+model/exterior/air-cooler-checkpoint/exterior.glb,historical_geometry,agensi/arsip-asli/ (R06),8245528,f83a04e9673dba075d8ece74fc07133602e850d3f2e765ab8c037e60fe568f66
+model/exterior/air-cooler-checkpoint/final-air-build.log,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),8907,2d643718a21cf742a98def3cd9f6d0489830ffceffe4a39a129739d03feccba9
+model/exterior/air-cooler-checkpoint/final-air-export-check.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),480,d8dab1cffc19a3a8a406d6bda45a1c02878a8a71199f08dee6a2ac6df2c6a0a7
+model/exterior/air-cooler-checkpoint/final-air-render/assembled.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),1427565,11b7efe6c9955f232c0e8b2a53f31eafa5c08593ac0deeabbe6d8675ee075f36
+model/exterior/air-cooler-checkpoint/final-air-render/core-and-open-bore.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),1637968,5afc2b6ef3dbeda0398cab1a240f4e51c36fbed1598c7bbd569428e7aac12b24
+model/exterior/air-cooler-checkpoint/final-air-render/exploded.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),1456037,98508a11edd94e0615c9bdde128c91368f3c34b9b2682a3fc254b60b6158816d
+model/exterior/air-cooler-checkpoint/final-air-render/render-fit.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),3019,9f428ebe4697ca56f841b88cb6a32397cd5f3ab21b9d5ff74fba3b575bfbff14
+model/exterior/air-cooler-checkpoint/final-air-render.log,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),30118,87947581dbfcd1aa75ac5d1c8f03cf9c20274d169ff3fb1149249991c1f8813c
+model/exterior/air-cooler-checkpoint/fit/render-fit.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),2850,157d6e5601a1d2439b01ba005b80cffee30784b9cdee47df761752496439035b
+model/exterior/air-cooler-checkpoint/fit.log,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),5329,d42b54c8ddf9fbd76ea5cef7414380db2eda36bb20f3a8f2bcbb78d2109df59e
+model/exterior/air-cooler-checkpoint/render/assembled.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),1432114,d7ac834e9c71d6ab3413c9166a11638ee14ea886cef217d011b339f45d1bc835
+model/exterior/air-cooler-checkpoint/render/core-and-open-bore.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),1552874,bffc98a5aa43bf16765d6f83842e5c2dcb603fb7de7cb4e604a711eb6d3b4ff9
+model/exterior/air-cooler-checkpoint/render/exploded.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),1448622,32286f67ab760c04904c04648d0b1ba33fda31bfd17b786be08815a9bc94381c
+model/exterior/air-cooler-checkpoint/render/render-fit.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),1304,1b36976fe9ef1dc1eac56dd8bb676d6f47ff4d7f63ff6a02a8b72587cb538aa5
+model/exterior/air-cooler-checkpoint/render.log,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),24092,49d024a318b227ddee21af2c142f2aec8c5bfb84d35a29c7425f1627e9a76ac8
+model/exterior/air-cooler-checkpoint/stage/model/assemblies/RAK-AIRCOOLER.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),10015,1124a667008a8043f08de6b549c7c1a60215e6a6525be3dd7b42443a2e9f4628
+model/exterior/air-cooler-checkpoint/stage/model/assemblies/RAK-BLOCK.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),10506,4400541f3869f59aa4d60a32c6e283252cf7bfb05e311cc8eefd63234480d131
+model/exterior/air-cooler-checkpoint/stage/model/assemblies/RAK-COOLING.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),4920,11364f757c35d428ec522ae08e2b740765d567256a76df241ba0e2d0fa9b9c2b
+model/exterior/air-cooler-checkpoint/stage/model/assemblies/RAK-ELECTRIC.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),2648,595c102c3676512da037e8419a9d8ab9b72e7f522ce0f48711431fd49b9aa601
+model/exterior/air-cooler-checkpoint/stage/model/assemblies/RAK-EXHAUST.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),3524,ae8812e752bf6f7fc0fa90a5ff535fc902800afddaa35a4b9c916d6c69e3e28e
+model/exterior/air-cooler-checkpoint/stage/model/assemblies/RAK-FLYWHEEL.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),1455,b990aaaf09b2cd108d753e8bfe12b15496299551019478151944f35655e90a60
+model/exterior/air-cooler-checkpoint/stage/model/assemblies/RAK-FRONT.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),2074,4d8fce11c756cf037c440d57e898d20d9a16ea80450c55798cec998ad6ec69b6
+model/exterior/air-cooler-checkpoint/stage/model/assemblies/RAK-FUEL.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),14752,2765f180c565d9b0b144985e039194c5940331b824f428546682efd4309ac3b0
+model/exterior/air-cooler-checkpoint/stage/model/assemblies/RAK-HEADS.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),7948,3f421e2bef9c8729ae9bd51bfca8fe3757e73b9ed73d18c3f30db164cb093c01
+model/exterior/air-cooler-checkpoint/stage/model/assemblies/RAK-INTAKE.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),3553,f0353f8bd827917bfd5c863e3d3749724983945be81124f7f6ed94dc1e3c8a03
+model/exterior/air-cooler-checkpoint/stage/model/assemblies/RAK-LUBE.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),3337,1ae0c63fb4335015225fd34e1fc7d84d800b8cd85e57dd41db8f4c455c1fdedc
+model/exterior/air-cooler-checkpoint/stage/model/assemblies/RAK-OILPAN.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),1476,60314bb4eeaacaa5205fc2934d29a478a7fd33a7a4c266b8f901cc1772f92371
+model/exterior/air-cooler-checkpoint/stage/model/datum.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),39054,a63304de589ea4ece2c5f62c1a7f24f9c3fa43aafbfd869bf76f598aeb42efbd
+model/exterior/air-cooler-checkpoint/stage/model/exterior/build.py,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),50911,4f8b22c62f66e1f447a64d654244e9655da2c6a745eba4efbac3a398da30a97c
+model/exterior/air-cooler-checkpoint/stage/model/exterior/check_export.py,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),2216,a3d2225704ffeb42f5568b6cc3e1640febb34f1f916b639139b4b2d06a5fe48a
+model/exterior/air-cooler-checkpoint/stage/model/exterior/exterior.blend,historical_master_checkpoint,agensi/arsip-asli/ (R06),19042116,ef3d5be11f464050ee512b1ef92f95f2b69eaa383bc7cd1ec4e0d1a99cea45b2
+model/exterior/air-cooler-checkpoint/stage/model/exterior/exterior.glb,historical_geometry,agensi/arsip-asli/ (R06),8356420,55dc9c52b939c52ca8c749b5dd86c94234080a2164a46c3ff59704f4965a03fe
+model/exterior/air-cooler-checkpoint/stage/model/exterior/inventory.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),106842,24bc1d7144fa75f53b228a523bbfcf7cf0d34973490c6267537b136ba1b0b1a4
+model/exterior/air-cooler-checkpoint/stage/model/exterior/render_r03_aircooler.py,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),6080,8146b28494a29c0277a7f0cffa1df9ead51567174f8ed1e68a7a8aca068fa014
+model/exterior/air-cooler-checkpoint/stage/model/exterior/specialists/air_cooler.py,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),11717,6da6a1dc6aa4091692af3386d7833f18d53955d00a09916c6fbb9083332c497d
+model/exterior/before-after/legacy_color_tiga_perempat.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),403265,22d8fbccf110e11d483b0e386af0708c1955bbda2a26092189af563523264c99
+model/exterior/before-after/legacy_neutral_atas.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),270977,a4a61f1db934b601ad0173f53c66214e7ff731d2d49cce49928262cb39f8f877
+model/exterior/before-after/legacy_neutral_belakang.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),239561,43fcc2a49c63ce0e8837d923f13cbc31760a1900bdb1acfbe375e19657f670a4
+model/exterior/before-after/legacy_neutral_depan.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),235570,9ded49f81b5b6325816e3878a5d963b3108850c0c4a6e3b12bab02b620ea55b4
+model/exterior/before-after/legacy_neutral_kanan.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),292368,128cb13a6b0e5c94483c7179d752ddcd2a25d05d26ed5b68f99877086ea46380
+model/exterior/before-after/legacy_neutral_kiri.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),301517,1838c196bcc9b5953593b1da08df17e191a7aab4fd8b2bab80435c1b5e854f34
+model/exterior/before-after/legacy_neutral_tiga_perempat.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),308361,8470027767dc5b4a4c5f130cec65a5f1bc77488333e3d701fa922039f352ed2f
+model/exterior/before-after/settings.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),939,1675623e579acb68c43dbbbb6ddc89450a57cb49183abe2441a05a0425550388
+model/exterior/before-after/v1_neutral_atas.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),275082,21504b42614a5866700587a380a6441d9c8cd4841f2c9754a109385e637dbd50
+model/exterior/before-after/v1_neutral_belakang.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),246797,af7d4e53aa0b48252a832fc4e16f30a7b346e4971b7446ac3e3777f9d69e56d0
+model/exterior/before-after/v1_neutral_depan.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),243035,d081ec0f764d682bdbac0ccdcd59fa5fdc47ada5b3cda6197aeafefa03158d95
+model/exterior/before-after/v1_neutral_kanan.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),297362,39462bd5cf55ff1268f3e783376ea94a153d3fd7b5229e6496bdf96c9e9dee08
+model/exterior/before-after/v1_neutral_kiri.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),301824,45378e728559a19fb45a7477dab296db198fdda482517e506c7315975a2243e6
+model/exterior/before-after/v1_neutral_tiga_perempat.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),311141,b5062e3d58718f67be951c0405151b542c1fa95a7f9cde223602a021fe51b05a
+model/exterior/before-after/v3_color_tiga_perempat.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),421410,c0f8cbf1582780ddb5a83d30226f1eadbfaa2ffdd77fec7cf4749081000a59f8
+model/exterior/before-after/v3_neutral_atas.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),276291,cc28f4d4730c51531b363d9539892688073c46c8471894e2e7de0449a84f528a
+model/exterior/before-after/v3_neutral_belakang.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),247314,5983b079d6e15bf16d51a85176595aaa938b42093101fb1b2243acaadabddc70
+model/exterior/before-after/v3_neutral_depan.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),243286,ca9099e26338a4b50b75f9cae77ff614c844ce5f06e15f8aeeef74c894350502
+model/exterior/before-after/v3_neutral_kanan.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),296492,60b2066a88832f459d4fed89329d20d4f05ae288acdc29891a74a1bc5fc9bf13
+model/exterior/before-after/v3_neutral_kiri.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),300913,45506a35b82cbf78db6f5ec2b0c7ceda71ff8e63201b199963a70282f95360b5
+model/exterior/before-after/v3_neutral_tiga_perempat.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),310488,86b8421e84786d721f526d9a18633d6073fd60f8ca8770654007fd238c803b1c
+model/exterior/before-after/v4_color_tiga_perempat.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),420435,13cbfc349f7cb77d359418c81474158f79366a71ba144a36e5d2d2db0932422f
+model/exterior/before-after/v4_neutral_atas.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),276191,eb42019dc3df647e791560ea7a2184d5578d2b83a96fa19a37ccfedf62ae4341
+model/exterior/before-after/v4_neutral_belakang.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),246726,180008c2ce6c47f18dd854fd5c535ea76a811f31f303bca859d88fc1ef5b2350
+model/exterior/before-after/v4_neutral_depan.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),243732,4e900d7af6cceb1a54b97d722751fd04013420f839df69dbdbe3003723f18883
+model/exterior/before-after/v4_neutral_kanan.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),296148,4e7da821deb96b2d0a3dfccd1270bd6d5df90fee276b4a09942623b23d1ff0bd
+model/exterior/before-after/v4_neutral_kiri.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),300865,83da80d474d51e0dafa6ba917addfe7c09cb4247e5cfdfd4e2d9a0cf06497bc9
+model/exterior/before-after/v4_neutral_tiga_perempat.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),309741,5853860b850b5459ca2bb3f2e9483873c5e909ea73e1bf57dd6acd6ad256de31
+model/exterior/before-after.log,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),689284,aaaa71bf10195ec06ba2f2c2c3e3a31f53b2d96cc8c8e872d7413f1242bfdca6
+model/exterior/build-r02-baseline.py,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),49069,23e1b64721591021c267a78235df9cc0c801def2627fa205459b3443d685db5d
+model/exterior/build-r02.log,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),7896,b61e77f47af55827ed402f0dc77f3586f73c345a2791d1ab93f38eb968b9ef55
+model/exterior/build-r03-final.log,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),28555,cc4dda7ae198aa202947599569f047340ccf67ca4715bb922ae55a71ee9cb391
+model/exterior/build-r03.log,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),8908,c66cc5bcb1289c38efa68b6dbf9aeef5dd67fa4bad49c209d43586b4f4ba1a10
+model/exterior/build-r04-final.log,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),33292,5259bc253cfd08093a92edc41309363359a27f67858fa936ec7df30306b8fd0b
+model/exterior/build-r04-input-verification.log,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),449,5110a5c2f07ca7d6fbf5cfff0497c5ab6d02d67bc2073a24e53920968b51ae5a
+model/exterior/build-r04-prelim.log,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),29705,d1cae8050d2cb92a71276c5c29ee71f8385ff3f1687cef503cbc3960a028b81f
+model/exterior/build-r05-first.log,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),34839,ae165aa26cd6a353acf0f4e8ae6e3b321a45f3760dbbffb00951715038ad38dd
+model/exterior/build-r05-second.log,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),38942,899029c315762a85419d6d719b3faad5fb1ee4902b5ec48b5c3aff907fb2ed79
+model/exterior/build-r05-third.log,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),40461,4afdaf2c150f03c2c384af406c75c640bd8a24a044e0e076acbe652e032ea73c
+model/exterior/build.log,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),7176,bda95c98f6f14acb8163f4f80a40ceee8af099ba2b1cf94675f0ea50e4b69432
+model/exterior/build.py,generator,agensi/produksi/source/model/exterior/build.py,59268,b643c583b87b792329306de90f6cb89fffe16a249e2659ad79ce71d9fcfe6827
+model/exterior/candidate-r03/build-r03-final.log,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),28554,c451b69c1eb1038e6034a561014944cbf1844bf837794ea52759e48103cbb80c
+model/exterior/candidate-r03/compare-r02.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),6510,1ce2ff344eb3a001addb956d5fdb85b6909920522a04e6c5bd74a268abdcfea7
+model/exterior/candidate-r03/export-check-r03.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),508,d58127232683c10de3b53fb8eda731e9f212696a3c0638dbabaa5640737552dc
+model/exterior/candidate-r03/exterior.glb,historical_geometry,agensi/arsip-asli/ (R06),16640016,6e0f61979361e282b0c3d313920bf64c102514b0024f551576bf9271f5844547
+model/exterior/candidate-r03/hashes-r03.txt,evidence_or_historical_render,agensi/arsip-asli/ (R06),241,a38d9918f4ef83a6985a51147e175954ae31dab0c56d31791f137966adaad7d7
+model/exterior/candidate-r03/interface-r03-fit.log,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),17389,3d76ae3432504cc3dc092058c4a4fb0a16a119d96b4640bf776d58c8cb3da871
+model/exterior/candidate-r03/inventory.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),377761,52cd85871f1d46979ac62048c134bd7c5b3097e976a5102be090da4ae9f71c4b
+model/exterior/candidate-r03/pump-r03-regression.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),490,321061ae5b5359e7d29acb422e3b0fccba926affbbb49603405c664f9dbe7d99
+model/exterior/candidate-r03/render-r03-fuel-regression.log,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),263411,cf6bb289239a7dbff6dd1d0e09a0c8ecd3cd50c28e1d91cef283aea8b4f087ed
+model/exterior/candidate-r03/render-r03-full.log,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),555171,ef65c3c4443886ade1f85e316ae2875ac1c14177106e7482eb723275f00728d5
+model/exterior/candidate-r03/renders-r03/color_atas.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),547541,0a00bf742c0dc206d4623c32534ae5a3fb12f28f090af01a39116c403ad6e97c
+model/exterior/candidate-r03/renders-r03/color_belakang.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),497958,5e7619e820a447c5db46fa56dea2455ee6c735d4741324e2764397ba275008b9
+model/exterior/candidate-r03/renders-r03/color_depan.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),488492,13a2b14f112bf0609df01d552fa9b3874e125ba3d5e8ba94d39e800aefcf90a1
+model/exterior/candidate-r03/renders-r03/color_kanan.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),585196,2949fb15e4fb39a5b9657d63eb284a0d852020284c025500bb48cda3423744fb
+model/exterior/candidate-r03/renders-r03/color_kiri.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),584704,25df89220a7bc98f91ffeff1070460fd587c3f85d5f4487508c4b1acdf69dba1
+model/exterior/candidate-r03/renders-r03/color_tiga_perempat.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),596026,d9f319416c1205f7a14e561d8a2fb45d8cf609e7d5290926b4a0f489a1e6e616
+model/exterior/candidate-r03/renders-r03/neutral_atas.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),431637,06964c391339a004dcdb68b4ecfffd9efcb6c41bf4bda8563e0d4ac797ed3ccb
+model/exterior/candidate-r03/renders-r03/neutral_belakang.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),397015,aa6d91fcb40c9ea7121aad0c1923685868558eb427361b3c4a3a65eeb5f6e343
+model/exterior/candidate-r03/renders-r03/neutral_depan.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),395221,6205f03b069d86aead152ac5f36acd8323854cab35dc139e65cce8fc1c371ca4
+model/exterior/candidate-r03/renders-r03/neutral_kanan.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),454379,0383621af4c294bb262fc4da555cece96711c238a87d13e1194ec7d4b8d68bf4
+model/exterior/candidate-r03/renders-r03/neutral_kiri.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),447455,76a4d778caf6c48d2d3d86a19d65cfb191b6ef2f7057ce4ca537d466d4b8a51e
+model/exterior/candidate-r03/renders-r03/neutral_tiga_perempat.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),449168,eac3a953b5ae8c6a9756aa126ba5820f6b11d822276474e053727e9557013492
+model/exterior/candidate-r03/renders-r03/render-settings.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),890,56adb5c9fdcc8df5b26374a99ad1ff4cab7c8b1512cf9449db0efdbce06d306e
+model/exterior/candidate-r03/renders-r03-aircooler/assembled.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),1427565,c3c52f31d79bd575c533efe94c4b586800bee015039d1f9fb0375943e06c0d09
+model/exterior/candidate-r03/renders-r03-aircooler/core-and-open-bore.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),1637968,0437b9bba80614efcb4b48a9d47a827d188479b68df32f856372769120f321f8
+model/exterior/candidate-r03/renders-r03-aircooler/exploded.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),1456037,3ad8a339d1947aa4ccc8ccbf5b90b581b9f1149dce6840984e77ffbbd7de427d
+model/exterior/candidate-r03/renders-r03-aircooler/render-fit.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),2976,aa982d302008fa48b96cf5f3a31f559840644b5c6f85ba7ed6b216611ca91418
+model/exterior/candidate-r03/renders-r03-aircooler/xray-assembled.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),1588068,520b05dd38eb184030e262c3ae70b284b1f12f037f87caf7880bc89344c71cde
+model/exterior/candidate-r03/renders-r03-aircooler.log,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),43062,4c611baebadcfd4ee0128bace22e3345a922399dab5b667d9664240031b5a9da
+model/exterior/candidate-r03/renders-r03-fuel-regression/r02_p07_color.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),730011,8ae1c8e9974c1a93c09c02dc52a7c53481a8024f0ac46519fca5684122d2567f
+model/exterior/candidate-r03/renders-r03-fuel-regression/r02_p07_neutral.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),460805,139c338ec2377cb58d748b00815078a24b682ee97ef876c41bcc6db07db6c768
+model/exterior/candidate-r03/renders-r03-fuel-regression/r02_p08_color.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),750728,f5ea0ab26551674181bcb788fb2590e71df63647ecb99762a05c6d78298fb850
+model/exterior/candidate-r03/renders-r03-fuel-regression/r02_p08_neutral.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),465865,9c4bd9bcf104e8285510141c5eba2d91c8d99f2d077a8e920a0b6003cad71f77
+model/exterior/candidate-r03/renders-r03-fuel-regression/r03_p07_color.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),730295,b6626b31f6e52ee959b60996a971caf74569814c86bd42c22af3f626da99930a
+model/exterior/candidate-r03/renders-r03-fuel-regression/r03_p07_neutral.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),461526,1916f9d72a32b0afdcf91edbd9807c3310280d2af60abadeb19b382bb43c8f3d
+model/exterior/candidate-r03/renders-r03-fuel-regression/r03_p08_color.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),750410,eb4cae281964215cb93d0e1fa23ea197ec5dff7a965b67e9c4f683fc75f1fc66
+model/exterior/candidate-r03/renders-r03-fuel-regression/r03_p08_neutral.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),466729,da46abf15680fca03dd2eff173c8ea0ebffaa7428a3e3ec65ee434ec202e06c1
+model/exterior/candidate-r04/compare-r03.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),6049,8d6fbba6f16edf7560084fbcd43a3b1f7779342d67131522e845c1bca6424af2
+model/exterior/candidate-r04/export-check-r04.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),481,814a65108d6a44b5ae7fa40218dc8e20b42639a76ed23c522781b36caa30044a
+model/exterior/candidate-r04/exterior.glb,historical_geometry,agensi/arsip-asli/ (R06),19014008,b60f09f300fc80fc676a7bd88cd9eb0c19570f85cb2c15c8aae0121c60077bdc
+model/exterior/candidate-r04/hashes-r04.txt,evidence_or_historical_render,agensi/arsip-asli/ (R06),327,8b147a6489a0a2bd49101dca25fd54c75f1451abf2c4b169d48df67a4409a543
+model/exterior/candidate-r04/host-surfaces-r04-candidate.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),23789,84afac2783316b0801da0d84d5e00056ead85240283cbe5445c3f00fcb3574c3
+model/exterior/candidate-r04/inventory.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),389977,08914a0b6be0d88f84a176d5c580dceba94b9bc96235b9797ad5bf5aa4ee64eb
+model/exterior/candidate-r04/render/color_atas.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),551840,620f2bc6e830025c4a3c2c70bb47bd79d10bba1d48c9e33075f1b5e0a18b9fd2
+model/exterior/candidate-r04/render/color_belakang.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),504370,2157cb34e2013f8ab6ac578d19cb15069c85245ee8bfc793aa6d9de0708326f0
+model/exterior/candidate-r04/render/color_depan.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),491773,5b0c4f4961be6a31eeae0327deaa47bc83d4af5b1551f8982a9c3c1f05eeb985
+model/exterior/candidate-r04/render/color_kanan.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),593624,3da7f592987d65c7ef31e506422c5e54c56456cea941888d0b929ca4cc7911e2
+model/exterior/candidate-r04/render/color_kiri.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),589000,52512ddb1fba672207912cc68350a1f7b309129fd25a03b41e2402e36be3cf24
+model/exterior/candidate-r04/render/color_tiga_perempat.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),594748,67f0e90fba98267ba1b79b3c4152b48a7b166b0fb4dc87c6bb24a4c4b9508b95
+model/exterior/candidate-r04/render/neutral_atas.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),433955,ed5d303cb5f2540161884f6b77fc0f78f854fc08c7776cc24a631517a70db345
+model/exterior/candidate-r04/render/neutral_belakang.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),401929,95fe3509f9d090db412f8bbb142357415432aadabec7de344dd298478a8394f0
+model/exterior/candidate-r04/render/neutral_depan.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),398225,4a44a8c6fd500b78f898cdeccc550345b28ff104fd0db58249c0ddc1d4885e04
+model/exterior/candidate-r04/render/neutral_kanan.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),459205,08dad2c5301ca4802b04782ff64fc3d7b8e71ce1bb1bb716d786e392958b4fcf
+model/exterior/candidate-r04/render/neutral_kiri.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),451887,cd40fe08c4deb68520a205c6d9e44c19d04492a8e4d9d6b118e6bae031a791cd
+model/exterior/candidate-r04/render/neutral_tiga_perempat.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),449698,ba4e8702b57f9e7114437c94f92bdfeaa2201f4ae5a4455bd1d53b514eda6206
+model/exterior/candidate-r04/render/render-settings.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),969,58ced5a7495137391c846e7036bf474014fef4e4418920627d428e7682c20ddd
+model/exterior/candidate-r04/render.log,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),575957,b59758ac18b8473d9734e03358185e1ecb6ea4a5a5989a00b348a1ef0a2cf585
+model/exterior/candidate-r04/source-sync-evidence.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),1185,4765c41376d134dcb08ad68d1f810d393632669bce191ff2541b1c43d5491fb3
+model/exterior/candidate-r04/source-sync-r04.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),842,49925f0f8dad147ad44187ba0d2437a12eaf356f4a2a54998242d340bccc2fc5
+model/exterior/candidate-r04/working-hashes-r04.txt,evidence_or_historical_render,agensi/arsip-asli/ (R06),327,8b147a6489a0a2bd49101dca25fd54c75f1451abf2c4b169d48df67a4409a543
+model/exterior/charge_duct.py,generator,agensi/produksi/source/model/exterior/charge_duct.py,8659,851abce1e86fb2e11918cbf898eb7a7817ca1860c368f09d01e6717710ef8a41
+model/exterior/check_export.py,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),2216,a3d2225704ffeb42f5568b6cc3e1640febb34f1f916b639139b4b2d06a5fe48a
+model/exterior/check_r03_interface_fit.py,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),1339,f793061cf73ffbee343b41139cc250a8e7e2ee14344541705bb69387a9f4ba70
+model/exterior/check_r03_recipes.py,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),1389,534ed61aea80747e2256863bc8e985ec130e60d1c1afb9760025f83031d3550c
+model/exterior/check_r04_compatibility.py,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),1595,6e18276e0ea258adf3560d2d3c2e8b26c1c3ecb2e254aa1d19e2b2e945f1b646
+model/exterior/check_r04_host_surfaces.py,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),4555,7a4e1b37e8719f196321ad7979aa6c3b4ea0e5db278c9104167f223441cdcd30
+model/exterior/check_r04_source_sync.py,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),3647,25484d3f04a9d60d22bf15eb51b402dd23d05133536f35aaf469c01318e7723f
+model/exterior/compare-r04.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),4148,17ff07742de363fc5191b6e295082878a777def5a8f5be35f2017682fc6883e4
+model/exterior/compare.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),5350,e9947012016ddffba3cc712110267b07e6e3bff4c0c8ee5d1bb6ee5316cae3b2
+model/exterior/compare_r03_pump.py,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),2401,e081159ec3db32fb8f0c805b5c71c10303d0e4b65b92f2c74c142dc9b7d1c1ce
+model/exterior/compatibility-r04.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),1384,7e4e794ce95b5d37cd50a044353db09778c29deae766a7c40063c5c302a9157f
+model/exterior/duct-candidate-r04/build-r04-final.log,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),33291,71374c057f346e533e02dc61abdfff7267adc04507be2f7a2c18ada703f37ffc
+model/exterior/duct-candidate-r04/build-r04-input-verification.log,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),449,5110a5c2f07ca7d6fbf5cfff0497c5ab6d02d67bc2073a24e53920968b51ae5a
+model/exterior/duct-candidate-r04/export-check-r04.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),481,8fe033cfb998bdb76a8a4ef20d23ee76ec1695e2515c1cb2a8e01d91f335d4e0
+model/exterior/duct-candidate-r04/exterior.glb,historical_geometry,agensi/arsip-asli/ (R06),19853984,62c91fdb3ba8f7306a7e2ea780180988578d7719c3aa647baf325917792aec1e
+model/exterior/duct-candidate-r04/hashes-r04.txt,evidence_or_historical_render,agensi/arsip-asli/ (R06),327,7afd008c0c6f7ee08e7f9229ddb4645192b22a1f61e8aeaa7b54e8ca0888bb41
+model/exterior/duct-candidate-r04/host-surfaces-r04.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),25163,d24b1807d0caeda7af1ac57cd6c3620e56dbb83bce5d9785e8f4c8f03d738f58
+model/exterior/duct-candidate-r04/host-surfaces-r04.log,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),37519,0ffadf86b8dc352365ecebb4f96a040e9a929010620132d964ccc5382c583204
+model/exterior/duct-candidate-r04/inventory.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),438383,06d13d7dc1c668ff57831e1e6e7d2b1d844dc4e720f2543e6ece3c5b514157d7
+model/exterior/duct-candidate-r04/nested-r04-export-check.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),2870,b302ebaeb95b02c69a277d1a6af83949b637fb2b629930b5f56134fd1eb3ebb2
+model/exterior/duct-candidate-r04/render-r04-charge-duct.log,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),40755,9de6d65c06fa3a5de2dd8ca7a607870509a3c4dd32ffd757ba9e288cbc604ea4
+model/exterior/duct-candidate-r04/render-r04.log,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),640842,83fe4e4eaf5ddfc581f256511b315cea4f13483f0d15c200d8da491a72589f2f
+model/exterior/duct-candidate-r04/renders-r04/color_atas.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),552524,fc4f715e0b28f70eeda2a8d3e01d0382937aa47ee6eccc7c66a57161121a4e56
+model/exterior/duct-candidate-r04/renders-r04/color_belakang.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),505381,82dfc801021a451008633933f2c28d6437d935b55bbbfbaed7e07f6a5c16c2b6
+model/exterior/duct-candidate-r04/renders-r04/color_depan.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),493285,ffa26d9c4da61dec84479be466b1d35c6f52a41902ae4e75f36e9a1e7adba43c
+model/exterior/duct-candidate-r04/renders-r04/color_kanan.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),593613,a40faaaa8d396038446a699415ab7c9397d4399d2f72296c6005e96aea9f7920
+model/exterior/duct-candidate-r04/renders-r04/color_kiri.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),590993,4b01695275e2ce09ef5568ad0ee5730fe241ce4f2d72291e7cefdf033581abc9
+model/exterior/duct-candidate-r04/renders-r04/color_tiga_perempat.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),593992,6d40711919794932e96ec6877c44bace0c913ca12aa56cd4718782d2cfef988d
+model/exterior/duct-candidate-r04/renders-r04/neutral_atas.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),434756,f77e3580ff095d8de9f23822a4664bd6c10a240c3a3b899a769312b1e0b82be8
+model/exterior/duct-candidate-r04/renders-r04/neutral_belakang.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),402726,2cf341f8a3d945c5cdf1e63f431a25de08d813d65130f358b2bfa1f3956b0d0d
+model/exterior/duct-candidate-r04/renders-r04/neutral_depan.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),399003,807cb6322c7ac8d86078be1689462648420807b70e722eedfbee1b841733587b
+model/exterior/duct-candidate-r04/renders-r04/neutral_kanan.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),459630,6075c03b2b9dc34b298031c9e5d7e34619fa6e34f35261e002665a842e2a8812
+model/exterior/duct-candidate-r04/renders-r04/neutral_kiri.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),452199,e6463e165e059a498b04a898fb0b62882ecece3de43b3211130e7c1a124da615
+model/exterior/duct-candidate-r04/renders-r04/neutral_tiga_perempat.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),449893,cd3da27455fe886649044bc4f6268405f68552c67b4ce8821e3a8ec54174df9e
+model/exterior/duct-candidate-r04/renders-r04/render-settings.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),890,f8e1980b0d8980bcef2057c716abdf3859463fd6d8b1f47f05d886bd9653a962
+model/exterior/duct-candidate-r04/renders-r04-charge-duct/assembled.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),880950,12c329210ae45a487f125df1135e15b0458d874a367dac21f7b91f00de377e33
+model/exterior/duct-candidate-r04/renders-r04-charge-duct/exploded.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),841530,ceb51e3a1ede92d1a21f7afcfd9715f56a28f383ddf702b06a10de85e3266cbe
+model/exterior/duct-candidate-r04/renders-r04-charge-duct/render.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),249,c20ca960e1516152bc31f09c6d683eb68de39ea33ee5d5ba8c21b255fb21b7a3
+model/exterior/duct-candidate-r04/source-sync-r04.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),912,59ab837e2201fe61a9fdd5a9cf9bdba51d458f07cfe2aa87db3c76de43cb0a3a
+model/exterior/duct-candidate-r04/sources-r04-SHA256.txt,evidence_or_historical_render,agensi/arsip-asli/ (R06),1441,bb0e9587c62f7ced4fd7dbc18dfc2acbded51a348a909edf1691b1bb3f271d99
+model/exterior/evidence-r03/D01-p165.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),109632,55d703b6977ea1a8451f71d3314321108d4811ebb8c9096f9fd8e85255ec3c47
+model/exterior/evidence-r03/D01-p166.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),149140,7219b45e2417762cce298a0db167ab567774bd6c4619d98bb23c64d24135e58e
+model/exterior/evidence-r03/D01-p167.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),125885,7df4ec61cf5f0ff3b05fc711610b41145ef849e8bb792096c1b780f784cf2dae
+model/exterior/evidence-r03/D01-p168.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),118853,64d60fb667d9a97baffd6ea3421d44a9c965a6acd6fc0d6f706185bd99e3a044
+model/exterior/evidence-r03/D01-p169.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),84007,0b3b7f52480f8f36ab1f373acf7497dcb48b2b25c05142ef0d017e3e64af184d
+model/exterior/evidence-r03/D01-p31.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),130012,0dd8a1c148a8c01b22780e7155258505b5ed04693e8e1c062e44dc752d102714
+model/exterior/evidence-r03/D01-p32.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),129275,873dda48688980277becc10a4559013a70197f273f9e9b1d4872346ade3ff88d
+model/exterior/evidence-r03/D01-p33.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),95828,18faeeec7605a993f06baeb4d16ac668cdfc29696966f891cc25c223f8a41c5d
+model/exterior/evidence-r03/D01-p34.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),81682,acc98fd39dafb81d7629c36826217a701240a09071a04a6a83a2c2625dbfa9cb
+model/exterior/evidence-r03/D01-p35.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),206153,ac3cfb233db8d3777d79a4784ed1d15c2a3caee934b8dc6672289656038beba3
+model/exterior/evidence-r03/D01-p36.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),172047,6ffee49c2091aa94eca1d9ca12341f17da2c08a71e84b00b2055400011c06d61
+model/exterior/export-check-r03.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),481,247d7c68d3aa6d4da4f935c694551be9599b867d421bea581a3cffe16ea1d4c8
+model/exterior/export-check-r04-prelim.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),479,a881e9cd35279c784f6051e1acdee81873f96c58dce34bd99cc3a32e6e8e3b71
+model/exterior/export-check-r04.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),481,220486be6df97756acba07c00d0c294e991fab21ddd6ea5c2e19ac360328b52f
+model/exterior/export-check-r05-first.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),481,62fb8848645d43954c8156c03841c0fc6a769d8b581746065b7b2ceb109f33c1
+model/exterior/export-check-r05-second.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),555,e5256cc53cbf3376318d22a7129bdfec167fe7055e71fd0a33012182aef1e984
+model/exterior/export-check-r05-third.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),576,71440654361a1a41185e155c8ef0021a6a0a413be1eeb6578cbe037c25d03b4f
+model/exterior/export-check.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),481,220486be6df97756acba07c00d0c294e991fab21ddd6ea5c2e19ac360328b52f
+model/exterior/exterior.blend,editable_master,model/masters/exterior.blend,49638528,348d31ac5de8b16352421f643291410b86d59e9634988d0a5ca6d2dfdfb12157
+model/exterior/exterior.glb,review_export,model/assets/exterior.glb,22506508,defc58c070a871da2068b2ddd4388ff51b340a1014dfde2226f7e47946a89121
+model/exterior/fit-r02.log,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),4727,f0f19c10bfbc1be61d10fde753ec89931a5c7056cd7851d35f417c327ba40d95
+model/exterior/fuel-fit.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),12730,66d2d52983db78a2f9abbefed7a23166173ff5dc99d75c0aeab065360301cbff
+model/exterior/hashes-r02-initial.txt,evidence_or_historical_render,agensi/arsip-asli/ (R06),241,2e5c10eb3097352f3d5e593e5dd8aa16d2089bfb8a2f119b6a3942e0277733a9
+model/exterior/hashes-r02-second.txt,evidence_or_historical_render,agensi/arsip-asli/ (R06),241,85ff351109f706d88b52c4568ef2e00cf6689d8aaef6135a2be80755b4f7ff32
+model/exterior/hashes-r02.txt,evidence_or_historical_render,agensi/arsip-asli/ (R06),241,29d7485cb07fb056251702b0298b670537cbdaaadebe75035b583f16d0594d1d
+model/exterior/hashes-r03.txt,evidence_or_historical_render,agensi/arsip-asli/ (R06),241,f987d053928676a2941fef2e3dc1731b6295ca379e63d30d07429724ca105030
+model/exterior/hashes-r04-prelim.txt,evidence_or_historical_render,agensi/arsip-asli/ (R06),241,e2b574c777b2ab014d0ac5be37a0b9d88fd6a70c6e99c9157e2f498fbc7b5e0c
+model/exterior/hashes-r04.txt,evidence_or_historical_render,agensi/arsip-asli/ (R06),327,1a17b98908abf2d3703eb63bc634eb8f0ec247d3952570521e263058ab0c42ab
+model/exterior/hashes-r05-second.txt,evidence_or_historical_render,agensi/arsip-asli/ (R06),327,26c5682a00524765a44a20f6b81688f863b57bc457718ef808b13bef04a5cef5
+model/exterior/hashes-r05-third.txt,evidence_or_historical_render,agensi/arsip-asli/ (R06),327,74b269637b4ac536ea8493dae007ec01c4108c4f60584b9b1f6ff75ce01af04f
+model/exterior/host-surfaces-r04-candidate.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),23789,84afac2783316b0801da0d84d5e00056ead85240283cbe5445c3f00fcb3574c3
+model/exterior/host-surfaces-r04-candidate.log,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),35279,5cecf69ccab4ac0a4df18667d3d367043cffed5b52718b4208fcfb4fd3e3eda6
+model/exterior/host-surfaces-r04.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),25163,f2ed28edbaf53875e936545fe56cd37e39476ff81fe72bc22793fa875a1a26ad
+model/exterior/host-surfaces-r04.log,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),37519,cf8160426dd11280283724151cf8d34ee412fb7e39d66df46fbfa5c01510f7cb
+model/exterior/interface-r03-fit.log,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),17415,768e359a7e85a5776a013a2034c78c4af7704a73cfd9224be4d71fd62b37a9d4
+model/exterior/inventory.json,generated_registry_or_recipe,agensi/produksi/source/model/exterior/inventory.json,598324,a20540d3cc4ba4c4c697cfbc1326e61307663fbb961cc22284ed4f4d3cc8e961
+model/exterior/nested-r03-export-check.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),2755,5e90a91dd8b882efd9990ee9bee7dfcca4574982acb3c75bcb2b6e06438413c4
+model/exterior/nested-r04-export-check.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),2870,b302ebaeb95b02c69a277d1a6af83949b637fb2b629930b5f56134fd1eb3ebb2
+model/exterior/piping_ports.py,generator,agensi/produksi/source/model/exterior/piping_ports.py,2998,01069b0c9762a1040eb93222a42e53964e74848e7934db65e902a92cc273751c
+model/exterior/pre-bosch-repair/build-r03-final.log,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),28555,bc58761d9dcff12f03805260a7baf18ee821843c1e166c000d31e30044299cda
+model/exterior/pre-bosch-repair/compare.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),5231,1f3828f3b329497c08de8b4d5344b1b4fd52d2ee6c12ca09577265617efd32a7
+model/exterior/pre-bosch-repair/export-check-r03.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),481,d89ed6a037f848d7d035256a4e079c2ac09e391140e4c539733992b284e094c9
+model/exterior/pre-bosch-repair/exterior.glb,historical_geometry,agensi/arsip-asli/ (R06),16640016,09d94e93ace98fe442ac9689b4752771a52e71bc97492683a99a4d81a08f3520
+model/exterior/pre-bosch-repair/hashes-r03.txt,evidence_or_historical_render,agensi/arsip-asli/ (R06),241,76155bb80f4d0dd4dd11ea1ab49c21a59187694c051a1b1401b3dedd29b9f29f
+model/exterior/pre-bosch-repair/interface-r03-fit.log,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),17389,fd875fe6586e39c5a34e7bcc2c4eda4d0cbd369506bb0ac5196231150e6889d3
+model/exterior/pre-bosch-repair/nested-r03-export-check.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),2755,5e90a91dd8b882efd9990ee9bee7dfcca4574982acb3c75bcb2b6e06438413c4
+model/exterior/pre-bosch-repair/pump-r03-regression.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),490,321061ae5b5359e7d29acb422e3b0fccba926affbbb49603405c664f9dbe7d99
+model/exterior/pre-bosch-repair/renders-r03/color_atas.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),547635,ac81f6f3062093dd9852e7f796588f87425de893eaed39d83b0acb9ef8b5693c
+model/exterior/pre-bosch-repair/renders-r03/color_belakang.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),498993,c21310eafe5f57bcae3c5d11bed02409b6294b1370c36b50275185085125ee02
+model/exterior/pre-bosch-repair/renders-r03/color_depan.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),488486,48459aa3735e8eb6b417a50a8cb3ce5ed6c87716a837b0bc51d3c300be03a2ea
+model/exterior/pre-bosch-repair/renders-r03/color_kanan.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),585134,95a25c39884990c5dbf81decc4a569da2797623dc5ac46bc348465686cf6c779
+model/exterior/pre-bosch-repair/renders-r03/color_kiri.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),584720,f48d569e9dbe446359d3086b1849727e19d389c5f554bcc6fccada8b89e8c459
+model/exterior/pre-bosch-repair/renders-r03/color_tiga_perempat.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),595853,1ac2d2f5b24c51a2c1571e8f8df1d984b27901bc31413eeaf9faee06a4ec05cd
+model/exterior/pre-bosch-repair/renders-r03/neutral_atas.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),431654,99aa7f93632065c2df677bb299747fb8605e55cbb2e28b6681d1a31ae348cf5f
+model/exterior/pre-bosch-repair/renders-r03/neutral_belakang.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),398897,c561badc923baffa6dd897919d87bfabbd02c48c46efa5180ad234cf7b3a222d
+model/exterior/pre-bosch-repair/renders-r03/neutral_depan.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),395273,1a6c217011e9f152aa6c8a14cefa591addad12b83b1db4ac43c2031e35a4f14c
+model/exterior/pre-bosch-repair/renders-r03/neutral_kanan.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),454363,00fd0c1f960b3849a2645d792685c80bcf854a97826ca66034a2fcd487fdeb94
+model/exterior/pre-bosch-repair/renders-r03/neutral_kiri.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),447378,5e2bb36d2fde644b0a492e1908243b82f73221fa84713781e7c832136e766731
+model/exterior/pre-bosch-repair/renders-r03/neutral_tiga_perempat.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),449142,2e4270c4380e4c057295566f6d310b92b11ff3ef48f44e23a74bf6380ee254b6
+model/exterior/pre-bosch-repair/renders-r03/render-settings.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),890,56adb5c9fdcc8df5b26374a99ad1ff4cab7c8b1512cf9449db0efdbce06d306e
+model/exterior/pre-bosch-repair/renders-r03-aircooler/assembled.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),1427565,3251ec239f6fb23bd0a2e7cc48a96b10e428d4661e4205ffd5cf2283e584386a
+model/exterior/pre-bosch-repair/renders-r03-aircooler/core-and-open-bore.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),1637968,c0e819ed7c5305621dc9dbc47868c769fc5c60969d8cf2d147e2ea9376e8e163
+model/exterior/pre-bosch-repair/renders-r03-aircooler/exploded.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),1456037,242614b3f643b96f1abd36f94d0c885f154ddd40e467b347775f6da21386057c
+model/exterior/pre-bosch-repair/renders-r03-aircooler/render-fit.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),2976,9f518ccd9e2a16266fc0fdc2e20bd0a388b2a8825f974dfbb1c3086129dfefba
+model/exterior/pre-bosch-repair/renders-r03-aircooler/xray-assembled.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),1588068,168059d16aa774d52e33c19719544664b51ab55303883563479de402cef1b051
+model/exterior/pre-bosch-repair/renders-r03-fuel-regression/r02_p07_color.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),730011,4e5805034fcb524000661eeebb63c27a439ef7c3a958c66621511c5e9e6526eb
+model/exterior/pre-bosch-repair/renders-r03-fuel-regression/r02_p07_neutral.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),460805,e4f96b6b6b0fc9ea2a6774147b6a73f4526f03290f2020782bd5f56aab8c026a
+model/exterior/pre-bosch-repair/renders-r03-fuel-regression/r02_p08_color.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),750728,e58ca91036f67d73f2600070668e3c6b369cdff24c3b2603a867ffe2ab8ee507
+model/exterior/pre-bosch-repair/renders-r03-fuel-regression/r02_p08_neutral.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),465865,b25b66ee929af68d943c074669d622fd03e2caeecdb2f4b26ab29effaf917f77
+model/exterior/pre-bosch-repair/renders-r03-fuel-regression/r03_p07_color.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),730248,2a6cdd7b4aed02d81c17ca5ccf7e58a54a4c486442f1ee5ca19a0bba0bcb1cb5
+model/exterior/pre-bosch-repair/renders-r03-fuel-regression/r03_p07_neutral.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),461521,14d25a1bd9c78e8f0b177b75490d810a02eabc37b4a8c62062c6b540404636ac
+model/exterior/pre-bosch-repair/renders-r03-fuel-regression/r03_p08_color.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),750394,b561516c3e25f159b093476d07103aad198a957b7e2738a8ee2288bae12a9465
+model/exterior/pre-bosch-repair/renders-r03-fuel-regression/r03_p08_neutral.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),466733,1cb5ff178a6c20b4ee543ced3695625c6ed4e8c9462057ada269da62775a545e
+model/exterior/preflight-r03/build.log,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),2161,1f70a8b820743a0f9a6040fbbf6be49a47664b96f1368020d8fa1bd813ac66c2
+model/exterior/preflight-r03/model/datum.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),39054,a63304de589ea4ece2c5f62c1a7f24f9c3fa43aafbfd869bf76f598aeb42efbd
+model/exterior/preflight-r03/model/exterior/build.py,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),51217,2b7952243a92d4a80ba911141ac26c51d4a3d60077ea43f956f8ee0bbee9e450
+model/exterior/preflight-r03/model/exterior/check_export.py,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),2216,a3d2225704ffeb42f5568b6cc3e1640febb34f1f916b639139b4b2d06a5fe48a
+model/exterior/preflight-r03/model/exterior/render_r03_aircooler.py,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),6080,8146b28494a29c0277a7f0cffa1df9ead51567174f8ed1e68a7a8aca068fa014
+model/exterior/preflight-r03/model/exterior/specialists/air_cooler.py,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),11717,6da6a1dc6aa4091692af3386d7833f18d53955d00a09916c6fbb9083332c497d
+model/exterior/preflight-r03/model/exterior/specialists/cooling_pumps.py,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),10077,6db6b6d191034bcae186c398f089e582fb7bf75a2389296cb8ed51491a62fcfc
+model/exterior/preflight-r03/model/exterior/specialists/electrical.py,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),10282,d4e590c3a26f03fb0e83c0dcff5af5994c577914d4da8a142b1a55cffcf58073
+model/exterior/preflight-r03/model/exterior/specialists/filters.py,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),11206,60b188e7a1adad4aa98dbb9cf2bd54bf081d1b741833c22a8f2ecdc916b3cb56
+model/exterior/preflight-r03/model/exterior/specialists/heat_exchangers.py,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),11161,c349618436c90c275560ca8b769c6349e032777e99335b1add011b55550213b3
+model/exterior/preflight-r03/model/exterior/specialists/injection.py,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),8170,77864301bfbe1f5c2cd84de1cb3f0aa706948cc7fbe61815c0b4e05b2fe92615
+model/exterior/preflight-r03/model/exterior/specialists/pump_accessories.py,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),8540,261673be8ff9cb59b30c82d4e55bed837a8c3166e6740824fccfc3b42acb87fa
+model/exterior/preflight-r03/model/exterior/specialists/turbo.py,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),14538,349ac379e919a87034397f2d97c27da11f8b466801b39cdc5a70ce9121f5d1bc
+model/exterior/prelim-overlap.log,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),16298,b303a24476ae495f8748e9ae0feafb3c302c48de2d9a9fe801fb6e7dbb008878
+model/exterior/prelim-r04/export-check-r04-prelim.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),479,a881e9cd35279c784f6051e1acdee81873f96c58dce34bd99cc3a32e6e8e3b71
+model/exterior/prelim-r04/exterior.glb,historical_geometry,agensi/arsip-asli/ (R06),18182524,1c026e0e2126818d4aae4fdfda47adecf0836dc307909615f3478241f7334917
+model/exterior/prelim-r04/hashes-r04-prelim.txt,evidence_or_historical_render,agensi/arsip-asli/ (R06),241,e2b574c777b2ab014d0ac5be37a0b9d88fd6a70c6e99c9157e2f498fbc7b5e0c
+model/exterior/prelim-r04/inventory.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),390941,c67f736e87a7cc40355b70e2c9f03893e92bc74af43119e6126b7e60846aabe5
+model/exterior/prelim-r04/prejoin-export-check.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),481,6554e469f3bbd9fe8494387203c559a071a786985a7ffab4a1f9fd4a7877442a
+model/exterior/prelim-r04/prejoin.log,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),29704,11120e283df2a00c8ddffabf8ab0f08bed33faa9128f4927f6b51c6160bd25f6
+model/exterior/prelim-r04/render/color_atas.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),309440,9335563dc45e2729afaf4e3c38dcddbf6ca3c2c9d2df437aeb6d4aae117bf77b
+model/exterior/prelim-r04/render/color_belakang.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),274675,5763780c55e42aa70a5c42d2bfcd4421486e5b8f14af198d1ef1c8c31e4513c5
+model/exterior/prelim-r04/render/color_depan.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),267976,e1f3177c230489cd0f40968ab52ff46475c29125868fb4a55394b06c14c91052
+model/exterior/prelim-r04/render/color_kanan.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),324084,d74d2a0d167209f7088717aa86ee2e140b78c7b4e8e5574d5c16e14b888dc721
+model/exterior/prelim-r04/render/color_kiri.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),325128,f6dd141df4d67b43fb37696e263a2436f989b6c509c9b1b43691087ee2fd3627
+model/exterior/prelim-r04/render/color_tiga_perempat.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),331504,fce02b1f64fefa638a796aa649ef14fa2d930f7daf8f4a2d1e26ad130c8c6783
+model/exterior/prelim-r04/render/neutral_atas.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),243860,5e34d8ca8f2f300e05dc565b2ff9bf47c35142c163163f9306afc36a0edacd55
+model/exterior/prelim-r04/render/neutral_belakang.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),216856,e93cee712988f7e910ce19b22c08dd4482b4032adb235da82cd2308326e50f96
+model/exterior/prelim-r04/render/neutral_depan.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),215422,09e8ef830a1603a2ce2afda63a1619cd80052b23cd2bf3489cacb273c5bad623
+model/exterior/prelim-r04/render/neutral_kanan.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),249096,dc54a6645bc0a9d1aa54d26fa9f757ac1ecc9834b3b20c7814f1e6b39acdf6db
+model/exterior/prelim-r04/render/neutral_kiri.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),245661,8588cc332bfcfd2d1796aa2a9737d9ed58a60c07a968da47fb48052eb66e5dc4
+model/exterior/prelim-r04/render/neutral_tiga_perempat.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),248711,855dbb5700a52093ca6dd0fd6896654a99ff20d7937f72ca8f679df7bf9b572f
+model/exterior/prelim-r04/render/render-settings.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),966,6917637c1c91c71a2c7d45ba510f2e4233dc35c8b075492a22b8c811ac7728bb
+model/exterior/prelim-r04/render.log,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),578337,717710182b2127af20b8dda159b5ef7bfd60be9b464fb9491c8739f0aea20e16
+model/exterior/prelim-r04/source-sync.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),1067,c04a3251e0f789d58a45043810c31696e8027acc6dc5e6c62b57826541caad46
+model/exterior/prelim-r04/staged-host-surfaces.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),23795,f41e14f1bdbaf4e246c30a6d4eab025663e4d30251a1af698e10b48ef3af2b8b
+model/exterior/prelim-r04/staged-host-surfaces.log,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),35336,cdfe2e623e525c6e5c59a888be74133d1b02a16514794c6bb0aff17941383a76
+model/exterior/preliminary-r03/build-r03-final.log,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),26068,2aa7789ecc7641ad43a7a84e9d7a6693e6347744a73986a1b942010e67b8a752
+model/exterior/preliminary-r03/export-check-r03.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),530,8350d148cd08f381c4a4393221fabadf73d49f97641734abda17c15f23208f71
+model/exterior/preliminary-r03/exterior.glb,historical_geometry,agensi/arsip-asli/ (R06),16195160,bba7f1e1dc4baca7ed8c68caa63561264905d62f9c524227e0d4b126296ad707
+model/exterior/preliminary-r03/hashes-r03.txt,evidence_or_historical_render,agensi/arsip-asli/ (R06),241,92c1b738b1ef2e00d9c969dc2b28d052acf6590d76767a85e7bace444bedc06b
+model/exterior/preliminary-r03/inventory.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),344979,553da8b792ad7879cffa1c6cd57d25ae0012549e155e7fcca985c1373e6a08dd
+model/exterior/preliminary-r03/pump-r03-regression.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),490,490f40b77453f0d193ee7418c23e9bdba918ca2c612ba06cb03b968c369e3833
+model/exterior/preliminary-r03/render-r03-full.log,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),514103,34820310d49f3229d30e011c6a3d0ccd70a9f48877e7a29b945c99f8f500e2c6
+model/exterior/preliminary-r03/renders-r03/color_atas.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),540598,b4cf0d30f3ccc460c35a10835a0e13c8eb4d90f9f9be5a3e03ac176ff1f77ef0
+model/exterior/preliminary-r03/renders-r03/color_belakang.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),495405,6e93278f65ae9ae81d7441b2fadd72e68d141216cd804565c1fee654e5c50df3
+model/exterior/preliminary-r03/renders-r03/color_depan.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),484126,a9b4f8b06f429d7ecdb0d7cedf45d6170ee862011b452214bdf68227218e3d1a
+model/exterior/preliminary-r03/renders-r03/color_kanan.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),581065,b3a2a0fabbcc9843db7ffd2b3a2b62a91952276231cdf2d6e4690db422dd08f5
+model/exterior/preliminary-r03/renders-r03/color_kiri.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),578737,faabcb548b83672fdc8d1f9c32761c346941345e66bdbe7552415b66aded0694
+model/exterior/preliminary-r03/renders-r03/color_tiga_perempat.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),586713,c34e45ee8c7ba82ce90930dee9474c95bd6b553473166e4fa68f45be20426242
+model/exterior/preliminary-r03/renders-r03/neutral_atas.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),428136,948453f781fd029d09dbc2a3e71c5b6464323969d4590a2b87c5396b4cff5a85
+model/exterior/preliminary-r03/renders-r03/neutral_belakang.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),395861,4cee3398e2345bd19ab95fda43be98f1472a3b2a0dc800a2be68375bd4dd40d7
+model/exterior/preliminary-r03/renders-r03/neutral_depan.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),394033,90a149d59108bfedf1955b81ad4f2978a3c6b2adefd023fea1c7662db39a342e
+model/exterior/preliminary-r03/renders-r03/neutral_kanan.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),451383,bc27ddde0eac47c2878a1feded24a7fdfa35845f0f97d6b97fd532532c67a9fe
+model/exterior/preliminary-r03/renders-r03/neutral_kiri.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),444247,e6c9f0c7d2dfeff940accd5c797bec89de168ce37075996ceaf42c0ffb2164d4
+model/exterior/preliminary-r03/renders-r03/neutral_tiga_perempat.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),445629,b67de4037d35f1f759f904815350848e045e937b803b78b46689192eec63d80b
+model/exterior/preliminary-r03/renders-r03/render-settings.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),890,73da8be4dc3ab679567957afdc3e63dfa8bfdc650c78f973f85a8b5c09235a3c
+model/exterior/preliminary-r03/renders-r03-aircooler/assembled.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),1427565,860c79ee6bf0ff840df08a9ec289d67ccbbf590af5eccfd49dd9827dc0e5bed8
+model/exterior/preliminary-r03/renders-r03-aircooler/core-and-open-bore.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),1637968,09b7e68420847870643f1d2b86e91bb328a04cd3d22a0a7d1a10c6fe508062a9
+model/exterior/preliminary-r03/renders-r03-aircooler/exploded.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),1456037,dd79f2e951ddc249470560573f94926bc1544d727430a7932d571c3dbbdf8751
+model/exterior/preliminary-r03/renders-r03-aircooler/render-fit.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),2976,19b16687079a7681e20e383bd973c9c8ff5853b9e12a970022a8ae71e1483963
+model/exterior/preliminary-r03/renders-r03-aircooler/xray-assembled.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),1588068,06b93dfda7e9c422735b5bec5374fcb373e08bfadb546480657158b9c14920c8
+model/exterior/preliminary-r03/renders-r03-aircooler.log,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),41419,d036782f9608364d020773c36d9537ce2b6d6e73f979ebe1965da0d8f01fb15a
+model/exterior/pump-r03-regression.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),490,321061ae5b5359e7d29acb422e3b0fccba926affbbb49603405c664f9dbe7d99
+model/exterior/r01-baseline/compare.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),9070,d07b0c3b41fe842502dd6b9528a4a6e731d5bc4f083bfe13dbe4546b9fd87a8d
+model/exterior/r01-baseline/exterior.glb,historical_geometry,agensi/arsip-asli/ (R06),5999996,c5e9f1f826074cbebb161f5ba15ada8392744e15f9f786ff360078f095843e53
+model/exterior/r01-baseline/inventory.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),79426,d496ab1a588461ccaf69b9ac5c060ae08fcc5b58496481d3c80c56f76b0dbf23
+model/exterior/r05-intake-candidate/export-check-r05-first.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),481,62fb8848645d43954c8156c03841c0fc6a769d8b581746065b7b2ceb109f33c1
+model/exterior/r05-intake-candidate/exterior.glb,historical_geometry,agensi/arsip-asli/ (R06),20391456,4160445ec0d01e736dcb56104355bcc42e046dd7f536b1d1ea486a82774bbbfd
+model/exterior/r05-intake-candidate/inventory.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),460700,b4a1b36e351a1d691e0378eb8b936b86becd96048d24ff99c51e0ca8f91ed8f4
+model/exterior/r05-second-candidate/export-check-r05-second.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),555,e5256cc53cbf3376318d22a7129bdfec167fe7055e71fd0a33012182aef1e984
+model/exterior/r05-second-candidate/exterior.glb,historical_geometry,agensi/arsip-asli/ (R06),20263364,4c446622b671039c9bad8fdfbffc959892710cc16db2f92515cf58d9b8210440
+model/exterior/r05-second-candidate/hashes-r05-second.txt,evidence_or_historical_render,agensi/arsip-asli/ (R06),327,26c5682a00524765a44a20f6b81688f863b57bc457718ef808b13bef04a5cef5
+model/exterior/r05-second-candidate/inventory.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),519655,bdbd2e61f3822b59de969ad07854e9f60fb5dc018437efd3ceddb276802ae39f
+model/exterior/render-r02-fuel.log,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),129154,1bd70e937857d4ffe1a7170d716ee65ef611d0052965d587cab47861443ac22e
+model/exterior/render-r02.log,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),190486,41657843b7d2e79de502d8ce612808f940c6a62e860ef3348e94a0e160ba2a35
+model/exterior/render-r03-fuel-regression.log,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),263671,b941284344b14985717a8a0031015dd54cb9078cfe53e130da6a010a32b84fe7
+model/exterior/render-r03-full.log,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),555302,25383c1692c3bd730f6208915d38a469efeea06871808bd5a73f12470c4df022
+model/exterior/render-r04-charge-duct.log,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),40755,8476fdb98327e37dc6867adaaf6d19f87907935fe2454b5fd3ae26ef9689ad1f
+model/exterior/render-r04.log,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),640575,00365984561c1aae255f93066b30c5f6ad5bb31e59713cdbe7f3dbe94b4b4b70
+model/exterior/render.log,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),175850,31e204c01059c24c2fe0ce2a41f85ec4775013b67052fb9f5421b2d8e066d251
+model/exterior/render_comparison.py,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),3827,22894a02a7f1911322bda6417aa36de847f39d78035e6ba7824c42b907ebcfa9
+model/exterior/render_r02_fuel.py,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),2754,265cc63f5137ebf5dbd609aabc2ba9a9fe5164d197796ab95a941d977e5eed00
+model/exterior/render_r03_aircooler.py,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),6080,8146b28494a29c0277a7f0cffa1df9ead51567174f8ed1e68a7a8aca068fa014
+model/exterior/render_r04_charge_duct.py,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),3634,2bfb3d2ac790d0081939e5694193f2bba1ce9c438a73281270ab6049efb76fff
+model/exterior/renders-r02/color_atas.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),317137,784dd729aeb4311af9439dc42a4cab7c83634fd9c55204287cb9026716bfd3e1
+model/exterior/renders-r02/color_belakang.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),289900,3a05c4d1cfc079e83b878adb24684368f53863734758e07f63ca7109c8da73b4
+model/exterior/renders-r02/color_depan.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),284056,696124a47b59b1ac4141a6b584d36000e584278718b14bf9d218f37b167d1b01
+model/exterior/renders-r02/color_kanan.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),343834,e76b0a90469ce4f17a411185d2f6ca7c48fd4c5ef6111c00e36bffe95d29c603
+model/exterior/renders-r02/color_kiri.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),343713,57eb35691853a4b51d87409126982fcd26cb8431bb9f5712f9f56c96ad135860
+model/exterior/renders-r02/color_tiga_perempat.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),355060,d51eede631b5a1e36f0e41562b095729a01a97bdebf5d8257b39af990dc86be9
+model/exterior/renders-r02/neutral_atas.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),248025,0925a0737396d787af4715abc7a29266b39bf044d06e55debb3a42693f9d70e5
+model/exterior/renders-r02/neutral_belakang.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),227542,37b0091dda545ebdae71918f5cadcb73f1102a9973b7914b0aa17b35885f8c90
+model/exterior/renders-r02/neutral_depan.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),227055,8825292225a5a78c09761a6475187958d4de2dcf0997cef191bde8d1d5eadf0c
+model/exterior/renders-r02/neutral_kanan.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),263789,ad32e096c4e9e58d69accdad477b46ed7d8d4dbf1714bdd01e6fc6b2f27ffab1
+model/exterior/renders-r02/neutral_kiri.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),256181,929254185f0d048101331af4b3df0eab7f03c679d9986475a4e2734484f74ce6
+model/exterior/renders-r02/neutral_tiga_perempat.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),262223,6701f9417686a8e12eaf9e68ac25907273a74a9b62d3acf4914a2a2623d9f2f8
+model/exterior/renders-r02/render-settings.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),890,ddae1c573b49dfc7257a4788cb2ba45057cfc94c13e6346c7458e337a7f74279
+model/exterior/renders-r02-fuel/r01_p07_color.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),714539,df29713d6dad13034ab4660c9ce8e7ae8a38c0684b0ab6b355d39c4dd514585b
+model/exterior/renders-r02-fuel/r01_p07_neutral.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),452049,67dda3d74a00beaf8a98755112f64a9c6f447f18fcdfd8858b597ebe82d692a1
+model/exterior/renders-r02-fuel/r01_p08_color.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),737757,d7eb9666d9631c5c5b08a64a97889d324446b9d3247907593419fdc8b834e057
+model/exterior/renders-r02-fuel/r01_p08_neutral.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),457455,be1337ed8072611f72b5eb5469ff4181e441a56ab6085ff8bab172fb59bb75f9
+model/exterior/renders-r02-fuel/r02_p07_color.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),730011,04185ad9dd91fe2468ef1cd3836386dd948c4f17168b98dfb5c8fe283fd2513a
+model/exterior/renders-r02-fuel/r02_p07_neutral.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),460805,a53d3561d3862be7cde522ca53eaebf6862e395691af0009314bd26763ed297b
+model/exterior/renders-r02-fuel/r02_p08_color.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),750728,8e32be45ad2d5c4f39d2dac94eea0cb839a011a497d655ce2035aaa5bc203689
+model/exterior/renders-r02-fuel/r02_p08_neutral.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),465865,319348a29192345ff7a7eccde2b9cbc2dc5bfea78bf4ad478a08b5d3d8091db5
+model/exterior/renders-r02-fuel-interim/r01_p07_color.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),714539,2b11709a0ba1c045473e5987f9de8dcd2624330f59ee0641248d070e80201598
+model/exterior/renders-r02-fuel-interim/r01_p07_neutral.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),452049,8ac109f0fe925b270b8c68e782ed35aa2cebd7b4fcd40a10ef3ed9421ab241fe
+model/exterior/renders-r02-fuel-interim/r01_p08_color.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),737757,adc4782a483e255fdd7ce47237e119e135080de2ec54e51d7b94053931bc5243
+model/exterior/renders-r02-fuel-interim/r01_p08_neutral.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),457455,db280245605874b0689478cbae1771bb5e5910ee405520a12b3a8990defebb12
+model/exterior/renders-r02-fuel-interim/r02_p07_color.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),729712,abb6000daa44f780a4367dc4b998179bef36967a1128dc1acf3e6f67ce9de423
+model/exterior/renders-r02-fuel-interim/r02_p07_neutral.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),460696,286adb5728b5c512b8f7c23c167e91089695b445b63caa71079e2f2db54d0697
+model/exterior/renders-r02-fuel-interim/r02_p08_color.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),750754,056f1837a53ba01a23858f2b9c4eab4993eb9f3da83a8cff12c8fe54fabf9210
+model/exterior/renders-r02-fuel-interim/r02_p08_neutral.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),465831,70c91f66733bec33621a31696a9ae0756b5d3c9e41cf4ddf06d0054cf40ae7b1
+model/exterior/renders-r02-interim/color_atas.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),317087,d42566ab6ed505b1dc6361a2ac2c4e735b2916acfa0ad9e7e763421a563e75ae
+model/exterior/renders-r02-interim/color_belakang.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),289793,6b1e5cc9c4ec8715ffdac15cebccd185f6d19c3026a0cfb7fd32dc858d17ef62
+model/exterior/renders-r02-interim/color_depan.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),284053,d77f166989792bb6ed6c0a3d46fc5962126f538a1dd0350f547ec6981a524960
+model/exterior/renders-r02-interim/color_kanan.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),343838,e735bc625fdf1de0eee69d2437716e8ade086021cd775f6ba30a476601c6e0ac
+model/exterior/renders-r02-interim/color_kiri.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),343704,533fa43d5a091698b7ccd8ef624722d5254001ef33ceb60a55da973e4537cf33
+model/exterior/renders-r02-interim/color_tiga_perempat.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),355060,763f5e5c96e7912c6ea670cda18d5261cb2e1e15e2d8b06644b7cccbfa68b35e
+model/exterior/renders-r02-interim/neutral_atas.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),247984,757967fd29b45ac68bbf1b056f0d4d33f1227833ed7fadf1b2f9a4420aca5608
+model/exterior/renders-r02-interim/neutral_belakang.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),227516,b4b4505c747c05d170482b0f56133652ac6b9b44e455d620261c59f661374597
+model/exterior/renders-r02-interim/neutral_depan.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),227030,42476299d42894a246bd2a83acbccce2a8abdf2a4550cc161f3fde848a936408
+model/exterior/renders-r02-interim/neutral_kanan.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),263790,f2a426f0ce6d5274fbe72ac49961ccf6fa2ce6ce104baa4fe305e0b2916fc9ca
+model/exterior/renders-r02-interim/neutral_kiri.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),256198,b37f50ee8bee27fed676846c99010fa20cbf85682d1a07aaab8c7e7151483df4
+model/exterior/renders-r02-interim/neutral_tiga_perempat.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),262221,49f8942a9e892e14e17f3c5de4a299980ee4676ebc3e081c269a09910df64ecb
+model/exterior/renders-r02-interim/render-settings.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),890,ddae1c573b49dfc7257a4788cb2ba45057cfc94c13e6346c7458e337a7f74279
+model/exterior/renders-r03/color_atas.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),547635,199f88e910b991dab49882a5731e24f16c3c159d12e1c377103f5aee62554a56
+model/exterior/renders-r03/color_belakang.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),498993,c918f0a61fba7abf18e71d4626e1a075bf0abf112ee6652118cc780903962383
+model/exterior/renders-r03/color_depan.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),488482,70a148419ba31efd2264b6b7dc1ab1a7702ba90df730c1a1c2e9023bd9988eb6
+model/exterior/renders-r03/color_kanan.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),585134,de7b6e5961014c32c2fdccca538368818954af3a8cb1d51ec886a84ec0fb332f
+model/exterior/renders-r03/color_kiri.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),584724,321c05286366baaac96256645372c861e2c9f147376ec0da22bf13ca4f757ed4
+model/exterior/renders-r03/color_tiga_perempat.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),595853,c952aa6aa702d1660b0eb6cdfd641d60a600f9a428e5eb130c11357dcf5ba704
+model/exterior/renders-r03/neutral_atas.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),431654,ca7c2d40fde35552f4fc3bc7c6ee245885437cfc0ecc01bd89e977b07eff736b
+model/exterior/renders-r03/neutral_belakang.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),398897,92bc19a11ffbfad1064756ecc84f6ef6f88ee4857bb0ec7842fc8642709c67ea
+model/exterior/renders-r03/neutral_depan.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),395273,f43eb4d6e729f261b21ef46a56794025d09abeaa19af316c541bd0dd1fd1207b
+model/exterior/renders-r03/neutral_kanan.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),454363,87e31894173d9e5f39c95c842ad3c840ab51f8ced4bb65f9528f35b4ab7f4bb9
+model/exterior/renders-r03/neutral_kiri.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),447380,0f3d4371894a22c3050e71cc30e895f05295cc4dc9a0fc99490e6e9202ca7dd0
+model/exterior/renders-r03/neutral_tiga_perempat.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),449142,a0fe47e5358dcc880aa03c753e25f80efe2110c966d989a53dc695eb0c698a3b
+model/exterior/renders-r03/render-settings.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),890,56adb5c9fdcc8df5b26374a99ad1ff4cab7c8b1512cf9449db0efdbce06d306e
+model/exterior/renders-r03-aircooler/assembled.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),1427565,e97d232645dedebdde1a4fbddcf7b4035379b01ca6ed381f0e872b5c915a1c20
+model/exterior/renders-r03-aircooler/core-and-open-bore.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),1637968,4bc6db5869a5820a7305cd9b9e80c163a8a0d462a8aaa79144bb7edc26cb35cd
+model/exterior/renders-r03-aircooler/exploded.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),1456037,ea699eaa28eb75f7fa5807f0203a5266cc8459750949f3e3f0afc9b724270028
+model/exterior/renders-r03-aircooler/render-fit.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),2976,77a4de953e3e448b7d4b74ab64415b84963460c9bfdcb8c00fc2ee43c82663b1
+model/exterior/renders-r03-aircooler/xray-assembled.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),1588068,6bcbbb29031c82b02f77c843f8070c8c22d1fe64c99f2ede1982522bea873e02
+model/exterior/renders-r03-aircooler.log,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),43192,0ac8ce5241121d91a6fdca0770d82d894a5ee872f44b8eca44476e61f267463d
+model/exterior/renders-r03-fuel-regression/r02_p07_color.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),730011,29441e1a5487c12b4f4f776861896fbb39aba2b1833354298953f1a84425467c
+model/exterior/renders-r03-fuel-regression/r02_p07_neutral.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),460805,5795961f56b3cf1791633b7988af6d2cf74a60e5f24971a3e845a4b356d63492
+model/exterior/renders-r03-fuel-regression/r02_p08_color.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),750728,de87d8657e73acbb0d1880f4432bf81f2dc879c13aaed77ba823ef09b9c59a62
+model/exterior/renders-r03-fuel-regression/r02_p08_neutral.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),465865,bc267d9753063e8f1f3b5083002da008226586e940fdf02bd03df20fb1401b1b
+model/exterior/renders-r03-fuel-regression/r03_p07_color.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),730239,dfef80f001989b4ce40fb56cccd19ef3d28eef142374fafcaeee35cafbdcb5f2
+model/exterior/renders-r03-fuel-regression/r03_p07_neutral.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),461524,0647fcab3be34aa5302b9f7a4d36cb53a3f6aa497d783705b71196bf96b79428
+model/exterior/renders-r03-fuel-regression/r03_p08_color.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),750394,d95217dfe961b71cc8c7627dc26fca38c670178bc7654aa339357bfd07bbb498
+model/exterior/renders-r03-fuel-regression/r03_p08_neutral.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),466727,1b24658d687afc439c30bc8863dce25f4e01981f0ad6feba6e37065d4787f904
+model/exterior/renders-r04/color_atas.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),552482,dbf5c5dc4784b509e343ec76f5756fa3a4c1f487a92e534c2e4e029a11394268
+model/exterior/renders-r04/color_belakang.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),505629,7d9db5b6fa919961fd1b0bdd11697ecc64fe3c840dd48789a64fa0555cc05a9d
+model/exterior/renders-r04/color_depan.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),492856,0210b92d4b206f0bf395d7ac50fa5eacf007b892acc3aeee6b038aefbee64420
+model/exterior/renders-r04/color_kanan.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),593234,7ebec90c2ec48408b55c6d1cfaf50981e194f60e2fb9194ab0a0081cf774a852
+model/exterior/renders-r04/color_kiri.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),590564,042573a2b664409e4867ae8b4c0a3af258835d18c1db33a1cefb7043d81f3619
+model/exterior/renders-r04/color_tiga_perempat.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),594136,754cbe1872202e66637fdcf81f43fdc951acbbb57799a839cd1ac1cbae370788
+model/exterior/renders-r04/compare-r03-color.jpg,evidence_or_historical_render,agensi/arsip-asli/ (R06),131348,f97f5e3d3f435f22d7a22c8f3d514bd3726026eb40122a0e00ecbf06001cb9fb
+model/exterior/renders-r04/compare-r03-neutral.jpg,evidence_or_historical_render,agensi/arsip-asli/ (R06),114302,a529a44ef2a69ef58c32601e47dac77bf32d85626630feb3d901332946724cbe
+model/exterior/renders-r04/neutral_atas.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),434665,a96f66aadf858d8608f02cb5a42a8f0cdeed14ef2bde1cd1e2ce330022c6ad19
+model/exterior/renders-r04/neutral_belakang.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),402650,d14780568e25b27e624073ce42645aaa5687473f528aeeca9f8856e9b7be99a2
+model/exterior/renders-r04/neutral_depan.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),398795,988df613783e65b598ef61c95c6ff64201698c81c5dfb8d06e2e84dbf3dc414a
+model/exterior/renders-r04/neutral_kanan.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),459277,ccaae36f928861644487a3d5c8bebae7b8e653c884db261ea0b41778932d0cca
+model/exterior/renders-r04/neutral_kiri.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),452321,fcf10ae127cf407c0c832b7b534ba6c964bca6e38935a60400f7bf59730ebc1d
+model/exterior/renders-r04/neutral_tiga_perempat.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),450063,4a23e0bece0a19c14b978fa9495a30e7b7c92cccf0e03cfbbd21e6d2f9a08d5b
+model/exterior/renders-r04/render-settings.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),890,f8e1980b0d8980bcef2057c716abdf3859463fd6d8b1f47f05d886bd9653a962
+model/exterior/renders-r04-charge-duct/assembled.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),877298,04a2c96785ab1b1ccdfd50baf21d079869750bea522986176d0158727cc7e538
+model/exterior/renders-r04-charge-duct/exploded.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),840091,d976d1fa0fccfbca7e9459bc80f63d844fd70c0cdf391021c4494cb946c40eb4
+model/exterior/renders-r04-charge-duct/render.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),249,c132fb0e68fa8dfa0568a24867c605cd1976619a2b7b20f2170f25829eb3ace4
+model/exterior/renders-v1/color_atas.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),422075,64455904d9fe62db6017d616235251e347bf2700873fd9127ca819d96d0cb7f3
+model/exterior/renders-v1/color_belakang.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),387680,0d4a4973604ef50180a3f03672d857873ad392bfc91a19b2fba9a80510abc36d
+model/exterior/renders-v1/color_depan.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),378847,d8398bb1ca44476760a562e69945f66417e2b1db463081fbde30a95f9792fa69
+model/exterior/renders-v1/color_kanan.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),460786,848e369b058f8a7e800936c873e4a228f3017df6d99e6b83457b3a35efb48db3
+model/exterior/renders-v1/color_kiri.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),455735,e37118f9eab7a08ddef0e5bce61ee7f1bf22931f69f8eaa2c54a067502b294e0
+model/exterior/renders-v1/color_tiga_perempat.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),470389,3f36ace54d92eaab4bc0ba66f1ab863307aed4da8384cc6fa20b372b97f32cda
+model/exterior/renders-v1/neutral_atas.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),332209,265f2e12235d9cb2d24c934b405aa279c4e0bb64399b1e5bd4a6076a2a5b5288
+model/exterior/renders-v1/neutral_belakang.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),307451,6a2fa5c08c2a1392e3234d314f368a161e10b361116002dce0b16ca0d3065b8c
+model/exterior/renders-v1/neutral_depan.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),305621,651c58126fce51a6e4ceb8215918c633316dd91c1a7272e58b8579c81e3d0441
+model/exterior/renders-v1/neutral_kanan.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),354140,390b91c62d2796bd2e2f5df1740e1899c987b4bcfe87887340cd8fed83a58f70
+model/exterior/renders-v1/neutral_kiri.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),345819,a6e89170e2d5079fec4bc1d4941704ca0d10451496b334de3cdd91e2b91387f8
+model/exterior/renders-v1/neutral_tiga_perempat.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),349911,9009d66d6df1e3a12d63a2919229538b76bf8284b450b76a467e1e23f959f7a0
+model/exterior/renders-v1/render-settings.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),894,c02305f2ac1789f2d3dc847c51bade21c3225dedebe7cb30e7f68d927a5ae55a
+model/exterior/renders-v2/color_atas.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),417894,c389bd951746142ce54b79615950974342c482b832c99a83ee179d4a7ec19026
+model/exterior/renders-v2/color_belakang.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),384700,f455339f36cd8de612835afdacf066115fcb472028a6b43e8e2e174a870ad29d
+model/exterior/renders-v2/color_depan.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),375484,553b130e4cbdd82d2bf77df073774564021d88383a91781eafa45e423fcda3e9
+model/exterior/renders-v2/color_kanan.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),452669,9b6ac4582088f4cd3c644e64f1a902d1b6dcec4f4d35fbdcc925e549c01980db
+model/exterior/renders-v2/color_kiri.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),448337,7ad0b33fdba3a1d03041d06844cffda1429d5c96548a78e7b5ef6576a04d0106
+model/exterior/renders-v2/color_tiga_perempat.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),462733,e8cdb76c44571d43e176e725ea78d63453fc3305ed027df5e7aca17b2c780e2b
+model/exterior/renders-v2/neutral_atas.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),330508,c03d6d7d1e6bd039bba8da130b3a80939f0da1588ad0e891d8ac17aa1db6c2bc
+model/exterior/renders-v2/neutral_belakang.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),306331,7e4182cbadefee836e5679525ff41f7757a1655aa26d0b4f80b2167861c641d0
+model/exterior/renders-v2/neutral_depan.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),305321,a9e3be8527852e822df4ed2a858e31f4e9ca67a27a1d4fc2d44c1c6499193c7b
+model/exterior/renders-v2/neutral_kanan.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),350778,35c4fca1ba958d7b4bc7a62b8f26c84ab29d68c8d8388d921265a9501e7cfdd6
+model/exterior/renders-v2/neutral_kiri.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),342106,e80be8bc2ba411d00dbf02a8f4a6b52196d975241b71306cae8d238bed2d9bee
+model/exterior/renders-v2/neutral_tiga_perempat.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),347516,212be40f3717d5e54fea7d8f5a0524cbc7b68e674cffbb87e91372a98731fde6
+model/exterior/renders-v2/render-settings.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),890,3ecb94c399647a7d82744da51663bc18a31eab2ce14151c9e487d91dfdddc985
+model/exterior/renders-v3/color_atas.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),417894,15e1ee29f186235f185e212b0b6a45e09e9bbd2fbda456f59ef3ea0672fa2cdf
+model/exterior/renders-v3/color_belakang.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),384678,c8c7f5a85a54a9a02a4bd957128e3f97e053149ecc952ac246635fe89933618a
+model/exterior/renders-v3/color_depan.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),375430,94569d0f3424bd152d87e8e28f2d4cb161b3d52b395bb06ccbe3e30fbc7075e8
+model/exterior/renders-v3/color_kanan.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),452691,5b1de28e662a2ae73986ceb10514a3ac002c8ef62d405fd356942906a695bc0c
+model/exterior/renders-v3/color_kiri.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),448338,d0b866f314b5af1e3081a2ff16896e24c8bb413830629a62788abf331ffa7190
+model/exterior/renders-v3/color_tiga_perempat.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),462738,76a6c1d1933a14301896b960c6f6d64eb8ecc5d36dd7acd0c3933949facecd6e
+model/exterior/renders-v3/neutral_atas.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),330508,fa2565a8d79c6c2270c4badb48f60535fc77e15a82c9273157e842bf6a17de9f
+model/exterior/renders-v3/neutral_belakang.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),306315,f823520916ba24a8db3dc9d9dcf8bf53a40dfb0856d14efa256dec040d1aa346
+model/exterior/renders-v3/neutral_depan.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),305322,ab16ea6399eb23cfaca628d62f119f6e3c6dce9c253bfd8197bf35de573611a0
+model/exterior/renders-v3/neutral_kanan.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),350772,9a610077d20cbcfb282bff5551acdd89d135a2c9625eab1e00f07218bd7a9562
+model/exterior/renders-v3/neutral_kiri.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),342105,083cba479d2d9d3c85a33a38a91e616c72e974ef1b95f9040b3b788d61636c71
+model/exterior/renders-v3/neutral_tiga_perempat.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),347512,1f49e8da6cf836035e4e6ff6019e1554daa1813162f1fcecb340cb7aa82448c1
+model/exterior/renders-v3/render-settings.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),890,3ecb94c399647a7d82744da51663bc18a31eab2ce14151c9e487d91dfdddc985
+model/exterior/renders-v4/color_atas.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),417616,92b653844dae5aa86a81eb50fd324a6f755eb0cbdd8b58fd2c447b895a319500
+model/exterior/renders-v4/color_belakang.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),383612,50a9f2d3bea03c0f1074cd3933466ab5534a7c7cb8e72c07235d8b82b984690c
+model/exterior/renders-v4/color_depan.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),375872,fd1cf534bfceea26f9df77ea3d0e765131b9e8530f8de34ba8a71ceb7abf9b9f
+model/exterior/renders-v4/color_kanan.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),452738,60e11481a2f4eab38bc1ef46712a8ff27b978aa2b3584740effc2894f59414ee
+model/exterior/renders-v4/color_kiri.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),448085,ddcc0bf30e4e13e19bf32995ab700b8ffb21a20037f8d7e7dd18cea110588932
+model/exterior/renders-v4/color_tiga_perempat.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),462132,9f9dd9654f424211923f87f99fb341ef7840a5f1d789c35bbfbebaf27f0463ac
+model/exterior/renders-v4/neutral_atas.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),330449,26e09cf455906d5677b812e9a9c680a77f840be4d509d245b6027ad3b2594698
+model/exterior/renders-v4/neutral_belakang.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),305921,07430da45b483e900a4565e29b5fabf6f34ef515d3409bbc9fd1d935b6f7e562
+model/exterior/renders-v4/neutral_depan.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),305028,78cc6dce05be66dd8496ab65232eb4a53d4087806a71fb4cab294bc8f56a2ae2
+model/exterior/renders-v4/neutral_kanan.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),350464,a8ec28086421801a7d286c00996b952997a9370d058a5c7e77047860b5bea152
+model/exterior/renders-v4/neutral_kiri.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),342006,767332929f942ef28bac93fa03fb3337ba79f1987ec7e62a59cd9e03c181a71b
+model/exterior/renders-v4/neutral_tiga_perempat.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),346992,6c3c20313bc9287b9ce9a666c0111c22a064c4a86373d5da3c56bc6f660e986b
+model/exterior/renders-v4/render-settings.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),890,3ecb94c399647a7d82744da51663bc18a31eab2ce14151c9e487d91dfdddc985
+model/exterior/source-sync-r04.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),912,21813fdb3c3f1908c15c0daa842173ed7488eb3ee47659201722563af555a0bf
+model/exterior/sources-r04-SHA256.txt,evidence_or_historical_render,agensi/arsip-asli/ (R06),1441,07a2b3c749c44b5210a8fa54fdf59536393d88b4c195a914fe8a23cca15492b5
+model/exterior/specialists/__pycache__/air_cooler.cpython-312.pyc,original_cache,agensi/arsip-asli/ (R06),18811,bc5af54ba0c3928428d3d09fa8aedddfd7f1e76ef2d1dd70bcdbad9567af2f23
+model/exterior/specialists/__pycache__/cooling_pumps.cpython-312.pyc,original_cache,agensi/arsip-asli/ (R06),18134,6b92696011b0f7e82d1b13db3e13e164c66942f5562de75a19050b06a4c9437c
+model/exterior/specialists/__pycache__/drive_belt.cpython-312.pyc,original_cache,agensi/arsip-asli/ (R06),10467,5629f84ae5e72e848d2d27a818a28b3deca637a03be79fc043f081def25787f7
+model/exterior/specialists/__pycache__/electrical.cpython-312.pyc,original_cache,agensi/arsip-asli/ (R06),24423,8811e7a4439886593bbe22458ff3424b1d5180e1358c46d9f5239e2b6c5f0bf3
+model/exterior/specialists/__pycache__/filters.cpython-312.pyc,original_cache,agensi/arsip-asli/ (R06),18334,7b51d14229a8704afab6b551533ecf96b085ea507eb729fdcaec7c9dd343eb94
+model/exterior/specialists/__pycache__/freshwater_drive.cpython-312.pyc,original_cache,agensi/arsip-asli/ (R06),16157,c15ed64090ebaf3df9bd3b30f5197870f4f39ae070f3fe2902ce96d4568dd5a0
+model/exterior/specialists/__pycache__/heat_exchangers.cpython-312.pyc,original_cache,agensi/arsip-asli/ (R06),22695,6c31faec8d4f64a53015c069488c8ed2d22d81d096b54f59f41bbdaeba35c00c
+model/exterior/specialists/__pycache__/housing_service.cpython-312.pyc,original_cache,agensi/arsip-asli/ (R06),19911,817f792c559c28aabe8d1d2f02f288d446bfdd95fd63f2403f63d76ff050d603
+model/exterior/specialists/__pycache__/injection.cpython-312.pyc,original_cache,agensi/arsip-asli/ (R06),19396,bc8b7d38cac0c24dcfa76d13bd0643d4daabc169858323fb5fce63f8013fc959
+model/exterior/specialists/__pycache__/piping.cpython-312.pyc,original_cache,agensi/arsip-asli/ (R06),7470,463db8a7b496a87ec4aff175dd25ec6e0410f0d1c1615b50cf919161d344a953
+model/exterior/specialists/__pycache__/pump_accessories.cpython-312.pyc,original_cache,agensi/arsip-asli/ (R06),16401,4b4c1c32abea5b92e1805ccc9d5f09bc2339bcd7009932fa74bd6f67146d86e2
+model/exterior/specialists/__pycache__/turbo.cpython-312.pyc,original_cache,agensi/arsip-asli/ (R06),22187,e1e8a526c02f1d2b2110e2e104fcb207a85a937e7549c45af9b1dd72bdeb2220
+model/exterior/specialists/__pycache__/water_lube_routes.cpython-312.pyc,original_cache,agensi/arsip-asli/ (R06),13181,d257cc354dbe6d6fb3ec2240353f9bc326e70f3c8cbbb7c3848ac645cdcaa0fd
+model/exterior/specialists/air_cooler.py,generator,agensi/produksi/source/model/exterior/specialists/air_cooler.py,12069,a910d0be19832913ffb5e62108df6511270fddd3cf572f8ff1e69fa33512b28f
+model/exterior/specialists/coolant_cap.py,generator,agensi/produksi/source/model/exterior/specialists/coolant_cap.py,2636,0d270d2dd80cc85baa68c507d4ac8fe76a35b0de3eaca044a1a7e2e4377bbda6
+model/exterior/specialists/cooling_pumps.py,generator,agensi/produksi/source/model/exterior/specialists/cooling_pumps.py,14145,b60603acb7da6f88cd0b2853d9387d1a3d77a9a51bd2b0a9ad6f2197a2d27c54
+model/exterior/specialists/drive_belt.py,generator,agensi/produksi/source/model/exterior/specialists/drive_belt.py,6408,479602e0fb7f6afb121db66c1136a0e8c8e79e1441217c775645535801f2c5d1
+model/exterior/specialists/electrical.py,generator,agensi/produksi/source/model/exterior/specialists/electrical.py,15679,eec01446ff00c87011a091e6ad03ea271f110066587e14eadcfbdab6eea7e6ca
+model/exterior/specialists/filters.py,generator,agensi/produksi/source/model/exterior/specialists/filters.py,11243,67109e9169551947e39fbfa41eea183265b386fd158b0346d79cc237647cc258
+model/exterior/specialists/freshwater_drive.py,generator,agensi/produksi/source/model/exterior/specialists/freshwater_drive.py,9671,f7747ecfc7048daea762c141861b87cca41c735fcb8b7fb6cf3c6c87eb4c3d98
+model/exterior/specialists/heat_exchangers.py,generator,agensi/produksi/source/model/exterior/specialists/heat_exchangers.py,12262,323dc40dcdac706ca75974cf750e58786e36f734544a631e609a9fdf792b7031
+model/exterior/specialists/housing_service.py,generator,agensi/produksi/source/model/exterior/specialists/housing_service.py,12228,2f17d91cd51f1898d65a9e664a3199fe14d707adcff7f1da9e5373aca10b0c45
+model/exterior/specialists/injection.py,generator,agensi/produksi/source/model/exterior/specialists/injection.py,12931,14da63c732291047833bcd2bb9162cd01bf6ec35bef306bd30ef2606b1e0ed4b
+model/exterior/specialists/piping.py,generator,agensi/produksi/source/model/exterior/specialists/piping.py,4404,f1ced9bb78d0dcb5ffbb530be22065ce6c9f5ab725cac8c8ed375d5f210f40b2
+model/exterior/specialists/pump_accessories.py,generator,agensi/produksi/source/model/exterior/specialists/pump_accessories.py,11871,194694c8ff554ac7cdf67f5b302fc8efe85227330c7f48942a8de16cc9ab7fb6
+model/exterior/specialists/turbo.py,generator,agensi/produksi/source/model/exterior/specialists/turbo.py,16017,429d28fcd1c18b905b7d8e8ed2ab4ff5f4e262e6a4aaf1cf40bb123df49ffe2a
+model/exterior/specialists/water_lube_routes.py,generator,agensi/produksi/source/model/exterior/specialists/water_lube_routes.py,7239,5e91065f3e287fabaf1049e4dd0c1f3c10aa81e25a3cd8ede8b2dfdd4d329e92
+model/exterior/v1/exterior.glb,historical_geometry,agensi/arsip-asli/ (R06),5834964,f95c61439c3de33bf2ad062c7558ba289e064077469c75393d7c619191a4a27c
+model/exterior/v1/inventory.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),79287,421c5bc0132df6749a510542f92724253630fea8f1385564f518fbab65c74e66
+model/exterior/v2/exterior.glb,historical_geometry,agensi/arsip-asli/ (R06),5924644,6ff4affc32e5b7a94feba33d86cf3c853d4bf35b046a6ae9131ba8923fd81a5b
+model/exterior/v2/inventory.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),79288,b72f10b93a274ae0ed004f9ae09c16f4c33e9e91530f10c376645060c6fdeeaf
+model/exterior/v3/exterior.glb,historical_geometry,agensi/arsip-asli/ (R06),5942212,8cc8796bda4e23ebcf55af548e682c625c480deeb9dc11b666a56bdd5e048686
+model/exterior/v3/inventory.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),79288,b72f10b93a274ae0ed004f9ae09c16f4c33e9e91530f10c376645060c6fdeeaf
+model/exterior/v4-hole-check.log,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),5575,b13e911f764a4e04c508a61501d3c9331195f650760e7dc7e83e2d9debc31737
+model/flow/__pycache__/audit_charge_duct.cpython-312.pyc,original_cache,agensi/arsip-asli/ (R06),8427,b2682a1aa3598b0699dc79b29a79b7a55af790c2de0fc5350cc1b493752f81e6
+model/flow/__pycache__/build_routes.cpython-312.pyc,original_cache,agensi/arsip-asli/ (R06),22664,f0a95048b3eff3df0ff6ca025cf1e0be65543321826c3afd22dad31d13268863
+model/flow/__pycache__/make_water_lube.cpython-312.pyc,original_cache,agensi/arsip-asli/ (R06),25490,04cee9827abcafb41fdd417f743460947c2f2f65c0499b31f5f2416ccd64bccb
+model/flow/__pycache__/source_coverage.cpython-312.pyc,original_cache,agensi/arsip-asli/ (R06),7809,63b094520fe14e3d11751290947e92447eabbafa7d6d4dd4cc05ff450e3646e7
+model/flow/audit_charge_duct.py,qa_script,agensi/produksi/source/model/flow/audit_charge_duct.py,3450,a8a0e9e6352cb187a6179a39e0f05b2acb4e678317b53ee13d9a873c7699a7d5
+model/flow/build_routes.py,generator,agensi/produksi/source/model/flow/build_routes.py,14562,b5e98a28574754cfedbaf17d2c81346c1a8d57d12bb0d90dee00c84285d0d10b
+model/flow/fuel-gas.json,generated_registry_or_recipe,agensi/produksi/source/model/flow/fuel-gas.json,118587,4f2eb40d7aee62152500bad5e141a770ea5affa2a763d1f23ab79c30518fab3b
+model/flow/make_water_lube.py,generator,agensi/produksi/source/model/flow/make_water_lube.py,19717,9ed80b991c9056c56e856401ee89f985e678dc3e77ad460cc898410112fde339
+model/flow/routes.json,generated_registry_or_recipe,agensi/produksi/source/model/flow/routes.json,245043,3a4d0f381a823bf85e1798b94d1d7c730e6523231cfeefdfe63e96869f7a162c
+model/flow/source-coverage.json,generated_registry_or_recipe,agensi/produksi/source/model/flow/source-coverage.json,39826,72951ff69d2c3b66602f13eb401bc791269a14466205db08ef5a6767166ea773
+model/flow/source_coverage.py,generator,agensi/produksi/source/model/flow/source_coverage.py,5078,59345bd39502af2cc4c8c824d1de71eaecaeab5baec691db916f4630cee323ba
+model/flow/water-lube.json,generated_registry_or_recipe,agensi/produksi/source/model/flow/water-lube.json,274783,6e122b4ee4896fe12c368aaccc42e4a4ba5f866c0aa25dfd787f1297af71f892
+model/internal/__pycache__/gear_train.cpython-312.pyc,original_cache,agensi/arsip-asli/ (R06),11191,30bbe124ba40af76de8024b6d12d10765e05b4e7b2311d17e0b8510ade034ef7
+model/internal/__pycache__/gear_train.cpython-313.pyc,original_cache,agensi/arsip-asli/ (R06),11558,c760ba0ba67d4b3966224aac9993b4b7fa371a4a137b2f0647ff8f43ec0bf396
+model/internal/__pycache__/injector.cpython-313.pyc,original_cache,agensi/arsip-asli/ (R06),24729,2af2dce242caa1c6b7e175bf51d3253e51978fadfaf9d35bff2c1aa5bd9c5c3c
+model/internal/__pycache__/mechanical_service.cpython-313.pyc,original_cache,agensi/arsip-asli/ (R06),11065,6d0132938cf7e7ecd386a802f915149bdb675261aad2387ee8992744fb60e125
+model/internal/audit-injector.log,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),50607,feee3cbf3fb8e55a2ae96d51b06872339941a23d9d747ba684c23ad54ac14e57
+model/internal/audit-r03.log,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),33614,20ad85dced5e2c77bacb303999e64b34fede2fab643998b6b8b5a39fe7d6e61a
+model/internal/audit.log,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),32236,1a5585eb369cc9177bdb2004788ff7392b718e42e7a7216d5bbcd20e61df0100
+model/internal/audit_injector.py,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),5139,48a540e9ec4d99e42fa87678dd1e99113b7f8c347b457cf62797726076e9e827
+model/internal/audit_internal.py,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),5893,ea76b8ee2ee8fd9dd363915eb945fafc62c85e20dfb686d5533083ec1f1792ea
+model/internal/build-r03.log,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),924966,e04029db368fe6bf98300dc6f87fc789540c87f50d8e6f3e27181c17e27b0e9a
+model/internal/build.log,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),877846,91218d957b49009963da2c572077c689aac27ec256469c97a7c5f81dbc769698
+model/internal/build_internal.py,generator,agensi/produksi/source/model/internal/build_internal.py,33445,f947b2fd5825def8c2e31223c705ba77497abe352f77eb1856a4afd789595ec6
+model/internal/compare.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),2484,71cac85c480cab3bae113fe7388fc9ac6697e8e5a247a9532d02ae36f54bfb4d
+model/internal/evidence/D01-p150.png,document_or_catalog_evidence,agensi/produksi/source/model/internal/evidence/D01-p150.png,217561,f0faf8390834aa044cf137672b224eb782bf16fd0c867e1da85a5a81277ed49d
+model/internal/evidence/D01-p151.png,document_or_catalog_evidence,agensi/produksi/source/model/internal/evidence/D01-p151.png,246510,792c7f1fa249dce6a314652a7cf7696969b9d6a4ec1d37aead1fef678a9fdcf3
+model/internal/evidence/D01-p152.png,document_or_catalog_evidence,agensi/produksi/source/model/internal/evidence/D01-p152.png,178686,9f18968932c5ccc6c5aeff1ef907c06aef17cd7aec1e26e60ab94bdf516af8a5
+model/internal/evidence/D05-fig79.html,document_or_catalog_evidence,agensi/produksi/source/model/internal/evidence/D05-fig79.html,129756,3570c97cb662c0984ab8e3267468e1a400d309fe9fee272328fc6fbac025795a
+model/internal/evidence/D05-fig79.png,document_or_catalog_evidence,agensi/produksi/source/model/internal/evidence/D05-fig79.png,153825,7c66e2cdf431985b42a418cea4b98f97385378abf19c49c36065e59f4887201c
+model/internal/evidence/D05-fig79.svg,document_or_catalog_evidence,agensi/produksi/source/model/internal/evidence/D05-fig79.svg,54899,872f3f11047b544c3720c99a6f7b16f485121bed1160bcb1afa45e57678acfc7
+model/internal/evidence/injector-source-register.json,document_or_catalog_evidence,agensi/produksi/source/model/internal/evidence/injector-source-register.json,3158,698f9e11228e52dc8de8f0d931a99c59b446ce6d518d2949b81dbf87952c7dce
+model/internal/gear_train.py,generator,agensi/produksi/source/model/internal/gear_train.py,6982,fb939d79fdbf48c41b1c87038c214210732a8c60ec096fd2f25a5f22119e3180
+model/internal/injector-audit.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),2482,36b52ea263fdcccc78694bc0e36509e01ceded2bb56e1f383d8fca2c3673d2a3
+model/internal/injector.py,generator,agensi/produksi/source/model/internal/injector.py,15682,841c39bac42ad2860e8b786b45197a00fe19380770e6a31c4dd0286b8ab4ac00
+model/internal/internal.blend,editable_master,model/masters/internal.blend,20856272,2dd18541aade76c03c06d9a41ca1aa7c853ff5115a6e89b1b5f4d44dde381e58
+model/internal/internal.glb,review_export,model/assets/internal.glb,12702176,526ce37f126203eb288388dbd7922dd85749b19ddf8ef82ee5bfcf9d472ec8f5
+model/internal/inventory.json,generated_registry_or_recipe,agensi/produksi/source/model/internal/inventory.json,709002,f547f40e2de5adbd02db1a6f17ef9ae0c22c3126a8dda12ba2f96ae699d3a1dc
+model/internal/kinematics.json,generated_registry_or_recipe,agensi/produksi/source/model/internal/kinematics.json,28094,804d2767e5e330acfb9bda72ee06db0b394b5211f9255f682662ed07a9c40c6d
+model/internal/make_injector_plates.py,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),10500,1264f4ae2555eb20c95a7d19fce4c37d0f0e6da6fb5e10526fcfe743ec839c12
+model/internal/mechanical-evidence/audit.log,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),34845,0c7c52be035e8bb28b158d37220feb4d8f20f0b6f9b357cffba1328e5352d6e7
+model/internal/mechanical-evidence/audit.py,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),1851,618a8799caff1c3431daafdc2593a0b37172230b26f763c6e7121841580ef21e
+model/internal/mechanical-evidence/build.log,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),57273,d80fb6469271f3ccf672c66e52253b2c1f71672970c729b3e4f20bfe389f1f71
+model/internal/mechanical-evidence/coverage.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),43348,0959a8b620edcaa291ab0d89a0eb5842585b1b89fe132b1c1767b36bba372567
+model/internal/mechanical-evidence/fig1.html,evidence_or_historical_render,agensi/arsip-asli/ (R06),393910,930901a6db7d2b21913248a3d4ab1af4e582e496ffaa98c8efd4f5525b5c229c
+model/internal/mechanical-evidence/fig22.html,evidence_or_historical_render,agensi/arsip-asli/ (R06),311276,78329c0c8f504ebc4c4a8a4dc5533973abfe6acfa7a1f6a30fa1f50938654903
+model/internal/mechanical-evidence/fig23.html,evidence_or_historical_render,agensi/arsip-asli/ (R06),168255,fdb9a778370cecd3538458854287e0fe73e1b78aea5a83b0beec1c4b39b0ffc6
+model/internal/mechanical-evidence/fit.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),361,53aee8e412a38a9a32a65361785bdccf5c19cbb75af425a6983285c9c07e2b9e
+model/internal/mechanical-evidence/p107.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),165992,507cb84b45b3d7756d2983a2328935790434feb0a9dd7a91f271f4c6de7f908b
+model/internal/mechanical-evidence/p107.txt,evidence_or_historical_render,agensi/arsip-asli/ (R06),1435,1bd200208ac45e3ce9482eae5b4b7c46d4dac1e93c16f5b9bc8010e138e4665f
+model/internal/mechanical-evidence/p108.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),172013,450000a9f0b3225d1ff6211ef742053b78d95c95d20c4378d681baeed697bf9c
+model/internal/mechanical-evidence/p108.txt,evidence_or_historical_render,agensi/arsip-asli/ (R06),1236,7376d44237cfbfc42f640b5f15234972c92654bc82a4074cf2cfd656e552a2f8
+model/internal/mechanical-evidence/p86.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),149244,5658ac48cdda5a6686949d9f44341610f0ada4e629bc424e212888cf32a4fb7b
+model/internal/mechanical-evidence/p86.txt,evidence_or_historical_render,agensi/arsip-asli/ (R06),1205,17b6d1a0d9da85a8041f6730ac1e065a84cf04d65d7594538440f7a2d13cab55
+model/internal/mechanical-evidence/p87.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),135796,41ec0d1fe6fc17beb3ec6d71de0c1b95d661897a5572225d9d891e8625c6a5d9
+model/internal/mechanical-evidence/p87.txt,evidence_or_historical_render,agensi/arsip-asli/ (R06),1067,c48c73d487ec9c207f05d8a577a379ecace1e16783127d3b6c1e3241682e7703
+model/internal/mechanical-evidence/p88.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),119840,d4b127b459d9a9696aa9cd73f4ecebf856f2e396d9696f3f663a8590fbdb72d8
+model/internal/mechanical-evidence/p88.txt,evidence_or_historical_render,agensi/arsip-asli/ (R06),1143,336642c935ded1362d5a29f76d02bd98953581e33fb81080476b1c3f36b87ece
+model/internal/mechanical-evidence/p89.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),135822,f7da9c1beb9e9d870a66ad040c8f26c4731eb5f7dccd43ec57c4b8cf07f3737a
+model/internal/mechanical-evidence/p89.txt,evidence_or_historical_render,agensi/arsip-asli/ (R06),954,4f7f4761ef6601f8c00752ec7c24b4bbd060509a3bc095cedd89e6b2633fc2e7
+model/internal/mechanical-evidence/p90.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),192600,bd7d99ad37abc9dcea96dec595655dcafd5146760fa12df13724bea8ae829887
+model/internal/mechanical-evidence/p90.txt,evidence_or_historical_render,agensi/arsip-asli/ (R06),1319,c060138f3294ef633334f95266605a551dbefd6907353195a2bd537fee0cfc6b
+model/internal/mechanical-evidence/p91.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),75373,4a563aa030d849f9bdda164a594e479080d0abc0021680e001327a617b778a6b
+model/internal/mechanical-evidence/p91.txt,evidence_or_historical_render,agensi/arsip-asli/ (R06),969,0251d4c2a3d194d6624b78b244baf97314c62d546534b972789dc926ca3c25cb
+model/internal/mechanical-evidence/p92.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),141170,2ce95e2606edeee1fdeb87a078ebb07c043f9827895798473789d6d716aefdc9
+model/internal/mechanical-evidence/p92.txt,evidence_or_historical_render,agensi/arsip-asli/ (R06),1228,7d3c7b538ce68502cd0dfd768c3c654535c11d2150dd7f35e3396164418ac096
+model/internal/mechanical-evidence/p93.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),137330,d626d87610f9892a01f24598bcd59619c04a93fa56c01863e13bcb571db9711d
+model/internal/mechanical-evidence/p93.txt,evidence_or_historical_render,agensi/arsip-asli/ (R06),1355,13c768b72c91fbfa2251d4fc6f1185c317b9672b2d7537d6c0edd1dd1d8c3bc9
+model/internal/mechanical-evidence/render.log,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),46710,999b7fdb10d98b6e4b7aa180a471be782d97b1d0ba8f2721b9d6256d42fedf24
+model/internal/mechanical-evidence/render.py,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),2159,09708ca5e9506fcd481f72695354484a7843ebc4948465c5dc69c754552c226a
+model/internal/mechanical-evidence/valve-exploded.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),357576,0ea775ddb0a97ad785b7aeaeddc9b5e75fb2e41c84057c648efd1581321fa93a
+model/internal/mechanical-evidence/valve-installed.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),409101,bf9d9a73844a1a38e924d72279b1412edfa3ae7ca2659571d1691c240541028c
+model/internal/mechanical_service.py,generator,agensi/produksi/source/model/internal/mechanical_service.py,6717,ef447c94cd73ab74fbafe4b0e8340de517f267bb208a3a940c69cd49dd07b7ca
+model/internal/plates/injector-exploded.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),184039,f0ffe1e0d3bbf63a9299e279afe5f98c9b12c3ce9b1df1c01edcc4b2890f6ec6
+model/internal/plates/injector-exploded.webp,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),74246,9b427bfce328d45c457e298393f8bc4b0153c2f4413e4e0b2f7961798d32029d
+model/internal/plates/injector-legend.html,evidence_or_historical_render,agensi/arsip-asli/ (R06),4010,af1126956a4a827f46f497dac3062ac69db0e304fcd5e8472e80f89307760625
+model/internal/plates/injector-section-exploded.pdf,evidence_or_historical_render,agensi/arsip-asli/ (R06),521286,6d7eff485f75aad97f2360d7ae806b7345cbfe9d939765536c1f9460ebe6fe3a
+model/internal/plates/injector-section.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),447304,b5025ac77f2fa1d01ee4b9d54bb1e8bfd37f2d402b7c971dd0f6a65626509421
+model/internal/plates/injector-section.webp,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),90588,d0b93580d58d2cb137d707e4716ba502d6d36191ea4bc7c2c2556dac811817c6
+model/internal/plates/raw/exploded.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),750236,364e4934ad95a523f35eb6c7bf3b6f3590bc140e104528afc23931bf88f46f5d
+model/internal/plates/raw/markers.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),2283,94ac79a9952d55300671c3f8c03388d9e18fdd78140c425a4ec8b232e8f2375b
+model/internal/plates/raw/section.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),1136748,7a185a801bea7ac2b4deee2bf6b99a07e488852a163a6c168f6eeda8640a94f1
+model/internal/plates/raw/tip.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),741713,a16c7ee30ff2e35486c080c4565e7821cf0989f2bbb0685c7095474fb00b75a8
+model/internal/reimport-audit.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),2395,bdb2c6d3e2301a95ae8d73c3376feddd9d459b8f5064ee7539719bdce29df718
+model/internal/render-injector.log,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),21368,90d3726ebc4970135144f206d4481afc34d1408a485853b7413018a4121cedab
+model/internal/render-settings.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),2700,e927d9429517193271d8661157c31b2f6f214a4968b4f76269533b02b2946278
+model/internal/render_injector_plate.py,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),5259,309975fe18409fc85d87388bf396847bf12c6c685387edcff49f212679c02c9d
+model/internal/renders/color-detail-piston-rod.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),655459,156d2423f7d0db7adadb63a364720e05ff492b67080118112cc9a22a11ba4c09
+model/internal/renders/color-front.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),614064,6ff30f3358760b0fd9d5b59be3fc7608b14016be2dc9c6f09c380fa9331ffd0d
+model/internal/renders/color-left.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),726175,d1e8b6238d4d4db9ee17da2935287144fba6932d53b0da2af03d7bdf9aee8cf2
+model/internal/renders/color-rear.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),600000,d85c4a53cf82c9a103b5ce4985b1bf49865c96ab7a2b3db7aee37b3ed98f4661
+model/internal/renders/color-right.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),717904,9798f1eab8c1b1d3422c02495a222f9152d5f56762103a30709a84e4c142186a
+model/internal/renders/color-three-quarter.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),734853,69ce7293756e0a9660d0db8c30a12c79d4c4f6d65f04ab2aa779eb7a972b111f
+model/internal/renders/color-top.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),627941,10522c17740bc75273aaa35b51f0f81be82960d174d7cc35fc5ec2d2474d6c4d
+model/internal/renders/neutral-front.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),561447,1433d67d73ac696a3e833d28eb1614f2693cf474fea9cbbca9c120f2cc72bb3d
+model/internal/renders/neutral-left.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),603278,e0f6b81be604fdfe3fab81091a789b4b754a5e2729e2cddcc745b7049918c32c
+model/internal/renders/neutral-rear.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),547497,b6e23180c3f005fc4f2c8f3f99e69ac3ad9eed263f97ed86b37eb2dee960a156
+model/internal/renders/neutral-right.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),597939,92febe385452f377319183987986a39a4f83a0fa712919ccdc72fd824de71ffc
+model/internal/renders/neutral-three-quarter.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),593424,72b6a8c4b935b59df8cdea4fbfbfcc8adb49549b56c953b35414b141ce647edd
+model/internal/renders/neutral-top.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),553989,16ef271205c722fd9af3394fd0c7efe58053acbb79fbd3577d75db34d057d2a5
+model/internal/sampled-pose-audit.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),18358,4b01dbec288919413129d2adb5426b3065c9d812276b43d3dda90903a78329a1
+model/motion/__pycache__/belt.cpython-312.pyc,original_cache,agensi/arsip-asli/ (R06),2224,496ebc34095096db0dca134abdd5a88a73ffec185f82e3b457416c85229b840f
+model/motion/__pycache__/build_motion.cpython-312.pyc,original_cache,agensi/arsip-asli/ (R06),28208,6b6386d4ca963a04dbf0cb26385b5c5cb84d19c642e63c7bf3c235a303b309f4
+model/motion/__pycache__/freshwater_pump.cpython-312.pyc,original_cache,agensi/arsip-asli/ (R06),3193,49cf03607cac8ca971b9d2f29a997c3393f5f4b7e40b4823d546a91795b6abd9
+model/motion/__pycache__/function_groups.cpython-312.pyc,original_cache,agensi/arsip-asli/ (R06),9622,6ef9055525773b662790c2fa45717ec8b702f3690f3bf2b269c243d280336de4
+model/motion/__pycache__/metering_rack.cpython-312.pyc,original_cache,agensi/arsip-asli/ (R06),3183,ebe9d86f643ef0753dd1cd18e044fe39b8dfa69356bae9397d81138a2cae41f3
+model/motion/__pycache__/pump_cam.cpython-312.pyc,original_cache,agensi/arsip-asli/ (R06),2343,7a7a97d9f4f3ebddc5cd8e9a31e8536b00042f3db64b710f9f1ff43c1e1cc63a
+model/motion/__pycache__/starter.cpython-312.pyc,original_cache,agensi/arsip-asli/ (R06),3354,6c1221d1772a86dc5977a833e2b1a46deeccf6f69309a15a5761685bfa263492
+model/motion/__pycache__/starter.cpython-313.pyc,original_cache,agensi/arsip-asli/ (R06),3380,1d29ac2afac6050f1c4da3ce389c1b5d2c4610c9fed5064db414661741352f67
+model/motion/__pycache__/water_drive_spec.cpython-312.pyc,original_cache,agensi/arsip-asli/ (R06),1855,d12e258422e10c4ce0d512ab31f7f2de397655f7b568c4b67bb1b7aae8ec4b36
+model/motion/audit_drives.py,qa_script,agensi/produksi/source/model/motion/audit_drives.py,4584,1e54de8f287468cf8e0d362586e7f369909ec03bb87946a29047d072712bd68c
+model/motion/audit_enclosures.py,qa_script,agensi/produksi/source/model/motion/audit_enclosures.py,3883,756cb3e796e052fe02003fdcadcb8939494465355943049a3c31d6efa7263543
+model/motion/audit_starter_flanks.py,qa_script,agensi/produksi/source/model/motion/audit_starter_flanks.py,3364,4c3fcc35c0374ded72cd9f102bf42772601115217ded105f4fa172cd87a20f35
+model/motion/belt.py,generator,agensi/produksi/source/model/motion/belt.py,752,7f9334598546730506e5f779326ac18600a321935524b16f2493703f6279ed0e
+model/motion/build_functions.py,generator,agensi/produksi/source/model/motion/build_functions.py,18243,41f7b586996aef8aa0dd88357e7312e69ec82afb0afa40e5e65f0b4569176fa6
+model/motion/build_motion.py,generator,agensi/produksi/source/model/motion/build_motion.py,17443,c085f3249844ce77e3e1c240597ea60b7d33ab5cb53a8276c45c68dfda6aaa5c
+model/motion/check_drive_release.py,qa_script,agensi/produksi/source/model/motion/check_drive_release.py,4004,6084006924d1471a6e58eae1bbda0b7996989bb9bb4feb51cf3e98c49c8a8d01
+model/motion/drivetrain.json,generated_registry_or_recipe,agensi/produksi/source/model/motion/drivetrain.json,264060,fe9876234785c485a51920094a1427eaa6261568aa376df3ebae47ff2d2012a0
+model/motion/freshwater_pump.py,generator,agensi/produksi/source/model/motion/freshwater_pump.py,2151,09798742e9878814879e2ab02c07186bcbfa2bc8c1434d44bc9968f432311d64
+model/motion/function_groups.py,generator,agensi/produksi/source/model/motion/function_groups.py,7357,3dad86ab986a8fefa86f3a849bc9e1a48ffd006e64d87a17515b77c8d136ff6e
+model/motion/functional-motion.js,motion_behavior_source,agensi/produksi/source/model/motion/functional-motion.js,6104,0933f4bb115d46188055bbcac7444f011bf4a6becb51ad55027ec12053bf040a
+model/motion/functions.json,generated_registry_or_recipe,agensi/produksi/source/model/motion/functions.json,181609,9e39aff996dbfef13301aa52ff91f83ed575c07bdaa5f6b40bc55f79d6603f6b
+model/motion/make_pinion_profile.py,optional_authoring,agensi/produksi/source/model/motion/make_pinion_profile.py,1519,059e29c687142dfd81849d3cf2275bcadb0cb64b800837351624ea35926c78ef
+model/motion/metering_rack.py,generator,agensi/produksi/source/model/motion/metering_rack.py,1235,c8565c22525e94c17edc299eec0891711dee7e1a319b792a27d3350bb4d1f431
+model/motion/pinion-profile.json,source_data,agensi/produksi/source/model/motion/pinion-profile.json,1168,55bd1a121c63ccbe5c1317149fadfbf56a5d069ba1c434a0d50e7e7c74288332
+model/motion/pump_cam.py,generator,agensi/produksi/source/model/motion/pump_cam.py,1010,00755e8717191d5caaa92882e56954c9967a926ac3b328731273488667b2bfe2
+model/motion/seawater_vanes.py,generator,agensi/produksi/source/model/motion/seawater_vanes.py,1968,3ba65b1540499326dc34a38b60cdb4ff48964b25af318407d5a4a9b897ed11db
+model/motion/shaft-inventory.json,generated_registry_or_recipe,agensi/produksi/source/model/motion/shaft-inventory.json,268939,39a734aa0639e13105623d6fc7f7b2c4fd7bddb3c57deeb32a31e352ae0845b0
+model/motion/starter.py,generator,agensi/produksi/source/model/motion/starter.py,1923,f3b249a7fba05c0b682477da37b1137cde3b71834ca84dcc91c062dd91b7e94f
+model/motion/water_drive_spec.py,generator,agensi/produksi/source/model/motion/water_drive_spec.py,1434,b83e7c00467b054ed7c3b25d541a0f471b7e70a4798c9c532995fb936e2b03d6
+model/systems/freshwater.json,source_data,agensi/produksi/source/model/systems/freshwater.json,10757,17e3394afb4b7830788280903993c71246227e4518342f6d33b4cf3d6a98b0d4
+model/systems/fuel.json,source_data,agensi/produksi/source/model/systems/fuel.json,13489,eea8c06650d01cc939d2ea7bcdbf7d4de2eb71add542e0cb0977638a8493e3c6
+model/systems/intake-exhaust.json,source_data,agensi/produksi/source/model/systems/intake-exhaust.json,21291,1ff506102fa71ca99824ff8a819946771a36e85bad3989d2450f68a3f0783193
+model/systems/lubrication.json,source_data,agensi/produksi/source/model/systems/lubrication.json,27323,18f7a1f2083a6f194a526fd3da4a57df58621d5447f9f54710825f1110fdba91
+model/systems/seawater.json,source_data,agensi/produksi/source/model/systems/seawater.json,7401,68b4214758b3f9cee16817bbe01dc5451194aa06f529c6aacb9c1dfe0acc9525

@@ -1,0 +1,97 @@
+{
+  "id": "RAK-FRONT",
+  "nama": "Penggerak depan",
+  "node_rakitan": "RAK-FRONT",
+  "acuan": {
+    "no": 1,
+    "object_ids": [
+      "EXT-FRONT-01"
+    ]
+  },
+  "diagram": {
+    "arah_pandang": [
+      1.0,
+      0.0,
+      0.0
+    ],
+    "atas": [
+      0,
+      1,
+      0
+    ]
+  },
+  "bagian": [
+    {
+      "no": 1,
+      "nama": "Rumah gear depan",
+      "object_ids": [
+        "EXT-FRONT-01"
+      ],
+      "posisi": [],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D03 PDF 17 printed p. 33 / engine-only right elevation and front view",
+        "GA01 B3-48660-4450 / outline, top, end and rear housing details",
+        "P09 / profil housing depan"
+      ],
+      "fungsi": "Rumah gear depan",
+      "nomor_oem": null,
+      "ukuran": null
+    },
+    {
+      "no": 2,
+      "nama": "Damper dan pulley crankshaft",
+      "object_ids": [
+        "EXT-FRONT-02"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-FRONT-02",
+          "arah": [
+            1,
+            0,
+            0
+          ],
+          "jarak_m": 0.28,
+          "urutan": 2
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D03 PDF 17 printed p. 33 / engine-only right elevation and front view",
+        "P09 / pusat penggerak"
+      ],
+      "fungsi": "Damper dan pulley crankshaft",
+      "nomor_oem": null,
+      "ukuran": null
+    },
+    {
+      "no": 3,
+      "nama": "Pelindung belt depan",
+      "object_ids": [
+        "EXT-FRONT-03"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-FRONT-03",
+          "arah": [
+            1,
+            0,
+            0
+          ],
+          "jarak_m": 0.28,
+          "urutan": 3
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "P08 / pelindung hitam berusuk",
+        "P09 / penggerak bawah"
+      ],
+      "fungsi": "Pelindung belt depan",
+      "nomor_oem": null,
+      "ukuran": null
+    }
+  ],
+  "notes": "Nomor posisi model. Lintasan ilustrasi, belum diperiksa untuk interferensi."
+}

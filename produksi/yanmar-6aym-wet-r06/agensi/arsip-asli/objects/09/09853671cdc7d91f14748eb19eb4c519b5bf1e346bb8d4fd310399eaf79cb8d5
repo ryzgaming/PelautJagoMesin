@@ -1,0 +1,197 @@
+import assert from 'node:assert/strict';
+import { createHash } from 'node:crypto';
+import { readFile, writeFile } from 'node:fs/promises';
+import vm from 'node:vm';
+
+const assets = new URL('../assets/',import.meta.url);
+const read = (path) => readFile(new URL(path,assets));
+const sandbox = vm.createContext({console,TextDecoder,Blob,URL});
+vm.runInContext(await read('three-bundle.js').then(value=>value.toString()),sandbox);
+const T = sandbox.THREE;
+const data = await read('data.json').then(JSON.parse);
+const hashes = {};
+const gltfNodes = new Set();
+async function load(name) {
+  const file = await read(name+'.glb');
+  hashes[name] = createHash('sha256').update(file).digest('hex');
+  const document = JSON.parse(file.toString('utf8',20,20+file.readUInt32LE(12)));
+  for (const node of document.nodes || []) gltfNodes.add(node.name);
+  return new Promise((resolve,reject) => {
+    new T.GLTFLoader().parse(file.buffer.slice(file.byteOffset,file.byteOffset+file.byteLength),'',
+      ({scene})=>{ scene.updateMatrixWorld(true); resolve(scene); },reject);
+  });
+}
+const [ext,int] = await Promise.all(['exterior','internal'].map(load));
+const nodes = new Set();
+for (const scene of [ext,int]) scene.traverse(({name})=>{ if (name) nodes.add(name); });
+const ids = data.components.map(entry=>entry.id);
+assert.equal(ids.length,new Set(ids).size,'ID inventaris harus unik');
+for (const [retired,current] of Object.entries(data.aliases || {})) {
+  assert.ok(!ids.includes(retired) && ids.includes(current),'Alias tautan model tidak sah: '+retired);
+}
+const nodeId = ({id,node}) => node || id;
+for (const entry of data.components) {
+  assert.ok(nodes.has(nodeId(entry)), 'Node inventaris hilang: '+entry.id);
+  assert.ok(nodes.has(entry.parent), 'Parent inventaris hilang: '+entry.id);
+}
+for (const id of gltfNodes) if (/^(EXT|INT)-[A-Z0-9]+-\d+(?:-\d+)*$/.test(id)) assert.ok(ids.includes(id),'Inventaris node hilang: '+id);
+for (const [id,{parts}] of Object.entries(data.assemblies)) {
+  assert.ok(nodes.has(id),'Rakitan GLB hilang: '+id);
+  const proxy = parts.length===1 && Object.values(data.assemblies).some(scope=>
+    scope.parent===id && scope.anchor===parts[0].id && scope.parts.length>1);
+  assert.ok(parts.length>1 || proxy,'Resep kosong atau tanpa anggota terpisah: '+id);
+  for (const part of parts) assert.ok(ids.includes(part.id),'Bagian diagram hilang: '+part.id);
+}
+assert.equal(data.systems.length,5);
+for (const system of data.systems) {
+  const ids = new Set(system.nodes.map(({id})=>id));
+  for (const edge of system.edges) {
+    assert.ok(ids.has(edge.from) && ids.has(edge.to),system.system+' memiliki simpul tak terdaftar');
+    assert.ok(edge.status);
+  }
+}
+assert.ok(data.sources.every(({url})=>url.startsWith('https://')));
+const model = data.kinematics.viewer;
+assert.ok(model.enabled && model.rod_cc_m>model.throw_m);
+for (const entry of model.rotators) assert.ok(nodes.has(entry.node) && (entry.factor===-1 || (entry.node==='MOT-INT-CAM' && entry.factor===-.5)));
+for (const cylinder of model.cylinders) assert.ok(nodes.has(cylinder.rod) && nodes.has(cylinder.piston));
+const specs=data.drivetrain?.groups || [];
+if (process.argv.includes('--require-drives')) assert.ok(specs.length>0,'Drivetrain manifest empty');
+const owned=new Set(model.rotators.map(mover=>mover.node));
+for (const cylinder of model.cylinders) {
+  owned.add(cylinder.rod);
+  owned.add(cylinder.piston);
+}
+for (const valve of model.valves || []) {
+  for (const id of [valve.valve_root,valve.tappet_root,valve.rocker_root,...valve.springs]) owned.add(id);
+}
+const desired=[];
+const groupIds=new Set();
+const cases=new Set();
+for (const spec of specs) {
+  assert.ok(spec.id && !groupIds.has(spec.id),'Duplicate drive group '+spec.id);
+  groupIds.add(spec.id);
+  assert.ok(['spin','reciprocate','rock','spring','belt','orbit'].includes(spec.kind),spec.id);
+  assert.ok(['running','starting','both'].includes(spec.mode),spec.id);
+  assert.ok(Array.isArray(spec.pivot_m) && spec.pivot_m.length===3 && spec.pivot_m.every(Number.isFinite),spec.id);
+  assert.ok(Array.isArray(spec.axis) && spec.axis.length===3 && spec.axis.every(Number.isFinite) && Math.hypot(...spec.axis)>.01,spec.id);
+  assert.ok(Number.isFinite(spec.ratio),spec.id);
+  assert.ok(spec.targets?.length || spec.kind==='belt',spec.id);
+  for (const id of spec.cover_ids || spec.case_ids || []) cases.add(id);
+  for (const id of [...(spec.cover_ids || spec.case_ids || []),...spec.targets]) assert.ok(nodes.has(id),spec.id+': target '+id+' absent');
+  if (spec.kind==='belt') {
+    const path=spec.path_m || spec.points_m || spec.orbit_m;
+    assert.ok(path?.length>=3 && Number.isFinite(spec.travel_m_per_rad) && spec.travel_m_per_rad!==0,spec.id+' marker path absent');
+  }
+  if (spec.kind==='orbit') assert.ok(spec.secondary_pivot_m?.length===3 && Number.isFinite(spec.secondary_ratio),spec.id);
+  if (spec.profile?.samples) {
+    assert.ok(spec.profile.samples.every(Number.isFinite) &&
+      spec.profile.cycle_deg/spec.profile.step_deg===spec.profile.samples.length,spec.id+' malformed profile');
+  }
+  for (const id of spec.targets) {
+    assert.ok(!owned.has(id),'Double motion target '+id+' in '+spec.id);
+    owned.add(id);
+    desired.push(id);
+  }
+}
+for (const id of desired) {
+  const obj=ext.getObjectByName(id) || int.getObjectByName(id);
+  for (let node=obj.parent;node;node=node.parent) assert.ok(!owned.has(node.name),'Double motion via parent '+node.name+'→'+id);
+}
+for (const id of cases) assert.ok(!owned.has(id),'Housing unexpectedly has motion '+id);
+for (const item of data.drivetrain?.stationary || []) {
+  for (const id of typeof item==='string' ? [item] : item.targets || [item.id]) {
+    assert.ok(nodes.has(id),'Stationary node absent '+id);
+    assert.ok(!owned.has(id),'Stationary node has motion '+id);
+  }
+}
+const flow = data.flows;
+assert.ok(flow && Array.isArray(flow.ports) && Array.isArray(flow.routes));
+const ports = new Map(flow.ports.map(port=>[port.id,port]));
+assert.equal(ports.size,flow.ports.length);
+const identity = new Set();
+for (const route of flow.routes) {
+  assert.ok(!identity.has(route.id),'ID flow ganda '+route.id);
+  identity.add(route.id);
+  assert.ok(['fuel','intake','exhaust','lubrication','freshwater','seawater'].includes(route.system),route.id);
+  assert.ok(['physical','schematic'].includes(route.kind),route.id);
+  assert.ok(route.points.length>=2 && route.points.every(point=>point.length===3 && point.every(Number.isFinite)),route.id);
+  assert.ok(ports.has(route.from) && ports.has(route.to),route.id);
+  for (const [point,endpoint] of [[route.points[0],ports.get(route.from)],[route.points.at(-1),ports.get(route.to)]]) {
+    assert.ok(endpoint.point.length===3 && endpoint.point.every(Number.isFinite),endpoint.id);
+    assert.ok(Math.hypot(...point.map((x,i)=>x-endpoint.point[i]))<=.0005,
+      'Pusat mulut jalur gagal tercocok '+route.id+' · '+endpoint.id);
+  }
+  if (process.argv.includes('--require-flow-model') && route.kind==='physical')
+    for (const id of route.component_ids || []) assert.ok(ids.includes(id),'Mesh rute fisik hilang '+route.id+' · '+id);
+}
+if (process.argv.includes('--require-flow')) {
+  assert.deepEqual([...new Set(flow.routes.map(route=>route.system))].sort(),
+    ['exhaust','freshwater','fuel','intake','lubrication','seawater']);
+}
+const number = (value) => Math.round(value*1000*100)/100;
+const get = (root,id) => {
+  const node = root.getObjectByName(id);
+  assert.ok(node,id);
+  return node;
+};
+const box = (root,id) => new T.Box3().setFromObject(get(root,id));
+const pivot = (root,id) => get(root,id).getWorldPosition(new T.Vector3());
+const cylinders = model.cylinders.map((entry,index)=>{
+  const n = index+1;
+  const head = box(ext,'EXT-HEADS-0'+n);
+  const bonnet = box(ext,'EXT-HEADS-'+String(n+6).padStart(2,'0'));
+  const liner = box(int,'INT-LINER-'+n+'1');
+  const piston = box(int,entry.piston);
+  const rockers = box(int,'MOT-INT-ROCKER-'+n+'-1')
+    .union(box(int,'MOT-INT-ROCKER-'+n+'-2'));
+  const phase = entry.phase_deg*Math.PI/180;
+  const startPinY = model.throw_m*Math.cos(phase);
+  const startPinZ = -model.throw_m*Math.sin(phase);
+  const wristRest = startPinY+Math.sqrt(model.rod_cc_m ** 2-startPinZ ** 2);
+  const crownTdc = piston.max.y + model.throw_m+model.rod_cc_m-wristRest;
+  const center = liner.getCenter(new T.Vector3());
+  const headCenter = head.getCenter(new T.Vector3());
+  return {
+    cylinder:n, cylinderAxis:'Y', deckY_mm:number(head.min.y),
+    linerTopY_mm:number(liner.max.y), deckMinusLiner_mm:number(head.min.y-liner.max.y),
+    pistonCrownTdcY_mm:number(crownTdc), deckMinusTdcCrown_mm:number(head.min.y-crownTdc),
+    linerToHeadAxisOffsetX_mm:number(center.x-headCenter.x), linerToHeadAxisOffsetZ_mm:number(center.z-headCenter.z),
+    rockerTopRestY_mm:number(rockers.max.y), bonnetOuterTopY_mm:number(bonnet.max.y),
+    rockerToOuterBonnetRoofEnvelope_mm:number(bonnet.max.y-rockers.max.y)
+  };
+});
+const crankRear = box(int,'INT-CRANK-08');
+const crankFront = box(int,'INT-CRANK-09');
+const flywheel = box(ext,'EXT-FLYWHEEL-02');
+const damper = box(ext,'EXT-FRONT-02');
+const shaftPairs = [
+  {name:'flywheel to crankshaft rear flange', delta:crankRear.min.x-flywheel.max.x,
+    rotatingNode:'EXT-FLYWHEEL-02'},
+  {name:'crankshaft nose to damper', delta:damper.min.x-crankFront.max.x,
+    rotatingNode:'EXT-FRONT-02'}
+].map(({name,delta,rotatingNode})=>{
+  const center = pivot(ext,rotatingNode);
+  return {name, axialGap_mm:number(delta), centerOffsetYZ_mm:number(Math.hypot(center.y,center.z))};
+});
+const bb = new T.Box3().setFromObject(ext);
+const size = bb.getSize(new T.Vector3());
+const nominal = [2,1.305,1.431];
+const dimensions = [size.x,size.z,size.y].map((value,i)=>({
+  axis:['X','Z','Y'][i], export_mm:number(value), nominalCatalogue_mm:number(nominal[i]),
+  projectedExtrema_mm:number(data.extrema[i]), nominalDelta_pct:Number((100*(value/nominal[i]-1)).toFixed(2))
+}));
+const report = {
+  status:'UNVERIFIED', scope:'Independent Three.js r128 parsing of both GLBs in the export datum. No geometry edits.',
+  checks: {componentCount:ids.length, assemblyCount:Object.keys(data.assemblies).length, systemCount:data.systems.length, flowRouteCount:flow.routes.length, flowPorts:flow.ports.length, movingRoutes:flow.routes.filter(route=>route.motion).length, drivetrainGroups:specs.length, drivetrainMovers:desired.length},
+  hashes,dimensions,cylinders,shaftPairs,
+  limitations:[
+    'Cylinder per-axis checks use exported mesh bounding boxes; analytically advance piston assembly from exported rest to TDC using illustrative crank-slider data.',
+    'Rocker to bonnet measurement references outer roof extrema only. Bounding boxes do not prove local inside clearance or surface collision.',
+    'A negative shaft-pair gap is axial overlap of the exported portions; mating face, hub counterbore and fastener/joint clearances still require sectional or surface inspection.',
+    'Projected dimensions are documented-view estimates. This independent report does not replace physical or browser QA.'
+  ]
+};
+const result = new URL('../../qa/integration-fit.json',import.meta.url);
+await writeFile(result,JSON.stringify(report,null,2)+'\n');
+console.log(JSON.stringify(report,null,2));

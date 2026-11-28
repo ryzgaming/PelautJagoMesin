@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="icon" href="data:,">
+  <title>Panel ringkas · Yanmar 6AYM-WET</title>
+  <link rel="stylesheet" href="minimal.css">
+  <script defer src="../runtime/vendor/three-bundle.js"></script>
+  <script defer src="../runtime/vendor/flow-ribbons.js"></script>
+  <script defer src="../runtime/vendor/combustion-glow.js"></script>
+  <script defer src="../runtime/vendor/engine-audio.js"></script>
+  <script defer src="../runtime/vendor/functional-motion.js"></script>
+  <script type="module" src="minimal.js"></script>
+</head>
+<body>
+  <header><div><h1>Yanmar 6AYM-WET</h1><p>Panel pengoperasian ringkas</p></div><a href="./">Buka Studio</a></header>
+  <main>
+    <section aria-label="Tampilan mesin" id="engine-view"></section>
+    <section class="controls" aria-label="Kontrol mesin">
+      <p id="status" role="status">Memuat model</p>
+      <div class="actions">
+        <button type="button" data-command="start">Mulai</button>
+        <button type="button" data-command="pause">Jeda</button>
+        <button type="button" data-command="resume">Lanjut</button>
+        <button type="button" data-command="stop">Stop</button>
+        <button type="button" data-command="reset">Reset</button>
+      </div>
+      <div class="actions">
+        <button type="button" id="starter">Fokus starter</button>
+        <button type="button" id="whole">Seluruh mesin</button>
+        <button type="button" id="xray" aria-pressed="false">X-ray</button>
+        <button type="button" id="sound" aria-pressed="true">Suara</button>
+      </div>
+      <label for="inventory">Komponen model</label>
+      <select id="inventory"><option value="">Pilih komponen</option></select>
+      <p id="selection"></p>
+      <p class="note">Putaran visual diperlambat. Suara dan RPM untuk peragaan.</p>
+    </section>
+  </main>
+</body>
+</html>

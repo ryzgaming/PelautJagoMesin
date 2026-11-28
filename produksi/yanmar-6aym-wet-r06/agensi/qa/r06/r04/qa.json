@@ -1,0 +1,169 @@
+{
+  "revision": "r04",
+  "qa_agent_id": "/root/qa",
+  "status": "UNVERIFIED",
+  "ready_for_private_review": false,
+  "eligible_for_owner_inspection": true,
+  "owner_draft_available": true,
+  "glb_sha256": {
+    "exterior": "e860291eac958af9bba6566891d6462e47d1c7694921c424dc702695fb02e887",
+    "internal": "4b69ad9975928cfa80be62ddc7c6a1c5caa241900bd3aef299081c1e6406ae05"
+  },
+  "routes_sha256": "0830845dd4b9903bb19d329b8839e6c69a937821cfc4485c434fbe521d8f2225",
+  "aabb_mm": {
+    "L": 2002.677,
+    "W": 1305.1454,
+    "H_fisik": 1541.0
+  },
+  "route_count": 163,
+  "physical_count": 33,
+  "physical_centerline_samples": 2131,
+  "inter_media_pairs": 243,
+  "film_hash_matches": true,
+  "checks": {
+    "physical_and_mechanical_sample": {
+      "status": "PASS",
+      "evidence": [
+        "qa/r04/release/routes-check.json",
+        "qa/r04/release/pipe-pairs.json",
+        "qa/r04/release/charge.json",
+        "qa/r04/release/reimport.json",
+        "qa/r04/release/fit.json"
+      ]
+    },
+    "system_directions_source": {
+      "status": "PASS",
+      "evidence": [
+        "qa/r04/D01-114.png",
+        "qa/r04/D01-157.png",
+        "qa/r04/D01-163.png",
+        "doc/pipe-fuel-gas/README.md"
+      ]
+    },
+    "playback_controls_and_particle_chains_mock": {
+      "status": "PASS",
+      "evidence": [
+        "qa/r04/release/runtime.json"
+      ]
+    },
+    "portrait_film_asset_binding": {
+      "status": "PASS",
+      "evidence": [
+        "review/assets/film/yanmar-6aym-r04.mp4",
+        "qa/r04/film/render.json"
+      ]
+    },
+    "full_oem_continuity_and_operating_data": {
+      "status": "UNVERIFIED",
+      "evidence": [
+        "qa/r04/release/routes-check.json",
+        "model/flow/routes.json"
+      ]
+    },
+    "browser_and_device_render": {
+      "status": "UNVERIFIED",
+      "evidence": [
+        "qa/integration-viewer-r04.md"
+      ]
+    }
+  },
+  "observed_failures": [],
+  "artifacts": [
+    {
+      "path": "doc/pipe-fuel-gas/README.md",
+      "sha256": "39d5801c63d2c44ac650d6e4bf181bd2daa6d3f213b3ad1630e85ef6662db760"
+    },
+    {
+      "path": "model/exterior/exterior.glb",
+      "sha256": "e860291eac958af9bba6566891d6462e47d1c7694921c424dc702695fb02e887"
+    },
+    {
+      "path": "model/flow/routes.json",
+      "sha256": "0830845dd4b9903bb19d329b8839e6c69a937821cfc4485c434fbe521d8f2225"
+    },
+    {
+      "path": "model/internal/internal.glb",
+      "sha256": "4b69ad9975928cfa80be62ddc7c6a1c5caa241900bd3aef299081c1e6406ae05"
+    },
+    {
+      "path": "qa/integration-viewer-r04.md",
+      "sha256": "c65d459221a82ba2b090d92f38f7a5b7e407d38fc429109019e1a7591e73e329"
+    },
+    {
+      "path": "qa/r04/D01-114.png",
+      "sha256": "5d4529590fc71d35bd90f773b1550cae46bd8d936c52a1b29e7b6d8b3d7420d0"
+    },
+    {
+      "path": "qa/r04/D01-157.png",
+      "sha256": "9b61471c755b65cbffcb7c01c638b0fb97a945409f25dfab8107fcd6d007ede1"
+    },
+    {
+      "path": "qa/r04/D01-163.png",
+      "sha256": "ef550503dc3155c89d3bb12e863c35d5c4436d979c06d0bc070132db016b7f1f"
+    },
+    {
+      "path": "qa/r04/QA.md",
+      "sha256": "4c14dde41cdab61d803909661e2e0a6d61e9c19b1b521763a2d0b12e13048a71"
+    },
+    {
+      "path": "qa/r04/acceptance.md",
+      "sha256": "a483a92bdf8159a4b95e73abbe5a05ae4651b2890ec3d2dab4a98fe1d8031b72"
+    },
+    {
+      "path": "qa/r04/baseline-r03.json",
+      "sha256": "8a883880d73796a03efa5621374c00db223e931101583c7a7815b3d54c825eaa"
+    },
+    {
+      "path": "qa/r04/film/render.json",
+      "sha256": "0a7f1b80efb2abd729aa5f3755686182779406052241380ed03b051de1226a89"
+    },
+    {
+      "path": "qa/r04/perbandingan-injektor.jpg",
+      "sha256": "66cd122fb27363c8b24441f41722f6aa6a983867ba39c7bbe2e875a281fb625b"
+    },
+    {
+      "path": "qa/r04/r03-no3-joint.json",
+      "sha256": "91987f5b24d4d2c2e622315300066e83bd2e79dec531b87dfde890c0eb0fa929"
+    },
+    {
+      "path": "qa/r04/release/charge.json",
+      "sha256": "8fe59103305bd350ac08d5f52cd4fa46094ae84db42c5c5c5e63083e9d85040e"
+    },
+    {
+      "path": "qa/r04/release/fit.json",
+      "sha256": "7214f3b2702bb90520e4d52308ac7c96559a35455edfc5a5150b38efadedeff9"
+    },
+    {
+      "path": "qa/r04/release/pipe-pairs.json",
+      "sha256": "8813809912dfd71cf80ba8d452bd5b23e4a57b6438ce518ca0efed514a17093b"
+    },
+    {
+      "path": "qa/r04/release/r04-no3-joint.json",
+      "sha256": "9351f896dd15d65b6c28e56b173bfad2744d9a072a2f151eb48089efce5c9e5b"
+    },
+    {
+      "path": "qa/r04/release/reimport.json",
+      "sha256": "f0af438eead9082ac54e7e554e689ab4d7cdb246961ae14ba992afdd935e79a1"
+    },
+    {
+      "path": "qa/r04/release/routes-check.json",
+      "sha256": "1620c51033b6c6d77325e45032fba3db4ffdb42009cf4d30f32662427c3d534d"
+    },
+    {
+      "path": "qa/r04/release/runtime.json",
+      "sha256": "c7339afa29b03241212cedce7fa91600b7f29cecbe07e5651100c316aada22a7"
+    },
+    {
+      "path": "review/assets/data.json",
+      "sha256": "81f198249c45697439725462bfae82c5d42262b8965106cfc2470c7fa1e32ee5"
+    },
+    {
+      "path": "review/assets/film/yanmar-6aym-r04.mp4",
+      "sha256": "47d023f797ebe23caca4406f94e285142816a83f3f18eb392d2c3816df3005fb"
+    },
+    {
+      "path": "review/assets/studio.js",
+      "sha256": "bd8b3e16741ca809ccee2e3274e0a892d1eded1328c58b54c6e848d813339ff0"
+    }
+  ]
+}

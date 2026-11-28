@@ -1,0 +1,169 @@
+{
+  "blender": "4.3.2",
+  "engine": "Cycles CPU",
+  "samples": 24,
+  "denoise": false,
+  "resolution": [
+    800,
+    650
+  ],
+  "tone_mapping": "AgX",
+  "views": {
+    "neutral-front.png": {
+      "camera_m": [
+        2.9,
+        0.098,
+        0
+      ],
+      "target_m": [
+        0.66,
+        0.098,
+        0
+      ],
+      "ortho_scale": 1.7599999904632568
+    },
+    "neutral-rear.png": {
+      "camera_m": [
+        -1.8,
+        0.098,
+        0
+      ],
+      "target_m": [
+        0.66,
+        0.098,
+        0
+      ],
+      "ortho_scale": 1.7599999904632568
+    },
+    "neutral-right.png": {
+      "camera_m": [
+        0.66,
+        0.098,
+        2.25
+      ],
+      "target_m": [
+        0.66,
+        0.098,
+        0
+      ],
+      "ortho_scale": 1.8600000143051147
+    },
+    "neutral-left.png": {
+      "camera_m": [
+        0.66,
+        0.098,
+        -2.25
+      ],
+      "target_m": [
+        0.66,
+        0.098,
+        0
+      ],
+      "ortho_scale": 1.8600000143051147
+    },
+    "neutral-top.png": {
+      "camera_m": [
+        0.66,
+        2.38,
+        0
+      ],
+      "target_m": [
+        0.66,
+        0.098,
+        0
+      ],
+      "ortho_scale": 1.8600000143051147
+    },
+    "neutral-three-quarter.png": {
+      "camera_m": [
+        2.01,
+        1.28,
+        1.62
+      ],
+      "target_m": [
+        0.66,
+        0.098,
+        0
+      ],
+      "ortho_scale": 1.8600000143051147
+    },
+    "color-front.png": {
+      "camera_m": [
+        2.9,
+        0.098,
+        0
+      ],
+      "target_m": [
+        0.66,
+        0.098,
+        0
+      ],
+      "ortho_scale": 1.7599999904632568
+    },
+    "color-rear.png": {
+      "camera_m": [
+        -1.8,
+        0.098,
+        0
+      ],
+      "target_m": [
+        0.66,
+        0.098,
+        0
+      ],
+      "ortho_scale": 1.7599999904632568
+    },
+    "color-right.png": {
+      "camera_m": [
+        0.66,
+        0.098,
+        2.25
+      ],
+      "target_m": [
+        0.66,
+        0.098,
+        0
+      ],
+      "ortho_scale": 1.8600000143051147
+    },
+    "color-left.png": {
+      "camera_m": [
+        0.66,
+        0.098,
+        -2.25
+      ],
+      "target_m": [
+        0.66,
+        0.098,
+        0
+      ],
+      "ortho_scale": 1.8600000143051147
+    },
+    "color-top.png": {
+      "camera_m": [
+        0.66,
+        2.38,
+        0
+      ],
+      "target_m": [
+        0.66,
+        0.098,
+        0
+      ],
+      "ortho_scale": 1.8600000143051147
+    },
+    "color-three-quarter.png": {
+      "camera_m": [
+        2.01,
+        1.28,
+        1.62
+      ],
+      "target_m": [
+        0.66,
+        0.098,
+        0
+      ],
+      "ortho_scale": 1.8600000143051147
+    }
+  }
+}

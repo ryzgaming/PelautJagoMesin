@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "yanmar-6aym-wet-r06",
+  "name": "Yanmar 6AYM-WET",
+  "revision": "r06",
+  "units": "m",
+  "assets": {
+    "exterior": "assets/exterior.glb",
+    "internal": "assets/internal.glb",
+    "inventory": "assets/data.json",
+    "catalog": "assets/daftar-yanmar.json"
+  },
+  "integrity": {
+    "assets/exterior.glb": "defc58c070a871da2068b2ddd4388ff51b340a1014dfde2226f7e47946a89121",
+    "assets/internal.glb": "526ce37f126203eb288388dbd7922dd85749b19ddf8ef82ee5bfcf9d472ec8f5",
+    "assets/data.json": "329566981da8e0c2ba9d1096cd69c1d29fcce9acc71c1621d20016785fd6adad",
+    "assets/daftar-yanmar.json": "a55d212b4db741fb41575359cf9a081191f6ea34a820c3d72cecc3ecf79a3d01"
+  },
+  "componentCount": 1184,
+  "approval": {
+    "ownerVisualFeedback": "Modelnya bagus — user 28 November 2026",
+    "catalogApproved": false,
+    "oemAccuracy": "UNVERIFIED",
+    "physicalPhoneTest": "UNVERIFIED"
+  },
+  "sourceRevision": "e3b73cdd9b1e947bfd163e1c585b70841ff9d356"
+}

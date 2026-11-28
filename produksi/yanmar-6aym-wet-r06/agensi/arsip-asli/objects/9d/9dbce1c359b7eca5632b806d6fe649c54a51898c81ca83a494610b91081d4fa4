@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#151b1e">
+  <title>Yanmar 6AYM-WET · Studio Mesin</title>
+  <link rel="stylesheet" href="assets/studio.css">
+  <script defer src="assets/three-bundle.js"></script>
+  <script defer src="assets/assembly-diagram.js"></script>
+  <script defer src="assets/flow-ribbons.js"></script>
+  <script defer src="assets/combustion-glow.js"></script>
+  <script defer src="assets/engine-audio.js"></script>
+  <script defer src="assets/functional-motion.js"></script>
+  <script defer src="assets/studio.js"></script>
+</head>
+<body>
+<header>
+  <div><p class="eyebrow">STUDIO MESIN <span id="review-status">· R06 DRAF — QA BELUM LENGKAP</span></p>
+  <h1>Yanmar 6AYM-WET</h1>
+  <p class="rating">H · 555 kW / 1.840 rpm · Mesin tanpa transmisi</p></div>
+  <button id="sources">Sumber</button>
+</header>
+<main id="workspace">
+  <section id="stage" aria-label="Model mesin interaktif">
+    <div id="canvas"></div>
+    <p id="loading" role="status">Memuat model 3D…</p>
+    <div class="stage-tools"><button id="inspect-contents" hidden></button><button id="parts" aria-expanded="false">Komponen</button><button id="reset">Reset</button></div>
+    <p class="gesture">Seret untuk memutar · Cubit atau gulir untuk memperbesar</p>
+  </section>
+  <aside id="panel" aria-labelledby="panel-title" hidden>
+    <div class="panel-head"><h2 id="panel-title"></h2><button id="close" aria-label="Tutup panel">✕</button></div>
+    <div id="panel-body"></div>
+  </aside>
+</main>
+<div id="spread-box" hidden>
+  <label for="spread">Jarak urai <output id="spread-value" for="spread">50%</output></label>
+  <input id="spread" type="range" min="0" max="100" value="50">
+</div>
+<section id="operation-controls" aria-label="Kontrol operasi dan aliran" hidden>
+  <div class="operation-buttons">
+    <button id="operation-toggle" type="button" aria-pressed="false">Mulai</button>
+    <button id="operation-stop" type="button">Stop</button>
+    <label class="flow-select" id="flow-field"><span class="visually-hidden">Pilih aliran fluida</span>
+      <select id="flow-select" aria-label="Pilih aliran fluida">
+        <option value="fuel">Bahan bakar</option>
+        <option value="lubrication">Pelumas</option>
+        <option value="freshwater">Air tawar</option>
+        <option value="seawater">Air laut</option>
+        <option value="intake">Udara masuk</option>
+        <option value="exhaust">Gas buang</option>
+        <option value="none">Tanpa alur</option>
+      </select></label>
+    <label class="flow-select" id="drive-field" hidden><span class="visually-hidden">Pilih mekanisme penggerak</span>
+      <select id="drive-select" aria-label="Pilih mekanisme penggerak"></select></label>
+    <button id="audio-toggle" type="button" aria-label="Suara ilustrasi" aria-pressed="false" hidden>Suara</button>
+  </div>
+  <div class="operation-secondary">
+    <button id="operation-info" type="button" aria-controls="panel" aria-expanded="false">Rute</button>
+    <div id="drive-controls" class="drive-controls" hidden>
+      <button id="drive-focus" type="button">Fokus</button>
+      <button id="drive-starter" type="button">Lihat starter</button>
+      <button id="drive-back" type="button">Operasi</button>
+    </div>
+    <div id="tour-controls" class="tour-controls">
+      <button id="starter-entry" type="button">Fokus starter</button>
+      <button id="drive-entry" type="button">Penggerak</button>
+      <button id="tour-next" type="button" hidden>Lewati</button>
+    </div>
+    <details class="operation-options" id="operation-options">
+      <summary>Opsi</summary>
+      <div class="operation-accessories">
+        <button id="flow-cut" type="button" aria-pressed="false">Potongan blok</button>
+        <button id="chamber-focus" type="button" aria-pressed="false" hidden>Fokus ruang bakar</button>
+        <button id="operation-tour" type="button">Tur animasi</button>
+        <button id="operation-reset" type="button">Reset pose</button>
+        <label id="audio-field" hidden>Volume <input id="audio-volume" type="range" min="0" max="50" value="35" aria-label="Volume suara mesin"></label>
+      </div>
+    </details>
+  </div>
+  <p id="flow-legend"><span id="operation-status" role="status">Mesin mati</span><span id="flow-key"></span></p>
+</section>
+<nav aria-label="Mode workspace">
+  <button data-mode="overview" aria-pressed="false">Eksplor keseluruhan</button>
+  <button data-mode="systems" aria-pressed="false">Sistem</button>
+  <button data-mode="operation" aria-pressed="false">Pengoperasian</button>
+  <button id="xray" aria-pressed="false">X-ray</button>
+</nav>
+<noscript>Aktifkan JavaScript untuk memuat model dan informasi komponen.</noscript>
+</body>
+</html>

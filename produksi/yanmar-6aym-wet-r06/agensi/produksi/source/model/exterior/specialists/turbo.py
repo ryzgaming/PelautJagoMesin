@@ -1,0 +1,251 @@
+"""MHI TD13M(1) representations in the model datum, with the turbine at -X."""
+from math import cos, sin, pi
+
+GROUP = 'RAK-TURBO'
+PARENT = 'RAK-EXHAUST'
+CAT = 'D05 / 0CG10-M34300, Fig.32 TURBOCHARGER COMPONENT PART, model selection 6AYM-WET'
+SECTION = 'D01 PDF 170 / cetak 166, TD13M(1), penampang 013122-00E'
+LIMITS = ('Dimensi, kurva dan jumlah sudu, celah kerja, bentuk saluran dan sudut pemasangan '
+          'merupakan perkiraan visual. Verifikasi nomor seri dan toleransi belum tersedia.')
+
+def build(api):
+    tx,ty,tz=api['tc']
+    entries=[]
+    axis=(1,0,0)
+    steel,cast,rubber=api['steel'],api['cast'],api['rubber']
+    hot=api['appearance']('Rotor turbin · logam panas',(.225,.188,.146),.68,.36)
+    bronze=api['appearance']('Bantalan turbo · warna ilustrasi',(.366,.229,.096),.66,.34)
+    def pos(x):return (tx+x,ty,tz)
+    def revolve(profile,mat,segments=64):
+        return api['ring'](pos(0),axis,profile,mat,segments)
+    def ann(x,ro,ri,length,mat):
+        return api['annulus'](pos(x),axis,ro,ri,length,mat)
+    def put(n,name,pieces,ref,pn,role,function,move=0,occ=1):
+        refs=[CAT+' / posisi '+str(ref),SECTION]
+        shell=role in ('shell','cover')
+        sign=1 if move>=0 else -1
+        v=(sign,0,0)
+        obj=api['add']('EXHAUST',n,name,pieces,refs,function+' '+LIMITS,xray=shell,
+                       direction=v,parent=GROUP,nested_under=PARENT,role=role,oem=pn,quantity=occ)
+        entries.append({'no':len(entries)+1,'nama':name,'object_ids':[obj.name],'role':role,'status':'ESTIMATED',
+                        'fungsi':function,'sumber':refs,'nomor_oem':pn,'ukuran':None,
+                        'posisi':[] if move==0 else [{'object_id':obj.name,'arah':list(v),'jarak_m':abs(move),'urutan':len(entries)+1}]})
+
+    def scroll(x,base,radius,width,mat,sign):
+        # Annular spiral duct has both an outer and inner wall. Its tongue opens at the outlet.
+        slices=48
+        sides=20
+        verts=[];faces=[]
+        for layer in (1,.77):
+            for i in range(slices+1):
+                t=i/slices
+                a=(-pi if sign==1 else .52)+sign*t*2*pi
+                # The turbine inlet faces the collector below; its mouth tangent points towards -Z.
+                b=radius*(.57+.43*t)
+                wheel_clearance=.078 if sign==1 else .072
+                mid=max(base*(.87+.23*t),b+wheel_clearance)
+                for j in range(sides):
+                    phi=2*pi*j/sides
+                    rr=mid+layer*b*sin(phi)
+                    verts.append((tx+x+layer*width*(.70+.30*t)*cos(phi),ty+rr*cos(a),tz+rr*sin(a)))
+        stride=(slices+1)*sides
+        for i in range(slices):
+            for j in range(sides):
+                a=i*sides+j;b=i*sides+(j+1)%sides
+                face=(a,b,b+sides,a+sides)
+                faces.extend((face,tuple(k+stride for k in reversed(face))))
+        for i in (0,slices):
+            for j in range(sides):
+                a=i*sides+j;b=i*sides+(j+1)%sides
+                faces.append((a,b,b+stride,a+stride))
+        return api['mesh'](verts,faces,mat,smooth=True)
+
+    for n in (2,3,4):
+        api['remove_part'](f'EXT-EXHAUST-{n:02d}')
+    turbine_cover=[scroll(-.017,.101,.046,.053,cast,1),
+                   revolve([(-.080,.069),(-.080,.101),(-.063,.109),(-.037,.103),(-.005,.110),
+                            (.023,.098),(.025,.079),(-.008,.078),(-.035,.073),(-.060,.064)],cast)]
+    put(2,'Rumah gas turbin',turbine_cover,26,'X4918211460','shell',
+        'Mengarahkan aliran gas buang melingkar ke roda turbin.')
+    shroud=[scroll(.183,.095,.042,.042,steel,-1),
+            revolve([(.137,.072),(.137,.106),(.153,.113),(.181,.105),(.205,.089),(.222,.075),
+                     (.254,.067),(.255,.047),(.219,.049),(.205,.052),(.180,.059),(.159,.070),(.148,.073)],steel)]
+    put(3,'Rumah kompresor dan inlet',shroud,4,'X4918255630','shell',
+        'Menerima udara dari inducer, menampung aliran radial keluar roda dan mengarahkannya ke duct.',.82)
+    # Main bearing lands retain a small floating oil-film space. A common
+    # longitudinal drilling joins the feed boss to both annular grooves.
+    housing=revolve([(.018,.030),(.019,.067),(.028,.076),(.041,.064),(.058,.043),
+                     (.095,.041),(.107,.048),(.124,.073),(.135,.078),(.139,.069),
+                     (.139,.055),(.122,.045),(.115,.024),(.104,.024),(.101,.0156),
+                     (.0936,.0156),(.0932,.0165),(.0908,.0165),(.0904,.0156),
+                     (.083,.0156),(.080,.024),(.053,.024),(.050,.0156),
+                     (.0426,.0156),(.0422,.0165),(.0398,.0165),(.0394,.0156),
+                     (.032,.0156),(.029,.024),(.028,.024)],cast)
+    def oil_drill(offset,radial,axis,radius,depth):
+        api['subtract'](housing,api['cylinder']((tx+offset,ty+radial,tz),axis,radius,depth,steel,24,0))
+    oil_drill(.0665,.030,(1,0,0),.0024,.057)
+    oil_drill(.077,.046,(0,1,0),.003,.035)
+    for x in (.041,.092):
+        oil_drill(x,.0230,(0,1,0),.0018,.018)
+    carrier=[housing,api['annulus']((tx+.077,ty+.050,tz),(0,1,0),.015,.007,.026,cast)]
+    put(4,'Rumah bantalan dan inlet oli',carrier,22,'X4918225630','shell',
+        'Menopang rotor pada bantalan dan menyalurkan oli menuju bantalan.',.27)
+
+    def blades(profiles, count, handed, material, hub_radius_at, tip_radius_at):
+        # Thin two-sided swept surfaces. Axial stations resolve inducer and exducer rake.
+        vertices=[];faces=[]
+        for blade in range(count):
+            for side in (-1,1):
+                for x,h,t,twist in profiles:
+                    rh=hub_radius_at(h);rt=tip_radius_at(t)
+                    for j in range(6):
+                        v=j/5
+                        r=rh+(rt-rh)*v
+                        lean=(.04+.17*(1-v))*sin(pi*v/2)
+                        a=(blade*2*pi/count+handed*(twist+lean)+side*.00065/max(.006,r))
+                        vertices.append((tx+x, ty+r*cos(a), tz+r*sin(a)))
+            cols=6
+            sheet=len(profiles)*cols
+            offset=blade*sheet*2
+            for k in range(len(profiles)-1):
+                for j in range(cols-1):
+                    a=offset+k*cols+j
+                    face=(a,a+1,a+cols+1,a+cols)
+                    faces.extend([face,tuple(x+sheet for x in reversed(face))])
+            for j in range(cols-1):
+                for k in (0,len(profiles)-1):
+                    a=offset+k*cols+j
+                    faces.append((a,a+sheet,a+sheet+1,a+1))
+            for k in range(len(profiles)-1):
+                for j in (0,cols-1):
+                    a=offset+k*cols+j
+                    faces.append((a,a+cols,a+cols+sheet,a+sheet))
+        return api['mesh'](vertices,faces,material,smooth=True)
+    identity=lambda x:x
+    wheelstations=[(.148,.061,.068,.02),(.152,.051,.068,.11),(.162,.037,.063,.23),
+                   (.175,.028,.056,.38),(.190,.022,.050,.55),(.205,.016,.045,.69),(.216,.014,.041,.78)]
+    coldwheel=[revolve([(.145,.0092),(.145,.065),(.148,.066),(.152,.052),(.162,.038),
+                        (.175,.029),(.190,.023),(.205,.017),(.216,.015),(.219,.012),(.219,.0092)],steel),
+               blades(wheelstations,8,1,steel,identity,identity)]
+    put(20,'Roda kompresor bersudu lengkung',coldwheel,6,'X4918245010','core',
+        'Inducer menangkap udara dari arah poros; sudu melengkung membelokkannya ke luar secara radial.',.62)
+    hotstations=[(-.060,.016,.057,.76),(-.053,.022,.061,.65),(-.042,.027,.065,.47),
+                 (-.029,.035,.068,.31),(-.018,.046,.072,.16),(-.010,.056,.074,.08),(-.006,.066,.074,.04)]
+    turbine=[revolve([(-.063,.0015),(-.063,.014),(-.060,.017),(-.053,.023),(-.042,.028),
+                      (-.029,.036),(-.018,.047),(-.010,.057),(-.006,.068),(-.002,.070),
+                      (.000,.019),(.005,.018),(.008,.013),(.024,.012),(.025,.010),
+                      (.128,.010),(.133,.0088),(.221,.0088),(.227,.0075),(.227,.0015)],hot),
+             blades(hotstations,11,-1,hot,identity,identity)]
+    put(21,'Poros dengan roda turbin',turbine,20,'X4918230231','rotor',
+        'Gas buang memutar roda turbin; poros yang menyatu meneruskan torsi ke roda kompresor.',-.27)
+    def floating(x):
+        sleeve=revolve([(x-.008,.0102),(x-.008,.0148),(x-.006,.0153),(x-.002,.0153),
+                         (x-.001,.0145),(x+.001,.0145),(x+.002,.0153),(x+.006,.0153),
+                         (x+.008,.0148),(x+.008,.0102)],bronze)
+        for a in (0,2*pi/3,4*pi/3):
+            radial=(0,cos(a),sin(a))
+            tool=api['cylinder']((tx+x,ty+.013*cos(a),tz+.013*sin(a)),radial,.0016,.008,steel,12,0)
+            api['subtract'](sleeve,tool)
+        return sleeve
+    for idx,(x,move) in enumerate([(.041,-.075),(.092,.139)]):
+        put(22+idx,'Bantalan mengambang '+('sisi turbin' if idx==0 else 'sisi kompresor'),
+            floating(x),19,'X4918121100','bearing','Selongsong melayang menyangga poros dengan pelumasan pada permukaan dalam dan luarnya.',move)
+    put(24,'Bantalan aksial',ann(.113,.038,.014,.005,bronze),14,'X4918121600','bearing',
+        'Menerima beban aksial rotor pada sisi kompresor.',.163)
+    put(25,'Ring thrust belakang',ann(.108,.022,.0104,.0032,steel),15,'X4918142300','bearing',
+        'Membentuk permukaan kontak aksial di salah satu sisi bantalan thrust.',.151)
+    put(26,'Ring thrust depan',ann(.118,.022,.0104,.0032,steel),16,'X4918142400','bearing',
+        'Membentuk pasangan permukaan aksial di belakang roda kompresor.',.177)
+    seal_insert=revolve([(.1306,.01698),(.1306,.021),(.132,.021),(.132,.064),
+                         (.133,.065),(.137,.065),(.138,.064),(.138,.021),
+                         (.1405,.021),(.1405,.01698)],steel)
+    put(27,'Insert belakang kompresor',seal_insert,11,'X4918122500','plate',
+        'Insert memisahkan sisi oli dari rongga kompresor.',.334)
+    # The nonrotating piston rings sit in annular grooves on the spinning
+    # flinger. Clearance is illustrative; the OEM section identifies the pair.
+    flinger=revolve([(.131,.0092),(.131,.0164),(.13120,.0164),(.13122,.01545),
+                     (.13278,.01545),(.13280,.0164),(.13820,.0164),(.13822,.01545),
+                     (.13978,.01545),(.13980,.0164),(.141,.0164),(.141,.0092)],steel)
+    put(28,'Sleeve flinger oli dengan dua alur ring',flinger,9,'X4918142100','sleeve',
+        'Sleeve berputar bersama poros dan membelokkan oli dari sisi udara.',.378)
+    put(29,'Deflektor oli',ann(.124,.031,.012,.002,steel),17,'X4918122200','plate',
+        'Membelokkan oli di ruang bantalan menuju sisi drain.',.194)
+    for i,x in enumerate((.132,.139)):
+        put(30+i,'Ring piston seal flinger '+str(i+1),ann(x,.017,.0158,.0013,steel),10,'X4918123100','seal',
+            'Membatasi migrasi oli pada sleeve sisi kompresor.',.389+i*.013)
+    put(32,'Pelat belakang turbin',ann(.010,.075,.0185,.004,hot),31,'X4918219300','plate',
+        'Pelat membatasi rongga gas panas di sisi rumah bantalan.',-.092)
+    nut=api['cylinder'](pos(.224),axis,.014,.0095,steel,6,.0007)
+    api['subtract'](nut, api['cylinder'](pos(.224),axis,.0089,.020,steel,24,0))
+    put(33,'Mur pengunci roda kompresor',nut,8,'X4918142230','fastener',
+        'Mengunci roda kompresor pada ujung poros.',.72)
+    def oring(x,r,w,mat):
+        return revolve([(x+w*sin(i*2*pi/12),r+w*cos(i*2*pi/12)) for i in range(12)],mat)
+    put(34,'O-ring insert',oring(.134,.064,.0015,rubber),13,'X0550720700','seal',
+        'Merapatkan diameter luar insert.',.35)
+    put(35,'Ring penahan insert',ann(.139,.065,.061,.0018,steel),12,'949162-23200','fastener',
+        'Menahan insert pada rumahnya.',.366)
+    put(36,'O-ring rumah bantalan',oring(.132,.074,.0015,rubber),23,'X4918122700','seal',
+        'Merapatkan sambungan rumah bantalan.',.316)
+    for i,x in enumerate((.030,.052,.081)):
+        put(37+i,'Snap ring bantalan '+str(i+1),ann(x,.016,.0136,.0016,steel),18,'X4918122300','fastener',
+            'Menahan posisi aksial bantalan di alurnya. Posisi alur dalam model merupakan perkiraan.',(-.15,-.049,.116)[i])
+    # The catalog shows a removable lagging as a C-shaped jacket with a gap at
+    # the lower gas inlet. The section below wraps around the cast scroll.
+    def sector(x,profile,start,sweep,segments,mat):
+        vertices=[];faces=[];width=len(profile)
+        for step in range(segments+1):
+            a=start+sweep*step/segments
+            for dx,radius in profile:
+                vertices.append((tx+x+dx,ty+radius*cos(a),tz+radius*sin(a)))
+        for step in range(segments):
+            for k in range(width):
+                a=step*width+k;b=step*width+(k+1)%width
+                faces.append((a,b,b+width,a+width))
+        faces.append(tuple(reversed(range(width))))
+        faces.append(tuple(segments*width+i for i in range(width)))
+        return api['mesh'](vertices,faces,mat,smooth=True)
+
+    lagging=sector(-.016,[(-.055,.112),(-.056,.125),(-.046,.145),(-.025,.160),
+                           (.024,.160),(.048,.145),(.059,.125),(.059,.111),
+                           (.046,.116),(.031,.141),(.018,.152),(-.018,.152),
+                           (-.036,.142),(-.047,.123)],-1.15,3.59,56,api['foil'])
+    put(40,'Selimut isolasi rumah turbin',lagging,29,'148634-18340','cover',
+        'Mengurangi pancaran panas dari coran volute gas buang. Bentuk belahan dan tekstur selimut diaproksimasi.',-.51)
+    clamp=sector(-.081,[(-.007,.099),(-.010,.105),(-.008,.108),(.008,.108),(.010,.105),
+                         (.007,.099),(0,.104)],-.03,2*pi-.16,64,steel)
+    clamp=[clamp,api['cylinder']((tx-.081,ty+.105,tz-.009),(0,0,1),.004,.030,steel,20,.0004),
+           api['cylinder']((tx-.081,ty+.105,tz+.005),(0,0,1),.006,.006,steel,6,.0004)]
+    put(41,'V-clamp sambungan rumah turbin',clamp,36,'126616-18390','fastener',
+        'Mengikat bibir sambungan dengan profil penjepit V.',-.41)
+    for i,x in enumerate((.239,.247)):
+        put(42+i,'O-ring sambungan udara '+str(i+1),oring(x,.0665,.0016,rubber),
+            35,'126684-18150','seal','Memisahkan aliran udara dari kebocoran pada sambungan housing.',.91+i*.045)
+    # Four paired clamp straps on each end, each screw can be selected individually.
+    for x,ro,plate_ref,plate_pn,bolt_ref,bolt_pn,plate_id,bolt_id,move in (
+        (.140,.081,34,'X4918123500',37,'X3253207320',44,48,.45),
+        (.023,.082,39,'X4918217280',25,'X4918123700',56,60,-.185)):
+        for i in range(4):
+            a=pi*.25+i*pi*.5
+            strap=sector(x,[(-.0024,ro-.005),(-.0024,ro+.005),(.0024,ro+.005),(.0024,ro-.005)],
+                         a-.22,.44,14,steel)
+            holes=[]
+            for j,s in enumerate((-1,1)):
+                b=a+s*.175
+                point=(tx+x,ty+ro*cos(b),tz+ro*sin(b))
+                api['subtract'](strap,api['cylinder'](point,axis,.0033,.012,steel,16,0))
+                holes.append(point)
+            put(plate_id+i,'Pelat penjepit '+('kompresor ' if move>0 else 'turbin ')+str(i+1),
+                strap,plate_ref,plate_pn,'fastener','Menahan tepi housing dengan sepasang sekrup.',move)
+            for j,(px,py,pz) in enumerate(holes):
+                sgn=1 if move>0 else -1
+                pieces=[api['cylinder']((px,py,pz),axis,.0031,.018,steel,16,.0003),
+                        api['cylinder']((px+sgn*.012,py,pz),axis,.0058,.006,steel,6,.0004)]
+                put(bolt_id+2*i+j,'Baut penjepit '+('kompresor ' if move>0 else 'turbin ')+str(2*i+j+1),
+                    pieces,bolt_ref,bolt_pn,'fastener','Mengencangkan pelat penjepit pada dudukan rumah.',move+sgn*.04)
+
+    api['register_recipe']({'id':GROUP,'nama':'Turbocharger radial MHI TD13M(1)','node_rakitan':GROUP,
+        'parent_rakitan':PARENT,'status':'UNVERIFIED','source_refs':[CAT,SECTION],
+        'acuan':{'no':1,'object_ids':['EXT-EXHAUST-02']},
+        'diagram':{'arah_pandang':[.69,.38,.615],'atas':[0,1,0]},'bagian':entries,
+        'notes':LIMITS+' Setiap nomor komponen WET Fig.32 tercakup, kecuali no.1 yang merupakan rakitan payung. Rumah dan bagian katalog yang dijual dalam satu rakitan tidak membuktikan bentuk internal tambahan.'})

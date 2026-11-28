@@ -1,0 +1,42 @@
+{
+  "recorded_at": "2026-11-28",
+  "working_directory": "agensi/perangkat-produksi/repo-snapshot",
+  "scope": "Portable subset tests executed against copied package; not model geometry QA or full platform build",
+  "commands": [
+    "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tools/gpt-production/tests",
+    "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s apps/alur-workflow/worker",
+    "node --test tests/flow-ribbons.test.mjs tests/combustion-glow.test.mjs"
+  ],
+  "results": [
+    {
+      "status": "fulfilled",
+      "value": {
+        "chunk_id": "572ddb",
+        "wall_time_seconds": 0.14432371,
+        "exit_code": 0,
+        "original_token_count": 34,
+        "output": "....................................\n----------------------------------------------------------------------\nRan 36 tests in 0.189s\n\nOK\n"
+      }
+    },
+    {
+      "status": "fulfilled",
+      "value": {
+        "chunk_id": "842c49",
+        "wall_time_seconds": 0.021809833,
+        "exit_code": 0,
+        "original_token_count": 29,
+        "output": "..............\n----------------------------------------------------------------------\nRan 14 tests in 0.069s\n\nOK\n"
+      }
+    },
+    {
+      "status": "fulfilled",
+      "value": {
+        "chunk_id": "43bba4",
+        "wall_time_seconds": 0.120415084,
+        "exit_code": 0,
+        "original_token_count": 215,
+        "output": "✔ fase nyala dari firing order: interval merata 720/4 (10.234978ms)\n✔ api menyala tepat setelah TMA silinder sesuai urutan, semburan sebelum TMA (2.332499ms)\n✔ jalan, jeda dan rpm menggerakkan sudut engkol dengan benar (2.600834ms)\n✔ timing dari manual mengalahkan gaya; urutan wajib lengkap (3.782216ms)\n✔ api tidak lebih lebar dari bore dan mengikuti piston turun (1.842881ms)\n✔ gaya-efek.json dipakai pustaka aliran (4.507961ms)\n✔ nama media bebas dipetakan ke palet (2.452239ms)\n✔ pita dibuat per span, estimasi ditandai, hidden hanya saat X-ray (21.504355ms)\n✔ probe mengikuti satu gelombang: naik saat jalan, diam saat jeda, lanjut dari fase sama (3.917601ms)\n✔ rute wajib dan opsi sembunyikan estimasi (3.26082ms)\nℹ tests 10\nℹ suites 0\nℹ pass 10\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 232.77672\n"
+      }
+    }
+  ]
+}

@@ -1,0 +1,162 @@
+{
+ "metode": "Render Cycles CPU 16 spp + Freestyle, 1200x900, kamera ortografik (samping 3.6 m lebar = 3.0 mm/px; depan/belakang 3.2 m = 2.67 mm/px; atas 3.6 m) dan perspektif 3/4. Untuk tampak kanan dan depan, garis gambar resmi D01 hlm. 1 (d01_draw.png, 3.107 mm/px) diskalakan dan ditumpangkan (merah) dengan datum yang sama: render/overlay_kanan_D01.png dan render/overlay_depan_D01.png. Versi awal disimpan di render/v0/.",
+ "putaran_perbaikan": 3,
+ "sudut": {
+  "kanan": {
+   "referensi": [
+    "D01 hlm. 1 Right Side (overlay terukur)",
+    "D02 hlm. 1 render samping (img/side-1.png)",
+    "P22 (marine)",
+    "P10, P19 (genset/frac)"
+   ],
+   "temuan_sebelum": [
+    "Siluet keseluruhan, rel (X -0.295..1.905), oil pan, air cleaner (O 0.553 di X -0.28, Y 0.833), kotak aftercooler (X 0.34..1.40), pipa udara teratas (Y ~1.39), tangki/HE depan (X 2.11..2.39) dan pipa tegak depan berimpit dengan garis D01 dalam beberapa piksel (~1 cm).",
+    "Lima tutup katup terlihat dan yang keenam tertutup kotak panel, sama dengan D01.",
+    "Dua rumah bundar menghadap samping di depan atas (D01: X ~1.96, Y ~0.80 dan ~0.975) belum ada.",
+    "Dinding bank di atas crankcase polos dibanding render D02."
+   ],
+   "perbaikan": [
+    "Ditambah dua rumah bundar berflens menghadap +Z pada EXT-TERMOSTAT-01 sesuai lingkaran D01.",
+    "Ditambah boss baut kepala dan bibir deck pada dinding bank (EXT-BLOK-01)."
+   ],
+   "sisa_selisih": [
+    "Rincian kecil D01 (perpipaan halus, kotak di bawah air cleaner X -0.56..-0.11, Y 0.24..0.51) tidak dimodelkan.",
+    "Elemen kecil bertutup di atas belakang D01 (X ~-0.26, Y 1.17..1.35) tidak dimodelkan, identitas tidak diketahui.",
+    "Pompa air laut terlihat menonjol di bawah depan; D01 (gambar dasar) tidak menggambarnya karena opsional."
+   ]
+  },
+  "depan": {
+   "referensi": [
+    "D01 hlm. 1 Front (overlay terukur)",
+    "P23 (marine, depan lurus)",
+    "D02 hlm. 1 render depan (konfigurasi keel cooled, tanpa tangki)"
+   ],
+   "temuan_sebelum": [
+    "Kotak tangki/HE (Z -0.56..0.54, Y 0.53..1.18), guard O 0.652, air cleaner di kedua sisi, pipa lengkung atas, siku pipa kanan bawah (Z 0.427) dan oil pan +-0.39 cocok dengan D01.",
+    "Pompa air laut terlalu rendah dan terlalu ke luar (Y -0.17, Z -0.52) dibanding lingkaran D01 (Y -0.10, Z -0.45) dan P23 (Y ~-0.09, Z ~-0.51).",
+    "Garis miring pelat trapesium di bawah air cleaner (D01) belum ada; braket hanya pelat datar."
+   ],
+   "perbaikan": [
+    "Pompa air laut dipindah ke (2.06, -0.10, -0.50).",
+    "Ditambah pelat miring dan pelat tegak pada EXT-AIRCLBRK-R/L."
+   ],
+   "sisa_selisih": [
+    "Benda spiral/bellows hitam di tengah puncak D01 (Y 1.31..1.42) tidak dimodelkan (identitas tidak diketahui); di model posisi itu terisi heat shield atas.",
+    "Pelat X di P23 berwarna perak dengan latar hitam; di model latar hitam dan silang baja, tanpa tulisan merek.",
+    "Lekuk pipa dan rangka X di bawah HE hanya sebagian terlihat di D01."
+   ]
+  },
+  "belakang": {
+   "referensi": [
+    "P14 (genset 3512C, belakang lurus)",
+    "P10, P11 (genset, 3/4 belakang)",
+    "P18 (frac)"
+   ],
+   "temuan_sebelum": [
+    "Susunan cocok secara kualitatif: dua air cleaner di luar kiri-kanan, dua turbo dekat lembah V, elbow buang tunggal di tengah atas, flywheel bundar di tengah bawah, starter di kanan bawah (P10).",
+    "P14 memperlihatkan balok melintang penghubung air cleaner (genset) yang tidak ada di model."
+   ],
+   "perbaikan": [
+    "Tidak ada perubahan geometri khusus sudut ini (perbaikan braket air cleaner juga tampak dari belakang)."
+   ],
+   "sisa_selisih": [
+    "Tidak ada foto atau gambar belakang unit MARINE (gearbox menutupi): susunan turbo, heat shield, dan diameter flens SAE 00 berstatus INFERRED/ILLUSTRATIVE.",
+    "Balok melintang P14 tidak dibuat karena hanya terlihat di genset."
+   ]
+  },
+  "kiri": {
+   "referensi": [
+    "P26, P11, P17 (genset, sisi kiri)",
+    "P08 (frac 3/4 kiri)"
+   ],
+   "temuan_sebelum": [
+    "Enam tutup katup, elbow inlet tegak per silinder (seperti P26), pintu crankcase per silinder, air cleaner belakang, pipa U depan cocok secara kualitatif.",
+    "Panel EMCP besar di sisi kiri genset (P26) tidak dipakai karena unit marine P22 menempatkan panel di sisi kanan.",
+    "Dinding atas blok polos."
+   ],
+   "perbaikan": [
+    "Boss dinding bank ditambahkan (sama dengan sisi kanan)."
+   ],
+   "sisa_selisih": [
+    "Sisi kiri unit marine belum ada fotonya: semua aksesori sisi kiri berstatus ILLUSTRATIVE/INFERRED.",
+    "Manifold buang gelap terlihat di celah antara tutup katup dan inlet manifold; tidak dapat dicek terhadap foto marine."
+   ],
+   "putaran_2": "Setelah geser: tutup katup bank kiri bergeser ke belakang, dan tutup paling belakang hampir rata dengan ujung belakang blok, dekat flywheel housing dan air cleaner, seperti pada P11 dan P26 (genset). Di ujung depan bank kiri muncul celah sekitar 0.065 m sebelum front cover. Besar offset tidak bisa diukur dari foto (resolusi dan perspektif), jadi tetap ILLUSTRATIVE.",
+   "putaran_3": "Sisi kiri sekarang memuat kotak terminal dekat flywheel housing dan bundel kabel di bawah tutup katup (seperti P11), serta pipa air rendah di depan. Kepala silinder tidak lagi kotak polos. Sisi kiri unit marine tetap belum ada fotonya."
+  },
+  "atas": {
+   "referensi": [
+    "P12 (genset, 3/4 tinggi, bukan tegak lurus)",
+    "turunan dari D01 Front dan Right Side (lebar dan panjang)"
+   ],
+   "temuan_sebelum": [
+    "Lembah V ditempati rumah aftercooler memanjang dengan dua baris enam tutup katup, turbo dan air cleaner di belakang, tangki di depan: sesuai pola P12.",
+    "Rumah aftercooler P12 bersirip-rusuk dan terlihat langsung; di model tertutup heat shield abu-abu (mengikuti render marine D02)."
+   ],
+   "perbaikan": [
+    "Tidak ada perubahan khusus."
+   ],
+   "sisa_selisih": [
+    "Tidak ada tampak atas sejati: lebar Z aftercooler (+-0.30) dan heat shield (+-0.31) ESTIMATED/ILLUSTRATIVE."
+   ],
+   "putaran_2": "Pergeseran bank kiri ke belakang terlihat di tampak atas: baris tutup katup kiri lebih dekat ke turbo, baris kanan lebih dekat ke tangki depan. Tidak ada tampak atas sejati untuk mengecek."
+  },
+  "tigaperempat": {
+   "referensi": [
+    "P22 (marine, 3/4 depan-kanan)",
+    "P01 (marine core, 3/4 kanan)",
+    "P12"
+   ],
+   "temuan_sebelum": [
+    "Tangki ekspansi beratap miring di atas HE, pelat X, panel hitam di kanan atas belakang, air cleaner bermuka kisi di belakang, guard di bawah HE: sesuai P22.",
+    "Kamera terlalu jauh (mesin kecil di bingkai)."
+   ],
+   "perbaikan": [
+    "Kamera didekatkan; pompa air laut dipindah."
+   ],
+   "sisa_selisih": [
+    "P22 memperlihatkan banyak perpipaan kecil, selang, dan kabel yang tidak dimodelkan.",
+    "Bentuk atap tangki P22 lebih menonjol ke depan (overhang) daripada model."
+   ],
+   "putaran_2": "Sudut depan-kanan hampir tidak menampakkan bank kiri; perubahan hanya terlihat sebagai pergeseran kecil pada elbow inlet kiri di belakang aftercooler."
+  }
+ },
+ "gap_umum": [
+  "Offset bank kiri tidak tertulis di dokumen; 0.065 m dipakai (ILLUSTRATIVE) agar sama dengan Internal Modeler.",
+  "Diameter rumah keong turbo UNKNOWN; ukuran turbo ILLUSTRATIVE.",
+  "Diameter flens SAE 00 tidak dibuka (SAE J617); R 0.50 m ILLUSTRATIVE.",
+  "Letak exhaust manifold di lembah V INFERRED (tertutup di semua gambar).",
+  "Posisi filter oli/bahan bakar marine belum terkonfirmasi (dari P19 frac).",
+  "Pompa air laut: brief menyebut depan kanan; P23 dan D01 Front menaruh pompa bundar di sisi KIRI mesin (konvensi datum). Model mengikuti bukti."
+ ],
+ "putaran_2_offset_bank_kiri": {
+  "pemicu": "temuan Integrator lewat koordinator: liner kiri Internal Modeler (offset 0.065 m) menonjol 41 mm di belakang kepala exterior dan katup kiri keluar 16 mm dari tutup katup",
+  "perubahan": "BANK_OFF 0 -> 0.065 m: semua elemen per silinder bank kiri digeser -0.065 m di X (EXT-KEPALA-L1..L6, EXT-TUTUPKATUP-L1..L6, EXT-PINTU-L1..L6, runner dan sambungan slip EXT-EXHMAN-L, elbow dan badan T EXT-INLETMAN-L (bar manifold diperpanjang 0.065 ke belakang), rusuk tegak dan boss dinding bank kiri di EXT-BLOK-01). Silinder 2 di X 1.498, silinder 12 di X 0.148, sama dengan Internal Modeler. Status elemen kiri itu menjadi ILLUSTRATIVE dengan catatan alasan di inventory.json.",
+  "pemeriksaan": "Kepala L6 X 0.017..0.279 dan tutup katup L6 X 0.035..0.261 tetap di atas deck blok (X 0..1.883). Pintu L1 X 1.393..1.603 dan L6 X 0.043..0.253 tetap di dinding blok. Rusuk kiri digeser dan dijepit X >= 0.016 sehingga tidak menimpa pintu L6. Bar inlet kiri X 0.045..1.67 menutup elbow silinder 12. Jumlah segitiga tidak berubah (122328).",
+  "render_ulang": [
+   "kiri",
+   "atas",
+   "tigaperempat"
+  ],
+  "arsip_sebelum": "render/v1/"
+ },
+ "putaran_3_QA": {
+  "QA-02_lebar": "Tebal air cleaner diubah dari 0.27 ke 0.252 m (masih dalam rentang elips D01 Front 0.23-0.31 m). Hasilnya Z -1.020..+1.020 = 2.040 m vs D02 2.037 (+0.15%). Sebelumnya 2.066 m (+1.42%). Titik terlebar sekarang braket di Z +-1.02 = datum z_min/z_max.",
+  "QA-03_tinggi": "Dasar oil pan diturunkan ke -0.805 (datum), puncak pipa udara tekan dinaikkan ke Y 1.417 (datum.overall.y_max; garis teratas D01 Right Side ada di pipa melengkung X 0.08..0.66). Hasilnya 2.222 m vs D02 2.223 (-0.04%). Sebelumnya 2.198 m (-1.12%).",
+  "panjang": "Muka belakang flywheel housing -0.224 ke titik depan 2.433 = 2.657 m vs D02 2.647 (+0.38%). Ekstrem termasuk outlet buang -0.725..2.433 = 3.158 m vs D03 3.153 (+0.16%).",
+  "QA-06_kepala": "12 kepala silinder diberi flens dasar, badan bertepi miring, 4 boss baut kepala tegak, rusuk coran di muka luar, tutup lubang coran dengan plug, flens port exhaust di muka dalam, dan boss jumper air. Semua rincian ini ILLUSTRATIVE.",
+  "QA-07_sisi_kiri": "Ditambah EXT-TERMBOX-L (kotak terminal dekat flywheel housing, OBSERVED P11 genset), EXT-HARNESS-L (bundel kabel sepanjang bank kiri dengan klem, OBSERVED P11), dan EXT-PIPAAIR-L2 (pipa air depan kiri, ILLUSTRATIVE dari P11/P26 genset). Panel EMCP sisi kiri genset tetap tidak dibuat karena unit marine P22 menaruh panel di kanan.",
+  "flywheel": "EXT-FLYWHEEL-01 sekarang punya ring gear 183 gigi (jumlah DOCUMENTED D01 hlm. 1), muka kopling terangkat, dan 8 lubang. Diameter luar tetap 0.79 m sebagai acuan. EXT-FWHOUSING-01 ditambah 8 rusuk radial luar dan tutup inspeksi.",
+  "render_ulang": "semua 6 sudut, netral dan warna, plus overlay D01 kanan dan depan; arsip sebelumnya di render/v2/",
+  "overlay_D01": "Tampak kanan: air cleaner, pipa teratas, pan, dan rel tetap berimpit dengan garis D01."
+ },
+ "putaran_4_eksplor": {
+  "perubahan": "EXT-HEX-01 dipecah menjadi rakitan EXT-HX (node RAK-HX), dengan sumbu shell X dan bundel ditarik ke +X. EXT-TURBO-R dipecah menjadi rakitan EXT-TRB-R (node RAK-TRB-R). EXT-HEXPLATE-01 dan EXT-SHIELD-TR tetap bernama sama tetapi pindah ke node rakitan baru. Turbo kiri EXT-TURBO-L tetap utuh. Data rakitan di assemblies/EXT-HX.json dan assemblies/EXT-TRB-R.json, dan ikut ditulis sebagai extras glTF per objek (assembly, part_no, explode_dir, explode_dist_m, explode_order).",
+  "pemeriksaan_tembus": "check_explode.py (BVH overlap segitiga, hanya di dalam satu rakitan): pada jarak penuh 0 pasangan menembus di kedua rakitan (explode_check_1.00.json). Pada 50%, roda turbo masih bersinggungan dengan rumah keongnya dan plug 3 dengan gasket 3 (explode_check_0.50.json). Tabrakan dengan rakitan lain (mis. tutup belakang HX ke arah mesin, rumah kompresor ke air cleaner) tidak diperiksa.",
+  "render": [
+   "render/explode50_EXT-HX.png",
+   "render/explode50_EXT-TRB-R.png"
+  ],
+  "banding_gaya": "HX: susunannya serupa acuan gaya (shell diam, bundel tabung keluar sebagian, tutup dan gasket bergeser sesumbu, baut mengambang di sumbu lubangnya). Bedanya, shell model persegi dengan jendela samping (mengikuti P22/P25), bukan silinder. Turbo: rumah kompresor, clamp, CHRA, roda, dan rumah turbin berderet sepanjang poros; heat shield terangkat ke atas. Gambar acuan hanya dipakai untuk gaya, tidak ada nomor atau data yang diambil."
+ }
+}

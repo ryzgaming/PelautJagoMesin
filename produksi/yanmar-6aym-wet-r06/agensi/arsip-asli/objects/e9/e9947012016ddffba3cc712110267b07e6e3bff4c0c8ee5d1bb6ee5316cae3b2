@@ -1,0 +1,238 @@
+{
+  "revision": "r05",
+  "machine_model": "Yanmar 6AYM-WET H 555 kW engine-only",
+  "glb_sha256": "3edb9db0135c2714e913c2f8a5b120c1f747dec10927024acba17cd4e09a8302",
+  "r04_baseline_sha256": "e860291eac958af9bba6566891d6462e47d1c7694921c424dc702695fb02e887",
+  "route_sha256": "45c94947affb76bfe49698bbb75329ef0c05adca5dd3248c29f8dca9086a387d",
+  "status": "FAIL",
+  "dimensions": [
+    {
+      "feature": "Panjang nominal engine-only",
+      "nominal_mm": 2000,
+      "measured_mm": 2002.676964,
+      "difference_pct": 0.133848,
+      "status": "PASS",
+      "source": "GA01 / rantai 520 + 1000 + 480; D03 PDF 17 printed p.32"
+    },
+    {
+      "feature": "Lebar nominal engine-only",
+      "nominal_mm": 1305,
+      "measured_mm": 1302.812755,
+      "difference_pct": -0.167605,
+      "status": "PASS",
+      "source": "GA01 Front view; D03 PDF 17 printed p.32"
+    },
+    {
+      "feature": "Tinggi nominal engine-only",
+      "nominal_mm": 1431,
+      "measured_mm": 1541.000009,
+      "difference_pct": 7.686933,
+      "status": "FAIL",
+      "source": "D03 PDF 17 printed p.32 dan p.33, GA01"
+    },
+    {
+      "feature": "Tinggi fisik termasuk flange exhaust menurut proyeksi GA",
+      "nominal_mm": 1540.0,
+      "measured_mm": 1541.000009,
+      "difference_pct": 0.064936,
+      "status": "PASS",
+      "source": "GA01 / 817+171.5 di atas crank + 551.5 di bawah crank. D03 pembulatan ke 989 dan 552."
+    }
+  ],
+  "dimensions_scope": "Tinggi fisik hingga flange exhaust sekitar 1541 mm. Dasar perbedaan dengan tinggi katalog 1431 mm masih terbuka.",
+  "exterior_mesh_count": 441,
+  "r04_exterior_mesh_ids_preserved": 358,
+  "r05_additional_exterior_mesh_ids": 83,
+  "triangles": 931457,
+  "triangle_area_at_most_1e_minus_12_m2": {
+    "EXT-COOLING-41": 232
+  },
+  "assembled_mesh_pairs_screened": {
+    "r04": 4433,
+    "r05": 4685
+  },
+  "assembled_mesh_pairs_with_crossings": {
+    "r04": 945,
+    "r05": 800
+  },
+  "exterior_nested_recipe_count": 26,
+  "static_target_contacts": [
+    {
+      "parts": [
+        "EXT-INTAKE-04",
+        "EXT-EXHAUST-01"
+      ],
+      "r04": 741,
+      "r05": 0
+    },
+    {
+      "parts": [
+        "EXT-INTAKE-03",
+        "EXT-INTAKE-01"
+      ],
+      "r04": 3875,
+      "r05": 0
+    },
+    {
+      "parts": [
+        "EXT-INTAKE-03",
+        "EXT-INTAKE-02"
+      ],
+      "r04": 403,
+      "r05": 0
+    },
+    {
+      "parts": [
+        "EXT-INTAKE-01",
+        "EXT-HEADS-01"
+      ],
+      "r04": 387,
+      "r05": 149
+    },
+    {
+      "parts": [
+        "EXT-INTAKE-01",
+        "EXT-HEADS-02"
+      ],
+      "r04": 381,
+      "r05": 149
+    },
+    {
+      "parts": [
+        "EXT-INTAKE-01",
+        "EXT-HEADS-03"
+      ],
+      "r04": 381,
+      "r05": 151
+    },
+    {
+      "parts": [
+        "EXT-INTAKE-01",
+        "EXT-HEADS-04"
+      ],
+      "r04": 355,
+      "r05": 129
+    },
+    {
+      "parts": [
+        "EXT-INTAKE-01",
+        "EXT-HEADS-05"
+      ],
+      "r04": 355,
+      "r05": 131
+    },
+    {
+      "parts": [
+        "EXT-INTAKE-01",
+        "EXT-HEADS-06"
+      ],
+      "r04": 357,
+      "r05": 133
+    },
+    {
+      "parts": [
+        "EXT-FRONT-02",
+        "EXT-FRONT-01"
+      ],
+      "r04": 806,
+      "r05": 0
+    },
+    {
+      "parts": [
+        "EXT-FRONT-02",
+        "EXT-FRONT-03"
+      ],
+      "r04": 600,
+      "r05": 0
+    },
+    {
+      "parts": [
+        "INT-CRANK-07",
+        "EXT-BLOCK-01"
+      ],
+      "r04": 252,
+      "r05": 0
+    },
+    {
+      "parts": [
+        "INT-CAM-01",
+        "EXT-BLOCK-01"
+      ],
+      "r04": 0,
+      "r05": 0
+    },
+    {
+      "parts": [
+        "INT-TIMING-04",
+        "EXT-FLYWHEEL-01"
+      ],
+      "r04": 111,
+      "r05": 0
+    },
+    {
+      "parts": [
+        "EXT-FLYWHEEL-20",
+        "EXT-FLYWHEEL-01"
+      ],
+      "r04": 0,
+      "r05": 0
+    },
+    {
+      "parts": [
+        "EXT-ELECTRIC-48",
+        "EXT-BLOCK-15"
+      ],
+      "r04": 146,
+      "r05": 0
+    },
+    {
+      "parts": [
+        "EXT-ELECTRIC-40",
+        "EXT-FLYWHEEL-01"
+      ],
+      "r04": 0,
+      "r05": 0
+    },
+    {
+      "parts": [
+        "EXT-ELECTRIC-21",
+        "EXT-FRONT-01"
+      ],
+      "r04": 277,
+      "r05": 0
+    },
+    {
+      "parts": [
+        "EXT-FUEL-100",
+        "EXT-COOLING-41"
+      ],
+      "r04": 2417,
+      "r05": 0
+    },
+    {
+      "parts": [
+        "EXT-FUEL-110",
+        "EXT-FUEL-12"
+      ],
+      "r04": 3456,
+      "r05": 0
+    }
+  ],
+  "static_limit": "Kontak antarpermukaan pada pose rakit. Kontak flange, gasket, sambungan dan perakitan tetap memerlukan klasifikasi. Tidak menguji seluruh siklus gerak.",
+  "air_cleaner_exhaust_minimum_mesh_gap_mm": 5.349138285964727,
+  "air_cleaner_physical_gap_status": "ESTIMATED",
+  "before": "qa/r05/intake-r04.png",
+  "after": "qa/r05/tenth/intake-r05.png",
+  "same_camera_estimated_from_reported_view": true,
+  "neutral_multiview": "qa/r05/tenth/enam-sudut.jpg",
+  "neutral_render_settings": "qa/r05/tenth/render-settings.json",
+  "static_report": "qa/r05/tenth/exterior-static.json",
+  "import_report": "qa/r05/tenth/reimport.json",
+  "routing": {
+    "merged_route_count": 163,
+    "physical_route_count": 31,
+    "port_count": 160,
+    "report": "qa/r05/tenth/source-sync.json"
+  },
+  "known_limits": "Dimensi lokal casting, profil gigi, toleransi, dan jarak fisik menunggu gambar atau pengukuran unit aktual."
+}

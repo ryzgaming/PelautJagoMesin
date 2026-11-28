@@ -1,0 +1,4698 @@
+{
+  "assets_sha256": {
+    "exterior": "1c026e0e2126818d4aae4fdfda47adecf0836dc307909615f3478241f7334917",
+    "internal": "4b69ad9975928cfa80be62ddc7c6a1c5caa241900bd3aef299081c1e6406ae05"
+  },
+  "routes_sha256": "f1b8c56ff39728fedb04258ebe02898a55b2050a34a45bdf14127322cc2ddf0e",
+  "method": "World coordinates measured from Blender reimport, Y-up output. Midpoint intervals ≤10 mm except cap 400 each segment. Radial wall probes use only attributed meshes, with max range 3.5 times path radius or 9 mm. Positive coverage is proximity, not proof of closed watertight wall or manifold separation. Nearest surface distance at samples and BVH pair counts distinguish gaps and geometric contact; intentional nested fittings may intersect. Cross-media sampled distance screens offset trouble, not exact volume interference.",
+  "port_count": 160,
+  "route_count": 163,
+  "routes": {
+    "feed-in": {
+      "system": "fuel",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 16, 114 / skema bahan bakar",
+        "D05 Fig. 83–88 / filter dan pipa injeksi",
+        "P07/P08/P14 / sisi operasi"
+      ],
+      "from": "fuel.engine.in",
+      "to": "fuel.feed.out",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 15,
+      "length_m": 0.10694756127538359,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "feed-hose": {
+      "system": "fuel",
+      "kind": "physical",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 16, 114 / skema bahan bakar",
+        "D05 Fig. 83–88 / filter dan pipa injeksi",
+        "P07/P08/P14 / sisi operasi"
+      ],
+      "from": "fuel.feed.out",
+      "to": "fuel.hose.feed-end",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 59,
+      "length_m": 0.45038099813107424,
+      "terminal_interfaces": [
+        {
+          "endpoint": "from",
+          "part": "EXT-FUEL-12",
+          "type": "same mesh as route",
+          "center_distance_mm": 0.0
+        },
+        {
+          "endpoint": "to",
+          "part": "EXT-FUEL-400",
+          "tube": "EXT-FUEL-12",
+          "type": "different model mesh",
+          "center_distance_mm": 24.8415470123291,
+          "closest_local_vertex_to_opposite_surface_mm": 0.012878224879386835,
+          "global_intersecting_surface_pairs": 177
+        }
+      ],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": {
+        "against": [
+          "EXT-FUEL-12"
+        ],
+        "grid_m": 0.01,
+        "all8_near_walls": 59,
+        "at_least4": 59,
+        "none_near": 0,
+        "min_center_vertex_to_mesh_mm": 3.1869623344391584,
+        "near_wall_below_point2_mm": [],
+        "near_wall_total": 0
+      }
+    },
+    "filter-fitting": {
+      "system": "fuel",
+      "kind": "physical",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 16, 114 / skema bahan bakar",
+        "D05 Fig. 83–88 / filter dan pipa injeksi",
+        "P07/P08/P14 / sisi operasi"
+      ],
+      "from": "fuel.hose.feed-end",
+      "to": "fuel.filter.in",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 20,
+      "length_m": 0.041402833981115834,
+      "terminal_interfaces": [
+        {
+          "endpoint": "from",
+          "part": "EXT-FUEL-400",
+          "type": "same mesh as route",
+          "center_distance_mm": 24.8415470123291
+        },
+        {
+          "endpoint": "to",
+          "part": "EXT-FUEL-09",
+          "tube": "EXT-FUEL-400",
+          "type": "different model mesh",
+          "center_distance_mm": 2.9802322387695312e-05,
+          "closest_local_vertex_to_opposite_surface_mm": 0.0,
+          "global_intersecting_surface_pairs": 168
+        }
+      ],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": {
+        "against": [
+          "EXT-FUEL-400"
+        ],
+        "grid_m": 0.01,
+        "all8_near_walls": 2,
+        "at_least4": 9,
+        "none_near": 7,
+        "min_center_vertex_to_mesh_mm": 0.8294417057186365,
+        "near_wall_below_point2_mm": [],
+        "near_wall_total": 0
+      }
+    },
+    "filter-head": {
+      "system": "fuel",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 16, 114 / skema bahan bakar",
+        "D05 Fig. 83–88 / filter dan pipa injeksi",
+        "P07/P08/P14 / sisi operasi"
+      ],
+      "from": "fuel.filter.in",
+      "to": "fuel.filter.out",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 72,
+      "length_m": 0.5873110416454367,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "filter-pump-hose": {
+      "system": "fuel",
+      "kind": "physical",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 16, 114 / skema bahan bakar",
+        "D05 Fig. 83–88 / filter dan pipa injeksi",
+        "P07/P08/P14 / sisi operasi"
+      ],
+      "from": "fuel.filter.out",
+      "to": "fuel.hose.pump-end",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 55,
+      "length_m": 0.4106316756570445,
+      "terminal_interfaces": [
+        {
+          "endpoint": "from",
+          "part": "EXT-FUEL-09",
+          "tube": "EXT-FUEL-12",
+          "type": "different model mesh",
+          "center_distance_mm": 4.0000081062316895,
+          "closest_local_vertex_to_opposite_surface_mm": 0.020539682736853138,
+          "global_intersecting_surface_pairs": 248
+        },
+        {
+          "endpoint": "to",
+          "part": "EXT-FUEL-401",
+          "tube": "EXT-FUEL-12",
+          "type": "different model mesh",
+          "center_distance_mm": 7.726703304797411,
+          "closest_local_vertex_to_opposite_surface_mm": 0.03708544682012871,
+          "global_intersecting_surface_pairs": 54
+        }
+      ],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": {
+        "against": [
+          "EXT-FUEL-12"
+        ],
+        "grid_m": 0.01,
+        "all8_near_walls": 55,
+        "at_least4": 55,
+        "none_near": 0,
+        "min_center_vertex_to_mesh_mm": 2.87933018989861,
+        "near_wall_below_point2_mm": [],
+        "near_wall_total": 0
+      }
+    },
+    "pump-fitting": {
+      "system": "fuel",
+      "kind": "physical",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 16, 114 / skema bahan bakar",
+        "D05 Fig. 83–88 / filter dan pipa injeksi",
+        "P07/P08/P14 / sisi operasi"
+      ],
+      "from": "fuel.hose.pump-end",
+      "to": "fuel.pump.in",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 54,
+      "length_m": 0.2959386431167105,
+      "terminal_interfaces": [
+        {
+          "endpoint": "from",
+          "part": "EXT-FUEL-401",
+          "type": "same mesh as route",
+          "center_distance_mm": 7.726703304797411
+        },
+        {
+          "endpoint": "to",
+          "part": "EXT-FUEL-01",
+          "tube": "EXT-FUEL-401",
+          "type": "different model mesh",
+          "center_distance_mm": 0.0,
+          "closest_local_vertex_to_opposite_surface_mm": 125.31200051307678,
+          "global_intersecting_surface_pairs": 141
+        }
+      ],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": {
+        "against": [
+          "EXT-FUEL-401"
+        ],
+        "grid_m": 0.01,
+        "all8_near_walls": 4,
+        "at_least4": 6,
+        "none_near": 46,
+        "min_center_vertex_to_mesh_mm": 0.68766059121117,
+        "near_wall_below_point2_mm": [],
+        "near_wall_total": 0
+      }
+    },
+    "pump-element-1": {
+      "system": "fuel",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 16, 114 / skema bahan bakar",
+        "D05 Fig. 83–88 / filter dan pipa injeksi",
+        "P07/P08/P14 / sisi operasi"
+      ],
+      "from": "fuel.gallery.1",
+      "to": "fuel.delivery.1",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 14,
+      "length_m": 0.12299999559334734,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "hp-pipe-1": {
+      "system": "fuel",
+      "kind": "physical",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 150–152 / penampang injektor mekanis TP2",
+        "D05 Fig. 79 dan 88 / holder dan pipa injeksi"
+      ],
+      "from": "fuel.delivery.1",
+      "to": "fuel.head.1",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 65,
+      "length_m": 0.40492808911696615,
+      "terminal_interfaces": [
+        {
+          "endpoint": "from",
+          "part": "EXT-FUEL-13",
+          "tube": "EXT-FUEL-03",
+          "type": "different model mesh",
+          "center_distance_mm": 4.500001668930054,
+          "closest_local_vertex_to_opposite_surface_mm": 0.13148784637451172,
+          "global_intersecting_surface_pairs": 0
+        },
+        {
+          "endpoint": "to",
+          "part": "EXT-HEADS-01",
+          "tube": "EXT-FUEL-03",
+          "type": "different model mesh",
+          "center_distance_mm": 17.673755064606667,
+          "closest_local_vertex_to_opposite_surface_mm": 12.138214893639088,
+          "global_intersecting_surface_pairs": 0
+        }
+      ],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": {
+        "against": [
+          "EXT-FUEL-03"
+        ],
+        "grid_m": 0.01,
+        "all8_near_walls": 65,
+        "at_least4": 65,
+        "none_near": 0,
+        "min_center_vertex_to_mesh_mm": 2.2815184202045202,
+        "near_wall_below_point2_mm": [],
+        "near_wall_total": 0
+      }
+    },
+    "hp-head-1": {
+      "system": "fuel",
+      "kind": "physical",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 150–152 / penampang injektor mekanis TP2",
+        "D05 Fig. 79 dan 88 / holder dan pipa injeksi"
+      ],
+      "from": "fuel.head.1",
+      "to": "fuel.holder.1",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 47,
+      "length_m": 0.2647434069974753,
+      "terminal_interfaces": [
+        {
+          "endpoint": "from",
+          "part": "EXT-HEADS-01",
+          "tube": "EXT-FUEL-03",
+          "type": "different model mesh",
+          "center_distance_mm": 17.673755064606667,
+          "closest_local_vertex_to_opposite_surface_mm": 12.138214893639088,
+          "global_intersecting_surface_pairs": 0
+        },
+        {
+          "endpoint": "to",
+          "part": "INT-FUELINJ-11",
+          "tube": "EXT-FUEL-03",
+          "type": "different model mesh",
+          "center_distance_mm": 3.172552213072777,
+          "closest_local_vertex_to_opposite_surface_mm": 7.450580596923828e-06,
+          "global_intersecting_surface_pairs": 363
+        }
+      ],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": {
+        "against": [
+          "EXT-FUEL-03"
+        ],
+        "grid_m": 0.01,
+        "all8_near_walls": 47,
+        "at_least4": 47,
+        "none_near": 0,
+        "min_center_vertex_to_mesh_mm": 2.338251331821084,
+        "near_wall_below_point2_mm": [],
+        "near_wall_total": 0
+      }
+    },
+    "nozzle-bore-1": {
+      "system": "fuel",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 150–152 / penampang injektor mekanis TP2",
+        "D05 Fig. 79 dan 88 / holder dan pipa injeksi"
+      ],
+      "from": "fuel.holder.1",
+      "to": "fuel.nozzle.1",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 33,
+      "length_m": 0.13681793997729214,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "pump-element-2": {
+      "system": "fuel",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 16, 114 / skema bahan bakar",
+        "D05 Fig. 83–88 / filter dan pipa injeksi",
+        "P07/P08/P14 / sisi operasi"
+      ],
+      "from": "fuel.gallery.2",
+      "to": "fuel.delivery.2",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 14,
+      "length_m": 0.12299999559334734,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "hp-pipe-2": {
+      "system": "fuel",
+      "kind": "physical",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 150–152 / penampang injektor mekanis TP2",
+        "D05 Fig. 79 dan 88 / holder dan pipa injeksi"
+      ],
+      "from": "fuel.delivery.2",
+      "to": "fuel.head.2",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 63,
+      "length_m": 0.4267102467890634,
+      "terminal_interfaces": [
+        {
+          "endpoint": "from",
+          "part": "EXT-FUEL-14",
+          "tube": "EXT-FUEL-04",
+          "type": "different model mesh",
+          "center_distance_mm": 4.500001668930054,
+          "closest_local_vertex_to_opposite_surface_mm": 0.018936978449346498,
+          "global_intersecting_surface_pairs": 88
+        },
+        {
+          "endpoint": "to",
+          "part": "EXT-HEADS-02",
+          "tube": "EXT-FUEL-04",
+          "type": "different model mesh",
+          "center_distance_mm": 17.67372526228428,
+          "closest_local_vertex_to_opposite_surface_mm": 12.117366306483746,
+          "global_intersecting_surface_pairs": 0
+        }
+      ],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": {
+        "against": [
+          "EXT-FUEL-04"
+        ],
+        "grid_m": 0.01,
+        "all8_near_walls": 63,
+        "at_least4": 63,
+        "none_near": 0,
+        "min_center_vertex_to_mesh_mm": 2.443990670144558,
+        "near_wall_below_point2_mm": [],
+        "near_wall_total": 0
+      }
+    },
+    "hp-head-2": {
+      "system": "fuel",
+      "kind": "physical",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 150–152 / penampang injektor mekanis TP2",
+        "D05 Fig. 79 dan 88 / holder dan pipa injeksi"
+      ],
+      "from": "fuel.head.2",
+      "to": "fuel.holder.2",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 47,
+      "length_m": 0.26474340989508305,
+      "terminal_interfaces": [
+        {
+          "endpoint": "from",
+          "part": "EXT-HEADS-02",
+          "tube": "EXT-FUEL-04",
+          "type": "different model mesh",
+          "center_distance_mm": 17.67372526228428,
+          "closest_local_vertex_to_opposite_surface_mm": 12.117366306483746,
+          "global_intersecting_surface_pairs": 0
+        },
+        {
+          "endpoint": "to",
+          "part": "INT-FUELINJ-21",
+          "tube": "EXT-FUEL-04",
+          "type": "different model mesh",
+          "center_distance_mm": 3.1725463923066854,
+          "closest_local_vertex_to_opposite_surface_mm": 7.450580596923828e-06,
+          "global_intersecting_surface_pairs": 194
+        }
+      ],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": {
+        "against": [
+          "EXT-FUEL-04"
+        ],
+        "grid_m": 0.01,
+        "all8_near_walls": 47,
+        "at_least4": 47,
+        "none_near": 0,
+        "min_center_vertex_to_mesh_mm": 2.338251331821084,
+        "near_wall_below_point2_mm": [],
+        "near_wall_total": 0
+      }
+    },
+    "nozzle-bore-2": {
+      "system": "fuel",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 150–152 / penampang injektor mekanis TP2",
+        "D05 Fig. 79 dan 88 / holder dan pipa injeksi"
+      ],
+      "from": "fuel.holder.2",
+      "to": "fuel.nozzle.2",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 33,
+      "length_m": 0.13681793997729214,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "pump-element-3": {
+      "system": "fuel",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 16, 114 / skema bahan bakar",
+        "D05 Fig. 83–88 / filter dan pipa injeksi",
+        "P07/P08/P14 / sisi operasi"
+      ],
+      "from": "fuel.gallery.3",
+      "to": "fuel.delivery.3",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 14,
+      "length_m": 0.12299999559334734,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "hp-pipe-3": {
+      "system": "fuel",
+      "kind": "physical",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 150–152 / penampang injektor mekanis TP2",
+        "D05 Fig. 79 dan 88 / holder dan pipa injeksi"
+      ],
+      "from": "fuel.delivery.3",
+      "to": "fuel.head.3",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 57,
+      "length_m": 0.368052503769416,
+      "terminal_interfaces": [
+        {
+          "endpoint": "from",
+          "part": "EXT-FUEL-15",
+          "tube": "EXT-FUEL-05",
+          "type": "different model mesh",
+          "center_distance_mm": 4.500001668930054,
+          "closest_local_vertex_to_opposite_surface_mm": 0.31751394271850586,
+          "global_intersecting_surface_pairs": 0
+        },
+        {
+          "endpoint": "to",
+          "part": "EXT-HEADS-03",
+          "tube": "EXT-FUEL-05",
+          "type": "different model mesh",
+          "center_distance_mm": 17.673755064606667,
+          "closest_local_vertex_to_opposite_surface_mm": 12.112762778997421,
+          "global_intersecting_surface_pairs": 0
+        }
+      ],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": {
+        "against": [
+          "EXT-FUEL-05"
+        ],
+        "grid_m": 0.01,
+        "all8_near_walls": 57,
+        "at_least4": 57,
+        "none_near": 0,
+        "min_center_vertex_to_mesh_mm": 2.1301130764186382,
+        "near_wall_below_point2_mm": [],
+        "near_wall_total": 0
+      }
+    },
+    "hp-head-3": {
+      "system": "fuel",
+      "kind": "physical",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 150–152 / penampang injektor mekanis TP2",
+        "D05 Fig. 79 dan 88 / holder dan pipa injeksi"
+      ],
+      "from": "fuel.head.3",
+      "to": "fuel.holder.3",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 47,
+      "length_m": 0.26474340863043455,
+      "terminal_interfaces": [
+        {
+          "endpoint": "from",
+          "part": "EXT-HEADS-03",
+          "tube": "EXT-FUEL-05",
+          "type": "different model mesh",
+          "center_distance_mm": 17.673755064606667,
+          "closest_local_vertex_to_opposite_surface_mm": 12.112762778997421,
+          "global_intersecting_surface_pairs": 0
+        },
+        {
+          "endpoint": "to",
+          "part": "INT-FUELINJ-31",
+          "tube": "EXT-FUEL-05",
+          "type": "different model mesh",
+          "center_distance_mm": 3.1725692097097635,
+          "closest_local_vertex_to_opposite_surface_mm": 7.450580596923828e-06,
+          "global_intersecting_surface_pairs": 364
+        }
+      ],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": {
+        "against": [
+          "EXT-FUEL-05"
+        ],
+        "grid_m": 0.01,
+        "all8_near_walls": 47,
+        "at_least4": 47,
+        "none_near": 0,
+        "min_center_vertex_to_mesh_mm": 2.338251331821084,
+        "near_wall_below_point2_mm": [],
+        "near_wall_total": 0
+      }
+    },
+    "nozzle-bore-3": {
+      "system": "fuel",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 150–152 / penampang injektor mekanis TP2",
+        "D05 Fig. 79 dan 88 / holder dan pipa injeksi"
+      ],
+      "from": "fuel.holder.3",
+      "to": "fuel.nozzle.3",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 33,
+      "length_m": 0.13681793997729214,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "pump-element-4": {
+      "system": "fuel",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 16, 114 / skema bahan bakar",
+        "D05 Fig. 83–88 / filter dan pipa injeksi",
+        "P07/P08/P14 / sisi operasi"
+      ],
+      "from": "fuel.gallery.4",
+      "to": "fuel.delivery.4",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 14,
+      "length_m": 0.12299999559334734,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "hp-pipe-4": {
+      "system": "fuel",
+      "kind": "physical",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 150–152 / penampang injektor mekanis TP2",
+        "D05 Fig. 79 dan 88 / holder dan pipa injeksi"
+      ],
+      "from": "fuel.delivery.4",
+      "to": "fuel.head.4",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 52,
+      "length_m": 0.3255070252859278,
+      "terminal_interfaces": [
+        {
+          "endpoint": "from",
+          "part": "EXT-FUEL-16",
+          "tube": "EXT-FUEL-06",
+          "type": "different model mesh",
+          "center_distance_mm": 4.500001668930054,
+          "closest_local_vertex_to_opposite_surface_mm": 0.31754374504089355,
+          "global_intersecting_surface_pairs": 0
+        },
+        {
+          "endpoint": "to",
+          "part": "EXT-HEADS-04",
+          "tube": "EXT-FUEL-06",
+          "type": "different model mesh",
+          "center_distance_mm": 17.673814669251442,
+          "closest_local_vertex_to_opposite_surface_mm": 12.071114964783192,
+          "global_intersecting_surface_pairs": 0
+        }
+      ],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": {
+        "against": [
+          "EXT-FUEL-06"
+        ],
+        "grid_m": 0.01,
+        "all8_near_walls": 52,
+        "at_least4": 52,
+        "none_near": 0,
+        "min_center_vertex_to_mesh_mm": 2.0570391789078712,
+        "near_wall_below_point2_mm": [],
+        "near_wall_total": 0
+      }
+    },
+    "hp-head-4": {
+      "system": "fuel",
+      "kind": "physical",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 150–152 / penampang injektor mekanis TP2",
+        "D05 Fig. 79 dan 88 / holder dan pipa injeksi"
+      ],
+      "from": "fuel.head.4",
+      "to": "fuel.holder.4",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 49,
+      "length_m": 0.2922167691644488,
+      "terminal_interfaces": [
+        {
+          "endpoint": "from",
+          "part": "EXT-HEADS-04",
+          "tube": "EXT-FUEL-06",
+          "type": "different model mesh",
+          "center_distance_mm": 17.673814669251442,
+          "closest_local_vertex_to_opposite_surface_mm": 12.071114964783192,
+          "global_intersecting_surface_pairs": 0
+        },
+        {
+          "endpoint": "to",
+          "part": "INT-FUELINJ-41",
+          "tube": "EXT-FUEL-06",
+          "type": "different model mesh",
+          "center_distance_mm": 3.1725692097097635,
+          "closest_local_vertex_to_opposite_surface_mm": 7.450580596923828e-06,
+          "global_intersecting_surface_pairs": 193
+        }
+      ],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": {
+        "against": [
+          "EXT-FUEL-06"
+        ],
+        "grid_m": 0.01,
+        "all8_near_walls": 49,
+        "at_least4": 49,
+        "none_near": 0,
+        "min_center_vertex_to_mesh_mm": 2.338251331821084,
+        "near_wall_below_point2_mm": [],
+        "near_wall_total": 0
+      }
+    },
+    "nozzle-bore-4": {
+      "system": "fuel",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 150–152 / penampang injektor mekanis TP2",
+        "D05 Fig. 79 dan 88 / holder dan pipa injeksi"
+      ],
+      "from": "fuel.holder.4",
+      "to": "fuel.nozzle.4",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 33,
+      "length_m": 0.13681793997729214,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "pump-element-5": {
+      "system": "fuel",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 16, 114 / skema bahan bakar",
+        "D05 Fig. 83–88 / filter dan pipa injeksi",
+        "P07/P08/P14 / sisi operasi"
+      ],
+      "from": "fuel.gallery.5",
+      "to": "fuel.delivery.5",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 14,
+      "length_m": 0.12299999559334734,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "hp-pipe-5": {
+      "system": "fuel",
+      "kind": "physical",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 150–152 / penampang injektor mekanis TP2",
+        "D05 Fig. 79 dan 88 / holder dan pipa injeksi"
+      ],
+      "from": "fuel.delivery.5",
+      "to": "fuel.head.5",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 55,
+      "length_m": 0.3552976537101076,
+      "terminal_interfaces": [
+        {
+          "endpoint": "from",
+          "part": "EXT-FUEL-17",
+          "tube": "EXT-FUEL-07",
+          "type": "different model mesh",
+          "center_distance_mm": 4.500001668930054,
+          "closest_local_vertex_to_opposite_surface_mm": 0.11011958122253418,
+          "global_intersecting_surface_pairs": 0
+        },
+        {
+          "endpoint": "to",
+          "part": "EXT-HEADS-05",
+          "tube": "EXT-FUEL-07",
+          "type": "different model mesh",
+          "center_distance_mm": 17.67369545996189,
+          "closest_local_vertex_to_opposite_surface_mm": 12.067979201674461,
+          "global_intersecting_surface_pairs": 0
+        }
+      ],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": {
+        "against": [
+          "EXT-FUEL-07"
+        ],
+        "grid_m": 0.01,
+        "all8_near_walls": 55,
+        "at_least4": 55,
+        "none_near": 0,
+        "min_center_vertex_to_mesh_mm": 2.5656165089458227,
+        "near_wall_below_point2_mm": [],
+        "near_wall_total": 0
+      }
+    },
+    "hp-head-5": {
+      "system": "fuel",
+      "kind": "physical",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 150–152 / penampang injektor mekanis TP2",
+        "D05 Fig. 79 dan 88 / holder dan pipa injeksi"
+      ],
+      "from": "fuel.head.5",
+      "to": "fuel.holder.5",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 49,
+      "length_m": 0.2922167349297929,
+      "terminal_interfaces": [
+        {
+          "endpoint": "from",
+          "part": "EXT-HEADS-05",
+          "tube": "EXT-FUEL-07",
+          "type": "different model mesh",
+          "center_distance_mm": 17.67369545996189,
+          "closest_local_vertex_to_opposite_surface_mm": 12.067979201674461,
+          "global_intersecting_surface_pairs": 0
+        },
+        {
+          "endpoint": "to",
+          "part": "INT-FUELINJ-51",
+          "tube": "EXT-FUEL-07",
+          "type": "different model mesh",
+          "center_distance_mm": 3.1725289300084114,
+          "closest_local_vertex_to_opposite_surface_mm": 7.450580596923828e-06,
+          "global_intersecting_surface_pairs": 361
+        }
+      ],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": {
+        "against": [
+          "EXT-FUEL-07"
+        ],
+        "grid_m": 0.01,
+        "all8_near_walls": 49,
+        "at_least4": 49,
+        "none_near": 0,
+        "min_center_vertex_to_mesh_mm": 2.3382215294986963,
+        "near_wall_below_point2_mm": [],
+        "near_wall_total": 0
+      }
+    },
+    "nozzle-bore-5": {
+      "system": "fuel",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 150–152 / penampang injektor mekanis TP2",
+        "D05 Fig. 79 dan 88 / holder dan pipa injeksi"
+      ],
+      "from": "fuel.holder.5",
+      "to": "fuel.nozzle.5",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 33,
+      "length_m": 0.13681793997729214,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "pump-element-6": {
+      "system": "fuel",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 16, 114 / skema bahan bakar",
+        "D05 Fig. 83–88 / filter dan pipa injeksi",
+        "P07/P08/P14 / sisi operasi"
+      ],
+      "from": "fuel.gallery.6",
+      "to": "fuel.delivery.6",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 14,
+      "length_m": 0.12299999559334734,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "hp-pipe-6": {
+      "system": "fuel",
+      "kind": "physical",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 150–152 / penampang injektor mekanis TP2",
+        "D05 Fig. 79 dan 88 / holder dan pipa injeksi"
+      ],
+      "from": "fuel.delivery.6",
+      "to": "fuel.head.6",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 79,
+      "length_m": 0.543624648731849,
+      "terminal_interfaces": [
+        {
+          "endpoint": "from",
+          "part": "EXT-FUEL-18",
+          "tube": "EXT-FUEL-08",
+          "type": "different model mesh",
+          "center_distance_mm": 4.500001668930054,
+          "closest_local_vertex_to_opposite_surface_mm": 0.016748905181884766,
+          "global_intersecting_surface_pairs": 90
+        },
+        {
+          "endpoint": "to",
+          "part": "EXT-HEADS-06",
+          "tube": "EXT-FUEL-08",
+          "type": "different model mesh",
+          "center_distance_mm": 17.673755064606667,
+          "closest_local_vertex_to_opposite_surface_mm": 12.114453129470348,
+          "global_intersecting_surface_pairs": 0
+        }
+      ],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": {
+        "against": [
+          "EXT-FUEL-08"
+        ],
+        "grid_m": 0.01,
+        "all8_near_walls": 79,
+        "at_least4": 79,
+        "none_near": 0,
+        "min_center_vertex_to_mesh_mm": 2.3697002325206995,
+        "near_wall_below_point2_mm": [],
+        "near_wall_total": 0
+      }
+    },
+    "hp-head-6": {
+      "system": "fuel",
+      "kind": "physical",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 150–152 / penampang injektor mekanis TP2",
+        "D05 Fig. 79 dan 88 / holder dan pipa injeksi"
+      ],
+      "from": "fuel.head.6",
+      "to": "fuel.holder.6",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 49,
+      "length_m": 0.2922167506501775,
+      "terminal_interfaces": [
+        {
+          "endpoint": "from",
+          "part": "EXT-HEADS-06",
+          "tube": "EXT-FUEL-08",
+          "type": "different model mesh",
+          "center_distance_mm": 17.673755064606667,
+          "closest_local_vertex_to_opposite_surface_mm": 12.114453129470348,
+          "global_intersecting_surface_pairs": 0
+        },
+        {
+          "endpoint": "to",
+          "part": "INT-FUELINJ-61",
+          "tube": "EXT-FUEL-08",
+          "type": "different model mesh",
+          "center_distance_mm": 3.1725289300084114,
+          "closest_local_vertex_to_opposite_surface_mm": 7.450580596923828e-06,
+          "global_intersecting_surface_pairs": 191
+        }
+      ],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": {
+        "against": [
+          "EXT-FUEL-08"
+        ],
+        "grid_m": 0.01,
+        "all8_near_walls": 49,
+        "at_least4": 49,
+        "none_near": 0,
+        "min_center_vertex_to_mesh_mm": 2.3382215294986963,
+        "near_wall_below_point2_mm": [],
+        "near_wall_total": 0
+      }
+    },
+    "nozzle-bore-6": {
+      "system": "fuel",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 150–152 / penampang injektor mekanis TP2",
+        "D05 Fig. 79 dan 88 / holder dan pipa injeksi"
+      ],
+      "from": "fuel.holder.6",
+      "to": "fuel.nozzle.6",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 33,
+      "length_m": 0.13681793997729214,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "pump-gallery-in": {
+      "system": "fuel",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 16, 114 / skema bahan bakar",
+        "D05 Fig. 83–88 / filter dan pipa injeksi",
+        "P07/P08/P14 / sisi operasi"
+      ],
+      "from": "fuel.pump.in",
+      "to": "fuel.gallery.3",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 23,
+      "length_m": 0.13857894923770142,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "gallery-3-2": {
+      "system": "fuel",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 16, 114 / skema bahan bakar",
+        "D05 Fig. 83–88 / filter dan pipa injeksi",
+        "P07/P08/P14 / sisi operasi"
+      ],
+      "from": "fuel.gallery.3",
+      "to": "fuel.gallery.2",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 11,
+      "length_m": 0.07899999703742674,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "gallery-2-1": {
+      "system": "fuel",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 16, 114 / skema bahan bakar",
+        "D05 Fig. 83–88 / filter dan pipa injeksi",
+        "P07/P08/P14 / sisi operasi"
+      ],
+      "from": "fuel.gallery.2",
+      "to": "fuel.gallery.1",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 11,
+      "length_m": 0.07900002686139883,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "gallery-3-4": {
+      "system": "fuel",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 16, 114 / skema bahan bakar",
+        "D05 Fig. 83–88 / filter dan pipa injeksi",
+        "P07/P08/P14 / sisi operasi"
+      ],
+      "from": "fuel.gallery.3",
+      "to": "fuel.gallery.4",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 11,
+      "length_m": 0.07899999703742674,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "gallery-4-5": {
+      "system": "fuel",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 16, 114 / skema bahan bakar",
+        "D05 Fig. 83–88 / filter dan pipa injeksi",
+        "P07/P08/P14 / sisi operasi"
+      ],
+      "from": "fuel.gallery.4",
+      "to": "fuel.gallery.5",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 11,
+      "length_m": 0.07899999703742674,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "gallery-5-6": {
+      "system": "fuel",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 16, 114 / skema bahan bakar",
+        "D05 Fig. 83–88 / filter dan pipa injeksi",
+        "P07/P08/P14 / sisi operasi"
+      ],
+      "from": "fuel.gallery.5",
+      "to": "fuel.gallery.6",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 11,
+      "length_m": 0.07899999703742674,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "air-cleaner": {
+      "system": "intake",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 14, 163, 170–171 / lokasi, pendingin udara dan turbo",
+        "D05 Fig. 25, 31–32, 36–37 / manifold, turbo, duct dan cooler",
+        "P07/P17/P18 / geometri tampak"
+      ],
+      "from": "air.atmosphere",
+      "to": "air.compressor.eye",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 26,
+      "length_m": 0.18689898431946153,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "compressor-scroll": {
+      "system": "intake",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 14, 163, 170–171 / lokasi, pendingin udara dan turbo",
+        "D05 Fig. 25, 31–32, 36–37 / manifold, turbo, duct dan cooler",
+        "P07/P17/P18 / geometri tampak"
+      ],
+      "from": "air.compressor.eye",
+      "to": "air.compressor.mouth",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 77,
+      "length_m": 0.5699093248093429,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "hot-air-duct": {
+      "system": "intake",
+      "kind": "physical",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 14, 163, 170–171 / lokasi, pendingin udara dan turbo",
+        "D05 Fig. 25, 31–32, 36–37 / manifold, turbo, duct dan cooler",
+        "P07/P17/P18 / geometri tampak"
+      ],
+      "from": "air.compressor.mouth",
+      "to": "air.cooler.hot",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 132,
+      "length_m": 1.0495742263862755,
+      "terminal_interfaces": [
+        {
+          "endpoint": "from",
+          "part": "EXT-EXHAUST-03",
+          "tube": "EXT-INTAKE-05",
+          "type": "different model mesh",
+          "center_distance_mm": 0.3705892013385892,
+          "closest_local_vertex_to_opposite_surface_mm": 0.0038309608498821035,
+          "global_intersecting_surface_pairs": 1191
+        },
+        {
+          "endpoint": "to",
+          "part": "EXT-INTAKE-02",
+          "tube": "EXT-INTAKE-05",
+          "type": "different model mesh",
+          "center_distance_mm": 31.72612562775612,
+          "closest_local_vertex_to_opposite_surface_mm": 0.7455330342054367,
+          "global_intersecting_surface_pairs": 210
+        }
+      ],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": {
+        "against": [
+          "EXT-INTAKE-05"
+        ],
+        "grid_m": 0.01,
+        "all8_near_walls": 90,
+        "at_least4": 91,
+        "none_near": 0,
+        "min_center_vertex_to_mesh_mm": 0.3174189187120646,
+        "near_wall_below_point2_mm": [],
+        "near_wall_total": 0
+      }
+    },
+    "charge-air-core": {
+      "system": "intake",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 14, 163, 170–171 / lokasi, pendingin udara dan turbo",
+        "D05 Fig. 25, 31–32, 36–37 / manifold, turbo, duct dan cooler",
+        "P07/P17/P18 / geometri tampak"
+      ],
+      "from": "air.cooler.hot",
+      "to": "air.cooler.cold",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 58,
+      "length_m": 0.42139043427698025,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "cold-air-elbow": {
+      "system": "intake",
+      "kind": "physical",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 14, 163, 170–171 / lokasi, pendingin udara dan turbo",
+        "D05 Fig. 25, 31–32, 36–37 / manifold, turbo, duct dan cooler",
+        "P07/P17/P18 / geometri tampak"
+      ],
+      "from": "air.cooler.cold",
+      "to": "air.manifold.in",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 52,
+      "length_m": 0.3416223333776199,
+      "terminal_interfaces": [
+        {
+          "endpoint": "from",
+          "part": "EXT-INTAKE-02",
+          "tube": "EXT-INTAKE-03",
+          "type": "different model mesh",
+          "center_distance_mm": 59.00001525878906,
+          "closest_local_vertex_to_opposite_surface_mm": 0.5821585655212402,
+          "global_intersecting_surface_pairs": 244
+        },
+        {
+          "endpoint": "to",
+          "part": "EXT-INTAKE-01",
+          "tube": "EXT-INTAKE-03",
+          "type": "different model mesh",
+          "center_distance_mm": 48.00000041723251,
+          "closest_local_vertex_to_opposite_surface_mm": 53.92371863126755,
+          "global_intersecting_surface_pairs": 0
+        }
+      ],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": {
+        "against": [
+          "EXT-INTAKE-03"
+        ],
+        "grid_m": 0.01,
+        "all8_near_walls": 48,
+        "at_least4": 50,
+        "none_near": 0,
+        "min_center_vertex_to_mesh_mm": 28.303425759077072,
+        "near_wall_below_point2_mm": [],
+        "near_wall_total": 0
+      }
+    },
+    "exhaust-takeoff": {
+      "system": "exhaust",
+      "kind": "physical",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 14, 170–171 / arah TD13M dan lokasi",
+        "D05 Fig. 27, 31–33 / manifold, turbo dan siku gas",
+        "GA01 / flange buang",
+        "P17 / sisi kanan"
+      ],
+      "from": "exhaust.manifold.takeoff",
+      "to": "exhaust.turbine.mouth",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 31,
+      "length_m": 0.2252654792590817,
+      "terminal_interfaces": [
+        {
+          "endpoint": "from",
+          "part": "EXT-EXHAUST-01",
+          "tube": "EXT-EXHAUST-110",
+          "type": "different model mesh",
+          "center_distance_mm": 30.49999475479126,
+          "closest_local_vertex_to_opposite_surface_mm": 0.002258103677377221,
+          "global_intersecting_surface_pairs": 529
+        },
+        {
+          "endpoint": "to",
+          "part": "EXT-EXHAUST-02",
+          "tube": "EXT-EXHAUST-110",
+          "type": "different model mesh",
+          "center_distance_mm": 16.24097116291523,
+          "closest_local_vertex_to_opposite_surface_mm": 25.681788101792336,
+          "global_intersecting_surface_pairs": 2514
+        }
+      ],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": {
+        "against": [
+          "EXT-EXHAUST-110"
+        ],
+        "grid_m": 0.01,
+        "all8_near_walls": 0,
+        "at_least4": 2,
+        "none_near": 28,
+        "min_center_vertex_to_mesh_mm": 31.119395047426224,
+        "near_wall_below_point2_mm": [],
+        "near_wall_total": 0
+      }
+    },
+    "turbine-scroll": {
+      "system": "exhaust",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 14, 170–171 / arah TD13M dan lokasi",
+        "D05 Fig. 27, 31–33 / manifold, turbo dan siku gas",
+        "GA01 / flange buang",
+        "P17 / sisi kanan"
+      ],
+      "from": "exhaust.turbine.mouth",
+      "to": "exhaust.turbine.axial",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 57,
+      "length_m": 0.41937666174116217,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "exhaust-elbow": {
+      "system": "exhaust",
+      "kind": "physical",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 14, 170–171 / arah TD13M dan lokasi",
+        "D05 Fig. 27, 31–33 / manifold, turbo dan siku gas",
+        "GA01 / flange buang",
+        "P17 / sisi kanan"
+      ],
+      "from": "exhaust.turbine.axial",
+      "to": "exhaust.elbow.neck",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 34,
+      "length_m": 0.221090308505059,
+      "terminal_interfaces": [
+        {
+          "endpoint": "from",
+          "part": "EXT-EXHAUST-02",
+          "tube": "EXT-EXHAUST-05",
+          "type": "different model mesh",
+          "center_distance_mm": 63.99323791265488,
+          "closest_local_vertex_to_opposite_surface_mm": 0.014126300811767578,
+          "global_intersecting_surface_pairs": 1693
+        },
+        {
+          "endpoint": "to",
+          "part": "EXT-EXHAUST-05",
+          "type": "same mesh as route",
+          "center_distance_mm": 64.64110314846039
+        }
+      ],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": {
+        "against": [
+          "EXT-EXHAUST-05"
+        ],
+        "grid_m": 0.01,
+        "all8_near_walls": 34,
+        "at_least4": 34,
+        "none_near": 0,
+        "min_center_vertex_to_mesh_mm": 55.69569021463394,
+        "near_wall_below_point2_mm": [],
+        "near_wall_total": 0
+      }
+    },
+    "exhaust-flange": {
+      "system": "exhaust",
+      "kind": "physical",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 14, 170–171 / arah TD13M dan lokasi",
+        "D05 Fig. 27, 31–33 / manifold, turbo dan siku gas",
+        "GA01 / flange buang",
+        "P17 / sisi kanan"
+      ],
+      "from": "exhaust.elbow.neck",
+      "to": "exhaust.ship",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 18,
+      "length_m": 0.15500002955579256,
+      "terminal_interfaces": [
+        {
+          "endpoint": "from",
+          "part": "EXT-EXHAUST-05",
+          "type": "same mesh as route",
+          "center_distance_mm": 64.64110314846039
+        }
+      ],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": {
+        "against": [
+          "EXT-EXHAUST-05"
+        ],
+        "grid_m": 0.01,
+        "all8_near_walls": 18,
+        "at_least4": 18,
+        "none_near": 0,
+        "min_center_vertex_to_mesh_mm": 59.69448760151863,
+        "near_wall_below_point2_mm": [],
+        "near_wall_total": 0
+      }
+    },
+    "intake-runner-1": {
+      "system": "intake",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 14, 163, 170–171 / lokasi, pendingin udara dan turbo",
+        "D05 Fig. 25, 31–32, 36–37 / manifold, turbo, duct dan cooler",
+        "P07/P17/P18 / geometri tampak"
+      ],
+      "from": "air.plenum.1",
+      "to": "air.head.1",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 28,
+      "length_m": 0.21342678576762905,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "exhaust-runner-1": {
+      "system": "exhaust",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 14, 170–171 / arah TD13M dan lokasi",
+        "D05 Fig. 27, 31–33 / manifold, turbo dan siku gas",
+        "GA01 / flange buang",
+        "P17 / sisi kanan"
+      ],
+      "from": "exhaust.head.1",
+      "to": "exhaust.plenum.1",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 23,
+      "length_m": 0.14890531286986333,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "intake-head-1a": {
+      "system": "intake",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 14, 163, 170–171 / lokasi, pendingin udara dan turbo",
+        "D05 Fig. 25, 31–32, 36–37 / manifold, turbo, duct dan cooler",
+        "P07/P17/P18 / geometri tampak"
+      ],
+      "from": "air.head.1",
+      "to": "intake.valve.1a",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 35,
+      "length_m": 0.24233646783796148,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "intake-head-1b": {
+      "system": "intake",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 14, 163, 170–171 / lokasi, pendingin udara dan turbo",
+        "D05 Fig. 25, 31–32, 36–37 / manifold, turbo, duct dan cooler",
+        "P07/P17/P18 / geometri tampak"
+      ],
+      "from": "air.head.1",
+      "to": "intake.valve.1b",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 35,
+      "length_m": 0.24233646483924098,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "exhaust-head-1a": {
+      "system": "exhaust",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 14, 170–171 / arah TD13M dan lokasi",
+        "D05 Fig. 27, 31–33 / manifold, turbo dan siku gas",
+        "GA01 / flange buang",
+        "P17 / sisi kanan"
+      ],
+      "from": "exhaust.valve.1a",
+      "to": "exhaust.head.1",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 35,
+      "length_m": 0.24425678369786022,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "exhaust-head-1b": {
+      "system": "exhaust",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 14, 170–171 / arah TD13M dan lokasi",
+        "D05 Fig. 27, 31–33 / manifold, turbo dan siku gas",
+        "GA01 / flange buang",
+        "P17 / sisi kanan"
+      ],
+      "from": "exhaust.valve.1b",
+      "to": "exhaust.head.1",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 35,
+      "length_m": 0.24425678084426888,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "intake-runner-2": {
+      "system": "intake",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 14, 163, 170–171 / lokasi, pendingin udara dan turbo",
+        "D05 Fig. 25, 31–32, 36–37 / manifold, turbo, duct dan cooler",
+        "P07/P17/P18 / geometri tampak"
+      ],
+      "from": "air.plenum.2",
+      "to": "air.head.2",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 28,
+      "length_m": 0.21342678576762905,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "exhaust-runner-2": {
+      "system": "exhaust",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 14, 170–171 / arah TD13M dan lokasi",
+        "D05 Fig. 27, 31–33 / manifold, turbo dan siku gas",
+        "GA01 / flange buang",
+        "P17 / sisi kanan"
+      ],
+      "from": "exhaust.head.2",
+      "to": "exhaust.plenum.2",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 23,
+      "length_m": 0.14890531286986333,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "intake-head-2a": {
+      "system": "intake",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 14, 163, 170–171 / lokasi, pendingin udara dan turbo",
+        "D05 Fig. 25, 31–32, 36–37 / manifold, turbo, duct dan cooler",
+        "P07/P17/P18 / geometri tampak"
+      ],
+      "from": "air.head.2",
+      "to": "intake.valve.2a",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 35,
+      "length_m": 0.242336466696871,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "intake-head-2b": {
+      "system": "intake",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 14, 163, 170–171 / lokasi, pendingin udara dan turbo",
+        "D05 Fig. 25, 31–32, 36–37 / manifold, turbo, duct dan cooler",
+        "P07/P17/P18 / geometri tampak"
+      ],
+      "from": "air.head.2",
+      "to": "intake.valve.2b",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 35,
+      "length_m": 0.24233646367403971,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "exhaust-head-2a": {
+      "system": "exhaust",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 14, 170–171 / arah TD13M dan lokasi",
+        "D05 Fig. 27, 31–33 / manifold, turbo dan siku gas",
+        "GA01 / flange buang",
+        "P17 / sisi kanan"
+      ],
+      "from": "exhaust.valve.2a",
+      "to": "exhaust.head.2",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 35,
+      "length_m": 0.24425678259639655,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "exhaust-head-2b": {
+      "system": "exhaust",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 14, 170–171 / arah TD13M dan lokasi",
+        "D05 Fig. 27, 31–33 / manifold, turbo dan siku gas",
+        "GA01 / flange buang",
+        "P17 / sisi kanan"
+      ],
+      "from": "exhaust.valve.2b",
+      "to": "exhaust.head.2",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 35,
+      "length_m": 0.24425677970396617,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "intake-runner-3": {
+      "system": "intake",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 14, 163, 170–171 / lokasi, pendingin udara dan turbo",
+        "D05 Fig. 25, 31–32, 36–37 / manifold, turbo, duct dan cooler",
+        "P07/P17/P18 / geometri tampak"
+      ],
+      "from": "air.plenum.3",
+      "to": "air.head.3",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 28,
+      "length_m": 0.21342678576762905,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "exhaust-runner-3": {
+      "system": "exhaust",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 14, 170–171 / arah TD13M dan lokasi",
+        "D05 Fig. 27, 31–33 / manifold, turbo dan siku gas",
+        "GA01 / flange buang",
+        "P17 / sisi kanan"
+      ],
+      "from": "exhaust.head.3",
+      "to": "exhaust.plenum.3",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 23,
+      "length_m": 0.14890531286986333,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "intake-head-3a": {
+      "system": "intake",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 14, 163, 170–171 / lokasi, pendingin udara dan turbo",
+        "D05 Fig. 25, 31–32, 36–37 / manifold, turbo, duct dan cooler",
+        "P07/P17/P18 / geometri tampak"
+      ],
+      "from": "air.head.3",
+      "to": "intake.valve.3a",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 35,
+      "length_m": 0.24233646972553943,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "intake-head-3b": {
+      "system": "intake",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 14, 163, 170–171 / lokasi, pendingin udara dan turbo",
+        "D05 Fig. 25, 31–32, 36–37 / manifold, turbo, duct dan cooler",
+        "P07/P17/P18 / geometri tampak"
+      ],
+      "from": "air.head.3",
+      "to": "intake.valve.3b",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 35,
+      "length_m": 0.2423364567997504,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "exhaust-head-3a": {
+      "system": "exhaust",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 14, 170–171 / arah TD13M dan lokasi",
+        "D05 Fig. 27, 31–33 / manifold, turbo dan siku gas",
+        "GA01 / flange buang",
+        "P17 / sisi kanan"
+      ],
+      "from": "exhaust.valve.3a",
+      "to": "exhaust.head.3",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 35,
+      "length_m": 0.244256785539592,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "exhaust-head-3b": {
+      "system": "exhaust",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 14, 170–171 / arah TD13M dan lokasi",
+        "D05 Fig. 27, 31–33 / manifold, turbo dan siku gas",
+        "GA01 / flange buang",
+        "P17 / sisi kanan"
+      ],
+      "from": "exhaust.valve.3b",
+      "to": "exhaust.head.3",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 35,
+      "length_m": 0.24425677305110163,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "intake-runner-4": {
+      "system": "intake",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 14, 163, 170–171 / lokasi, pendingin udara dan turbo",
+        "D05 Fig. 25, 31–32, 36–37 / manifold, turbo, duct dan cooler",
+        "P07/P17/P18 / geometri tampak"
+      ],
+      "from": "air.plenum.4",
+      "to": "air.head.4",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 28,
+      "length_m": 0.21342678576762905,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "exhaust-runner-4": {
+      "system": "exhaust",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 14, 170–171 / arah TD13M dan lokasi",
+        "D05 Fig. 27, 31–33 / manifold, turbo dan siku gas",
+        "GA01 / flange buang",
+        "P17 / sisi kanan"
+      ],
+      "from": "exhaust.head.4",
+      "to": "exhaust.plenum.4",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 23,
+      "length_m": 0.14890531286986333,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "intake-head-4a": {
+      "system": "intake",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 14, 163, 170–171 / lokasi, pendingin udara dan turbo",
+        "D05 Fig. 25, 31–32, 36–37 / manifold, turbo, duct dan cooler",
+        "P07/P17/P18 / geometri tampak"
+      ],
+      "from": "air.head.4",
+      "to": "intake.valve.4a",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 35,
+      "length_m": 0.24233647056569668,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "intake-head-4b": {
+      "system": "intake",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 14, 163, 170–171 / lokasi, pendingin udara dan turbo",
+        "D05 Fig. 25, 31–32, 36–37 / manifold, turbo, duct dan cooler",
+        "P07/P17/P18 / geometri tampak"
+      ],
+      "from": "air.head.4",
+      "to": "intake.valve.4b",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 35,
+      "length_m": 0.24233646156599653,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "exhaust-head-4a": {
+      "system": "exhaust",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 14, 170–171 / arah TD13M dan lokasi",
+        "D05 Fig. 27, 31–33 / manifold, turbo dan siku gas",
+        "GA01 / flange buang",
+        "P17 / sisi kanan"
+      ],
+      "from": "exhaust.valve.4a",
+      "to": "exhaust.head.4",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 35,
+      "length_m": 0.24425678641340312,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "exhaust-head-4b": {
+      "system": "exhaust",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 14, 170–171 / arah TD13M dan lokasi",
+        "D05 Fig. 27, 31–33 / manifold, turbo dan siku gas",
+        "GA01 / flange buang",
+        "P17 / sisi kanan"
+      ],
+      "from": "exhaust.valve.4b",
+      "to": "exhaust.head.4",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 35,
+      "length_m": 0.24425677761792824,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "intake-runner-5": {
+      "system": "intake",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 14, 163, 170–171 / lokasi, pendingin udara dan turbo",
+        "D05 Fig. 25, 31–32, 36–37 / manifold, turbo, duct dan cooler",
+        "P07/P17/P18 / geometri tampak"
+      ],
+      "from": "air.plenum.5",
+      "to": "air.head.5",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 28,
+      "length_m": 0.21342678576762905,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "exhaust-runner-5": {
+      "system": "exhaust",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 14, 170–171 / arah TD13M dan lokasi",
+        "D05 Fig. 27, 31–33 / manifold, turbo dan siku gas",
+        "GA01 / flange buang",
+        "P17 / sisi kanan"
+      ],
+      "from": "exhaust.head.5",
+      "to": "exhaust.plenum.5",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 23,
+      "length_m": 0.14890531286986333,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "intake-head-5a": {
+      "system": "intake",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 14, 163, 170–171 / lokasi, pendingin udara dan turbo",
+        "D05 Fig. 25, 31–32, 36–37 / manifold, turbo, duct dan cooler",
+        "P07/P17/P18 / geometri tampak"
+      ],
+      "from": "air.head.5",
+      "to": "intake.valve.5a",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 35,
+      "length_m": 0.2423364562856053,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "intake-head-5b": {
+      "system": "intake",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 14, 163, 170–171 / lokasi, pendingin udara dan turbo",
+        "D05 Fig. 25, 31–32, 36–37 / manifold, turbo, duct dan cooler",
+        "P07/P17/P18 / geometri tampak"
+      ],
+      "from": "air.head.5",
+      "to": "intake.valve.5b",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 35,
+      "length_m": 0.24233648128725813,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "exhaust-head-5a": {
+      "system": "exhaust",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 14, 170–171 / arah TD13M dan lokasi",
+        "D05 Fig. 27, 31–33 / manifold, turbo dan siku gas",
+        "GA01 / flange buang",
+        "P17 / sisi kanan"
+      ],
+      "from": "exhaust.valve.5a",
+      "to": "exhaust.head.5",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 35,
+      "length_m": 0.24425677276953472,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "exhaust-head-5b": {
+      "system": "exhaust",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 14, 170–171 / arah TD13M dan lokasi",
+        "D05 Fig. 27, 31–33 / manifold, turbo dan siku gas",
+        "GA01 / flange buang",
+        "P17 / sisi kanan"
+      ],
+      "from": "exhaust.valve.5b",
+      "to": "exhaust.head.5",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 35,
+      "length_m": 0.2442567965832529,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "intake-runner-6": {
+      "system": "intake",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 14, 163, 170–171 / lokasi, pendingin udara dan turbo",
+        "D05 Fig. 25, 31–32, 36–37 / manifold, turbo, duct dan cooler",
+        "P07/P17/P18 / geometri tampak"
+      ],
+      "from": "air.plenum.6",
+      "to": "air.head.6",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 28,
+      "length_m": 0.21342678576762905,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "exhaust-runner-6": {
+      "system": "exhaust",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 14, 170–171 / arah TD13M dan lokasi",
+        "D05 Fig. 27, 31–33 / manifold, turbo dan siku gas",
+        "GA01 / flange buang",
+        "P17 / sisi kanan"
+      ],
+      "from": "exhaust.head.6",
+      "to": "exhaust.plenum.6",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 23,
+      "length_m": 0.14890531286986333,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "intake-head-6a": {
+      "system": "intake",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 14, 163, 170–171 / lokasi, pendingin udara dan turbo",
+        "D05 Fig. 25, 31–32, 36–37 / manifold, turbo, duct dan cooler",
+        "P07/P17/P18 / geometri tampak"
+      ],
+      "from": "air.head.6",
+      "to": "intake.valve.6a",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 35,
+      "length_m": 0.24233646055153518,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "intake-head-6b": {
+      "system": "intake",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 14, 163, 170–171 / lokasi, pendingin udara dan turbo",
+        "D05 Fig. 25, 31–32, 36–37 / manifold, turbo, duct dan cooler",
+        "P07/P17/P18 / geometri tampak"
+      ],
+      "from": "air.head.6",
+      "to": "intake.valve.6b",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 35,
+      "length_m": 0.24233645771521567,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "exhaust-head-6a": {
+      "system": "exhaust",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 14, 170–171 / arah TD13M dan lokasi",
+        "D05 Fig. 27, 31–33 / manifold, turbo dan siku gas",
+        "GA01 / flange buang",
+        "P17 / sisi kanan"
+      ],
+      "from": "exhaust.valve.6a",
+      "to": "exhaust.head.6",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 35,
+      "length_m": 0.2442567768831629,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "exhaust-head-6b": {
+      "system": "exhaust",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 14, 170–171 / arah TD13M dan lokasi",
+        "D05 Fig. 27, 31–33 / manifold, turbo dan siku gas",
+        "GA01 / flange buang",
+        "P17 / sisi kanan"
+      ],
+      "from": "exhaust.valve.6b",
+      "to": "exhaust.head.6",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 35,
+      "length_m": 0.24425677325679465,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "air-plenum-entry": {
+      "system": "intake",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 14, 163, 170–171 / lokasi, pendingin udara dan turbo",
+        "D05 Fig. 25, 31–32, 36–37 / manifold, turbo, duct dan cooler",
+        "P07/P17/P18 / geometri tampak"
+      ],
+      "from": "air.manifold.in",
+      "to": "air.plenum.1",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 18,
+      "length_m": 0.14954932821909975,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "air-plenum-1": {
+      "system": "intake",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 14, 163, 170–171 / lokasi, pendingin udara dan turbo",
+        "D05 Fig. 25, 31–32, 36–37 / manifold, turbo, duct dan cooler",
+        "P07/P17/P18 / geometri tampak"
+      ],
+      "from": "air.plenum.1",
+      "to": "air.plenum.2",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 22,
+      "length_m": 0.20000000333352325,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "air-plenum-2": {
+      "system": "intake",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 14, 163, 170–171 / lokasi, pendingin udara dan turbo",
+        "D05 Fig. 25, 31–32, 36–37 / manifold, turbo, duct dan cooler",
+        "P07/P17/P18 / geometri tampak"
+      ],
+      "from": "air.plenum.2",
+      "to": "air.plenum.3",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 22,
+      "length_m": 0.2000000174389319,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "air-plenum-3": {
+      "system": "intake",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 14, 163, 170–171 / lokasi, pendingin udara dan turbo",
+        "D05 Fig. 25, 31–32, 36–37 / manifold, turbo, duct dan cooler",
+        "P07/P17/P18 / geometri tampak"
+      ],
+      "from": "air.plenum.3",
+      "to": "air.plenum.4",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 22,
+      "length_m": 0.19999998899865817,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "air-plenum-4": {
+      "system": "intake",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 14, 163, 170–171 / lokasi, pendingin udara dan turbo",
+        "D05 Fig. 25, 31–32, 36–37 / manifold, turbo, duct dan cooler",
+        "P07/P17/P18 / geometri tampak"
+      ],
+      "from": "air.plenum.4",
+      "to": "air.plenum.5",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 22,
+      "length_m": 0.1999999288430896,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "air-plenum-5": {
+      "system": "intake",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 14, 163, 170–171 / lokasi, pendingin udara dan turbo",
+        "D05 Fig. 25, 31–32, 36–37 / manifold, turbo, duct dan cooler",
+        "P07/P17/P18 / geometri tampak"
+      ],
+      "from": "air.plenum.5",
+      "to": "air.plenum.6",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 22,
+      "length_m": 0.2000000494211256,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "exhaust-plenum-1": {
+      "system": "exhaust",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 14, 170–171 / arah TD13M dan lokasi",
+        "D05 Fig. 27, 31–33 / manifold, turbo dan siku gas",
+        "GA01 / flange buang",
+        "P17 / sisi kanan"
+      ],
+      "from": "exhaust.plenum.1",
+      "to": "exhaust.plenum.2",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 22,
+      "length_m": 0.20000000333352325,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "exhaust-plenum-2": {
+      "system": "exhaust",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 14, 170–171 / arah TD13M dan lokasi",
+        "D05 Fig. 27, 31–33 / manifold, turbo dan siku gas",
+        "GA01 / flange buang",
+        "P17 / sisi kanan"
+      ],
+      "from": "exhaust.plenum.2",
+      "to": "exhaust.manifold.takeoff",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 19,
+      "length_m": 0.15733719356051562,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "exhaust-plenum-6": {
+      "system": "exhaust",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 14, 170–171 / arah TD13M dan lokasi",
+        "D05 Fig. 27, 31–33 / manifold, turbo dan siku gas",
+        "GA01 / flange buang",
+        "P17 / sisi kanan"
+      ],
+      "from": "exhaust.plenum.6",
+      "to": "exhaust.plenum.5",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 22,
+      "length_m": 0.2000000494211256,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "exhaust-plenum-5": {
+      "system": "exhaust",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 14, 170–171 / arah TD13M dan lokasi",
+        "D05 Fig. 27, 31–33 / manifold, turbo dan siku gas",
+        "GA01 / flange buang",
+        "P17 / sisi kanan"
+      ],
+      "from": "exhaust.plenum.5",
+      "to": "exhaust.plenum.4",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 22,
+      "length_m": 0.1999999288430896,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "exhaust-plenum-4": {
+      "system": "exhaust",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 14, 170–171 / arah TD13M dan lokasi",
+        "D05 Fig. 27, 31–33 / manifold, turbo dan siku gas",
+        "GA01 / flange buang",
+        "P17 / sisi kanan"
+      ],
+      "from": "exhaust.plenum.4",
+      "to": "exhaust.plenum.3",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 22,
+      "length_m": 0.19999998899865817,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "exhaust-plenum-3": {
+      "system": "exhaust",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 14, 170–171 / arah TD13M dan lokasi",
+        "D05 Fig. 27, 31–33 / manifold, turbo dan siku gas",
+        "GA01 / flange buang",
+        "P17 / sisi kanan"
+      ],
+      "from": "exhaust.plenum.3",
+      "to": "exhaust.manifold.takeoff",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 8,
+      "length_m": 0.04421542361439245,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "SW-suction": {
+      "system": "seawater",
+      "kind": "physical",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 163, cetak 159, Cooling Water System",
+        "D05 Fig 66; P07, P18, siku belakang"
+      ],
+      "from": "SW-ship-in",
+      "to": "SW-pump-in",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 36,
+      "length_m": 0.18281154957744972,
+      "terminal_interfaces": [
+        {
+          "endpoint": "to",
+          "part": "EXT-COOLING-04",
+          "tube": "EXT-COOLING-05",
+          "type": "different model mesh",
+          "center_distance_mm": 28.40379811823368,
+          "closest_local_vertex_to_opposite_surface_mm": 0.0036549483866110677,
+          "global_intersecting_surface_pairs": 1210
+        }
+      ],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": {
+        "against": [
+          "EXT-COOLING-05",
+          "EXT-COOLING-04"
+        ],
+        "grid_m": 0.01,
+        "all8_near_walls": 35,
+        "at_least4": 36,
+        "none_near": 0,
+        "min_center_vertex_to_mesh_mm": 19.30267922580242,
+        "near_wall_below_point2_mm": [],
+        "near_wall_total": 0
+      }
+    },
+    "SW-impeller": {
+      "system": "seawater",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ILLUSTRATIVE",
+      "source_refs": [
+        "D01 PDF 163, cetak 159, Cooling Water System",
+        "D05 Fig 55, pompa air laut"
+      ],
+      "from": "SW-pump-in",
+      "to": "SW-pump-out",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 44,
+      "length_m": 0.2962295701745204,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "SW-delivery": {
+      "system": "seawater",
+      "kind": "physical",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 163, cetak 159, Cooling Water System",
+        "D05 Fig 66, pipa dan selang air laut; P18"
+      ],
+      "from": "SW-pump-out",
+      "to": "SW-charge-in",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 48,
+      "length_m": 0.31855571464641436,
+      "terminal_interfaces": [
+        {
+          "endpoint": "from",
+          "part": "EXT-COOLING-04",
+          "tube": "EXT-COOLING-300",
+          "type": "different model mesh",
+          "center_distance_mm": 31.803887337446213,
+          "closest_local_vertex_to_opposite_surface_mm": 0.0021711539375246502,
+          "global_intersecting_surface_pairs": 1084
+        },
+        {
+          "endpoint": "to",
+          "part": "EXT-INTAKE-06",
+          "tube": "EXT-COOLING-300",
+          "type": "different model mesh",
+          "center_distance_mm": 16.60364866256714,
+          "closest_local_vertex_to_opposite_surface_mm": 0.002574065092630917,
+          "global_intersecting_surface_pairs": 290
+        }
+      ],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": {
+        "against": [
+          "EXT-COOLING-04",
+          "EXT-COOLING-300",
+          "EXT-INTAKE-06"
+        ],
+        "grid_m": 0.01,
+        "all8_near_walls": 48,
+        "at_least4": 48,
+        "none_near": 0,
+        "min_center_vertex_to_mesh_mm": 6.922476924955845,
+        "near_wall_below_point2_mm": [],
+        "near_wall_total": 0
+      }
+    },
+    "SW-air-cooler": {
+      "system": "seawater",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ILLUSTRATIVE",
+      "source_refs": [
+        "D01 PDF 163, cetak 159, Cooling Water System",
+        "D05 Fig 37, core nomor 5, division rib nomor 6 dan return cover"
+      ],
+      "from": "SW-charge-in",
+      "to": "SW-charge-out",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 152,
+      "length_m": 1.484578983663037,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "SW-transfer": {
+      "system": "seawater",
+      "kind": "physical",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 163, cetak 159, Cooling Water System",
+        "D05 Fig 66, C.S.W. pump–air cooler–F.W. cooler; P07/P18"
+      ],
+      "from": "SW-charge-out",
+      "to": "SW-hx-in",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 243,
+      "length_m": 1.8508754518526858,
+      "terminal_interfaces": [
+        {
+          "endpoint": "from",
+          "part": "EXT-INTAKE-06",
+          "tube": "EXT-COOLING-301",
+          "type": "different model mesh",
+          "center_distance_mm": 12.913943268358707,
+          "closest_local_vertex_to_opposite_surface_mm": 0.015781843103468418,
+          "global_intersecting_surface_pairs": 263
+        },
+        {
+          "endpoint": "to",
+          "part": "EXT-COOLING-51",
+          "tube": "EXT-COOLING-301",
+          "type": "different model mesh",
+          "center_distance_mm": 17.683245241642,
+          "closest_local_vertex_to_opposite_surface_mm": 0.0039637088775634766,
+          "global_intersecting_surface_pairs": 194
+        }
+      ],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": {
+        "against": [
+          "EXT-INTAKE-06",
+          "EXT-COOLING-301",
+          "EXT-COOLING-51"
+        ],
+        "grid_m": 0.01,
+        "all8_near_walls": 243,
+        "at_least4": 243,
+        "none_near": 0,
+        "min_center_vertex_to_mesh_mm": 3.2234760001301765,
+        "near_wall_below_point2_mm": [],
+        "near_wall_total": 0
+      }
+    },
+    "SW-front-core": {
+      "system": "seawater",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ILLUSTRATIVE",
+      "source_refs": [
+        "D01 PDF 163, cetak 159, Cooling Water System",
+        "D05 Fig 57, core dan tutup penukar panas"
+      ],
+      "from": "SW-hx-in",
+      "to": "SW-ship-out",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 81,
+      "length_m": 0.7781518807506859,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "FW-pump": {
+      "system": "freshwater",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ILLUSTRATIVE",
+      "source_refs": [
+        "D01 PDF 163, cetak 159, Cooling Water System",
+        "D05 Fig 54, pompa air tawar"
+      ],
+      "from": "FW-pump-in",
+      "to": "FW-pump-out",
+      "condition": "Mesin hangat, termostat terbuka",
+      "missing_render_meshes": [],
+      "sample_count": 49,
+      "length_m": 0.3265938415269037,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "FW-pump-cooler": {
+      "system": "freshwater",
+      "kind": "physical",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 163, cetak 159, Cooling Water System",
+        "D05 Fig 65, pendingin oli–blok; PDF 163"
+      ],
+      "from": "FW-pump-out",
+      "to": "FW-oil-hx-in",
+      "condition": "Mesin hangat, termostat terbuka",
+      "missing_render_meshes": [],
+      "sample_count": 99,
+      "length_m": 0.5721924721498832,
+      "terminal_interfaces": [
+        {
+          "endpoint": "from",
+          "part": "EXT-COOLING-03",
+          "tube": "EXT-COOLING-302",
+          "type": "different model mesh",
+          "center_distance_mm": 38.71433436870575,
+          "closest_local_vertex_to_opposite_surface_mm": 0.019176863133907318,
+          "global_intersecting_surface_pairs": 533
+        },
+        {
+          "endpoint": "to",
+          "part": "EXT-LUBE-05",
+          "tube": "EXT-COOLING-302",
+          "type": "different model mesh",
+          "center_distance_mm": 19.90368403494358,
+          "closest_local_vertex_to_opposite_surface_mm": 0.0,
+          "global_intersecting_surface_pairs": 80
+        }
+      ],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": {
+        "against": [
+          "EXT-COOLING-03",
+          "EXT-COOLING-302",
+          "EXT-LUBE-05"
+        ],
+        "grid_m": 0.01,
+        "all8_near_walls": 56,
+        "at_least4": 64,
+        "none_near": 0,
+        "min_center_vertex_to_mesh_mm": 0.03259133154642768,
+        "near_wall_below_point2_mm": [
+          {
+            "segment": 9,
+            "center_xyz_m": [
+              1.4198548793792725,
+              0.4860256016254425,
+              0.5703173875808716
+            ],
+            "nearest_mm": 0.11166054900968447
+          },
+          {
+            "segment": 48,
+            "center_xyz_m": [
+              1.2983064651489258,
+              0.4127470850944519,
+              0.5512996315956116
+            ],
+            "nearest_mm": 0.03259133154642768
+          }
+        ],
+        "near_wall_total": 2
+      }
+    },
+    "FW-oil-cooler": {
+      "system": "freshwater",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ILLUSTRATIVE",
+      "source_refs": [
+        "D01 PDF 163, cetak 159, Cooling Water System",
+        "D05 Fig 42; D01 PDF 161, cetak 157"
+      ],
+      "from": "FW-oil-hx-in",
+      "to": "FW-oil-hx-out",
+      "condition": "Mesin hangat, termostat terbuka",
+      "missing_render_meshes": [],
+      "sample_count": 112,
+      "length_m": 0.8521679674101643,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "FW-cooler-block": {
+      "system": "freshwater",
+      "kind": "physical",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 163, cetak 159, Cooling Water System",
+        "D05 Fig 65, pipa air dan gasket; P17"
+      ],
+      "from": "FW-oil-hx-out",
+      "to": "FW-block-in",
+      "condition": "Mesin hangat, termostat terbuka",
+      "missing_render_meshes": [],
+      "sample_count": 36,
+      "length_m": 0.14738471305668321,
+      "terminal_interfaces": [
+        {
+          "endpoint": "from",
+          "part": "EXT-LUBE-05",
+          "tube": "EXT-COOLING-303",
+          "type": "different model mesh",
+          "center_distance_mm": 17.913315445184708,
+          "closest_local_vertex_to_opposite_surface_mm": 0.056609511375427246,
+          "global_intersecting_surface_pairs": 84
+        },
+        {
+          "endpoint": "to",
+          "part": "EXT-BLOCK-01",
+          "tube": "EXT-COOLING-303",
+          "type": "different model mesh",
+          "center_distance_mm": 0.0,
+          "closest_local_vertex_to_opposite_surface_mm": 0.04062056541442871,
+          "global_intersecting_surface_pairs": 84
+        }
+      ],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": {
+        "against": [
+          "EXT-LUBE-05",
+          "EXT-COOLING-303",
+          "EXT-BLOCK-01"
+        ],
+        "grid_m": 0.01,
+        "all8_near_walls": 36,
+        "at_least4": 36,
+        "none_near": 0,
+        "min_center_vertex_to_mesh_mm": 4.156291484832764,
+        "near_wall_below_point2_mm": [],
+        "near_wall_total": 0
+      }
+    },
+    "FW-cylinder-jacket": {
+      "system": "freshwater",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ILLUSTRATIVE",
+      "source_refs": [
+        "D01 PDF 163, cetak 159, Cooling Water System",
+        "D01 PDF 163"
+      ],
+      "from": "FW-block-in",
+      "to": "FW-jacket-head",
+      "condition": "Mesin hangat, termostat terbuka",
+      "missing_render_meshes": [],
+      "sample_count": 75,
+      "length_m": 0.5058358459544438,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "FW-wet-exhaust": {
+      "system": "freshwater",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ILLUSTRATIVE",
+      "source_refs": [
+        "D01 PDF 163, cetak 159, Cooling Water System",
+        "D05 Fig 27, exhaust manifold"
+      ],
+      "from": "FW-jacket-head",
+      "to": "FW-manifold",
+      "condition": "Mesin hangat, termostat terbuka",
+      "missing_render_meshes": [],
+      "sample_count": 144,
+      "length_m": 1.2251376127213645,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "FW-to-stat": {
+      "system": "freshwater",
+      "kind": "physical",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 163, cetak 159, Cooling Water System",
+        "D01 PDF 163; P17, bagian dalam sambungan tertutup"
+      ],
+      "from": "FW-manifold",
+      "to": "FW-thermo-in",
+      "condition": "Mesin hangat, termostat terbuka",
+      "missing_render_meshes": [],
+      "sample_count": 86,
+      "length_m": 0.36565318655587953,
+      "terminal_interfaces": [
+        {
+          "endpoint": "from",
+          "part": "EXT-EXHAUST-01",
+          "tube": "EXT-COOLING-304",
+          "type": "different model mesh",
+          "center_distance_mm": 0.006157768439152278,
+          "closest_local_vertex_to_opposite_surface_mm": 0.0064373016357421875,
+          "global_intersecting_surface_pairs": 533
+        },
+        {
+          "endpoint": "to",
+          "part": "EXT-COOLING-01",
+          "tube": "EXT-COOLING-304",
+          "type": "different model mesh",
+          "center_distance_mm": 18.908463418483734,
+          "closest_local_vertex_to_opposite_surface_mm": 0.0035767773169936845,
+          "global_intersecting_surface_pairs": 196
+        }
+      ],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": {
+        "against": [
+          "EXT-EXHAUST-01",
+          "EXT-COOLING-304",
+          "EXT-COOLING-01"
+        ],
+        "grid_m": 0.01,
+        "all8_near_walls": 56,
+        "at_least4": 79,
+        "none_near": 0,
+        "min_center_vertex_to_mesh_mm": 0.048780624638311565,
+        "near_wall_below_point2_mm": [
+          {
+            "segment": 42,
+            "center_xyz_m": [
+              1.3204776048660278,
+              0.6976232528686523,
+              0.1626484990119934
+            ],
+            "nearest_mm": 0.048780624638311565
+          }
+        ],
+        "near_wall_total": 1
+      }
+    },
+    "FW-thermostat": {
+      "system": "freshwater",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ILLUSTRATIVE",
+      "source_refs": [
+        "D01 PDF 163, cetak 159, Cooling Water System",
+        "D01 PDF 166, cetak 162; D05 Fig 57"
+      ],
+      "from": "FW-thermo-in",
+      "to": "FW-stat",
+      "condition": "Mesin hangat, termostat terbuka",
+      "missing_render_meshes": [],
+      "sample_count": 24,
+      "length_m": 0.18689779107775462,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "FW-cooler-shell": {
+      "system": "freshwater",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ILLUSTRATIVE",
+      "source_refs": [
+        "D01 PDF 163, cetak 159, Cooling Water System",
+        "D05 Fig 57; D01 PDF 163"
+      ],
+      "from": "FW-stat",
+      "to": "FW-hx-return",
+      "condition": "Mesin hangat, termostat terbuka",
+      "missing_render_meshes": [],
+      "sample_count": 85,
+      "length_m": 0.5243406292331618,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "FW-return": {
+      "system": "freshwater",
+      "kind": "physical",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 163, cetak 159, Cooling Water System",
+        "D05 Fig 63, bend 148660-49233"
+      ],
+      "from": "FW-hx-return",
+      "to": "FW-pump-in",
+      "condition": "Mesin hangat, termostat terbuka",
+      "missing_render_meshes": [],
+      "sample_count": 77,
+      "length_m": 0.5021014429670303,
+      "terminal_interfaces": [
+        {
+          "endpoint": "from",
+          "part": "EXT-COOLING-01",
+          "tube": "EXT-COOLING-06",
+          "type": "different model mesh",
+          "center_distance_mm": 22.88917452096939,
+          "closest_local_vertex_to_opposite_surface_mm": 0.01972933932847809,
+          "global_intersecting_surface_pairs": 236
+        },
+        {
+          "endpoint": "to",
+          "part": "EXT-COOLING-03",
+          "tube": "EXT-COOLING-06",
+          "type": "different model mesh",
+          "center_distance_mm": 31.97479248046875,
+          "closest_local_vertex_to_opposite_surface_mm": 0.005182862878427841,
+          "global_intersecting_surface_pairs": 1163
+        }
+      ],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": {
+        "against": [
+          "EXT-COOLING-01",
+          "EXT-COOLING-06",
+          "EXT-COOLING-03"
+        ],
+        "grid_m": 0.01,
+        "all8_near_walls": 19,
+        "at_least4": 21,
+        "none_near": 37,
+        "min_center_vertex_to_mesh_mm": 0.22803236788604409,
+        "near_wall_below_point2_mm": [],
+        "near_wall_total": 0
+      }
+    },
+    "LO-pickup": {
+      "system": "lubrication",
+      "kind": "physical",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 157, cetak 153, Lubricating Oil System",
+        "D05 Fig 41; koordinat dari INT-OILPUMP-10"
+      ],
+      "from": "LO-screen",
+      "to": "LO-pump-in",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 35,
+      "length_m": 0.3153120894897745,
+      "terminal_interfaces": [
+        {
+          "endpoint": "from",
+          "part": "INT-OILPUMP-11",
+          "tube": "INT-OILPUMP-10",
+          "type": "different model mesh",
+          "center_distance_mm": 12.99998164176941,
+          "closest_local_vertex_to_opposite_surface_mm": 0.12055289698764682,
+          "global_intersecting_surface_pairs": 60
+        },
+        {
+          "endpoint": "to",
+          "part": "INT-OILPUMP-02",
+          "tube": "INT-OILPUMP-10",
+          "type": "different model mesh",
+          "center_distance_mm": 6.999999284744263,
+          "closest_local_vertex_to_opposite_surface_mm": 6.999999284744263,
+          "global_intersecting_surface_pairs": 34
+        }
+      ],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": {
+        "against": [
+          "INT-OILPUMP-11",
+          "INT-OILPUMP-10",
+          "INT-OILPUMP-02"
+        ],
+        "grid_m": 0.01,
+        "all8_near_walls": 35,
+        "at_least4": 35,
+        "none_near": 0,
+        "min_center_vertex_to_mesh_mm": 0.8750259876251221,
+        "near_wall_below_point2_mm": [],
+        "near_wall_total": 0
+      }
+    },
+    "LO-pump": {
+      "system": "lubrication",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ILLUSTRATIVE",
+      "source_refs": [
+        "D01 PDF 157, cetak 153, Lubricating Oil System",
+        "D01 PDF 158, Fig pompa oli"
+      ],
+      "from": "LO-pump-in",
+      "to": "LO-pressure",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 32,
+      "length_m": 0.15576103010829975,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "LO-to-port": {
+      "system": "lubrication",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ILLUSTRATIVE",
+      "source_refs": [
+        "D01 PDF 157, cetak 153, Lubricating Oil System",
+        "D01 PDF 157"
+      ],
+      "from": "LO-pressure",
+      "to": "LO-block-feed",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 68,
+      "length_m": 0.5003666346346587,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "LO-cooler-feed": {
+      "system": "lubrication",
+      "kind": "physical",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 157, cetak 153, Lubricating Oil System",
+        "D05 Fig 49, pipa oli 148620-39150 / 148620-39160"
+      ],
+      "from": "LO-block-feed",
+      "to": "LO-cool-in",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 60,
+      "length_m": 0.2924374467110734,
+      "terminal_interfaces": [
+        {
+          "endpoint": "from",
+          "part": "EXT-BLOCK-01",
+          "tube": "EXT-LUBE-300",
+          "type": "different model mesh",
+          "center_distance_mm": 0.20389736164361238,
+          "closest_local_vertex_to_opposite_surface_mm": 4.71216097253091e-05,
+          "global_intersecting_surface_pairs": 106
+        },
+        {
+          "endpoint": "to",
+          "part": "EXT-LUBE-62",
+          "tube": "EXT-LUBE-300",
+          "type": "different model mesh",
+          "center_distance_mm": 8.82705394178629,
+          "closest_local_vertex_to_opposite_surface_mm": 0.023245811462402344,
+          "global_intersecting_surface_pairs": 116
+        }
+      ],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": {
+        "against": [
+          "EXT-BLOCK-01",
+          "EXT-LUBE-300",
+          "EXT-LUBE-62"
+        ],
+        "grid_m": 0.01,
+        "all8_near_walls": 60,
+        "at_least4": 60,
+        "none_near": 0,
+        "min_center_vertex_to_mesh_mm": 0.40101190097630024,
+        "near_wall_below_point2_mm": [],
+        "near_wall_total": 0
+      }
+    },
+    "LO-plate-core": {
+      "system": "lubrication",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ILLUSTRATIVE",
+      "source_refs": [
+        "D01 PDF 157, cetak 153, Lubricating Oil System",
+        "D05 Fig 42; D01 PDF 161"
+      ],
+      "from": "LO-cool-in",
+      "to": "LO-cool-out",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 129,
+      "length_m": 0.9122638194762734,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "LO-cooler-out": {
+      "system": "lubrication",
+      "kind": "physical",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 157, cetak 153, Lubricating Oil System",
+        "D05 Fig 49, pipa sambungan oli"
+      ],
+      "from": "LO-cool-out",
+      "to": "LO-filter-in",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 48,
+      "length_m": 0.12877506792359855,
+      "terminal_interfaces": [
+        {
+          "endpoint": "from",
+          "part": "EXT-LUBE-62",
+          "tube": "EXT-LUBE-301",
+          "type": "different model mesh",
+          "center_distance_mm": 8.826946839690208,
+          "closest_local_vertex_to_opposite_surface_mm": 0.0021457672119140625,
+          "global_intersecting_surface_pairs": 113
+        },
+        {
+          "endpoint": "to",
+          "part": "EXT-LUBE-01",
+          "tube": "EXT-LUBE-301",
+          "type": "different model mesh",
+          "center_distance_mm": 8.25994461774826,
+          "closest_local_vertex_to_opposite_surface_mm": 0.0,
+          "global_intersecting_surface_pairs": 157
+        }
+      ],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": {
+        "against": [
+          "EXT-LUBE-62",
+          "EXT-LUBE-301",
+          "EXT-LUBE-01"
+        ],
+        "grid_m": 0.01,
+        "all8_near_walls": 48,
+        "at_least4": 48,
+        "none_near": 0,
+        "min_center_vertex_to_mesh_mm": 1.999330474063754,
+        "near_wall_below_point2_mm": [],
+        "near_wall_total": 0
+      }
+    },
+    "LO-filter": {
+      "system": "lubrication",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ILLUSTRATIVE",
+      "source_refs": [
+        "D01 PDF 157, cetak 153, Lubricating Oil System",
+        "D05 Fig 45/46, filter oli; D01 PDF 157"
+      ],
+      "from": "LO-filter-in",
+      "to": "LO-filter-out",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 104,
+      "length_m": 0.7520690985996803,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "LO-main-gallery": {
+      "system": "lubrication",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ILLUSTRATIVE",
+      "source_refs": [
+        "D01 PDF 157, cetak 153, Lubricating Oil System",
+        "D01 PDF 157"
+      ],
+      "from": "LO-filter-out",
+      "to": "LO-gallery",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 30,
+      "length_m": 0.19248691636497403,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "LO-turbo-supply": {
+      "system": "lubrication",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ILLUSTRATIVE",
+      "source_refs": [
+        "D01 PDF 157, cetak 153, Lubricating Oil System",
+        "D01 PDF 157; D05 Fig 50"
+      ],
+      "from": "LO-gallery",
+      "to": "LO-turbo-tap",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 24,
+      "length_m": 0.1336252522430771,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "LO-turbo-line": {
+      "system": "lubrication",
+      "kind": "physical",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 157, cetak 153, Lubricating Oil System",
+        "D05 Fig 50, pipa suplai turbo 148660-39412"
+      ],
+      "from": "LO-turbo-tap",
+      "to": "LO-turbo-in",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 150,
+      "length_m": 0.785648001352654,
+      "terminal_interfaces": [
+        {
+          "endpoint": "from",
+          "part": "EXT-BLOCK-01",
+          "tube": "EXT-LUBE-302",
+          "type": "different model mesh",
+          "center_distance_mm": 1.0000020265579224,
+          "closest_local_vertex_to_opposite_surface_mm": 0.07298807759070769,
+          "global_intersecting_surface_pairs": 128
+        },
+        {
+          "endpoint": "to",
+          "part": "EXT-EXHAUST-04",
+          "tube": "EXT-LUBE-302",
+          "type": "different model mesh",
+          "center_distance_mm": 21.673323586583138,
+          "closest_local_vertex_to_opposite_surface_mm": 17.208492383360863,
+          "global_intersecting_surface_pairs": 0
+        }
+      ],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": {
+        "against": [
+          "EXT-BLOCK-01",
+          "EXT-LUBE-302",
+          "EXT-EXHAUST-04"
+        ],
+        "grid_m": 0.01,
+        "all8_near_walls": 140,
+        "at_least4": 140,
+        "none_near": 0,
+        "min_center_vertex_to_mesh_mm": 0.12464360042940825,
+        "near_wall_below_point2_mm": [
+          {
+            "segment": 13,
+            "center_xyz_m": [
+              0.6831858158111572,
+              0.22728469967842102,
+              0.4494860768318176
+            ],
+            "nearest_mm": 0.12464360042940825
+          }
+        ],
+        "near_wall_total": 1
+      }
+    },
+    "LO-turbo-bearings": {
+      "system": "lubrication",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ILLUSTRATIVE",
+      "source_refs": [
+        "D01 PDF 157, cetak 153, Lubricating Oil System",
+        "D05 Fig 32, center housing; D01 PDF 157"
+      ],
+      "from": "LO-turbo-in",
+      "to": "LO-turbo-drain",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 40,
+      "length_m": 0.116970073632878,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "LO-turbo-return": {
+      "system": "lubrication",
+      "kind": "physical",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ESTIMATED",
+      "source_refs": [
+        "D01 PDF 157, cetak 153, Lubricating Oil System",
+        "D05 Fig 51, pipa oli balik 148660-39741"
+      ],
+      "from": "LO-turbo-drain",
+      "to": "LO-drain-block",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 96,
+      "length_m": 0.7097918830704203,
+      "terminal_interfaces": [
+        {
+          "endpoint": "from",
+          "part": "EXT-EXHAUST-04",
+          "tube": "EXT-LUBE-303",
+          "type": "different model mesh",
+          "center_distance_mm": 8.459051139652729,
+          "closest_local_vertex_to_opposite_surface_mm": 0.016251777196885087,
+          "global_intersecting_surface_pairs": 105
+        },
+        {
+          "endpoint": "to",
+          "part": "EXT-BLOCK-01",
+          "tube": "EXT-LUBE-303",
+          "type": "different model mesh",
+          "center_distance_mm": 0.04885334419668652,
+          "closest_local_vertex_to_opposite_surface_mm": 0.008257569788838737,
+          "global_intersecting_surface_pairs": 66
+        }
+      ],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": {
+        "against": [
+          "EXT-EXHAUST-04",
+          "EXT-LUBE-303",
+          "EXT-BLOCK-01"
+        ],
+        "grid_m": 0.01,
+        "all8_near_walls": 96,
+        "at_least4": 96,
+        "none_near": 0,
+        "min_center_vertex_to_mesh_mm": 0.10152570030186325,
+        "near_wall_below_point2_mm": [
+          {
+            "segment": 71,
+            "center_xyz_m": [
+              0.4980362057685852,
+              0.14314064383506775,
+              0.47071897983551025
+            ],
+            "nearest_mm": 0.12529600644484162
+          },
+          {
+            "segment": 72,
+            "center_xyz_m": [
+              0.4954530596733093,
+              0.14001420140266418,
+              0.46513834595680237
+            ],
+            "nearest_mm": 0.10152570030186325
+          }
+        ],
+        "near_wall_total": 2
+      }
+    },
+    "LO-sump-return": {
+      "system": "lubrication",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ILLUSTRATIVE",
+      "source_refs": [
+        "D01 PDF 157, cetak 153, Lubricating Oil System",
+        "D01 PDF 157, aliran jatuh kembali ke karter"
+      ],
+      "from": "LO-drain-block",
+      "to": "LO-screen",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 121,
+      "length_m": 0.9707788755860279,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "LO-main-bearing-1": {
+      "system": "lubrication",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ILLUSTRATIVE",
+      "source_refs": [
+        "D01 PDF 157, cetak 153, Lubricating Oil System",
+        "D01 PDF 104, 106; metal atas dengan alur oli",
+        "D05 Fig 38, crankshaft"
+      ],
+      "from": "LO-gallery-1",
+      "to": "LO-main-1",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 34,
+      "length_m": 0.2290314681925565,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "LO-main-film-1": {
+      "system": "lubrication",
+      "kind": "schematic",
+      "direction_status": "INFERRED",
+      "geometry_status": "ILLUSTRATIVE",
+      "source_refs": [
+        "D01 PDF 157, cetak 153, Lubricating Oil System",
+        "D01 PDF 104, 106, metal atas dan journal"
+      ],
+      "from": "LO-main-1",
+      "to": "LO-journal-1",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 24,
+      "length_m": 0.06705120209632756,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 4.470348358154297e-05,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "LO-main-bearing-2": {
+      "system": "lubrication",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ILLUSTRATIVE",
+      "source_refs": [
+        "D01 PDF 157, cetak 153, Lubricating Oil System",
+        "D01 PDF 104, 106; metal atas dengan alur oli",
+        "D05 Fig 38, crankshaft"
+      ],
+      "from": "LO-gallery-2",
+      "to": "LO-main-2",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 34,
+      "length_m": 0.2290314681925565,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "LO-main-film-2": {
+      "system": "lubrication",
+      "kind": "schematic",
+      "direction_status": "INFERRED",
+      "geometry_status": "ILLUSTRATIVE",
+      "source_refs": [
+        "D01 PDF 157, cetak 153, Lubricating Oil System",
+        "D01 PDF 104, 106, metal atas dan journal"
+      ],
+      "from": "LO-main-2",
+      "to": "LO-journal-2",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 24,
+      "length_m": 0.06705120209632756,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 4.470348358154297e-05,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "LO-main-bearing-3": {
+      "system": "lubrication",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ILLUSTRATIVE",
+      "source_refs": [
+        "D01 PDF 157, cetak 153, Lubricating Oil System",
+        "D01 PDF 104, 106; metal atas dengan alur oli",
+        "D05 Fig 38, crankshaft"
+      ],
+      "from": "LO-gallery-3",
+      "to": "LO-main-3",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 34,
+      "length_m": 0.2290314681925565,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "LO-main-film-3": {
+      "system": "lubrication",
+      "kind": "schematic",
+      "direction_status": "INFERRED",
+      "geometry_status": "ILLUSTRATIVE",
+      "source_refs": [
+        "D01 PDF 157, cetak 153, Lubricating Oil System",
+        "D01 PDF 104, 106, metal atas dan journal"
+      ],
+      "from": "LO-main-3",
+      "to": "LO-journal-3",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 24,
+      "length_m": 0.06705120209632756,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 4.470348358154297e-05,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "LO-main-bearing-4": {
+      "system": "lubrication",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ILLUSTRATIVE",
+      "source_refs": [
+        "D01 PDF 157, cetak 153, Lubricating Oil System",
+        "D01 PDF 104, 106; metal atas dengan alur oli",
+        "D05 Fig 38, crankshaft"
+      ],
+      "from": "LO-gallery-4",
+      "to": "LO-main-4",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 34,
+      "length_m": 0.2290314681925565,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "LO-main-film-4": {
+      "system": "lubrication",
+      "kind": "schematic",
+      "direction_status": "INFERRED",
+      "geometry_status": "ILLUSTRATIVE",
+      "source_refs": [
+        "D01 PDF 157, cetak 153, Lubricating Oil System",
+        "D01 PDF 104, 106, metal atas dan journal"
+      ],
+      "from": "LO-main-4",
+      "to": "LO-journal-4",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 24,
+      "length_m": 0.06705120209632756,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 4.470348358154297e-05,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "LO-main-bearing-5": {
+      "system": "lubrication",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ILLUSTRATIVE",
+      "source_refs": [
+        "D01 PDF 157, cetak 153, Lubricating Oil System",
+        "D01 PDF 104, 106; metal atas dengan alur oli",
+        "D05 Fig 38, crankshaft"
+      ],
+      "from": "LO-gallery-5",
+      "to": "LO-main-5",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 34,
+      "length_m": 0.2290314681925565,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "LO-main-film-5": {
+      "system": "lubrication",
+      "kind": "schematic",
+      "direction_status": "INFERRED",
+      "geometry_status": "ILLUSTRATIVE",
+      "source_refs": [
+        "D01 PDF 157, cetak 153, Lubricating Oil System",
+        "D01 PDF 104, 106, metal atas dan journal"
+      ],
+      "from": "LO-main-5",
+      "to": "LO-journal-5",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 24,
+      "length_m": 0.06705120209632756,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 4.470348358154297e-05,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "LO-main-bearing-6": {
+      "system": "lubrication",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ILLUSTRATIVE",
+      "source_refs": [
+        "D01 PDF 157, cetak 153, Lubricating Oil System",
+        "D01 PDF 104, 106; metal atas dengan alur oli",
+        "D05 Fig 38, crankshaft"
+      ],
+      "from": "LO-gallery-6",
+      "to": "LO-main-6",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 34,
+      "length_m": 0.2290314681925565,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "LO-main-film-6": {
+      "system": "lubrication",
+      "kind": "schematic",
+      "direction_status": "INFERRED",
+      "geometry_status": "ILLUSTRATIVE",
+      "source_refs": [
+        "D01 PDF 157, cetak 153, Lubricating Oil System",
+        "D01 PDF 104, 106, metal atas dan journal"
+      ],
+      "from": "LO-main-6",
+      "to": "LO-journal-6",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 24,
+      "length_m": 0.06705120209632756,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 4.470348358154297e-05,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "LO-main-bearing-7": {
+      "system": "lubrication",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ILLUSTRATIVE",
+      "source_refs": [
+        "D01 PDF 157, cetak 153, Lubricating Oil System",
+        "D01 PDF 104, 106; metal atas dengan alur oli",
+        "D05 Fig 38, crankshaft"
+      ],
+      "from": "LO-gallery-7",
+      "to": "LO-main-7",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 34,
+      "length_m": 0.2290314681925565,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "LO-main-film-7": {
+      "system": "lubrication",
+      "kind": "schematic",
+      "direction_status": "INFERRED",
+      "geometry_status": "ILLUSTRATIVE",
+      "source_refs": [
+        "D01 PDF 157, cetak 153, Lubricating Oil System",
+        "D01 PDF 104, 106, metal atas dan journal"
+      ],
+      "from": "LO-main-7",
+      "to": "LO-journal-7",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 24,
+      "length_m": 0.06705120209632756,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 4.470348358154297e-05,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "LO-gallery-feed-4": {
+      "system": "lubrication",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ILLUSTRATIVE",
+      "source_refs": [
+        "D01 PDF 157, cetak 153, Lubricating Oil System",
+        "D01 PDF 157, galeri utama dan main bearing"
+      ],
+      "from": "LO-gallery",
+      "to": "LO-gallery-4",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 10,
+      "length_m": 0.09663330938096759,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "LO-gallery-feed-3": {
+      "system": "lubrication",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ILLUSTRATIVE",
+      "source_refs": [
+        "D01 PDF 157, cetak 153, Lubricating Oil System",
+        "D01 PDF 157, galeri utama dan main bearing"
+      ],
+      "from": "LO-gallery",
+      "to": "LO-gallery-3",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 18,
+      "length_m": 0.17927074401679569,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "LO-gallery-feed-2": {
+      "system": "lubrication",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ILLUSTRATIVE",
+      "source_refs": [
+        "D01 PDF 157, cetak 153, Lubricating Oil System",
+        "D01 PDF 157, galeri utama dan main bearing"
+      ],
+      "from": "LO-gallery-3",
+      "to": "LO-gallery-2",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 21,
+      "length_m": 0.20000001639127665,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "LO-gallery-feed-1": {
+      "system": "lubrication",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ILLUSTRATIVE",
+      "source_refs": [
+        "D01 PDF 157, cetak 153, Lubricating Oil System",
+        "D01 PDF 157, galeri utama dan main bearing"
+      ],
+      "from": "LO-gallery-2",
+      "to": "LO-gallery-1",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 20,
+      "length_m": 0.19499998840001878,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "LO-gallery-feed-5": {
+      "system": "lubrication",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ILLUSTRATIVE",
+      "source_refs": [
+        "D01 PDF 157, cetak 153, Lubricating Oil System",
+        "D01 PDF 157, galeri utama dan main bearing"
+      ],
+      "from": "LO-gallery-4",
+      "to": "LO-gallery-5",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 20,
+      "length_m": 0.19999998845159975,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "LO-gallery-feed-6": {
+      "system": "lubrication",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ILLUSTRATIVE",
+      "source_refs": [
+        "D01 PDF 157, cetak 153, Lubricating Oil System",
+        "D01 PDF 157, galeri utama dan main bearing"
+      ],
+      "from": "LO-gallery-5",
+      "to": "LO-gallery-6",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 20,
+      "length_m": 0.19999998845159975,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "LO-gallery-feed-7": {
+      "system": "lubrication",
+      "kind": "schematic",
+      "direction_status": "DOCUMENTED",
+      "geometry_status": "ILLUSTRATIVE",
+      "source_refs": [
+        "D01 PDF 157, cetak 153, Lubricating Oil System",
+        "D01 PDF 157, galeri utama dan main bearing"
+      ],
+      "from": "LO-gallery-6",
+      "to": "LO-gallery-7",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 20,
+      "length_m": 0.1940000017088713,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "LO-crankpin-1": {
+      "system": "lubrication",
+      "kind": "schematic",
+      "direction_status": "INFERRED",
+      "geometry_status": "ILLUSTRATIVE",
+      "source_refs": [
+        "D01 PDF 157, cetak 153, Lubricating Oil System",
+        "D01 PDF 101–102, crank pin oil clearance; PDF 104–106, poros dan metal"
+      ],
+      "from": "LO-journal-1",
+      "to": "LO-pin-1",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 48,
+      "length_m": 0.183198960423233,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "LO-rod-drain-1": {
+      "system": "lubrication",
+      "kind": "schematic",
+      "direction_status": "INFERRED",
+      "geometry_status": "ILLUSTRATIVE",
+      "source_refs": [
+        "D01 PDF 157, cetak 153, Lubricating Oil System",
+        "D01 PDF 101–102; D01 PDF 157, pengembalian ke oil pan"
+      ],
+      "from": "LO-pin-1",
+      "to": "LO-crankcase-1",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 60,
+      "length_m": 0.5889045542920002,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "LO-reservoir-1": {
+      "system": "lubrication",
+      "kind": "schematic",
+      "direction_status": "INFERRED",
+      "geometry_status": "ILLUSTRATIVE",
+      "source_refs": [
+        "D01 PDF 157, cetak 153, Lubricating Oil System",
+        "D01 PDF 157, bak oli"
+      ],
+      "from": "LO-crankcase-1",
+      "to": "LO-screen",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 32,
+      "length_m": 0.1715702434784897,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "LO-crankpin-2": {
+      "system": "lubrication",
+      "kind": "schematic",
+      "direction_status": "INFERRED",
+      "geometry_status": "ILLUSTRATIVE",
+      "source_refs": [
+        "D01 PDF 157, cetak 153, Lubricating Oil System",
+        "D01 PDF 101–102, crank pin oil clearance; PDF 104–106, poros dan metal"
+      ],
+      "from": "LO-journal-2",
+      "to": "LO-pin-2",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 48,
+      "length_m": 0.1861225331269776,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "LO-rod-drain-2": {
+      "system": "lubrication",
+      "kind": "schematic",
+      "direction_status": "INFERRED",
+      "geometry_status": "ILLUSTRATIVE",
+      "source_refs": [
+        "D01 PDF 157, cetak 153, Lubricating Oil System",
+        "D01 PDF 101–102; D01 PDF 157, pengembalian ke oil pan"
+      ],
+      "from": "LO-pin-2",
+      "to": "LO-crankcase-2",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 40,
+      "length_m": 0.38341226618098456,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "LO-reservoir-2": {
+      "system": "lubrication",
+      "kind": "schematic",
+      "direction_status": "INFERRED",
+      "geometry_status": "ILLUSTRATIVE",
+      "source_refs": [
+        "D01 PDF 157, cetak 153, Lubricating Oil System",
+        "D01 PDF 157, bak oli"
+      ],
+      "from": "LO-crankcase-2",
+      "to": "LO-screen",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 46,
+      "length_m": 0.32427742790487807,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "LO-crankpin-3": {
+      "system": "lubrication",
+      "kind": "schematic",
+      "direction_status": "INFERRED",
+      "geometry_status": "ILLUSTRATIVE",
+      "source_refs": [
+        "D01 PDF 157, cetak 153, Lubricating Oil System",
+        "D01 PDF 101–102, crank pin oil clearance; PDF 104–106, poros dan metal"
+      ],
+      "from": "LO-journal-3",
+      "to": "LO-pin-3",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 48,
+      "length_m": 0.18612252611621932,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "LO-rod-drain-3": {
+      "system": "lubrication",
+      "kind": "schematic",
+      "direction_status": "INFERRED",
+      "geometry_status": "ILLUSTRATIVE",
+      "source_refs": [
+        "D01 PDF 157, cetak 153, Lubricating Oil System",
+        "D01 PDF 101–102; D01 PDF 157, pengembalian ke oil pan"
+      ],
+      "from": "LO-pin-3",
+      "to": "LO-crankcase-3",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 40,
+      "length_m": 0.3834122304680381,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "LO-reservoir-3": {
+      "system": "lubrication",
+      "kind": "schematic",
+      "direction_status": "INFERRED",
+      "geometry_status": "ILLUSTRATIVE",
+      "source_refs": [
+        "D01 PDF 157, cetak 153, Lubricating Oil System",
+        "D01 PDF 157, bak oli"
+      ],
+      "from": "LO-crankcase-3",
+      "to": "LO-screen",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 66,
+      "length_m": 0.5244167932984144,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "LO-crankpin-4": {
+      "system": "lubrication",
+      "kind": "schematic",
+      "direction_status": "INFERRED",
+      "geometry_status": "ILLUSTRATIVE",
+      "source_refs": [
+        "D01 PDF 157, cetak 153, Lubricating Oil System",
+        "D01 PDF 101–102, crank pin oil clearance; PDF 104–106, poros dan metal"
+      ],
+      "from": "LO-journal-4",
+      "to": "LO-pin-4",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 48,
+      "length_m": 0.186122522787503,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "LO-rod-drain-4": {
+      "system": "lubrication",
+      "kind": "schematic",
+      "direction_status": "INFERRED",
+      "geometry_status": "ILLUSTRATIVE",
+      "source_refs": [
+        "D01 PDF 157, cetak 153, Lubricating Oil System",
+        "D01 PDF 101–102; D01 PDF 157, pengembalian ke oil pan"
+      ],
+      "from": "LO-pin-4",
+      "to": "LO-crankcase-4",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 56,
+      "length_m": 0.5361444920194369,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "LO-reservoir-4": {
+      "system": "lubrication",
+      "kind": "schematic",
+      "direction_status": "INFERRED",
+      "geometry_status": "ILLUSTRATIVE",
+      "source_refs": [
+        "D01 PDF 157, cetak 153, Lubricating Oil System",
+        "D01 PDF 157, bak oli"
+      ],
+      "from": "LO-crankcase-4",
+      "to": "LO-screen",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 87,
+      "length_m": 0.7299908855475059,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "LO-crankpin-5": {
+      "system": "lubrication",
+      "kind": "schematic",
+      "direction_status": "INFERRED",
+      "geometry_status": "ILLUSTRATIVE",
+      "source_refs": [
+        "D01 PDF 157, cetak 153, Lubricating Oil System",
+        "D01 PDF 101–102, crank pin oil clearance; PDF 104–106, poros dan metal"
+      ],
+      "from": "LO-journal-5",
+      "to": "LO-pin-5",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 48,
+      "length_m": 0.1861225042087867,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "LO-rod-drain-5": {
+      "system": "lubrication",
+      "kind": "schematic",
+      "direction_status": "INFERRED",
+      "geometry_status": "ILLUSTRATIVE",
+      "source_refs": [
+        "D01 PDF 157, cetak 153, Lubricating Oil System",
+        "D01 PDF 101–102; D01 PDF 157, pengembalian ke oil pan"
+      ],
+      "from": "LO-pin-5",
+      "to": "LO-crankcase-5",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 56,
+      "length_m": 0.5361445661657688,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "LO-reservoir-5": {
+      "system": "lubrication",
+      "kind": "schematic",
+      "direction_status": "INFERRED",
+      "geometry_status": "ILLUSTRATIVE",
+      "source_refs": [
+        "D01 PDF 157, cetak 153, Lubricating Oil System",
+        "D01 PDF 157, bak oli"
+      ],
+      "from": "LO-crankcase-5",
+      "to": "LO-screen",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 107,
+      "length_m": 0.9377322249603743,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "LO-crankpin-6": {
+      "system": "lubrication",
+      "kind": "schematic",
+      "direction_status": "INFERRED",
+      "geometry_status": "ILLUSTRATIVE",
+      "source_refs": [
+        "D01 PDF 157, cetak 153, Lubricating Oil System",
+        "D01 PDF 101–102, crank pin oil clearance; PDF 104–106, poros dan metal"
+      ],
+      "from": "LO-journal-6",
+      "to": "LO-pin-6",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 48,
+      "length_m": 0.18612258020919029,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "LO-rod-drain-6": {
+      "system": "lubrication",
+      "kind": "schematic",
+      "direction_status": "INFERRED",
+      "geometry_status": "ILLUSTRATIVE",
+      "source_refs": [
+        "D01 PDF 157, cetak 153, Lubricating Oil System",
+        "D01 PDF 101–102; D01 PDF 157, pengembalian ke oil pan"
+      ],
+      "from": "LO-pin-6",
+      "to": "LO-crankcase-6",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 60,
+      "length_m": 0.5889045339554089,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "LO-reservoir-6": {
+      "system": "lubrication",
+      "kind": "schematic",
+      "direction_status": "INFERRED",
+      "geometry_status": "ILLUSTRATIVE",
+      "source_refs": [
+        "D01 PDF 157, cetak 153, Lubricating Oil System",
+        "D01 PDF 157, bak oli"
+      ],
+      "from": "LO-crankcase-6",
+      "to": "LO-screen",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 131,
+      "length_m": 1.1466948455439403,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "LO-main-end-spill": {
+      "system": "lubrication",
+      "kind": "schematic",
+      "direction_status": "INFERRED",
+      "geometry_status": "ILLUSTRATIVE",
+      "source_refs": [
+        "D01 PDF 157, cetak 153, Lubricating Oil System",
+        "D01 PDF 104 dan 157"
+      ],
+      "from": "LO-journal-7",
+      "to": "LO-rear-spill",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 24,
+      "length_m": 0.07795737288321408,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    },
+    "LO-main-end-return": {
+      "system": "lubrication",
+      "kind": "schematic",
+      "direction_status": "INFERRED",
+      "geometry_status": "ILLUSTRATIVE",
+      "source_refs": [
+        "D01 PDF 157, cetak 153, Lubricating Oil System",
+        "D01 PDF 157"
+      ],
+      "from": "LO-rear-spill",
+      "to": "LO-crankcase-6",
+      "condition": null,
+      "missing_render_meshes": [],
+      "sample_count": 66,
+      "length_m": 0.4955498000892693,
+      "terminal_interfaces": [],
+      "zero_segments": [],
+      "from_delta_mm": 0.0,
+      "to_delta_mm": 0.0,
+      "physical_body_probe": null
+    }
+  },
+  "possible_cross_media_nearby_samples": [],
+  "rigid_delivery_actual_holder_contacts": [
+    {
+      "tube": "EXT-FUEL-03",
+      "holder": "INT-FUELINJ-11",
+      "nearby_valve_rocker_and_other_injector_candidates": 61,
+      "nearby_valve_rocker_and_other_injector_contacts_at_rest": [],
+      "moving_stack_contacts_at_half_and_full_lift": [
+        {
+          "part": "INT-VALVE-105",
+          "motion": "valve",
+          "fraction_peak_lift": 1,
+          "surface_crossing_pairs": 20
+        }
+      ],
+      "nearest_vertex_to_opposite_surface_mm": 7.450580596923828e-06,
+      "surface_crossing_pairs": 363,
+      "tube_vs_head_shell_surface_crossing_pairs": 0
+    },
+    {
+      "tube": "EXT-FUEL-04",
+      "holder": "INT-FUELINJ-21",
+      "nearby_valve_rocker_and_other_injector_candidates": 61,
+      "nearby_valve_rocker_and_other_injector_contacts_at_rest": [],
+      "moving_stack_contacts_at_half_and_full_lift": [
+        {
+          "part": "INT-VALVE-205",
+          "motion": "valve",
+          "fraction_peak_lift": 1,
+          "surface_crossing_pairs": 20
+        }
+      ],
+      "nearest_vertex_to_opposite_surface_mm": 7.450580596923828e-06,
+      "surface_crossing_pairs": 194,
+      "tube_vs_head_shell_surface_crossing_pairs": 0
+    },
+    {
+      "tube": "EXT-FUEL-05",
+      "holder": "INT-FUELINJ-31",
+      "nearby_valve_rocker_and_other_injector_candidates": 61,
+      "nearby_valve_rocker_and_other_injector_contacts_at_rest": [],
+      "moving_stack_contacts_at_half_and_full_lift": [
+        {
+          "part": "INT-VALVE-305",
+          "motion": "valve",
+          "fraction_peak_lift": 1,
+          "surface_crossing_pairs": 20
+        }
+      ],
+      "nearest_vertex_to_opposite_surface_mm": 7.450580596923828e-06,
+      "surface_crossing_pairs": 364,
+      "tube_vs_head_shell_surface_crossing_pairs": 0
+    },
+    {
+      "tube": "EXT-FUEL-06",
+      "holder": "INT-FUELINJ-41",
+      "nearby_valve_rocker_and_other_injector_candidates": 61,
+      "nearby_valve_rocker_and_other_injector_contacts_at_rest": [],
+      "moving_stack_contacts_at_half_and_full_lift": [
+        {
+          "part": "INT-VALVE-405",
+          "motion": "valve",
+          "fraction_peak_lift": 1,
+          "surface_crossing_pairs": 20
+        }
+      ],
+      "nearest_vertex_to_opposite_surface_mm": 7.450580596923828e-06,
+      "surface_crossing_pairs": 193,
+      "tube_vs_head_shell_surface_crossing_pairs": 0
+    },
+    {
+      "tube": "EXT-FUEL-07",
+      "holder": "INT-FUELINJ-51",
+      "nearby_valve_rocker_and_other_injector_candidates": 61,
+      "nearby_valve_rocker_and_other_injector_contacts_at_rest": [],
+      "moving_stack_contacts_at_half_and_full_lift": [
+        {
+          "part": "INT-VALVE-505",
+          "motion": "valve",
+          "fraction_peak_lift": 1,
+          "surface_crossing_pairs": 20
+        }
+      ],
+      "nearest_vertex_to_opposite_surface_mm": 7.450580596923828e-06,
+      "surface_crossing_pairs": 361,
+      "tube_vs_head_shell_surface_crossing_pairs": 0
+    },
+    {
+      "tube": "EXT-FUEL-08",
+      "holder": "INT-FUELINJ-61",
+      "nearby_valve_rocker_and_other_injector_candidates": 61,
+      "nearby_valve_rocker_and_other_injector_contacts_at_rest": [],
+      "moving_stack_contacts_at_half_and_full_lift": [
+        {
+          "part": "INT-VALVE-605",
+          "motion": "valve",
+          "fraction_peak_lift": 1,
+          "surface_crossing_pairs": 20
+        }
+      ],
+      "nearest_vertex_to_opposite_surface_mm": 7.450580596923828e-06,
+      "surface_crossing_pairs": 191,
+      "tube_vs_head_shell_surface_crossing_pairs": 0
+    }
+  ],
+  "rigid_delivery_pipe_pair_crossings": [],
+  "manifest_gaps": [
+    "Katup auto-drain kondensat cooler EXT-INTAKE-14 adalah keluaran bersyarat ke lingkungan di bawah housing. Posisi buka dan debit belum diketahui; kondisi beban hangat tidak menampilkan pengosongan.",
+    "Terminal overflow dan drain pompa serta rangkaian leak-off Fig. 90 terpisah. Titik sambungan pada unit belum dipastikan; jalur ini belum dianimasikan.",
+    "Bentuk saluran kembar kepala silinder, diffuser turbo, jalur udara di antara tabung pendingin dan galeri pompa adalah skema fungsi. Lintasan dan diameter instalasi bukan ukuran OEM.",
+    "Rute udara luar baru menghubungkan volute dengan sisi udara cooler belakang. Foto sisi yang tertutup dan gambar berdimensi diperlukan untuk memastikan belokan dan orientasi aktual.",
+    "Cabang katup keselamatan dan pengatur tekanan, filter bypass, pompa injeksi, rocker, nok dan pendinginan piston tercantum pada D01 PDF 157. Routing 3D cabang tersebut belum diverifikasi.",
+    "Bypass termostat dingin dan tangki pemulihan belum dianimasikan. Tampilan menggambarkan mesin hangat.",
+    "Geometri dan identitas sambungan sesuai nomor seri belum terverifikasi. Pipa milik kapal dan opsi pendingin gearbox berhenti di batas mesin."
+  ]
+}

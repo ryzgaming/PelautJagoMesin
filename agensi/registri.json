@@ -1,0 +1,124 @@
+{
+  "schema_version": 1,
+  "purpose": "Indeks perangkat agensi aktif; profil dan skill tetap satu sumber kanonis.",
+  "path_base": "repository_root",
+  "discovery": {
+    "codex_config": ".codex/config.toml",
+    "agents_directory": ".codex/agents",
+    "skills_directory": ".agents/skills",
+    "claude_skills_directory": ".claude/skills"
+  },
+  "agents": [
+    {
+      "id": "pemodel_eksterior",
+      "path": ".codex/agents/pemodel_eksterior.toml",
+      "responsibility": "Pemodel eksterior mekanis yang mengerjakan bentuk coran, antarmuka dan subkomponen berdasarkan gambar dan foto varian yang dipilih."
+    },
+    {
+      "id": "qa_visual_viewer",
+      "path": ".codex/agents/qa_visual_viewer.toml",
+      "responsibility": "Pemeriksa independen kemiripan model dan hasil interaksi viewer pada revisi GLB yang benar-benar dikirim."
+    },
+    {
+      "id": "referensi_visual",
+      "path": ".codex/agents/referensi_visual.toml",
+      "responsibility": "Agen foto yang menentukan sudut kamera pembanding dan penanda bentuk yang bisa dinilai dari sumber nyata."
+    },
+    {
+      "id": "spesialis_blok_poros_piston",
+      "path": ".codex/agents/spesialis_blok_poros_piston.toml",
+      "responsibility": "Spesialis Blok, poros engkol, liner dan piston untuk bukti bentuk, identitas subkomponen dan kelengkapan internal."
+    },
+    {
+      "id": "spesialis_efek_visual",
+      "path": ".codex/agents/spesialis_efek_visual.toml",
+      "responsibility": "Spesialis look-dev dan shader WebGL/three.js r128 untuk memoles efek visual aliran fluida kapal dan pembakaran ruang bakar pada pustaka bersama Orang Mesin."
+    },
+    {
+      "id": "spesialis_injeksi_bahan_bakar",
+      "path": ".codex/agents/spesialis_injeksi_bahan_bakar.toml",
+      "responsibility": "Spesialis Pompa injeksi, governor dan injektor untuk bukti bentuk, identitas subkomponen dan kelengkapan internal."
+    },
+    {
+      "id": "spesialis_jalur_fluida",
+      "path": ".codex/agents/spesialis_jalur_fluida.toml",
+      "responsibility": "Merekonstruksi sambungan port, jalur pipa dan lorong cor serta gerak fluida dalam posisi mesin terpasang."
+    },
+    {
+      "id": "spesialis_kepala_katup",
+      "path": ".codex/agents/spesialis_kepala_katup.toml",
+      "responsibility": "Spesialis Cylinder head dan mekanisme katup untuk bukti bentuk, identitas subkomponen dan kelengkapan internal."
+    },
+    {
+      "id": "spesialis_kinematika_benturan",
+      "path": ".codex/agents/spesialis_kinematika_benturan.toml",
+      "responsibility": "Menelusuri rantai penggerak dan memeriksa interferensi pada posisi terpasang selama seluruh siklus operasi."
+    },
+    {
+      "id": "spesialis_pelumasan_pompa",
+      "path": ".codex/agents/spesialis_pelumasan_pompa.toml",
+      "responsibility": "Spesialis Pelumasan, pompa oli dan filter untuk bukti bentuk, identitas subkomponen dan kelengkapan internal."
+    },
+    {
+      "id": "spesialis_pendingin_penukar_panas",
+      "path": ".codex/agents/spesialis_pendingin_penukar_panas.toml",
+      "responsibility": "Spesialis Air cooler dan penukar panas untuk bukti bentuk, identitas subkomponen dan kelengkapan internal."
+    },
+    {
+      "id": "spesialis_pendingin_pompa_katup",
+      "path": ".codex/agents/spesialis_pendingin_pompa_katup.toml",
+      "responsibility": "Spesialis Pompa dan katup air tawar serta air laut untuk bukti bentuk, identitas subkomponen dan kelengkapan internal."
+    },
+    {
+      "id": "spesialis_starter_pengisian",
+      "path": ".codex/agents/spesialis_starter_pengisian.toml",
+      "responsibility": "Spesialis Starter, pengisian dan aksesori elektrik untuk bukti bentuk, identitas subkomponen dan kelengkapan internal."
+    },
+    {
+      "id": "spesialis_transmisi_timing",
+      "path": ".codex/agents/spesialis_transmisi_timing.toml",
+      "responsibility": "Spesialis Penggerak timing dan transmisi yang termasuk pesanan untuk bukti bentuk, identitas subkomponen dan kelengkapan internal."
+    },
+    {
+      "id": "spesialis_turbo_udara_gas",
+      "path": ".codex/agents/spesialis_turbo_udara_gas.toml",
+      "responsibility": "Spesialis Turbo, udara masuk dan gas buang untuk bukti bentuk, identitas subkomponen dan kelengkapan internal."
+    }
+  ],
+  "skills": [
+    {
+      "id": "animasi-aliran-mesin",
+      "path": ".agents/skills/animasi-aliran-mesin",
+      "entrypoint": ".agents/skills/animasi-aliran-mesin/SKILL.md",
+      "claude_alias": ".claude/skills/animasi-aliran-mesin",
+      "responsibility": "Pustaka dan QA animasi fluida serta pembakaran; rute dan timing mengikuti data mesin."
+    },
+    {
+      "id": "blender-animasi-mesin",
+      "path": ".agents/skills/blender-animasi-mesin",
+      "entrypoint": ".agents/skills/blender-animasi-mesin/SKILL.md",
+      "claude_alias": ".claude/skills/blender-animasi-mesin",
+      "responsibility": "Rig mekanisme Blender serta render strip untuk memeriksa gerak."
+    },
+    {
+      "id": "lookdev-efek-mesin",
+      "path": ".agents/skills/lookdev-efek-mesin",
+      "entrypoint": ".agents/skills/lookdev-efek-mesin/SKILL.md",
+      "claude_alias": ".claude/skills/lookdev-efek-mesin",
+      "responsibility": "Poles shader dan gaya efek bersama dengan bukti sebelum/sesudah."
+    }
+  ],
+  "toolkit": {
+    "prompt": "tools/gpt-production/PROMPT-GPT.md",
+    "guide": "tools/gpt-production/README.md",
+    "cli": "tools/gpt-production/toolkit.py",
+    "worker": "apps/alur-workflow/worker/hosted_worker.py",
+    "docs": [
+      "tools/gpt-production/docs/ROLE-PROMPTS.md",
+      "tools/gpt-production/docs/SPECIALISTS.md",
+      "tools/gpt-production/docs/FLOW-ROUTING.md",
+      "tools/gpt-production/docs/MOTION-QA.md"
+    ]
+  },
+  "immutable_history": "produksi/*/agensi"
+}

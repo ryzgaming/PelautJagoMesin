@@ -1,0 +1,4 @@
+# Audit viewer dan batas runtime
+Koordinator /root melaporkan percobaan `sites-preview start` gagal menunggu relay browser port 4173. CUA `getState` gagal dengan pesan “the gaas-browser node_repl sandbox cannot be disabled”. Tidak tersedia hasil screenshot dari viewer WebGL untuk r01. QA menandai desktop, portrait/landscape, gestur, aksesibilitas visual, serta kinerja HP UNVERIFIED. Kegagalan akses lingkungan berbeda dari bukti cacat viewer.
+
+Integrator menyediakan pemeriksaan kontrak aset `review/tools/check.mjs` dan `review/tools/state-check.mjs` yang memuat model dengan GLTFLoader pada DOM tiruan. Uji ini tidak memberikan hasil layout browser, orbit/gestur aktual, WebGL, viewport HP sungguhan, FPS atau perbandingan screenshot dengan Shinko. Untuk menutup temuan, jalankan alur pada browser dengan WebGL dan ambil bukti desktop, potret, lanskap, kegagalan aset/WebGL, serta perangkat HP nyata untuk klaim performa.

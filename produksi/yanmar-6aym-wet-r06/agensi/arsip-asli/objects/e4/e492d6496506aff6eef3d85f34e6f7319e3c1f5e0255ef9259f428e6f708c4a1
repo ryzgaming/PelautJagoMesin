@@ -1,0 +1,23 @@
+Yanmar 6AYM-WET H · 555 kW pada 1.840 rpm · Draf privat r04
+
+Tur interaktif
+https://yanmar-6aym-workspace.violetblackbird16.chatgpt.site/gpt-r04/?view=tour
+Tekan Mulai. Tur memperlihatkan gerak katup, piston, poros engkol, aliran dan pembakaran. Tur menjeda gerak mesin ketika rakitan diurai dan dirapatkan kembali.
+
+Pemeriksaan satu sistem
+https://yanmar-6aym-workspace.violetblackbird16.chatgpt.site/gpt-r04/?view=operation
+Pilih bahan bakar, udara masuk, gas buang, pelumasan, air tawar atau air laut. Buka Rute untuk membaca nama port dan bukti. Garis utuh menelusuri pipa yang dimodelkan. Garis putus-putus menandai lintasan skematis, termasuk bagian tersembunyi yang tidak memiliki gambar potongan berdimensi. Tampilan pendingin air tawar menggambarkan kondisi mesin hangat dengan termostat terbuka. Pembatasan pada jalur balik dan cabang bersyarat dijelaskan di panel.
+
+Rakitan duct udara dari Fig. 36
+https://yanmar-6aym-workspace.violetblackbird16.chatgpt.site/gpt-r04/?part=EXT-INTAKE-05&view=exploded
+Tiga duct, dua sambungan ekspansi, empat gasket, 16 baut dan 16 mur dapat dipilih sendiri pada tampilan urai.
+
+Film dari geometri yang sama
+https://yanmar-6aym-workspace.violetblackbird16.chatgpt.site/gpt-r04/assets/film/yanmar-6aym-r04.mp4
+
+Perbandingan sambungan pipa ke injektor silinder 3
+https://yanmar-6aym-workspace.violetblackbird16.chatgpt.site/gpt-r04/assets/perbandingan-injektor.jpg
+
+Bukti kerja tersimpan di qa/r04/, qa/coverage/, qa/catalog/, model/flow/ dan doc/flow-reference/. Model menggunakan varian H engine-only. Kasus pembelajaran ini memperlambat gerak mesin dan memberi waktu aliran ilustratif. Pemeriksaan menyeluruh manufaktur, konfirmasi nomor seri, pengujian visual WebGL pada perangkat fisik dan persetujuan katalog masih terbuka.
+
+Model berukuran tinggi 1.541 mm hingga flange gas buang, sejalan dengan proyeksi gambar pemasangan sekitar 1.540 mm. Hubungannya dengan angka tinggi katalog 1.431 mm masih terbuka. Lihat model/exterior/compare.json.

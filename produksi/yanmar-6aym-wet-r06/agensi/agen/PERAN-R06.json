@@ -1,0 +1,75 @@
+{
+  "scope": "Roles recorded in available R06 task context; not an exhaustive raw session transcript.",
+  "original_profile_count": 15,
+  "entries": [
+    {
+      "recorded_role": "koordinator",
+      "reusable_brief": "brief-dapat-dipakai-ulang/koordinator.md",
+      "nearest_original_profiles": [],
+      "mapping_status": "reconstructed_from_available_task_context",
+      "note": "Peran koordinasi terlihat dalam rangkaian tugas; tidak tersedia profil TOML koordinator khusus."
+    },
+    {
+      "recorded_role": "piping",
+      "reusable_brief": "brief-dapat-dipakai-ulang/geometri-gerak-aliran.md",
+      "nearest_original_profiles": [
+        "profil-asli/spesialis_jalur_fluida.toml",
+        "profil-asli/spesialis_kinematika_benturan.toml"
+      ],
+      "mapping_status": "reconstructed_from_available_task_context",
+      "note": "Catatan R06 menyebut peran piping mengerjakan geometri, gerak dan aliran lintas rakitan. Pemetaan ke dua template ini bersifat rekonstruksi."
+    },
+    {
+      "recorded_role": "integrator",
+      "reusable_brief": "brief-dapat-dipakai-ulang/integrator-runtime-ui.md",
+      "nearest_original_profiles": [],
+      "mapping_status": "reconstructed_from_available_task_context",
+      "note": "Peran integrator tercatat; tidak ada profil TOML integrator khusus dalam snapshot."
+    },
+    {
+      "recorded_role": "qa",
+      "reusable_brief": "brief-dapat-dipakai-ulang/qa-independen.md",
+      "nearest_original_profiles": [
+        "profil-asli/qa_visual_viewer.toml"
+      ],
+      "mapping_status": "reconstructed_from_available_task_context",
+      "note": "Peran QA independen tercatat; profil terdekat qa_visual_viewer."
+    },
+    {
+      "recorded_role": "spesialis_efek_visual",
+      "reusable_brief": "brief-dapat-dipakai-ulang/efek-aliran-pembakaran.md",
+      "nearest_original_profiles": [
+        "profil-asli/spesialis_efek_visual.toml"
+      ],
+      "mapping_status": "reconstructed_from_available_task_context",
+      "note": "Peran spesialis efek visual tercatat; profil aslinya tersedia."
+    },
+    {
+      "recorded_role": "audio_starting",
+      "reusable_brief": "brief-dapat-dipakai-ulang/audio-dan-starting.md",
+      "nearest_original_profiles": [
+        "profil-asli/spesialis_starter_pengisian.toml"
+      ],
+      "mapping_status": "reconstructed_from_available_task_context",
+      "note": "Peran ad hoc audio_starting tercatat. Template starter mencakup mekanisme, bukan salinan prompt audio lengkap."
+    },
+    {
+      "recorded_role": "referensi_fungsi",
+      "reusable_brief": "brief-dapat-dipakai-ulang/peneliti-fungsi.md",
+      "nearest_original_profiles": [
+        "profil-asli/referensi_visual.toml"
+      ],
+      "mapping_status": "reconstructed_from_available_task_context",
+      "note": "Peran penelitian fungsi tercatat; template referensi_visual paling dekat."
+    },
+    {
+      "recorded_role": "fuel_function_specialist",
+      "reusable_brief": "brief-dapat-dipakai-ulang/injeksi-bahan-bakar.md",
+      "nearest_original_profiles": [
+        "profil-asli/spesialis_injeksi_bahan_bakar.toml"
+      ],
+      "mapping_status": "reconstructed_from_available_task_context",
+      "note": "Peran fuel_function_specialist ad hoc tercatat; dipetakan ke template injeksi."
+    }
+  ]
+}

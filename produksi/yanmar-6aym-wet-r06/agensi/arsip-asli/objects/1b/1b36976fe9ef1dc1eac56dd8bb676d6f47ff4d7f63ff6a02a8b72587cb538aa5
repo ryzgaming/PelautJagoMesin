@@ -1,0 +1,53 @@
+{
+  "input_file": "air-cooler-checkpoint/exterior.glb",
+  "exterior_sha256": "f83a04e9673dba075d8ece74fc07133602e850d3f2e765ab8c037e60fe568f66",
+  "method": "Blender reimport and BVH overlap at 5 evenly sampled simultaneous illustrative offsets; triangle crossings are a discrete test.",
+  "results": [
+    {
+      "ratio": 0,
+      "triangle_surface_pairs_with_core": {
+        "EXT-INTAKE-02": 0,
+        "EXT-INTAKE-06": 0,
+        "EXT-INTAKE-07": 0
+      }
+    },
+    {
+      "ratio": 0.25,
+      "triangle_surface_pairs_with_core": {
+        "EXT-INTAKE-02": 0,
+        "EXT-INTAKE-06": 0,
+        "EXT-INTAKE-07": 0
+      }
+    },
+    {
+      "ratio": 0.5,
+      "triangle_surface_pairs_with_core": {
+        "EXT-INTAKE-02": 0,
+        "EXT-INTAKE-06": 0,
+        "EXT-INTAKE-07": 0
+      }
+    },
+    {
+      "ratio": 0.75,
+      "triangle_surface_pairs_with_core": {
+        "EXT-INTAKE-02": 0,
+        "EXT-INTAKE-06": 0,
+        "EXT-INTAKE-07": 0
+      }
+    },
+    {
+      "ratio": 1.0,
+      "triangle_surface_pairs_with_core": {
+        "EXT-INTAKE-02": 0,
+        "EXT-INTAKE-06": 0,
+        "EXT-INTAKE-07": 0
+      }
+    }
+  ],
+  "renderer": "Blender Cycles CPU 32 samples without denoising, 1450\u00d7850",
+  "views": [
+    "assembled",
+    "exploded",
+    "core-and-open-bore"
+  ]
+}

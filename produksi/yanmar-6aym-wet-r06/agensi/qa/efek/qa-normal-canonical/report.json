@@ -1,0 +1,168 @@
+{
+  "url": "http://localhost:8766/.agents/skills/animasi-aliran-mesin/scripts/lab.html?auto=1.5",
+  "viewport": "desktop",
+  "runtime": {
+    "link": "jacket",
+    "samples": [
+      {
+        "link": "jacket",
+        "medium": "fresh_water",
+        "state": "running",
+        "fraction": 0.02978461353219484,
+        "phase_m": 0.17213555555567142,
+        "world": [
+          0.6871952823149435,
+          0.24666122457866416,
+          0.30381574333866956
+        ],
+        "visible": true,
+        "time_s": 0.003
+      },
+      {
+        "link": "jacket",
+        "medium": "fresh_water",
+        "state": "running",
+        "fraction": 0.03420032319340294,
+        "phase_m": 0.18148222222237118,
+        "world": [
+          0.6779083283757403,
+          0.24596656079502488,
+          0.3046096448056858
+        ],
+        "visible": true,
+        "time_s": 0.413
+      },
+      {
+        "link": "jacket",
+        "medium": "fresh_water",
+        "state": "paused",
+        "fraction": 0.03420032319340294,
+        "phase_m": 0.18148222222237118,
+        "world": [
+          0.6779083283757403,
+          0.24596656079502488,
+          0.3046096448056858
+        ],
+        "visible": true,
+        "time_s": 0.593
+      },
+      {
+        "link": "jacket",
+        "medium": "fresh_water",
+        "state": "paused",
+        "fraction": 0.03420032319340294,
+        "phase_m": 0.18148222222237118,
+        "world": [
+          0.6779083283757403,
+          0.24596656079502488,
+          0.3046096448056858
+        ],
+        "visible": true,
+        "time_s": 1.002
+      },
+      {
+        "link": "jacket",
+        "medium": "fresh_water",
+        "state": "resumed",
+        "fraction": 0.03420032319340294,
+        "phase_m": 0.18148222222237118,
+        "world": [
+          0.6779083283757403,
+          0.24596656079502488,
+          0.3046096448056858
+        ],
+        "visible": true,
+        "time_s": 1.042
+      },
+      {
+        "link": "jacket",
+        "medium": "fresh_water",
+        "state": "resumed",
+        "fraction": 0.03841236008375857,
+        "phase_m": 0.19039777777799297,
+        "world": [
+          0.6690434755008572,
+          0.24534042888331523,
+          0.30532522413335406
+        ],
+        "visible": true,
+        "time_s": 1.446
+      }
+    ],
+    "pause_stable": true,
+    "moves_when_running": true,
+    "resume_continues": true
+  },
+  "links": [
+    {
+      "id": "jacket",
+      "medium": "fresh_water",
+      "label": "Air tawar pendingin",
+      "length_m": 2.116685059439029,
+      "estimated": false
+    },
+    {
+      "id": "lube",
+      "medium": "lube_oil",
+      "label": "Oli pelumas",
+      "length_m": 1.9066700764766682,
+      "estimated": false
+    },
+    {
+      "id": "fuel_rail",
+      "medium": "fuel",
+      "label": "Bahan bakar",
+      "length_m": 1.0305876024010234,
+      "estimated": false
+    },
+    {
+      "id": "fuel_1",
+      "medium": "fuel",
+      "label": "Bahan bakar",
+      "length_m": 0.12159867110473294,
+      "estimated": false
+    },
+    {
+      "id": "fuel_2",
+      "medium": "fuel",
+      "label": "Bahan bakar",
+      "length_m": 0.12159867110473294,
+      "estimated": false
+    },
+    {
+      "id": "fuel_3",
+      "medium": "fuel",
+      "label": "Bahan bakar",
+      "length_m": 0.12159867110473294,
+      "estimated": false
+    },
+    {
+      "id": "fuel_4",
+      "medium": "fuel",
+      "label": "Bahan bakar",
+      "length_m": 0.12159867110473294,
+      "estimated": false
+    },
+    {
+      "id": "exhaust",
+      "medium": "exhaust",
+      "label": "Gas buang",
+      "length_m": 1.2227399301732023,
+      "estimated": false
+    }
+  ],
+  "warnings": [],
+  "frames": [
+    "/workspace/efek-review/qa-normal-canonical/frame-00.png",
+    "/workspace/efek-review/qa-normal-canonical/frame-01.png",
+    "/workspace/efek-review/qa-normal-canonical/frame-02.png",
+    "/workspace/efek-review/qa-normal-canonical/frame-03.png"
+  ],
+  "motion": [
+    0.157,
+    0.165,
+    0.185
+  ],
+  "motion_ok": true,
+  "errors": []
+}

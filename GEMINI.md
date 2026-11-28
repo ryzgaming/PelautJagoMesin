@@ -60,7 +60,7 @@ branch `cloudflare-store`.
      --out /tmp/lab-hp --viewport mobile --frames 4 --wait 2500
    ```
    Buka `sheet.png`. Bandingkan dengan versi sebelum perubahanmu (simpan juga lembar "sebelum").
-4. Jalankan uji: `node --test tests/flow-ribbons.test.mjs tests/combustion-glow.test.mjs`. Semua harus lolos.
+4. Jalankan uji: `node --test tests/viewer/flow-ribbons.test.mjs tests/viewer/combustion-glow.test.mjs`. Semua harus lolos.
 5. Commit di branch itu. Di pesan commit/PR tulis apa yang berubah, alasannya, dan lampirkan path
    lembar frame sebelum/sesudah desktop dan HP. Pemilik atau Claude meninjau sebelum merge.
 

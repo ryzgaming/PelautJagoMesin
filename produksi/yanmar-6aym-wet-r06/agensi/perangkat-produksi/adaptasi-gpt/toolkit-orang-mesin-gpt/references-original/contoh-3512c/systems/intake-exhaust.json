@@ -1,0 +1,315 @@
+{
+ "machine_model": "Caterpillar 3512C HD marine propulsion",
+ "system": "intake-exhaust",
+ "status": "PARTIAL",
+ "applicability": "3512C HD (170x215 mm, 58.6 L, V12 4-tak) propulsi laut. Sumber utama D03 LEHM4885-03 (2005, A3 ECM, rating D 1800 rpm) dan D02 LEHM22783-00 (IMO II, ADEM6); D01 LEHM0180-00 varian DGB auxiliary/DEP (pendukung saja); D05 halaman dealer HD Tier3/IMO II. D06 (3512 generasi awal) TIDAK dipakai. Foto P10-P26 sebagian besar genset/frac, bukan marine; dipakai hanya untuk tata letak kasar.",
+ "nodes": [
+  {
+   "id": "air_cleaner",
+   "name": "Power-core air cleaners with service indicator (2)",
+   "kind": "filter",
+   "location_hint": "di atas ujung belakang, satu per turbo (genset P10/P11/P14); marine P22 air cleaner bundar bermuka jaring langsung di inlet turbo",
+   "status": "DOCUMENTED",
+   "source_refs": [
+    "D03 hlm. 1 (Air Inlet System)",
+    "P10",
+    "P11",
+    "P14",
+    "P22 (marine)"
+   ]
+  },
+  {
+   "id": "inlet_restr",
+   "name": "Indikator air inlet restriction",
+   "kind": "instrument",
+   "location_hint": "panel mesin/MPD",
+   "status": "DOCUMENTED",
+   "source_refs": [
+    "D03 hlm. 1 (Instrumentation)",
+    "D03 hlm. 4 (ratings valid for air cleaner inlet conditions)"
+   ]
+  },
+  {
+   "id": "compressors",
+   "name": "Kompresor turbo (2, dual turbochargers)",
+   "kind": "compressor",
+   "location_hint": "atas belakang dekat lembah V, satu per bank (genset P14)",
+   "status": "DOCUMENTED",
+   "source_refs": [
+    "D03 hlm. 1",
+    "D01 hlm. 2",
+    "D02 hlm. 1 (Twin Turbocharged-Aftercooled)",
+    "P14",
+    "P18"
+   ]
+  },
+  {
+   "id": "aftercooler",
+   "name": "Corrosion-resistant separate circuit aftercooler core",
+   "kind": "heat_exchanger",
+   "location_hint": "rumah bersirip di lembah V memanjang (genset P12/P15/P17)",
+   "status": "DOCUMENTED",
+   "source_refs": [
+    "D03 hlm. 1 (Air Inlet System); D03 hlm. 2 (aftercooler water 40 C, heat rejection 458 kW)",
+    "D01 hlm. 2",
+    "D02 hlm. 1",
+    "P12",
+    "P15",
+    "P17"
+   ]
+  },
+  {
+   "id": "inlet_manifold",
+   "name": "Inlet air manifold/plenum",
+   "kind": "manifold",
+   "location_hint": "lembah V, menyatu dengan rumah aftercooler (P12, tafsiran foto)",
+   "status": "INFERRED",
+   "source_refs": [
+    "INFERRED: udara dari aftercooler harus dibagi ke 12 silinder; P12 menunjukkan rumah aftercooler/inlet di lembah V"
+   ]
+  },
+  {
+   "id": "cylinders",
+   "name": "12 silinder (katup isap dan buang di kepala silinder)",
+   "kind": "combustion",
+   "location_hint": "dua bank V12",
+   "status": "DOCUMENTED",
+   "source_refs": [
+    "D03 hlm. 1 (V-12, 4-stroke)",
+    "D02 hlm. 1"
+   ]
+  },
+  {
+   "id": "exh_manifold",
+   "name": "Dry gas-tight, modular pulse exhaust manifolds, stainless steel, SOLAS heat shields",
+   "kind": "manifold",
+   "location_hint": "sisi luar tiap bank (P12 'manifold buang berselubung di luar bank'); P19 pipa buang berselubung di atas bank (frac)",
+   "status": "DOCUMENTED",
+   "source_refs": [
+    "D03 hlm. 1 (Exhaust System)",
+    "D05 bagian fitur (stainless steel exhaust manifold)",
+    "P12",
+    "P19"
+   ]
+  },
+  {
+   "id": "turbines",
+   "name": "Turbin turbo (2), bantalan berpendingin air, heat shield",
+   "kind": "turbine",
+   "location_hint": "atas belakang",
+   "status": "DOCUMENTED",
+   "source_refs": [
+    "D03 hlm. 1",
+    "D01 hlm. 2",
+    "D02 hlm. 1"
+   ]
+  },
+  {
+   "id": "wastegate",
+   "name": "Wastegate",
+   "kind": "valve",
+   "location_hint": "posisi tidak tertulis",
+   "status": "DOCUMENTED",
+   "source_refs": [
+    "D03 hlm. 1 (Exhaust System)"
+   ]
+  },
+  {
+   "id": "exh_outlet",
+   "name": "Single exhaust outlet (opsi sambungan vertikal/horizontal)",
+   "kind": "outlet",
+   "location_hint": "tengah atas belakang (elbow gabungan, P14 genset)",
+   "status": "DOCUMENTED",
+   "source_refs": [
+    "D03 hlm. 1 (Exhaust System; Common Optional Equipment)",
+    "P14"
+   ]
+  },
+  {
+   "id": "exh_temp",
+   "name": "Indikator suhu buang; scanner suhu buang per silinder (opsi)",
+   "kind": "instrument",
+   "location_hint": "panel/MPD",
+   "status": "DOCUMENTED",
+   "source_refs": [
+    "D03 hlm. 1 (Instrumentation; Common Optional Equipment)"
+   ]
+  },
+  {
+   "id": "ac_water",
+   "name": "Sirkuit air aftercooler terpisah (SCAC)",
+   "kind": "coolant_circuit",
+   "location_hint": "lihat sistem pendingin",
+   "status": "DOCUMENTED",
+   "source_refs": [
+    "D03 hlm. 1 (separate circuit; Cooling: combined and separate circuit options)",
+    "D03 hlm. 2 (Aftercooler Water Temperature 40 C)"
+   ]
+  },
+  {
+   "id": "ship_exhaust",
+   "name": "Saluran buang kapal",
+   "kind": "external",
+   "location_hint": "instalasi kapal",
+   "status": "INFERRED",
+   "source_refs": [
+    "INFERRED"
+   ]
+  }
+ ],
+ "edges": [
+  {
+   "from": "air_cleaner",
+   "to": "compressors",
+   "purpose": "udara bersih ke inlet kompresor",
+   "operating_condition": "mesin jalan",
+   "status": "OBSERVED",
+   "source_refs": [
+    "P10 (pipa udara melengkung dari air cleaner ke turbo)",
+    "P18 (elbow karet ke turbo, frac)",
+    "D03 hlm. 1 (komponen)"
+   ]
+  },
+  {
+   "from": "air_cleaner",
+   "to": "inlet_restr",
+   "purpose": "pengukuran hambatan udara masuk",
+   "operating_condition": "mesin jalan",
+   "status": "DOCUMENTED",
+   "source_refs": [
+    "D03 hlm. 1"
+   ]
+  },
+  {
+   "from": "compressors",
+   "to": "aftercooler",
+   "purpose": "udara bertekanan dan panas ke aftercooler",
+   "operating_condition": "mesin jalan",
+   "status": "INFERRED",
+   "source_refs": [
+    "D02 hlm. 1 / D03 'Turbocharged-Aftercooled' menyatakan pendinginan udara setelah kompresi; rute pipa tidak tertulis. P12: pipa dari rumah aftercooler ke belakang menuju sisi air cleaner (arah tidak dibuktikan)"
+   ]
+  },
+  {
+   "from": "ac_water",
+   "to": "aftercooler",
+   "purpose": "air pendingin sirkuit terpisah menyerap panas udara isap",
+   "operating_condition": "mesin jalan",
+   "status": "DOCUMENTED",
+   "source_refs": [
+    "D03 hlm. 1",
+    "D03 hlm. 2 (heat rejection to aftercooler 458 kW)"
+   ]
+  },
+  {
+   "from": "aftercooler",
+   "to": "inlet_manifold",
+   "purpose": "udara dingin ke manifold isap",
+   "operating_condition": "mesin jalan",
+   "status": "INFERRED",
+   "source_refs": [
+    "INFERRED"
+   ]
+  },
+  {
+   "from": "inlet_manifold",
+   "to": "cylinders",
+   "purpose": "udara masuk lewat katup isap",
+   "operating_condition": "langkah isap",
+   "status": "INFERRED",
+   "source_refs": [
+    "INFERRED: prinsip 4-tak"
+   ]
+  },
+  {
+   "from": "cylinders",
+   "to": "exh_manifold",
+   "purpose": "gas buang lewat katup buang",
+   "operating_condition": "langkah buang",
+   "status": "INFERRED",
+   "source_refs": [
+    "INFERRED: prinsip 4-tak"
+   ]
+  },
+  {
+   "from": "exh_manifold",
+   "to": "turbines",
+   "purpose": "gas buang (pulsa) memutar turbin",
+   "operating_condition": "mesin jalan",
+   "status": "INFERRED",
+   "source_refs": [
+    "D03 hlm. 1 'modular pulse exhaust manifold' + dual turbo (komponen); pembagian bank ke turbo INFERRED dari foto genset satu turbo per bank"
+   ]
+  },
+  {
+   "from": "turbines",
+   "to": "compressors",
+   "purpose": "poros bersama memutar kompresor",
+   "operating_condition": "mesin jalan",
+   "status": "INFERRED",
+   "source_refs": [
+    "INFERRED: prinsip turbocharger"
+   ]
+  },
+  {
+   "from": "exh_manifold",
+   "to": "wastegate",
+   "purpose": "sebagian gas memintas turbin",
+   "operating_condition": "beban/boost tinggi (kondisi dan kontrol UNKNOWN)",
+   "status": "INFERRED",
+   "source_refs": [
+    "D03 hlm. 1 (keberadaan); fungsi bypass INFERRED dari prinsip wastegate; lokasi UNKNOWN"
+   ]
+  },
+  {
+   "from": "wastegate",
+   "to": "exh_outlet",
+   "purpose": "gas pintas bergabung ke saluran keluar",
+   "operating_condition": "saat wastegate membuka",
+   "status": "INFERRED",
+   "source_refs": [
+    "INFERRED"
+   ]
+  },
+  {
+   "from": "turbines",
+   "to": "exh_outlet",
+   "purpose": "gas buang dari kedua turbin bergabung ke satu outlet",
+   "operating_condition": "mesin jalan",
+   "status": "OBSERVED",
+   "source_refs": [
+    "D03 hlm. 1 (single exhaust outlet)",
+    "P14 (elbow gabungan menghadap atas di tengah, genset)"
+   ]
+  },
+  {
+   "from": "exh_outlet",
+   "to": "ship_exhaust",
+   "purpose": "ke cerobong kapal",
+   "operating_condition": "mesin jalan",
+   "status": "INFERRED",
+   "source_refs": [
+    "INFERRED"
+   ]
+  },
+  {
+   "from": "exh_manifold",
+   "to": "exh_temp",
+   "purpose": "pengukuran suhu buang",
+   "operating_condition": "mesin jalan",
+   "status": "DOCUMENTED",
+   "source_refs": [
+    "D03 hlm. 1 (Instrumentation; scanner opsi)"
+   ]
+  }
+ ],
+ "gaps": [
+  "Tidak ada diagram aliran udara/gas resmi yang publik; rute kompresor-aftercooler-manifold INFERRED.",
+  "Lokasi dan kendali wastegate (pneumatik/elektronik, sisi turbin mana) tidak tertulis.",
+  "Pembagian bank ke turbo (tiap turbo melayani satu bank) hanya dari foto genset; marine belum terlihat dari belakang (gearbox menutupi).",
+  "Air cleaner marine (P22) berbeda bentuk dengan genset/frac; ukuran dan posisi pasti UNKNOWN.",
+  "Jumlah katup per silinder 3512C tidak ada di dokumen yang dibuka (D06 generasi awal tidak dipakai).",
+  "D03 (2005, A3) vs D02 (IMO II, ADEM6): konfigurasi exhaust dan heat shield bisa berbeda antar generasi; ikuti manual maker.",
+  "Closed crankcase ventilation (D05) kemungkinan masuk ke sisi isap; titik sambung UNKNOWN."
+ ]
+}

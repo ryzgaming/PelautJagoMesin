@@ -1,0 +1,587 @@
+{
+  "browser": "Chromium / SwiftShader software WebGL1",
+  "viewport": {
+    "version": "WebGL 1.0 (OpenGL ES 2.0 Chromium)",
+    "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+    "width": 1280,
+    "height": 800,
+    "dpr": 1,
+    "links": [
+      {
+        "id": "jacket",
+        "medium": "fresh_water",
+        "label": "Air tawar pendingin",
+        "length_m": 2.116685059439029,
+        "estimated": false
+      },
+      {
+        "id": "lube",
+        "medium": "lube_oil",
+        "label": "Oli pelumas",
+        "length_m": 1.9066700764766682,
+        "estimated": false
+      },
+      {
+        "id": "fuel_rail",
+        "medium": "fuel",
+        "label": "Bahan bakar",
+        "length_m": 1.0305876024010234,
+        "estimated": false
+      },
+      {
+        "id": "fuel_1",
+        "medium": "fuel",
+        "label": "Bahan bakar",
+        "length_m": 0.12159867110473294,
+        "estimated": false
+      },
+      {
+        "id": "fuel_2",
+        "medium": "fuel",
+        "label": "Bahan bakar",
+        "length_m": 0.12159867110473294,
+        "estimated": false
+      },
+      {
+        "id": "fuel_3",
+        "medium": "fuel",
+        "label": "Bahan bakar",
+        "length_m": 0.12159867110473294,
+        "estimated": false
+      },
+      {
+        "id": "fuel_4",
+        "medium": "fuel",
+        "label": "Bahan bakar",
+        "length_m": 0.12159867110473294,
+        "estimated": false
+      },
+      {
+        "id": "exhaust",
+        "medium": "exhaust",
+        "label": "Gas buang",
+        "length_m": 1.2227399301732023,
+        "estimated": false
+      }
+    ],
+    "firePhases": {
+      "c1": 0,
+      "c2": 540,
+      "c3": 180,
+      "c4": 360
+    },
+    "materials": 6
+  },
+  "fps_samples": [
+    45,
+    14,
+    18,
+    19
+  ],
+  "fps_mean": 24.0,
+  "pause_stable": true,
+  "resume_moves": true,
+  "phase_snapshots": [
+    {
+      "degree": -8,
+      "probe": {
+        "id": "c1",
+        "crank_deg": 712,
+        "angle_from_firing_tdc": -8,
+        "flame": 0,
+        "spray": 0.8660254037844386,
+        "state": "paused"
+      },
+      "parts": [
+        {
+          "name": "api:c1",
+          "visible": false,
+          "position": [
+            -0.33,
+            0.5850000000000001,
+            0
+          ],
+          "scale": [
+            1,
+            0.55,
+            1
+          ]
+        },
+        {
+          "name": "semburan:c1",
+          "visible": true,
+          "position": [
+            -0.33,
+            0.6425000000000001,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "name": "api:c2",
+          "visible": true,
+          "position": [
+            -0.11,
+            0.46539012003067115,
+            0
+          ],
+          "scale": [
+            1,
+            1.878998666325877,
+            1
+          ]
+        },
+        {
+          "name": "semburan:c2",
+          "visible": false,
+          "position": [
+            -0.11,
+            0.6425000000000001,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "name": "api:c3",
+          "visible": false,
+          "position": [
+            0.11,
+            0.5850000000000001,
+            0
+          ],
+          "scale": [
+            1,
+            0.55,
+            1
+          ]
+        },
+        {
+          "name": "semburan:c3",
+          "visible": false,
+          "position": [
+            0.11,
+            0.6425000000000001,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "name": "api:c4",
+          "visible": false,
+          "position": [
+            0.33,
+            0.5842222882796595,
+            0
+          ],
+          "scale": [
+            1,
+            0.558641241337117,
+            1
+          ]
+        },
+        {
+          "name": "semburan:c4",
+          "visible": false,
+          "position": [
+            0.33,
+            0.6425000000000001,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "degree": 8,
+      "probe": {
+        "id": "c1",
+        "crank_deg": 8,
+        "angle_from_firing_tdc": 8,
+        "flame": 1,
+        "spray": 0,
+        "state": "paused"
+      },
+      "parts": [
+        {
+          "name": "api:c1",
+          "visible": true,
+          "position": [
+            -0.33,
+            0.5842222882796596,
+            0
+          ],
+          "scale": [
+            1,
+            0.5586412413371167,
+            1
+          ]
+        },
+        {
+          "name": "semburan:c1",
+          "visible": false,
+          "position": [
+            -0.33,
+            0.6425000000000001,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "name": "api:c2",
+          "visible": true,
+          "position": [
+            -0.11,
+            0.46539012003067115,
+            0
+          ],
+          "scale": [
+            1,
+            1.878998666325877,
+            1
+          ]
+        },
+        {
+          "name": "semburan:c2",
+          "visible": false,
+          "position": [
+            -0.11,
+            0.6425000000000001,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "name": "api:c3",
+          "visible": false,
+          "position": [
+            0.11,
+            0.5850000000000001,
+            0
+          ],
+          "scale": [
+            1,
+            0.55,
+            1
+          ]
+        },
+        {
+          "name": "semburan:c3",
+          "visible": false,
+          "position": [
+            0.11,
+            0.6425000000000001,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "name": "api:c4",
+          "visible": false,
+          "position": [
+            0.33,
+            0.5850000000000001,
+            0
+          ],
+          "scale": [
+            1,
+            0.55,
+            1
+          ]
+        },
+        {
+          "name": "semburan:c4",
+          "visible": false,
+          "position": [
+            0.33,
+            0.6425000000000001,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "degree": 32,
+      "probe": {
+        "id": "c1",
+        "crank_deg": 32,
+        "angle_from_firing_tdc": 32,
+        "flame": 0.5866462195100318,
+        "spray": 0,
+        "state": "paused"
+      },
+      "parts": [
+        {
+          "name": "api:c1",
+          "visible": true,
+          "position": [
+            -0.33,
+            0.573052488309495,
+            0
+          ],
+          "scale": [
+            1,
+            0.6827501298945008,
+            1
+          ]
+        },
+        {
+          "name": "semburan:c1",
+          "visible": false,
+          "position": [
+            -0.33,
+            0.6425000000000001,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "name": "api:c2",
+          "visible": true,
+          "position": [
+            -0.11,
+            0.47128671677072387,
+            0
+          ],
+          "scale": [
+            1,
+            1.8134809247697357,
+            1
+          ]
+        },
+        {
+          "name": "semburan:c2",
+          "visible": false,
+          "position": [
+            -0.11,
+            0.6425000000000001,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "name": "api:c3",
+          "visible": false,
+          "position": [
+            0.11,
+            0.5850000000000001,
+            0
+          ],
+          "scale": [
+            1,
+            0.55,
+            1
+          ]
+        },
+        {
+          "name": "semburan:c3",
+          "visible": false,
+          "position": [
+            0.11,
+            0.6425000000000001,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "name": "api:c4",
+          "visible": false,
+          "position": [
+            0.33,
+            0.5850000000000001,
+            0
+          ],
+          "scale": [
+            1,
+            0.55,
+            1
+          ]
+        },
+        {
+          "name": "semburan:c4",
+          "visible": false,
+          "position": [
+            0.33,
+            0.6425000000000001,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "degree": 85,
+      "probe": {
+        "id": "c1",
+        "crank_deg": 85,
+        "angle_from_firing_tdc": 85,
+        "flame": 0.18066494222953758,
+        "spray": 0,
+        "state": "paused"
+      },
+      "parts": [
+        {
+          "name": "api:c1",
+          "visible": true,
+          "position": [
+            -0.33,
+            0.5200155219898137,
+            0
+          ],
+          "scale": [
+            1,
+            1.272049755668737,
+            1
+          ]
+        },
+        {
+          "name": "semburan:c1",
+          "visible": false,
+          "position": [
+            -0.33,
+            0.6425000000000001,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "name": "api:c2",
+          "visible": true,
+          "position": [
+            -0.11,
+            0.5095568328600948,
+            0
+          ],
+          "scale": [
+            1,
+            1.3882574126656144,
+            1
+          ]
+        },
+        {
+          "name": "semburan:c2",
+          "visible": false,
+          "position": [
+            -0.11,
+            0.6425000000000001,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "name": "api:c3",
+          "visible": false,
+          "position": [
+            0.11,
+            0.5850000000000001,
+            0
+          ],
+          "scale": [
+            1,
+            0.55,
+            1
+          ]
+        },
+        {
+          "name": "semburan:c3",
+          "visible": false,
+          "position": [
+            0.11,
+            0.6425000000000001,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "name": "api:c4",
+          "visible": false,
+          "position": [
+            0.33,
+            0.5850000000000001,
+            0
+          ],
+          "scale": [
+            1,
+            0.55,
+            1
+          ]
+        },
+        {
+          "name": "semburan:c4",
+          "visible": false,
+          "position": [
+            0.33,
+            0.6425000000000001,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": []
+}

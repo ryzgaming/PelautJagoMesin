@@ -1,0 +1,9 @@
+PR40 sudah digabung: 23a7027ce64c4e88c31578d2cb9ee75823accd17.
+Polesan oleh agen spesialis efek visual + QA independen: commit46a7800, draftPR41 https://github.com/ryzgaming/PelautJagoMesin/pull/41.
+Perbandingan gambar memakai kamera, sudut engkol(-8,8,32,85), fase aliran0.23 dan waktu shader1.25 identik. Penyesuaian framingHP diterapkan pada kedua sisi untuk mengisolasi efek.
+126tes proyek +10tes kontrak lulus. WebGL1 tujuh media, preset default/legacy, pause/resume, batas bore, nonXray dan mode putaran nyata lulus.
+Uji resume180ms awal desktop tidak menangkap perubahan; sampel ulang500ms membuktikan aliran dan sudut engkol bergerak. Bukti awal dipertahankan bersama laporan penyelesaian.
+Lab empat silinder sintetis. Desktop1280x800 DPR1, HP390x844 DPR2. Chromium SwiftShader software rendering; HP emulasi, bukan perangkat fisik.
+Median empat sampel FPS sebelum→sesudah: desktop18.5→19.5; HP33.5→30.5. Target performa pada perangkat fisik belum terverifikasi.
+Efek visual bergaya ilustrasi, bukan simulasi CFD. Integrasi ke workspaceYanmar memerlukan tahap tersendiri. Tidak ada perubahan katalog.
+PR40: verify+Pages lulus, pemeriksaan eksternal Workers Builds workflow-bysup gagal(seperti PR sebelumnya); keberhasilan deploy Worker tidak diklaim.

@@ -1,0 +1,20 @@
+Yanmar 6AYM-WET H • Pemeriksaan gerak dan benturan • r05 privat
+
+Di sudut kamera yang dilaporkan, saringan udara menembus manifold pada r04. Pada r05 jarak minimum kedua permukaan model menjadi 5,35 mm. Gambar perbandingan memakai posisi kamera dan cahaya yang sama.
+
+QA mengimpor ulang 1.146 mesh. Transformasi yang dipakai sama dengan fungsi gerak viewer. QA menguji 181 posisi saat mesin hidup dan 61 posisi saat starter bekerja, ditambah 97 posisi yang diperiksa khusus pada rakitan starter. Film memperlambat gerak agar dapat diamati.
+
+Manual servis D01 mencatat pompa air tawar 2.533 rpm dan pompa air laut 1.572 rpm saat poros engkol 1.900 rpm. Jumlah gigi dan posisi yang tidak berdimensi pada katalog direkonstruksi untuk mendekati hubungan tersebut.
+
+QA mengklasifikasi 106 pasangan permukaan sebagai persinggungan pemasangan, misalnya seal di alurnya. Ada 0 pasangan dengan cacat gerak atau geometri terkonfirmasi di antara kontak yang diuji dan 696 pasangan permukaan yang fungsi persinggungannya masih perlu diperiksa.
+
+Saat melakukan pemeriksaan sendiri, pilih Penggerak, pilih mekanisme, lalu tekan Mulai. Gunakan Starter untuk memeriksa motor starter dan pinion. Dalam mode Idle, pinion terlepas dan motor starter diam.
+
+Putaran turbo dan rotor filter oli bersifat ilustratif. Kecocokan dengan nomor seri, toleransi pabrikan, dan pengalaman WebGL pada HP fisik masih terbuka.
+
+Blender 4.3.2 dan MCP for Blender 2.3.3 berhasil membuka scene yang sama. MCP membaca 1.146 mesh pada scene mesin ini.
+
+Dari pasangan yang belum diputuskan, 53 menunjukkan persinggungan saat komponen bergerak relatif satu sama lain. Sisanya hanya tercatat pada keadaan terpasang.
+
+Enam tampak netral dari ekspor yang diaudit
+https://yanmar-6aym-workspace.violetblackbird16.chatgpt.site/gpt-r05/assets/enam-sudut.jpg

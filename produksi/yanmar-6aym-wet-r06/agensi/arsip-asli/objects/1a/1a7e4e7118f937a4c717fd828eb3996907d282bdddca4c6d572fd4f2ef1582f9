@@ -1,0 +1,125 @@
+{
+  "assets_sha256": {
+    "exterior": "4160445ec0d01e736dcb56104355bcc42e046dd7f536b1d1ea486a82774bbbfd",
+    "internal": "47d4f30a18e3d305ef6c128fd84dd6cc482601d3e62befad1c020d2e8b599735"
+  },
+  "mesh_count": 1080,
+  "aabb_candidate_pairs": 7,
+  "surface_crossing_pair_count": 3,
+  "method": "Assembled Blender GLB reimport, world AABB broad phase, triangle BVH overlap. Surface crossings include intended threads, interference fits and overlaps within an educational assembly. Solid penetration and motion are distinct checks.",
+  "pairs": [
+    {
+      "a": "EXT-FRONT-01",
+      "b": "EXT-FRONT-02",
+      "surface_pairs": 448,
+      "glTF_crossing_face_bounds_m": [
+        [
+          [
+            1.3830000162124634,
+            -0.15332072973251343,
+            -0.3383414149284363
+          ],
+          [
+            1.3844999074935913,
+            0.1546674221754074,
+            0.26219892501831055
+          ]
+        ],
+        [
+          [
+            1.3650000095367432,
+            -0.11500000208616257,
+            -0.11500000208616257
+          ],
+          [
+            1.3860000371932983,
+            0.11500000208616257,
+            0.11500000208616257
+          ]
+        ]
+      ]
+    },
+    {
+      "a": "EXT-INTAKE-03",
+      "b": "EXT-INTAKE-01",
+      "surface_pairs": 180,
+      "glTF_crossing_face_bounds_m": [
+        [
+          [
+            0.0478721521794796,
+            0.6759122014045715,
+            -0.35898348689079285
+          ],
+          [
+            0.06038814038038254,
+            0.7251259088516235,
+            -0.30478107929229736
+          ]
+        ],
+        [
+          [
+            0.050586581230163574,
+            0.6797496676445007,
+            -0.3552495241165161
+          ],
+          [
+            0.06112778186798096,
+            0.715999960899353,
+            -0.30621638894081116
+          ]
+        ]
+      ]
+    },
+    {
+      "a": "EXT-FRONT-03",
+      "b": "EXT-FRONT-02",
+      "surface_pairs": 138,
+      "glTF_crossing_face_bounds_m": [
+        [
+          [
+            1.4789999723434448,
+            -0.18748046457767487,
+            -0.3240000009536743
+          ],
+          [
+            1.5093445777893066,
+            0.3179999887943268,
+            0.05390089750289917
+          ]
+        ],
+        [
+          [
+            1.4570000171661377,
+            -0.19605138897895813,
+            -0.15228305757045746
+          ],
+          [
+            1.4880000352859497,
+            0.12940053641796112,
+            0.08626560121774673
+          ]
+        ]
+      ]
+    },
+    {
+      "a": "EXT-EXHAUST-01",
+      "b": "EXT-INTAKE-04",
+      "surface_pairs": 0
+    },
+    {
+      "a": "EXT-INTAKE-03",
+      "b": "EXT-INTAKE-02",
+      "surface_pairs": 0
+    },
+    {
+      "a": "EXT-INTAKE-01",
+      "b": "EXT-HEADS-01",
+      "surface_pairs": 0
+    },
+    {
+      "a": "EXT-INTAKE-01",
+      "b": "EXT-HEADS-04",
+      "surface_pairs": 0
+    }
+  ]
+}

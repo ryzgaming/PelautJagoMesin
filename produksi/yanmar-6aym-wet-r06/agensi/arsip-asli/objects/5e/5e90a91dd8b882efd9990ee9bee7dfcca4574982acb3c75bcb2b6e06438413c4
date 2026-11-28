@@ -1,0 +1,125 @@
+{
+  "nested_count": 24,
+  "nested": {
+    "RAK-STARTER": {
+      "mesh_ids": 15,
+      "anchor": "EXT-ELECTRIC-02",
+      "parent": "RAK-ELECTRIC"
+    },
+    "RAK-FUEL-FILTER-1": {
+      "mesh_ids": 7,
+      "anchor": "EXT-FUEL-10",
+      "parent": "RAK-FUEL"
+    },
+    "RAK-BONNET-6": {
+      "mesh_ids": 5,
+      "anchor": "EXT-HEADS-12",
+      "parent": "RAK-HEADS"
+    },
+    "RAK-BONNET-4": {
+      "mesh_ids": 5,
+      "anchor": "EXT-HEADS-10",
+      "parent": "RAK-HEADS"
+    },
+    "RAK-FLYWHEEL-DISK": {
+      "mesh_ids": 2,
+      "anchor": "EXT-FLYWHEEL-02",
+      "parent": "RAK-FLYWHEEL"
+    },
+    "RAK-ALTERNATOR": {
+      "mesh_ids": 11,
+      "anchor": "EXT-ELECTRIC-01",
+      "parent": "RAK-ELECTRIC"
+    },
+    "RAK-BONNET-5": {
+      "mesh_ids": 5,
+      "anchor": "EXT-HEADS-11",
+      "parent": "RAK-HEADS"
+    },
+    "RAK-FW-COOLER": {
+      "mesh_ids": 14,
+      "anchor": "EXT-COOLING-01",
+      "parent": "RAK-COOLING"
+    },
+    "RAK-SEAWATER-PUMP": {
+      "mesh_ids": 12,
+      "anchor": "EXT-COOLING-04",
+      "parent": "RAK-COOLING"
+    },
+    "RAK-BONNET-2": {
+      "mesh_ids": 5,
+      "anchor": "EXT-HEADS-08",
+      "parent": "RAK-HEADS"
+    },
+    "RAK-FUEL-FILTER-2": {
+      "mesh_ids": 7,
+      "anchor": "EXT-FUEL-11",
+      "parent": "RAK-FUEL"
+    },
+    "RAK-COOLANT-PUMP": {
+      "mesh_ids": 10,
+      "anchor": "EXT-COOLING-03",
+      "parent": "RAK-COOLING"
+    },
+    "RAK-BONNET-1": {
+      "mesh_ids": 5,
+      "anchor": "EXT-HEADS-07",
+      "parent": "RAK-HEADS"
+    },
+    "RAK-INJECTION": {
+      "mesh_ids": 33,
+      "anchor": "EXT-FUEL-01",
+      "parent": "RAK-FUEL"
+    },
+    "RAK-OIL-FILTER-1": {
+      "mesh_ids": 4,
+      "anchor": "EXT-LUBE-02",
+      "parent": "RAK-LUBE"
+    },
+    "RAK-OIL-COOLER": {
+      "mesh_ids": 9,
+      "anchor": "EXT-LUBE-05",
+      "parent": "RAK-LUBE"
+    },
+    "RAK-BYPASS-ROTOR": {
+      "mesh_ids": 9,
+      "anchor": "EXT-LUBE-04",
+      "parent": "RAK-LUBE"
+    },
+    "RAK-AIRCOOLER": {
+      "mesh_ids": 12,
+      "anchor": "EXT-INTAKE-02",
+      "parent": "RAK-INTAKE"
+    },
+    "RAK-SUMP-SERVICE": {
+      "mesh_ids": 4,
+      "anchor": "EXT-OILPAN-01",
+      "parent": "RAK-OILPAN"
+    },
+    "RAK-OIL-FILTER-2": {
+      "mesh_ids": 4,
+      "anchor": "EXT-LUBE-03",
+      "parent": "RAK-LUBE"
+    },
+    "RAK-GOVERNOR": {
+      "mesh_ids": 7,
+      "anchor": "EXT-FUEL-02",
+      "parent": "RAK-FUEL"
+    },
+    "RAK-BONNET-3": {
+      "mesh_ids": 5,
+      "anchor": "EXT-HEADS-09",
+      "parent": "RAK-HEADS"
+    },
+    "RAK-FEEDPUMP": {
+      "mesh_ids": 10,
+      "anchor": "EXT-FUEL-12",
+      "parent": "RAK-FUEL"
+    },
+    "RAK-TURBO": {
+      "mesh_ids": 51,
+      "anchor": "EXT-EXHAUST-02",
+      "parent": "RAK-EXHAUST"
+    }
+  }
+}

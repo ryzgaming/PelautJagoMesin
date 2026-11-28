@@ -1,0 +1,211 @@
+"""Emit the drive specification in installed engine coordinates, plus per-mesh ownership."""
+import json
+import math
+import struct
+from pathlib import Path
+from collections import Counter
+from water_drive_spec import FRESH_GEAR, SEA_GEAR, FRONT_CAM_TEETH, ALT_TEETH, FRESH_TEETH, SEA_TEETH, FIP_TEETH
+from pump_cam import roller_clearance,feed_lift
+import starter as start
+from belt import DRIVER,ALTERNATOR,RADII,PULLEY_X,FRONT_GEAR_X,loop
+
+HERE=Path(__file__).resolve().parent
+ROOT=HERE.parent.parent
+X=[1,0,0];Y=[0,1,0];Z=[0,0,1]
+TIMING=['D01 PDF 112, cetak 108 / gear train and timing marks']
+PUMP=['D01 PDF 115–116, cetak 111–112 / YPE-1615 firing order, roller, cam and plunger','D05 Fig.74–78 / injection pump and accessories']
+FEED=['D01 PDF 145–147, cetak 141–143 / double-action fuel feed pump','D05 Fig.75 / feed pump']
+BELT=['D05 Fig.107 ref.15,21–29 / selected single A28 belt, shaft, bearings and gear','D05 Fig.109 ref.36 / single-groove 600 W alternator']
+START=['D05 Fig.106 / earth-float starter parts','D05 Fig.38 / flywheel and ring gear']
+TURBO=['D01 PDF 170–171 / TD13M radial turbine and centrifugal compressor','D05 Fig.32 / shaft, wheels, flinger and nut']
+NOZZLE=['D01 PDF 150–152 / TP2 mechanical injector','D05 Fig.79 / spring and needle']
+CENT=['D01 PDF 160 / centrifugal bypass strainer, rotor and tangential jets','D05 Fig.47 / fixed spindle']
+COOL=['D01 PDF 112,164 / timing train and coolant/sea pump sections','D05 Fig.54–55 / driving gear and shaft']
+def ext(group,*nums):
+    return [f'EXT-{group}-{n:02d}' for n in nums]
+def ip(cyl,n):
+    return f'INT-FUELINJ-{cyl}1-{n:02d}'
+def glb_tree(path):
+    with path.open('rb') as fd:
+        fd.read(12);size,_=struct.unpack('<II',fd.read(8));doc=json.loads(fd.read(size))
+    nodes=doc['nodes']
+    parents={c:i for i,n in enumerate(nodes) for c in n.get('children',[])}
+    out={}
+    for i,n in enumerate(nodes):
+        if not 'mesh' in n:continue
+        ancestors=[];j=i
+        while j in parents:
+            j=parents[j];ancestors.append(nodes[j].get('name',''))
+        out[n['name']]=ancestors
+    return out
+def make():
+    groups=[];topic=None
+    def scope(system,assembly,cases,refs):
+        nonlocal topic
+        topic=dict(system=system,assembly_ids=assembly,case_ids=cases,source_refs=refs)
+    def add(id,label,kind,targets,pivot,axis=X,ratio=0,mode='both',status='ILLUSTRATIVE',note='',**kwargs):
+        groups.append(dict(id=id,label=label,kind=kind,targets=targets,pivot_m=list(pivot),axis=list(axis),
+            ratio=ratio,phase_rad=0,mode=mode,status=status,note=note,**topic,**kwargs))
+    def profile(function):
+        ref=function(0)
+        return dict(step_deg=2,cycle_deg=720,samples=[round(function(math.radians(i))-ref,9) for i in range(0,720,2)])
+    scope('timing',['INT-TIMING'],['EXT-FLYWHEEL-01','EXT-FRONT-01'],TIMING)
+    kinematics=json.loads((ROOT/'model/internal/kinematics.json').read_text())
+    tree=glb_tree(ROOT/'model/internal/internal.glb')
+    gears=kinematics['motion_roots']
+    for key,spec in gears.items():
+        if not key.startswith('MOT-INT-GEAR-'):continue
+        n=int(key.rsplit('-',1)[1])
+        targets=[mesh for mesh,parents in tree.items() if key in parents]
+        add(f'timing-{n:02}',f"Gear timing {n:02} · {spec['teeth_model']} gigi", 'spin',targets,
+            spec['rest_translation_m'],ratio=-spec['signed_crank_rotation_ratio'],
+            note='Arah dan rasio menurut jumlah gigi pada model. Gigi, hub serta pengikat berporos sama mengikuti satu pengendali.')
+    scope('lubrication',['INT-OILPUMP'],['INT-OILPUMP-02','INT-OILPUMP-05'],['D01 PDF 157–159 / lubricating oil pump','D05 Fig.43–44 / oil pump'])
+    add('oil-pump-driver','Poros dan roda penggerak pompa oli','spin',['INT-OILPUMP-01','INT-OILPUMP-03'],(.090,-.150,0),ratio=32/28)
+    add('oil-pump-follower','Roda pasangan pompa oli','spin',['INT-OILPUMP-04'],(.090,-.150,-.043),ratio=-32/28)
+    scope('freshwater',['RAK-COOLANT-PUMP'],ext('COOLING',3,27),COOL)
+    add('coolant-shaft','Poros, impeler dan gear air tawar','spin',ext('COOLING',20,21,26,310,311,312,315,317),FRESH_GEAR,ratio=.5*FRONT_CAM_TEETH/FRESH_TEETH,
+        note='Rasio diikat ke 2533 rpm pada 1900 rpm crank pada tabel PDF 163–164. Jumlah gigi pembentuk rasio model merupakan rekonstruksi.')
+    for j,(id,rball,rcage) in enumerate([(316,.0046,.02175),(318,.0036,.01925)]):
+        add(f'coolant-bearing-{j+1}',f'Orbit bola bearing coolant {j+1}','spin',ext('COOLING',id),
+            FRESH_GEAR,ratio=.5*FRONT_CAM_TEETH/FRESH_TEETH*.5*(1-rball/rcage),
+            note='Orbit cage dihitung pada geometri model dengan outer race tetap.')
+    scope('seawater',['RAK-SEAWATER-PUMP'],ext('COOLING',4,42),COOL)
+    add('seawater-shaft','Poros, impeler dan gear air laut','spin',ext('COOLING',35,36,41,46),SEA_GEAR,ratio=-.5*FIP_TEETH/SEA_TEETH,
+        note='Rasio diikat ke angka pompa 1572 rpm pada 1900 rpm crank dalam tabel PDF 163–164. Perubahan bentuk sudu karet bergantung cam tetap.')
+    scope('alternator',['RAK-ALTDRIVE','RAK-ALTERNATOR'],ext('FRONT',1,3,8)+ext('ELECTRIC',1,24),BELT)
+    mid=.5*FRONT_CAM_TEETH/ALT_TEETH; rotor=mid*RADII[0]/RADII[1]
+    add('alternator-intermediate','Poros perantara, pasak dan puli penggerak','spin',ext('FRONT',6,7,10,13,17,18,19,20),
+        (FRONT_GEAR_X,*DRIVER),ratio=mid)
+    add('alternator-bearing-cages','Orbit elemen gelinding pada dua bearing perantara','spin',ext('FRONT',11,14),
+        (FRONT_GEAR_X,*DRIVER),ratio=mid*.5*(1-.00338/.0197),
+        note='Orbit cage dihitung dari diameter model, outer race tetap. Orientasi lokal bola tidak ditunjukkan.')
+    add('alternator-rotor','Puli, kipas dan rotor alternator','spin',ext('ELECTRIC',21,25,30,31),(PULLEY_X,*ALTERNATOR),
+        ratio=rotor,note='Sabuk terbuka menjaga arah putar kedua puli. Rasio diturunkan dari jari-jari pitch model, tanpa slip.')
+    add('alternator-belt-travel','Perjalanan tanda pada sabuk A28','belt',ext('FRONT',5),loop()[0],ratio=mid,
+        path_m=loop(),travel_m_per_rad=mid*RADII[0],belt_mesh='EXT-FRONT-04',
+        note='Tanda mengikuti panjang sabuk. Bentuk lintasan dan batas material sabuk penuh tetap.')
+    scope('turbo',['RAK-TURBO'],ext('EXHAUST',2,3,4,40),TURBO)
+    add('turbo-rotor','Roda turbin, poros dan roda kompresor','spin',ext('EXHAUST',20,21,25,26,28,33),(.600,.680,.481),
+        ratio=4.0,mode='running',note='Satu poros kaku. Kecepatan visual bebas untuk memperlihatkan roda; rasio 4 bukan rasio mekanis ataupun rpm terukur.')
+    scope('lubrication',['RAK-BYPASS-ROTOR'],ext('LUBE',4,30),CENT)
+    add('centrifugal-oil-rotor','Rotor dan tutup strainer sentrifugal','spin',ext('LUBE',32,33,34,35,36),(.644,.085,.423),axis=Y,ratio=1.65,mode='running',
+        note='Jet bereaksi terhadap oli yang keluar. Kecepatan ilustratif independen dari penggerak gear; spindle diam.')
+    scope('fuel',['RAK-INJECTION','RAK-GOVERNOR'],ext('FUEL',1,2,19),PUMP)
+    add('fuel-pump-cam','Poros nok pompa injeksi enam elemen','spin',ext('FUEL',21,240),(.695,.200,-.427),ratio=.5,status='INFERRED')
+    add('governor-flyweights','Poros governor dan pembawa kedua pemberat','spin',ext('FUEL',200,201,202),(1.047,.200,-.427),ratio=.5,
+        note='Orbit pemberat pada kondisi kecepatan tetap. Simpangan karena perubahan setelan tidak dipaksakan tiap putaran.')
+    for i,index in enumerate((0,2,4,1,5,3),1):
+        xp=.484+.079*(i-1);cx=.209+.20*(i-1)
+        def height(phi):
+            return roller_clearance(phi,index)
+        top=height(0)
+        def k(n):return n+i-1
+        scope('fuel',['RAK-INJECTION'],ext('FUEL',1,19),PUMP)
+        add(f'fuel-plunger-{i}',f'Tappet dan plunger elemen {i}','reciprocate',ext('FUEL',k(23),k(35),k(270)),(xp,.200,-.427),axis=Y,
+            profile=profile(height),note='Translasi diambil dari kontur nok berputar pada stasiun masing-masing, relatif terhadap letak terpasang.')
+        add(f'fuel-cam-roller-{i}',f'Roller tappet pada nok {i}','reciprocate',ext('FUEL',k(300)),
+            (xp,.200+top+.009,-.427),axis=Y,profile=profile(height),spin_ratio=-.5*.025/.009,spin_axis=X,
+            note='Rol bergerak dengan tappet dan berputar melawan nok. Rasio gelinding dihampiri dengan radius kerja rerata model.')
+        springheight=.314-(.200+top+.009+.032+.003)
+        add(f'fuel-plunger-spring-{i}',f'Pegas balik plunger {i}','spring',ext('FUEL',k(29)),(xp,.314,-.427),axis=Y,
+            length_m=springheight,profile=profile(lambda a:-height(a)))
+        def pulse(phi):
+            d=(math.degrees(phi)-index*120+7+360)%720-360
+            return math.cos(math.pi*d/14)**2 if abs(d)<7 else 0.
+        add(f'delivery-valve-{i}',f'Katup delivery elemen {i}','reciprocate',ext('FUEL',k(47)),(xp,.401,-.427),axis=Y,
+            profile=profile(lambda a:.0008*pulse(a)),note='Fase dan angkatan ilustratif; pembukaan sebenarnya bergantung beda tekanan.')
+        add(f'delivery-valve-spring-{i}',f'Pegas katup delivery {i}','spring',ext('FUEL',k(288)),(xp,.416,-.427),axis=Y,
+            length_m=.009,profile=profile(lambda a:-.0008*pulse(a)))
+        scope('fuel',[f'RAK-INJECTOR-{i}'],[f'INT-FUELINJ-{i}1',ip(i,14),ip(i,15)],NOZZLE)
+        add(f'nozzle-needle-{i}',f'Jarum nozzle dan retainer bawah {i}','reciprocate',[ip(i,13),ip(i,9)],(cx,.492,0),axis=Y,
+            profile=profile(lambda a:.00025*pulse(a)),note='Dosis/injection advance tidak ditentukan. Gerak kecil visual menaikkan jarum saat pulsa injeksi.')
+        add(f'nozzle-spring-{i}',f'Pegas nozzle {i}','spring',[ip(i,8)],(cx,.6104,0),axis=Y,length_m=.0569,
+            profile=profile(lambda a:-.00025*pulse(a)))
+    scope('fuel',['RAK-FEEDPUMP'],ext('FUEL',12),FEED)
+    lift=feed_lift
+    add('feed-piston','Piston feed dan batang pengikut','reciprocate',ext('FUEL',210,211),(.464,.200,-.474),axis=[0,0,-1],profile=profile(lift),
+        note='Piston kerja ganda digerakkan nok pompa. Angkatan dan posisi sudut feed dibanding injeksi adalah contoh.')
+    add('feed-roller','Roller pengikut eksentrik pompa feed','reciprocate',ext('FUEL',238),(.464,.200,-.4481),axis=[0,0,-1],profile=profile(lift),spin_ratio=-1.85,spin_axis=X,
+        note='Roller di samping eksentrik bergeser dengan spindle sekaligus berputar pada pin. Rasio spin ilustratif.')
+    add('feed-return-spring','Pegas balik pompa feed','spring',ext('FUEL',212),(.464,.200,-.5005),axis=Z,length_m=.021,profile=profile(lambda a:-lift(a)))
+    for i in range(4):
+        x,z=((.441,-.466),(.441,-.484),(.498,-.466),(.498,-.484))[i]
+        def check(a):return .0007*max(0,math.sin(a*.5)*(1 if i in (0,3) else -1))**2
+        add(f'feed-check-{i+1}',f'Katup satu arah feed {i+1}','reciprocate',ext('FUEL',213+i),(x,.1993,z),axis=Y,
+            profile=profile(check),note='Dua pasangan berlawanan saat langkah sisi isap/tekan. Penetapan port dan urutan tiap posisi model ilustratif.')
+        add(f'feed-check-spring-{i+1}',f'Pegas check valve {i+1}','spring',ext('FUEL',234+i),(x,.211,z),axis=Y,length_m=.010,
+            profile=profile(lambda a:-check(a)))
+    scope('starter',['RAK-STARTER'],ext('ELECTRIC',2,41,49,50),START)
+    starter=18.0
+    center=(.002,start.SHAFT_Y,start.SHAFT_Z)
+    reduction=1+start.INTERNAL_TEETH/start.SUN_TEETH
+    for id,label,ids,rat in [('starter-armature','Armature dan sun gear starter',[40],reduction*starter),
+          ('starter-carrier','Pembawa planet dan poros keluaran',[46,47],starter),
+          ('starter-pinion','Pinion starter dan kopling searah',[48],starter)]:
+        add(id,label,'spin',ext('ELECTRIC',*ids),center,ratio=rat,mode='starting',
+            **({'mode_offset_m':start.ENGAGEMENT} if id=='starter-pinion' else {}),
+            note='Hanya selama pengasutan. Ring flywheel 180 gigi, pinion model 10. Reduksi planet 4:1 dari 12 gigi sun dan 36 gigi ring tetap.')
+    for k in range(3):
+        angle=k*math.tau/3
+        add(f'starter-planet-{k+1}',f'Orbit dan putaran planet starter {k+1}','orbit',ext('ELECTRIC',54+k),center,
+            ratio=starter,mode='starting',secondary_pivot_m=[.002,start.SHAFT_Y+start.PLANET_RAD*math.cos(angle),start.SHAFT_Z+start.PLANET_RAD*math.sin(angle)],
+            secondary_ratio=-(reduction-1)*starter*start.SUN_TEETH/start.PLANET_TEETH,note='Carrier mengorbit dengan poros keluaran, planet berputar berlawanan relatif carrier. Ring gear diam.')
+    add('starter-solenoid','Penarikan plunger solenoid saat start','reciprocate',ext('ELECTRIC',52),(-.012,*start.SOLENOID),
+        mode='starting',mode_offset_m=start.PLUNGER_TRAVEL,profile=profile(lambda a:0),note='Posisi tarik saat motor starter diberi arus. Kembali ke posisi bebas ketika dilepas.')
+    add('starter-lever','Ayunan garpu penggeser saat start','rock',ext('ELECTRIC',53),start.PIVOT,axis=start.LEVER_AXIS,
+        mode='starting',mode_angle_rad=start.START_LIMIT,profile=profile(lambda a:0),note='Garpu berporos pada rumah dan menggeser clutch ke ring flywheel.')
+    return groups
+
+def main():
+    groups=make()
+    if len({g['id'] for g in groups})!=len(groups):raise ValueError('duplicate group')
+    by={}
+    for g in groups:
+        for id in g['targets']:
+            if id in by:raise ValueError(f'duplicate ownership {id}')
+            by[id]=g['id']
+    legacy_data=json.loads((ROOT/'review/assets/data.json').read_text())['kinematics']['viewer']
+    legacy=[e['node'] for e in legacy_data['rotators']]
+    for c in legacy_data['cylinders']:legacy.extend([c['rod'],c['piston']])
+    for v in legacy_data['valves']:legacy.extend([v['valve_root'],v['tappet_root'],v['rocker_root'],*v['springs']])
+    fixed={
+        'EXT-LUBE-31':'Spindle filter diam. Rotor berputar di sekeliling spindle.',
+        'INT-TIMING-IDLER-PIN':'Pin idler diam; hub dan gear majemuk berputar mengelilinginya.',
+        'EXT-ELECTRIC-45':'Ring gear planetary starter terkunci pada housing.',
+        'EXT-FRONT-04':'Bentuk loop penuh tetap; perjalanan material diwakili penanda terpisah.',
+        'EXT-ELECTRIC-22':'Rakitan bearing belakang alternator disederhanakan; elemen gelinding dan ring dalam belum dipisahkan.',
+        'EXT-ELECTRIC-23':'Rakitan bearing depan alternator disederhanakan; elemen gelinding dan ring dalam belum dipisahkan.',
+        'EXT-ELECTRIC-42':'Bearing armature disederhanakan; rumah tetap, elemen dalam belum dipisahkan.',
+        'EXT-COOLING-37':'Rakitan bearing air laut, bagian dalam belum dipisahkan.',
+        'EXT-COOLING-38':'Rakitan bearing air laut, bagian dalam belum dipisahkan.',
+        'EXT-FUEL-22':'Rack tidak bergerak periodik pada setelan dan beban tetap.',
+        'EXT-FUEL-203':'Shifter thrust dan dudukan dipertahankan pada posisi regulasi tunak.',
+        'EXT-FUEL-204':'Gaya pegas governor pada kondisi setelan tunak.',
+        'EXT-FUEL-205':'Tuas pivot mengikuti perubahan setelan/beban, tidak mengayun per putaran.',
+        'EXT-FUEL-217':'Pompa priming digerakkan tangan ketika diperlukan.',
+        'EXT-FUEL-218':'Pegas pompa tangan tidak bergerak saat operasi biasa.',
+        'EXT-EXHAUST-22':'Floating bearing: rasio rotasi bergantung film oli, belum disimulasikan.',
+        'EXT-EXHAUST-23':'Floating bearing: rasio rotasi bergantung film oli, belum disimulasikan.'}
+    rows=[];ancestry={}
+    for layer in ['internal','exterior']:
+        f=ROOT/'model'/layer
+        ancestry.update(glb_tree(f/(layer+'.glb')))
+        for p in json.loads((f/'inventory.json').read_text())['components']:
+            id=p['id']; active=next((v for v in [id,*ancestry.get(id,[])] if v in legacy),None)
+            category='driven' if id in by else 'legacy' if active else 'fixed_or_condition'
+            rows.append(dict(id=id,label=p['name'],classification=category,
+                controller=by.get(id,active),reason=fixed.get(id) or ('Terikat pada node mekanik induk.' if active else
+                'Gerak ditentukan oleh grup drivetrain.' if id in by else 'Geometri tetap atau dipertahankan pada keadaan operasi yang diperagakan.')))
+    unresolved=[id for id in by if id not in ancestry]
+    config=dict(version=1,coordinates='world glTF Y-up metres',angle='Positive elapsed crank radians',groups=groups,
+        legacy={'nodes':sorted(set(legacy))},stationary=[{'id':id,'reason':reason} for id,reason in fixed.items()],
+        gaps=['Tabel uji D01 mengikat kecepatan pompa air. Dimensi pitch, fase aksesoris, rasio alternator dan putaran bebas turbo/filter belum diukur pada unit.',
+              'Tidak semua rasio bearing, seal dan transisi pengatur tekanan/beban diketahui. Data aliran tidak membuktikan kecepatan poros.',
+              'Profil gigi dan titik timing memakai rekonstruksi dari panduan servis. Kondisi intervensi dan backlash per nomor seri belum diukur.'])
+    (HERE/'drivetrain.json').write_text(json.dumps(config,ensure_ascii=False,separators=(',',':'))+'\n')
+    (HERE/'shaft-inventory.json').write_text(json.dumps(dict(counts=Counter(x['classification'] for x in rows),
+        pending_meshes=unresolved,rows=rows),ensure_ascii=False,indent=2)+'\n')
+    print(len(groups),'groups',len(by),'driven meshes;',len(unresolved),'awaiting latest GLB')
+
+if __name__=='__main__':main()

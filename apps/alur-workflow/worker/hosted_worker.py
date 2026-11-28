@@ -307,6 +307,10 @@ def prepare(root, packet):
         for profile in ["referensi_visual", "pemodel_eksterior", "qa_visual_viewer", "spesialis_jalur_fluida", "spesialis_kinematika_benturan", *profiles]:
             relative = f".codex/agents/{profile}.toml"
             guide[relative] = (guide_root.parents[1] / relative).read_text()
+        # Skill animasi ikut dikirim agar subagen tanpa akses skill repo tetap tahu alat dan lokasinya.
+        for skill in ("animasi-aliran-mesin", "blender-animasi-mesin"):
+            relative = f".agents/skills/{skill}/SKILL.md"
+            guide[relative] = (guide_root.parents[1] / relative).read_text()
         save(dest / "production-guide.json", guide)
         guide_hash = hashlib.sha256((dest / "production-guide.json").read_bytes()).hexdigest()
         shared["production_guide"] = {"file": "production-guide.json", "sha256": guide_hash}

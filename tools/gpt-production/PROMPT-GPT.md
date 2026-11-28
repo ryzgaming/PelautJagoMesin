@@ -32,6 +32,8 @@ Untuk simulasi mekanisme, tugaskan `spesialis_kinematika_benturan` memetakan tia
 
 Untuk perpipaan, lorong cor dan animasi fluida, aktifkan agen lintas rakitan `spesialis_jalur_fluida` sesuai [petunjuk registrasi dan uji rute](FLOW-ROUTING.md).
 
+Untuk animasi, pakai skill repo `.agents/skills/animasi-aliran-mesin` (aliran cairan/gas di viewer) dan `.agents/skills/blender-animasi-mesin` (mekanisme engkol, katup, kamera tur; Blender MCP bila tersedia). Isi SKILL.md keduanya juga ada di `production-guide.json`.
+
 Pada produksi dan revisi model mesin, koordinator juga [menugaskan spesialis tiap rakitan](SPECIALISTS.md) sebelum memodelkan. Gunakan daftar dari `specialist-briefs`, teruskan subkomponen yang diharapkan kepada modeler, dan periksa komponen tersembunyi hingga dapat dipilih melalui viewer.
 
 Gunakan profil proyek `referensi_visual`, `pemodel_eksterior`, dan `qa_visual_viewer` sesuai [instruksi peran](ROLE-PROMPTS.md#agen-proyek-untuk-kemiripan-dan-viewer).

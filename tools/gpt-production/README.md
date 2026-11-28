@@ -8,7 +8,7 @@ Profil agen Codex ada di `.codex/agents/` pada root repository dan root paket un
 
 Untuk simulasi mekanisme, tugaskan `spesialis_kinematika_benturan` memetakan tiap mesh ke bagian diam/bergerak per kondisi operasi. Gunakan [register gerak dan pemeriksaan benturan](MOTION-QA.md) hingga pengujian viewer.
 
-Untuk perpipaan, lorong cor dan animasi fluida, aktifkan agen lintas rakitan `spesialis_jalur_fluida` sesuai [petunjuk registrasi dan uji rute](FLOW-ROUTING.md).
+Untuk perpipaan, lorong cor dan animasi fluida, aktifkan agen lintas rakitan `spesialis_jalur_fluida` sesuai [petunjuk registrasi dan uji rute](FLOW-ROUTING.md). Tampilan aliran dan gerak mesin memakai skill [animasi-aliran-mesin](../../.agents/skills/animasi-aliran-mesin/SKILL.md) dan [blender-animasi-mesin](../../.agents/skills/blender-animasi-mesin/SKILL.md); Blender MCP dikonfigurasi di `.codex/config.toml`.
 
 Pada produksi dan revisi model mesin, koordinator juga [menugaskan spesialis tiap rakitan](SPECIALISTS.md) sebelum memodelkan. Gunakan daftar dari `specialist-briefs`, teruskan subkomponen yang diharapkan kepada modeler, dan periksa komponen tersembunyi hingga dapat dipilih melalui viewer.
 

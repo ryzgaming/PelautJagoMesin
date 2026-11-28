@@ -1,13 +1,13 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {initial,execute,validate,step} from '../src/flow.ts';
+import {initial,execute,validate,step} from '../src/features/workflow/flow.ts';
 test('email terisi menghasilkan konfirmasi',()=>assert.deepEqual(execute(initial(),{email:'a@example.com',nama:''}).trace.map(x=>x.id),['start','check','ok']));
 test('email kosong masuk review',()=>assert.ok(execute(initial(),{email:' ',nama:''}).review));
 test('siklus ditolak',()=>{const g=initial();g.edges.push({from:'ok',port:'out',to:'check'});assert.throws(()=>validate(g),/putaran/)});
 test('alur terputus ditolak saat dijalankan',()=>{let g=initial();g.edges.pop();assert.throws(()=>execute(g,{nama:'',email:''}))});
 
 test('bagan boleh berisi sampai 300 langkah dan 600 sambungan', async () => {
-  const {maxSteps,maxEdges} = await import('../src/flow.ts');
+  const {maxSteps,maxEdges} = await import('../src/features/workflow/flow.ts');
   assert.equal(maxSteps, 300); assert.equal(maxEdges, 600);
   const big = n => {
     const nodes = [step('trigger','start',0,0), ...Array.from({length:n-1}, (_,i) => step('review','r'+i,300,i*100))];
@@ -22,7 +22,7 @@ test('bagan boleh berisi sampai 300 langkah dan 600 sambungan', async () => {
 });
 
 test('langkah biasa dapat bercabang ke beberapa langkah; tiap cabang menerima hasil yang sama', async () => {
-  const {execute} = await import('../src/flow.ts');
+  const {execute} = await import('../src/features/workflow/flow.ts');
   const t = step('trigger','start',0,0), a = step('robot-watch','a',1,0), b = step('confirm','b',2,0), c = step('review','c',2,1), d = step('review','d',3,0);
   a.message = 'Halo {nama}'; b.message = 'B: {hasil}'; c.message = 'C: {hasil}'; d.message = 'D: {hasil}';
   b.name = 'Cabang B'; c.name = 'Cabang C';

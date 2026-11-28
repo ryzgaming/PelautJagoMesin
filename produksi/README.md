@@ -1,5 +1,7 @@
 # Produksi mesin — sumber, workspace dan agensi
 
+Lihat [daftar seluruh lokasi model](REGISTRY.json) untuk paket produksi, simulator publik, halaman premium, serta pratinjau historis. Indeks ini tidak menambahkan produk ke katalog.
+
 ## Yanmar 6AYM-WET R06
 
 Paket lengkap berada di [yanmar-6aym-wet-r06](yanmar-6aym-wet-r06/), dengan tiga batas kerja:

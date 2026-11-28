@@ -4,11 +4,12 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "node --test tests/*.test.mjs",
+    "test": "node --test tests/access/*.test.mjs tests/alur/*.test.mjs tests/commerce/*.test.mjs tests/viewer/*.test.mjs",
     "build": "node scripts/check-build.mjs && node scripts/build-alur.mjs",
     "dev": "node scripts/preview.mjs",
     "deploy:pages": "wrangler pages deploy dist --project-name pelautjagomesin",
-    "predeploy:pages": "npm run build"
+    "predeploy:pages": "npm run build",
+    "check:repo": "node scripts/check-repository.mjs"
   },
   "devDependencies": {
     "@electric-sql/pglite": "0.3.14",

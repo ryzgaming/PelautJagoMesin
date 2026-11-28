@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {mergeActivity} from '../src/activity-merge.ts';
+import {mergeActivity} from '../src/features/home/activity-merge.ts';
 
 const a = id => ({id, at: '2026-11-26T10:00:00Z', worker: 'claude', kind: 'info', message: 'Langkah ' + id, url: null});
 test('aktivitas baru digabung di atas tanpa duplikat dan dibatasi 50', () => {

@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {step,validate,execute} from '../src/flow.ts';
+import {step,validate,execute} from '../src/features/workflow/flow.ts';
 import {aiModels,productionOptions,stepOptions,optionsLabel,defaultAiModel,budgetLimits} from '../src/ai-models.ts';
 
 const agentsIn = ['parts-inventory','modeling-3d'];

@@ -1,38 +1,38 @@
 import {useEffect,useRef,useState} from "react";
-import AgentStudio from "./AgentStudio";
-import MachineStudio from "./MachineStudio";
-import SettingsStudio,{readStart} from "./SettingsStudio";
-import HomeStudio from "./HomeStudio";
-import "./home.css";
+import AgentStudio from "./features/agents/AgentStudio";
+import MachineStudio from "./features/machines/MachineStudio";
+import SettingsStudio,{readStart} from "./features/settings/SettingsStudio";
+import HomeStudio from "./features/home/HomeStudio";
+import "./features/home/home.css";
 function workspaceMode():string{const value=new URLSearchParams(window.location.search).get("mode");if(value==="editor"||value==="lokal"||value==="atur"||value==="beranda"||value==="agen")return value;if(value)return "agen";return readStart()}
 import {Play,ChevronRight,ChevronDown,X,Workflow,Save,Clock3,SlidersHorizontal,Plus,ExternalLink,Trash2,Link2,Check,GitBranch,FolderOpen,LogIn,Unplug,Users,Settings2,House,Cpu,Network,TriangleAlert} from "lucide-react";
-import PromptPanel from "./PromptPanel";
-import HrdPanel from "./HrdPanel";
-import StructurePanel from "./StructurePanel";
-import {applyStructure,spliceStructure} from "./structure";
-import CustomAgentPanel from "./CustomAgentPanel";
-import {applyHiring} from "./hrd";
-import {validate} from "./flow";
-import {Canvas,Mark,typeName} from "./canvas";
-import {initial,maxSteps,step,usesNotes,singleField,type Graph,type Step,type Kind} from "./flow";
+import PromptPanel from "./features/agents/PromptPanel";
+import HrdPanel from "./features/agents/HrdPanel";
+import StructurePanel from "./features/agents/StructurePanel";
+import {applyStructure,spliceStructure} from "./features/agents/structure";
+import CustomAgentPanel from "./features/agents/CustomAgentPanel";
+import {applyHiring} from "./features/agents/hrd";
+import {validate} from "./features/workflow/flow";
+import {Canvas,Mark,typeName} from "./features/workflow/canvas";
+import {initial,maxSteps,step,usesNotes,singleField,type Graph,type Step,type Kind} from "./features/workflow/flow";
 import {alurBase,alurForm} from "./paths";
 import {api} from "./api";
-import RunForm from "./RunForm";
-import TestReport from "./TestReport";
-import ProducerPanel from "./ProducerPanel";
+import RunForm from "./features/workflow/RunForm";
+import TestReport from "./features/workflow/TestReport";
+import ProducerPanel from "./features/workflow/ProducerPanel";
 import type {ProductionOptions} from "./ai-models";
-import ProductionReview from "./ProductionReview";
-import {spliceMachine} from "./machine";
-import FlowProduce from "./FlowProduce";
-import {hasPrompt} from "./production-brief";
-import type {Assignment} from "./flow";
-import {directoryByKind,customKind} from "./directory";
-import StepCatalog from "./StepCatalog";
-import {fieldLabels,pluginById} from "./plugins";
-import {agentByKind} from "./organization";
-import {organizationGraph,organizationId} from "./organization-graph";
-import {productionGraph,productionId} from "./production-machine";
-import {claudeTeamGraph,claudeTeamId,claudeTeamOrigin} from "./claude-team";
+import ProductionReview from "./features/machines/ProductionReview";
+import {spliceMachine} from "./features/machines/machine";
+import FlowProduce from "./features/machines/FlowProduce";
+import {hasPrompt} from "./features/machines/production-brief";
+import type {Assignment} from "./features/workflow/flow";
+import {directoryByKind,customKind} from "./features/workflow/directory";
+import StepCatalog from "./features/workflow/StepCatalog";
+import {fieldLabels,pluginById} from "./features/workflow/plugins";
+import {agentByKind} from "./features/agents/organization";
+import {organizationGraph,organizationId} from "./features/agents/organization-graph";
+import {productionGraph,productionId} from "./features/machines/production-machine";
+import {claudeTeamGraph,claudeTeamId,claudeTeamOrigin} from "./features/agents/claude-team";
 /** Template yang mengirim order merk dan tipe ke antrean produksi mesin. */
 const productionIds=new Set([productionId,claudeTeamId]);
 const templates=[
@@ -41,8 +41,8 @@ const templates=[
  {id:claudeTeamId,name:"Tim produksi Claude",help:"Cukup tulis merk dan tipe · Koordinator → bukti → datum → sistem → model → viewer → QA",build:claudeTeamGraph,loaded:"Bagan Tim produksi Claude dimuat. Ketuk kotak agent untuk melihat kartu perannya, lalu Uji alur dan tulis merk dan tipe mesin."},
 ];
 const templateIds=new Set(templates.map(t=>t.id));
-import AgentCard from "./AgentCard";
-import {Monitor,ProduceForm,useProductionMonitor} from "./ProductionLink";
+import AgentCard from "./features/agents/AgentCard";
+import {Monitor,ProduceForm,useProductionMonitor} from "./features/machines/ProductionLink";
 function FieldSelect({node,edit}:{node:Step,edit:(change:Partial<Step>)=>void}) {
  return <label>Kolom masukan<select value={node.field} onChange={e=>edit({field:e.target.value as Step["field"]})}>
    {Object.entries(fieldLabels).map(([value,name])=><option key={value} value={value}>{name}</option>)}

@@ -79,7 +79,7 @@ Jangan pernah menilai kualitas efek hanya dari membaca kode GLSL. Ikuti urutan i
 5. Bandingkan sheet.png SEBELUM vs SESUDAH untuk desktop dan HP. Pastikan tidak ada clipping, overexposure (putih meledak), atau artefak tepi mesh.
 6. Jalankan uji kontrak otomatis:
    ```bash
-   node --test tests/flow-ribbons.test.mjs tests/combustion-glow.test.mjs
+   node --test tests/viewer/flow-ribbons.test.mjs tests/viewer/combustion-glow.test.mjs
 
    ```
    Semua tes wajib lulus, report.json wajib memiliki "errors": [], "motion_ok": true, serta seluruh flag runtime (moves_when_running, pause_stable, resume_continues) bernilai true.

@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {workerHealth,finishedToday,usageLinks} from '../src/worker-health.ts';
+import {workerHealth,finishedToday,usageLinks} from '../src/features/settings/worker-health.ts';
 
 const settings = {primary_worker: 'claude', claude_enabled: true, codex_enabled: true, takeover_minutes: 75};
 const now = Date.parse('2026-11-26T10:00:00Z'); // 17.00 WIB

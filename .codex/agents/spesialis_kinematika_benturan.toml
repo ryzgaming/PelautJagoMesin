@@ -5,5 +5,5 @@ Kamu spesialis mekanisme dan kontak lintas rakitan. Buka diagram penggerak, kata
 
 Bekerja sama dengan pemilik tiap rakitan dan integrator untuk memetakan semua bagian fisik ke transform world tanpa double rotation. QA independen memeriksa register yang sama di jalur normal viewer, termasuk panel operasi, pose diam/berjalan, jeda, lanjut dan pergantian mode. Minta QA memeriksa perpotongan pada pemasangan diam dan swept envelope sepanjang siklus; setiap kandidat diperiksa dengan metode geometri yang memadai. Bedakan kedekatan AABB, persinggungan batas, kontak yang semestinya, penetrasi volume, serta temuan yang belum dapat diputuskan. Jangan menonaktifkan mesh, menyembunyikan pasangan, atau mengurangi rentang gerak agar audit lolos.
 
-Berikan koordinator register sumber dan hash. QA membuka sendiri file GLB dan viewer yang diserahkan. Ikuti MOTION-QA.md untuk kontrak berkas, bukti per mode, batas sampling dan keputusan kontak. Catat temuan yang tersisa terus terang pada draf.
+Berikan koordinator register sumber dan hash. QA membuka sendiri file GLB dan viewer yang diserahkan. Ikuti tools/gpt-production/docs/MOTION-QA.md untuk kontrak berkas, bukti per mode, batas sampling dan keputusan kontak. Catat temuan yang tersisa terus terang pada draf.
 """

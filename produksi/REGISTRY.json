@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Index sumber; tidak mengubah katalog atau hak akses",
+  "productionBranch": "cloudflare-store",
+  "models": [
+    {
+      "id": "yanmar-6aym-wet-r06",
+      "name": "Yanmar 6AYM-WET",
+      "status": "review-not-catalog",
+      "package": "produksi/yanmar-6aym-wet-r06",
+      "model": "produksi/yanmar-6aym-wet-r06/model",
+      "workspace": "produksi/yanmar-6aym-wet-r06/ui-workspace",
+      "agencyArchive": "produksi/yanmar-6aym-wet-r06/agensi",
+      "manifest": "produksi/yanmar-6aym-wet-r06/model/manifest.json",
+      "masterSourceAvailable": true
+    },
+    {
+      "id": "shinko-gj-sim",
+      "name": "Shinko GJ Simulator",
+      "status": "public-simulator",
+      "source": "dist/shinko-gj-sim.html",
+      "sharedWorkspace": "dist/assets/studio.js",
+      "masterSourceAvailable": false
+    },
+    {
+      "id": "man-l2330h",
+      "name": "MAN L23/30H Mk3",
+      "status": "premium-catalog-only-in-this-branch",
+      "catalogPage": "dist/man-l2330h.html",
+      "sourceLocation": "Private Supabase Storage after entitlement check",
+      "masterSourceAvailable": false
+    },
+    {
+      "id": "tanabe-h74",
+      "name": "Tanabe H-74",
+      "status": "premium-catalog-only-in-this-branch",
+      "catalogPage": "dist/tanabe-h74.html",
+      "sourceLocation": "Private Supabase Storage after entitlement check",
+      "masterSourceAvailable": false
+    },
+    {
+      "id": "alfa-laval-mab206s",
+      "name": "Alfa Laval MAB 206S-24",
+      "status": "premium-catalog-only-in-this-branch",
+      "catalogPage": "dist/alfa-laval-mab206s.html",
+      "sourceLocation": "Private Supabase Storage after entitlement check",
+      "masterSourceAvailable": false
+    }
+  ],
+  "historicalPreview": {
+    "branch": "main",
+    "commit": "9c760f8138bbafb530322453d7b6818c62370272",
+    "url": "https://github.com/ryzgaming/PelautJagoMesin/tree/9c760f8138bbafb530322453d7b6818c62370272",
+    "status": "legacy-preview-not-active-catalog",
+    "files": [
+      "shinko-gj-sim.html",
+      "shinko-gj.html",
+      "taiko-hd300b.html",
+      "mitsubishi-sjh.html",
+      "desmi-nslh.html",
+      "man-l2330h.html",
+      "tanabe-h74.html",
+      "alfa-laval-mab206s.html"
+    ]
+  }
+}

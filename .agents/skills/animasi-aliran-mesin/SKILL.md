@@ -20,7 +20,7 @@ bukti rute. Keindahan tidak boleh menambah jalur yang tidak terbukti.
 | Demo/uji | `.agents/skills/animasi-aliran-mesin/scripts/demo.html` | Halaman uji; `?routes=…&scope=…` memuat rute sungguhan, `?auto=2` langsung Start, `?xray` |
 | Perekam QA | `.agents/skills/animasi-aliran-mesin/scripts/capture_flow.py` | Rekam frame + lembar kontak + skor gerak + sampel runtime FLOW-ROUTING |
 | Palet media | `.agents/skills/animasi-aliran-mesin/references/palet-media.md` | Warna per media (keluarga ISO 14726) dan kecepatan visual |
-| Kontrak rute | `tools/gpt-production/FLOW-ROUTING.md` | Sumber kebenaran rute, arah, dan berkas review |
+| Kontrak rute | `tools/gpt-production/docs/FLOW-ROUTING.md` | Sumber kebenaran rute, arah, dan berkas review |
 | Animasi gerak mesin di Blender | `.agents/skills/blender-animasi-mesin/` | Piston, katup, poros, kamera tur; ekspor GLB beranimasi |
 
 three.js yang dipakai situs: `dist/assets/three.min.js` (r128, global `THREE`). Modul juga jalan di r150+.
@@ -87,8 +87,8 @@ three.js yang dipakai situs: `dist/assets/three.min.js` (r128, global `THREE`). 
   `gaya-efek.json`, lalu menyambungkan data mesin (rute, firing order, timing, kinematika).
   Perbaikan tampilan otomatis berlaku untuk semua mesin.
 - Nama fungsi dan opsi publik (create, start, pause, resume, setRpm, setXray, setCrank, update,
-  probe, links, phases) dijaga stabil oleh `tests/flow-ribbons.test.mjs` dan
-  `tests/combustion-glow.test.mjs`.
+  probe, links, phases) dijaga stabil oleh `tests/viewer/flow-ribbons.test.mjs` dan
+  `tests/viewer/combustion-glow.test.mjs`.
 
 ## Standar tampilan
 
@@ -96,7 +96,7 @@ three.js yang dipakai situs: `dist/assets/three.min.js` (r128, global `THREE`). 
 - Cairan: badan semi-transparan + kilau tepi + gelombang komet + gelembung. Gas: tanpa badan,
   gelombang tipis bercahaya (additive).
 - Kecepatan visual relatif: gas > air > bahan bakar > oli. Semua mengikuti rpm (`setRpm`).
-- Kontras di latar graphite Studio Gelap; jangan ubah tema workspace (lihat `docs/WORKSPACE_UI.md`).
+- Kontras di latar graphite Studio Gelap; jangan ubah tema workspace (lihat `docs/workspace/README.md`).
 - Tidak ada efek yang menyiratkan data resmi (angka tekanan/debit) tanpa sumber.
 - Pembakaran: api tidak melebihi bore, menyala hanya di ruang bakar, urutan dari dokumen. Pada putaran
   nyata api berkedip terlalu cepat untuk dibaca; tampilkan mode gerak lambat dengan label rpm tampilan.

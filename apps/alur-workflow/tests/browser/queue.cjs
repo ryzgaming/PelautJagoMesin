@@ -5,7 +5,7 @@ const {chromium}=require(process.env.QA_PLAYWRIGHT_MODULE||'playwright');
 const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto');
 const ORIGIN=process.env.QA_ORIGIN||'http://127.0.0.1:5194';
 const OUTPUT=path.resolve(__dirname,'../../../../qa');
-const tracked=['apps/alur-workflow/src/App.tsx','apps/alur-workflow/src/AgentStudio.tsx','apps/alur-workflow/src/api.ts','apps/alur-workflow/src/agent-studio.css','apps/alur-workflow/functions/api/agent-jobs.ts','apps/alur-workflow/public/runner.py','apps/alur-workflow/supabase/agent-jobs.sql'];
+const tracked=['apps/alur-workflow/src/App.tsx','apps/alur-workflow/src/features/agents/AgentStudio.tsx','apps/alur-workflow/src/api.ts','apps/alur-workflow/src/features/agents/agent-studio.css','apps/alur-workflow/functions/api/agent-jobs.ts','apps/alur-workflow/public/runner.py','apps/alur-workflow/supabase/agent-jobs.sql'];
 const hashes=()=>Object.fromEntries(tracked.map(f=>[f,crypto.createHash('sha256').update(fs.readFileSync(path.resolve(OUTPUT,'..',f))).digest('hex')]));
 const result={artifact_hashes:hashes(),scope:'Local browser against synthetic auth/queue fixtures; not production agent execution',checks:[],pageErrors:[],blockedExternal:[],requests:[]};
 const assert=(v,msg)=>{if(!v)throw Error(msg)};

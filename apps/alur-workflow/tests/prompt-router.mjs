@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {splitPrompt,routePrompt,promptWarnings} from '../src/prompt-router.ts';
-import {step,validate,execute,label,usesNotes} from '../src/flow.ts';
+import {splitPrompt,routePrompt,promptWarnings} from '../src/features/agents/prompt-router.ts';
+import {step,validate,execute,label,usesNotes} from '../src/features/workflow/flow.ts';
 
 const agentsIn = ['parts-inventory','modeling-3d','assembly-kinematics','simulator','diesel-specialist','component-writer','memory-knowledge'];
 function graph(prompt) {
@@ -62,7 +62,7 @@ test('Pembagi tugas tanpa agent tersambung diberi peringatan dan menolak dijalan
 });
 
 test('prompt besar (hingga 50.000 karakter) diterima, dibagikan, dan tetap cepat', async () => {
-  const {promptMax} = await import('../src/prompt-router.ts');
+  const {promptMax} = await import('../src/features/agents/prompt-router.ts');
   const lines = ['# Rencana produksi Caterpillar 3512C', 'Konteks:', 'Mesin induk kapal tunda, 16 silinder.',
     '1. Susun daftar komponen bertingkat dengan part number', '2. Buat model 3D blok silinder', '- Periksa firing order dan timing katup',
     '**Atur urutan bongkar pasang dan exploded view**', '```', 'Hitung pajak penjualan bulan ini'];
@@ -84,7 +84,7 @@ test('prompt besar (hingga 50.000 karakter) diterima, dibagikan, dan tetap cepat
 });
 
 test('tugas di atas batas dilaporkan sebagai tidak terbaca, bukan hilang diam-diam', async () => {
-  const {taskMax,droppedTasks,promptMax} = await import('../src/prompt-router.ts');
+  const {taskMax,droppedTasks,promptMax} = await import('../src/features/agents/prompt-router.ts');
   const lines = Array.from({length: taskMax + 12}, (_, i) => 'Model 3D no ' + (i + 1));
   const text = lines.join('\n');
   assert.equal(splitPrompt(text).length, taskMax);
@@ -98,7 +98,7 @@ test('tugas di atas batas dilaporkan sebagai tidak terbaca, bukan hilang diam-di
 });
 
 test('prompt 50.000 karakter dengan ratusan tugas pendek terbaca seluruhnya', async () => {
-  const {promptMax,droppedTasks} = await import('../src/prompt-router.ts');
+  const {promptMax,droppedTasks} = await import('../src/features/agents/prompt-router.ts');
   const kinds = ['Buat model 3D blok silinder varian ','Periksa firing order silinder ','Susun daftar komponen dengan part number '];
   let text = '', i = 0;
   while (text.length < promptMax - 200) text += kinds[i % 3] + (i++) + '\n';
@@ -135,7 +135,7 @@ test('kata yang hanya mirip awalannya tidak dianggap cocok ("complete" bukan "co
 });
 
 test('hasil uji memuat daftar lengkap tugas per agent untuk laporan', async () => {
-  const {reportMarkdown} = await import('../src/report.ts');
+  const {reportMarkdown} = await import('../src/features/workflow/report.ts');
   const prompt = 'Susun daftar komponen bertingkat dengan part number\nBuat model 3D blok silinder\nBuat model 3D kepala silinder\nHitung pajak penjualan bulan ini';
   const r = execute(graph(prompt), {nama:'',email:'',catatan:''});
   const model = r.assignments.find(a => a.id === 'modeling-3d');
@@ -149,7 +149,7 @@ test('hasil uji memuat daftar lengkap tugas per agent untuk laporan', async () =
 });
 
 test('kalimat larangan menjadi aturan umum, bukan tugas atau lowongan', async () => {
-  const {promptRules} = await import('../src/prompt-router.ts');
+  const {promptRules} = await import('../src/features/agents/prompt-router.ts');
   const text = 'Buat model 3D blok silinder\nJangan menghapus atau menimpa aturan yang telah tersedia.\nHindari bentuk generik';
   assert.deepEqual(splitPrompt(text), ['Buat model 3D blok silinder']);
   assert.deepEqual(promptRules(text), ['Jangan menghapus atau menimpa aturan yang telah tersedia','Hindari bentuk generik']);
@@ -159,7 +159,7 @@ test('kalimat larangan menjadi aturan umum, bukan tugas atau lowongan', async ()
 });
 
 test('brief produksi dari bagan memuat prompt, tugas berurutan, agent, aturan, dan lolos validasi', async () => {
-  const {buildBrief,validBrief,hasPrompt} = await import('../src/production-brief.ts');
+  const {buildBrief,validBrief,hasPrompt} = await import('../src/features/machines/production-brief.ts');
   const prompt = 'Susun daftar komponen bertingkat dengan part number\nBuat model 3D blok silinder\nJangan menebak part number\nHitung pajak penjualan bulan ini';
   const g = graph(prompt);
   assert.ok(hasPrompt(g));
@@ -178,7 +178,7 @@ test('brief produksi dari bagan memuat prompt, tugas berurutan, agent, aturan, d
 });
 
 test('brief memakai prompt yang sudah terisi ({nama}) sehingga urutan tugas tetap sesuai prompt', async () => {
-  const {buildBrief,validBrief,briefBytes,briefLimits,briefInfo} = await import('../src/production-brief.ts');
+  const {buildBrief,validBrief,briefBytes,briefLimits,briefInfo} = await import('../src/features/machines/production-brief.ts');
   const g = graph('Buat model 3D blok silinder {nama}\nSusun daftar komponen bertingkat {nama} dengan part number\nSimulasikan pompa bahan bakar');
   const r = execute(g, {nama:'Caterpillar 3512C',email:'',catatan:''});
   const b = buildBrief(g, r);

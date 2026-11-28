@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {directory,validServer} from '../src/directory.ts';
-import {initial,step,execute,validate} from '../src/flow.ts';
+import {directory,validServer} from '../src/features/workflow/directory.ts';
+import {initial,step,execute,validate} from '../src/features/workflow/flow.ts';
 
 const graph=(...kinds)=>{
   const g=initial();

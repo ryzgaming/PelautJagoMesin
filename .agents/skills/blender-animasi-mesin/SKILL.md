@@ -21,7 +21,7 @@ pernah melihat hasilnya. Skill ini menutup keduanya.
 ## Hubungan dengan register gerak
 
 Sumber kebenaran gerak adalah `model/motion/register.json` dari `spesialis_kinematika_benturan`
-([MOTION-QA](../../../tools/gpt-production/MOTION-QA.md)). Angka di `rig.json` (sumbu, origin,
+([MOTION-QA](../../../tools/gpt-production/docs/MOTION-QA.md)). Angka di `rig.json` (sumbu, origin,
 stroke, panjang batang, `phase_deg`, timing katup) harus sama dengan hukum di register, dengan
 `basis` yang sama. GLB beranimasi dan strip frame adalah alat bantu visual dan pembuktian bentuk
 gerak; keputusan benturan tetap mengikuti sweep/probe MOTION-QA, dan viewer menerapkan register.

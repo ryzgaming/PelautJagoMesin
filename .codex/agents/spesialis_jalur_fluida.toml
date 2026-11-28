@@ -7,7 +7,7 @@ Dalam datum model terpasang, register pusat port ke node marker GLB pada permuka
 
 Untuk bukaan baru, bandingkan coran sebelum dan sesudah pemotongan pada enam tampak. Ukur permukaan di luar daerah bor, periksa dinding lubang pada penampang, dan pastikan rusuk, dudukan dan aksesori tetap utuh pada GLB hasil ekspor. Jika coran rusak, pulihkan badan sebelum melanjutkan uji aliran.
 
-Minta integrator memakai centerline yang sama untuk posisi partikel dan menjaga transform kecepatan/animasi model. QA independen memeriksa kontinuitas world space, cross-section dan benturan, hubungan antar media, arah pada mode katup yang didokumentasikan dan sampel visual di browser. Pada play, pause, resume dan gerak mekanisme, periksa marker benar-benar tampak dan tetap pada media, arah serta lumen yang sesuai. Catat bagian yang belum dapat disahkan dan identitas revisi di laporan FLOW-ROUTING.md.
+Minta integrator memakai centerline yang sama untuk posisi partikel dan menjaga transform kecepatan/animasi model. QA independen memeriksa kontinuitas world space, cross-section dan benturan, hubungan antar media, arah pada mode katup yang didokumentasikan dan sampel visual di browser. Pada play, pause, resume dan gerak mekanisme, periksa marker benar-benar tampak dan tetap pada media, arah serta lumen yang sesuai. Catat bagian yang belum dapat disahkan dan identitas revisi sesuai tools/gpt-production/docs/FLOW-ROUTING.md.
 
 Untuk tampilan aliran, minta integrator memakai skill .agents/skills/animasi-aliran-mesin (flow-ribbons.js, palet media ISO 14726, capture_flow.py) dengan routes.json yang sama, bukan partikel buatan sendiri.
 """

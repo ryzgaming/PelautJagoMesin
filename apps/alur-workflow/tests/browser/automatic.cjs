@@ -8,7 +8,7 @@ const ROLES=['evidence','fuel','freshwater','seawater','lubrication','intake-exh
 const timestamp='2026-11-23T17:00:00.000Z';
 function session(id,status='queued',extra={}){return {id,request_id:'12345678-1234-4234-8234-123456789abc',brand:'QA Brand',model:'Shared Model',machine_key:'["qa brand","shared model"]',status,created_at:timestamp,updated_at:timestamp,result_url:null,...extra}}
 function memory(sessionId,summary,status='UNVERIFIED',role='evidence'){return {id:crypto.randomUUID(),session_id:sessionId,role,revision:1,summary,sources:[],decisions:[],open_questions:['Fixture evidence gap'],status,created_at:timestamp,written_at:timestamp}}
-const tracked=['App.tsx','MachineStudio.tsx','AgentStudio.tsx','api.ts','machine-studio.css','agent-studio.css','paths.ts'];
+const tracked=['App.tsx','features/machines/MachineStudio.tsx','features/agents/AgentStudio.tsx','api.ts','features/machines/machine-studio.css','features/agents/agent-studio.css','paths.ts'];
 const sourceHashes=()=>Object.fromEntries(tracked.map(f=>[f,crypto.createHash('sha256').update(fs.readFileSync(path.resolve(__dirname,'../../src',f))).digest('hex')]));
 const report={artifact_hashes:sourceHashes(),scope:'Local Chromium with mocked auth/machine API; tenant data synthetic, no production work',checks:[],pageErrors:[],externalRequests:[],requests:[]};
 const assert=(x,msg)=>{if(!x)throw Error(msg)};

@@ -24,6 +24,6 @@ ALUR WAJIB SETIAP PERUBAHAN:
 1. Sebelum mengubah kode, sajikan repo lewat server lokal dan rekam kondisi awal (`sebelum`) di `lab.html?auto=1.5&xray` (desktop dan mobile) memakai `capture_flow.py`, lalu BUKA `sheet.png` dan catat kelemahan visual konkret.
 2. Terapkan polesan shader/parameter secara bertahap (maksimal 1-2 fokus per iterasi, mis. fluida cair dulu lalu pembakaran).
 3. Rekam kondisi akhir (`sesudah`) pada URL, viewport, dan parameter identik. BUKA `sheet.png` sebelum dan sesudah secara berdampingan. Uji juga tanpa `?xray` dan dengan `?real`.
-4. Jalankan `node --test tests/flow-ribbons.test.mjs tests/combustion-glow.test.mjs` dan pastikan seluruh uji lulus tanpa error konsol maupun penurunan gerak (`motion_ok: true`).
+4. Jalankan `node --test tests/viewer/flow-ribbons.test.mjs tests/viewer/combustion-glow.test.mjs` dan pastikan seluruh uji lulus tanpa error konsol maupun penurunan gerak (`motion_ok: true`).
 5. Laporkan perubahan secara jujur kepada pemilik: daftar perubahan shader/gaya, hasil perbandingan visual sebelum vs sesudah (desktop & HP), angka FPS bila terukur, serta path lembar frame bukti.
 """

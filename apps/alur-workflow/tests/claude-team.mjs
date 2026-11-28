@@ -1,9 +1,9 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {claudeTeamGraph,claudeTeamId,claudeRoles,claudeTeamOrigin} from '../src/claude-team.ts';
-import {productionField} from '../src/production-machine.ts';
-import {divisionByKey} from '../src/organization.ts';
-import {validate,execute,singleField} from '../src/flow.ts';
+import {claudeTeamGraph,claudeTeamId,claudeRoles,claudeTeamOrigin} from '../src/features/agents/claude-team.ts';
+import {productionField} from '../src/features/machines/production-machine.ts';
+import {divisionByKey} from '../src/features/agents/organization.ts';
+import {validate,execute,singleField} from '../src/features/workflow/flow.ts';
 
 test('Tim produksi Claude: Koordinator membawahi 10 subagen dan laporan ke pemilik', () => {
   const g = claudeTeamGraph();

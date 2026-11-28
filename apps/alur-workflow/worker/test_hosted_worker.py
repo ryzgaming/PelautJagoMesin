@@ -86,6 +86,15 @@ class HostedWorkerTests(unittest.TestCase):
         data = json.loads(guide.read_text())
         self.assertIn("PROMPT-GPT.md", data)
         self.assertIn("QA", data["PROMPT-GPT.md"])
+        # The packet uses the same relative document paths as the active toolkit,
+        # so README/PROMPT links also resolve when read from production-guide.json.
+        toolkit_root = Path(worker.__file__).resolve().parents[3] / "tools/gpt-production"
+        for name in ("ROLE-PROMPTS.md", "SPECIALISTS.md", "FLOW-ROUTING.md", "MOTION-QA.md"):
+            key = f"docs/{name}"
+            self.assertEqual(data[key], (toolkit_root / key).read_text())
+            self.assertNotIn(name, data)
+        self.assertIn("](docs/ROLE-PROMPTS.md", data["README.md"])
+        self.assertIn("](../PROMPT-GPT.md)", data["docs/ROLE-PROMPTS.md"])
         specialists = json.loads(data["specialists.json"])
         self.assertIn("pendingin_penukar_panas", specialists)
         for profile in ["referensi_visual", "pemodel_eksterior", "qa_visual_viewer", "spesialis_jalur_fluida", "spesialis_kinematika_benturan",

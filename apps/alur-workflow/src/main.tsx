@@ -1,6 +1,6 @@
 import {createRoot} from "react-dom/client";
 import App from "./App";
-import Form from "./Form";
+import Form from "./features/workflow/Form";
 import {alurForm} from "./paths";
 import "./style.css";
 const params=new URLSearchParams(location.search);

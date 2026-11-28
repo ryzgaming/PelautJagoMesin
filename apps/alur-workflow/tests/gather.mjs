@@ -1,8 +1,8 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {step,validate,execute,label} from '../src/flow.ts';
-import {routerTargets} from '../src/prompt-router.ts';
-import {checklist,gathers} from '../src/gather.ts';
+import {step,validate,execute,label} from '../src/features/workflow/flow.ts';
+import {routerTargets} from '../src/features/agents/prompt-router.ts';
+import {checklist,gathers} from '../src/features/workflow/gather.ts';
 
 const agentsIn = ['parts-inventory','modeling-3d','diesel-specialist','component-writer'];
 const prompt = 'Susun daftar komponen bertingkat dengan part number\nBuat model 3D blok silinder\nPeriksa firing order dan timing katup';
@@ -76,8 +76,8 @@ test('daftar periksa Agent baru memakai tugas, kemampuan, dan aturan di kartunya
 });
 
 test('brief produksi membawa tugas Agen Produksi untuk peran QA pekerja', async () => {
-  const {buildBrief, validBrief} = await import('../src/production-brief.ts');
-  const {producerRule} = await import('../src/gather.ts');
+  const {buildBrief, validBrief} = await import('../src/features/machines/production-brief.ts');
+  const {producerRule} = await import('../src/features/workflow/gather.ts');
   const g = graph();
   const b = buildBrief(g, execute(g, {nama:'',email:'',catatan:''}));
   assert.equal(b.rules[0], producerRule);

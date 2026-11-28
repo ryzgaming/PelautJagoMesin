@@ -3,7 +3,7 @@ import {StreamableHTTPClientTransport} from "@modelcontextprotocol/sdk/client/st
 import {CfWorkerJsonSchemaValidator} from "@modelcontextprotocol/sdk/validation/cfworker-provider.js";
 import type {OAuthClientProvider} from "@modelcontextprotocol/sdk/client/auth.js";
 import type {OAuthClientInformationMixed,OAuthTokens} from "@modelcontextprotocol/sdk/shared/auth.js";
-import {validServer} from "./directory";
+import {validServer} from "./features/workflow/directory";
 
 let client:Client, transport:StreamableHTTPClientTransport, waitingForLogin=false;
 let endpoint:URL, token:string, provider:OAuthClientProvider|undefined;

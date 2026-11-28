@@ -32,6 +32,7 @@ class ToolkitTests(unittest.TestCase):
         job['schema_version'] = 1
         t.write_json(self.root / 'job.json', job)
         (self.root / t.assembly_scope.PLAN).unlink(missing_ok=True)
+        (self.root / t.flow_scope.PLAN).unlink(missing_ok=True)
         # Synthetic bytes test the legacy hash/report contract only.
         paths = ['model/exterior/exterior.glb', 'model/internal/internal.glb', 'review/index.html',
                  'model/datum.json', 'model/exterior/inventory.json', 'model/internal/inventory.json', 'doc/sources.json', 'qa/evidence.txt']

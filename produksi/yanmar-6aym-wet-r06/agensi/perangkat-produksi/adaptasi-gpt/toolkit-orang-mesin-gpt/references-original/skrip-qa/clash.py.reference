@@ -1,0 +1,25 @@
+import bpy, json, mathutils
+from mathutils.bvhtree import BVHTree
+bpy.ops.wm.open_mainfile(filepath='/tmp/claude-0/c3512/qa/scripts/combined.blend')
+O=[o for o in bpy.data.objects if o.type=='MESH']
+data={}
+for o in O:
+    M=o.matrix_world; vs=[M@v.co for v in o.data.vertices]
+    mn=mathutils.Vector([min(v[i] for v in vs) for i in range(3)]); mx=mathutils.Vector([max(v[i] for v in vs) for i in range(3)])
+    data[o.name]=(BVHTree.FromPolygons(vs,[tuple(p.vertices) for p in o.data.polygons]),mn,mx)
+ext=[n for n in data if n.startswith('EXT-')]; inn=[n for n in data if n.startswith('INT-')]
+res=[]
+for a in inn:
+    ta,amn,amx=data[a]
+    for b in ext:
+        tb,bmn,bmx=data[b]
+        if any(amx[i]<bmn[i] or bmx[i]<amn[i] for i in range(3)): continue
+        ov=ta.overlap(tb)
+        if ov: res.append((a,b,len(ov)))
+res.sort(key=lambda r:-r[2])
+import collections
+json.dump(res,open('/tmp/claude-0/c3512/qa/scripts/clash.json','w'))
+print('pairs',len(res))
+c=collections.Counter((r[0].split('-')[1],r[1].rsplit('-',1)[0] if r[1][-1].isdigit() and r[1][-2] in 'LR' else r[1]) for r in res)
+for k,v in c.most_common(40): print(k,v)
+print(res[:25])

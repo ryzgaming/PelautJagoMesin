@@ -1,0 +1,41 @@
+{
+  "revision": "r02",
+  "parent_revision": "r01",
+  "state": "private_draft_available",
+  "mode": "direct_private_draft",
+  "catalog_approved": false,
+  "roles": [
+    {
+      "id": "photos",
+      "scope": "photo match and cameras"
+    },
+    {
+      "id": "exterior",
+      "scope": "exterior and inventory"
+    },
+    {
+      "id": "integrator",
+      "scope": "viewer and browser test"
+    },
+    {
+      "id": "qa",
+      "scope": "independent geometry and likeness audit"
+    },
+    {
+      "id": "agent_rules",
+      "scope": "reusable agent definitions"
+    }
+  ],
+  "unchanged_internal_sha256": "11ea34ec436e43053f70f8e1162391669e377daebee501cba515dc218f388bf9",
+  "visibility": "owner_only",
+  "release_status": "draft",
+  "published": true,
+  "private_deployment_id": "appgdep_6b0a75ace16c81919cd8d9ce59041bd1",
+  "private_url": "https://yanmar-6aym-workspace.violetblackbird16.chatgpt.site/gpt-r02/",
+  "workflow_merge": "886ba1cf50819354195fb1341b1b3d8a0e7636bd",
+  "audit_status": "UNVERIFIED",
+  "comparison_folder": "qa/photo-match",
+  "qa_revision_folder": "qa/r02",
+  "browser_status": "UNVERIFIED",
+  "exterior_sha256": "7f4eab14803a9b0ee1671b346985f31f70c6248e9a41f6d51104257118106ed5"
+}

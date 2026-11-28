@@ -1,0 +1,3843 @@
+{
+ "model": "Caterpillar 3512C HD marine propulsion - eksterior",
+ "sistem_koordinat": "datum.json (m, +Y atas, +X depan, +Z kanan, asal sumbu crank di muka belakang blok)",
+ "segitiga_total": 164288,
+ "objek_mesh": 143,
+ "bank_offset_kiri_m": 0.065,
+ "item": [
+  {
+   "id": "EXT-REL-R",
+   "nama": "Rel dudukan (mounting rail) kanan",
+   "rakitan": "REL",
+   "jumlah": 1,
+   "status": "ESTIMATED",
+   "sumber": "D01 hlm. 1 gambar Dimensions tampak Right Side (skala 3.107 mm/px, datum.json); D01 hlm. 1 gambar Dimensions tampak Front (datum.json); D02 hlm. 1 render 3D samping kanan dan depan (img/side-1.png, img/front-1.png)",
+   "ukuran_utama_m": {
+    "dx": 2.2,
+    "dy": 0.208,
+    "dz": 0.212
+   },
+   "bbox_datum_m": {
+    "min": [
+     -0.295,
+     -0.528,
+     0.389
+    ],
+    "max": [
+     1.905,
+     -0.32,
+     0.601
+    ]
+   },
+   "catatan": "x -0.295..1.905, y -0.528..-0.32, z luar 0.589 (datum.mounting_feet); penampang kanal C dan tebal pelat ILLUSTRATIVE"
+  },
+  {
+   "id": "EXT-BRAKET-R",
+   "nama": "Braket dudukan blok ke rel kanan (4 buah)",
+   "rakitan": "REL",
+   "jumlah": 4,
+   "status": "ILLUSTRATIVE",
+   "sumber": "D02 hlm. 1 render 3D samping kanan dan depan (img/side-1.png, img/front-1.png) (tiang penghubung terlihat di atas rel)",
+   "ukuran_utama_m": {
+    "dx": 1.81,
+    "dy": 0.07,
+    "dz": 0.2
+   },
+   "bbox_datum_m": {
+    "min": [
+     -0.01,
+     -0.325,
+     0.4
+    ],
+    "max": [
+     1.8,
+     -0.255,
+     0.6
+    ]
+   },
+   "catatan": "posisi x mengikuti kelompok baut rel; bentuk ILLUSTRATIVE"
+  },
+  {
+   "id": "EXT-REL-L",
+   "nama": "Rel dudukan (mounting rail) kiri",
+   "rakitan": "REL",
+   "jumlah": 1,
+   "status": "ESTIMATED",
+   "sumber": "D01 hlm. 1 gambar Dimensions tampak Right Side (skala 3.107 mm/px, datum.json); D01 hlm. 1 gambar Dimensions tampak Front (datum.json); D02 hlm. 1 render 3D samping kanan dan depan (img/side-1.png, img/front-1.png)",
+   "ukuran_utama_m": {
+    "dx": 2.2,
+    "dy": 0.208,
+    "dz": 0.212
+   },
+   "bbox_datum_m": {
+    "min": [
+     -0.295,
+     -0.528,
+     -0.601
+    ],
+    "max": [
+     1.905,
+     -0.32,
+     -0.389
+    ]
+   },
+   "catatan": "x -0.295..1.905, y -0.528..-0.32, z luar 0.589 (datum.mounting_feet); penampang kanal C dan tebal pelat ILLUSTRATIVE"
+  },
+  {
+   "id": "EXT-BRAKET-L",
+   "nama": "Braket dudukan blok ke rel kiri (4 buah)",
+   "rakitan": "REL",
+   "jumlah": 4,
+   "status": "ILLUSTRATIVE",
+   "sumber": "D02 hlm. 1 render 3D samping kanan dan depan (img/side-1.png, img/front-1.png) (tiang penghubung terlihat di atas rel)",
+   "ukuran_utama_m": {
+    "dx": 1.81,
+    "dy": 0.07,
+    "dz": 0.2
+   },
+   "bbox_datum_m": {
+    "min": [
+     -0.01,
+     -0.325,
+     -0.6
+    ],
+    "max": [
+     1.8,
+     -0.255,
+     -0.4
+    ]
+   },
+   "catatan": "posisi x mengikuti kelompok baut rel; bentuk ILLUSTRATIVE"
+  },
+  {
+   "id": "EXT-OILPAN-01",
+   "nama": "Oil pan (sump) dengan flens",
+   "rakitan": "OILPAN",
+   "jumlah": 1,
+   "status": "ESTIMATED",
+   "sumber": "D01 hlm. 1 gambar Dimensions tampak Right Side (skala 3.107 mm/px, datum.json); D01 hlm. 1 gambar Dimensions tampak Front (datum.json)",
+   "ukuran_utama_m": {
+    "dx": 1.916,
+    "dy": 0.553,
+    "dz": 0.98
+   },
+   "bbox_datum_m": {
+    "min": [
+     -0.025,
+     -0.805,
+     -0.49
+    ],
+    "max": [
+     1.891,
+     -0.252,
+     0.49
+    ]
+   },
+   "catatan": "dasar y -0.805, flens -0.264, sump bawah x -0.028..1.771, lebar +-0.39 (datum.oil_pan); tebal flens dan jarak baut ILLUSTRATIVE"
+  },
+  {
+   "id": "EXT-BLOK-01",
+   "nama": "Blok silinder V12 (crankcase + deck V 60 derajat) dengan rusuk coran",
+   "rakitan": "BLOK",
+   "jumlah": 1,
+   "status": "ESTIMATED",
+   "sumber": "D01 hlm. 1 gambar Dimensions tampak Right Side (skala 3.107 mm/px, datum.json); datum.block (x 0..1.883, V 60 INFERRED, deck dari pita kepala silinder)",
+   "ukuran_utama_m": {
+    "dx": 1.883,
+    "dy": 0.876,
+    "dz": 0.998
+   },
+   "bbox_datum_m": {
+    "min": [
+     0.0,
+     -0.264,
+     -0.499
+    ],
+    "max": [
+     1.883,
+     0.612,
+     0.499
+    ]
+   },
+   "catatan": "lebar crankcase +-0.47 dan profil lembah V ESTIMATED/ILLUSTRATIVE (datum.block.width UNKNOWN)"
+  },
+  {
+   "id": "EXT-PINTU-R1",
+   "nama": "Pintu inspeksi crankcase (crankcase door) silinder 1",
+   "rakitan": "BLOK",
+   "jumlah": 1,
+   "status": "ESTIMATED",
+   "sumber": "D02 hlm. 1 render 3D samping kanan dan depan (img/side-1.png, img/front-1.png); P03",
+   "ukuran_utama_m": {
+    "dx": 0.21,
+    "dy": 0.16,
+    "dz": 0.026
+   },
+   "bbox_datum_m": {
+    "min": [
+     1.458,
+     -0.05,
+     0.47
+    ],
+    "max": [
+     1.668,
+     0.11,
+     0.496
+    ]
+   },
+   "catatan": "satu per silinder per sisi; ukuran 0.20 x 0.15 m ESTIMATED dari render D02; 6 baut ILLUSTRATIVE"
+  },
+  {
+   "id": "EXT-PINTU-R2",
+   "nama": "Pintu inspeksi crankcase (crankcase door) silinder 3",
+   "rakitan": "BLOK",
+   "jumlah": 1,
+   "status": "ESTIMATED",
+   "sumber": "D02 hlm. 1 render 3D samping kanan dan depan (img/side-1.png, img/front-1.png); P03",
+   "ukuran_utama_m": {
+    "dx": 0.21,
+    "dy": 0.16,
+    "dz": 0.026
+   },
+   "bbox_datum_m": {
+    "min": [
+     1.188,
+     -0.05,
+     0.47
+    ],
+    "max": [
+     1.398,
+     0.11,
+     0.496
+    ]
+   },
+   "catatan": "satu per silinder per sisi; ukuran 0.20 x 0.15 m ESTIMATED dari render D02; 6 baut ILLUSTRATIVE"
+  },
+  {
+   "id": "EXT-PINTU-R3",
+   "nama": "Pintu inspeksi crankcase (crankcase door) silinder 5",
+   "rakitan": "BLOK",
+   "jumlah": 1,
+   "status": "ESTIMATED",
+   "sumber": "D02 hlm. 1 render 3D samping kanan dan depan (img/side-1.png, img/front-1.png); P03",
+   "ukuran_utama_m": {
+    "dx": 0.21,
+    "dy": 0.16,
+    "dz": 0.026
+   },
+   "bbox_datum_m": {
+    "min": [
+     0.918,
+     -0.05,
+     0.47
+    ],
+    "max": [
+     1.128,
+     0.11,
+     0.496
+    ]
+   },
+   "catatan": "satu per silinder per sisi; ukuran 0.20 x 0.15 m ESTIMATED dari render D02; 6 baut ILLUSTRATIVE"
+  },
+  {
+   "id": "EXT-PINTU-R4",
+   "nama": "Pintu inspeksi crankcase (crankcase door) silinder 7",
+   "rakitan": "BLOK",
+   "jumlah": 1,
+   "status": "ESTIMATED",
+   "sumber": "D02 hlm. 1 render 3D samping kanan dan depan (img/side-1.png, img/front-1.png); P03",
+   "ukuran_utama_m": {
+    "dx": 0.21,
+    "dy": 0.16,
+    "dz": 0.026
+   },
+   "bbox_datum_m": {
+    "min": [
+     0.648,
+     -0.05,
+     0.47
+    ],
+    "max": [
+     0.858,
+     0.11,
+     0.496
+    ]
+   },
+   "catatan": "satu per silinder per sisi; ukuran 0.20 x 0.15 m ESTIMATED dari render D02; 6 baut ILLUSTRATIVE"
+  },
+  {
+   "id": "EXT-PINTU-R5",
+   "nama": "Pintu inspeksi crankcase (crankcase door) silinder 9",
+   "rakitan": "BLOK",
+   "jumlah": 1,
+   "status": "ESTIMATED",
+   "sumber": "D02 hlm. 1 render 3D samping kanan dan depan (img/side-1.png, img/front-1.png); P03",
+   "ukuran_utama_m": {
+    "dx": 0.21,
+    "dy": 0.16,
+    "dz": 0.026
+   },
+   "bbox_datum_m": {
+    "min": [
+     0.378,
+     -0.05,
+     0.47
+    ],
+    "max": [
+     0.588,
+     0.11,
+     0.496
+    ]
+   },
+   "catatan": "satu per silinder per sisi; ukuran 0.20 x 0.15 m ESTIMATED dari render D02; 6 baut ILLUSTRATIVE"
+  },
+  {
+   "id": "EXT-PINTU-R6",
+   "nama": "Pintu inspeksi crankcase (crankcase door) silinder 11",
+   "rakitan": "BLOK",
+   "jumlah": 1,
+   "status": "ESTIMATED",
+   "sumber": "D02 hlm. 1 render 3D samping kanan dan depan (img/side-1.png, img/front-1.png); P03",
+   "ukuran_utama_m": {
+    "dx": 0.21,
+    "dy": 0.16,
+    "dz": 0.026
+   },
+   "bbox_datum_m": {
+    "min": [
+     0.108,
+     -0.05,
+     0.47
+    ],
+    "max": [
+     0.318,
+     0.11,
+     0.496
+    ]
+   },
+   "catatan": "satu per silinder per sisi; ukuran 0.20 x 0.15 m ESTIMATED dari render D02; 6 baut ILLUSTRATIVE"
+  },
+  {
+   "id": "EXT-PINTU-L1",
+   "nama": "Pintu inspeksi crankcase (crankcase door) silinder 2",
+   "rakitan": "BLOK",
+   "jumlah": 1,
+   "status": "ILLUSTRATIVE",
+   "sumber": "P11 (genset 3512C, tutup inspeksi persegi sisi kiri)",
+   "ukuran_utama_m": {
+    "dx": 0.21,
+    "dy": 0.16,
+    "dz": 0.026
+   },
+   "bbox_datum_m": {
+    "min": [
+     1.393,
+     -0.05,
+     -0.496
+    ],
+    "max": [
+     1.603,
+     0.11,
+     -0.47
+    ]
+   },
+   "catatan": "satu per silinder per sisi; ukuran 0.20 x 0.15 m ESTIMATED dari render D02; 6 baut ILLUSTRATIVE; keberadaan OBSERVED (P11); posisi X: bank kiri digeser -0.065 m di X (offset bank kiri ILLUSTRATIVE, disamakan dengan Internal Modeler: dua connecting rod berdampingan per crankpin pada V12; nilai tidak tertulis di dokumen)"
+  },
+  {
+   "id": "EXT-PINTU-L2",
+   "nama": "Pintu inspeksi crankcase (crankcase door) silinder 4",
+   "rakitan": "BLOK",
+   "jumlah": 1,
+   "status": "ILLUSTRATIVE",
+   "sumber": "P11 (genset 3512C, tutup inspeksi persegi sisi kiri)",
+   "ukuran_utama_m": {
+    "dx": 0.21,
+    "dy": 0.16,
+    "dz": 0.026
+   },
+   "bbox_datum_m": {
+    "min": [
+     1.123,
+     -0.05,
+     -0.496
+    ],
+    "max": [
+     1.333,
+     0.11,
+     -0.47
+    ]
+   },
+   "catatan": "satu per silinder per sisi; ukuran 0.20 x 0.15 m ESTIMATED dari render D02; 6 baut ILLUSTRATIVE; keberadaan OBSERVED (P11); posisi X: bank kiri digeser -0.065 m di X (offset bank kiri ILLUSTRATIVE, disamakan dengan Internal Modeler: dua connecting rod berdampingan per crankpin pada V12; nilai tidak tertulis di dokumen)"
+  },
+  {
+   "id": "EXT-PINTU-L3",
+   "nama": "Pintu inspeksi crankcase (crankcase door) silinder 6",
+   "rakitan": "BLOK",
+   "jumlah": 1,
+   "status": "ILLUSTRATIVE",
+   "sumber": "P11 (genset 3512C, tutup inspeksi persegi sisi kiri)",
+   "ukuran_utama_m": {
+    "dx": 0.21,
+    "dy": 0.16,
+    "dz": 0.026
+   },
+   "bbox_datum_m": {
+    "min": [
+     0.853,
+     -0.05,
+     -0.496
+    ],
+    "max": [
+     1.063,
+     0.11,
+     -0.47
+    ]
+   },
+   "catatan": "satu per silinder per sisi; ukuran 0.20 x 0.15 m ESTIMATED dari render D02; 6 baut ILLUSTRATIVE; keberadaan OBSERVED (P11); posisi X: bank kiri digeser -0.065 m di X (offset bank kiri ILLUSTRATIVE, disamakan dengan Internal Modeler: dua connecting rod berdampingan per crankpin pada V12; nilai tidak tertulis di dokumen)"
+  },
+  {
+   "id": "EXT-PINTU-L4",
+   "nama": "Pintu inspeksi crankcase (crankcase door) silinder 8",
+   "rakitan": "BLOK",
+   "jumlah": 1,
+   "status": "ILLUSTRATIVE",
+   "sumber": "P11 (genset 3512C, tutup inspeksi persegi sisi kiri)",
+   "ukuran_utama_m": {
+    "dx": 0.21,
+    "dy": 0.16,
+    "dz": 0.026
+   },
+   "bbox_datum_m": {
+    "min": [
+     0.583,
+     -0.05,
+     -0.496
+    ],
+    "max": [
+     0.793,
+     0.11,
+     -0.47
+    ]
+   },
+   "catatan": "satu per silinder per sisi; ukuran 0.20 x 0.15 m ESTIMATED dari render D02; 6 baut ILLUSTRATIVE; keberadaan OBSERVED (P11); posisi X: bank kiri digeser -0.065 m di X (offset bank kiri ILLUSTRATIVE, disamakan dengan Internal Modeler: dua connecting rod berdampingan per crankpin pada V12; nilai tidak tertulis di dokumen)"
+  },
+  {
+   "id": "EXT-PINTU-L5",
+   "nama": "Pintu inspeksi crankcase (crankcase door) silinder 10",
+   "rakitan": "BLOK",
+   "jumlah": 1,
+   "status": "ILLUSTRATIVE",
+   "sumber": "P11 (genset 3512C, tutup inspeksi persegi sisi kiri)",
+   "ukuran_utama_m": {
+    "dx": 0.21,
+    "dy": 0.16,
+    "dz": 0.026
+   },
+   "bbox_datum_m": {
+    "min": [
+     0.313,
+     -0.05,
+     -0.496
+    ],
+    "max": [
+     0.523,
+     0.11,
+     -0.47
+    ]
+   },
+   "catatan": "satu per silinder per sisi; ukuran 0.20 x 0.15 m ESTIMATED dari render D02; 6 baut ILLUSTRATIVE; keberadaan OBSERVED (P11); posisi X: bank kiri digeser -0.065 m di X (offset bank kiri ILLUSTRATIVE, disamakan dengan Internal Modeler: dua connecting rod berdampingan per crankpin pada V12; nilai tidak tertulis di dokumen)"
+  },
+  {
+   "id": "EXT-PINTU-L6",
+   "nama": "Pintu inspeksi crankcase (crankcase door) silinder 12",
+   "rakitan": "BLOK",
+   "jumlah": 1,
+   "status": "ILLUSTRATIVE",
+   "sumber": "P11 (genset 3512C, tutup inspeksi persegi sisi kiri)",
+   "ukuran_utama_m": {
+    "dx": 0.21,
+    "dy": 0.16,
+    "dz": 0.026
+   },
+   "bbox_datum_m": {
+    "min": [
+     0.043,
+     -0.05,
+     -0.496
+    ],
+    "max": [
+     0.253,
+     0.11,
+     -0.47
+    ]
+   },
+   "catatan": "satu per silinder per sisi; ukuran 0.20 x 0.15 m ESTIMATED dari render D02; 6 baut ILLUSTRATIVE; keberadaan OBSERVED (P11); posisi X: bank kiri digeser -0.065 m di X (offset bank kiri ILLUSTRATIVE, disamakan dengan Internal Modeler: dua connecting rod berdampingan per crankpin pada V12; nilai tidak tertulis di dokumen)"
+  },
+  {
+   "id": "EXT-KEPALA-R1",
+   "nama": "Kepala silinder (cylinder head) individual silinder 1",
+   "rakitan": "KEPALA",
+   "jumlah": 1,
+   "status": "ESTIMATED",
+   "sumber": "D01 hlm. 1 gambar Dimensions tampak Right Side (skala 3.107 mm/px, datum.json) (pita kepala+tutup y 0.55..0.87); datum.cylinder_heads",
+   "ukuran_utama_m": {
+    "dx": 0.266,
+    "dy": 0.302,
+    "dz": 0.345
+   },
+   "bbox_datum_m": {
+    "min": [
+     1.43,
+     0.465,
+     0.183
+    ],
+    "max": [
+     1.696,
+     0.767,
+     0.528
+    ]
+   },
+   "catatan": "kepala individual per silinder INFERRED; tinggi 0.16 m dan lebar 0.30 m ESTIMATED; bentuk rinci (tepi miring, 4 boss baut, rusuk, flens port exhaust, boss jumper air) ILLUSTRATIVE (QA-06)"
+  },
+  {
+   "id": "EXT-TUTUPKATUP-R1",
+   "nama": "Tutup katup (valve cover) silinder 1",
+   "rakitan": "KEPALA",
+   "jumlah": 1,
+   "status": "OBSERVED",
+   "sumber": "P12, P19 (tutup per silinder bertepi miring); D02 hlm. 1 render; D01 hlm. 1 gambar Dimensions tampak Right Side (skala 3.107 mm/px, datum.json)",
+   "ukuran_utama_m": {
+    "dx": 0.226,
+    "dy": 0.221,
+    "dz": 0.223
+   },
+   "bbox_datum_m": {
+    "min": [
+     1.45,
+     0.608,
+     0.333
+    ],
+    "max": [
+     1.676,
+     0.829,
+     0.557
+    ]
+   },
+   "catatan": "pusat x dari datum.block.cylinders; panjang kubah 0.186 m (datum.cylinder_heads.valve_cover_length_x) ESTIMATED"
+  },
+  {
+   "id": "EXT-KEPALA-R2",
+   "nama": "Kepala silinder (cylinder head) individual silinder 3",
+   "rakitan": "KEPALA",
+   "jumlah": 1,
+   "status": "ESTIMATED",
+   "sumber": "D01 hlm. 1 gambar Dimensions tampak Right Side (skala 3.107 mm/px, datum.json) (pita kepala+tutup y 0.55..0.87); datum.cylinder_heads",
+   "ukuran_utama_m": {
+    "dx": 0.266,
+    "dy": 0.302,
+    "dz": 0.345
+   },
+   "bbox_datum_m": {
+    "min": [
+     1.16,
+     0.465,
+     0.183
+    ],
+    "max": [
+     1.426,
+     0.767,
+     0.528
+    ]
+   },
+   "catatan": "kepala individual per silinder INFERRED; tinggi 0.16 m dan lebar 0.30 m ESTIMATED; bentuk rinci (tepi miring, 4 boss baut, rusuk, flens port exhaust, boss jumper air) ILLUSTRATIVE (QA-06)"
+  },
+  {
+   "id": "EXT-TUTUPKATUP-R2",
+   "nama": "Tutup katup (valve cover) silinder 3",
+   "rakitan": "KEPALA",
+   "jumlah": 1,
+   "status": "OBSERVED",
+   "sumber": "P12, P19 (tutup per silinder bertepi miring); D02 hlm. 1 render; D01 hlm. 1 gambar Dimensions tampak Right Side (skala 3.107 mm/px, datum.json)",
+   "ukuran_utama_m": {
+    "dx": 0.226,
+    "dy": 0.221,
+    "dz": 0.223
+   },
+   "bbox_datum_m": {
+    "min": [
+     1.18,
+     0.608,
+     0.333
+    ],
+    "max": [
+     1.406,
+     0.829,
+     0.557
+    ]
+   },
+   "catatan": "pusat x dari datum.block.cylinders; panjang kubah 0.186 m (datum.cylinder_heads.valve_cover_length_x) ESTIMATED"
+  },
+  {
+   "id": "EXT-KEPALA-R3",
+   "nama": "Kepala silinder (cylinder head) individual silinder 5",
+   "rakitan": "KEPALA",
+   "jumlah": 1,
+   "status": "ESTIMATED",
+   "sumber": "D01 hlm. 1 gambar Dimensions tampak Right Side (skala 3.107 mm/px, datum.json) (pita kepala+tutup y 0.55..0.87); datum.cylinder_heads",
+   "ukuran_utama_m": {
+    "dx": 0.266,
+    "dy": 0.302,
+    "dz": 0.345
+   },
+   "bbox_datum_m": {
+    "min": [
+     0.89,
+     0.465,
+     0.183
+    ],
+    "max": [
+     1.156,
+     0.767,
+     0.528
+    ]
+   },
+   "catatan": "kepala individual per silinder INFERRED; tinggi 0.16 m dan lebar 0.30 m ESTIMATED; bentuk rinci (tepi miring, 4 boss baut, rusuk, flens port exhaust, boss jumper air) ILLUSTRATIVE (QA-06)"
+  },
+  {
+   "id": "EXT-TUTUPKATUP-R3",
+   "nama": "Tutup katup (valve cover) silinder 5",
+   "rakitan": "KEPALA",
+   "jumlah": 1,
+   "status": "OBSERVED",
+   "sumber": "P12, P19 (tutup per silinder bertepi miring); D02 hlm. 1 render; D01 hlm. 1 gambar Dimensions tampak Right Side (skala 3.107 mm/px, datum.json)",
+   "ukuran_utama_m": {
+    "dx": 0.226,
+    "dy": 0.221,
+    "dz": 0.223
+   },
+   "bbox_datum_m": {
+    "min": [
+     0.91,
+     0.608,
+     0.333
+    ],
+    "max": [
+     1.136,
+     0.829,
+     0.557
+    ]
+   },
+   "catatan": "pusat x dari datum.block.cylinders; panjang kubah 0.186 m (datum.cylinder_heads.valve_cover_length_x) ESTIMATED"
+  },
+  {
+   "id": "EXT-KEPALA-R4",
+   "nama": "Kepala silinder (cylinder head) individual silinder 7",
+   "rakitan": "KEPALA",
+   "jumlah": 1,
+   "status": "ESTIMATED",
+   "sumber": "D01 hlm. 1 gambar Dimensions tampak Right Side (skala 3.107 mm/px, datum.json) (pita kepala+tutup y 0.55..0.87); datum.cylinder_heads",
+   "ukuran_utama_m": {
+    "dx": 0.266,
+    "dy": 0.302,
+    "dz": 0.345
+   },
+   "bbox_datum_m": {
+    "min": [
+     0.62,
+     0.465,
+     0.183
+    ],
+    "max": [
+     0.886,
+     0.767,
+     0.528
+    ]
+   },
+   "catatan": "kepala individual per silinder INFERRED; tinggi 0.16 m dan lebar 0.30 m ESTIMATED; bentuk rinci (tepi miring, 4 boss baut, rusuk, flens port exhaust, boss jumper air) ILLUSTRATIVE (QA-06)"
+  },
+  {
+   "id": "EXT-TUTUPKATUP-R4",
+   "nama": "Tutup katup (valve cover) silinder 7",
+   "rakitan": "KEPALA",
+   "jumlah": 1,
+   "status": "OBSERVED",
+   "sumber": "P12, P19 (tutup per silinder bertepi miring); D02 hlm. 1 render; D01 hlm. 1 gambar Dimensions tampak Right Side (skala 3.107 mm/px, datum.json)",
+   "ukuran_utama_m": {
+    "dx": 0.226,
+    "dy": 0.221,
+    "dz": 0.223
+   },
+   "bbox_datum_m": {
+    "min": [
+     0.64,
+     0.608,
+     0.333
+    ],
+    "max": [
+     0.866,
+     0.829,
+     0.557
+    ]
+   },
+   "catatan": "pusat x dari datum.block.cylinders; panjang kubah 0.186 m (datum.cylinder_heads.valve_cover_length_x) ESTIMATED"
+  },
+  {
+   "id": "EXT-KEPALA-R5",
+   "nama": "Kepala silinder (cylinder head) individual silinder 9",
+   "rakitan": "KEPALA",
+   "jumlah": 1,
+   "status": "ESTIMATED",
+   "sumber": "D01 hlm. 1 gambar Dimensions tampak Right Side (skala 3.107 mm/px, datum.json) (pita kepala+tutup y 0.55..0.87); datum.cylinder_heads",
+   "ukuran_utama_m": {
+    "dx": 0.266,
+    "dy": 0.302,
+    "dz": 0.345
+   },
+   "bbox_datum_m": {
+    "min": [
+     0.35,
+     0.465,
+     0.183
+    ],
+    "max": [
+     0.616,
+     0.767,
+     0.528
+    ]
+   },
+   "catatan": "kepala individual per silinder INFERRED; tinggi 0.16 m dan lebar 0.30 m ESTIMATED; bentuk rinci (tepi miring, 4 boss baut, rusuk, flens port exhaust, boss jumper air) ILLUSTRATIVE (QA-06)"
+  },
+  {
+   "id": "EXT-TUTUPKATUP-R5",
+   "nama": "Tutup katup (valve cover) silinder 9",
+   "rakitan": "KEPALA",
+   "jumlah": 1,
+   "status": "OBSERVED",
+   "sumber": "P12, P19 (tutup per silinder bertepi miring); D02 hlm. 1 render; D01 hlm. 1 gambar Dimensions tampak Right Side (skala 3.107 mm/px, datum.json)",
+   "ukuran_utama_m": {
+    "dx": 0.226,
+    "dy": 0.221,
+    "dz": 0.223
+   },
+   "bbox_datum_m": {
+    "min": [
+     0.37,
+     0.608,
+     0.333
+    ],
+    "max": [
+     0.596,
+     0.829,
+     0.557
+    ]
+   },
+   "catatan": "pusat x dari datum.block.cylinders; panjang kubah 0.186 m (datum.cylinder_heads.valve_cover_length_x) ESTIMATED"
+  },
+  {
+   "id": "EXT-KEPALA-R6",
+   "nama": "Kepala silinder (cylinder head) individual silinder 11",
+   "rakitan": "KEPALA",
+   "jumlah": 1,
+   "status": "ESTIMATED",
+   "sumber": "D01 hlm. 1 gambar Dimensions tampak Right Side (skala 3.107 mm/px, datum.json) (pita kepala+tutup y 0.55..0.87); datum.cylinder_heads",
+   "ukuran_utama_m": {
+    "dx": 0.266,
+    "dy": 0.302,
+    "dz": 0.345
+   },
+   "bbox_datum_m": {
+    "min": [
+     0.08,
+     0.465,
+     0.183
+    ],
+    "max": [
+     0.346,
+     0.767,
+     0.528
+    ]
+   },
+   "catatan": "kepala individual per silinder INFERRED; tinggi 0.16 m dan lebar 0.30 m ESTIMATED; bentuk rinci (tepi miring, 4 boss baut, rusuk, flens port exhaust, boss jumper air) ILLUSTRATIVE (QA-06)"
+  },
+  {
+   "id": "EXT-TUTUPKATUP-R6",
+   "nama": "Tutup katup (valve cover) silinder 11",
+   "rakitan": "KEPALA",
+   "jumlah": 1,
+   "status": "OBSERVED",
+   "sumber": "P12, P19 (tutup per silinder bertepi miring); D02 hlm. 1 render; D01 hlm. 1 gambar Dimensions tampak Right Side (skala 3.107 mm/px, datum.json)",
+   "ukuran_utama_m": {
+    "dx": 0.226,
+    "dy": 0.221,
+    "dz": 0.223
+   },
+   "bbox_datum_m": {
+    "min": [
+     0.1,
+     0.608,
+     0.333
+    ],
+    "max": [
+     0.326,
+     0.829,
+     0.557
+    ]
+   },
+   "catatan": "pusat x dari datum.block.cylinders; panjang kubah 0.186 m (datum.cylinder_heads.valve_cover_length_x) ESTIMATED"
+  },
+  {
+   "id": "EXT-KEPALA-L1",
+   "nama": "Kepala silinder (cylinder head) individual silinder 2",
+   "rakitan": "KEPALA",
+   "jumlah": 1,
+   "status": "ILLUSTRATIVE",
+   "sumber": "D01 hlm. 1 gambar Dimensions tampak Right Side (skala 3.107 mm/px, datum.json) (pita kepala+tutup y 0.55..0.87); datum.cylinder_heads",
+   "ukuran_utama_m": {
+    "dx": 0.266,
+    "dy": 0.302,
+    "dz": 0.345
+   },
+   "bbox_datum_m": {
+    "min": [
+     1.365,
+     0.465,
+     -0.528
+    ],
+    "max": [
+     1.631,
+     0.767,
+     -0.183
+    ]
+   },
+   "catatan": "kepala individual per silinder INFERRED; tinggi 0.16 m dan lebar 0.30 m ESTIMATED; bentuk rinci (tepi miring, 4 boss baut, rusuk, flens port exhaust, boss jumper air) ILLUSTRATIVE (QA-06); posisi X: bank kiri digeser -0.065 m di X (offset bank kiri ILLUSTRATIVE, disamakan dengan Internal Modeler: dua connecting rod berdampingan per crankpin pada V12; nilai tidak tertulis di dokumen)"
+  },
+  {
+   "id": "EXT-TUTUPKATUP-L1",
+   "nama": "Tutup katup (valve cover) silinder 2",
+   "rakitan": "KEPALA",
+   "jumlah": 1,
+   "status": "ILLUSTRATIVE",
+   "sumber": "P12, P19 (tutup per silinder bertepi miring); D02 hlm. 1 render; D01 hlm. 1 gambar Dimensions tampak Right Side (skala 3.107 mm/px, datum.json); P26, P11 (bank kiri, genset)",
+   "ukuran_utama_m": {
+    "dx": 0.226,
+    "dy": 0.221,
+    "dz": 0.223
+   },
+   "bbox_datum_m": {
+    "min": [
+     1.385,
+     0.608,
+     -0.557
+    ],
+    "max": [
+     1.611,
+     0.829,
+     -0.333
+    ]
+   },
+   "catatan": "pusat x dari datum.block.cylinders; panjang kubah 0.186 m (datum.cylinder_heads.valve_cover_length_x) ESTIMATED; bentuk OBSERVED (P26); posisi X: bank kiri digeser -0.065 m di X (offset bank kiri ILLUSTRATIVE, disamakan dengan Internal Modeler: dua connecting rod berdampingan per crankpin pada V12; nilai tidak tertulis di dokumen)"
+  },
+  {
+   "id": "EXT-KEPALA-L2",
+   "nama": "Kepala silinder (cylinder head) individual silinder 4",
+   "rakitan": "KEPALA",
+   "jumlah": 1,
+   "status": "ILLUSTRATIVE",
+   "sumber": "D01 hlm. 1 gambar Dimensions tampak Right Side (skala 3.107 mm/px, datum.json) (pita kepala+tutup y 0.55..0.87); datum.cylinder_heads",
+   "ukuran_utama_m": {
+    "dx": 0.266,
+    "dy": 0.302,
+    "dz": 0.345
+   },
+   "bbox_datum_m": {
+    "min": [
+     1.095,
+     0.465,
+     -0.528
+    ],
+    "max": [
+     1.361,
+     0.767,
+     -0.183
+    ]
+   },
+   "catatan": "kepala individual per silinder INFERRED; tinggi 0.16 m dan lebar 0.30 m ESTIMATED; bentuk rinci (tepi miring, 4 boss baut, rusuk, flens port exhaust, boss jumper air) ILLUSTRATIVE (QA-06); posisi X: bank kiri digeser -0.065 m di X (offset bank kiri ILLUSTRATIVE, disamakan dengan Internal Modeler: dua connecting rod berdampingan per crankpin pada V12; nilai tidak tertulis di dokumen)"
+  },
+  {
+   "id": "EXT-TUTUPKATUP-L2",
+   "nama": "Tutup katup (valve cover) silinder 4",
+   "rakitan": "KEPALA",
+   "jumlah": 1,
+   "status": "ILLUSTRATIVE",
+   "sumber": "P12, P19 (tutup per silinder bertepi miring); D02 hlm. 1 render; D01 hlm. 1 gambar Dimensions tampak Right Side (skala 3.107 mm/px, datum.json); P26, P11 (bank kiri, genset)",
+   "ukuran_utama_m": {
+    "dx": 0.226,
+    "dy": 0.221,
+    "dz": 0.223
+   },
+   "bbox_datum_m": {
+    "min": [
+     1.115,
+     0.608,
+     -0.557
+    ],
+    "max": [
+     1.341,
+     0.829,
+     -0.333
+    ]
+   },
+   "catatan": "pusat x dari datum.block.cylinders; panjang kubah 0.186 m (datum.cylinder_heads.valve_cover_length_x) ESTIMATED; bentuk OBSERVED (P26); posisi X: bank kiri digeser -0.065 m di X (offset bank kiri ILLUSTRATIVE, disamakan dengan Internal Modeler: dua connecting rod berdampingan per crankpin pada V12; nilai tidak tertulis di dokumen)"
+  },
+  {
+   "id": "EXT-KEPALA-L3",
+   "nama": "Kepala silinder (cylinder head) individual silinder 6",
+   "rakitan": "KEPALA",
+   "jumlah": 1,
+   "status": "ILLUSTRATIVE",
+   "sumber": "D01 hlm. 1 gambar Dimensions tampak Right Side (skala 3.107 mm/px, datum.json) (pita kepala+tutup y 0.55..0.87); datum.cylinder_heads",
+   "ukuran_utama_m": {
+    "dx": 0.266,
+    "dy": 0.302,
+    "dz": 0.345
+   },
+   "bbox_datum_m": {
+    "min": [
+     0.825,
+     0.465,
+     -0.528
+    ],
+    "max": [
+     1.091,
+     0.767,
+     -0.183
+    ]
+   },
+   "catatan": "kepala individual per silinder INFERRED; tinggi 0.16 m dan lebar 0.30 m ESTIMATED; bentuk rinci (tepi miring, 4 boss baut, rusuk, flens port exhaust, boss jumper air) ILLUSTRATIVE (QA-06); posisi X: bank kiri digeser -0.065 m di X (offset bank kiri ILLUSTRATIVE, disamakan dengan Internal Modeler: dua connecting rod berdampingan per crankpin pada V12; nilai tidak tertulis di dokumen)"
+  },
+  {
+   "id": "EXT-TUTUPKATUP-L3",
+   "nama": "Tutup katup (valve cover) silinder 6",
+   "rakitan": "KEPALA",
+   "jumlah": 1,
+   "status": "ILLUSTRATIVE",
+   "sumber": "P12, P19 (tutup per silinder bertepi miring); D02 hlm. 1 render; D01 hlm. 1 gambar Dimensions tampak Right Side (skala 3.107 mm/px, datum.json); P26, P11 (bank kiri, genset)",
+   "ukuran_utama_m": {
+    "dx": 0.226,
+    "dy": 0.221,
+    "dz": 0.223
+   },
+   "bbox_datum_m": {
+    "min": [
+     0.845,
+     0.608,
+     -0.557
+    ],
+    "max": [
+     1.071,
+     0.829,
+     -0.333
+    ]
+   },
+   "catatan": "pusat x dari datum.block.cylinders; panjang kubah 0.186 m (datum.cylinder_heads.valve_cover_length_x) ESTIMATED; bentuk OBSERVED (P26); posisi X: bank kiri digeser -0.065 m di X (offset bank kiri ILLUSTRATIVE, disamakan dengan Internal Modeler: dua connecting rod berdampingan per crankpin pada V12; nilai tidak tertulis di dokumen)"
+  },
+  {
+   "id": "EXT-KEPALA-L4",
+   "nama": "Kepala silinder (cylinder head) individual silinder 8",
+   "rakitan": "KEPALA",
+   "jumlah": 1,
+   "status": "ILLUSTRATIVE",
+   "sumber": "D01 hlm. 1 gambar Dimensions tampak Right Side (skala 3.107 mm/px, datum.json) (pita kepala+tutup y 0.55..0.87); datum.cylinder_heads",
+   "ukuran_utama_m": {
+    "dx": 0.266,
+    "dy": 0.302,
+    "dz": 0.345
+   },
+   "bbox_datum_m": {
+    "min": [
+     0.555,
+     0.465,
+     -0.528
+    ],
+    "max": [
+     0.821,
+     0.767,
+     -0.183
+    ]
+   },
+   "catatan": "kepala individual per silinder INFERRED; tinggi 0.16 m dan lebar 0.30 m ESTIMATED; bentuk rinci (tepi miring, 4 boss baut, rusuk, flens port exhaust, boss jumper air) ILLUSTRATIVE (QA-06); posisi X: bank kiri digeser -0.065 m di X (offset bank kiri ILLUSTRATIVE, disamakan dengan Internal Modeler: dua connecting rod berdampingan per crankpin pada V12; nilai tidak tertulis di dokumen)"
+  },
+  {
+   "id": "EXT-TUTUPKATUP-L4",
+   "nama": "Tutup katup (valve cover) silinder 8",
+   "rakitan": "KEPALA",
+   "jumlah": 1,
+   "status": "ILLUSTRATIVE",
+   "sumber": "P12, P19 (tutup per silinder bertepi miring); D02 hlm. 1 render; D01 hlm. 1 gambar Dimensions tampak Right Side (skala 3.107 mm/px, datum.json); P26, P11 (bank kiri, genset)",
+   "ukuran_utama_m": {
+    "dx": 0.226,
+    "dy": 0.221,
+    "dz": 0.223
+   },
+   "bbox_datum_m": {
+    "min": [
+     0.575,
+     0.608,
+     -0.557
+    ],
+    "max": [
+     0.801,
+     0.829,
+     -0.333
+    ]
+   },
+   "catatan": "pusat x dari datum.block.cylinders; panjang kubah 0.186 m (datum.cylinder_heads.valve_cover_length_x) ESTIMATED; bentuk OBSERVED (P26); posisi X: bank kiri digeser -0.065 m di X (offset bank kiri ILLUSTRATIVE, disamakan dengan Internal Modeler: dua connecting rod berdampingan per crankpin pada V12; nilai tidak tertulis di dokumen)"
+  },
+  {
+   "id": "EXT-KEPALA-L5",
+   "nama": "Kepala silinder (cylinder head) individual silinder 10",
+   "rakitan": "KEPALA",
+   "jumlah": 1,
+   "status": "ILLUSTRATIVE",
+   "sumber": "D01 hlm. 1 gambar Dimensions tampak Right Side (skala 3.107 mm/px, datum.json) (pita kepala+tutup y 0.55..0.87); datum.cylinder_heads",
+   "ukuran_utama_m": {
+    "dx": 0.266,
+    "dy": 0.302,
+    "dz": 0.345
+   },
+   "bbox_datum_m": {
+    "min": [
+     0.285,
+     0.465,
+     -0.528
+    ],
+    "max": [
+     0.551,
+     0.767,
+     -0.183
+    ]
+   },
+   "catatan": "kepala individual per silinder INFERRED; tinggi 0.16 m dan lebar 0.30 m ESTIMATED; bentuk rinci (tepi miring, 4 boss baut, rusuk, flens port exhaust, boss jumper air) ILLUSTRATIVE (QA-06); posisi X: bank kiri digeser -0.065 m di X (offset bank kiri ILLUSTRATIVE, disamakan dengan Internal Modeler: dua connecting rod berdampingan per crankpin pada V12; nilai tidak tertulis di dokumen)"
+  },
+  {
+   "id": "EXT-TUTUPKATUP-L5",
+   "nama": "Tutup katup (valve cover) silinder 10",
+   "rakitan": "KEPALA",
+   "jumlah": 1,
+   "status": "ILLUSTRATIVE",
+   "sumber": "P12, P19 (tutup per silinder bertepi miring); D02 hlm. 1 render; D01 hlm. 1 gambar Dimensions tampak Right Side (skala 3.107 mm/px, datum.json); P26, P11 (bank kiri, genset)",
+   "ukuran_utama_m": {
+    "dx": 0.226,
+    "dy": 0.221,
+    "dz": 0.223
+   },
+   "bbox_datum_m": {
+    "min": [
+     0.305,
+     0.608,
+     -0.557
+    ],
+    "max": [
+     0.531,
+     0.829,
+     -0.333
+    ]
+   },
+   "catatan": "pusat x dari datum.block.cylinders; panjang kubah 0.186 m (datum.cylinder_heads.valve_cover_length_x) ESTIMATED; bentuk OBSERVED (P26); posisi X: bank kiri digeser -0.065 m di X (offset bank kiri ILLUSTRATIVE, disamakan dengan Internal Modeler: dua connecting rod berdampingan per crankpin pada V12; nilai tidak tertulis di dokumen)"
+  },
+  {
+   "id": "EXT-KEPALA-L6",
+   "nama": "Kepala silinder (cylinder head) individual silinder 12",
+   "rakitan": "KEPALA",
+   "jumlah": 1,
+   "status": "ILLUSTRATIVE",
+   "sumber": "D01 hlm. 1 gambar Dimensions tampak Right Side (skala 3.107 mm/px, datum.json) (pita kepala+tutup y 0.55..0.87); datum.cylinder_heads",
+   "ukuran_utama_m": {
+    "dx": 0.266,
+    "dy": 0.302,
+    "dz": 0.345
+   },
+   "bbox_datum_m": {
+    "min": [
+     0.015,
+     0.465,
+     -0.528
+    ],
+    "max": [
+     0.281,
+     0.767,
+     -0.183
+    ]
+   },
+   "catatan": "kepala individual per silinder INFERRED; tinggi 0.16 m dan lebar 0.30 m ESTIMATED; bentuk rinci (tepi miring, 4 boss baut, rusuk, flens port exhaust, boss jumper air) ILLUSTRATIVE (QA-06); posisi X: bank kiri digeser -0.065 m di X (offset bank kiri ILLUSTRATIVE, disamakan dengan Internal Modeler: dua connecting rod berdampingan per crankpin pada V12; nilai tidak tertulis di dokumen)"
+  },
+  {
+   "id": "EXT-TUTUPKATUP-L6",
+   "nama": "Tutup katup (valve cover) silinder 12",
+   "rakitan": "KEPALA",
+   "jumlah": 1,
+   "status": "ILLUSTRATIVE",
+   "sumber": "P12, P19 (tutup per silinder bertepi miring); D02 hlm. 1 render; D01 hlm. 1 gambar Dimensions tampak Right Side (skala 3.107 mm/px, datum.json); P26, P11 (bank kiri, genset)",
+   "ukuran_utama_m": {
+    "dx": 0.226,
+    "dy": 0.221,
+    "dz": 0.223
+   },
+   "bbox_datum_m": {
+    "min": [
+     0.035,
+     0.608,
+     -0.557
+    ],
+    "max": [
+     0.261,
+     0.829,
+     -0.333
+    ]
+   },
+   "catatan": "pusat x dari datum.block.cylinders; panjang kubah 0.186 m (datum.cylinder_heads.valve_cover_length_x) ESTIMATED; bentuk OBSERVED (P26); posisi X: bank kiri digeser -0.065 m di X (offset bank kiri ILLUSTRATIVE, disamakan dengan Internal Modeler: dua connecting rod berdampingan per crankpin pada V12; nilai tidak tertulis di dokumen)"
+  },
+  {
+   "id": "EXT-EXHMAN-R",
+   "nama": "Exhaust manifold kering modular bank kanan dengan runner per silinder",
+   "rakitan": "EXHAUST",
+   "jumlah": 1,
+   "status": "INFERRED",
+   "sumber": "D03 hlm. 1 (dry, gas-tight, modular pulse, SOLAS shield, satu outlet); datum.exhaust_manifold; letak di lembah V INFERRED",
+   "ukuran_utama_m": {
+    "dx": 1.87,
+    "dy": 0.425,
+    "dz": 0.409
+   },
+   "bbox_datum_m": {
+    "min": [
+     -0.17,
+     0.637,
+     0.033
+    ],
+    "max": [
+     1.7,
+     1.062,
+     0.442
+    ]
+   },
+   "catatan": "rute runner, diameter (0.13 m pipa utama) dan sambungan slip ILLUSTRATIVE; manifold tersembunyi di bawah aftercooler"
+  },
+  {
+   "id": "EXT-EXHMAN-L",
+   "nama": "Exhaust manifold kering modular bank kiri dengan runner per silinder",
+   "rakitan": "EXHAUST",
+   "jumlah": 1,
+   "status": "ILLUSTRATIVE",
+   "sumber": "D03 hlm. 1 (dry, gas-tight, modular pulse, SOLAS shield, satu outlet); datum.exhaust_manifold; letak di lembah V INFERRED",
+   "ukuran_utama_m": {
+    "dx": 1.87,
+    "dy": 0.425,
+    "dz": 0.409
+   },
+   "bbox_datum_m": {
+    "min": [
+     -0.17,
+     0.637,
+     -0.442
+    ],
+    "max": [
+     1.7,
+     1.062,
+     -0.033
+    ]
+   },
+   "catatan": "rute runner, diameter (0.13 m pipa utama) dan sambungan slip ILLUSTRATIVE; manifold tersembunyi di bawah aftercooler; runner dan sambungan slip: bank kiri digeser -0.065 m di X (offset bank kiri ILLUSTRATIVE, disamakan dengan Internal Modeler: dua connecting rod berdampingan per crankpin pada V12; nilai tidak tertulis di dokumen)"
+  },
+  {
+   "id": "EXT-TRB-R-KOMPRESOR-1",
+   "nama": "Rumah kompresor (keong) turbo kanan dengan nosel inlet dan flens",
+   "rakitan": "TRB-R",
+   "jumlah": 1,
+   "status": "INFERRED",
+   "sumber": "D02 hlm. 1 dan D03 hlm. 1 (dual turbochargers; D01 hlm. 2 water-cooled bearings); posisi datum.turbochargers.approx_center (-0.28, 0.833) INFERRED; P14 (genset, belakang)",
+   "ukuran_utama_m": {
+    "dx": 0.413,
+    "dy": 0.34,
+    "dz": 0.244
+   },
+   "bbox_datum_m": {
+    "min": [
+     -0.45,
+     0.642,
+     0.514
+    ],
+    "max": [
+     -0.037,
+     0.983,
+     0.758
+    ]
+   },
+   "catatan": "turbo kanan dipecah untuk Eksplor Rangkaian; diameter rumah keong UNKNOWN (tertutup di gambar resmi) -> ukuran ILLUSTRATIVE; poros turbo sejajar Z",
+   "rakitan_eksplor": "EXT-TRB-R",
+   "no_posisi_model": 1
+  },
+  {
+   "id": "EXT-TRB-R-CHRA-1",
+   "nama": "Center housing / bearing housing turbo kanan (berpendingin air, acuan)",
+   "rakitan": "TRB-R",
+   "jumlah": 1,
+   "status": "INFERRED",
+   "sumber": "D02 hlm. 1 dan D03 hlm. 1 (dual turbochargers; D01 hlm. 2 water-cooled bearings); posisi datum.turbochargers.approx_center (-0.28, 0.833) INFERRED; P14 (genset, belakang); D01 hlm. 2 (water-cooled bearings)",
+   "ukuran_utama_m": {
+    "dx": 0.17,
+    "dy": 0.23,
+    "dz": 0.09
+   },
+   "bbox_datum_m": {
+    "min": [
+     -0.365,
+     0.718,
+     0.455
+    ],
+    "max": [
+     -0.195,
+     0.948,
+     0.545
+    ]
+   },
+   "catatan": "turbo kanan dipecah untuk Eksplor Rangkaian; diameter rumah keong UNKNOWN (tertutup di gambar resmi) -> ukuran ILLUSTRATIVE; poros turbo sejajar Z"
+  },
+  {
+   "id": "EXT-TRB-R-TURBIN-1",
+   "nama": "Rumah turbin (keong) turbo kanan dengan stub inlet berflens dan outlet aksial",
+   "rakitan": "TRB-R",
+   "jumlah": 1,
+   "status": "INFERRED",
+   "sumber": "D02 hlm. 1 dan D03 hlm. 1 (dual turbochargers; D01 hlm. 2 water-cooled bearings); posisi datum.turbochargers.approx_center (-0.28, 0.833) INFERRED; P14 (genset, belakang)",
+   "ukuran_utama_m": {
+    "dx": 0.381,
+    "dy": 0.463,
+    "dz": 0.243
+   },
+   "bbox_datum_m": {
+    "min": [
+     -0.492,
+     0.643,
+     0.235
+    ],
+    "max": [
+     -0.112,
+     1.105,
+     0.478
+    ]
+   },
+   "catatan": "turbo kanan dipecah untuk Eksplor Rangkaian; diameter rumah keong UNKNOWN (tertutup di gambar resmi) -> ukuran ILLUSTRATIVE; poros turbo sejajar Z",
+   "rakitan_eksplor": "EXT-TRB-R",
+   "no_posisi_model": 3
+  },
+  {
+   "id": "EXT-TRB-R-RODAKOMP-1",
+   "nama": "Roda kompresor (compressor wheel) turbo kanan",
+   "rakitan": "TRB-R",
+   "jumlah": 1,
+   "status": "ILLUSTRATIVE",
+   "sumber": "tidak terlihat di foto atau gambar resmi",
+   "ukuran_utama_m": {
+    "dx": 0.16,
+    "dy": 0.16,
+    "dz": 0.14
+   },
+   "bbox_datum_m": {
+    "min": [
+     -0.36,
+     0.753,
+     0.515
+    ],
+    "max": [
+     -0.2,
+     0.913,
+     0.655
+    ]
+   },
+   "catatan": "jumlah sudu (12), diameter 0.16 m ILLUSTRATIVE",
+   "rakitan_eksplor": "EXT-TRB-R",
+   "no_posisi_model": 4
+  },
+  {
+   "id": "EXT-TRB-R-RODATURB-1",
+   "nama": "Roda turbin (turbine wheel) turbo kanan",
+   "rakitan": "TRB-R",
+   "jumlah": 1,
+   "status": "ILLUSTRATIVE",
+   "sumber": "tidak terlihat di foto atau gambar resmi",
+   "ukuran_utama_m": {
+    "dx": 0.171,
+    "dy": 0.173,
+    "dz": 0.115
+   },
+   "bbox_datum_m": {
+    "min": [
+     -0.365,
+     0.746,
+     0.345
+    ],
+    "max": [
+     -0.194,
+     0.92,
+     0.46
+    ]
+   },
+   "catatan": "jumlah sudu (11), diameter 0.17 m ILLUSTRATIVE",
+   "rakitan_eksplor": "EXT-TRB-R",
+   "no_posisi_model": 5
+  },
+  {
+   "id": "EXT-TRB-R-VBAND-1",
+   "nama": "Clamp V-band turbo kanan",
+   "rakitan": "TRB-R",
+   "jumlah": 1,
+   "status": "ILLUSTRATIVE",
+   "sumber": "ILLUSTRATIVE",
+   "ukuran_utama_m": {
+    "dx": 0.212,
+    "dy": 0.226,
+    "dz": 0.018
+   },
+   "bbox_datum_m": {
+    "min": [
+     -0.386,
+     0.727,
+     0.544
+    ],
+    "max": [
+     -0.174,
+     0.953,
+     0.562
+    ]
+   },
+   "catatan": "r dalam 0.088 m ILLUSTRATIVE",
+   "rakitan_eksplor": "EXT-TRB-R",
+   "no_posisi_model": 6
+  },
+  {
+   "id": "EXT-TRB-R-VBAND-2",
+   "nama": "Clamp V-band turbo kanan",
+   "rakitan": "TRB-R",
+   "jumlah": 1,
+   "status": "ILLUSTRATIVE",
+   "sumber": "ILLUSTRATIVE",
+   "ukuran_utama_m": {
+    "dx": 0.212,
+    "dy": 0.226,
+    "dz": 0.018
+   },
+   "bbox_datum_m": {
+    "min": [
+     -0.386,
+     0.727,
+     0.438
+    ],
+    "max": [
+     -0.174,
+     0.953,
+     0.456
+    ]
+   },
+   "catatan": "r dalam 0.088 m ILLUSTRATIVE",
+   "rakitan_eksplor": "EXT-TRB-R",
+   "no_posisi_model": 6
+  },
+  {
+   "id": "EXT-PIPAUDARA-R",
+   "nama": "Pipa udara tekan (compressor discharge) bank kanan ke aftercooler",
+   "rakitan": "TURBO",
+   "jumlah": 1,
+   "status": "ESTIMATED",
+   "sumber": "D01 hlm. 1 gambar Dimensions tampak Right Side (skala 3.107 mm/px, datum.json) (pipa melengkung teratas X 0.08..0.66, Y ~1.39); D02 hlm. 1 render 3D samping kanan dan depan (img/side-1.png, img/front-1.png)",
+   "ukuran_utama_m": {
+    "dx": 0.789,
+    "dy": 0.525,
+    "dz": 0.573
+   },
+   "bbox_datum_m": {
+    "min": [
+     -0.194,
+     0.892,
+     0.102
+    ],
+    "max": [
+     0.595,
+     1.417,
+     0.675
+    ]
+   },
+   "catatan": "puncak pipa Y 1.417 = datum.overall.y_max (garis ekstensi atas D01, QA-03); rute antara ujung dan diameter 0.13 m ESTIMATED; sambungan ke aftercooler INFERRED"
+  },
+  {
+   "id": "EXT-SHIELD-TR",
+   "nama": "Heat shield rumah turbin bank kanan",
+   "rakitan": "TRB-R",
+   "jumlah": 1,
+   "status": "ESTIMATED",
+   "sumber": "D02 hlm. 1 render 3D samping kanan dan depan (img/side-1.png, img/front-1.png) (penutup abu-abu di atas turbo); D03 hlm. 1 (SOLAS shield)",
+   "ukuran_utama_m": {
+    "dx": 0.43,
+    "dy": 0.252,
+    "dz": 0.14
+   },
+   "bbox_datum_m": {
+    "min": [
+     -0.495,
+     0.796,
+     0.31
+    ],
+    "max": [
+     -0.065,
+     1.048,
+     0.45
+    ]
+   },
+   "catatan": "bentuk cangkang setengah ILLUSTRATIVE",
+   "rakitan_eksplor": "EXT-TRB-R",
+   "no_posisi_model": 7
+  },
+  {
+   "id": "EXT-TURBO-L",
+   "nama": "Turbocharger bank kiri (rumah keong kompresor + turbin, center housing berpendingin air)",
+   "rakitan": "TURBO",
+   "jumlah": 1,
+   "status": "INFERRED",
+   "sumber": "D02 hlm. 1 dan D03 hlm. 1 (dual turbochargers; D01 hlm. 2 water-cooled bearings); posisi datum.turbochargers.approx_center (-0.28, 0.833) INFERRED; P14 (genset, belakang)",
+   "ukuran_utama_m": {
+    "dx": 0.455,
+    "dy": 0.463,
+    "dz": 0.523
+   },
+   "bbox_datum_m": {
+    "min": [
+     -0.492,
+     0.642,
+     -0.758
+    ],
+    "max": [
+     -0.037,
+     1.105,
+     -0.235
+    ]
+   },
+   "catatan": "diameter rumah keong UNKNOWN (tertutup di gambar resmi) -> ukuran ILLUSTRATIVE; poros turbo sejajar Z"
+  },
+  {
+   "id": "EXT-PIPAUDARA-L",
+   "nama": "Pipa udara tekan (compressor discharge) bank kiri ke aftercooler",
+   "rakitan": "TURBO",
+   "jumlah": 1,
+   "status": "ESTIMATED",
+   "sumber": "D01 hlm. 1 gambar Dimensions tampak Right Side (skala 3.107 mm/px, datum.json) (pipa melengkung teratas X 0.08..0.66, Y ~1.39); D02 hlm. 1 render 3D samping kanan dan depan (img/side-1.png, img/front-1.png)",
+   "ukuran_utama_m": {
+    "dx": 0.789,
+    "dy": 0.525,
+    "dz": 0.573
+   },
+   "bbox_datum_m": {
+    "min": [
+     -0.194,
+     0.892,
+     -0.675
+    ],
+    "max": [
+     0.595,
+     1.417,
+     -0.102
+    ]
+   },
+   "catatan": "puncak pipa Y 1.417 = datum.overall.y_max (garis ekstensi atas D01, QA-03); rute antara ujung dan diameter 0.13 m ESTIMATED; sambungan ke aftercooler INFERRED"
+  },
+  {
+   "id": "EXT-SHIELD-TL",
+   "nama": "Heat shield rumah turbin bank kiri",
+   "rakitan": "TURBO",
+   "jumlah": 1,
+   "status": "ESTIMATED",
+   "sumber": "D02 hlm. 1 render 3D samping kanan dan depan (img/side-1.png, img/front-1.png) (penutup abu-abu di atas turbo); D03 hlm. 1 (SOLAS shield)",
+   "ukuran_utama_m": {
+    "dx": 0.43,
+    "dy": 0.252,
+    "dz": 0.14
+   },
+   "bbox_datum_m": {
+    "min": [
+     -0.495,
+     0.796,
+     -0.45
+    ],
+    "max": [
+     -0.065,
+     1.048,
+     -0.31
+    ]
+   },
+   "catatan": "bentuk cangkang setengah ILLUSTRATIVE"
+  },
+  {
+   "id": "EXT-EXHOUT-01",
+   "nama": "Kolektor dan outlet gas buang tunggal (flens datar atas)",
+   "rakitan": "EXHAUST",
+   "jumlah": 1,
+   "status": "ESTIMATED",
+   "sumber": "D01 hlm. 1 gambar Dimensions tampak Right Side (skala 3.107 mm/px, datum.json) (flens datar X -0.705..-0.534, Y 1.15; datum.exhaust_manifold.exhaust_outlet); D03 hlm. 1 'single exhaust outlet'; P14 (elbow tengah atas)",
+   "ukuran_utama_m": {
+    "dx": 0.52,
+    "dy": 0.4,
+    "dz": 0.56
+   },
+   "bbox_datum_m": {
+    "min": [
+     -0.725,
+     0.758,
+     -0.28
+    ],
+    "max": [
+     -0.205,
+     1.158,
+     0.28
+    ]
+   },
+   "catatan": "pipa dari kedua turbin INFERRED; diameter pipa ILLUSTRATIVE"
+  },
+  {
+   "id": "EXT-AIRCL-R",
+   "nama": "Air cleaner power core bundar bank kanan dengan muka berkisi",
+   "rakitan": "AIRCLEANER",
+   "jumlah": 1,
+   "status": "ESTIMATED",
+   "sumber": "D01 hlm. 1 gambar Dimensions tampak Right Side (skala 3.107 mm/px, datum.json) (lingkaran O 0.553 m, pusat (-0.28, 0.833)); D01 hlm. 1 gambar Dimensions tampak Front (datum.json); D02 hlm. 1 render 3D samping kanan dan depan (img/side-1.png, img/front-1.png); P22 (marine)",
+   "ukuran_utama_m": {
+    "dx": 0.553,
+    "dy": 0.586,
+    "dz": 0.27
+   },
+   "bbox_datum_m": {
+    "min": [
+     -0.556,
+     0.557,
+     0.745
+    ],
+    "max": [
+     -0.004,
+     1.143,
+     1.015
+    ]
+   },
+   "catatan": "pusat z dipakai simetris +-0.880 (datum: +0.868/-0.909, rata-rata) agar lebar total <= 2.04 m; tebal 0.252 m ESTIMATED (D01 Front elips 75-100 px = 0.23-0.31 m; dipilih agar lebar total sesuai D02 2.037 m +-1%, QA-02); pola kisi ESTIMATED dari render D02"
+  },
+  {
+   "id": "EXT-AIRCLBRK-R",
+   "nama": "Braket pelat trapesium penyangga air cleaner kanan",
+   "rakitan": "AIRCLEANER",
+   "jumlah": 1,
+   "status": "ESTIMATED",
+   "sumber": "D01 hlm. 1 gambar Dimensions tampak Front (datum.json) (lebar maksimum di y 0.538, datum.overall.z_widest_at_y); D02 hlm. 1 render 3D samping kanan dan depan (img/side-1.png, img/front-1.png)",
+   "ukuran_utama_m": {
+    "dx": 0.38,
+    "dy": 0.288,
+    "dz": 0.6
+   },
+   "bbox_datum_m": {
+    "min": [
+     -0.47,
+     0.265,
+     0.42
+    ],
+    "max": [
+     -0.09,
+     0.553,
+     1.02
+    ]
+   },
+   "catatan": "identitas elemen UNKNOWN di datum; dibuat sebagai braket penyangga (INFERRED)"
+  },
+  {
+   "id": "EXT-AIRCL-L",
+   "nama": "Air cleaner power core bundar bank kiri dengan muka berkisi",
+   "rakitan": "AIRCLEANER",
+   "jumlah": 1,
+   "status": "ESTIMATED",
+   "sumber": "D01 hlm. 1 gambar Dimensions tampak Right Side (skala 3.107 mm/px, datum.json) (lingkaran O 0.553 m, pusat (-0.28, 0.833)); D01 hlm. 1 gambar Dimensions tampak Front (datum.json); D02 hlm. 1 render 3D samping kanan dan depan (img/side-1.png, img/front-1.png); P22 (marine)",
+   "ukuran_utama_m": {
+    "dx": 0.553,
+    "dy": 0.586,
+    "dz": 0.27
+   },
+   "bbox_datum_m": {
+    "min": [
+     -0.556,
+     0.557,
+     -1.015
+    ],
+    "max": [
+     -0.004,
+     1.143,
+     -0.745
+    ]
+   },
+   "catatan": "pusat z dipakai simetris +-0.880 (datum: +0.868/-0.909, rata-rata) agar lebar total <= 2.04 m; tebal 0.252 m ESTIMATED (D01 Front elips 75-100 px = 0.23-0.31 m; dipilih agar lebar total sesuai D02 2.037 m +-1%, QA-02); pola kisi ESTIMATED dari render D02"
+  },
+  {
+   "id": "EXT-AIRCLBRK-L",
+   "nama": "Braket pelat trapesium penyangga air cleaner kiri",
+   "rakitan": "AIRCLEANER",
+   "jumlah": 1,
+   "status": "ESTIMATED",
+   "sumber": "D01 hlm. 1 gambar Dimensions tampak Front (datum.json) (lebar maksimum di y 0.538, datum.overall.z_widest_at_y); D02 hlm. 1 render 3D samping kanan dan depan (img/side-1.png, img/front-1.png)",
+   "ukuran_utama_m": {
+    "dx": 0.38,
+    "dy": 0.288,
+    "dz": 0.6
+   },
+   "bbox_datum_m": {
+    "min": [
+     -0.47,
+     0.265,
+     -1.02
+    ],
+    "max": [
+     -0.09,
+     0.553,
+     -0.42
+    ]
+   },
+   "catatan": "identitas elemen UNKNOWN di datum; dibuat sebagai braket penyangga (INFERRED)"
+  },
+  {
+   "id": "EXT-AFTERCOOLER-01",
+   "nama": "Rumah aftercooler (separate circuit aftercooler) bersirip di atas lembah V",
+   "rakitan": "AFTERCOOLER",
+   "jumlah": 1,
+   "status": "ESTIMATED",
+   "sumber": "D01 hlm. 1 gambar Dimensions tampak Right Side (skala 3.107 mm/px, datum.json) (kotak berbaut X 0.336..1.398, Y 0.91..1.227; datum.aftercooler); P12, P15, P17 (rumah bersirip-rusuk); D03 hlm. 1",
+   "ukuran_utama_m": {
+    "dx": 1.158,
+    "dy": 0.285,
+    "dz": 0.632
+   },
+   "bbox_datum_m": {
+    "min": [
+     0.322,
+     0.955,
+     -0.316
+    ],
+    "max": [
+     1.48,
+     1.24,
+     0.316
+    ]
+   },
+   "catatan": "lebar Z +-0.30 ESTIMATED dari P12 (kira-kira 0.35x lebar mesin); identitas sebagai aftercooler INFERRED di datum"
+  },
+  {
+   "id": "EXT-INLETMAN-R",
+   "nama": "Inlet air manifold dan elbow inlet per silinder bank kanan",
+   "rakitan": "AFTERCOOLER",
+   "jumlah": 1,
+   "status": "ESTIMATED",
+   "sumber": "D02 hlm. 1 render 3D samping kanan dan depan (img/side-1.png, img/front-1.png) (menara/elbow tegak dari rumah atas ke tiap kepala, baris T-fitting); D01 hlm. 1 gambar Dimensions tampak Right Side (skala 3.107 mm/px, datum.json)",
+   "ukuran_utama_m": {
+    "dx": 1.56,
+    "dy": 0.281,
+    "dz": 0.15
+   },
+   "bbox_datum_m": {
+    "min": [
+     0.11,
+     0.702,
+     0.208
+    ],
+    "max": [
+     1.67,
+     0.983,
+     0.358
+    ]
+   },
+   "catatan": "6 elbow per bank; diameter 0.10 m ESTIMATED dari render D02"
+  },
+  {
+   "id": "EXT-INLETMAN-L",
+   "nama": "Inlet air manifold dan elbow inlet per silinder bank kiri",
+   "rakitan": "AFTERCOOLER",
+   "jumlah": 1,
+   "status": "ILLUSTRATIVE",
+   "sumber": "D02 hlm. 1 render 3D samping kanan dan depan (img/side-1.png, img/front-1.png) (menara/elbow tegak dari rumah atas ke tiap kepala, baris T-fitting); D01 hlm. 1 gambar Dimensions tampak Right Side (skala 3.107 mm/px, datum.json); P26 (elbow tegak bank kiri, genset)",
+   "ukuran_utama_m": {
+    "dx": 1.625,
+    "dy": 0.281,
+    "dz": 0.15
+   },
+   "bbox_datum_m": {
+    "min": [
+     0.045,
+     0.702,
+     -0.358
+    ],
+    "max": [
+     1.67,
+     0.983,
+     -0.208
+    ]
+   },
+   "catatan": "6 elbow per bank; diameter 0.10 m ESTIMATED dari render D02; elbow dan badan T: bank kiri digeser -0.065 m di X (offset bank kiri ILLUSTRATIVE, disamakan dengan Internal Modeler: dua connecting rod berdampingan per crankpin pada V12; nilai tidak tertulis di dokumen)"
+  },
+  {
+   "id": "EXT-SHIELD-01",
+   "nama": "Heat shield atas (penutup abu-abu) di atas aftercooler dan jalur buang",
+   "rakitan": "AFTERCOOLER",
+   "jumlah": 1,
+   "status": "ESTIMATED",
+   "sumber": "D01 hlm. 1 gambar Dimensions tampak Right Side (skala 3.107 mm/px, datum.json) (garis atas miring X 0.04..1.687, puncak Y 1.398; datum.exhaust_manifold.top_shield_envelope_side); D02 hlm. 1 render 3D samping kanan dan depan (img/side-1.png, img/front-1.png)",
+   "ukuran_utama_m": {
+    "dx": 1.647,
+    "dy": 0.198,
+    "dz": 0.642
+   },
+   "bbox_datum_m": {
+    "min": [
+     0.04,
+     1.2,
+     -0.321
+    ],
+    "max": [
+     1.687,
+     1.398,
+     0.321
+    ]
+   },
+   "catatan": "lebar Z +-0.31 ILLUSTRATIVE; isi di bawahnya INFERRED"
+  },
+  {
+   "id": "EXT-FWHOUSING-01",
+   "nama": "Flywheel housing SAE No. 00 dengan flens dan lingkar baut",
+   "rakitan": "FLYWHEEL",
+   "jumlah": 1,
+   "status": "ESTIMATED",
+   "sumber": "D02 hlm. 1 dan D01 hlm. 1 (SAE No. 00); x -0.224..0 (datum.flywheel_housing.x_range); P14 (bentuk persegi-bulat)",
+   "ukuran_utama_m": {
+    "dx": 0.238,
+    "dy": 1.07,
+    "dz": 1.04
+   },
+   "bbox_datum_m": {
+    "min": [
+     -0.238,
+     -0.52,
+     -0.52
+    ],
+    "max": [
+     0.0,
+     0.55,
+     0.52
+    ]
+   },
+   "catatan": "diameter flens UNKNOWN di datum (SAE J617 tidak dibuka) -> R 0.50 m ILLUSTRATIVE; lingkar 16 baut ILLUSTRATIVE"
+  },
+  {
+   "id": "EXT-FLYWHEEL-01",
+   "nama": "Muka flywheel (183 gigi ring gear) terlihat di bore housing",
+   "rakitan": "FLYWHEEL",
+   "jumlah": 1,
+   "status": "ILLUSTRATIVE",
+   "sumber": "D01 hlm. 1 (183 gigi ring gear, SAE 00); P14 (flywheel bundar tengah bawah)",
+   "ukuran_utama_m": {
+    "dx": 0.069,
+    "dy": 0.79,
+    "dz": 0.79
+   },
+   "bbox_datum_m": {
+    "min": [
+     -0.237,
+     -0.395,
+     -0.395
+    ],
+    "max": [
+     -0.168,
+     0.395,
+     0.395
+    ]
+   },
+   "catatan": "jumlah 183 gigi DOCUMENTED (D01 hlm. 1); diameter luar 0.79 m, muka kopling, 8 lubang dan pola baut hub ILLUSTRATIVE (catatan QA: dipakai sebagai acuan Internal Modeler)"
+  },
+  {
+   "id": "EXT-STARTER-01",
+   "nama": "Starter motor di kanan bawah flywheel housing",
+   "rakitan": "FLYWHEEL",
+   "jumlah": 1,
+   "status": "INFERRED",
+   "sumber": "P10 (genset 3512C: starter di bawah flywheel housing sisi kanan); datum.starter (x -0.115, sisi kanan)",
+   "ukuran_utama_m": {
+    "dx": 0.405,
+    "dy": 0.252,
+    "dz": 0.22
+   },
+   "bbox_datum_m": {
+    "min": [
+     -0.105,
+     -0.31,
+     0.45
+    ],
+    "max": [
+     0.3,
+     -0.058,
+     0.67
+    ]
+   },
+   "catatan": "jumlah dan jenis (udara/listrik) UNKNOWN; badan maju sepanjang blok; ukuran ILLUSTRATIVE"
+  },
+  {
+   "id": "EXT-FRONTCOVER-01",
+   "nama": "Front gear cover / housing dengan rangka angkat berusuk X",
+   "rakitan": "DEPAN",
+   "jumlah": 1,
+   "status": "ESTIMATED",
+   "sumber": "D02 hlm. 1 render 3D samping kanan dan depan (img/side-1.png, img/front-1.png) (depan: rangka berusuk X dan lubang); P15 (rangka pengangkat rusuk)",
+   "ukuran_utama_m": {
+    "dx": 0.095,
+    "dy": 0.978,
+    "dz": 0.959
+   },
+   "bbox_datum_m": {
+    "min": [
+     1.883,
+     -0.3,
+     -0.48
+    ],
+    "max": [
+     1.978,
+     0.678,
+     0.48
+    ]
+   },
+   "catatan": "tebal dan pola lubang ILLUSTRATIVE"
+  },
+  {
+   "id": "EXT-DAMPER-01",
+   "nama": "Vibration damper / puli depan",
+   "rakitan": "DEPAN",
+   "jumlah": 1,
+   "status": "ESTIMATED",
+   "sumber": "D01 hlm. 2 (vibration damper and guard); datum.damper (x 1.889..2.075, pusat di sumbu crank)",
+   "ukuran_utama_m": {
+    "dx": 0.142,
+    "dy": 0.498,
+    "dz": 0.498
+   },
+   "bbox_datum_m": {
+    "min": [
+     1.93,
+     -0.249,
+     -0.249
+    ],
+    "max": [
+     2.072,
+     0.249,
+     0.249
+    ]
+   },
+   "catatan": "diameter damper 0.48 m ILLUSTRATIVE (hanya guard yang terukur)"
+  },
+  {
+   "id": "EXT-GUARD-01",
+   "nama": "Guard kawat damper (O 0.652 m)",
+   "rakitan": "DEPAN",
+   "jumlah": 1,
+   "status": "ESTIMATED",
+   "sumber": "D01 hlm. 1 gambar Dimensions tampak Front (datum.json) (lingkaran guard O 0.652 m); P23 (guard kawat spiral kuning, marine)",
+   "ukuran_utama_m": {
+    "dx": 0.157,
+    "dy": 0.684,
+    "dz": 0.684
+   },
+   "bbox_datum_m": {
+    "min": [
+     1.933,
+     -0.342,
+     -0.342
+    ],
+    "max": [
+     2.09,
+     0.342,
+     0.342
+    ]
+   },
+   "catatan": "jumlah cincin kawat ILLUSTRATIVE"
+  },
+  {
+   "id": "EXT-TANGKI-01",
+   "nama": "Tangki ekspansi (expansion tank) dengan atap miring dan tutup pengisi",
+   "rakitan": "PENDINGIN",
+   "jumlah": 1,
+   "status": "ESTIMATED",
+   "sumber": "D01 hlm. 1 gambar Dimensions tampak Right Side (skala 3.107 mm/px, datum.json) (kotak X 2.107..2.386, Y s/d 1.181); D01 hlm. 1 gambar Dimensions tampak Front (datum.json) (Z -0.561..0.542); P22, P23 (marine: tangki atap miring selebar mesin)",
+   "ukuran_utama_m": {
+    "dx": 0.279,
+    "dy": 0.257,
+    "dz": 1.103
+   },
+   "bbox_datum_m": {
+    "min": [
+     2.107,
+     0.95,
+     -0.561
+    ],
+    "max": [
+     2.386,
+     1.207,
+     0.542
+    ]
+   },
+   "catatan": "pembagian tinggi tangki/HE (y 0.95) ESTIMATED dari P23 (tangki kira-kira 1/3 atas)"
+  },
+  {
+   "id": "EXT-HX-SHELL-1",
+   "nama": "Rumah / shell heat exchanger (acuan)",
+   "rakitan": "HX",
+   "jumlah": 1,
+   "status": "OBSERVED",
+   "sumber": "P22, P23, P25 (marine: inti bertabung bersirip terlihat di sisi, pelat X di muka depan, selang hitam); D03 hlm. 1 (engine-mounted SW pump and heat exchanger); D01 hlm. 1 gambar Dimensions tampak Front (datum.json)",
+   "ukuran_utama_m": {
+    "dx": 0.205,
+    "dy": 0.39,
+    "dz": 1.1
+   },
+   "bbox_datum_m": {
+    "min": [
+     2.145,
+     0.545,
+     -0.55
+    ],
+    "max": [
+     2.35,
+     0.935,
+     0.55
+    ]
+   },
+   "catatan": "keberadaan OBSERVED; dimensi luar dipertahankan dari model sebelumnya (ESTIMATED, datum.front_tank_heat_exchanger); jendela samping meniru inti bersirip yang terlihat di P22/P25; tebal dinding ILLUSTRATIVE"
+  },
+  {
+   "id": "EXT-HX-BUNDLE-1",
+   "nama": "Bundel tabung (tube sheet, tabung, baffle)",
+   "rakitan": "HX",
+   "jumlah": 1,
+   "status": "ILLUSTRATIVE",
+   "sumber": "P22, P25 (inti bertabung terlihat)",
+   "ukuran_utama_m": {
+    "dx": 0.195,
+    "dy": 0.39,
+    "dz": 1.1
+   },
+   "bbox_datum_m": {
+    "min": [
+     2.17,
+     0.545,
+     -0.55
+    ],
+    "max": [
+     2.365,
+     0.935,
+     0.55
+    ]
+   },
+   "catatan": "jumlah tabung (12 x 38), diameter 12 mm, 6 baffle segmental, tube sheet belakang mengambang: semuanya ILLUSTRATIVE",
+   "rakitan_eksplor": "EXT-HX",
+   "no_posisi_model": 4
+  },
+  {
+   "id": "EXT-HX-TUTUPDEPAN-1",
+   "nama": "Tutup ujung depan heat exchanger",
+   "rakitan": "HX",
+   "jumlah": 1,
+   "status": "OBSERVED",
+   "sumber": "P23, P22",
+   "ukuran_utama_m": {
+    "dx": 0.018,
+    "dy": 0.39,
+    "dz": 1.1
+   },
+   "bbox_datum_m": {
+    "min": [
+     2.368,
+     0.545,
+     -0.55
+    ],
+    "max": [
+     2.386,
+     0.935,
+     0.55
+    ]
+   },
+   "catatan": "bentuk pelat datar dengan panel terangkat ESTIMATED dari P23; tebal ILLUSTRATIVE",
+   "rakitan_eksplor": "EXT-HX",
+   "no_posisi_model": 2
+  },
+  {
+   "id": "EXT-HX-TUTUPBELAKANG-1",
+   "nama": "Tutup ujung belakang heat exchanger (bonnet)",
+   "rakitan": "HX",
+   "jumlah": 1,
+   "status": "ILLUSTRATIVE",
+   "sumber": "P22",
+   "ukuran_utama_m": {
+    "dx": 0.029,
+    "dy": 0.39,
+    "dz": 1.1
+   },
+   "bbox_datum_m": {
+    "min": [
+     2.118,
+     0.545,
+     -0.55
+    ],
+    "max": [
+     2.147,
+     0.935,
+     0.55
+    ]
+   },
+   "catatan": "bentuk bonnet ILLUSTRATIVE",
+   "rakitan_eksplor": "EXT-HX",
+   "no_posisi_model": 3
+  },
+  {
+   "id": "EXT-HX-GASKET-1",
+   "nama": "Gasket / O-ring flens tutup heat exchanger",
+   "rakitan": "HX",
+   "jumlah": 1,
+   "status": "ILLUSTRATIVE",
+   "sumber": "ILLUSTRATIVE (tidak terlihat di foto)",
+   "ukuran_utama_m": {
+    "dx": 0.003,
+    "dy": 0.382,
+    "dz": 1.092
+   },
+   "bbox_datum_m": {
+    "min": [
+     2.35,
+     0.549,
+     -0.546
+    ],
+    "max": [
+     2.353,
+     0.931,
+     0.546
+    ]
+   },
+   "catatan": "tebal 3 mm ILLUSTRATIVE",
+   "rakitan_eksplor": "EXT-HX",
+   "no_posisi_model": 5
+  },
+  {
+   "id": "EXT-HX-GASKET-2",
+   "nama": "Gasket / O-ring flens tutup heat exchanger",
+   "rakitan": "HX",
+   "jumlah": 1,
+   "status": "ILLUSTRATIVE",
+   "sumber": "ILLUSTRATIVE (tidak terlihat di foto)",
+   "ukuran_utama_m": {
+    "dx": 0.003,
+    "dy": 0.382,
+    "dz": 1.092
+   },
+   "bbox_datum_m": {
+    "min": [
+     2.365,
+     0.549,
+     -0.546
+    ],
+    "max": [
+     2.368,
+     0.931,
+     0.546
+    ]
+   },
+   "catatan": "tebal 3 mm ILLUSTRATIVE",
+   "rakitan_eksplor": "EXT-HX",
+   "no_posisi_model": 5
+  },
+  {
+   "id": "EXT-HX-GASKET-3",
+   "nama": "Gasket / O-ring flens tutup heat exchanger",
+   "rakitan": "HX",
+   "jumlah": 1,
+   "status": "ILLUSTRATIVE",
+   "sumber": "ILLUSTRATIVE (tidak terlihat di foto)",
+   "ukuran_utama_m": {
+    "dx": 0.003,
+    "dy": 0.382,
+    "dz": 1.092
+   },
+   "bbox_datum_m": {
+    "min": [
+     2.147,
+     0.549,
+     -0.546
+    ],
+    "max": [
+     2.15,
+     0.931,
+     0.546
+    ]
+   },
+   "catatan": "tebal 3 mm ILLUSTRATIVE",
+   "rakitan_eksplor": "EXT-HX",
+   "no_posisi_model": 5
+  },
+  {
+   "id": "EXT-HX-BAUT-1",
+   "nama": "Baut flens tutup depan",
+   "rakitan": "HX",
+   "jumlah": 1,
+   "status": "ILLUSTRATIVE",
+   "sumber": "P23 (baut tepi depan)",
+   "ukuran_utama_m": {
+    "dx": 0.054,
+    "dy": 0.026,
+    "dz": 0.026
+   },
+   "bbox_datum_m": {
+    "min": [
+     2.338,
+     0.547,
+     -0.493
+    ],
+    "max": [
+     2.392,
+     0.573,
+     -0.467
+    ]
+   },
+   "catatan": "M12 x 50 ILLUSTRATIVE",
+   "rakitan_eksplor": "EXT-HX",
+   "no_posisi_model": 6
+  },
+  {
+   "id": "EXT-HX-BAUT-2",
+   "nama": "Baut flens tutup depan",
+   "rakitan": "HX",
+   "jumlah": 1,
+   "status": "ILLUSTRATIVE",
+   "sumber": "P23 (baut tepi depan)",
+   "ukuran_utama_m": {
+    "dx": 0.054,
+    "dy": 0.026,
+    "dz": 0.026
+   },
+   "bbox_datum_m": {
+    "min": [
+     2.338,
+     0.547,
+     -0.333
+    ],
+    "max": [
+     2.392,
+     0.573,
+     -0.307
+    ]
+   },
+   "catatan": "M12 x 50 ILLUSTRATIVE",
+   "rakitan_eksplor": "EXT-HX",
+   "no_posisi_model": 6
+  },
+  {
+   "id": "EXT-HX-BAUT-3",
+   "nama": "Baut flens tutup depan",
+   "rakitan": "HX",
+   "jumlah": 1,
+   "status": "ILLUSTRATIVE",
+   "sumber": "P23 (baut tepi depan)",
+   "ukuran_utama_m": {
+    "dx": 0.054,
+    "dy": 0.026,
+    "dz": 0.026
+   },
+   "bbox_datum_m": {
+    "min": [
+     2.338,
+     0.547,
+     -0.173
+    ],
+    "max": [
+     2.392,
+     0.573,
+     -0.147
+    ]
+   },
+   "catatan": "M12 x 50 ILLUSTRATIVE",
+   "rakitan_eksplor": "EXT-HX",
+   "no_posisi_model": 6
+  },
+  {
+   "id": "EXT-HX-BAUT-4",
+   "nama": "Baut flens tutup depan",
+   "rakitan": "HX",
+   "jumlah": 1,
+   "status": "ILLUSTRATIVE",
+   "sumber": "P23 (baut tepi depan)",
+   "ukuran_utama_m": {
+    "dx": 0.054,
+    "dy": 0.026,
+    "dz": 0.026
+   },
+   "bbox_datum_m": {
+    "min": [
+     2.338,
+     0.547,
+     -0.013
+    ],
+    "max": [
+     2.392,
+     0.573,
+     0.013
+    ]
+   },
+   "catatan": "M12 x 50 ILLUSTRATIVE",
+   "rakitan_eksplor": "EXT-HX",
+   "no_posisi_model": 6
+  },
+  {
+   "id": "EXT-HX-BAUT-5",
+   "nama": "Baut flens tutup depan",
+   "rakitan": "HX",
+   "jumlah": 1,
+   "status": "ILLUSTRATIVE",
+   "sumber": "P23 (baut tepi depan)",
+   "ukuran_utama_m": {
+    "dx": 0.054,
+    "dy": 0.026,
+    "dz": 0.026
+   },
+   "bbox_datum_m": {
+    "min": [
+     2.338,
+     0.547,
+     0.147
+    ],
+    "max": [
+     2.392,
+     0.573,
+     0.173
+    ]
+   },
+   "catatan": "M12 x 50 ILLUSTRATIVE",
+   "rakitan_eksplor": "EXT-HX",
+   "no_posisi_model": 6
+  },
+  {
+   "id": "EXT-HX-BAUT-6",
+   "nama": "Baut flens tutup depan",
+   "rakitan": "HX",
+   "jumlah": 1,
+   "status": "ILLUSTRATIVE",
+   "sumber": "P23 (baut tepi depan)",
+   "ukuran_utama_m": {
+    "dx": 0.054,
+    "dy": 0.026,
+    "dz": 0.026
+   },
+   "bbox_datum_m": {
+    "min": [
+     2.338,
+     0.547,
+     0.307
+    ],
+    "max": [
+     2.392,
+     0.573,
+     0.333
+    ]
+   },
+   "catatan": "M12 x 50 ILLUSTRATIVE",
+   "rakitan_eksplor": "EXT-HX",
+   "no_posisi_model": 6
+  },
+  {
+   "id": "EXT-HX-BAUT-7",
+   "nama": "Baut flens tutup depan",
+   "rakitan": "HX",
+   "jumlah": 1,
+   "status": "ILLUSTRATIVE",
+   "sumber": "P23 (baut tepi depan)",
+   "ukuran_utama_m": {
+    "dx": 0.054,
+    "dy": 0.026,
+    "dz": 0.026
+   },
+   "bbox_datum_m": {
+    "min": [
+     2.338,
+     0.547,
+     0.467
+    ],
+    "max": [
+     2.392,
+     0.573,
+     0.493
+    ]
+   },
+   "catatan": "M12 x 50 ILLUSTRATIVE",
+   "rakitan_eksplor": "EXT-HX",
+   "no_posisi_model": 6
+  },
+  {
+   "id": "EXT-HX-BAUT-8",
+   "nama": "Baut flens tutup depan",
+   "rakitan": "HX",
+   "jumlah": 1,
+   "status": "ILLUSTRATIVE",
+   "sumber": "P23 (baut tepi depan)",
+   "ukuran_utama_m": {
+    "dx": 0.054,
+    "dy": 0.026,
+    "dz": 0.026
+   },
+   "bbox_datum_m": {
+    "min": [
+     2.338,
+     0.907,
+     -0.493
+    ],
+    "max": [
+     2.392,
+     0.933,
+     -0.467
+    ]
+   },
+   "catatan": "M12 x 50 ILLUSTRATIVE",
+   "rakitan_eksplor": "EXT-HX",
+   "no_posisi_model": 6
+  },
+  {
+   "id": "EXT-HX-BAUT-9",
+   "nama": "Baut flens tutup depan",
+   "rakitan": "HX",
+   "jumlah": 1,
+   "status": "ILLUSTRATIVE",
+   "sumber": "P23 (baut tepi depan)",
+   "ukuran_utama_m": {
+    "dx": 0.054,
+    "dy": 0.026,
+    "dz": 0.026
+   },
+   "bbox_datum_m": {
+    "min": [
+     2.338,
+     0.907,
+     -0.333
+    ],
+    "max": [
+     2.392,
+     0.933,
+     -0.307
+    ]
+   },
+   "catatan": "M12 x 50 ILLUSTRATIVE",
+   "rakitan_eksplor": "EXT-HX",
+   "no_posisi_model": 6
+  },
+  {
+   "id": "EXT-HX-BAUT-10",
+   "nama": "Baut flens tutup depan",
+   "rakitan": "HX",
+   "jumlah": 1,
+   "status": "ILLUSTRATIVE",
+   "sumber": "P23 (baut tepi depan)",
+   "ukuran_utama_m": {
+    "dx": 0.054,
+    "dy": 0.026,
+    "dz": 0.026
+   },
+   "bbox_datum_m": {
+    "min": [
+     2.338,
+     0.907,
+     -0.173
+    ],
+    "max": [
+     2.392,
+     0.933,
+     -0.147
+    ]
+   },
+   "catatan": "M12 x 50 ILLUSTRATIVE",
+   "rakitan_eksplor": "EXT-HX",
+   "no_posisi_model": 6
+  },
+  {
+   "id": "EXT-HX-BAUT-11",
+   "nama": "Baut flens tutup depan",
+   "rakitan": "HX",
+   "jumlah": 1,
+   "status": "ILLUSTRATIVE",
+   "sumber": "P23 (baut tepi depan)",
+   "ukuran_utama_m": {
+    "dx": 0.054,
+    "dy": 0.026,
+    "dz": 0.026
+   },
+   "bbox_datum_m": {
+    "min": [
+     2.338,
+     0.907,
+     -0.013
+    ],
+    "max": [
+     2.392,
+     0.933,
+     0.013
+    ]
+   },
+   "catatan": "M12 x 50 ILLUSTRATIVE",
+   "rakitan_eksplor": "EXT-HX",
+   "no_posisi_model": 6
+  },
+  {
+   "id": "EXT-HX-BAUT-12",
+   "nama": "Baut flens tutup depan",
+   "rakitan": "HX",
+   "jumlah": 1,
+   "status": "ILLUSTRATIVE",
+   "sumber": "P23 (baut tepi depan)",
+   "ukuran_utama_m": {
+    "dx": 0.054,
+    "dy": 0.026,
+    "dz": 0.026
+   },
+   "bbox_datum_m": {
+    "min": [
+     2.338,
+     0.907,
+     0.147
+    ],
+    "max": [
+     2.392,
+     0.933,
+     0.173
+    ]
+   },
+   "catatan": "M12 x 50 ILLUSTRATIVE",
+   "rakitan_eksplor": "EXT-HX",
+   "no_posisi_model": 6
+  },
+  {
+   "id": "EXT-HX-BAUT-13",
+   "nama": "Baut flens tutup depan",
+   "rakitan": "HX",
+   "jumlah": 1,
+   "status": "ILLUSTRATIVE",
+   "sumber": "P23 (baut tepi depan)",
+   "ukuran_utama_m": {
+    "dx": 0.054,
+    "dy": 0.026,
+    "dz": 0.026
+   },
+   "bbox_datum_m": {
+    "min": [
+     2.338,
+     0.907,
+     0.307
+    ],
+    "max": [
+     2.392,
+     0.933,
+     0.333
+    ]
+   },
+   "catatan": "M12 x 50 ILLUSTRATIVE",
+   "rakitan_eksplor": "EXT-HX",
+   "no_posisi_model": 6
+  },
+  {
+   "id": "EXT-HX-BAUT-14",
+   "nama": "Baut flens tutup depan",
+   "rakitan": "HX",
+   "jumlah": 1,
+   "status": "ILLUSTRATIVE",
+   "sumber": "P23 (baut tepi depan)",
+   "ukuran_utama_m": {
+    "dx": 0.054,
+    "dy": 0.026,
+    "dz": 0.026
+   },
+   "bbox_datum_m": {
+    "min": [
+     2.338,
+     0.907,
+     0.467
+    ],
+    "max": [
+     2.392,
+     0.933,
+     0.493
+    ]
+   },
+   "catatan": "M12 x 50 ILLUSTRATIVE",
+   "rakitan_eksplor": "EXT-HX",
+   "no_posisi_model": 6
+  },
+  {
+   "id": "EXT-HX-BAUT-15",
+   "nama": "Baut flens tutup depan",
+   "rakitan": "HX",
+   "jumlah": 1,
+   "status": "ILLUSTRATIVE",
+   "sumber": "P23 (baut tepi depan)",
+   "ukuran_utama_m": {
+    "dx": 0.054,
+    "dy": 0.026,
+    "dz": 0.026
+   },
+   "bbox_datum_m": {
+    "min": [
+     2.338,
+     0.647,
+     0.512
+    ],
+    "max": [
+     2.392,
+     0.673,
+     0.538
+    ]
+   },
+   "catatan": "M12 x 50 ILLUSTRATIVE",
+   "rakitan_eksplor": "EXT-HX",
+   "no_posisi_model": 6
+  },
+  {
+   "id": "EXT-HX-BAUT-16",
+   "nama": "Baut flens tutup depan",
+   "rakitan": "HX",
+   "jumlah": 1,
+   "status": "ILLUSTRATIVE",
+   "sumber": "P23 (baut tepi depan)",
+   "ukuran_utama_m": {
+    "dx": 0.054,
+    "dy": 0.026,
+    "dz": 0.026
+   },
+   "bbox_datum_m": {
+    "min": [
+     2.338,
+     0.727,
+     0.512
+    ],
+    "max": [
+     2.392,
+     0.753,
+     0.538
+    ]
+   },
+   "catatan": "M12 x 50 ILLUSTRATIVE",
+   "rakitan_eksplor": "EXT-HX",
+   "no_posisi_model": 6
+  },
+  {
+   "id": "EXT-HX-BAUT-17",
+   "nama": "Baut flens tutup depan",
+   "rakitan": "HX",
+   "jumlah": 1,
+   "status": "ILLUSTRATIVE",
+   "sumber": "P23 (baut tepi depan)",
+   "ukuran_utama_m": {
+    "dx": 0.054,
+    "dy": 0.026,
+    "dz": 0.026
+   },
+   "bbox_datum_m": {
+    "min": [
+     2.338,
+     0.807,
+     0.512
+    ],
+    "max": [
+     2.392,
+     0.833,
+     0.538
+    ]
+   },
+   "catatan": "M12 x 50 ILLUSTRATIVE",
+   "rakitan_eksplor": "EXT-HX",
+   "no_posisi_model": 6
+  },
+  {
+   "id": "EXT-HX-BAUT-18",
+   "nama": "Baut flens tutup depan",
+   "rakitan": "HX",
+   "jumlah": 1,
+   "status": "ILLUSTRATIVE",
+   "sumber": "P23 (baut tepi depan)",
+   "ukuran_utama_m": {
+    "dx": 0.054,
+    "dy": 0.026,
+    "dz": 0.026
+   },
+   "bbox_datum_m": {
+    "min": [
+     2.338,
+     0.647,
+     -0.538
+    ],
+    "max": [
+     2.392,
+     0.673,
+     -0.512
+    ]
+   },
+   "catatan": "M12 x 50 ILLUSTRATIVE",
+   "rakitan_eksplor": "EXT-HX",
+   "no_posisi_model": 6
+  },
+  {
+   "id": "EXT-HX-BAUT-19",
+   "nama": "Baut flens tutup depan",
+   "rakitan": "HX",
+   "jumlah": 1,
+   "status": "ILLUSTRATIVE",
+   "sumber": "P23 (baut tepi depan)",
+   "ukuran_utama_m": {
+    "dx": 0.054,
+    "dy": 0.026,
+    "dz": 0.026
+   },
+   "bbox_datum_m": {
+    "min": [
+     2.338,
+     0.727,
+     -0.538
+    ],
+    "max": [
+     2.392,
+     0.753,
+     -0.512
+    ]
+   },
+   "catatan": "M12 x 50 ILLUSTRATIVE",
+   "rakitan_eksplor": "EXT-HX",
+   "no_posisi_model": 6
+  },
+  {
+   "id": "EXT-HX-BAUT-20",
+   "nama": "Baut flens tutup depan",
+   "rakitan": "HX",
+   "jumlah": 1,
+   "status": "ILLUSTRATIVE",
+   "sumber": "P23 (baut tepi depan)",
+   "ukuran_utama_m": {
+    "dx": 0.054,
+    "dy": 0.026,
+    "dz": 0.026
+   },
+   "bbox_datum_m": {
+    "min": [
+     2.338,
+     0.807,
+     -0.538
+    ],
+    "max": [
+     2.392,
+     0.833,
+     -0.512
+    ]
+   },
+   "catatan": "M12 x 50 ILLUSTRATIVE",
+   "rakitan_eksplor": "EXT-HX",
+   "no_posisi_model": 6
+  },
+  {
+   "id": "EXT-HX-BAUT-21",
+   "nama": "Baut flens tutup belakang",
+   "rakitan": "HX",
+   "jumlah": 1,
+   "status": "ILLUSTRATIVE",
+   "sumber": "P23 (baut tepi depan)",
+   "ukuran_utama_m": {
+    "dx": 0.039,
+    "dy": 0.026,
+    "dz": 0.026
+   },
+   "bbox_datum_m": {
+    "min": [
+     2.123,
+     0.547,
+     -0.493
+    ],
+    "max": [
+     2.162,
+     0.573,
+     -0.467
+    ]
+   },
+   "catatan": "M12 x 50 ILLUSTRATIVE",
+   "rakitan_eksplor": "EXT-HX",
+   "no_posisi_model": 6
+  },
+  {
+   "id": "EXT-HX-BAUT-22",
+   "nama": "Baut flens tutup belakang",
+   "rakitan": "HX",
+   "jumlah": 1,
+   "status": "ILLUSTRATIVE",
+   "sumber": "P23 (baut tepi depan)",
+   "ukuran_utama_m": {
+    "dx": 0.039,
+    "dy": 0.026,
+    "dz": 0.026
+   },
+   "bbox_datum_m": {
+    "min": [
+     2.123,
+     0.547,
+     -0.333
+    ],
+    "max": [
+     2.162,
+     0.573,
+     -0.307
+    ]
+   },
+   "catatan": "M12 x 50 ILLUSTRATIVE",
+   "rakitan_eksplor": "EXT-HX",
+   "no_posisi_model": 6
+  },
+  {
+   "id": "EXT-HX-BAUT-23",
+   "nama": "Baut flens tutup belakang",
+   "rakitan": "HX",
+   "jumlah": 1,
+   "status": "ILLUSTRATIVE",
+   "sumber": "P23 (baut tepi depan)",
+   "ukuran_utama_m": {
+    "dx": 0.039,
+    "dy": 0.026,
+    "dz": 0.026
+   },
+   "bbox_datum_m": {
+    "min": [
+     2.123,
+     0.547,
+     -0.173
+    ],
+    "max": [
+     2.162,
+     0.573,
+     -0.147
+    ]
+   },
+   "catatan": "M12 x 50 ILLUSTRATIVE",
+   "rakitan_eksplor": "EXT-HX",
+   "no_posisi_model": 6
+  },
+  {
+   "id": "EXT-HX-BAUT-24",
+   "nama": "Baut flens tutup belakang",
+   "rakitan": "HX",
+   "jumlah": 1,
+   "status": "ILLUSTRATIVE",
+   "sumber": "P23 (baut tepi depan)",
+   "ukuran_utama_m": {
+    "dx": 0.039,
+    "dy": 0.026,
+    "dz": 0.026
+   },
+   "bbox_datum_m": {
+    "min": [
+     2.123,
+     0.547,
+     -0.013
+    ],
+    "max": [
+     2.162,
+     0.573,
+     0.013
+    ]
+   },
+   "catatan": "M12 x 50 ILLUSTRATIVE",
+   "rakitan_eksplor": "EXT-HX",
+   "no_posisi_model": 6
+  },
+  {
+   "id": "EXT-HX-BAUT-25",
+   "nama": "Baut flens tutup belakang",
+   "rakitan": "HX",
+   "jumlah": 1,
+   "status": "ILLUSTRATIVE",
+   "sumber": "P23 (baut tepi depan)",
+   "ukuran_utama_m": {
+    "dx": 0.039,
+    "dy": 0.026,
+    "dz": 0.026
+   },
+   "bbox_datum_m": {
+    "min": [
+     2.123,
+     0.547,
+     0.147
+    ],
+    "max": [
+     2.162,
+     0.573,
+     0.173
+    ]
+   },
+   "catatan": "M12 x 50 ILLUSTRATIVE",
+   "rakitan_eksplor": "EXT-HX",
+   "no_posisi_model": 6
+  },
+  {
+   "id": "EXT-HX-BAUT-26",
+   "nama": "Baut flens tutup belakang",
+   "rakitan": "HX",
+   "jumlah": 1,
+   "status": "ILLUSTRATIVE",
+   "sumber": "P23 (baut tepi depan)",
+   "ukuran_utama_m": {
+    "dx": 0.039,
+    "dy": 0.026,
+    "dz": 0.026
+   },
+   "bbox_datum_m": {
+    "min": [
+     2.123,
+     0.547,
+     0.307
+    ],
+    "max": [
+     2.162,
+     0.573,
+     0.333
+    ]
+   },
+   "catatan": "M12 x 50 ILLUSTRATIVE",
+   "rakitan_eksplor": "EXT-HX",
+   "no_posisi_model": 6
+  },
+  {
+   "id": "EXT-HX-BAUT-27",
+   "nama": "Baut flens tutup belakang",
+   "rakitan": "HX",
+   "jumlah": 1,
+   "status": "ILLUSTRATIVE",
+   "sumber": "P23 (baut tepi depan)",
+   "ukuran_utama_m": {
+    "dx": 0.039,
+    "dy": 0.026,
+    "dz": 0.026
+   },
+   "bbox_datum_m": {
+    "min": [
+     2.123,
+     0.547,
+     0.467
+    ],
+    "max": [
+     2.162,
+     0.573,
+     0.493
+    ]
+   },
+   "catatan": "M12 x 50 ILLUSTRATIVE",
+   "rakitan_eksplor": "EXT-HX",
+   "no_posisi_model": 6
+  },
+  {
+   "id": "EXT-HX-BAUT-28",
+   "nama": "Baut flens tutup belakang",
+   "rakitan": "HX",
+   "jumlah": 1,
+   "status": "ILLUSTRATIVE",
+   "sumber": "P23 (baut tepi depan)",
+   "ukuran_utama_m": {
+    "dx": 0.039,
+    "dy": 0.026,
+    "dz": 0.026
+   },
+   "bbox_datum_m": {
+    "min": [
+     2.123,
+     0.907,
+     -0.493
+    ],
+    "max": [
+     2.162,
+     0.933,
+     -0.467
+    ]
+   },
+   "catatan": "M12 x 50 ILLUSTRATIVE",
+   "rakitan_eksplor": "EXT-HX",
+   "no_posisi_model": 6
+  },
+  {
+   "id": "EXT-HX-BAUT-29",
+   "nama": "Baut flens tutup belakang",
+   "rakitan": "HX",
+   "jumlah": 1,
+   "status": "ILLUSTRATIVE",
+   "sumber": "P23 (baut tepi depan)",
+   "ukuran_utama_m": {
+    "dx": 0.039,
+    "dy": 0.026,
+    "dz": 0.026
+   },
+   "bbox_datum_m": {
+    "min": [
+     2.123,
+     0.907,
+     -0.333
+    ],
+    "max": [
+     2.162,
+     0.933,
+     -0.307
+    ]
+   },
+   "catatan": "M12 x 50 ILLUSTRATIVE",
+   "rakitan_eksplor": "EXT-HX",
+   "no_posisi_model": 6
+  },
+  {
+   "id": "EXT-HX-BAUT-30",
+   "nama": "Baut flens tutup belakang",
+   "rakitan": "HX",
+   "jumlah": 1,
+   "status": "ILLUSTRATIVE",
+   "sumber": "P23 (baut tepi depan)",
+   "ukuran_utama_m": {
+    "dx": 0.039,
+    "dy": 0.026,
+    "dz": 0.026
+   },
+   "bbox_datum_m": {
+    "min": [
+     2.123,
+     0.907,
+     -0.173
+    ],
+    "max": [
+     2.162,
+     0.933,
+     -0.147
+    ]
+   },
+   "catatan": "M12 x 50 ILLUSTRATIVE",
+   "rakitan_eksplor": "EXT-HX",
+   "no_posisi_model": 6
+  },
+  {
+   "id": "EXT-HX-BAUT-31",
+   "nama": "Baut flens tutup belakang",
+   "rakitan": "HX",
+   "jumlah": 1,
+   "status": "ILLUSTRATIVE",
+   "sumber": "P23 (baut tepi depan)",
+   "ukuran_utama_m": {
+    "dx": 0.039,
+    "dy": 0.026,
+    "dz": 0.026
+   },
+   "bbox_datum_m": {
+    "min": [
+     2.123,
+     0.907,
+     -0.013
+    ],
+    "max": [
+     2.162,
+     0.933,
+     0.013
+    ]
+   },
+   "catatan": "M12 x 50 ILLUSTRATIVE",
+   "rakitan_eksplor": "EXT-HX",
+   "no_posisi_model": 6
+  },
+  {
+   "id": "EXT-HX-BAUT-32",
+   "nama": "Baut flens tutup belakang",
+   "rakitan": "HX",
+   "jumlah": 1,
+   "status": "ILLUSTRATIVE",
+   "sumber": "P23 (baut tepi depan)",
+   "ukuran_utama_m": {
+    "dx": 0.039,
+    "dy": 0.026,
+    "dz": 0.026
+   },
+   "bbox_datum_m": {
+    "min": [
+     2.123,
+     0.907,
+     0.147
+    ],
+    "max": [
+     2.162,
+     0.933,
+     0.173
+    ]
+   },
+   "catatan": "M12 x 50 ILLUSTRATIVE",
+   "rakitan_eksplor": "EXT-HX",
+   "no_posisi_model": 6
+  },
+  {
+   "id": "EXT-HX-BAUT-33",
+   "nama": "Baut flens tutup belakang",
+   "rakitan": "HX",
+   "jumlah": 1,
+   "status": "ILLUSTRATIVE",
+   "sumber": "P23 (baut tepi depan)",
+   "ukuran_utama_m": {
+    "dx": 0.039,
+    "dy": 0.026,
+    "dz": 0.026
+   },
+   "bbox_datum_m": {
+    "min": [
+     2.123,
+     0.907,
+     0.307
+    ],
+    "max": [
+     2.162,
+     0.933,
+     0.333
+    ]
+   },
+   "catatan": "M12 x 50 ILLUSTRATIVE",
+   "rakitan_eksplor": "EXT-HX",
+   "no_posisi_model": 6
+  },
+  {
+   "id": "EXT-HX-BAUT-34",
+   "nama": "Baut flens tutup belakang",
+   "rakitan": "HX",
+   "jumlah": 1,
+   "status": "ILLUSTRATIVE",
+   "sumber": "P23 (baut tepi depan)",
+   "ukuran_utama_m": {
+    "dx": 0.039,
+    "dy": 0.026,
+    "dz": 0.026
+   },
+   "bbox_datum_m": {
+    "min": [
+     2.123,
+     0.907,
+     0.467
+    ],
+    "max": [
+     2.162,
+     0.933,
+     0.493
+    ]
+   },
+   "catatan": "M12 x 50 ILLUSTRATIVE",
+   "rakitan_eksplor": "EXT-HX",
+   "no_posisi_model": 6
+  },
+  {
+   "id": "EXT-HX-BAUT-35",
+   "nama": "Baut flens tutup belakang",
+   "rakitan": "HX",
+   "jumlah": 1,
+   "status": "ILLUSTRATIVE",
+   "sumber": "P23 (baut tepi depan)",
+   "ukuran_utama_m": {
+    "dx": 0.039,
+    "dy": 0.026,
+    "dz": 0.026
+   },
+   "bbox_datum_m": {
+    "min": [
+     2.123,
+     0.647,
+     0.512
+    ],
+    "max": [
+     2.162,
+     0.673,
+     0.538
+    ]
+   },
+   "catatan": "M12 x 50 ILLUSTRATIVE",
+   "rakitan_eksplor": "EXT-HX",
+   "no_posisi_model": 6
+  },
+  {
+   "id": "EXT-HX-BAUT-36",
+   "nama": "Baut flens tutup belakang",
+   "rakitan": "HX",
+   "jumlah": 1,
+   "status": "ILLUSTRATIVE",
+   "sumber": "P23 (baut tepi depan)",
+   "ukuran_utama_m": {
+    "dx": 0.039,
+    "dy": 0.026,
+    "dz": 0.026
+   },
+   "bbox_datum_m": {
+    "min": [
+     2.123,
+     0.727,
+     0.512
+    ],
+    "max": [
+     2.162,
+     0.753,
+     0.538
+    ]
+   },
+   "catatan": "M12 x 50 ILLUSTRATIVE",
+   "rakitan_eksplor": "EXT-HX",
+   "no_posisi_model": 6
+  },
+  {
+   "id": "EXT-HX-BAUT-37",
+   "nama": "Baut flens tutup belakang",
+   "rakitan": "HX",
+   "jumlah": 1,
+   "status": "ILLUSTRATIVE",
+   "sumber": "P23 (baut tepi depan)",
+   "ukuran_utama_m": {
+    "dx": 0.039,
+    "dy": 0.026,
+    "dz": 0.026
+   },
+   "bbox_datum_m": {
+    "min": [
+     2.123,
+     0.807,
+     0.512
+    ],
+    "max": [
+     2.162,
+     0.833,
+     0.538
+    ]
+   },
+   "catatan": "M12 x 50 ILLUSTRATIVE",
+   "rakitan_eksplor": "EXT-HX",
+   "no_posisi_model": 6
+  },
+  {
+   "id": "EXT-HX-BAUT-38",
+   "nama": "Baut flens tutup belakang",
+   "rakitan": "HX",
+   "jumlah": 1,
+   "status": "ILLUSTRATIVE",
+   "sumber": "P23 (baut tepi depan)",
+   "ukuran_utama_m": {
+    "dx": 0.039,
+    "dy": 0.026,
+    "dz": 0.026
+   },
+   "bbox_datum_m": {
+    "min": [
+     2.123,
+     0.647,
+     -0.538
+    ],
+    "max": [
+     2.162,
+     0.673,
+     -0.512
+    ]
+   },
+   "catatan": "M12 x 50 ILLUSTRATIVE",
+   "rakitan_eksplor": "EXT-HX",
+   "no_posisi_model": 6
+  },
+  {
+   "id": "EXT-HX-BAUT-39",
+   "nama": "Baut flens tutup belakang",
+   "rakitan": "HX",
+   "jumlah": 1,
+   "status": "ILLUSTRATIVE",
+   "sumber": "P23 (baut tepi depan)",
+   "ukuran_utama_m": {
+    "dx": 0.039,
+    "dy": 0.026,
+    "dz": 0.026
+   },
+   "bbox_datum_m": {
+    "min": [
+     2.123,
+     0.727,
+     -0.538
+    ],
+    "max": [
+     2.162,
+     0.753,
+     -0.512
+    ]
+   },
+   "catatan": "M12 x 50 ILLUSTRATIVE",
+   "rakitan_eksplor": "EXT-HX",
+   "no_posisi_model": 6
+  },
+  {
+   "id": "EXT-HX-BAUT-40",
+   "nama": "Baut flens tutup belakang",
+   "rakitan": "HX",
+   "jumlah": 1,
+   "status": "ILLUSTRATIVE",
+   "sumber": "P23 (baut tepi depan)",
+   "ukuran_utama_m": {
+    "dx": 0.039,
+    "dy": 0.026,
+    "dz": 0.026
+   },
+   "bbox_datum_m": {
+    "min": [
+     2.123,
+     0.807,
+     -0.538
+    ],
+    "max": [
+     2.162,
+     0.833,
+     -0.512
+    ]
+   },
+   "catatan": "M12 x 50 ILLUSTRATIVE",
+   "rakitan_eksplor": "EXT-HX",
+   "no_posisi_model": 6
+  },
+  {
+   "id": "EXT-HX-PLUG-1",
+   "nama": "Plug drain / vent heat exchanger",
+   "rakitan": "HX",
+   "jumlah": 1,
+   "status": "ILLUSTRATIVE",
+   "sumber": "ILLUSTRATIVE",
+   "ukuran_utama_m": {
+    "dx": 0.024,
+    "dy": 0.028,
+    "dz": 0.021
+   },
+   "bbox_datum_m": {
+    "min": [
+     2.238,
+     0.563,
+     -0.26
+    ],
+    "max": [
+     2.262,
+     0.591,
+     -0.24
+    ]
+   },
+   "catatan": "ukuran ILLUSTRATIVE",
+   "rakitan_eksplor": "EXT-HX",
+   "no_posisi_model": 7
+  },
+  {
+   "id": "EXT-HX-PLUG-2",
+   "nama": "Plug drain / vent heat exchanger",
+   "rakitan": "HX",
+   "jumlah": 1,
+   "status": "ILLUSTRATIVE",
+   "sumber": "ILLUSTRATIVE",
+   "ukuran_utama_m": {
+    "dx": 0.028,
+    "dy": 0.024,
+    "dz": 0.021
+   },
+   "bbox_datum_m": {
+    "min": [
+     2.37,
+     0.848,
+     0.35
+    ],
+    "max": [
+     2.398,
+     0.872,
+     0.37
+    ]
+   },
+   "catatan": "ukuran ILLUSTRATIVE",
+   "rakitan_eksplor": "EXT-HX",
+   "no_posisi_model": 7
+  },
+  {
+   "id": "EXT-HX-PLUG-3",
+   "nama": "Plug drain / vent heat exchanger",
+   "rakitan": "HX",
+   "jumlah": 1,
+   "status": "ILLUSTRATIVE",
+   "sumber": "ILLUSTRATIVE",
+   "ukuran_utama_m": {
+    "dx": 0.024,
+    "dy": 0.028,
+    "dz": 0.021
+   },
+   "bbox_datum_m": {
+    "min": [
+     2.114,
+     0.588,
+     0.29
+    ],
+    "max": [
+     2.138,
+     0.616,
+     0.31
+    ]
+   },
+   "catatan": "ukuran ILLUSTRATIVE",
+   "rakitan_eksplor": "EXT-HX",
+   "no_posisi_model": 7
+  },
+  {
+   "id": "EXT-HX-ANODA-1",
+   "nama": "Anoda seng pada tutup belakang",
+   "rakitan": "HX",
+   "jumlah": 1,
+   "status": "ILLUSTRATIVE",
+   "sumber": "ILLUSTRATIVE",
+   "ukuran_utama_m": {
+    "dx": 0.046,
+    "dy": 0.032,
+    "dz": 0.028
+   },
+   "bbox_datum_m": {
+    "min": [
+     2.106,
+     0.804,
+     -0.314
+    ],
+    "max": [
+     2.152,
+     0.836,
+     -0.286
+    ]
+   },
+   "catatan": "posisi dan ukuran ILLUSTRATIVE",
+   "rakitan_eksplor": "EXT-HX",
+   "no_posisi_model": 8
+  },
+  {
+   "id": "EXT-HEXPLATE-01",
+   "nama": "Pelat depan berbentuk X pada heat exchanger (tanpa logo)",
+   "rakitan": "HX",
+   "jumlah": 1,
+   "status": "OBSERVED",
+   "sumber": "P23 (pelat X di depan heat exchanger)",
+   "ukuran_utama_m": {
+    "dx": 0.016,
+    "dy": 0.307,
+    "dz": 0.46
+   },
+   "bbox_datum_m": {
+    "min": [
+     2.388,
+     0.586,
+     -0.23
+    ],
+    "max": [
+     2.404,
+     0.894,
+     0.23
+    ]
+   },
+   "catatan": "tulisan merek tidak dibuat (aturan tanpa logo); ukuran ESTIMATED",
+   "rakitan_eksplor": "EXT-HX",
+   "no_posisi_model": 9
+  },
+  {
+   "id": "EXT-SELANG-R",
+   "nama": "Selang karet hitam heat exchanger kanan",
+   "rakitan": "PENDINGIN",
+   "jumlah": 1,
+   "status": "OBSERVED",
+   "sumber": "P23 (dua selang hitam di muka heat exchanger)",
+   "ukuran_utama_m": {
+    "dx": 0.173,
+    "dy": 0.47,
+    "dz": 0.223
+   },
+   "bbox_datum_m": {
+    "min": [
+     2.26,
+     0.5,
+     0.23
+    ],
+    "max": [
+     2.433,
+     0.97,
+     0.453
+    ]
+   },
+   "catatan": "rute ESTIMATED"
+  },
+  {
+   "id": "EXT-SELANG-L",
+   "nama": "Selang karet hitam heat exchanger kiri",
+   "rakitan": "PENDINGIN",
+   "jumlah": 1,
+   "status": "OBSERVED",
+   "sumber": "P23 (dua selang hitam di muka heat exchanger)",
+   "ukuran_utama_m": {
+    "dx": 0.173,
+    "dy": 0.47,
+    "dz": 0.223
+   },
+   "bbox_datum_m": {
+    "min": [
+     2.26,
+     0.5,
+     -0.453
+    ],
+    "max": [
+     2.433,
+     0.97,
+     -0.23
+    ]
+   },
+   "catatan": "rute ESTIMATED"
+  },
+  {
+   "id": "EXT-POMPAJW-01",
+   "nama": "Jacket water pump (digerakkan roda gigi) depan kanan bawah",
+   "rakitan": "POMPA",
+   "jumlah": 1,
+   "status": "INFERRED",
+   "sumber": "D01 hlm. 2, D02 hlm. 1 (jacket water pump gear-driven); D01 hlm. 1 gambar Dimensions tampak Front (datum.json) (siku pipa besar kanan (y -0.047, z 0.427)); D02 hlm. 1 render 3D samping kanan dan depan (img/side-1.png, img/front-1.png)",
+   "ukuran_utama_m": {
+    "dx": 0.122,
+    "dy": 0.239,
+    "dz": 0.266
+   },
+   "bbox_datum_m": {
+    "min": [
+     1.93,
+     -0.18,
+     0.307
+    ],
+    "max": [
+     2.052,
+     0.059,
+     0.573
+    ]
+   },
+   "catatan": "identitas JW vs auxiliary tidak berlabel (datum INFERRED); ukuran ILLUSTRATIVE"
+  },
+  {
+   "id": "EXT-POMPAAW-01",
+   "nama": "Auxiliary (aftercooler) water pump depan kiri bawah",
+   "rakitan": "POMPA",
+   "jumlah": 1,
+   "status": "INFERRED",
+   "sumber": "D02 hlm. 1 (auxiliary water pump); D01 hlm. 1 gambar Dimensions tampak Front (datum.json) (rumah bundar y -0.099, z -0.421)",
+   "ukuran_utama_m": {
+    "dx": 0.112,
+    "dy": 0.227,
+    "dz": 0.253
+   },
+   "bbox_datum_m": {
+    "min": [
+     1.93,
+     -0.225,
+     -0.535
+    ],
+    "max": [
+     2.042,
+     0.002,
+     -0.282
+    ]
+   },
+   "catatan": "identitas JW vs AW tidak berlabel; ukuran ILLUSTRATIVE"
+  },
+  {
+   "id": "EXT-POMPASW-01",
+   "nama": "Sea water pump (opsional) dengan pipa isap berflens",
+   "rakitan": "POMPA",
+   "jumlah": 1,
+   "status": "OBSERVED",
+   "sumber": "P23 (pompa air laut bundar kecil di depan bawah sisi kiri mesin = kanan gambar); P22; D01 hlm. 2 / D02 hlm. 1 (opsi); D03 hlm. 1",
+   "ukuran_utama_m": {
+    "dx": 0.181,
+    "dy": 0.526,
+    "dz": 0.261
+   },
+   "bbox_datum_m": {
+    "min": [
+     2.06,
+     -0.547,
+     -0.651
+    ],
+    "max": [
+     2.241,
+     -0.021,
+     -0.39
+    ]
+   },
+   "catatan": "Catatan: brief menyebut depan kanan; P23 tampak depan menaruhnya di kanan gambar = sisi KIRI mesin (konvensi datum). Posisi ESTIMATED dari P23 (skala guard O 0.652)"
+  },
+  {
+   "id": "EXT-PIPAAIR-R",
+   "nama": "Pipa air besar kanan: jacket water pump ke heat exchanger (siku bawah, naik tegak)",
+   "rakitan": "POMPA",
+   "jumlah": 1,
+   "status": "ESTIMATED",
+   "sumber": "D01 hlm. 1 gambar Dimensions tampak Right Side (skala 3.107 mm/px, datum.json) (pipa tegak X ~2.23, Y -0.12..0.48, siku bawah); D01 hlm. 1 gambar Dimensions tampak Front (datum.json)",
+   "ukuran_utama_m": {
+    "dx": 0.303,
+    "dy": 0.685,
+    "dz": 0.186
+   },
+   "bbox_datum_m": {
+    "min": [
+     2.02,
+     -0.14,
+     0.334
+    ],
+    "max": [
+     2.323,
+     0.545,
+     0.52
+    ]
+   },
+   "catatan": "diameter 0.12 m ESTIMATED"
+  },
+  {
+   "id": "EXT-PIPAAIR-L",
+   "nama": "Pipa air laut kiri: sea water pump ke heat exchanger",
+   "rakitan": "POMPA",
+   "jumlah": 1,
+   "status": "ESTIMATED",
+   "sumber": "P23 (pipa air besar sisi kiri dan kanan); D01 hlm. 1 gambar Dimensions tampak Front (datum.json)",
+   "ukuran_utama_m": {
+    "dx": 0.249,
+    "dy": 0.622,
+    "dz": 0.211
+   },
+   "bbox_datum_m": {
+    "min": [
+     2.048,
+     -0.072,
+     -0.573
+    ],
+    "max": [
+     2.297,
+     0.55,
+     -0.363
+    ]
+   },
+   "catatan": "rute ESTIMATED"
+  },
+  {
+   "id": "EXT-PIPAU-01",
+   "nama": "Pipa air berbentuk U terbalik depan kiri (pompa auxiliary ke aftercooler)",
+   "rakitan": "POMPA",
+   "jumlah": 1,
+   "status": "ESTIMATED",
+   "sumber": "P15, P12 (genset: pipa U terbalik naik dari pompa depan bawah); D02 hlm. 1 render 3D samping kanan dan depan (img/side-1.png, img/front-1.png) (depan: pipa besar dari atas turun ke pompa bawah)",
+   "ukuran_utama_m": {
+    "dx": 0.663,
+    "dy": 1.188,
+    "dz": 0.497
+   },
+   "bbox_datum_m": {
+    "min": [
+     1.393,
+     0.007,
+     -0.507
+    ],
+    "max": [
+     2.056,
+     1.195,
+     -0.009
+    ]
+   },
+   "catatan": "rute untuk konfigurasi marine ILLUSTRATIVE"
+  },
+  {
+   "id": "EXT-PIPAU-02",
+   "nama": "Pipa air U terbalik depan kanan (rumah termostat ke heat exchanger)",
+   "rakitan": "POMPA",
+   "jumlah": 1,
+   "status": "ILLUSTRATIVE",
+   "sumber": "P12, P22 (pipa air melengkung tegak di depan)",
+   "ukuran_utama_m": {
+    "dx": 0.432,
+    "dy": 0.468,
+    "dz": 0.446
+   },
+   "bbox_datum_m": {
+    "min": [
+     1.685,
+     0.702,
+     0.072
+    ],
+    "max": [
+     2.117,
+     1.17,
+     0.517
+    ]
+   },
+   "catatan": "rute ILLUSTRATIVE"
+  },
+  {
+   "id": "EXT-TERMOSTAT-01",
+   "nama": "Rumah termostat / water outlet di ujung depan atas dengan pipa ke tangki, dan dua rumah bundar menghadap kanan",
+   "rakitan": "POMPA",
+   "jumlah": 1,
+   "status": "OBSERVED",
+   "sumber": "P12 (rumah termostat di ujung depan atas); D01 hlm. 1 gambar Dimensions tampak Right Side (skala 3.107 mm/px, datum.json) (dua lingkaran X ~1.96, Y ~0.80 dan ~0.975)",
+   "ukuran_utama_m": {
+    "dx": 0.486,
+    "dy": 0.455,
+    "dz": 0.44
+   },
+   "bbox_datum_m": {
+    "min": [
+     1.64,
+     0.69,
+     -0.17
+    ],
+    "max": [
+     2.126,
+     1.145,
+     0.27
+    ]
+   },
+   "catatan": "identitas dua rumah bundar (termostat atau pompa) UNKNOWN; ukuran ILLUSTRATIVE"
+  },
+  {
+   "id": "EXT-OILCOOLER-01",
+   "nama": "Engine oil cooler (didinginkan jacket water) sisi kanan",
+   "rakitan": "SISIKANAN",
+   "jumlah": 1,
+   "status": "ESTIMATED",
+   "sumber": "D01 hlm. 2, D03 hlm. 1 (oil cooler); D02 hlm. 1 render 3D samping kanan dan depan (img/side-1.png, img/front-1.png) (silinder horizontal memanjang di samping blok)",
+   "ukuran_utama_m": {
+    "dx": 0.995,
+    "dy": 0.21,
+    "dz": 0.21
+   },
+   "bbox_datum_m": {
+    "min": [
+     0.44,
+     -0.025,
+     0.46
+    ],
+    "max": [
+     1.435,
+     0.185,
+     0.67
+    ]
+   },
+   "catatan": "identitas silinder di render sebagai oil cooler INFERRED; sisi kanan ESTIMATED"
+  },
+  {
+   "id": "EXT-FILTEROLI-01",
+   "nama": "Oil filter (3 tabung) dengan kepala filter, sisi kanan",
+   "rakitan": "SISIKANAN",
+   "jumlah": 3,
+   "status": "INFERRED",
+   "sumber": "D01 hlm. 2, D03 hlm. 1 (oil filter with service indicators); P19 (3512C frac: 3 filter kuning menggantung di sisi kanan)",
+   "ukuran_utama_m": {
+    "dx": 0.36,
+    "dy": 0.24,
+    "dz": 0.13
+   },
+   "bbox_datum_m": {
+    "min": [
+     1.26,
+     -0.3,
+     0.515
+    ],
+    "max": [
+     1.62,
+     -0.06,
+     0.645
+    ]
+   },
+   "catatan": "posisi marine belum terkonfirmasi (P19 adalah frac); ukuran ILLUSTRATIVE"
+  },
+  {
+   "id": "EXT-FILTERBB-01",
+   "nama": "Fuel filter (2 tabung) dengan kepala filter, sisi kanan",
+   "rakitan": "SISIKANAN",
+   "jumlah": 2,
+   "status": "INFERRED",
+   "sumber": "D03 hlm. 1 (fuel filter with service indicator); P19 (3512C frac: 2 filter di sisi kanan tengah)",
+   "ukuran_utama_m": {
+    "dx": 0.24,
+    "dy": 0.295,
+    "dz": 0.12
+   },
+   "bbox_datum_m": {
+    "min": [
+     1.63,
+     0.14,
+     0.52
+    ],
+    "max": [
+     1.87,
+     0.435,
+     0.64
+    ]
+   },
+   "catatan": "posisi marine belum terkonfirmasi; ukuran ILLUSTRATIVE"
+  },
+  {
+   "id": "EXT-ECM-01",
+   "nama": "Kotak ECM (dual ECM) sisi kanan belakang bawah",
+   "rakitan": "SISIKANAN",
+   "jumlah": 1,
+   "status": "ESTIMATED",
+   "sumber": "D02 hlm. 1 (dual ECM); D01 hlm. 1 gambar Dimensions tampak Right Side (skala 3.107 mm/px, datum.json) (kotak X 0.05..0.37, Y -0.12..0.30)",
+   "ukuran_utama_m": {
+    "dx": 0.3,
+    "dy": 0.36,
+    "dz": 0.095
+   },
+   "bbox_datum_m": {
+    "min": [
+     0.06,
+     -0.07,
+     0.48
+    ],
+    "max": [
+     0.36,
+     0.29,
+     0.575
+    ]
+   },
+   "catatan": "identitas kotak di gambar sebagai ECM INFERRED"
+  },
+  {
+   "id": "EXT-PANEL-01",
+   "nama": "Panel kontrol / instrumen mesin sisi kanan atas belakang",
+   "rakitan": "SISIKANAN",
+   "jumlah": 1,
+   "status": "OBSERVED",
+   "sumber": "P22 (marine: panel kontrol hitam di sisi kanan di atas tengah-belakang); D01 hlm. 1 gambar Dimensions tampak Right Side (skala 3.107 mm/px, datum.json) (kotak X 0.12..0.33, Y 0.61..1.02)",
+   "ukuran_utama_m": {
+    "dx": 0.21,
+    "dy": 0.48,
+    "dz": 0.165
+   },
+   "bbox_datum_m": {
+    "min": [
+     0.12,
+     0.54,
+     0.545
+    ],
+    "max": [
+     0.33,
+     1.02,
+     0.71
+    ]
+   },
+   "catatan": "kedalaman 0.15 m ILLUSTRATIVE"
+  },
+  {
+   "id": "EXT-GALERI-R",
+   "nama": "Batang galeri memanjang di bawah tutup katup bank kanan (identitas belum diketahui)",
+   "rakitan": "SISIKANAN",
+   "jumlah": 1,
+   "status": "ESTIMATED",
+   "sumber": "D02 hlm. 1 render 3D samping kanan dan depan (img/side-1.png, img/front-1.png) (batang kotak memanjang X ~0.37..1.57, Y ~0.44..0.51)",
+   "ukuran_utama_m": {
+    "dx": 1.201,
+    "dy": 0.07,
+    "dz": 0.074
+   },
+   "bbox_datum_m": {
+    "min": [
+     0.37,
+     0.44,
+     0.47
+    ],
+    "max": [
+     1.571,
+     0.51,
+     0.544
+    ]
+   },
+   "catatan": "identitas (fuel manifold atau penutup galeri) UNKNOWN; bentuk dari render saja"
+  },
+  {
+   "id": "EXT-TERMBOX-L",
+   "nama": "Kotak terminal / junction box sisi kiri dekat flywheel housing",
+   "rakitan": "SISIKIRI",
+   "jumlah": 1,
+   "status": "OBSERVED",
+   "sumber": "P11 (genset 3512C: kotak ECM/terminal dekat flywheel housing sisi kiri)",
+   "ukuran_utama_m": {
+    "dx": 0.26,
+    "dy": 0.25,
+    "dz": 0.121
+   },
+   "bbox_datum_m": {
+    "min": [
+     0.07,
+     -0.09,
+     -0.606
+    ],
+    "max": [
+     0.33,
+     0.16,
+     -0.485
+    ]
+   },
+   "catatan": "unit genset; keberadaan pada marine belum terkonfirmasi; ukuran dan posisi ESTIMATED dari P11"
+  },
+  {
+   "id": "EXT-HARNESS-L",
+   "nama": "Bundel kabel (wiring harness) sepanjang bank kiri dengan klem",
+   "rakitan": "SISIKIRI",
+   "jumlah": 1,
+   "status": "OBSERVED",
+   "sumber": "P11 (bundel kabel melintang di bawah tutup katup bank kiri); P10 (bank kanan, genset)",
+   "ukuran_utama_m": {
+    "dx": 1.731,
+    "dy": 0.332,
+    "dz": 0.063
+   },
+   "bbox_datum_m": {
+    "min": [
+     -0.031,
+     0.131,
+     -0.556
+    ],
+    "max": [
+     1.7,
+     0.463,
+     -0.492
+    ]
+   },
+   "catatan": "rute dan diameter 0.03 m ESTIMATED; jumlah klem ILLUSTRATIVE"
+  },
+  {
+   "id": "EXT-PIPAAIR-L2",
+   "nama": "Pipa air sisi kiri depan: dari pompa auxiliary ke samping blok",
+   "rakitan": "SISIKIRI",
+   "jumlah": 1,
+   "status": "ILLUSTRATIVE",
+   "sumber": "P11 dan P26 (genset: pipa melengkung turun di depan sisi kiri lalu menyusur ke belakang)",
+   "ukuran_utama_m": {
+    "dx": 0.863,
+    "dy": 0.159,
+    "dz": 0.195
+   },
+   "bbox_datum_m": {
+    "min": [
+     1.057,
+     -0.21,
+     -0.57
+    ],
+    "max": [
+     1.92,
+     -0.051,
+     -0.375
+    ]
+   },
+   "catatan": "rute dan diameter ILLUSTRATIVE; hanya terlihat di genset"
+  }
+ ]
+}

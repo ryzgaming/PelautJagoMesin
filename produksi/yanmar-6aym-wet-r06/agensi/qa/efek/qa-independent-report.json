@@ -1,0 +1,77 @@
+{
+  "status": "Visual accepted for owner review; desktop resume verified by independent followup with raw samples",
+  "role": "independent QA, no repository source edits",
+  "comparison_method": "Actual Chromium WebGL1 screenshots. Baseline immutable source on8767, final source on8766. Both route identical final lab HTML for identical camera/UI; four exact crank phases -8,8,32,85 and deterministic flow uniforms. Original pre-responsive UI screenshots retained separately.",
+  "artifacts": [
+    "perbandingan-desktop.png",
+    "perbandingan-hp.png",
+    "perbandingan-pembakaran.png"
+  ],
+  "visual_findings_resolved": [
+    "Initial polish flame too dim; brightness retuned",
+    "Sphere radial mask made dark equator at8deg; mask removed",
+    "Mobile badge overlapped legend; top160px and camera zoom.72 applied equally to comparison"
+  ],
+  "visual_final": "Softer striated spray; quieter liquid fronts with soft edges; translucent warm exhaust; textured bright peak, amber expansion, subdued warm residual. No final dark equator or clipped mobile model observed.",
+  "checks": {
+    "errors": [],
+    "webgl": "forced WebGL1, Chromium SwiftShader",
+    "pause": "stable both matched captures",
+    "resume": "Earlier180ms desktop capture false; followup qa-resume-modes/report.json records four samples at500ms confirming fire crank and flow fraction movement in normal40rpm and real1800rpm. Pause stable, zero errors. Earlier result retained unchanged for traceability.",
+    "bore": "361 phases sampled, max model radius0.09000000357627869m within tolerance of0.09m lab bore",
+    "firing": "configured example1-3-4-2 confirmed at8deg after each TDC",
+    "mobile_pointlights": 0,
+    "estimated": "demo sea_water uEstimated1, opacity.6 and dashed fragment branch present",
+    "normal_real_modes": "forcedWebGL1 normal+real nonxray passes pause/fire+flowresume; canonical nonxray desktop and real1800rpm xray mobile pass motion/pause/flowresume, zero errors/warnings. Both canonical sheets visually inspected."
+  },
+  "fps": {
+    "before_desktop": {
+      "samples": [
+        45,
+        14,
+        18,
+        19
+      ],
+      "median": 18.5
+    },
+    "before_hp": {
+      "samples": [
+        34,
+        33,
+        36,
+        28
+      ],
+      "median": 33.5
+    },
+    "after_desktop": {
+      "samples": [
+        42,
+        19,
+        20,
+        19
+      ],
+      "median": 19.5
+    },
+    "after_hp": {
+      "samples": [
+        55,
+        30,
+        30,
+        31
+      ],
+      "median": 30.5
+    }
+  },
+  "limitations": [
+    "HP means390x844 browser viewport, not physical phone",
+    "Software-rendered FPS is not hardware acceptance or robust performance benchmark",
+    "Synthetic four-cylinder effect lab, not full Yanmar OEM geometry validation",
+    "No catalogue publication or machine readiness implied"
+  ],
+  "source_hashes": {
+    "scripts/flow-ribbons.js": "b901d412cb7f7adabcb5363cd09a46bab88e434c394e70df6da05593231cf1c0",
+    "scripts/combustion-glow.js": "4e634b7eaa57f479439014985c9c2531c0ce20c84a82972bfccce041b3192ebe",
+    "references/gaya-efek.json": "fd652cf84eab52ee8df1b33938e5c0d4754157ffe726ce1fd825b156269c0a87",
+    "scripts/lab.html": "c5b81910feb746d90cbb2d46fbd9b8cd00beef5d0631a84e0936f4b56909ccc2"
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "method": "Minimum of sampled reimported vertices versus opposite mesh surfaces, and BVH triangle overlaps. Positive gaps here mean no contact represented between pressure pipe and holder for sampled supports. Neighboring head geometry may occlude the gap. Not a continuous minimum or a pressure-seal test.",
+  "assets": {
+    "external": "153c7f88e907a9832d11cd05ad4f822332aae1667506cc1a902dbefa648a67ad",
+    "internal": "4b69ad9975928cfa80be62ddc7c6a1c5caa241900bd3aef299081c1e6406ae05"
+  },
+  "fuel_links": [
+    {
+      "pipe": "EXT-FUEL-03",
+      "injector_holder": "INT-FUELINJ-11",
+      "surface_pair_intersections": 0,
+      "closest_vertex_surface_proxy_mm": 221.286341547966
+    },
+    {
+      "pipe": "EXT-FUEL-04",
+      "injector_holder": "INT-FUELINJ-21",
+      "surface_pair_intersections": 0,
+      "closest_vertex_surface_proxy_mm": 221.65775299072266
+    },
+    {
+      "pipe": "EXT-FUEL-05",
+      "injector_holder": "INT-FUELINJ-31",
+      "surface_pair_intersections": 0,
+      "closest_vertex_surface_proxy_mm": 221.67368233203888
+    },
+    {
+      "pipe": "EXT-FUEL-06",
+      "injector_holder": "INT-FUELINJ-41",
+      "surface_pair_intersections": 0,
+      "closest_vertex_surface_proxy_mm": 222.49287366867065
+    },
+    {
+      "pipe": "EXT-FUEL-07",
+      "injector_holder": "INT-FUELINJ-51",
+      "surface_pair_intersections": 0,
+      "closest_vertex_surface_proxy_mm": 221.6878980398178
+    },
+    {
+      "pipe": "EXT-FUEL-08",
+      "injector_holder": "INT-FUELINJ-61",
+      "surface_pair_intersections": 0,
+      "closest_vertex_surface_proxy_mm": 220.89256346225739
+    }
+  ]
+}

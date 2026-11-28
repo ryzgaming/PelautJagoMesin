@@ -1,0 +1,541 @@
+{
+  "status": "UNVERIFIED",
+  "method": "Analytic clearance envelopes sampled each 10° crank, 0–720° inclusive. Axial fits computed from generated profile parameters. Gear mesh phasing, elastic seals, cap/block contacts, materials and continuous swept volumes are outside this envelope.",
+  "samples": [
+    {
+      "crank_deg": 0,
+      "piston_to_head": 0.0015599999999999503,
+      "piston_skirt_to_crankpin": 0.19284133419111038,
+      "valve_to_crown": 0.0027300239103166257,
+      "ring_to_liner_radial": 8.196374620322855e-06
+    },
+    {
+      "crank_deg": 10,
+      "piston_to_head": 0.0033086377403688805,
+      "piston_skirt_to_crankpin": 0.19110316746798559,
+      "valve_to_crown": 0.0036143418487331602,
+      "ring_to_liner_radial": 8.196374620322855e-06
+    },
+    {
+      "crank_deg": 20,
+      "piston_to_head": 0.008469557797681382,
+      "piston_skirt_to_crankpin": 0.18996336799888558,
+      "valve_to_crown": 0.007691633243324281,
+      "ring_to_liner_radial": 8.196374620322855e-06
+    },
+    {
+      "crank_deg": 30,
+      "piston_to_head": 0.016793165372013086,
+      "piston_skirt_to_crankpin": 0.18956653150428324,
+      "valve_to_crown": 0.01479700551447799,
+      "ring_to_liner_radial": 8.196374620322855e-06
+    },
+    {
+      "crank_deg": 40,
+      "piston_to_head": 0.02788133629056494,
+      "piston_skirt_to_crankpin": 0.1899633679988856,
+      "valve_to_crown": 0.02462755828569363,
+      "ring_to_liner_radial": 8.196374620322855e-06
+    },
+    {
+      "crank_deg": 50,
+      "piston_to_head": 0.04121378877394871,
+      "piston_skirt_to_crankpin": 0.19110316746798556,
+      "valve_to_crown": 0.036761311947919706,
+      "ring_to_liner_radial": 8.196374620322855e-06
+    },
+    {
+      "crank_deg": 60,
+      "piston_to_head": 0.056183665808889616,
+      "piston_skirt_to_crankpin": 0.19284133419111035,
+      "valve_to_crown": 0.050685106208105624,
+      "ring_to_liner_radial": 8.196374620322855e-06
+    },
+    {
+      "crank_deg": 70,
+      "piston_to_head": 0.04121378877394871,
+      "piston_skirt_to_crankpin": 0.19110316746798556,
+      "valve_to_crown": 0.036761311947919706,
+      "ring_to_liner_radial": 8.196374620322855e-06
+    },
+    {
+      "crank_deg": 80,
+      "piston_to_head": 0.027881336290564995,
+      "piston_skirt_to_crankpin": 0.18996336799888558,
+      "valve_to_crown": 0.024627558285693685,
+      "ring_to_liner_radial": 8.196374620322855e-06
+    },
+    {
+      "crank_deg": 90,
+      "piston_to_head": 0.016793165372013086,
+      "piston_skirt_to_crankpin": 0.1895665315042832,
+      "valve_to_crown": 0.01479700551447799,
+      "ring_to_liner_radial": 8.196374620322855e-06
+    },
+    {
+      "crank_deg": 100,
+      "piston_to_head": 0.008469557797681382,
+      "piston_skirt_to_crankpin": 0.18996336799888558,
+      "valve_to_crown": 0.007691633243324281,
+      "ring_to_liner_radial": 8.196374620322855e-06
+    },
+    {
+      "crank_deg": 110,
+      "piston_to_head": 0.0033086377403688805,
+      "piston_skirt_to_crankpin": 0.19110316746798553,
+      "valve_to_crown": 0.0036143418487331602,
+      "ring_to_liner_radial": 8.196374620322855e-06
+    },
+    {
+      "crank_deg": 120,
+      "piston_to_head": 0.0015599999999999503,
+      "piston_skirt_to_crankpin": 0.19284133419111038,
+      "valve_to_crown": 0.0027300239103166257,
+      "ring_to_liner_radial": 8.196374620322855e-06
+    },
+    {
+      "crank_deg": 130,
+      "piston_to_head": 0.0033086377403688805,
+      "piston_skirt_to_crankpin": 0.19110316746798559,
+      "valve_to_crown": 0.0036143418487331602,
+      "ring_to_liner_radial": 8.196374620322855e-06
+    },
+    {
+      "crank_deg": 140,
+      "piston_to_head": 0.008469557797681382,
+      "piston_skirt_to_crankpin": 0.18996336799888558,
+      "valve_to_crown": 0.007691633243324281,
+      "ring_to_liner_radial": 8.196374620322855e-06
+    },
+    {
+      "crank_deg": 150,
+      "piston_to_head": 0.016793165372013086,
+      "piston_skirt_to_crankpin": 0.18956653150428324,
+      "valve_to_crown": 0.01479700551447799,
+      "ring_to_liner_radial": 8.196374620322855e-06
+    },
+    {
+      "crank_deg": 160,
+      "piston_to_head": 0.02788133629056494,
+      "piston_skirt_to_crankpin": 0.1899633679988856,
+      "valve_to_crown": 0.02462755828569363,
+      "ring_to_liner_radial": 8.196374620322855e-06
+    },
+    {
+      "crank_deg": 170,
+      "piston_to_head": 0.041213788773948656,
+      "piston_skirt_to_crankpin": 0.19110316746798556,
+      "valve_to_crown": 0.03676131194791965,
+      "ring_to_liner_radial": 8.196374620322855e-06
+    },
+    {
+      "crank_deg": 180,
+      "piston_to_head": 0.056183665808889616,
+      "piston_skirt_to_crankpin": 0.19284133419111035,
+      "valve_to_crown": 0.050685106208105624,
+      "ring_to_liner_radial": 8.196374620322855e-06
+    },
+    {
+      "crank_deg": 190,
+      "piston_to_head": 0.04121378877394871,
+      "piston_skirt_to_crankpin": 0.19110316746798559,
+      "valve_to_crown": 0.036761311947919706,
+      "ring_to_liner_radial": 8.196374620322855e-06
+    },
+    {
+      "crank_deg": 200,
+      "piston_to_head": 0.027881336290564995,
+      "piston_skirt_to_crankpin": 0.18996336799888555,
+      "valve_to_crown": 0.024627558285693685,
+      "ring_to_liner_radial": 8.196374620322855e-06
+    },
+    {
+      "crank_deg": 210,
+      "piston_to_head": 0.016793165372013086,
+      "piston_skirt_to_crankpin": 0.18956653150428318,
+      "valve_to_crown": 0.01479700551447799,
+      "ring_to_liner_radial": 8.196374620322855e-06
+    },
+    {
+      "crank_deg": 220,
+      "piston_to_head": 0.008469557797681382,
+      "piston_skirt_to_crankpin": 0.1899633679988856,
+      "valve_to_crown": 0.007691633243324281,
+      "ring_to_liner_radial": 8.196374620322855e-06
+    },
+    {
+      "crank_deg": 230,
+      "piston_to_head": 0.0033086377403688805,
+      "piston_skirt_to_crankpin": 0.19110316746798553,
+      "valve_to_crown": 0.0036143418487331602,
+      "ring_to_liner_radial": 8.196374620322855e-06
+    },
+    {
+      "crank_deg": 240,
+      "piston_to_head": 0.0015599999999999503,
+      "piston_skirt_to_crankpin": 0.19284133419111033,
+      "valve_to_crown": 0.0027300239103166257,
+      "ring_to_liner_radial": 8.196374620322855e-06
+    },
+    {
+      "crank_deg": 250,
+      "piston_to_head": 0.0033086377403688805,
+      "piston_skirt_to_crankpin": 0.19110316746798559,
+      "valve_to_crown": 0.0036143418487331602,
+      "ring_to_liner_radial": 8.196374620322855e-06
+    },
+    {
+      "crank_deg": 260,
+      "piston_to_head": 0.008469557797681382,
+      "piston_skirt_to_crankpin": 0.18996336799888558,
+      "valve_to_crown": 0.007691633243324281,
+      "ring_to_liner_radial": 8.196374620322855e-06
+    },
+    {
+      "crank_deg": 270,
+      "piston_to_head": 0.016793165372013086,
+      "piston_skirt_to_crankpin": 0.18956653150428324,
+      "valve_to_crown": 0.01479700551447799,
+      "ring_to_liner_radial": 8.196374620322855e-06
+    },
+    {
+      "crank_deg": 280,
+      "piston_to_head": 0.02788133629056494,
+      "piston_skirt_to_crankpin": 0.1899633679988856,
+      "valve_to_crown": 0.02462755828569363,
+      "ring_to_liner_radial": 8.196374620322855e-06
+    },
+    {
+      "crank_deg": 290,
+      "piston_to_head": 0.041213788773948656,
+      "piston_skirt_to_crankpin": 0.19110316746798556,
+      "valve_to_crown": 0.03676131194791965,
+      "ring_to_liner_radial": 8.196374620322855e-06
+    },
+    {
+      "crank_deg": 300,
+      "piston_to_head": 0.056183665808889616,
+      "piston_skirt_to_crankpin": 0.19284133419111035,
+      "valve_to_crown": 0.050685106208105624,
+      "ring_to_liner_radial": 8.196374620322855e-06
+    },
+    {
+      "crank_deg": 310,
+      "piston_to_head": 0.04121378877394871,
+      "piston_skirt_to_crankpin": 0.19110316746798559,
+      "valve_to_crown": 0.036761311947919706,
+      "ring_to_liner_radial": 8.196374620322855e-06
+    },
+    {
+      "crank_deg": 320,
+      "piston_to_head": 0.027881336290564995,
+      "piston_skirt_to_crankpin": 0.18996336799888555,
+      "valve_to_crown": 0.024627558285693685,
+      "ring_to_liner_radial": 8.196374620322855e-06
+    },
+    {
+      "crank_deg": 330,
+      "piston_to_head": 0.016793165372013086,
+      "piston_skirt_to_crankpin": 0.18956653150428318,
+      "valve_to_crown": 0.01479700551447799,
+      "ring_to_liner_radial": 8.196374620322855e-06
+    },
+    {
+      "crank_deg": 340,
+      "piston_to_head": 0.008469557797681382,
+      "piston_skirt_to_crankpin": 0.1899633679988856,
+      "valve_to_crown": 0.007691633243324281,
+      "ring_to_liner_radial": 8.196374620322855e-06
+    },
+    {
+      "crank_deg": 350,
+      "piston_to_head": 0.0033086377403688805,
+      "piston_skirt_to_crankpin": 0.19110316746798553,
+      "valve_to_crown": 0.0036143418487331602,
+      "ring_to_liner_radial": 8.196374620322855e-06
+    },
+    {
+      "crank_deg": 360,
+      "piston_to_head": 0.0015599999999999503,
+      "piston_skirt_to_crankpin": 0.19284133419111033,
+      "valve_to_crown": 0.0027300239103166257,
+      "ring_to_liner_radial": 8.196374620322855e-06
+    },
+    {
+      "crank_deg": 370,
+      "piston_to_head": 0.0033086377403688805,
+      "piston_skirt_to_crankpin": 0.19110316746798556,
+      "valve_to_crown": 0.0036143418487331602,
+      "ring_to_liner_radial": 8.196374620322855e-06
+    },
+    {
+      "crank_deg": 380,
+      "piston_to_head": 0.008469557797681382,
+      "piston_skirt_to_crankpin": 0.1899633679988856,
+      "valve_to_crown": 0.007691633243324281,
+      "ring_to_liner_radial": 8.196374620322855e-06
+    },
+    {
+      "crank_deg": 390,
+      "piston_to_head": 0.016793165372013086,
+      "piston_skirt_to_crankpin": 0.18956653150428318,
+      "valve_to_crown": 0.01479700551447799,
+      "ring_to_liner_radial": 8.196374620322855e-06
+    },
+    {
+      "crank_deg": 400,
+      "piston_to_head": 0.02788133629056494,
+      "piston_skirt_to_crankpin": 0.18996336799888558,
+      "valve_to_crown": 0.02462755828569363,
+      "ring_to_liner_radial": 8.196374620322855e-06
+    },
+    {
+      "crank_deg": 410,
+      "piston_to_head": 0.041213788773948656,
+      "piston_skirt_to_crankpin": 0.19110316746798553,
+      "valve_to_crown": 0.03676131194791965,
+      "ring_to_liner_radial": 8.196374620322855e-06
+    },
+    {
+      "crank_deg": 420,
+      "piston_to_head": 0.056183665808889616,
+      "piston_skirt_to_crankpin": 0.19284133419111033,
+      "valve_to_crown": 0.050685106208105624,
+      "ring_to_liner_radial": 8.196374620322855e-06
+    },
+    {
+      "crank_deg": 430,
+      "piston_to_head": 0.041213788773948656,
+      "piston_skirt_to_crankpin": 0.19110316746798559,
+      "valve_to_crown": 0.03676131194791965,
+      "ring_to_liner_radial": 8.196374620322855e-06
+    },
+    {
+      "crank_deg": 440,
+      "piston_to_head": 0.02788133629056494,
+      "piston_skirt_to_crankpin": 0.18996336799888555,
+      "valve_to_crown": 0.02462755828569363,
+      "ring_to_liner_radial": 8.196374620322855e-06
+    },
+    {
+      "crank_deg": 450,
+      "piston_to_head": 0.016793165372013086,
+      "piston_skirt_to_crankpin": 0.18956653150428318,
+      "valve_to_crown": 0.01479700551447799,
+      "ring_to_liner_radial": 8.196374620322855e-06
+    },
+    {
+      "crank_deg": 460,
+      "piston_to_head": 0.008469557797681382,
+      "piston_skirt_to_crankpin": 0.1899633679988856,
+      "valve_to_crown": 0.007691633243324281,
+      "ring_to_liner_radial": 8.196374620322855e-06
+    },
+    {
+      "crank_deg": 470,
+      "piston_to_head": 0.0033086377403688805,
+      "piston_skirt_to_crankpin": 0.19110316746798553,
+      "valve_to_crown": 0.0036143418487331602,
+      "ring_to_liner_radial": 8.196374620322855e-06
+    },
+    {
+      "crank_deg": 480,
+      "piston_to_head": 0.0015599999999999503,
+      "piston_skirt_to_crankpin": 0.19284133419111033,
+      "valve_to_crown": 0.0027300239103166257,
+      "ring_to_liner_radial": 8.196374620322855e-06
+    },
+    {
+      "crank_deg": 490,
+      "piston_to_head": 0.0033086377403688805,
+      "piston_skirt_to_crankpin": 0.19110316746798556,
+      "valve_to_crown": 0.0036143418487331602,
+      "ring_to_liner_radial": 8.196374620322855e-06
+    },
+    {
+      "crank_deg": 500,
+      "piston_to_head": 0.008469557797681326,
+      "piston_skirt_to_crankpin": 0.1899633679988856,
+      "valve_to_crown": 0.007691633243324225,
+      "ring_to_liner_radial": 8.196374620322855e-06
+    },
+    {
+      "crank_deg": 510,
+      "piston_to_head": 0.01679316537201303,
+      "piston_skirt_to_crankpin": 0.18956653150428318,
+      "valve_to_crown": 0.014797005514477934,
+      "ring_to_liner_radial": 8.196374620322855e-06
+    },
+    {
+      "crank_deg": 520,
+      "piston_to_head": 0.027881336290564995,
+      "piston_skirt_to_crankpin": 0.18996336799888558,
+      "valve_to_crown": 0.024627558285693685,
+      "ring_to_liner_radial": 8.196374620322855e-06
+    },
+    {
+      "crank_deg": 530,
+      "piston_to_head": 0.04121378877394871,
+      "piston_skirt_to_crankpin": 0.19110316746798553,
+      "valve_to_crown": 0.036761311947919706,
+      "ring_to_liner_radial": 8.196374620322855e-06
+    },
+    {
+      "crank_deg": 540,
+      "piston_to_head": 0.056183665808889616,
+      "piston_skirt_to_crankpin": 0.19284133419111033,
+      "valve_to_crown": 0.050685106208105624,
+      "ring_to_liner_radial": 8.196374620322855e-06
+    },
+    {
+      "crank_deg": 550,
+      "piston_to_head": 0.041213788773948656,
+      "piston_skirt_to_crankpin": 0.19110316746798556,
+      "valve_to_crown": 0.03676131194791965,
+      "ring_to_liner_radial": 8.196374620322855e-06
+    },
+    {
+      "crank_deg": 560,
+      "piston_to_head": 0.02788133629056494,
+      "piston_skirt_to_crankpin": 0.1899633679988856,
+      "valve_to_crown": 0.02462755828569363,
+      "ring_to_liner_radial": 8.196374620322855e-06
+    },
+    {
+      "crank_deg": 570,
+      "piston_to_head": 0.016793165372013086,
+      "piston_skirt_to_crankpin": 0.1895665315042832,
+      "valve_to_crown": 0.01479700551447799,
+      "ring_to_liner_radial": 8.196374620322855e-06
+    },
+    {
+      "crank_deg": 580,
+      "piston_to_head": 0.008469557797681382,
+      "piston_skirt_to_crankpin": 0.18996336799888558,
+      "valve_to_crown": 0.007691633243324281,
+      "ring_to_liner_radial": 8.196374620322855e-06
+    },
+    {
+      "crank_deg": 590,
+      "piston_to_head": 0.0033086377403688805,
+      "piston_skirt_to_crankpin": 0.19110316746798556,
+      "valve_to_crown": 0.0036143418487331602,
+      "ring_to_liner_radial": 8.196374620322855e-06
+    },
+    {
+      "crank_deg": 600,
+      "piston_to_head": 0.0015599999999999503,
+      "piston_skirt_to_crankpin": 0.19284133419111038,
+      "valve_to_crown": 0.0027300239103166257,
+      "ring_to_liner_radial": 8.196374620322855e-06
+    },
+    {
+      "crank_deg": 610,
+      "piston_to_head": 0.0033086377403688805,
+      "piston_skirt_to_crankpin": 0.19110316746798556,
+      "valve_to_crown": 0.0036143418487331602,
+      "ring_to_liner_radial": 8.196374620322855e-06
+    },
+    {
+      "crank_deg": 620,
+      "piston_to_head": 0.008469557797681326,
+      "piston_skirt_to_crankpin": 0.1899633679988856,
+      "valve_to_crown": 0.007691633243324225,
+      "ring_to_liner_radial": 8.196374620322855e-06
+    },
+    {
+      "crank_deg": 630,
+      "piston_to_head": 0.01679316537201303,
+      "piston_skirt_to_crankpin": 0.18956653150428318,
+      "valve_to_crown": 0.014797005514477934,
+      "ring_to_liner_radial": 8.196374620322855e-06
+    },
+    {
+      "crank_deg": 640,
+      "piston_to_head": 0.027881336290564995,
+      "piston_skirt_to_crankpin": 0.18996336799888558,
+      "valve_to_crown": 0.024627558285693685,
+      "ring_to_liner_radial": 8.196374620322855e-06
+    },
+    {
+      "crank_deg": 650,
+      "piston_to_head": 0.04121378877394871,
+      "piston_skirt_to_crankpin": 0.19110316746798553,
+      "valve_to_crown": 0.036761311947919706,
+      "ring_to_liner_radial": 8.196374620322855e-06
+    },
+    {
+      "crank_deg": 660,
+      "piston_to_head": 0.056183665808889616,
+      "piston_skirt_to_crankpin": 0.19284133419111033,
+      "valve_to_crown": 0.050685106208105624,
+      "ring_to_liner_radial": 8.196374620322855e-06
+    },
+    {
+      "crank_deg": 670,
+      "piston_to_head": 0.041213788773948656,
+      "piston_skirt_to_crankpin": 0.19110316746798556,
+      "valve_to_crown": 0.03676131194791965,
+      "ring_to_liner_radial": 8.196374620322855e-06
+    },
+    {
+      "crank_deg": 680,
+      "piston_to_head": 0.02788133629056494,
+      "piston_skirt_to_crankpin": 0.1899633679988856,
+      "valve_to_crown": 0.02462755828569363,
+      "ring_to_liner_radial": 8.196374620322855e-06
+    },
+    {
+      "crank_deg": 690,
+      "piston_to_head": 0.016793165372013086,
+      "piston_skirt_to_crankpin": 0.1895665315042832,
+      "valve_to_crown": 0.01479700551447799,
+      "ring_to_liner_radial": 8.196374620322855e-06
+    },
+    {
+      "crank_deg": 700,
+      "piston_to_head": 0.008469557797681382,
+      "piston_skirt_to_crankpin": 0.18996336799888558,
+      "valve_to_crown": 0.007691633243324281,
+      "ring_to_liner_radial": 8.196374620322855e-06
+    },
+    {
+      "crank_deg": 710,
+      "piston_to_head": 0.0033086377403688805,
+      "piston_skirt_to_crankpin": 0.19110316746798556,
+      "valve_to_crown": 0.0036143418487331602,
+      "ring_to_liner_radial": 8.196374620322855e-06
+    },
+    {
+      "crank_deg": 720,
+      "piston_to_head": 0.0015599999999999503,
+      "piston_skirt_to_crankpin": 0.19284133419111038,
+      "valve_to_crown": 0.0027300239103166257,
+      "ring_to_liner_radial": 8.196374620322855e-06
+    }
+  ],
+  "minima_m": {
+    "piston_to_head": 0.0015599999999999503,
+    "piston_skirt_to_crankpin": 0.18956653150428318,
+    "valve_to_crown": 0.0027300239103166257,
+    "ring_to_liner_radial": 8.196374620322855e-06
+  },
+  "displacement_liters": {
+    "model": 20.378726145673593,
+    "D03": 20.379
+  },
+  "compression_ratio": {
+    "status": "UNVERIFIED",
+    "method": "Requires OEM H variant ratio and volumes including combustion bowl, gasket and recess actual geometry."
+  },
+  "known_contacts": [
+    "Main bearings surround center journals",
+    "Rod shell/rod cap and pin bosses contact by design",
+    "O-ring seating compresses in illustration",
+    "Stepped rotor and existing mating surfaces nominal"
+  ],
+  "evidence_gaps": [
+    "Exterior collision check pending combined model.",
+    "OEM gear and valve timing profiles absent."
+  ]
+}

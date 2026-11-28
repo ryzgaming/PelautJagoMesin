@@ -1,0 +1,584 @@
+{
+  "exterior_sha256": "7f4eab14803a9b0ee1671b346985f31f70c6248e9a41f6d51104257118106ed5",
+  "method": "Reimport Blender, map Y-up. Endpoint-band means are geometric proxies, not pipe centerline endpoints. At the head, nearest vertex/surface and triangle crossings indicate visual entry, not a seal or OEM physical fit. Pipe-to-pipe BVH signals surface crossing only.",
+  "part_names": {
+    "EXT-FUEL-01": "Pompa injeksi enam elemen",
+    "EXT-FUEL-02": "Governor mekanis, tuas dan pegas balik",
+    "EXT-FUEL-03": "Pipa injeksi silinder 1",
+    "EXT-FUEL-04": "Pipa injeksi silinder 2",
+    "EXT-FUEL-05": "Pipa injeksi silinder 3",
+    "EXT-FUEL-06": "Pipa injeksi silinder 4",
+    "EXT-FUEL-07": "Pipa injeksi silinder 5",
+    "EXT-FUEL-08": "Pipa injeksi silinder 6",
+    "EXT-FUEL-09": "Kepala dan braket filter bahan bakar ganda",
+    "EXT-FUEL-10": "Canister filter bahan bakar 1",
+    "EXT-FUEL-11": "Canister filter bahan bakar 2",
+    "EXT-FUEL-12": "Pompa feed dan priming",
+    "EXT-FUEL-13": "Fitting delivery pompa 1",
+    "EXT-FUEL-14": "Fitting delivery pompa 2",
+    "EXT-FUEL-15": "Fitting delivery pompa 3",
+    "EXT-FUEL-16": "Fitting delivery pompa 4",
+    "EXT-FUEL-17": "Fitting delivery pompa 5",
+    "EXT-FUEL-18": "Fitting delivery pompa 6",
+    "EXT-FUEL-19": "Pelat akses bawah pompa dan pengikat",
+    "EXT-FUEL-20": "Pelat identifikasi pompa tanpa tulisan"
+  },
+  "pipe_count": 6,
+  "fitting_count": 6,
+  "paired_filter_count": 2,
+  "part_bounds_blender_remapped": {
+    "EXT-FUEL-01": {
+      "x": [
+        0.4020000100135803,
+        1.0140000581741333
+      ],
+      "y": [
+        0.0820000022649765,
+        0.44850000739097595
+      ],
+      "z": [
+        -0.4910000264644623,
+        -0.3179999887943268
+      ]
+    },
+    "EXT-FUEL-02": {
+      "x": [
+        0.9794999361038208,
+        1.1751405000686646
+      ],
+      "y": [
+        0.13699999451637268,
+        0.37540194392204285
+      ],
+      "z": [
+        -0.527999997138977,
+        -0.2849999666213989
+      ]
+    },
+    "EXT-FUEL-03": {
+      "x": [
+        0.1969340592622757,
+        0.4909754991531372
+      ],
+      "y": [
+        0.4781976640224457,
+        0.5730381608009338
+      ],
+      "z": [
+        -0.4546037018299103,
+        -0.2527931332588196
+      ]
+    },
+    "EXT-FUEL-04": {
+      "x": [
+        0.39763757586479187,
+        0.5964564085006714
+      ],
+      "y": [
+        0.4782693386077881,
+        0.572575569152832
+      ],
+      "z": [
+        -0.4860752820968628,
+        -0.25357210636138916
+      ]
+    },
+    "EXT-FUEL-05": {
+      "x": [
+        0.5711791515350342,
+        0.6476233601570129
+      ],
+      "y": [
+        0.4789229929447174,
+        0.5738409757614136
+      ],
+      "z": [
+        -0.4574756920337677,
+        -0.2538015842437744
+      ]
+    },
+    "EXT-FUEL-06": {
+      "x": [
+        0.7152533531188965,
+        0.8189614415168762
+      ],
+      "y": [
+        0.4789229929447174,
+        0.5736238956451416
+      ],
+      "z": [
+        -0.46160534024238586,
+        -0.2547634541988373
+      ]
+    },
+    "EXT-FUEL-07": {
+      "x": [
+        0.7939453721046448,
+        1.0201318264007568
+      ],
+      "y": [
+        0.4786633551120758,
+        0.572239100933075
+      ],
+      "z": [
+        -0.4598597586154938,
+        -0.25392770767211914
+      ]
+    },
+    "EXT-FUEL-08": {
+      "x": [
+        0.8734383583068848,
+        1.221290946006775
+      ],
+      "y": [
+        0.4777822494506836,
+        0.5728229880332947
+      ],
+      "z": [
+        -0.5001058578491211,
+        -0.25264036655426025
+      ]
+    },
+    "EXT-FUEL-09": {
+      "x": [
+        0.061107248067855835,
+        0.41200000047683716
+      ],
+      "y": [
+        0.38554999232292175,
+        0.5090000033378601
+      ],
+      "z": [
+        -0.5929999947547913,
+        -0.39899998903274536
+      ]
+    },
+    "EXT-FUEL-10": {
+      "x": [
+        0.07118000835180283,
+        0.214819997549057
+      ],
+      "y": [
+        0.07499998807907104,
+        0.41600000858306885
+      ],
+      "z": [
+        -0.5929999947547913,
+        -0.4391799867153168
+      ]
+    },
+    "EXT-FUEL-11": {
+      "x": [
+        0.23107600212097168,
+        0.38292402029037476
+      ],
+      "y": [
+        0.05650000274181366,
+        0.4085000157356262
+      ],
+      "z": [
+        -0.5999999642372131,
+        -0.438075989484787
+      ]
+    },
+    "EXT-FUEL-12": {
+      "x": [
+        0.19274520874023438,
+        0.6538823246955872
+      ],
+      "y": [
+        0.13700000941753387,
+        0.4698679745197296
+      ],
+      "z": [
+        -0.5850919485092163,
+        -0.41200000047683716
+      ]
+    },
+    "EXT-FUEL-13": {
+      "x": [
+        0.46299999952316284,
+        0.5049999952316284
+      ],
+      "y": [
+        0.414000004529953,
+        0.4794999957084656
+      ],
+      "z": [
+        -0.44866088032722473,
+        -0.4053390920162201
+      ]
+    },
+    "EXT-FUEL-14": {
+      "x": [
+        0.5419999957084656,
+        0.5840000510215759
+      ],
+      "y": [
+        0.414000004529953,
+        0.4794999957084656
+      ],
+      "z": [
+        -0.44866088032722473,
+        -0.4053390920162201
+      ]
+    },
+    "EXT-FUEL-15": {
+      "x": [
+        0.6209999918937683,
+        0.6630000472068787
+      ],
+      "y": [
+        0.414000004529953,
+        0.4794999957084656
+      ],
+      "z": [
+        -0.44866088032722473,
+        -0.4053390920162201
+      ]
+    },
+    "EXT-FUEL-16": {
+      "x": [
+        0.699999988079071,
+        0.7420000433921814
+      ],
+      "y": [
+        0.414000004529953,
+        0.4794999957084656
+      ],
+      "z": [
+        -0.44866088032722473,
+        -0.4053390920162201
+      ]
+    },
+    "EXT-FUEL-17": {
+      "x": [
+        0.7789999842643738,
+        0.8210000395774841
+      ],
+      "y": [
+        0.414000004529953,
+        0.4794999957084656
+      ],
+      "z": [
+        -0.44866088032722473,
+        -0.4053390920162201
+      ]
+    },
+    "EXT-FUEL-18": {
+      "x": [
+        0.8579999804496765,
+        0.9000000357627869
+      ],
+      "y": [
+        0.414000004529953,
+        0.4794999957084656
+      ],
+      "z": [
+        -0.44866088032722473,
+        -0.4053390920162201
+      ]
+    },
+    "EXT-FUEL-19": {
+      "x": [
+        0.45001736283302307,
+        0.9714042544364929
+      ],
+      "y": [
+        0.1599999964237213,
+        0.23899999260902405
+      ],
+      "z": [
+        -0.4910000264644623,
+        -0.46399998664855957
+      ]
+    },
+    "EXT-FUEL-20": {
+      "x": [
+        0.5219999551773071,
+        0.8969999551773071
+      ],
+      "y": [
+        0.33250001072883606,
+        0.3714999854564667
+      ],
+      "z": [
+        -0.4909999966621399,
+        -0.4729999899864197
+      ]
+    }
+  },
+  "pipe_endpoints": [
+    {
+      "pipe": "EXT-FUEL-03",
+      "label": "Pipa injeksi silinder 1",
+      "lowest_endpoint_band_center_m": [
+        0.48416459560394287,
+        0.48011600971221924,
+        -0.42699313163757324
+      ],
+      "highest_endpoint_band_center_m": [
+        0.2086586356163025,
+        0.5711728930473328,
+        -0.264372318983078
+      ],
+      "nearest_fitting_from_pipe_base_mm": [
+        [
+          5.616,
+          "EXT-FUEL-13"
+        ],
+        [
+          65.346,
+          "EXT-FUEL-14"
+        ],
+        [
+          143.771,
+          "EXT-FUEL-15"
+        ],
+        [
+          220.298,
+          "EXT-FUEL-16"
+        ],
+        [
+          298.118,
+          "EXT-FUEL-17"
+        ],
+        [
+          376.429,
+          "EXT-FUEL-18"
+        ]
+      ],
+      "nearest_pipe_vertex_to_corresponding_head_mm": 0.003039836883544922,
+      "corresponding_head_triangle_crossings": 167,
+      "intended_fitting_triangle_crossings": 0
+    },
+    {
+      "pipe": "EXT-FUEL-04",
+      "label": "Pipa injeksi silinder 2",
+      "lowest_endpoint_band_center_m": [
+        0.5628659129142761,
+        0.480215460062027,
+        -0.42642906308174133
+      ],
+      "highest_endpoint_band_center_m": [
+        0.40854915976524353,
+        0.5711080431938171,
+        -0.26377901434898376
+      ],
+      "nearest_fitting_from_pipe_base_mm": [
+        [
+          5.667,
+          "EXT-FUEL-14"
+        ],
+        [
+          65.387,
+          "EXT-FUEL-13"
+        ],
+        [
+          65.654,
+          "EXT-FUEL-15"
+        ],
+        [
+          144.087,
+          "EXT-FUEL-16"
+        ],
+        [
+          220.611,
+          "EXT-FUEL-17"
+        ],
+        [
+          298.428,
+          "EXT-FUEL-18"
+        ]
+      ],
+      "nearest_pipe_vertex_to_corresponding_head_mm": 0.17562508583068848,
+      "corresponding_head_triangle_crossings": 158,
+      "intended_fitting_triangle_crossings": 0
+    },
+    {
+      "pipe": "EXT-FUEL-05",
+      "label": "Pipa injeksi silinder 3",
+      "lowest_endpoint_band_center_m": [
+        0.6427333354949951,
+        0.4806496798992157,
+        -0.42699992656707764
+      ],
+      "highest_endpoint_band_center_m": [
+        0.5963565111160278,
+        0.5716283321380615,
+        -0.32073214650154114
+      ],
+      "nearest_fitting_from_pipe_base_mm": [
+        [
+          5.678,
+          "EXT-FUEL-15"
+        ],
+        [
+          64.84,
+          "EXT-FUEL-16"
+        ],
+        [
+          66.297,
+          "EXT-FUEL-14"
+        ],
+        [
+          143.395,
+          "EXT-FUEL-17"
+        ],
+        [
+          144.79,
+          "EXT-FUEL-13"
+        ],
+        [
+          219.848,
+          "EXT-FUEL-18"
+        ]
+      ],
+      "nearest_pipe_vertex_to_corresponding_head_mm": 0.06046400449122302,
+      "corresponding_head_triangle_crossings": 164,
+      "intended_fitting_triangle_crossings": 0
+    },
+    {
+      "pipe": "EXT-FUEL-06",
+      "label": "Pipa injeksi silinder 4",
+      "lowest_endpoint_band_center_m": [
+        0.7210000157356262,
+        0.4806496500968933,
+        -0.42626670002937317
+      ],
+      "highest_endpoint_band_center_m": [
+        0.8011394143104553,
+        0.5713836550712585,
+        -0.3242584466934204
+      ],
+      "nearest_fitting_from_pipe_base_mm": [
+        [
+          5.678,
+          "EXT-FUEL-16"
+        ],
+        [
+          65.568,
+          "EXT-FUEL-15"
+        ],
+        [
+          65.568,
+          "EXT-FUEL-17"
+        ],
+        [
+          144.094,
+          "EXT-FUEL-14"
+        ],
+        [
+          144.094,
+          "EXT-FUEL-18"
+        ],
+        [
+          220.568,
+          "EXT-FUEL-13"
+        ]
+      ],
+      "nearest_pipe_vertex_to_corresponding_head_mm": 0.041119645175058395,
+      "corresponding_head_triangle_crossings": 166,
+      "intended_fitting_triangle_crossings": 0
+    },
+    {
+      "pipe": "EXT-FUEL-07",
+      "label": "Pipa injeksi silinder 5",
+      "lowest_endpoint_band_center_m": [
+        0.7999382019042969,
+        0.4800063371658325,
+        -0.42701372504234314
+      ],
+      "highest_endpoint_band_center_m": [
+        1.0067994594573975,
+        0.5697135329246521,
+        -0.2716270089149475
+      ],
+      "nearest_fitting_from_pipe_base_mm": [
+        [
+          5.506,
+          "EXT-FUEL-17"
+        ],
+        [
+          65.437,
+          "EXT-FUEL-16"
+        ],
+        [
+          65.56,
+          "EXT-FUEL-18"
+        ],
+        [
+          143.835,
+          "EXT-FUEL-15"
+        ],
+        [
+          220.377,
+          "EXT-FUEL-14"
+        ],
+        [
+          298.203,
+          "EXT-FUEL-13"
+        ]
+      ],
+      "nearest_pipe_vertex_to_corresponding_head_mm": 0.059455662267282605,
+      "corresponding_head_triangle_crossings": 160,
+      "intended_fitting_triangle_crossings": 0
+    },
+    {
+      "pipe": "EXT-FUEL-08",
+      "label": "Pipa injeksi silinder 6",
+      "lowest_endpoint_band_center_m": [
+        0.8789932131767273,
+        0.4800269305706024,
+        -0.42676684260368347
+      ],
+      "highest_endpoint_band_center_m": [
+        1.209548830986023,
+        0.5711466073989868,
+        -0.2641700208187103
+      ],
+      "nearest_fitting_from_pipe_base_mm": [
+        [
+          5.527,
+          "EXT-FUEL-18"
+        ],
+        [
+          65.494,
+          "EXT-FUEL-17"
+        ],
+        [
+          143.894,
+          "EXT-FUEL-16"
+        ],
+        [
+          220.435,
+          "EXT-FUEL-15"
+        ],
+        [
+          298.261,
+          "EXT-FUEL-14"
+        ],
+        [
+          376.576,
+          "EXT-FUEL-13"
+        ]
+      ],
+      "nearest_pipe_vertex_to_corresponding_head_mm": 0.08508563041687012,
+      "corresponding_head_triangle_crossings": 161,
+      "intended_fitting_triangle_crossings": 0
+    }
+  ],
+  "pipe_pair_crossings": [],
+  "fuel_filter_housing_contact": [
+    [
+      "EXT-FUEL-10",
+      0.025414252377231605,
+      725
+    ],
+    [
+      "EXT-FUEL-11",
+      0.04450468622962944,
+      726
+    ]
+  ]
+}

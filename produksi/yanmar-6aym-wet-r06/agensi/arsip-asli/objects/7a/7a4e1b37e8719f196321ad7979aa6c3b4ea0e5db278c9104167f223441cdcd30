@@ -1,0 +1,105 @@
+"""Verify existing casting surfaces outside the newly drilled port neighborhoods."""
+import argparse
+import ast
+from collections import defaultdict
+import hashlib
+import json
+from pathlib import Path
+import sys
+
+import bpy
+from mathutils import Vector
+from mathutils.bvhtree import BVHTree
+
+parser=argparse.ArgumentParser(description=__doc__)
+parser.add_argument('baseline',type=Path)
+parser.add_argument('current',type=Path)
+parser.add_argument('workspace',type=Path)
+parser.add_argument('output',type=Path)
+args=parser.parse_args(sys.argv[sys.argv.index('--')+1:])
+
+windows=defaultdict(list)
+def line_to_model(point):
+    x,y,z=point
+    return Vector((x,-z,y))
+def report_point(point):
+    return [point.x,point.z,-point.y]
+def add_window(id,path,radius):
+    pts=list(map(line_to_model,path))
+    windows[id].extend((a,b,radius) for a,b in zip(pts,pts[1:]) if (a-b).length>1e-8)
+def axial(id,center,axis,radius,length):
+    mid=Vector(center)
+    half=Vector(axis).normalized()*length/2
+    add_window(id,[mid-half,mid+half],radius)
+
+graph=json.loads((args.workspace/'model/flow/fuel-gas.json').read_text())
+lines={i['id']:i['points'] for i in graph['routes']}
+for i in range(1,7):
+    add_window(f'EXT-HEADS-{i:02d}',lines[f'hp-pipe-{i}'][-4:-1]+lines[f'hp-head-{i}'][:20],.010)
+add_window('EXT-INTAKE-01',[(-.025,.677,-.345),(.195,.677,-.345)],.062)
+add_window('EXT-INTAKE-02',[(-.101,.735,.121),(.044,.735,.121)],.037)
+axial('EXT-FUEL-01',(.535,.356,-.464),(0,0,1),.011,.055)
+axial('EXT-FUEL-09',(.203,.440,-.550),(0,0,1),.011,.062)
+axial('EXT-FUEL-09',(.380,.458,-.503),(1,0,0),.013,.066)
+spec=args.workspace/'model/exterior/specialists/water_lube_routes.py'
+tree=ast.parse(spec.read_text())
+for node in ast.walk(tree):
+    if isinstance(node,ast.Assign) and any(isinstance(t,ast.Name) and t.id=='holes' for t in node.targets):
+        for id,center,axis,radius,length in ast.literal_eval(node.value):
+            axial(id,center,axis,radius+.004,length+.009)
+
+def mesh_layers(path):
+    bpy.ops.wm.read_factory_settings(use_empty=True)
+    bpy.ops.import_scene.gltf(filepath=str(path.resolve()))
+    bpy.context.view_layer.update()
+    def objects():
+        for id in windows:
+            obj=bpy.data.objects[id]
+            obj.data.calc_loop_triangles()
+            points=[obj.matrix_world@v.co for v in obj.data.vertices]
+            faces=[tuple(t.vertices) for t in obj.data.loop_triangles if t.area>1e-14]
+            centroids=[]; volume=0.
+            for i,j,k in faces:
+                a,b,c=points[i],points[j],points[k]
+                centroids.append((a+b+c)/3)
+                volume+=a.dot(b.cross(c))/6
+            bbox=[
+                report_point(Vector((edge(p.x for p in points),reverse(p.y for p in points),edge(p.z for p in points))))
+                for edge,reverse in ((min,max),(max,min))
+            ]
+            yield id,(points,faces,centroids,bbox,abs(volume))
+    return dict(objects())
+
+def excluded(p,spans):
+    for a,b,radius in spans:
+        d=b-a
+        t=max(0.,min(1.,(p-a).dot(d)/d.length_squared))
+        if (a+t*d-p).length<radius:
+            return True
+    return False
+
+def screen(old,new,spans):
+    tree=BVHTree.FromPolygons(new[0],new[1],all_triangles=True)
+    samples=[p for p in old[0]+old[2] if not excluded(p,spans)]
+    distance=[(tree.find_nearest(p)[3],p) for p in samples]
+    maximum,point=max(distance,key=lambda pair:pair[0])
+    return {'samples_outside_port_windows':len(samples),
+            'samples_over_half_millimetre':sum(v>.0005 for v,p in distance),
+            'maximum_surface_difference_mm':maximum*1000,
+            'max_location_gltf_m':report_point(point)}
+
+before=mesh_layers(args.baseline)
+after=mesh_layers(args.current)
+report={}
+for id,spans in windows.items():
+    a,b=before[id],after[id]
+    report[id]={'r03_bbox_m':a[3],'r04_bbox_m':b[3],
+        'r03_component_sum_signed_volume_abs_m3':a[4],'r04_component_sum_signed_volume_abs_m3':b[4],
+        'r03_triangle_count':len(a[1]),'r04_triangle_count':len(b[1]),
+        'r03_to_r04':screen(a,b,spans),'r04_to_r03':screen(b,a,spans)}
+args.output.write_text(json.dumps({
+    'baseline_sha256':hashlib.sha256(args.baseline.read_bytes()).hexdigest(),
+    'current_sha256':hashlib.sha256(args.current.read_bytes()).hexdigest(),
+    'method':'Blender BVH nearest world surface at vertices and triangle centroids, excluding each recorded port neighborhood. Volume is an oriented surface sum across overlapping component shells, not a solid Boolean volume measurement.',
+    'hosts':report
+},indent=2)+'\n')

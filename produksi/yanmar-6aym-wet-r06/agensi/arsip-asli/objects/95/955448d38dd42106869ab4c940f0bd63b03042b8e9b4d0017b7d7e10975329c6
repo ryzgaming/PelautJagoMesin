@@ -1,0 +1,5186 @@
+{
+  "baseline": "r02",
+  "models": {
+    "exterior": {
+      "sha256": "7f4eab14803a9b0ee1671b346985f31f70c6248e9a41f6d51104257118106ed5",
+      "mesh_nodes": {
+        "EXT-BLOCK-01": {
+          "triangles": 13818,
+          "local_size_m": [
+            1.34,
+            0.6685,
+            0.664
+          ]
+        },
+        "EXT-BLOCK-02": {
+          "triangles": 1104,
+          "local_size_m": [
+            0.17698,
+            0.167,
+            0.04
+          ]
+        },
+        "EXT-BLOCK-03": {
+          "triangles": 1104,
+          "local_size_m": [
+            0.17698,
+            0.167,
+            0.04
+          ]
+        },
+        "EXT-BLOCK-04": {
+          "triangles": 1104,
+          "local_size_m": [
+            0.17698,
+            0.167,
+            0.04
+          ]
+        },
+        "EXT-BLOCK-05": {
+          "triangles": 1104,
+          "local_size_m": [
+            0.17698,
+            0.167,
+            0.04
+          ]
+        },
+        "EXT-BLOCK-06": {
+          "triangles": 1104,
+          "local_size_m": [
+            0.17698,
+            0.167,
+            0.04
+          ]
+        },
+        "EXT-BLOCK-07": {
+          "triangles": 1104,
+          "local_size_m": [
+            0.17698,
+            0.167,
+            0.04
+          ]
+        },
+        "EXT-BLOCK-08": {
+          "triangles": 1104,
+          "local_size_m": [
+            0.17698,
+            0.167,
+            0.053
+          ]
+        },
+        "EXT-BLOCK-09": {
+          "triangles": 1104,
+          "local_size_m": [
+            0.17698,
+            0.167,
+            0.053
+          ]
+        },
+        "EXT-BLOCK-10": {
+          "triangles": 1104,
+          "local_size_m": [
+            0.17698,
+            0.167,
+            0.053
+          ]
+        },
+        "EXT-BLOCK-11": {
+          "triangles": 1104,
+          "local_size_m": [
+            0.17698,
+            0.167,
+            0.053
+          ]
+        },
+        "EXT-BLOCK-12": {
+          "triangles": 1104,
+          "local_size_m": [
+            0.17698,
+            0.167,
+            0.053
+          ]
+        },
+        "EXT-BLOCK-13": {
+          "triangles": 1104,
+          "local_size_m": [
+            0.17698,
+            0.167,
+            0.053
+          ]
+        },
+        "EXT-BLOCK-14": {
+          "triangles": 544,
+          "local_size_m": [
+            0.13,
+            0.26496,
+            0.18132
+          ]
+        },
+        "EXT-BLOCK-15": {
+          "triangles": 544,
+          "local_size_m": [
+            0.13,
+            0.26496,
+            0.18132
+          ]
+        },
+        "EXT-BLOCK-16": {
+          "triangles": 556,
+          "local_size_m": [
+            0.15,
+            0.26492,
+            0.17244
+          ]
+        },
+        "EXT-BLOCK-17": {
+          "triangles": 556,
+          "local_size_m": [
+            0.15,
+            0.26492,
+            0.17244
+          ]
+        },
+        "EXT-BLOCK-18": {
+          "triangles": 1148,
+          "local_size_m": [
+            0.044,
+            0.044,
+            0.0405
+          ]
+        },
+        "EXT-HEADS-01": {
+          "triangles": 1408,
+          "local_size_m": [
+            0.194,
+            0.1388,
+            0.564
+          ]
+        },
+        "EXT-HEADS-02": {
+          "triangles": 1408,
+          "local_size_m": [
+            0.194,
+            0.1388,
+            0.564
+          ]
+        },
+        "EXT-HEADS-03": {
+          "triangles": 1408,
+          "local_size_m": [
+            0.194,
+            0.1388,
+            0.564
+          ]
+        },
+        "EXT-HEADS-04": {
+          "triangles": 1408,
+          "local_size_m": [
+            0.194,
+            0.1388,
+            0.564
+          ]
+        },
+        "EXT-HEADS-05": {
+          "triangles": 1408,
+          "local_size_m": [
+            0.194,
+            0.1388,
+            0.564
+          ]
+        },
+        "EXT-HEADS-06": {
+          "triangles": 1408,
+          "local_size_m": [
+            0.194,
+            0.1388,
+            0.564
+          ]
+        },
+        "EXT-HEADS-07": {
+          "triangles": 2124,
+          "local_size_m": [
+            0.19131,
+            0.095,
+            0.40598
+          ]
+        },
+        "EXT-HEADS-08": {
+          "triangles": 2124,
+          "local_size_m": [
+            0.19131,
+            0.095,
+            0.40598
+          ]
+        },
+        "EXT-HEADS-09": {
+          "triangles": 2124,
+          "local_size_m": [
+            0.19131,
+            0.095,
+            0.40598
+          ]
+        },
+        "EXT-HEADS-10": {
+          "triangles": 2124,
+          "local_size_m": [
+            0.19131,
+            0.095,
+            0.40598
+          ]
+        },
+        "EXT-HEADS-11": {
+          "triangles": 2124,
+          "local_size_m": [
+            0.19131,
+            0.095,
+            0.40598
+          ]
+        },
+        "EXT-HEADS-12": {
+          "triangles": 2124,
+          "local_size_m": [
+            0.19131,
+            0.095,
+            0.40598
+          ]
+        },
+        "EXT-OILPAN-01": {
+          "triangles": 11372,
+          "local_size_m": [
+            1.32053,
+            0.39591,
+            0.58
+          ]
+        },
+        "EXT-OILPAN-02": {
+          "triangles": 544,
+          "local_size_m": [
+            0.038,
+            0.052,
+            0.052
+          ]
+        },
+        "EXT-FLYWHEEL-01": {
+          "triangles": 7700,
+          "local_size_m": [
+            0.21285,
+            0.99556,
+            0.76612
+          ]
+        },
+        "EXT-FLYWHEEL-02": {
+          "triangles": 6384,
+          "local_size_m": [
+            0.089,
+            0.632,
+            0.632
+          ]
+        },
+        "EXT-FRONT-01": {
+          "triangles": 3176,
+          "local_size_m": [
+            0.12,
+            0.673,
+            0.717
+          ]
+        },
+        "EXT-FRONT-02": {
+          "triangles": 6104,
+          "local_size_m": [
+            0.123,
+            0.398,
+            0.398
+          ]
+        },
+        "EXT-FRONT-03": {
+          "triangles": 1070,
+          "local_size_m": [
+            0.116,
+            0.53581,
+            0.50336
+          ]
+        },
+        "EXT-ELECTRIC-01": {
+          "triangles": 3420,
+          "local_size_m": [
+            0.191,
+            0.192,
+            0.18759
+          ]
+        },
+        "EXT-ELECTRIC-02": {
+          "triangles": 2064,
+          "local_size_m": [
+            0.2705,
+            0.178,
+            0.157
+          ]
+        },
+        "EXT-ELECTRIC-03": {
+          "triangles": 1148,
+          "local_size_m": [
+            1.34578,
+            0.41597,
+            0.84901
+          ]
+        },
+        "EXT-ELECTRIC-04": {
+          "triangles": 860,
+          "local_size_m": [
+            0.12794,
+            0.24685,
+            0.07692
+          ]
+        },
+        "EXT-INTAKE-01": {
+          "triangles": 7610,
+          "local_size_m": [
+            1.315,
+            0.29936,
+            0.2485
+          ]
+        },
+        "EXT-INTAKE-02": {
+          "triangles": 7128,
+          "local_size_m": [
+            0.3042,
+            0.29898,
+            0.8
+          ]
+        },
+        "EXT-INTAKE-03": {
+          "triangles": 2776,
+          "local_size_m": [
+            0.29803,
+            0.19615,
+            0.19907
+          ]
+        },
+        "EXT-INTAKE-04": {
+          "triangles": 7248,
+          "local_size_m": [
+            0.1435,
+            0.306,
+            0.306
+          ]
+        },
+        "EXT-INTAKE-05": {
+          "triangles": 4032,
+          "local_size_m": [
+            0.4887,
+            0.22573,
+            0.32509
+          ]
+        },
+        "EXT-COOLING-01": {
+          "triangles": 7128,
+          "local_size_m": [
+            0.33519,
+            0.29007,
+            0.81
+          ]
+        },
+        "EXT-COOLING-02": {
+          "triangles": 692,
+          "local_size_m": [
+            0.152,
+            0.0635,
+            0.118
+          ]
+        },
+        "EXT-COOLING-03": {
+          "triangles": 6344,
+          "local_size_m": [
+            0.238,
+            0.2805,
+            0.29155
+          ]
+        },
+        "EXT-COOLING-04": {
+          "triangles": 6344,
+          "local_size_m": [
+            0.23891,
+            0.27825,
+            0.20132
+          ]
+        },
+        "EXT-COOLING-05": {
+          "triangles": 6132,
+          "local_size_m": [
+            0.30413,
+            0.45249,
+            0.24979
+          ]
+        },
+        "EXT-COOLING-06": {
+          "triangles": 3920,
+          "local_size_m": [
+            1.71002,
+            0.40463,
+            0.28332
+          ]
+        },
+        "EXT-COOLING-07": {
+          "triangles": 3176,
+          "local_size_m": [
+            1.37424,
+            0.17632,
+            0.18068
+          ]
+        },
+        "EXT-EXHAUST-01": {
+          "triangles": 18968,
+          "local_size_m": [
+            1.25698,
+            0.23811,
+            0.21342
+          ]
+        },
+        "EXT-EXHAUST-02": {
+          "triangles": 1752,
+          "local_size_m": [
+            0.121,
+            0.29824,
+            0.30194
+          ]
+        },
+        "EXT-EXHAUST-03": {
+          "triangles": 2044,
+          "local_size_m": [
+            0.124,
+            0.27354,
+            0.27693
+          ]
+        },
+        "EXT-EXHAUST-04": {
+          "triangles": 924,
+          "local_size_m": [
+            0.107,
+            0.185,
+            0.138
+          ]
+        },
+        "EXT-EXHAUST-05": {
+          "triangles": 9375,
+          "local_size_m": [
+            0.32,
+            0.41682,
+            0.32
+          ]
+        },
+        "EXT-FUEL-01": {
+          "triangles": 8852,
+          "local_size_m": [
+            0.612,
+            0.3665,
+            0.173
+          ]
+        },
+        "EXT-FUEL-02": {
+          "triangles": 11844,
+          "local_size_m": [
+            0.19564,
+            0.2384,
+            0.243
+          ]
+        },
+        "EXT-FUEL-03": {
+          "triangles": 1144,
+          "local_size_m": [
+            0.29404,
+            0.09484,
+            0.20181
+          ]
+        },
+        "EXT-FUEL-04": {
+          "triangles": 1264,
+          "local_size_m": [
+            0.19882,
+            0.09431,
+            0.2325
+          ]
+        },
+        "EXT-FUEL-05": {
+          "triangles": 1144,
+          "local_size_m": [
+            0.07644,
+            0.09492,
+            0.20367
+          ]
+        },
+        "EXT-FUEL-06": {
+          "triangles": 1144,
+          "local_size_m": [
+            0.10371,
+            0.0947,
+            0.20684
+          ]
+        },
+        "EXT-FUEL-07": {
+          "triangles": 1144,
+          "local_size_m": [
+            0.22619,
+            0.09358,
+            0.20593
+          ]
+        },
+        "EXT-FUEL-08": {
+          "triangles": 1384,
+          "local_size_m": [
+            0.34785,
+            0.09504,
+            0.24747
+          ]
+        },
+        "EXT-FUEL-09": {
+          "triangles": 4944,
+          "local_size_m": [
+            0.35089,
+            0.12345,
+            0.194
+          ]
+        },
+        "EXT-FUEL-10": {
+          "triangles": 2460,
+          "local_size_m": [
+            0.14364,
+            0.341,
+            0.15382
+          ]
+        },
+        "EXT-FUEL-11": {
+          "triangles": 2460,
+          "local_size_m": [
+            0.15185,
+            0.352,
+            0.16192
+          ]
+        },
+        "EXT-FUEL-12": {
+          "triangles": 2584,
+          "local_size_m": [
+            0.46114,
+            0.33287,
+            0.17309
+          ]
+        },
+        "EXT-FUEL-13": {
+          "triangles": 2056,
+          "local_size_m": [
+            0.042,
+            0.0655,
+            0.04332
+          ]
+        },
+        "EXT-FUEL-14": {
+          "triangles": 2056,
+          "local_size_m": [
+            0.042,
+            0.0655,
+            0.04332
+          ]
+        },
+        "EXT-FUEL-15": {
+          "triangles": 2056,
+          "local_size_m": [
+            0.042,
+            0.0655,
+            0.04332
+          ]
+        },
+        "EXT-FUEL-16": {
+          "triangles": 2056,
+          "local_size_m": [
+            0.042,
+            0.0655,
+            0.04332
+          ]
+        },
+        "EXT-FUEL-17": {
+          "triangles": 2056,
+          "local_size_m": [
+            0.042,
+            0.0655,
+            0.04332
+          ]
+        },
+        "EXT-FUEL-18": {
+          "triangles": 2056,
+          "local_size_m": [
+            0.042,
+            0.0655,
+            0.04332
+          ]
+        },
+        "EXT-FUEL-19": {
+          "triangles": 1348,
+          "local_size_m": [
+            0.52139,
+            0.079,
+            0.027
+          ]
+        },
+        "EXT-FUEL-20": {
+          "triangles": 872,
+          "local_size_m": [
+            0.375,
+            0.039,
+            0.018
+          ]
+        },
+        "EXT-LUBE-01": {
+          "triangles": 1032,
+          "local_size_m": [
+            0.364,
+            0.068,
+            0.1675
+          ]
+        },
+        "EXT-LUBE-02": {
+          "triangles": 2012,
+          "local_size_m": [
+            0.11424,
+            0.301,
+            0.11424
+          ]
+        },
+        "EXT-LUBE-03": {
+          "triangles": 2012,
+          "local_size_m": [
+            0.11424,
+            0.301,
+            0.11424
+          ]
+        },
+        "EXT-LUBE-04": {
+          "triangles": 2772,
+          "local_size_m": [
+            0.12648,
+            0.2585,
+            0.12648
+          ]
+        },
+        "EXT-LUBE-05": {
+          "triangles": 1528,
+          "local_size_m": [
+            0.96195,
+            0.13205,
+            0.15899
+          ]
+        }
+      }
+    },
+    "internal": {
+      "sha256": "11ea34ec436e43053f70f8e1162391669e377daebee501cba515dc218f388bf9",
+      "mesh_nodes": {
+        "INT-CRANK-01": {
+          "triangles": 380,
+          "local_size_m": [
+            0.039,
+            0.13394,
+            0.13394
+          ]
+        },
+        "INT-CRANK-02": {
+          "triangles": 380,
+          "local_size_m": [
+            0.039,
+            0.13394,
+            0.13394
+          ]
+        },
+        "INT-CRANK-03": {
+          "triangles": 380,
+          "local_size_m": [
+            0.039,
+            0.13394,
+            0.13394
+          ]
+        },
+        "INT-CRANK-04": {
+          "triangles": 380,
+          "local_size_m": [
+            0.039,
+            0.13394,
+            0.13394
+          ]
+        },
+        "INT-CRANK-05": {
+          "triangles": 380,
+          "local_size_m": [
+            0.039,
+            0.13394,
+            0.13394
+          ]
+        },
+        "INT-CRANK-06": {
+          "triangles": 380,
+          "local_size_m": [
+            0.039,
+            0.13394,
+            0.13394
+          ]
+        },
+        "INT-CRANK-07": {
+          "triangles": 380,
+          "local_size_m": [
+            0.039,
+            0.13394,
+            0.13394
+          ]
+        },
+        "INT-CRANK-08": {
+          "triangles": 380,
+          "local_size_m": [
+            0.054,
+            0.188,
+            0.188
+          ]
+        },
+        "INT-CRANK-09": {
+          "triangles": 380,
+          "local_size_m": [
+            0.044,
+            0.092,
+            0.092
+          ]
+        },
+        "INT-CRANK-10": {
+          "triangles": 380,
+          "local_size_m": [
+            0.102,
+            0.128,
+            0.128
+          ]
+        },
+        "INT-CRANK-20": {
+          "triangles": 380,
+          "local_size_m": [
+            0.108,
+            0.10595,
+            0.10595
+          ]
+        },
+        "INT-CRANK-21": {
+          "triangles": 236,
+          "local_size_m": [
+            0.026,
+            0.24178,
+            0.154
+          ]
+        },
+        "INT-CRANK-22": {
+          "triangles": 236,
+          "local_size_m": [
+            0.026,
+            0.24178,
+            0.154
+          ]
+        },
+        "INT-CRANK-23": {
+          "triangles": 156,
+          "local_size_m": [
+            0.032,
+            0.12881,
+            0.25444
+          ]
+        },
+        "INT-CRANK-30": {
+          "triangles": 380,
+          "local_size_m": [
+            0.108,
+            0.10595,
+            0.10595
+          ]
+        },
+        "INT-CRANK-31": {
+          "triangles": 236,
+          "local_size_m": [
+            0.026,
+            0.19698,
+            0.22984
+          ]
+        },
+        "INT-CRANK-32": {
+          "triangles": 236,
+          "local_size_m": [
+            0.026,
+            0.19698,
+            0.22984
+          ]
+        },
+        "INT-CRANK-34": {
+          "triangles": 156,
+          "local_size_m": [
+            0.032,
+            0.22035,
+            0.15901
+          ]
+        },
+        "INT-CRANK-40": {
+          "triangles": 380,
+          "local_size_m": [
+            0.108,
+            0.10595,
+            0.10595
+          ]
+        },
+        "INT-CRANK-41": {
+          "triangles": 236,
+          "local_size_m": [
+            0.026,
+            0.19698,
+            0.22984
+          ]
+        },
+        "INT-CRANK-42": {
+          "triangles": 236,
+          "local_size_m": [
+            0.026,
+            0.19698,
+            0.22984
+          ]
+        },
+        "INT-CRANK-50": {
+          "triangles": 380,
+          "local_size_m": [
+            0.108,
+            0.10595,
+            0.10595
+          ]
+        },
+        "INT-CRANK-51": {
+          "triangles": 236,
+          "local_size_m": [
+            0.026,
+            0.19698,
+            0.22984
+          ]
+        },
+        "INT-CRANK-52": {
+          "triangles": 236,
+          "local_size_m": [
+            0.026,
+            0.19698,
+            0.22984
+          ]
+        },
+        "INT-CRANK-60": {
+          "triangles": 380,
+          "local_size_m": [
+            0.108,
+            0.10595,
+            0.10595
+          ]
+        },
+        "INT-CRANK-61": {
+          "triangles": 236,
+          "local_size_m": [
+            0.026,
+            0.19698,
+            0.22984
+          ]
+        },
+        "INT-CRANK-62": {
+          "triangles": 236,
+          "local_size_m": [
+            0.026,
+            0.19698,
+            0.22984
+          ]
+        },
+        "INT-CRANK-63": {
+          "triangles": 156,
+          "local_size_m": [
+            0.032,
+            0.22035,
+            0.15901
+          ]
+        },
+        "INT-CRANK-70": {
+          "triangles": 380,
+          "local_size_m": [
+            0.108,
+            0.10595,
+            0.10595
+          ]
+        },
+        "INT-CRANK-71": {
+          "triangles": 236,
+          "local_size_m": [
+            0.026,
+            0.24178,
+            0.154
+          ]
+        },
+        "INT-CRANK-72": {
+          "triangles": 236,
+          "local_size_m": [
+            0.026,
+            0.24178,
+            0.154
+          ]
+        },
+        "INT-CRANK-74": {
+          "triangles": 156,
+          "local_size_m": [
+            0.032,
+            0.12881,
+            0.25444
+          ]
+        },
+        "INT-MAIN-11": {
+          "triangles": 324,
+          "local_size_m": [
+            0.035,
+            0.07073,
+            0.142
+          ]
+        },
+        "INT-MAIN-12": {
+          "triangles": 324,
+          "local_size_m": [
+            0.035,
+            0.07073,
+            0.142
+          ]
+        },
+        "INT-MAIN-13": {
+          "triangles": 40,
+          "local_size_m": [
+            0.033,
+            0.095,
+            0.208
+          ]
+        },
+        "INT-MAIN-14": {
+          "triangles": 44,
+          "local_size_m": [
+            0.02,
+            0.017,
+            0.01732
+          ]
+        },
+        "INT-MAIN-15": {
+          "triangles": 44,
+          "local_size_m": [
+            0.02,
+            0.017,
+            0.01732
+          ]
+        },
+        "INT-MAIN-21": {
+          "triangles": 324,
+          "local_size_m": [
+            0.035,
+            0.07073,
+            0.142
+          ]
+        },
+        "INT-MAIN-22": {
+          "triangles": 324,
+          "local_size_m": [
+            0.035,
+            0.07073,
+            0.142
+          ]
+        },
+        "INT-MAIN-23": {
+          "triangles": 40,
+          "local_size_m": [
+            0.033,
+            0.095,
+            0.208
+          ]
+        },
+        "INT-MAIN-24": {
+          "triangles": 44,
+          "local_size_m": [
+            0.02,
+            0.017,
+            0.01732
+          ]
+        },
+        "INT-MAIN-25": {
+          "triangles": 44,
+          "local_size_m": [
+            0.02,
+            0.017,
+            0.01732
+          ]
+        },
+        "INT-MAIN-31": {
+          "triangles": 324,
+          "local_size_m": [
+            0.035,
+            0.07073,
+            0.142
+          ]
+        },
+        "INT-MAIN-32": {
+          "triangles": 324,
+          "local_size_m": [
+            0.035,
+            0.07073,
+            0.142
+          ]
+        },
+        "INT-MAIN-33": {
+          "triangles": 40,
+          "local_size_m": [
+            0.033,
+            0.095,
+            0.208
+          ]
+        },
+        "INT-MAIN-34": {
+          "triangles": 44,
+          "local_size_m": [
+            0.02,
+            0.017,
+            0.01732
+          ]
+        },
+        "INT-MAIN-35": {
+          "triangles": 44,
+          "local_size_m": [
+            0.02,
+            0.017,
+            0.01732
+          ]
+        },
+        "INT-MAIN-41": {
+          "triangles": 324,
+          "local_size_m": [
+            0.035,
+            0.07073,
+            0.142
+          ]
+        },
+        "INT-MAIN-42": {
+          "triangles": 324,
+          "local_size_m": [
+            0.035,
+            0.07073,
+            0.142
+          ]
+        },
+        "INT-MAIN-43": {
+          "triangles": 40,
+          "local_size_m": [
+            0.033,
+            0.095,
+            0.208
+          ]
+        },
+        "INT-MAIN-44": {
+          "triangles": 44,
+          "local_size_m": [
+            0.02,
+            0.017,
+            0.01732
+          ]
+        },
+        "INT-MAIN-45": {
+          "triangles": 44,
+          "local_size_m": [
+            0.02,
+            0.017,
+            0.01732
+          ]
+        },
+        "INT-MAIN-51": {
+          "triangles": 324,
+          "local_size_m": [
+            0.035,
+            0.07073,
+            0.142
+          ]
+        },
+        "INT-MAIN-52": {
+          "triangles": 324,
+          "local_size_m": [
+            0.035,
+            0.07073,
+            0.142
+          ]
+        },
+        "INT-MAIN-53": {
+          "triangles": 40,
+          "local_size_m": [
+            0.033,
+            0.095,
+            0.208
+          ]
+        },
+        "INT-MAIN-54": {
+          "triangles": 44,
+          "local_size_m": [
+            0.02,
+            0.017,
+            0.01732
+          ]
+        },
+        "INT-MAIN-55": {
+          "triangles": 44,
+          "local_size_m": [
+            0.02,
+            0.017,
+            0.01732
+          ]
+        },
+        "INT-MAIN-61": {
+          "triangles": 324,
+          "local_size_m": [
+            0.035,
+            0.07073,
+            0.142
+          ]
+        },
+        "INT-MAIN-62": {
+          "triangles": 324,
+          "local_size_m": [
+            0.035,
+            0.07073,
+            0.142
+          ]
+        },
+        "INT-MAIN-63": {
+          "triangles": 40,
+          "local_size_m": [
+            0.033,
+            0.095,
+            0.208
+          ]
+        },
+        "INT-MAIN-64": {
+          "triangles": 44,
+          "local_size_m": [
+            0.02,
+            0.017,
+            0.01732
+          ]
+        },
+        "INT-MAIN-65": {
+          "triangles": 44,
+          "local_size_m": [
+            0.02,
+            0.017,
+            0.01732
+          ]
+        },
+        "INT-MAIN-71": {
+          "triangles": 324,
+          "local_size_m": [
+            0.035,
+            0.07073,
+            0.142
+          ]
+        },
+        "INT-MAIN-72": {
+          "triangles": 324,
+          "local_size_m": [
+            0.035,
+            0.07073,
+            0.142
+          ]
+        },
+        "INT-MAIN-73": {
+          "triangles": 40,
+          "local_size_m": [
+            0.033,
+            0.095,
+            0.208
+          ]
+        },
+        "INT-MAIN-74": {
+          "triangles": 44,
+          "local_size_m": [
+            0.02,
+            0.017,
+            0.01732
+          ]
+        },
+        "INT-MAIN-75": {
+          "triangles": 44,
+          "local_size_m": [
+            0.02,
+            0.017,
+            0.01732
+          ]
+        },
+        "INT-PISTON-11": {
+          "triangles": 5224,
+          "local_size_m": [
+            0.1546,
+            0.143,
+            0.15492
+          ]
+        },
+        "INT-PISTON-12": {
+          "triangles": 384,
+          "local_size_m": [
+            0.149,
+            0.06198,
+            0.06198
+          ]
+        },
+        "INT-PISTON-13": {
+          "triangles": 580,
+          "local_size_m": [
+            0.15496,
+            0.00348,
+            0.15496
+          ]
+        },
+        "INT-PISTON-14": {
+          "triangles": 580,
+          "local_size_m": [
+            0.15496,
+            0.00298,
+            0.15496
+          ]
+        },
+        "INT-PISTON-15": {
+          "triangles": 580,
+          "local_size_m": [
+            0.15496,
+            0.00398,
+            0.15496
+          ]
+        },
+        "INT-PISTON-16": {
+          "triangles": 384,
+          "local_size_m": [
+            0.039,
+            0.076,
+            0.076
+          ]
+        },
+        "INT-PISTON-17": {
+          "triangles": 384,
+          "local_size_m": [
+            0.039,
+            0.076,
+            0.076
+          ]
+        },
+        "INT-PISTON-18": {
+          "triangles": 388,
+          "local_size_m": [
+            0.0016,
+            0.06297,
+            0.06298
+          ]
+        },
+        "INT-PISTON-19": {
+          "triangles": 388,
+          "local_size_m": [
+            0.0016,
+            0.06297,
+            0.06298
+          ]
+        },
+        "INT-PISTON-20": {
+          "triangles": 480,
+          "local_size_m": [
+            0.1489,
+            0.0026,
+            0.1489
+          ]
+        },
+        "INT-PISTON-21": {
+          "triangles": 5224,
+          "local_size_m": [
+            0.1546,
+            0.143,
+            0.15492
+          ]
+        },
+        "INT-PISTON-22": {
+          "triangles": 384,
+          "local_size_m": [
+            0.149,
+            0.06198,
+            0.06198
+          ]
+        },
+        "INT-PISTON-23": {
+          "triangles": 580,
+          "local_size_m": [
+            0.15496,
+            0.00348,
+            0.15496
+          ]
+        },
+        "INT-PISTON-24": {
+          "triangles": 580,
+          "local_size_m": [
+            0.15496,
+            0.00298,
+            0.15496
+          ]
+        },
+        "INT-PISTON-25": {
+          "triangles": 580,
+          "local_size_m": [
+            0.15496,
+            0.00398,
+            0.15496
+          ]
+        },
+        "INT-PISTON-26": {
+          "triangles": 384,
+          "local_size_m": [
+            0.039,
+            0.076,
+            0.076
+          ]
+        },
+        "INT-PISTON-27": {
+          "triangles": 384,
+          "local_size_m": [
+            0.039,
+            0.076,
+            0.076
+          ]
+        },
+        "INT-PISTON-28": {
+          "triangles": 388,
+          "local_size_m": [
+            0.0016,
+            0.06297,
+            0.06298
+          ]
+        },
+        "INT-PISTON-29": {
+          "triangles": 388,
+          "local_size_m": [
+            0.0016,
+            0.06297,
+            0.06298
+          ]
+        },
+        "INT-PISTON-30": {
+          "triangles": 480,
+          "local_size_m": [
+            0.1489,
+            0.0026,
+            0.1489
+          ]
+        },
+        "INT-PISTON-31": {
+          "triangles": 5224,
+          "local_size_m": [
+            0.1546,
+            0.143,
+            0.15492
+          ]
+        },
+        "INT-PISTON-32": {
+          "triangles": 384,
+          "local_size_m": [
+            0.149,
+            0.06198,
+            0.06198
+          ]
+        },
+        "INT-PISTON-33": {
+          "triangles": 580,
+          "local_size_m": [
+            0.15496,
+            0.00348,
+            0.15496
+          ]
+        },
+        "INT-PISTON-34": {
+          "triangles": 580,
+          "local_size_m": [
+            0.15496,
+            0.00298,
+            0.15496
+          ]
+        },
+        "INT-PISTON-35": {
+          "triangles": 580,
+          "local_size_m": [
+            0.15496,
+            0.00398,
+            0.15496
+          ]
+        },
+        "INT-PISTON-36": {
+          "triangles": 384,
+          "local_size_m": [
+            0.039,
+            0.076,
+            0.076
+          ]
+        },
+        "INT-PISTON-37": {
+          "triangles": 384,
+          "local_size_m": [
+            0.039,
+            0.076,
+            0.076
+          ]
+        },
+        "INT-PISTON-38": {
+          "triangles": 388,
+          "local_size_m": [
+            0.0016,
+            0.06297,
+            0.06298
+          ]
+        },
+        "INT-PISTON-39": {
+          "triangles": 388,
+          "local_size_m": [
+            0.0016,
+            0.06297,
+            0.06298
+          ]
+        },
+        "INT-PISTON-40": {
+          "triangles": 480,
+          "local_size_m": [
+            0.1489,
+            0.0026,
+            0.1489
+          ]
+        },
+        "INT-PISTON-41": {
+          "triangles": 5224,
+          "local_size_m": [
+            0.1546,
+            0.143,
+            0.15492
+          ]
+        },
+        "INT-PISTON-42": {
+          "triangles": 384,
+          "local_size_m": [
+            0.149,
+            0.06198,
+            0.06198
+          ]
+        },
+        "INT-PISTON-43": {
+          "triangles": 580,
+          "local_size_m": [
+            0.15496,
+            0.00348,
+            0.15496
+          ]
+        },
+        "INT-PISTON-44": {
+          "triangles": 580,
+          "local_size_m": [
+            0.15496,
+            0.00298,
+            0.15496
+          ]
+        },
+        "INT-PISTON-45": {
+          "triangles": 580,
+          "local_size_m": [
+            0.15496,
+            0.00398,
+            0.15496
+          ]
+        },
+        "INT-PISTON-46": {
+          "triangles": 384,
+          "local_size_m": [
+            0.039,
+            0.076,
+            0.076
+          ]
+        },
+        "INT-PISTON-47": {
+          "triangles": 384,
+          "local_size_m": [
+            0.039,
+            0.076,
+            0.076
+          ]
+        },
+        "INT-PISTON-48": {
+          "triangles": 388,
+          "local_size_m": [
+            0.0016,
+            0.06297,
+            0.06298
+          ]
+        },
+        "INT-PISTON-49": {
+          "triangles": 388,
+          "local_size_m": [
+            0.0016,
+            0.06297,
+            0.06298
+          ]
+        },
+        "INT-PISTON-50": {
+          "triangles": 480,
+          "local_size_m": [
+            0.1489,
+            0.0026,
+            0.1489
+          ]
+        },
+        "INT-PISTON-51": {
+          "triangles": 5224,
+          "local_size_m": [
+            0.1546,
+            0.143,
+            0.15492
+          ]
+        },
+        "INT-PISTON-52": {
+          "triangles": 384,
+          "local_size_m": [
+            0.149,
+            0.06198,
+            0.06198
+          ]
+        },
+        "INT-PISTON-53": {
+          "triangles": 580,
+          "local_size_m": [
+            0.15496,
+            0.00348,
+            0.15496
+          ]
+        },
+        "INT-PISTON-54": {
+          "triangles": 580,
+          "local_size_m": [
+            0.15496,
+            0.00298,
+            0.15496
+          ]
+        },
+        "INT-PISTON-55": {
+          "triangles": 580,
+          "local_size_m": [
+            0.15496,
+            0.00398,
+            0.15496
+          ]
+        },
+        "INT-PISTON-56": {
+          "triangles": 384,
+          "local_size_m": [
+            0.039,
+            0.076,
+            0.076
+          ]
+        },
+        "INT-PISTON-57": {
+          "triangles": 384,
+          "local_size_m": [
+            0.039,
+            0.076,
+            0.076
+          ]
+        },
+        "INT-PISTON-58": {
+          "triangles": 388,
+          "local_size_m": [
+            0.0016,
+            0.06297,
+            0.06298
+          ]
+        },
+        "INT-PISTON-59": {
+          "triangles": 388,
+          "local_size_m": [
+            0.0016,
+            0.06297,
+            0.06298
+          ]
+        },
+        "INT-PISTON-60": {
+          "triangles": 480,
+          "local_size_m": [
+            0.1489,
+            0.0026,
+            0.1489
+          ]
+        },
+        "INT-PISTON-61": {
+          "triangles": 5224,
+          "local_size_m": [
+            0.1546,
+            0.143,
+            0.15492
+          ]
+        },
+        "INT-PISTON-62": {
+          "triangles": 384,
+          "local_size_m": [
+            0.149,
+            0.06198,
+            0.06198
+          ]
+        },
+        "INT-PISTON-63": {
+          "triangles": 580,
+          "local_size_m": [
+            0.15496,
+            0.00348,
+            0.15496
+          ]
+        },
+        "INT-PISTON-64": {
+          "triangles": 580,
+          "local_size_m": [
+            0.15496,
+            0.00298,
+            0.15496
+          ]
+        },
+        "INT-PISTON-65": {
+          "triangles": 580,
+          "local_size_m": [
+            0.15496,
+            0.00398,
+            0.15496
+          ]
+        },
+        "INT-PISTON-66": {
+          "triangles": 384,
+          "local_size_m": [
+            0.039,
+            0.076,
+            0.076
+          ]
+        },
+        "INT-PISTON-67": {
+          "triangles": 384,
+          "local_size_m": [
+            0.039,
+            0.076,
+            0.076
+          ]
+        },
+        "INT-PISTON-68": {
+          "triangles": 388,
+          "local_size_m": [
+            0.0016,
+            0.06297,
+            0.06298
+          ]
+        },
+        "INT-PISTON-69": {
+          "triangles": 388,
+          "local_size_m": [
+            0.0016,
+            0.06297,
+            0.06298
+          ]
+        },
+        "INT-PISTON-70": {
+          "triangles": 480,
+          "local_size_m": [
+            0.1489,
+            0.0026,
+            0.1489
+          ]
+        },
+        "INT-ROD-100": {
+          "triangles": 140,
+          "local_size_m": [
+            0.016,
+            0.049,
+            0.01576
+          ]
+        },
+        "INT-ROD-101": {
+          "triangles": 140,
+          "local_size_m": [
+            0.016,
+            0.049,
+            0.01576
+          ]
+        },
+        "INT-ROD-11": {
+          "triangles": 292,
+          "local_size_m": [
+            0.103,
+            0.07277,
+            0.146
+          ]
+        },
+        "INT-ROD-12": {
+          "triangles": 292,
+          "local_size_m": [
+            0.103,
+            0.07277,
+            0.146
+          ]
+        },
+        "INT-ROD-13": {
+          "triangles": 292,
+          "local_size_m": [
+            0.101,
+            0.05679,
+            0.114
+          ]
+        },
+        "INT-ROD-14": {
+          "triangles": 292,
+          "local_size_m": [
+            0.101,
+            0.05679,
+            0.114
+          ]
+        },
+        "INT-ROD-15": {
+          "triangles": 384,
+          "local_size_m": [
+            0.058,
+            0.086,
+            0.086
+          ]
+        },
+        "INT-ROD-16": {
+          "triangles": 384,
+          "local_size_m": [
+            0.058,
+            0.068,
+            0.068
+          ]
+        },
+        "INT-ROD-160": {
+          "triangles": 44,
+          "local_size_m": [
+            0.026,
+            0.013,
+            0.02252
+          ]
+        },
+        "INT-ROD-161": {
+          "triangles": 44,
+          "local_size_m": [
+            0.026,
+            0.013,
+            0.02252
+          ]
+        },
+        "INT-ROD-17": {
+          "triangles": 28,
+          "local_size_m": [
+            0.025,
+            0.22444,
+            0.07
+          ]
+        },
+        "INT-ROD-18": {
+          "triangles": 28,
+          "local_size_m": [
+            0.014,
+            0.22444,
+            0.07
+          ]
+        },
+        "INT-ROD-19": {
+          "triangles": 28,
+          "local_size_m": [
+            0.014,
+            0.22444,
+            0.07
+          ]
+        },
+        "INT-ROD-240": {
+          "triangles": 44,
+          "local_size_m": [
+            0.02,
+            0.01,
+            0.01732
+          ]
+        },
+        "INT-ROD-241": {
+          "triangles": 44,
+          "local_size_m": [
+            0.02,
+            0.01,
+            0.01732
+          ]
+        },
+        "INT-ROD-110": {
+          "triangles": 140,
+          "local_size_m": [
+            0.016,
+            0.049,
+            0.01576
+          ]
+        },
+        "INT-ROD-111": {
+          "triangles": 140,
+          "local_size_m": [
+            0.016,
+            0.049,
+            0.01576
+          ]
+        },
+        "INT-ROD-170": {
+          "triangles": 44,
+          "local_size_m": [
+            0.026,
+            0.013,
+            0.02252
+          ]
+        },
+        "INT-ROD-171": {
+          "triangles": 44,
+          "local_size_m": [
+            0.026,
+            0.013,
+            0.02252
+          ]
+        },
+        "INT-ROD-21": {
+          "triangles": 292,
+          "local_size_m": [
+            0.103,
+            0.07277,
+            0.146
+          ]
+        },
+        "INT-ROD-22": {
+          "triangles": 292,
+          "local_size_m": [
+            0.103,
+            0.07277,
+            0.146
+          ]
+        },
+        "INT-ROD-23": {
+          "triangles": 292,
+          "local_size_m": [
+            0.101,
+            0.05679,
+            0.114
+          ]
+        },
+        "INT-ROD-24": {
+          "triangles": 292,
+          "local_size_m": [
+            0.101,
+            0.05679,
+            0.114
+          ]
+        },
+        "INT-ROD-25": {
+          "triangles": 384,
+          "local_size_m": [
+            0.058,
+            0.086,
+            0.086
+          ]
+        },
+        "INT-ROD-250": {
+          "triangles": 44,
+          "local_size_m": [
+            0.02,
+            0.01,
+            0.01732
+          ]
+        },
+        "INT-ROD-251": {
+          "triangles": 44,
+          "local_size_m": [
+            0.02,
+            0.01,
+            0.01732
+          ]
+        },
+        "INT-ROD-26": {
+          "triangles": 384,
+          "local_size_m": [
+            0.058,
+            0.068,
+            0.068
+          ]
+        },
+        "INT-ROD-27": {
+          "triangles": 28,
+          "local_size_m": [
+            0.025,
+            0.22444,
+            0.07
+          ]
+        },
+        "INT-ROD-28": {
+          "triangles": 28,
+          "local_size_m": [
+            0.014,
+            0.22444,
+            0.07
+          ]
+        },
+        "INT-ROD-29": {
+          "triangles": 28,
+          "local_size_m": [
+            0.014,
+            0.22444,
+            0.07
+          ]
+        },
+        "INT-ROD-120": {
+          "triangles": 140,
+          "local_size_m": [
+            0.016,
+            0.049,
+            0.01576
+          ]
+        },
+        "INT-ROD-121": {
+          "triangles": 140,
+          "local_size_m": [
+            0.016,
+            0.049,
+            0.01576
+          ]
+        },
+        "INT-ROD-180": {
+          "triangles": 44,
+          "local_size_m": [
+            0.026,
+            0.013,
+            0.02252
+          ]
+        },
+        "INT-ROD-181": {
+          "triangles": 44,
+          "local_size_m": [
+            0.026,
+            0.013,
+            0.02252
+          ]
+        },
+        "INT-ROD-260": {
+          "triangles": 44,
+          "local_size_m": [
+            0.02,
+            0.01,
+            0.01732
+          ]
+        },
+        "INT-ROD-261": {
+          "triangles": 44,
+          "local_size_m": [
+            0.02,
+            0.01,
+            0.01732
+          ]
+        },
+        "INT-ROD-31": {
+          "triangles": 292,
+          "local_size_m": [
+            0.103,
+            0.07277,
+            0.146
+          ]
+        },
+        "INT-ROD-32": {
+          "triangles": 292,
+          "local_size_m": [
+            0.103,
+            0.07277,
+            0.146
+          ]
+        },
+        "INT-ROD-33": {
+          "triangles": 292,
+          "local_size_m": [
+            0.101,
+            0.05679,
+            0.114
+          ]
+        },
+        "INT-ROD-34": {
+          "triangles": 292,
+          "local_size_m": [
+            0.101,
+            0.05679,
+            0.114
+          ]
+        },
+        "INT-ROD-35": {
+          "triangles": 384,
+          "local_size_m": [
+            0.058,
+            0.086,
+            0.086
+          ]
+        },
+        "INT-ROD-36": {
+          "triangles": 384,
+          "local_size_m": [
+            0.058,
+            0.068,
+            0.068
+          ]
+        },
+        "INT-ROD-37": {
+          "triangles": 28,
+          "local_size_m": [
+            0.025,
+            0.22444,
+            0.07
+          ]
+        },
+        "INT-ROD-38": {
+          "triangles": 28,
+          "local_size_m": [
+            0.014,
+            0.22444,
+            0.07
+          ]
+        },
+        "INT-ROD-39": {
+          "triangles": 28,
+          "local_size_m": [
+            0.014,
+            0.22444,
+            0.07
+          ]
+        },
+        "INT-ROD-130": {
+          "triangles": 140,
+          "local_size_m": [
+            0.016,
+            0.049,
+            0.01576
+          ]
+        },
+        "INT-ROD-131": {
+          "triangles": 140,
+          "local_size_m": [
+            0.016,
+            0.049,
+            0.01576
+          ]
+        },
+        "INT-ROD-190": {
+          "triangles": 44,
+          "local_size_m": [
+            0.026,
+            0.013,
+            0.02252
+          ]
+        },
+        "INT-ROD-191": {
+          "triangles": 44,
+          "local_size_m": [
+            0.026,
+            0.013,
+            0.02252
+          ]
+        },
+        "INT-ROD-270": {
+          "triangles": 44,
+          "local_size_m": [
+            0.02,
+            0.01,
+            0.01732
+          ]
+        },
+        "INT-ROD-271": {
+          "triangles": 44,
+          "local_size_m": [
+            0.02,
+            0.01,
+            0.01732
+          ]
+        },
+        "INT-ROD-41": {
+          "triangles": 292,
+          "local_size_m": [
+            0.103,
+            0.07277,
+            0.146
+          ]
+        },
+        "INT-ROD-42": {
+          "triangles": 292,
+          "local_size_m": [
+            0.103,
+            0.07277,
+            0.146
+          ]
+        },
+        "INT-ROD-43": {
+          "triangles": 292,
+          "local_size_m": [
+            0.101,
+            0.05679,
+            0.114
+          ]
+        },
+        "INT-ROD-44": {
+          "triangles": 292,
+          "local_size_m": [
+            0.101,
+            0.05679,
+            0.114
+          ]
+        },
+        "INT-ROD-45": {
+          "triangles": 384,
+          "local_size_m": [
+            0.058,
+            0.086,
+            0.086
+          ]
+        },
+        "INT-ROD-46": {
+          "triangles": 384,
+          "local_size_m": [
+            0.058,
+            0.068,
+            0.068
+          ]
+        },
+        "INT-ROD-47": {
+          "triangles": 28,
+          "local_size_m": [
+            0.025,
+            0.22444,
+            0.07
+          ]
+        },
+        "INT-ROD-48": {
+          "triangles": 28,
+          "local_size_m": [
+            0.014,
+            0.22444,
+            0.07
+          ]
+        },
+        "INT-ROD-49": {
+          "triangles": 28,
+          "local_size_m": [
+            0.014,
+            0.22444,
+            0.07
+          ]
+        },
+        "INT-ROD-140": {
+          "triangles": 140,
+          "local_size_m": [
+            0.016,
+            0.049,
+            0.01576
+          ]
+        },
+        "INT-ROD-141": {
+          "triangles": 140,
+          "local_size_m": [
+            0.016,
+            0.049,
+            0.01576
+          ]
+        },
+        "INT-ROD-200": {
+          "triangles": 44,
+          "local_size_m": [
+            0.026,
+            0.013,
+            0.02252
+          ]
+        },
+        "INT-ROD-201": {
+          "triangles": 44,
+          "local_size_m": [
+            0.026,
+            0.013,
+            0.02252
+          ]
+        },
+        "INT-ROD-280": {
+          "triangles": 44,
+          "local_size_m": [
+            0.02,
+            0.01,
+            0.01732
+          ]
+        },
+        "INT-ROD-281": {
+          "triangles": 44,
+          "local_size_m": [
+            0.02,
+            0.01,
+            0.01732
+          ]
+        },
+        "INT-ROD-51": {
+          "triangles": 292,
+          "local_size_m": [
+            0.103,
+            0.07277,
+            0.146
+          ]
+        },
+        "INT-ROD-52": {
+          "triangles": 292,
+          "local_size_m": [
+            0.103,
+            0.07277,
+            0.146
+          ]
+        },
+        "INT-ROD-53": {
+          "triangles": 292,
+          "local_size_m": [
+            0.101,
+            0.05679,
+            0.114
+          ]
+        },
+        "INT-ROD-54": {
+          "triangles": 292,
+          "local_size_m": [
+            0.101,
+            0.05679,
+            0.114
+          ]
+        },
+        "INT-ROD-55": {
+          "triangles": 384,
+          "local_size_m": [
+            0.058,
+            0.086,
+            0.086
+          ]
+        },
+        "INT-ROD-56": {
+          "triangles": 384,
+          "local_size_m": [
+            0.058,
+            0.068,
+            0.068
+          ]
+        },
+        "INT-ROD-57": {
+          "triangles": 28,
+          "local_size_m": [
+            0.025,
+            0.22444,
+            0.07
+          ]
+        },
+        "INT-ROD-58": {
+          "triangles": 28,
+          "local_size_m": [
+            0.014,
+            0.22444,
+            0.07
+          ]
+        },
+        "INT-ROD-59": {
+          "triangles": 28,
+          "local_size_m": [
+            0.014,
+            0.22444,
+            0.07
+          ]
+        },
+        "INT-ROD-150": {
+          "triangles": 140,
+          "local_size_m": [
+            0.016,
+            0.049,
+            0.01576
+          ]
+        },
+        "INT-ROD-151": {
+          "triangles": 140,
+          "local_size_m": [
+            0.016,
+            0.049,
+            0.01576
+          ]
+        },
+        "INT-ROD-210": {
+          "triangles": 44,
+          "local_size_m": [
+            0.026,
+            0.013,
+            0.02252
+          ]
+        },
+        "INT-ROD-211": {
+          "triangles": 44,
+          "local_size_m": [
+            0.026,
+            0.013,
+            0.02252
+          ]
+        },
+        "INT-ROD-290": {
+          "triangles": 44,
+          "local_size_m": [
+            0.02,
+            0.01,
+            0.01732
+          ]
+        },
+        "INT-ROD-291": {
+          "triangles": 44,
+          "local_size_m": [
+            0.02,
+            0.01,
+            0.01732
+          ]
+        },
+        "INT-ROD-61": {
+          "triangles": 292,
+          "local_size_m": [
+            0.103,
+            0.07277,
+            0.146
+          ]
+        },
+        "INT-ROD-62": {
+          "triangles": 292,
+          "local_size_m": [
+            0.103,
+            0.07277,
+            0.146
+          ]
+        },
+        "INT-ROD-63": {
+          "triangles": 292,
+          "local_size_m": [
+            0.101,
+            0.05679,
+            0.114
+          ]
+        },
+        "INT-ROD-64": {
+          "triangles": 292,
+          "local_size_m": [
+            0.101,
+            0.05679,
+            0.114
+          ]
+        },
+        "INT-ROD-65": {
+          "triangles": 384,
+          "local_size_m": [
+            0.058,
+            0.086,
+            0.086
+          ]
+        },
+        "INT-ROD-66": {
+          "triangles": 384,
+          "local_size_m": [
+            0.058,
+            0.068,
+            0.068
+          ]
+        },
+        "INT-ROD-67": {
+          "triangles": 28,
+          "local_size_m": [
+            0.025,
+            0.22444,
+            0.07
+          ]
+        },
+        "INT-ROD-68": {
+          "triangles": 28,
+          "local_size_m": [
+            0.014,
+            0.22444,
+            0.07
+          ]
+        },
+        "INT-ROD-69": {
+          "triangles": 28,
+          "local_size_m": [
+            0.014,
+            0.22444,
+            0.07
+          ]
+        },
+        "INT-LINER-11": {
+          "triangles": 7920,
+          "local_size_m": [
+            0.181,
+            0.315,
+            0.181
+          ]
+        },
+        "INT-LINER-12": {
+          "triangles": 1152,
+          "local_size_m": [
+            0.1768,
+            0.0048,
+            0.1768
+          ]
+        },
+        "INT-LINER-13": {
+          "triangles": 1152,
+          "local_size_m": [
+            0.1748,
+            0.0048,
+            0.1748
+          ]
+        },
+        "INT-LINER-14": {
+          "triangles": 1152,
+          "local_size_m": [
+            0.1748,
+            0.0048,
+            0.1748
+          ]
+        },
+        "INT-LINER-21": {
+          "triangles": 7920,
+          "local_size_m": [
+            0.181,
+            0.315,
+            0.181
+          ]
+        },
+        "INT-LINER-22": {
+          "triangles": 1152,
+          "local_size_m": [
+            0.1768,
+            0.0048,
+            0.1768
+          ]
+        },
+        "INT-LINER-23": {
+          "triangles": 1152,
+          "local_size_m": [
+            0.1748,
+            0.0048,
+            0.1748
+          ]
+        },
+        "INT-LINER-24": {
+          "triangles": 1152,
+          "local_size_m": [
+            0.1748,
+            0.0048,
+            0.1748
+          ]
+        },
+        "INT-LINER-31": {
+          "triangles": 7920,
+          "local_size_m": [
+            0.181,
+            0.315,
+            0.181
+          ]
+        },
+        "INT-LINER-32": {
+          "triangles": 1152,
+          "local_size_m": [
+            0.1768,
+            0.0048,
+            0.1768
+          ]
+        },
+        "INT-LINER-33": {
+          "triangles": 1152,
+          "local_size_m": [
+            0.1748,
+            0.0048,
+            0.1748
+          ]
+        },
+        "INT-LINER-34": {
+          "triangles": 1152,
+          "local_size_m": [
+            0.1748,
+            0.0048,
+            0.1748
+          ]
+        },
+        "INT-LINER-41": {
+          "triangles": 7920,
+          "local_size_m": [
+            0.181,
+            0.315,
+            0.181
+          ]
+        },
+        "INT-LINER-42": {
+          "triangles": 1152,
+          "local_size_m": [
+            0.1768,
+            0.0048,
+            0.1768
+          ]
+        },
+        "INT-LINER-43": {
+          "triangles": 1152,
+          "local_size_m": [
+            0.1748,
+            0.0048,
+            0.1748
+          ]
+        },
+        "INT-LINER-44": {
+          "triangles": 1152,
+          "local_size_m": [
+            0.1748,
+            0.0048,
+            0.1748
+          ]
+        },
+        "INT-LINER-51": {
+          "triangles": 7920,
+          "local_size_m": [
+            0.181,
+            0.315,
+            0.181
+          ]
+        },
+        "INT-LINER-52": {
+          "triangles": 1152,
+          "local_size_m": [
+            0.1768,
+            0.0048,
+            0.1768
+          ]
+        },
+        "INT-LINER-53": {
+          "triangles": 1152,
+          "local_size_m": [
+            0.1748,
+            0.0048,
+            0.1748
+          ]
+        },
+        "INT-LINER-54": {
+          "triangles": 1152,
+          "local_size_m": [
+            0.1748,
+            0.0048,
+            0.1748
+          ]
+        },
+        "INT-LINER-61": {
+          "triangles": 7920,
+          "local_size_m": [
+            0.181,
+            0.315,
+            0.181
+          ]
+        },
+        "INT-LINER-62": {
+          "triangles": 1152,
+          "local_size_m": [
+            0.1768,
+            0.0048,
+            0.1768
+          ]
+        },
+        "INT-LINER-63": {
+          "triangles": 1152,
+          "local_size_m": [
+            0.1748,
+            0.0048,
+            0.1748
+          ]
+        },
+        "INT-LINER-64": {
+          "triangles": 1152,
+          "local_size_m": [
+            0.1748,
+            0.0048,
+            0.1748
+          ]
+        },
+        "INT-CAM-01": {
+          "triangles": 380,
+          "local_size_m": [
+            1.228,
+            0.052,
+            0.052
+          ]
+        },
+        "INT-CAM-02": {
+          "triangles": 380,
+          "local_size_m": [
+            0.032,
+            0.062,
+            0.062
+          ]
+        },
+        "INT-CAM-03": {
+          "triangles": 380,
+          "local_size_m": [
+            0.032,
+            0.062,
+            0.062
+          ]
+        },
+        "INT-CAM-04": {
+          "triangles": 380,
+          "local_size_m": [
+            0.032,
+            0.062,
+            0.062
+          ]
+        },
+        "INT-CAM-05": {
+          "triangles": 380,
+          "local_size_m": [
+            0.032,
+            0.062,
+            0.062
+          ]
+        },
+        "INT-CAM-06": {
+          "triangles": 380,
+          "local_size_m": [
+            0.032,
+            0.062,
+            0.062
+          ]
+        },
+        "INT-CAM-07": {
+          "triangles": 380,
+          "local_size_m": [
+            0.032,
+            0.062,
+            0.062
+          ]
+        },
+        "INT-CAM-08": {
+          "triangles": 380,
+          "local_size_m": [
+            0.032,
+            0.062,
+            0.062
+          ]
+        },
+        "INT-CAM-12": {
+          "triangles": 252,
+          "local_size_m": [
+            0.02,
+            0.07221,
+            0.07221
+          ]
+        },
+        "INT-CAM-13": {
+          "triangles": 252,
+          "local_size_m": [
+            0.02,
+            0.07221,
+            0.07221
+          ]
+        },
+        "INT-CAM-22": {
+          "triangles": 252,
+          "local_size_m": [
+            0.02,
+            0.07823,
+            0.072
+          ]
+        },
+        "INT-CAM-23": {
+          "triangles": 252,
+          "local_size_m": [
+            0.02,
+            0.072,
+            0.07823
+          ]
+        },
+        "INT-CAM-32": {
+          "triangles": 252,
+          "local_size_m": [
+            0.02,
+            0.072,
+            0.07823
+          ]
+        },
+        "INT-CAM-33": {
+          "triangles": 252,
+          "local_size_m": [
+            0.02,
+            0.07823,
+            0.072
+          ]
+        },
+        "INT-CAM-42": {
+          "triangles": 252,
+          "local_size_m": [
+            0.02,
+            0.072,
+            0.07823
+          ]
+        },
+        "INT-CAM-43": {
+          "triangles": 252,
+          "local_size_m": [
+            0.02,
+            0.07823,
+            0.072
+          ]
+        },
+        "INT-CAM-52": {
+          "triangles": 252,
+          "local_size_m": [
+            0.02,
+            0.07823,
+            0.072
+          ]
+        },
+        "INT-CAM-53": {
+          "triangles": 252,
+          "local_size_m": [
+            0.02,
+            0.072,
+            0.07823
+          ]
+        },
+        "INT-CAM-62": {
+          "triangles": 252,
+          "local_size_m": [
+            0.02,
+            0.07221,
+            0.07221
+          ]
+        },
+        "INT-CAM-63": {
+          "triangles": 252,
+          "local_size_m": [
+            0.02,
+            0.07221,
+            0.07221
+          ]
+        },
+        "INT-CAM-14": {
+          "triangles": 380,
+          "local_size_m": [
+            0.03,
+            0.011,
+            0.03
+          ]
+        },
+        "INT-CAM-16": {
+          "triangles": 380,
+          "local_size_m": [
+            0.018,
+            0.034,
+            0.018
+          ]
+        },
+        "INT-CAM-18": {
+          "triangles": 124,
+          "local_size_m": [
+            0.009,
+            0.4,
+            0.009
+          ]
+        },
+        "INT-CAM-15": {
+          "triangles": 380,
+          "local_size_m": [
+            0.03,
+            0.011,
+            0.03
+          ]
+        },
+        "INT-CAM-17": {
+          "triangles": 380,
+          "local_size_m": [
+            0.018,
+            0.034,
+            0.018
+          ]
+        },
+        "INT-CAM-19": {
+          "triangles": 124,
+          "local_size_m": [
+            0.009,
+            0.4,
+            0.009
+          ]
+        },
+        "INT-CAM-24": {
+          "triangles": 380,
+          "local_size_m": [
+            0.03,
+            0.011,
+            0.03
+          ]
+        },
+        "INT-CAM-26": {
+          "triangles": 380,
+          "local_size_m": [
+            0.018,
+            0.034,
+            0.018
+          ]
+        },
+        "INT-CAM-28": {
+          "triangles": 124,
+          "local_size_m": [
+            0.009,
+            0.4,
+            0.009
+          ]
+        },
+        "INT-CAM-25": {
+          "triangles": 380,
+          "local_size_m": [
+            0.03,
+            0.011,
+            0.03
+          ]
+        },
+        "INT-CAM-27": {
+          "triangles": 380,
+          "local_size_m": [
+            0.018,
+            0.034,
+            0.018
+          ]
+        },
+        "INT-CAM-29": {
+          "triangles": 124,
+          "local_size_m": [
+            0.009,
+            0.4,
+            0.009
+          ]
+        },
+        "INT-CAM-34": {
+          "triangles": 380,
+          "local_size_m": [
+            0.03,
+            0.011,
+            0.03
+          ]
+        },
+        "INT-CAM-36": {
+          "triangles": 380,
+          "local_size_m": [
+            0.018,
+            0.034,
+            0.018
+          ]
+        },
+        "INT-CAM-38": {
+          "triangles": 124,
+          "local_size_m": [
+            0.009,
+            0.4,
+            0.009
+          ]
+        },
+        "INT-CAM-35": {
+          "triangles": 380,
+          "local_size_m": [
+            0.03,
+            0.011,
+            0.03
+          ]
+        },
+        "INT-CAM-37": {
+          "triangles": 380,
+          "local_size_m": [
+            0.018,
+            0.034,
+            0.018
+          ]
+        },
+        "INT-CAM-39": {
+          "triangles": 124,
+          "local_size_m": [
+            0.009,
+            0.4,
+            0.009
+          ]
+        },
+        "INT-CAM-44": {
+          "triangles": 380,
+          "local_size_m": [
+            0.03,
+            0.011,
+            0.03
+          ]
+        },
+        "INT-CAM-46": {
+          "triangles": 380,
+          "local_size_m": [
+            0.018,
+            0.034,
+            0.018
+          ]
+        },
+        "INT-CAM-48": {
+          "triangles": 124,
+          "local_size_m": [
+            0.009,
+            0.4,
+            0.009
+          ]
+        },
+        "INT-CAM-45": {
+          "triangles": 380,
+          "local_size_m": [
+            0.03,
+            0.011,
+            0.03
+          ]
+        },
+        "INT-CAM-47": {
+          "triangles": 380,
+          "local_size_m": [
+            0.018,
+            0.034,
+            0.018
+          ]
+        },
+        "INT-CAM-49": {
+          "triangles": 124,
+          "local_size_m": [
+            0.009,
+            0.4,
+            0.009
+          ]
+        },
+        "INT-CAM-54": {
+          "triangles": 380,
+          "local_size_m": [
+            0.03,
+            0.011,
+            0.03
+          ]
+        },
+        "INT-CAM-56": {
+          "triangles": 380,
+          "local_size_m": [
+            0.018,
+            0.034,
+            0.018
+          ]
+        },
+        "INT-CAM-58": {
+          "triangles": 124,
+          "local_size_m": [
+            0.009,
+            0.4,
+            0.009
+          ]
+        },
+        "INT-CAM-55": {
+          "triangles": 380,
+          "local_size_m": [
+            0.03,
+            0.011,
+            0.03
+          ]
+        },
+        "INT-CAM-57": {
+          "triangles": 380,
+          "local_size_m": [
+            0.018,
+            0.034,
+            0.018
+          ]
+        },
+        "INT-CAM-59": {
+          "triangles": 124,
+          "local_size_m": [
+            0.009,
+            0.4,
+            0.009
+          ]
+        },
+        "INT-CAM-64": {
+          "triangles": 380,
+          "local_size_m": [
+            0.03,
+            0.011,
+            0.03
+          ]
+        },
+        "INT-CAM-66": {
+          "triangles": 380,
+          "local_size_m": [
+            0.018,
+            0.034,
+            0.018
+          ]
+        },
+        "INT-CAM-68": {
+          "triangles": 124,
+          "local_size_m": [
+            0.009,
+            0.4,
+            0.009
+          ]
+        },
+        "INT-CAM-65": {
+          "triangles": 380,
+          "local_size_m": [
+            0.03,
+            0.011,
+            0.03
+          ]
+        },
+        "INT-CAM-67": {
+          "triangles": 380,
+          "local_size_m": [
+            0.018,
+            0.034,
+            0.018
+          ]
+        },
+        "INT-CAM-69": {
+          "triangles": 124,
+          "local_size_m": [
+            0.009,
+            0.4,
+            0.009
+          ]
+        },
+        "INT-VALVE-101": {
+          "triangles": 380,
+          "local_size_m": [
+            0.157,
+            0.03198,
+            0.03198
+          ]
+        },
+        "INT-VALVE-132": {
+          "triangles": 224,
+          "local_size_m": [
+            0.018,
+            0.057,
+            0.018
+          ]
+        },
+        "INT-VALVE-133": {
+          "triangles": 224,
+          "local_size_m": [
+            0.034,
+            0.004,
+            0.034
+          ]
+        },
+        "INT-VALVE-139": {
+          "triangles": 224,
+          "local_size_m": [
+            0.018,
+            0.057,
+            0.018
+          ]
+        },
+        "INT-VALVE-140": {
+          "triangles": 224,
+          "local_size_m": [
+            0.034,
+            0.004,
+            0.034
+          ]
+        },
+        "INT-VALVE-152": {
+          "triangles": 224,
+          "local_size_m": [
+            0.018,
+            0.057,
+            0.018
+          ]
+        },
+        "INT-VALVE-153": {
+          "triangles": 224,
+          "local_size_m": [
+            0.034,
+            0.004,
+            0.034
+          ]
+        },
+        "INT-VALVE-159": {
+          "triangles": 224,
+          "local_size_m": [
+            0.018,
+            0.057,
+            0.018
+          ]
+        },
+        "INT-VALVE-160": {
+          "triangles": 224,
+          "local_size_m": [
+            0.034,
+            0.004,
+            0.034
+          ]
+        },
+        "INT-VALVE-201": {
+          "triangles": 380,
+          "local_size_m": [
+            0.157,
+            0.03198,
+            0.03198
+          ]
+        },
+        "INT-VALVE-232": {
+          "triangles": 224,
+          "local_size_m": [
+            0.018,
+            0.057,
+            0.018
+          ]
+        },
+        "INT-VALVE-233": {
+          "triangles": 224,
+          "local_size_m": [
+            0.034,
+            0.004,
+            0.034
+          ]
+        },
+        "INT-VALVE-239": {
+          "triangles": 224,
+          "local_size_m": [
+            0.018,
+            0.057,
+            0.018
+          ]
+        },
+        "INT-VALVE-240": {
+          "triangles": 224,
+          "local_size_m": [
+            0.034,
+            0.004,
+            0.034
+          ]
+        },
+        "INT-VALVE-252": {
+          "triangles": 224,
+          "local_size_m": [
+            0.018,
+            0.057,
+            0.018
+          ]
+        },
+        "INT-VALVE-253": {
+          "triangles": 224,
+          "local_size_m": [
+            0.034,
+            0.004,
+            0.034
+          ]
+        },
+        "INT-VALVE-259": {
+          "triangles": 224,
+          "local_size_m": [
+            0.018,
+            0.057,
+            0.018
+          ]
+        },
+        "INT-VALVE-260": {
+          "triangles": 224,
+          "local_size_m": [
+            0.034,
+            0.004,
+            0.034
+          ]
+        },
+        "INT-VALVE-301": {
+          "triangles": 380,
+          "local_size_m": [
+            0.157,
+            0.03198,
+            0.03198
+          ]
+        },
+        "INT-VALVE-332": {
+          "triangles": 224,
+          "local_size_m": [
+            0.018,
+            0.057,
+            0.018
+          ]
+        },
+        "INT-VALVE-333": {
+          "triangles": 224,
+          "local_size_m": [
+            0.034,
+            0.004,
+            0.034
+          ]
+        },
+        "INT-VALVE-339": {
+          "triangles": 224,
+          "local_size_m": [
+            0.018,
+            0.057,
+            0.018
+          ]
+        },
+        "INT-VALVE-340": {
+          "triangles": 224,
+          "local_size_m": [
+            0.034,
+            0.004,
+            0.034
+          ]
+        },
+        "INT-VALVE-352": {
+          "triangles": 224,
+          "local_size_m": [
+            0.018,
+            0.057,
+            0.018
+          ]
+        },
+        "INT-VALVE-353": {
+          "triangles": 224,
+          "local_size_m": [
+            0.034,
+            0.004,
+            0.034
+          ]
+        },
+        "INT-VALVE-359": {
+          "triangles": 224,
+          "local_size_m": [
+            0.018,
+            0.057,
+            0.018
+          ]
+        },
+        "INT-VALVE-360": {
+          "triangles": 224,
+          "local_size_m": [
+            0.034,
+            0.004,
+            0.034
+          ]
+        },
+        "INT-VALVE-401": {
+          "triangles": 380,
+          "local_size_m": [
+            0.157,
+            0.03198,
+            0.03198
+          ]
+        },
+        "INT-VALVE-432": {
+          "triangles": 224,
+          "local_size_m": [
+            0.018,
+            0.057,
+            0.018
+          ]
+        },
+        "INT-VALVE-433": {
+          "triangles": 224,
+          "local_size_m": [
+            0.034,
+            0.004,
+            0.034
+          ]
+        },
+        "INT-VALVE-439": {
+          "triangles": 224,
+          "local_size_m": [
+            0.018,
+            0.057,
+            0.018
+          ]
+        },
+        "INT-VALVE-440": {
+          "triangles": 224,
+          "local_size_m": [
+            0.034,
+            0.004,
+            0.034
+          ]
+        },
+        "INT-VALVE-452": {
+          "triangles": 224,
+          "local_size_m": [
+            0.018,
+            0.057,
+            0.018
+          ]
+        },
+        "INT-VALVE-453": {
+          "triangles": 224,
+          "local_size_m": [
+            0.034,
+            0.004,
+            0.034
+          ]
+        },
+        "INT-VALVE-459": {
+          "triangles": 224,
+          "local_size_m": [
+            0.018,
+            0.057,
+            0.018
+          ]
+        },
+        "INT-VALVE-460": {
+          "triangles": 224,
+          "local_size_m": [
+            0.034,
+            0.004,
+            0.034
+          ]
+        },
+        "INT-VALVE-501": {
+          "triangles": 380,
+          "local_size_m": [
+            0.157,
+            0.03198,
+            0.03198
+          ]
+        },
+        "INT-VALVE-532": {
+          "triangles": 224,
+          "local_size_m": [
+            0.018,
+            0.057,
+            0.018
+          ]
+        },
+        "INT-VALVE-533": {
+          "triangles": 224,
+          "local_size_m": [
+            0.034,
+            0.004,
+            0.034
+          ]
+        },
+        "INT-VALVE-539": {
+          "triangles": 224,
+          "local_size_m": [
+            0.018,
+            0.057,
+            0.018
+          ]
+        },
+        "INT-VALVE-540": {
+          "triangles": 224,
+          "local_size_m": [
+            0.034,
+            0.004,
+            0.034
+          ]
+        },
+        "INT-VALVE-552": {
+          "triangles": 224,
+          "local_size_m": [
+            0.018,
+            0.057,
+            0.018
+          ]
+        },
+        "INT-VALVE-553": {
+          "triangles": 224,
+          "local_size_m": [
+            0.034,
+            0.004,
+            0.034
+          ]
+        },
+        "INT-VALVE-559": {
+          "triangles": 224,
+          "local_size_m": [
+            0.018,
+            0.057,
+            0.018
+          ]
+        },
+        "INT-VALVE-560": {
+          "triangles": 224,
+          "local_size_m": [
+            0.034,
+            0.004,
+            0.034
+          ]
+        },
+        "INT-VALVE-601": {
+          "triangles": 380,
+          "local_size_m": [
+            0.157,
+            0.03198,
+            0.03198
+          ]
+        },
+        "INT-VALVE-632": {
+          "triangles": 224,
+          "local_size_m": [
+            0.018,
+            0.057,
+            0.018
+          ]
+        },
+        "INT-VALVE-633": {
+          "triangles": 224,
+          "local_size_m": [
+            0.034,
+            0.004,
+            0.034
+          ]
+        },
+        "INT-VALVE-639": {
+          "triangles": 224,
+          "local_size_m": [
+            0.018,
+            0.057,
+            0.018
+          ]
+        },
+        "INT-VALVE-640": {
+          "triangles": 224,
+          "local_size_m": [
+            0.034,
+            0.004,
+            0.034
+          ]
+        },
+        "INT-VALVE-652": {
+          "triangles": 224,
+          "local_size_m": [
+            0.018,
+            0.057,
+            0.018
+          ]
+        },
+        "INT-VALVE-653": {
+          "triangles": 224,
+          "local_size_m": [
+            0.034,
+            0.004,
+            0.034
+          ]
+        },
+        "INT-VALVE-659": {
+          "triangles": 224,
+          "local_size_m": [
+            0.018,
+            0.057,
+            0.018
+          ]
+        },
+        "INT-VALVE-660": {
+          "triangles": 224,
+          "local_size_m": [
+            0.034,
+            0.004,
+            0.034
+          ]
+        },
+        "INT-VALVE-102": {
+          "triangles": 256,
+          "local_size_m": [
+            0.024,
+            0.038,
+            0.038
+          ]
+        },
+        "INT-VALVE-103": {
+          "triangles": 32,
+          "local_size_m": [
+            0.014,
+            0.039,
+            0.125
+          ]
+        },
+        "INT-VALVE-104": {
+          "triangles": 44,
+          "local_size_m": [
+            0.016,
+            0.017,
+            0.01386
+          ]
+        },
+        "INT-VALVE-112": {
+          "triangles": 256,
+          "local_size_m": [
+            0.024,
+            0.038,
+            0.038
+          ]
+        },
+        "INT-VALVE-113": {
+          "triangles": 32,
+          "local_size_m": [
+            0.014,
+            0.039,
+            0.193
+          ]
+        },
+        "INT-VALVE-114": {
+          "triangles": 44,
+          "local_size_m": [
+            0.016,
+            0.017,
+            0.01386
+          ]
+        },
+        "INT-VALVE-202": {
+          "triangles": 256,
+          "local_size_m": [
+            0.024,
+            0.038,
+            0.038
+          ]
+        },
+        "INT-VALVE-203": {
+          "triangles": 32,
+          "local_size_m": [
+            0.014,
+            0.039,
+            0.125
+          ]
+        },
+        "INT-VALVE-204": {
+          "triangles": 44,
+          "local_size_m": [
+            0.016,
+            0.017,
+            0.01386
+          ]
+        },
+        "INT-VALVE-212": {
+          "triangles": 256,
+          "local_size_m": [
+            0.024,
+            0.038,
+            0.038
+          ]
+        },
+        "INT-VALVE-213": {
+          "triangles": 32,
+          "local_size_m": [
+            0.014,
+            0.039,
+            0.193
+          ]
+        },
+        "INT-VALVE-214": {
+          "triangles": 44,
+          "local_size_m": [
+            0.016,
+            0.017,
+            0.01386
+          ]
+        },
+        "INT-VALVE-302": {
+          "triangles": 256,
+          "local_size_m": [
+            0.024,
+            0.038,
+            0.038
+          ]
+        },
+        "INT-VALVE-303": {
+          "triangles": 32,
+          "local_size_m": [
+            0.014,
+            0.039,
+            0.125
+          ]
+        },
+        "INT-VALVE-304": {
+          "triangles": 44,
+          "local_size_m": [
+            0.016,
+            0.017,
+            0.01386
+          ]
+        },
+        "INT-VALVE-312": {
+          "triangles": 256,
+          "local_size_m": [
+            0.024,
+            0.038,
+            0.038
+          ]
+        },
+        "INT-VALVE-313": {
+          "triangles": 32,
+          "local_size_m": [
+            0.014,
+            0.039,
+            0.193
+          ]
+        },
+        "INT-VALVE-314": {
+          "triangles": 44,
+          "local_size_m": [
+            0.016,
+            0.017,
+            0.01386
+          ]
+        },
+        "INT-VALVE-402": {
+          "triangles": 256,
+          "local_size_m": [
+            0.024,
+            0.038,
+            0.038
+          ]
+        },
+        "INT-VALVE-403": {
+          "triangles": 32,
+          "local_size_m": [
+            0.014,
+            0.039,
+            0.125
+          ]
+        },
+        "INT-VALVE-404": {
+          "triangles": 44,
+          "local_size_m": [
+            0.016,
+            0.017,
+            0.01386
+          ]
+        },
+        "INT-VALVE-412": {
+          "triangles": 256,
+          "local_size_m": [
+            0.024,
+            0.038,
+            0.038
+          ]
+        },
+        "INT-VALVE-413": {
+          "triangles": 32,
+          "local_size_m": [
+            0.014,
+            0.039,
+            0.193
+          ]
+        },
+        "INT-VALVE-414": {
+          "triangles": 44,
+          "local_size_m": [
+            0.016,
+            0.017,
+            0.01386
+          ]
+        },
+        "INT-VALVE-502": {
+          "triangles": 256,
+          "local_size_m": [
+            0.024,
+            0.038,
+            0.038
+          ]
+        },
+        "INT-VALVE-503": {
+          "triangles": 32,
+          "local_size_m": [
+            0.014,
+            0.039,
+            0.125
+          ]
+        },
+        "INT-VALVE-504": {
+          "triangles": 44,
+          "local_size_m": [
+            0.016,
+            0.017,
+            0.01386
+          ]
+        },
+        "INT-VALVE-512": {
+          "triangles": 256,
+          "local_size_m": [
+            0.024,
+            0.038,
+            0.038
+          ]
+        },
+        "INT-VALVE-513": {
+          "triangles": 32,
+          "local_size_m": [
+            0.014,
+            0.039,
+            0.193
+          ]
+        },
+        "INT-VALVE-514": {
+          "triangles": 44,
+          "local_size_m": [
+            0.016,
+            0.017,
+            0.01386
+          ]
+        },
+        "INT-VALVE-602": {
+          "triangles": 256,
+          "local_size_m": [
+            0.024,
+            0.038,
+            0.038
+          ]
+        },
+        "INT-VALVE-603": {
+          "triangles": 32,
+          "local_size_m": [
+            0.014,
+            0.039,
+            0.125
+          ]
+        },
+        "INT-VALVE-604": {
+          "triangles": 44,
+          "local_size_m": [
+            0.016,
+            0.017,
+            0.01386
+          ]
+        },
+        "INT-VALVE-612": {
+          "triangles": 256,
+          "local_size_m": [
+            0.024,
+            0.038,
+            0.038
+          ]
+        },
+        "INT-VALVE-613": {
+          "triangles": 32,
+          "local_size_m": [
+            0.014,
+            0.039,
+            0.193
+          ]
+        },
+        "INT-VALVE-614": {
+          "triangles": 44,
+          "local_size_m": [
+            0.016,
+            0.017,
+            0.01386
+          ]
+        },
+        "INT-VALVE-134": {
+          "triangles": 2316,
+          "local_size_m": [
+            0.0305,
+            0.04748,
+            0.0305
+          ]
+        },
+        "INT-VALVE-141": {
+          "triangles": 2316,
+          "local_size_m": [
+            0.0305,
+            0.04748,
+            0.0305
+          ]
+        },
+        "INT-VALVE-154": {
+          "triangles": 2316,
+          "local_size_m": [
+            0.0305,
+            0.04748,
+            0.0305
+          ]
+        },
+        "INT-VALVE-161": {
+          "triangles": 2316,
+          "local_size_m": [
+            0.0305,
+            0.04748,
+            0.0305
+          ]
+        },
+        "INT-VALVE-234": {
+          "triangles": 2316,
+          "local_size_m": [
+            0.0305,
+            0.04748,
+            0.0305
+          ]
+        },
+        "INT-VALVE-241": {
+          "triangles": 2316,
+          "local_size_m": [
+            0.0305,
+            0.04748,
+            0.0305
+          ]
+        },
+        "INT-VALVE-254": {
+          "triangles": 2316,
+          "local_size_m": [
+            0.0305,
+            0.04748,
+            0.0305
+          ]
+        },
+        "INT-VALVE-261": {
+          "triangles": 2316,
+          "local_size_m": [
+            0.0305,
+            0.04748,
+            0.0305
+          ]
+        },
+        "INT-VALVE-334": {
+          "triangles": 2316,
+          "local_size_m": [
+            0.0305,
+            0.04748,
+            0.0305
+          ]
+        },
+        "INT-VALVE-341": {
+          "triangles": 2316,
+          "local_size_m": [
+            0.0305,
+            0.04748,
+            0.0305
+          ]
+        },
+        "INT-VALVE-354": {
+          "triangles": 2316,
+          "local_size_m": [
+            0.0305,
+            0.04748,
+            0.0305
+          ]
+        },
+        "INT-VALVE-361": {
+          "triangles": 2316,
+          "local_size_m": [
+            0.0305,
+            0.04748,
+            0.0305
+          ]
+        },
+        "INT-VALVE-434": {
+          "triangles": 2316,
+          "local_size_m": [
+            0.0305,
+            0.04748,
+            0.0305
+          ]
+        },
+        "INT-VALVE-441": {
+          "triangles": 2316,
+          "local_size_m": [
+            0.0305,
+            0.04748,
+            0.0305
+          ]
+        },
+        "INT-VALVE-454": {
+          "triangles": 2316,
+          "local_size_m": [
+            0.0305,
+            0.04748,
+            0.0305
+          ]
+        },
+        "INT-VALVE-461": {
+          "triangles": 2316,
+          "local_size_m": [
+            0.0305,
+            0.04748,
+            0.0305
+          ]
+        },
+        "INT-VALVE-534": {
+          "triangles": 2316,
+          "local_size_m": [
+            0.0305,
+            0.04748,
+            0.0305
+          ]
+        },
+        "INT-VALVE-541": {
+          "triangles": 2316,
+          "local_size_m": [
+            0.0305,
+            0.04748,
+            0.0305
+          ]
+        },
+        "INT-VALVE-554": {
+          "triangles": 2316,
+          "local_size_m": [
+            0.0305,
+            0.04748,
+            0.0305
+          ]
+        },
+        "INT-VALVE-561": {
+          "triangles": 2316,
+          "local_size_m": [
+            0.0305,
+            0.04748,
+            0.0305
+          ]
+        },
+        "INT-VALVE-634": {
+          "triangles": 2316,
+          "local_size_m": [
+            0.0305,
+            0.04748,
+            0.0305
+          ]
+        },
+        "INT-VALVE-641": {
+          "triangles": 2316,
+          "local_size_m": [
+            0.0305,
+            0.04748,
+            0.0305
+          ]
+        },
+        "INT-VALVE-654": {
+          "triangles": 2316,
+          "local_size_m": [
+            0.0305,
+            0.04748,
+            0.0305
+          ]
+        },
+        "INT-VALVE-661": {
+          "triangles": 2316,
+          "local_size_m": [
+            0.0305,
+            0.04748,
+            0.0305
+          ]
+        },
+        "INT-VALVE-105": {
+          "triangles": 124,
+          "local_size_m": [
+            0.015,
+            0.098,
+            0.015
+          ]
+        },
+        "INT-VALVE-130": {
+          "triangles": 556,
+          "local_size_m": [
+            0.05,
+            0.129,
+            0.05
+          ]
+        },
+        "INT-VALVE-131": {
+          "triangles": 236,
+          "local_size_m": [
+            0.034,
+            0.007,
+            0.03381
+          ]
+        },
+        "INT-VALVE-137": {
+          "triangles": 556,
+          "local_size_m": [
+            0.05,
+            0.129,
+            0.05
+          ]
+        },
+        "INT-VALVE-138": {
+          "triangles": 236,
+          "local_size_m": [
+            0.034,
+            0.007,
+            0.03381
+          ]
+        },
+        "INT-VALVE-115": {
+          "triangles": 124,
+          "local_size_m": [
+            0.015,
+            0.098,
+            0.015
+          ]
+        },
+        "INT-VALVE-150": {
+          "triangles": 556,
+          "local_size_m": [
+            0.046,
+            0.129,
+            0.046
+          ]
+        },
+        "INT-VALVE-151": {
+          "triangles": 236,
+          "local_size_m": [
+            0.034,
+            0.007,
+            0.03381
+          ]
+        },
+        "INT-VALVE-157": {
+          "triangles": 556,
+          "local_size_m": [
+            0.046,
+            0.129,
+            0.046
+          ]
+        },
+        "INT-VALVE-158": {
+          "triangles": 236,
+          "local_size_m": [
+            0.034,
+            0.007,
+            0.03381
+          ]
+        },
+        "INT-VALVE-205": {
+          "triangles": 124,
+          "local_size_m": [
+            0.015,
+            0.098,
+            0.015
+          ]
+        },
+        "INT-VALVE-230": {
+          "triangles": 556,
+          "local_size_m": [
+            0.05,
+            0.129,
+            0.05
+          ]
+        },
+        "INT-VALVE-231": {
+          "triangles": 236,
+          "local_size_m": [
+            0.034,
+            0.007,
+            0.03381
+          ]
+        },
+        "INT-VALVE-237": {
+          "triangles": 556,
+          "local_size_m": [
+            0.05,
+            0.129,
+            0.05
+          ]
+        },
+        "INT-VALVE-238": {
+          "triangles": 236,
+          "local_size_m": [
+            0.034,
+            0.007,
+            0.03381
+          ]
+        },
+        "INT-VALVE-215": {
+          "triangles": 124,
+          "local_size_m": [
+            0.015,
+            0.098,
+            0.015
+          ]
+        },
+        "INT-VALVE-250": {
+          "triangles": 556,
+          "local_size_m": [
+            0.046,
+            0.129,
+            0.046
+          ]
+        },
+        "INT-VALVE-251": {
+          "triangles": 236,
+          "local_size_m": [
+            0.034,
+            0.007,
+            0.03381
+          ]
+        },
+        "INT-VALVE-257": {
+          "triangles": 556,
+          "local_size_m": [
+            0.046,
+            0.129,
+            0.046
+          ]
+        },
+        "INT-VALVE-258": {
+          "triangles": 236,
+          "local_size_m": [
+            0.034,
+            0.007,
+            0.03381
+          ]
+        },
+        "INT-VALVE-305": {
+          "triangles": 124,
+          "local_size_m": [
+            0.015,
+            0.098,
+            0.015
+          ]
+        },
+        "INT-VALVE-330": {
+          "triangles": 556,
+          "local_size_m": [
+            0.05,
+            0.129,
+            0.05
+          ]
+        },
+        "INT-VALVE-331": {
+          "triangles": 236,
+          "local_size_m": [
+            0.034,
+            0.007,
+            0.03381
+          ]
+        },
+        "INT-VALVE-337": {
+          "triangles": 556,
+          "local_size_m": [
+            0.05,
+            0.129,
+            0.05
+          ]
+        },
+        "INT-VALVE-338": {
+          "triangles": 236,
+          "local_size_m": [
+            0.034,
+            0.007,
+            0.03381
+          ]
+        },
+        "INT-VALVE-315": {
+          "triangles": 124,
+          "local_size_m": [
+            0.015,
+            0.098,
+            0.015
+          ]
+        },
+        "INT-VALVE-350": {
+          "triangles": 556,
+          "local_size_m": [
+            0.046,
+            0.129,
+            0.046
+          ]
+        },
+        "INT-VALVE-351": {
+          "triangles": 236,
+          "local_size_m": [
+            0.034,
+            0.007,
+            0.03381
+          ]
+        },
+        "INT-VALVE-357": {
+          "triangles": 556,
+          "local_size_m": [
+            0.046,
+            0.129,
+            0.046
+          ]
+        },
+        "INT-VALVE-358": {
+          "triangles": 236,
+          "local_size_m": [
+            0.034,
+            0.007,
+            0.03381
+          ]
+        },
+        "INT-VALVE-405": {
+          "triangles": 124,
+          "local_size_m": [
+            0.015,
+            0.098,
+            0.015
+          ]
+        },
+        "INT-VALVE-430": {
+          "triangles": 556,
+          "local_size_m": [
+            0.05,
+            0.129,
+            0.05
+          ]
+        },
+        "INT-VALVE-431": {
+          "triangles": 236,
+          "local_size_m": [
+            0.034,
+            0.007,
+            0.03381
+          ]
+        },
+        "INT-VALVE-437": {
+          "triangles": 556,
+          "local_size_m": [
+            0.05,
+            0.129,
+            0.05
+          ]
+        },
+        "INT-VALVE-438": {
+          "triangles": 236,
+          "local_size_m": [
+            0.034,
+            0.007,
+            0.03381
+          ]
+        },
+        "INT-VALVE-415": {
+          "triangles": 124,
+          "local_size_m": [
+            0.015,
+            0.098,
+            0.015
+          ]
+        },
+        "INT-VALVE-450": {
+          "triangles": 556,
+          "local_size_m": [
+            0.046,
+            0.129,
+            0.046
+          ]
+        },
+        "INT-VALVE-451": {
+          "triangles": 236,
+          "local_size_m": [
+            0.034,
+            0.007,
+            0.03381
+          ]
+        },
+        "INT-VALVE-457": {
+          "triangles": 556,
+          "local_size_m": [
+            0.046,
+            0.129,
+            0.046
+          ]
+        },
+        "INT-VALVE-458": {
+          "triangles": 236,
+          "local_size_m": [
+            0.034,
+            0.007,
+            0.03381
+          ]
+        },
+        "INT-VALVE-505": {
+          "triangles": 124,
+          "local_size_m": [
+            0.015,
+            0.098,
+            0.015
+          ]
+        },
+        "INT-VALVE-530": {
+          "triangles": 556,
+          "local_size_m": [
+            0.05,
+            0.129,
+            0.05
+          ]
+        },
+        "INT-VALVE-531": {
+          "triangles": 236,
+          "local_size_m": [
+            0.034,
+            0.007,
+            0.03381
+          ]
+        },
+        "INT-VALVE-537": {
+          "triangles": 556,
+          "local_size_m": [
+            0.05,
+            0.129,
+            0.05
+          ]
+        },
+        "INT-VALVE-538": {
+          "triangles": 236,
+          "local_size_m": [
+            0.034,
+            0.007,
+            0.03381
+          ]
+        },
+        "INT-VALVE-515": {
+          "triangles": 124,
+          "local_size_m": [
+            0.015,
+            0.098,
+            0.015
+          ]
+        },
+        "INT-VALVE-550": {
+          "triangles": 556,
+          "local_size_m": [
+            0.046,
+            0.129,
+            0.046
+          ]
+        },
+        "INT-VALVE-551": {
+          "triangles": 236,
+          "local_size_m": [
+            0.034,
+            0.007,
+            0.03381
+          ]
+        },
+        "INT-VALVE-557": {
+          "triangles": 556,
+          "local_size_m": [
+            0.046,
+            0.129,
+            0.046
+          ]
+        },
+        "INT-VALVE-558": {
+          "triangles": 236,
+          "local_size_m": [
+            0.034,
+            0.007,
+            0.03381
+          ]
+        },
+        "INT-VALVE-605": {
+          "triangles": 124,
+          "local_size_m": [
+            0.015,
+            0.098,
+            0.015
+          ]
+        },
+        "INT-VALVE-630": {
+          "triangles": 556,
+          "local_size_m": [
+            0.05,
+            0.129,
+            0.05
+          ]
+        },
+        "INT-VALVE-631": {
+          "triangles": 236,
+          "local_size_m": [
+            0.034,
+            0.007,
+            0.03381
+          ]
+        },
+        "INT-VALVE-637": {
+          "triangles": 556,
+          "local_size_m": [
+            0.05,
+            0.129,
+            0.05
+          ]
+        },
+        "INT-VALVE-638": {
+          "triangles": 236,
+          "local_size_m": [
+            0.034,
+            0.007,
+            0.03381
+          ]
+        },
+        "INT-VALVE-615": {
+          "triangles": 124,
+          "local_size_m": [
+            0.015,
+            0.098,
+            0.015
+          ]
+        },
+        "INT-VALVE-650": {
+          "triangles": 556,
+          "local_size_m": [
+            0.046,
+            0.129,
+            0.046
+          ]
+        },
+        "INT-VALVE-651": {
+          "triangles": 236,
+          "local_size_m": [
+            0.034,
+            0.007,
+            0.03381
+          ]
+        },
+        "INT-VALVE-657": {
+          "triangles": 556,
+          "local_size_m": [
+            0.046,
+            0.129,
+            0.046
+          ]
+        },
+        "INT-VALVE-658": {
+          "triangles": 236,
+          "local_size_m": [
+            0.034,
+            0.007,
+            0.03381
+          ]
+        },
+        "INT-FUELINJ-11": {
+          "triangles": 956,
+          "local_size_m": [
+            0.026,
+            0.137,
+            0.026
+          ]
+        },
+        "INT-FUELINJ-12": {
+          "triangles": 44,
+          "local_size_m": [
+            0.022,
+            0.013,
+            0.01905
+          ]
+        },
+        "INT-FUELINJ-21": {
+          "triangles": 956,
+          "local_size_m": [
+            0.026,
+            0.137,
+            0.026
+          ]
+        },
+        "INT-FUELINJ-22": {
+          "triangles": 44,
+          "local_size_m": [
+            0.022,
+            0.013,
+            0.01905
+          ]
+        },
+        "INT-FUELINJ-31": {
+          "triangles": 956,
+          "local_size_m": [
+            0.026,
+            0.137,
+            0.026
+          ]
+        },
+        "INT-FUELINJ-32": {
+          "triangles": 44,
+          "local_size_m": [
+            0.022,
+            0.013,
+            0.01905
+          ]
+        },
+        "INT-FUELINJ-41": {
+          "triangles": 956,
+          "local_size_m": [
+            0.026,
+            0.137,
+            0.026
+          ]
+        },
+        "INT-FUELINJ-42": {
+          "triangles": 44,
+          "local_size_m": [
+            0.022,
+            0.013,
+            0.01905
+          ]
+        },
+        "INT-FUELINJ-51": {
+          "triangles": 956,
+          "local_size_m": [
+            0.026,
+            0.137,
+            0.026
+          ]
+        },
+        "INT-FUELINJ-52": {
+          "triangles": 44,
+          "local_size_m": [
+            0.022,
+            0.013,
+            0.01905
+          ]
+        },
+        "INT-FUELINJ-61": {
+          "triangles": 956,
+          "local_size_m": [
+            0.026,
+            0.137,
+            0.026
+          ]
+        },
+        "INT-FUELINJ-62": {
+          "triangles": 44,
+          "local_size_m": [
+            0.022,
+            0.013,
+            0.01905
+          ]
+        },
+        "INT-TIMING-11": {
+          "triangles": 380,
+          "local_size_m": [
+            0.03,
+            0.058,
+            0.058
+          ]
+        },
+        "INT-TIMING-12": {
+          "triangles": 380,
+          "local_size_m": [
+            0.03,
+            0.058,
+            0.058
+          ]
+        },
+        "INT-TIMING-01": {
+          "triangles": 1800,
+          "local_size_m": [
+            0.029,
+            0.15449,
+            0.1548
+          ]
+        },
+        "INT-TIMING-02": {
+          "triangles": 1800,
+          "local_size_m": [
+            0.029,
+            0.15449,
+            0.1548
+          ]
+        },
+        "INT-TIMING-03": {
+          "triangles": 1320,
+          "local_size_m": [
+            0.029,
+            0.11437,
+            0.1148
+          ]
+        },
+        "INT-TIMING-04": {
+          "triangles": 2640,
+          "local_size_m": [
+            0.029,
+            0.22459,
+            0.22459
+          ]
+        },
+        "INT-TIMING-05": {
+          "triangles": 1320,
+          "local_size_m": [
+            0.029,
+            0.11437,
+            0.1148
+          ]
+        },
+        "INT-TIMING-06": {
+          "triangles": 540,
+          "local_size_m": [
+            0.029,
+            0.04924,
+            0.04977
+          ]
+        },
+        "INT-TIMING-07": {
+          "triangles": 1800,
+          "local_size_m": [
+            0.029,
+            0.15449,
+            0.1548
+          ]
+        },
+        "INT-TIMING-08": {
+          "triangles": 2640,
+          "local_size_m": [
+            0.029,
+            0.22459,
+            0.22459
+          ]
+        },
+        "INT-TIMING-09": {
+          "triangles": 1080,
+          "local_size_m": [
+            0.029,
+            0.09427,
+            0.0948
+          ]
+        },
+        "INT-TIMING-10": {
+          "triangles": 1080,
+          "local_size_m": [
+            0.029,
+            0.09427,
+            0.0948
+          ]
+        },
+        "INT-OILPUMP-01": {
+          "triangles": 380,
+          "local_size_m": [
+            0.104,
+            0.048,
+            0.048
+          ]
+        },
+        "INT-OILPUMP-02": {
+          "triangles": 386,
+          "local_size_m": [
+            0.051,
+            0.116,
+            0.133
+          ]
+        },
+        "INT-OILPUMP-03": {
+          "triangles": 840,
+          "local_size_m": [
+            0.04,
+            0.0443,
+            0.0448
+          ]
+        },
+        "INT-OILPUMP-04": {
+          "triangles": 840,
+          "local_size_m": [
+            0.04,
+            0.0443,
+            0.0448
+          ]
+        },
+        "INT-OILPUMP-05": {
+          "triangles": 28,
+          "local_size_m": [
+            0.007,
+            0.116,
+            0.133
+          ]
+        },
+        "INT-OILPUMP-06": {
+          "triangles": 44,
+          "local_size_m": [
+            0.01,
+            0.012,
+            0.01039
+          ]
+        },
+        "INT-OILPUMP-07": {
+          "triangles": 44,
+          "local_size_m": [
+            0.01,
+            0.012,
+            0.01039
+          ]
+        },
+        "INT-OILPUMP-08": {
+          "triangles": 44,
+          "local_size_m": [
+            0.01,
+            0.012,
+            0.01039
+          ]
+        },
+        "INT-OILPUMP-09": {
+          "triangles": 44,
+          "local_size_m": [
+            0.01,
+            0.012,
+            0.01039
+          ]
+        },
+        "INT-OILPUMP-10": {
+          "triangles": 284,
+          "local_size_m": [
+            0.13797,
+            0.28726,
+            0.06
+          ]
+        },
+        "INT-OILPUMP-11": {
+          "triangles": 572,
+          "local_size_m": [
+            0.116,
+            0.036,
+            0.116
+          ]
+        }
+      }
+    }
+  },
+  "local_x_probe": {
+    "EXT-INTAKE-02": [
+      {
+        "y_z_fraction": [
+          0.44,
+          0.34
+        ],
+        "surfaces_x_m": [
+          -0.15015,
+          -0.1431,
+          -0.12945,
+          0.13125,
+          0.14543,
+          0.15195
+        ]
+      },
+      {
+        "y_z_fraction": [
+          0.46,
+          0.45
+        ],
+        "surfaces_x_m": [
+          -0.1521,
+          -0.1503,
+          -0.1431,
+          -0.1293,
+          -0.1281,
+          0.1311,
+          0.14523,
+          0.1521
+        ]
+      },
+      {
+        "y_z_fraction": [
+          0.49,
+          0.54
+        ],
+        "surfaces_x_m": [
+          -0.1521,
+          -0.14729,
+          -0.1431,
+          -0.13231,
+          -0.1281,
+          0.13411,
+          0.14495,
+          0.14909
+        ]
+      },
+      {
+        "y_z_fraction": [
+          0.51,
+          0.39
+        ],
+        "surfaces_x_m": [
+          -0.1521,
+          -0.1431,
+          -0.1281,
+          0.14476
+        ]
+      },
+      {
+        "y_z_fraction": [
+          0.53,
+          0.61
+        ],
+        "surfaces_x_m": [
+          -0.1521,
+          -0.1431,
+          -0.1281,
+          0.14456
+        ]
+      },
+      {
+        "y_z_fraction": [
+          0.57,
+          0.56
+        ],
+        "surfaces_x_m": [
+          -0.1431,
+          0.14418
+        ]
+      },
+      {
+        "y_z_fraction": [
+          0.55,
+          0.49
+        ],
+        "surfaces_x_m": [
+          -0.1431,
+          0.14437
+        ]
+      }
+    ],
+    "EXT-COOLING-01": [
+      {
+        "y_z_fraction": [
+          0.44,
+          0.34
+        ],
+        "surfaces_x_m": [
+          -0.16568,
+          -0.15892,
+          -0.14484,
+          0.14667,
+          0.16134,
+          0.16752
+        ]
+      },
+      {
+        "y_z_fraction": [
+          0.46,
+          0.45
+        ],
+        "surfaces_x_m": [
+          -0.16759,
+          -0.16576,
+          -0.15892,
+          -0.14476,
+          -0.14359,
+          0.14659,
+          0.16113,
+          0.16759
+        ]
+      },
+      {
+        "y_z_fraction": [
+          0.49,
+          0.54
+        ],
+        "surfaces_x_m": [
+          -0.16759,
+          -0.1634,
+          -0.15892,
+          -0.14712,
+          -0.14359,
+          0.14895,
+          0.16081,
+          0.16524
+        ]
+      },
+      {
+        "y_z_fraction": [
+          0.51,
+          0.39
+        ],
+        "surfaces_x_m": [
+          -0.16759,
+          -0.15892,
+          -0.14359,
+          0.1606
+        ]
+      },
+      {
+        "y_z_fraction": [
+          0.53,
+          0.61
+        ],
+        "surfaces_x_m": [
+          -0.16759,
+          -0.15892,
+          -0.14359,
+          0.16038
+        ]
+      },
+      {
+        "y_z_fraction": [
+          0.57,
+          0.56
+        ],
+        "surfaces_x_m": [
+          -0.15892,
+          0.15996
+        ]
+      },
+      {
+        "y_z_fraction": [
+          0.55,
+          0.49
+        ],
+        "surfaces_x_m": [
+          -0.15892,
+          0.16017
+        ]
+      }
+    ],
+    "EXT-COOLING-03": [
+      {
+        "y_z_fraction": [
+          0.44,
+          0.34
+        ],
+        "surfaces_x_m": [
+          -0.11868,
+          -0.04988,
+          -0.03291,
+          0.03597,
+          0.05693,
+          0.11868
+        ]
+      },
+      {
+        "y_z_fraction": [
+          0.46,
+          0.45
+        ],
+        "surfaces_x_m": [
+          -0.11195,
+          -0.09058,
+          -0.0819,
+          -0.04566,
+          0.05877,
+          0.0819,
+          0.09058,
+          0.11195
+        ]
+      },
+      {
+        "y_z_fraction": [
+          0.49,
+          0.54
+        ],
+        "surfaces_x_m": [
+          -0.04279,
+          0.06111
+        ]
+      },
+      {
+        "y_z_fraction": [
+          0.51,
+          0.39
+        ],
+        "surfaces_x_m": [
+          -0.11425,
+          -0.11144,
+          -0.07711,
+          -0.04896,
+          0.00207,
+          0.00914,
+          0.0599,
+          0.07711,
+          0.11144,
+          0.11425
+        ]
+      },
+      {
+        "y_z_fraction": [
+          0.53,
+          0.61
+        ],
+        "surfaces_x_m": [
+          -0.04129,
+          0.06396
+        ]
+      },
+      {
+        "y_z_fraction": [
+          0.57,
+          0.56
+        ],
+        "surfaces_x_m": [
+          -0.04433,
+          0.06517
+        ]
+      },
+      {
+        "y_z_fraction": [
+          0.55,
+          0.49
+        ],
+        "surfaces_x_m": [
+          -0.08439,
+          -0.04595,
+          0.06279,
+          0.08439,
+          0.09573,
+          0.10383
+        ]
+      }
+    ],
+    "EXT-COOLING-04": [
+      {
+        "y_z_fraction": [
+          0.44,
+          0.34
+        ],
+        "surfaces_x_m": [
+          -0.0725,
+          -0.0671,
+          0.00167,
+          0.0894
+        ]
+      },
+      {
+        "y_z_fraction": [
+          0.46,
+          0.45
+        ],
+        "surfaces_x_m": [
+          -0.09658,
+          -0.07413,
+          -0.06496,
+          -0.05565,
+          0.01518,
+          0.08187,
+          0.09104,
+          0.11349
+        ]
+      },
+      {
+        "y_z_fraction": [
+          0.49,
+          0.54
+        ],
+        "surfaces_x_m": [
+          -0.09823,
+          -0.09492,
+          -0.06248,
+          -0.04477,
+          -0.03949,
+          0.02057,
+          0.03209,
+          0.07939,
+          0.11183,
+          0.11514
+        ]
+      },
+      {
+        "y_z_fraction": [
+          0.51,
+          0.39
+        ],
+        "surfaces_x_m": [
+          -0.07101,
+          0.08792,
+          0.09345,
+          0.1096
+        ]
+      },
+      {
+        "y_z_fraction": [
+          0.53,
+          0.61
+        ],
+        "surfaces_x_m": [
+          -0.09611,
+          -0.0575,
+          -0.0153,
+          0.01449,
+          0.03976,
+          0.11302
+        ]
+      },
+      {
+        "y_z_fraction": [
+          0.57,
+          0.56
+        ],
+        "surfaces_x_m": [
+          -0.0917,
+          -0.08401,
+          -0.06048,
+          -0.05311,
+          0.03171,
+          0.07002,
+          0.10091,
+          0.10861
+        ]
+      },
+      {
+        "y_z_fraction": [
+          0.55,
+          0.49
+        ],
+        "surfaces_x_m": [
+          -0.08937,
+          -0.08082,
+          -0.05404,
+          -0.04747,
+          0.0195,
+          0.07095,
+          0.09773,
+          0.10628
+        ]
+      }
+    ],
+    "EXT-LUBE-05": [
+      {
+        "y_z_fraction": [
+          0.44,
+          0.34
+        ],
+        "surfaces_x_m": [
+          -0.47695,
+          0.44796
+        ]
+      },
+      {
+        "y_z_fraction": [
+          0.46,
+          0.45
+        ],
+        "surfaces_x_m": [
+          -0.47208,
+          0.45611
+        ]
+      },
+      {
+        "y_z_fraction": [
+          0.49,
+          0.54
+        ],
+        "surfaces_x_m": [
+          -0.46362,
+          0.46268
+        ]
+      },
+      {
+        "y_z_fraction": [
+          0.51,
+          0.39
+        ],
+        "surfaces_x_m": [
+          -0.47434,
+          0.45123
+        ]
+      },
+      {
+        "y_z_fraction": [
+          0.53,
+          0.61
+        ],
+        "surfaces_x_m": [
+          -0.45648,
+          0.46767
+        ]
+      },
+      {
+        "y_z_fraction": [
+          0.57,
+          0.56
+        ],
+        "surfaces_x_m": [
+          -0.45961,
+          0.46361
+        ]
+      },
+      {
+        "y_z_fraction": [
+          0.55,
+          0.49
+        ],
+        "surfaces_x_m": [
+          -0.46616,
+          0.45848
+        ]
+      }
+    ]
+  },
+  "method": "Actual GLB triangle accessors, exact ID/mesh membership, local axis-aligned node extent; selected housing local-X line intersections are spot checks, not a watertightness or completeness proof."
+}

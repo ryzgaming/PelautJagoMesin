@@ -1,0 +1,52 @@
+{
+  "assets_sha256": {
+    "exterior": "60fd5009808ff5baa563c63cd6a3dfb3040bdf1a7c2152522a5f21e01ced6e20",
+    "internal": "46a8854081530e81d2a2af56dc936dbcd22e6b296343029510638e8d120252fa"
+  },
+  "mesh_count": 1144,
+  "aabb_candidate_pairs": 8,
+  "surface_crossing_pair_count": 0,
+  "method": "Assembled Blender GLB reimport, world AABB broad phase, triangle BVH overlap. Surface crossings include intended threads, interference fits and overlaps within an educational assembly. Solid penetration and motion are distinct checks.",
+  "pairs": [
+    {
+      "a": "EXT-OILPAN-20",
+      "b": "INT-TIMING-07",
+      "surface_pairs": 0
+    },
+    {
+      "a": "EXT-OILPAN-20",
+      "b": "INT-OILPUMP-01",
+      "surface_pairs": 0
+    },
+    {
+      "a": "EXT-OILPAN-01",
+      "b": "INT-TIMING-07",
+      "surface_pairs": 0
+    },
+    {
+      "a": "EXT-OILPAN-01",
+      "b": "INT-OILPUMP-01",
+      "surface_pairs": 0
+    },
+    {
+      "a": "EXT-FLYWHEEL-01",
+      "b": "INT-TIMING-04",
+      "surface_pairs": 0
+    },
+    {
+      "a": "EXT-HEADS-12",
+      "b": "EXT-COOLING-304",
+      "surface_pairs": 0
+    },
+    {
+      "a": "EXT-ELECTRIC-03",
+      "b": "EXT-LUBE-05",
+      "surface_pairs": 0
+    },
+    {
+      "a": "EXT-ELECTRIC-03",
+      "b": "EXT-ELECTRIC-21",
+      "surface_pairs": 0
+    }
+  ]
+}

@@ -1,0 +1,1101 @@
+{
+  "links": [
+    {
+      "system": "freshwater",
+      "source_from": "FW-PUMP",
+      "source_to": "FW-ENGINE-OIL-COOLER",
+      "status": "routed",
+      "route_ids": [
+        "FW-pump",
+        "FW-pump-cooler"
+      ],
+      "note": "Setiap ruas menyatakan sendiri tingkat bukti serta apakah bentuk fisik atau skema.",
+      "source_refs": [
+        "D01 cetak 159 / PDF 163, Cooling Water System, Coolant system dan diagram"
+      ]
+    },
+    {
+      "system": "freshwater",
+      "source_from": "FW-ENGINE-OIL-COOLER",
+      "source_to": "FW-JACKET",
+      "status": "routed",
+      "route_ids": [
+        "FW-oil-cooler",
+        "FW-cooler-block"
+      ],
+      "note": "Setiap ruas menyatakan sendiri tingkat bukti serta apakah bentuk fisik atau skema.",
+      "source_refs": [
+        "D01 cetak 159 / PDF 163, Cooling Water System, Coolant system dan diagram"
+      ]
+    },
+    {
+      "system": "freshwater",
+      "source_from": "FW-JACKET",
+      "source_to": "FW-EXHAUST-MANIFOLD",
+      "status": "routed",
+      "route_ids": [
+        "FW-cylinder-jacket",
+        "FW-wet-exhaust"
+      ],
+      "note": "Setiap ruas menyatakan sendiri tingkat bukti serta apakah bentuk fisik atau skema.",
+      "source_refs": [
+        "D01 cetak 159 / PDF 163, Cooling Water System, Coolant system dan diagram"
+      ]
+    },
+    {
+      "system": "freshwater",
+      "source_from": "FW-EXHAUST-MANIFOLD",
+      "source_to": "FW-THERMOSTAT",
+      "status": "routed",
+      "route_ids": [
+        "FW-to-stat"
+      ],
+      "note": "Setiap ruas menyatakan sendiri tingkat bukti serta apakah bentuk fisik atau skema.",
+      "source_refs": [
+        "D01 cetak 159 / PDF 163, Cooling Water System, Coolant system dan diagram"
+      ]
+    },
+    {
+      "system": "freshwater",
+      "source_from": "FW-THERMOSTAT",
+      "source_to": "FW-PUMP",
+      "status": "routed",
+      "route_ids": [
+        "FW-cold-bypass"
+      ],
+      "note": "Setiap ruas menyatakan sendiri tingkat bukti serta apakah bentuk fisik atau skema.",
+      "source_refs": [
+        "D01 cetak 11 / PDF 15, Piping Diagram, Cooling water system",
+        "D01 cetak 159 / PDF 163, Cooling Water System, Coolant system dan diagram",
+        "D01 cetak 161 / PDF 165, Inspection of water pump (coolant)",
+        "D01 cetak 164 / PDF 168, Thermostat, tabel dan ilustrasi A/B"
+      ]
+    },
+    {
+      "system": "freshwater",
+      "source_from": "FW-THERMOSTAT",
+      "source_to": "FW-HEAT-EXCHANGER",
+      "status": "routed",
+      "route_ids": [
+        "FW-thermostat",
+        "FW-cooler-shell"
+      ],
+      "note": "Setiap ruas menyatakan sendiri tingkat bukti serta apakah bentuk fisik atau skema.",
+      "source_refs": [
+        "D01 cetak 11 / PDF 15, Piping Diagram, Cooling water system",
+        "D01 cetak 159 / PDF 163, Cooling Water System, Coolant system dan diagram",
+        "D01 cetak 162 / PDF 166, Heat exchanger (coolant cooler) dan Pressure cap",
+        "D01 cetak 164 / PDF 168, Thermostat, tabel dan ilustrasi A/B"
+      ]
+    },
+    {
+      "system": "freshwater",
+      "source_from": "FW-HEAT-EXCHANGER",
+      "source_to": "FW-PUMP",
+      "status": "routed",
+      "route_ids": [
+        "FW-return"
+      ],
+      "note": "Setiap ruas menyatakan sendiri tingkat bukti serta apakah bentuk fisik atau skema.",
+      "source_refs": [
+        "D01 cetak 159 / PDF 163, Cooling Water System, Coolant system dan diagram"
+      ]
+    },
+    {
+      "system": "freshwater",
+      "source_from": "FW-HEAT-EXCHANGER",
+      "source_to": "FW-PRESSURE-CAP",
+      "status": "source-only",
+      "route_ids": [],
+      "note": "Limpahan atau pemulihan pada tutup bertekanan. Kondisi transien belum dianimasikan.",
+      "source_refs": [
+        "D01 cetak 162 / PDF 166, Heat exchanger (coolant cooler) dan Pressure cap",
+        "D01 cetak 163 / PDF 167, Coolant reservoir, teks dan skema"
+      ]
+    },
+    {
+      "system": "freshwater",
+      "source_from": "FW-PRESSURE-CAP",
+      "source_to": "FW-RESERVOIR",
+      "status": "source-only",
+      "route_ids": [],
+      "note": "Limpahan atau pemulihan pada tutup bertekanan. Kondisi transien belum dianimasikan.",
+      "source_refs": [
+        "D01 cetak 162 / PDF 166, Heat exchanger (coolant cooler) dan Pressure cap",
+        "D01 cetak 163 / PDF 167, Coolant reservoir, teks dan skema"
+      ]
+    },
+    {
+      "system": "freshwater",
+      "source_from": "FW-RESERVOIR",
+      "source_to": "FW-PRESSURE-CAP",
+      "status": "source-only",
+      "route_ids": [],
+      "note": "Limpahan atau pemulihan pada tutup bertekanan. Kondisi transien belum dianimasikan.",
+      "source_refs": [
+        "D01 cetak 162 / PDF 166, Heat exchanger (coolant cooler) dan Pressure cap",
+        "D01 cetak 163 / PDF 167, Coolant reservoir, teks dan skema"
+      ]
+    },
+    {
+      "system": "freshwater",
+      "source_from": "FW-PRESSURE-CAP",
+      "source_to": "FW-HEAT-EXCHANGER",
+      "status": "source-only",
+      "route_ids": [],
+      "note": "Limpahan atau pemulihan pada tutup bertekanan. Kondisi transien belum dianimasikan.",
+      "source_refs": [
+        "D01 cetak 162 / PDF 166, Heat exchanger (coolant cooler) dan Pressure cap",
+        "D01 cetak 163 / PDF 167, Coolant reservoir, teks dan skema"
+      ]
+    },
+    {
+      "system": "seawater",
+      "source_from": "SW-INLET",
+      "source_to": "SW-PUMP",
+      "status": "routed",
+      "route_ids": [
+        "SW-suction"
+      ],
+      "note": "Setiap ruas menyatakan sendiri tingkat bukti serta apakah bentuk fisik atau skema.",
+      "source_refs": [
+        "D01 cetak 11 / PDF 15, Piping Diagram, Cooling water system dan legenda",
+        "D01 cetak 159 / PDF 163, Cooling Water System, diagram"
+      ]
+    },
+    {
+      "system": "seawater",
+      "source_from": "SW-PUMP",
+      "source_to": "SW-AIR-COOLER",
+      "status": "routed",
+      "route_ids": [
+        "SW-impeller",
+        "SW-delivery"
+      ],
+      "note": "Setiap ruas menyatakan sendiri tingkat bukti serta apakah bentuk fisik atau skema.",
+      "source_refs": [
+        "D01 cetak 11 / PDF 15, Piping Diagram, Cooling water system dan legenda",
+        "D01 cetak 159 / PDF 163, Seawater system dan diagram"
+      ]
+    },
+    {
+      "system": "seawater",
+      "source_from": "SW-AIR-COOLER",
+      "source_to": "FW-HEAT-EXCHANGER",
+      "status": "routed",
+      "route_ids": [
+        "SW-air-cooler",
+        "SW-transfer"
+      ],
+      "note": "Setiap ruas menyatakan sendiri tingkat bukti serta apakah bentuk fisik atau skema.",
+      "source_refs": [
+        "D01 cetak 11 / PDF 15, Piping Diagram, Cooling water system dan legenda",
+        "D01 cetak 159 / PDF 163, Seawater system dan diagram",
+        "D01 cetak 162 / PDF 166, Heat exchanger (coolant cooler)"
+      ]
+    },
+    {
+      "system": "seawater",
+      "source_from": "FW-HEAT-EXCHANGER",
+      "source_to": "SW-OUTLET",
+      "status": "routed",
+      "route_ids": [
+        "SW-front-core"
+      ],
+      "note": "Setiap ruas menyatakan sendiri tingkat bukti serta apakah bentuk fisik atau skema.",
+      "source_refs": [
+        "D01 cetak 11 / PDF 15, Piping Diagram, Cooling water system dan legenda",
+        "D01 cetak 159 / PDF 163, Seawater system dan diagram"
+      ]
+    },
+    {
+      "system": "fuel",
+      "source_from": "FUEL-TANK",
+      "source_to": "FUEL-WATER-SEP",
+      "status": "ship-boundary",
+      "route_ids": [],
+      "note": "Tangki dan separator berada di instalasi kapal.",
+      "source_refs": [
+        "D01 cetak 12 / PDF 16, Fuel oil system, fig. 057559-00EN00",
+        "D01 cetak 110 / PDF 114, Fuel Injection Equipment, fig. 057559-00EN01"
+      ]
+    },
+    {
+      "system": "fuel",
+      "source_from": "FUEL-WATER-SEP",
+      "source_to": "FUEL-INLET",
+      "status": "ship-boundary",
+      "route_ids": [],
+      "note": "Rute dimulai di batas masuk mesin.",
+      "source_refs": [
+        "D01 cetak 12 / PDF 16, Fuel oil system, fig. 057559-00EN00"
+      ]
+    },
+    {
+      "system": "fuel",
+      "source_from": "FUEL-INLET",
+      "source_to": "FUEL-FEED-PUMP",
+      "status": "routed",
+      "route_ids": [
+        "feed-in"
+      ],
+      "note": "Setiap ruas menyatakan sendiri tingkat bukti serta apakah bentuk fisik atau skema.",
+      "source_refs": [
+        "D01 cetak 12 / PDF 16, Fuel oil system, fig. 057559-00EN00",
+        "D01 cetak 141 / PDF 145, Fuel Feed Pump"
+      ]
+    },
+    {
+      "system": "fuel",
+      "source_from": "FUEL-FEED-PUMP",
+      "source_to": "FUEL-FILTER",
+      "status": "routed",
+      "route_ids": [
+        "feed-hose",
+        "filter-fitting"
+      ],
+      "note": "Setiap ruas menyatakan sendiri tingkat bukti serta apakah bentuk fisik atau skema.",
+      "source_refs": [
+        "D01 cetak 110 / PDF 114, Fuel Injection Equipment, fig. 057559-00EN01",
+        "D01 cetak 141 / PDF 145, Fuel Feed Pump",
+        "D01 cetak 151 / PDF 155, Fuel Filter"
+      ]
+    },
+    {
+      "system": "fuel",
+      "source_from": "FUEL-FILTER",
+      "source_to": "FUEL-INJECTION-PUMP",
+      "status": "routed",
+      "route_ids": [
+        "filter-head",
+        "filter-pump-hose",
+        "pump-fitting",
+        "pump-gallery-in"
+      ],
+      "note": "Setiap ruas menyatakan sendiri tingkat bukti serta apakah bentuk fisik atau skema.",
+      "source_refs": [
+        "D01 cetak 110 / PDF 114, Fuel Injection Equipment, fig. 057559-00EN01",
+        "D01 cetak 151 / PDF 155, Fuel Filter"
+      ]
+    },
+    {
+      "system": "fuel",
+      "source_from": "FUEL-INJECTION-PUMP",
+      "source_to": "FUEL-INJECTION-PIPES",
+      "status": "routed",
+      "route_ids": [
+        "pump-element-1",
+        "pump-element-2",
+        "pump-element-3",
+        "pump-element-4",
+        "pump-element-5",
+        "pump-element-6"
+      ],
+      "note": "Setiap ruas menyatakan sendiri tingkat bukti serta apakah bentuk fisik atau skema.",
+      "source_refs": [
+        "D01 cetak 12 / PDF 16, Fuel oil system, fig. 057559-00EN00",
+        "D01 cetak 110 / PDF 114, Fuel Injection Equipment, fig. 057559-00EN01",
+        "D01 cetak 111 / PDF 115, Fuel injection pump/governor, kolom YPE-1615"
+      ]
+    },
+    {
+      "system": "fuel",
+      "source_from": "FUEL-INJECTION-PIPES",
+      "source_to": "FUEL-INJECTORS",
+      "status": "routed",
+      "route_ids": [
+        "hp-pipe-1",
+        "hp-head-1",
+        "hp-pipe-2",
+        "hp-head-2",
+        "hp-pipe-3",
+        "hp-head-3",
+        "hp-pipe-4",
+        "hp-head-4",
+        "hp-pipe-5",
+        "hp-head-5",
+        "hp-pipe-6",
+        "hp-head-6"
+      ],
+      "note": "Setiap ruas menyatakan sendiri tingkat bukti serta apakah bentuk fisik atau skema.",
+      "source_refs": [
+        "D01 cetak 110 / PDF 114, Fuel Injection Equipment, fig. 057559-00EN01"
+      ]
+    },
+    {
+      "system": "fuel",
+      "source_from": "FUEL-INJECTORS",
+      "source_to": "FUEL-CYLINDERS",
+      "status": "routed",
+      "route_ids": [
+        "nozzle-bore-1",
+        "nozzle-bore-2",
+        "nozzle-bore-3",
+        "nozzle-bore-4",
+        "nozzle-bore-5",
+        "nozzle-bore-6"
+      ],
+      "note": "Setiap ruas menyatakan sendiri tingkat bukti serta apakah bentuk fisik atau skema.",
+      "source_refs": [
+        "D01 cetak 110 / PDF 114, Fuel Injection Equipment, fig. 057559-00EN01",
+        "D01 cetak 146 / PDF 150, Fuel Injector, kolom 6AYM-WGT/6AYM-WET",
+        "D03 cetak 32 dan 34 / PDF 17–18, 6AYM-WET H-rating dan M-rating, Combustion system"
+      ]
+    },
+    {
+      "system": "fuel",
+      "source_from": "FUEL-INJECTION-PUMP",
+      "source_to": "FUEL-PRESSURE-VALVE",
+      "status": "source-only",
+      "route_ids": [],
+      "note": "Katup kontrol overflow ditunjukkan di skema. Titik tapping pada pompa model belum dikenali.",
+      "source_refs": [
+        "D01 cetak 12 / PDF 16, Fuel oil system, fig. 057559-00EN00",
+        "D01 cetak 111 / PDF 115, Fuel injection pump/governor, kolom YPE-1615"
+      ]
+    },
+    {
+      "system": "fuel",
+      "source_from": "FUEL-PRESSURE-VALVE",
+      "source_to": "FUEL-OVERFLOW",
+      "status": "unresolved",
+      "route_ids": [],
+      "note": "Pipa balik di mesin dan terminasi overflow kapal membutuhkan konfirmasi.",
+      "source_refs": [
+        "D01 cetak 12 / PDF 16, Fuel oil system, fig. 057559-00EN00",
+        "D01 cetak 111 / PDF 115, Fuel injection pump/governor, kolom YPE-1615"
+      ]
+    },
+    {
+      "system": "fuel",
+      "source_from": "FUEL-INJECTION-PUMP",
+      "source_to": "FUEL-DRAIN",
+      "status": "unresolved",
+      "route_ids": [],
+      "note": "Jalur drain terpisah ditunjukkan. Posisi fitting dan kondisi pengaliran belum diketahui.",
+      "source_refs": [
+        "D01 cetak 12 / PDF 16, Fuel oil system, fig. 057559-00EN00",
+        "D01 cetak 110 / PDF 114, Fuel Injection Equipment, fig. 057559-00EN01"
+      ]
+    },
+    {
+      "system": "intake-exhaust",
+      "source_from": "IE-AIR-FILTER",
+      "source_to": "IE-TURBO-COMPRESSOR",
+      "status": "routed",
+      "route_ids": [
+        "air-cleaner"
+      ],
+      "note": "Setiap ruas menyatakan sendiri tingkat bukti serta apakah bentuk fisik atau skema.",
+      "source_refs": [
+        "D05-MIRROR Fig.31–32, CLEANER, PRE dan SILENCER; tabel keluarga dengan kolom (A) 6AYM-WET",
+        "D01 cetak 166 / PDF 170, Turbocharger, Design and function",
+        "P05, foto sisi kanan (non-operation)"
+      ]
+    },
+    {
+      "system": "intake-exhaust",
+      "source_from": "IE-TURBO-COMPRESSOR",
+      "source_to": "SW-AIR-COOLER",
+      "status": "routed",
+      "route_ids": [
+        "compressor-scroll",
+        "hot-air-duct"
+      ],
+      "note": "Setiap ruas menyatakan sendiri tingkat bukti serta apakah bentuk fisik atau skema.",
+      "source_refs": [
+        "D03 PDF 17 / cetak 32–33, 6AYM-WET H-rating, Specifications dan Engine only views",
+        "D01 cetak 34 / PDF 38, Removing the air duct dan Removing the turbocharger",
+        "D01 cetak 166 / PDF 170, Turbocharger, Design and function",
+        "D01 cetak 159 / PDF 163, Cooling Water System"
+      ]
+    },
+    {
+      "system": "intake-exhaust",
+      "source_from": "SW-AIR-COOLER",
+      "source_to": "IE-INTAKE-MANIFOLD",
+      "status": "routed",
+      "route_ids": [
+        "charge-air-core",
+        "cold-air-elbow",
+        "air-plenum-entry"
+      ],
+      "note": "Setiap ruas menyatakan sendiri tingkat bukti serta apakah bentuk fisik atau skema.",
+      "source_refs": [
+        "D03 PDF 17 / cetak 32–33, 6AYM-WET H-rating, Specifications dan Engine only views",
+        "D01 cetak 10 / PDF 14, Location of Components",
+        "D01 cetak 34 / PDF 38, Removing the air duct dan Removing the turbocharger",
+        "D01 cetak 159 / PDF 163, Cooling Water System",
+        "P07, foto sisi kiri (operation)"
+      ]
+    },
+    {
+      "system": "intake-exhaust",
+      "source_from": "IE-INTAKE-MANIFOLD",
+      "source_to": "IE-CYL-01",
+      "status": "routed",
+      "route_ids": [
+        "intake-runner-1",
+        "intake-head-1a",
+        "intake-head-1b"
+      ],
+      "note": "Setiap ruas menyatakan sendiri tingkat bukti serta apakah bentuk fisik atau skema.",
+      "source_refs": [
+        "D01 cetak 9 / PDF 13, Engine Specifications, kolom WET H",
+        "D03 PDF 17 / cetak 32–33, 6AYM-WET H-rating, Specifications dan Engine only views",
+        "D01 cetak 10 / PDF 14, Location of Components",
+        "D01 cetak 33 / PDF 37, Removing the intake manifold",
+        "D05-MIRROR Fig.25, SUC. MANIFOLD; manifold dan enam gasket pada kolom (A)"
+      ]
+    },
+    {
+      "system": "intake-exhaust",
+      "source_from": "IE-CYL-01",
+      "source_to": "FW-EXHAUST-MANIFOLD",
+      "status": "routed",
+      "route_ids": [
+        "exhaust-head-1a",
+        "exhaust-head-1b",
+        "exhaust-runner-1",
+        "exhaust-plenum-1"
+      ],
+      "note": "Setiap ruas menyatakan sendiri tingkat bukti serta apakah bentuk fisik atau skema.",
+      "source_refs": [
+        "D01 cetak 9 / PDF 13, Engine Specifications, kolom WET H",
+        "D03 PDF 17 / cetak 32–33, 6AYM-WET H-rating, Specifications dan Engine only views",
+        "D01 cetak 10 / PDF 14, Location of Components",
+        "D05-MIRROR Fig.27, EXHAUST MANIFOLD; enam gasket pada kolom (A)"
+      ]
+    },
+    {
+      "system": "intake-exhaust",
+      "source_from": "IE-INTAKE-MANIFOLD",
+      "source_to": "IE-CYL-02",
+      "status": "routed",
+      "route_ids": [
+        "air-plenum-1",
+        "intake-runner-2",
+        "intake-head-2a",
+        "intake-head-2b"
+      ],
+      "note": "Setiap ruas menyatakan sendiri tingkat bukti serta apakah bentuk fisik atau skema.",
+      "source_refs": [
+        "D01 cetak 9 / PDF 13, Engine Specifications, kolom WET H",
+        "D03 PDF 17 / cetak 32–33, 6AYM-WET H-rating, Specifications dan Engine only views",
+        "D01 cetak 10 / PDF 14, Location of Components",
+        "D01 cetak 33 / PDF 37, Removing the intake manifold",
+        "D05-MIRROR Fig.25, SUC. MANIFOLD; manifold dan enam gasket pada kolom (A)"
+      ]
+    },
+    {
+      "system": "intake-exhaust",
+      "source_from": "IE-CYL-02",
+      "source_to": "FW-EXHAUST-MANIFOLD",
+      "status": "routed",
+      "route_ids": [
+        "exhaust-head-2a",
+        "exhaust-head-2b",
+        "exhaust-runner-2",
+        "exhaust-plenum-2"
+      ],
+      "note": "Setiap ruas menyatakan sendiri tingkat bukti serta apakah bentuk fisik atau skema.",
+      "source_refs": [
+        "D01 cetak 9 / PDF 13, Engine Specifications, kolom WET H",
+        "D03 PDF 17 / cetak 32–33, 6AYM-WET H-rating, Specifications dan Engine only views",
+        "D01 cetak 10 / PDF 14, Location of Components",
+        "D05-MIRROR Fig.27, EXHAUST MANIFOLD; enam gasket pada kolom (A)"
+      ]
+    },
+    {
+      "system": "intake-exhaust",
+      "source_from": "IE-INTAKE-MANIFOLD",
+      "source_to": "IE-CYL-03",
+      "status": "routed",
+      "route_ids": [
+        "air-plenum-1",
+        "air-plenum-2",
+        "intake-runner-3",
+        "intake-head-3a",
+        "intake-head-3b"
+      ],
+      "note": "Setiap ruas menyatakan sendiri tingkat bukti serta apakah bentuk fisik atau skema.",
+      "source_refs": [
+        "D01 cetak 9 / PDF 13, Engine Specifications, kolom WET H",
+        "D03 PDF 17 / cetak 32–33, 6AYM-WET H-rating, Specifications dan Engine only views",
+        "D01 cetak 10 / PDF 14, Location of Components",
+        "D01 cetak 33 / PDF 37, Removing the intake manifold",
+        "D05-MIRROR Fig.25, SUC. MANIFOLD; manifold dan enam gasket pada kolom (A)"
+      ]
+    },
+    {
+      "system": "intake-exhaust",
+      "source_from": "IE-CYL-03",
+      "source_to": "FW-EXHAUST-MANIFOLD",
+      "status": "routed",
+      "route_ids": [
+        "exhaust-head-3a",
+        "exhaust-head-3b",
+        "exhaust-runner-3",
+        "exhaust-plenum-3"
+      ],
+      "note": "Setiap ruas menyatakan sendiri tingkat bukti serta apakah bentuk fisik atau skema.",
+      "source_refs": [
+        "D01 cetak 9 / PDF 13, Engine Specifications, kolom WET H",
+        "D03 PDF 17 / cetak 32–33, 6AYM-WET H-rating, Specifications dan Engine only views",
+        "D01 cetak 10 / PDF 14, Location of Components",
+        "D05-MIRROR Fig.27, EXHAUST MANIFOLD; enam gasket pada kolom (A)"
+      ]
+    },
+    {
+      "system": "intake-exhaust",
+      "source_from": "IE-INTAKE-MANIFOLD",
+      "source_to": "IE-CYL-04",
+      "status": "routed",
+      "route_ids": [
+        "air-plenum-1",
+        "air-plenum-2",
+        "air-plenum-3",
+        "intake-runner-4",
+        "intake-head-4a",
+        "intake-head-4b"
+      ],
+      "note": "Setiap ruas menyatakan sendiri tingkat bukti serta apakah bentuk fisik atau skema.",
+      "source_refs": [
+        "D01 cetak 9 / PDF 13, Engine Specifications, kolom WET H",
+        "D03 PDF 17 / cetak 32–33, 6AYM-WET H-rating, Specifications dan Engine only views",
+        "D01 cetak 10 / PDF 14, Location of Components",
+        "D01 cetak 33 / PDF 37, Removing the intake manifold",
+        "D05-MIRROR Fig.25, SUC. MANIFOLD; manifold dan enam gasket pada kolom (A)"
+      ]
+    },
+    {
+      "system": "intake-exhaust",
+      "source_from": "IE-CYL-04",
+      "source_to": "FW-EXHAUST-MANIFOLD",
+      "status": "routed",
+      "route_ids": [
+        "exhaust-head-4a",
+        "exhaust-head-4b",
+        "exhaust-runner-4",
+        "exhaust-plenum-4"
+      ],
+      "note": "Setiap ruas menyatakan sendiri tingkat bukti serta apakah bentuk fisik atau skema.",
+      "source_refs": [
+        "D01 cetak 9 / PDF 13, Engine Specifications, kolom WET H",
+        "D03 PDF 17 / cetak 32–33, 6AYM-WET H-rating, Specifications dan Engine only views",
+        "D01 cetak 10 / PDF 14, Location of Components",
+        "D05-MIRROR Fig.27, EXHAUST MANIFOLD; enam gasket pada kolom (A)"
+      ]
+    },
+    {
+      "system": "intake-exhaust",
+      "source_from": "IE-INTAKE-MANIFOLD",
+      "source_to": "IE-CYL-05",
+      "status": "routed",
+      "route_ids": [
+        "air-plenum-1",
+        "air-plenum-2",
+        "air-plenum-3",
+        "air-plenum-4",
+        "intake-runner-5",
+        "intake-head-5a",
+        "intake-head-5b"
+      ],
+      "note": "Setiap ruas menyatakan sendiri tingkat bukti serta apakah bentuk fisik atau skema.",
+      "source_refs": [
+        "D01 cetak 9 / PDF 13, Engine Specifications, kolom WET H",
+        "D03 PDF 17 / cetak 32–33, 6AYM-WET H-rating, Specifications dan Engine only views",
+        "D01 cetak 10 / PDF 14, Location of Components",
+        "D01 cetak 33 / PDF 37, Removing the intake manifold",
+        "D05-MIRROR Fig.25, SUC. MANIFOLD; manifold dan enam gasket pada kolom (A)"
+      ]
+    },
+    {
+      "system": "intake-exhaust",
+      "source_from": "IE-CYL-05",
+      "source_to": "FW-EXHAUST-MANIFOLD",
+      "status": "routed",
+      "route_ids": [
+        "exhaust-head-5a",
+        "exhaust-head-5b",
+        "exhaust-runner-5",
+        "exhaust-plenum-5"
+      ],
+      "note": "Setiap ruas menyatakan sendiri tingkat bukti serta apakah bentuk fisik atau skema.",
+      "source_refs": [
+        "D01 cetak 9 / PDF 13, Engine Specifications, kolom WET H",
+        "D03 PDF 17 / cetak 32–33, 6AYM-WET H-rating, Specifications dan Engine only views",
+        "D01 cetak 10 / PDF 14, Location of Components",
+        "D05-MIRROR Fig.27, EXHAUST MANIFOLD; enam gasket pada kolom (A)"
+      ]
+    },
+    {
+      "system": "intake-exhaust",
+      "source_from": "IE-INTAKE-MANIFOLD",
+      "source_to": "IE-CYL-06",
+      "status": "routed",
+      "route_ids": [
+        "air-plenum-1",
+        "air-plenum-2",
+        "air-plenum-3",
+        "air-plenum-4",
+        "air-plenum-5",
+        "intake-runner-6",
+        "intake-head-6a",
+        "intake-head-6b"
+      ],
+      "note": "Setiap ruas menyatakan sendiri tingkat bukti serta apakah bentuk fisik atau skema.",
+      "source_refs": [
+        "D01 cetak 9 / PDF 13, Engine Specifications, kolom WET H",
+        "D03 PDF 17 / cetak 32–33, 6AYM-WET H-rating, Specifications dan Engine only views",
+        "D01 cetak 10 / PDF 14, Location of Components",
+        "D01 cetak 33 / PDF 37, Removing the intake manifold",
+        "D05-MIRROR Fig.25, SUC. MANIFOLD; manifold dan enam gasket pada kolom (A)"
+      ]
+    },
+    {
+      "system": "intake-exhaust",
+      "source_from": "IE-CYL-06",
+      "source_to": "FW-EXHAUST-MANIFOLD",
+      "status": "routed",
+      "route_ids": [
+        "exhaust-head-6a",
+        "exhaust-head-6b",
+        "exhaust-runner-6",
+        "exhaust-plenum-6"
+      ],
+      "note": "Setiap ruas menyatakan sendiri tingkat bukti serta apakah bentuk fisik atau skema.",
+      "source_refs": [
+        "D01 cetak 9 / PDF 13, Engine Specifications, kolom WET H",
+        "D03 PDF 17 / cetak 32–33, 6AYM-WET H-rating, Specifications dan Engine only views",
+        "D01 cetak 10 / PDF 14, Location of Components",
+        "D05-MIRROR Fig.27, EXHAUST MANIFOLD; enam gasket pada kolom (A)"
+      ]
+    },
+    {
+      "system": "intake-exhaust",
+      "source_from": "FW-EXHAUST-MANIFOLD",
+      "source_to": "IE-TURBO-TURBINE",
+      "status": "routed",
+      "route_ids": [
+        "exhaust-takeoff",
+        "turbine-scroll"
+      ],
+      "note": "Setiap ruas menyatakan sendiri tingkat bukti serta apakah bentuk fisik atau skema.",
+      "source_refs": [
+        "D01 cetak 10 / PDF 14, Location of Components",
+        "D01 cetak 166 / PDF 170, Turbocharger, Design and function",
+        "D01 cetak 34 / PDF 38, Removing the air duct dan Removing the turbocharger",
+        "P05, foto sisi kanan (non-operation)"
+      ]
+    },
+    {
+      "system": "intake-exhaust",
+      "source_from": "IE-TURBO-TURBINE",
+      "source_to": "IE-EXHAUST-OUTLET",
+      "status": "routed",
+      "route_ids": [
+        "exhaust-elbow",
+        "exhaust-flange"
+      ],
+      "note": "Setiap ruas menyatakan sendiri tingkat bukti serta apakah bentuk fisik atau skema.",
+      "source_refs": [
+        "D01 cetak 166 / PDF 170, Turbocharger, Design and function",
+        "D01 cetak 34 / PDF 38, Removing the air duct dan Removing the turbocharger",
+        "D03 PDF 17 / cetak 32–33, 6AYM-WET H-rating, Specifications dan Engine only views",
+        "P05, foto sisi kanan (non-operation)"
+      ]
+    },
+    {
+      "system": "lubrication",
+      "source_from": "LO-PAN",
+      "source_to": "LO-PICKUP",
+      "status": "source-only",
+      "route_ids": [],
+      "note": "Volume karter berakhir di saringan pickup. Gerakan permukaan bebas tidak dimodelkan.",
+      "source_refs": [
+        "D01 cetak 11 / PDF 15, Piping Diagram, Lubricating oil system, 057558-00EN00",
+        "D01 cetak 154 / PDF 158, Lubricating oil pump disassembly and reassembly"
+      ]
+    },
+    {
+      "system": "lubrication",
+      "source_from": "LO-PICKUP",
+      "source_to": "LO-PUMP",
+      "status": "routed",
+      "route_ids": [
+        "LO-pickup"
+      ],
+      "note": "Setiap ruas menyatakan sendiri tingkat bukti serta apakah bentuk fisik atau skema.",
+      "source_refs": [
+        "D01 cetak 11 / PDF 15, Piping Diagram, Lubricating oil system, 057558-00EN00",
+        "D01 cetak 154 / PDF 158, Lubricating oil pump disassembly and reassembly"
+      ]
+    },
+    {
+      "system": "lubrication",
+      "source_from": "LO-PUMP",
+      "source_to": "LO-COOLER",
+      "status": "routed",
+      "route_ids": [
+        "LO-pump",
+        "LO-to-port",
+        "LO-cooler-feed"
+      ],
+      "note": "Setiap ruas menyatakan sendiri tingkat bukti serta apakah bentuk fisik atau skema.",
+      "source_refs": [
+        "D01 cetak 11 / PDF 15, Piping Diagram, Lubricating oil system, 057558-00EN00",
+        "D01 cetak 153 / PDF 157, Lubricating Oil System, narasi dan diagram 057558-00EN00",
+        "D01 cetak 157 / PDF 161, Lubricating oil cooler"
+      ]
+    },
+    {
+      "system": "lubrication",
+      "source_from": "LO-PUMP",
+      "source_to": "LO-PUMP-SAFETY",
+      "status": "source-only",
+      "route_ids": [],
+      "note": "Cabang safety valve hanya aktif saat relief.",
+      "source_refs": [
+        "D01 cetak 11 / PDF 15, Piping Diagram, Lubricating oil system, 057558-00EN00",
+        "D01 cetak 153 / PDF 157, Lubricating Oil System, narasi dan diagram 057558-00EN00",
+        "D01 cetak 153 / PDF 157, Lubricating oil pump design dan gambar 013279-00E"
+      ]
+    },
+    {
+      "system": "lubrication",
+      "source_from": "LO-PUMP-SAFETY",
+      "source_to": "LO-PAN",
+      "status": "source-only",
+      "route_ids": [],
+      "note": "Drain relief ke karter.",
+      "source_refs": [
+        "D01 cetak 11 / PDF 15, Piping Diagram, Lubricating oil system, 057558-00EN00",
+        "D01 cetak 153 / PDF 157, Lubricating Oil System, narasi dan diagram 057558-00EN00"
+      ]
+    },
+    {
+      "system": "lubrication",
+      "source_from": "LO-PUMP",
+      "source_to": "LO-CENTRIFUGAL-FILTER",
+      "status": "source-only",
+      "route_ids": [],
+      "note": "Filter sentrifugal adalah cabang tersendiri.",
+      "source_refs": [
+        "D01 cetak 11 / PDF 15, Piping Diagram, Lubricating oil system, 057558-00EN00",
+        "D01 cetak 153 / PDF 157, Lubricating Oil System, narasi dan diagram 057558-00EN00"
+      ]
+    },
+    {
+      "system": "lubrication",
+      "source_from": "LO-CENTRIFUGAL-FILTER",
+      "source_to": "LO-PAN",
+      "status": "source-only",
+      "route_ids": [],
+      "note": "Return dari cabang sentrifugal terpisah.",
+      "source_refs": [
+        "D01 cetak 11 / PDF 15, Piping Diagram, Lubricating oil system, 057558-00EN00",
+        "D01 cetak 153 / PDF 157, Lubricating Oil System, narasi dan diagram 057558-00EN00"
+      ]
+    },
+    {
+      "system": "lubrication",
+      "source_from": "LO-COOLER",
+      "source_to": "LO-FILTER",
+      "status": "routed",
+      "route_ids": [
+        "LO-plate-core",
+        "LO-cooler-out"
+      ],
+      "note": "Setiap ruas menyatakan sendiri tingkat bukti serta apakah bentuk fisik atau skema.",
+      "source_refs": [
+        "D01 cetak 11 / PDF 15, Piping Diagram, Lubricating oil system, 057558-00EN00",
+        "D01 cetak 153 / PDF 157, Lubricating Oil System, narasi dan diagram 057558-00EN00",
+        "D01 cetak 155 / PDF 159, Lubricating oil filter dan Lubricating oil bypass filter"
+      ]
+    },
+    {
+      "system": "lubrication",
+      "source_from": "LO-FILTER",
+      "source_to": "LO-GALLERY",
+      "status": "routed",
+      "route_ids": [
+        "LO-filter",
+        "LO-main-gallery"
+      ],
+      "note": "Setiap ruas menyatakan sendiri tingkat bukti serta apakah bentuk fisik atau skema.",
+      "source_refs": [
+        "D01 cetak 11 / PDF 15, Piping Diagram, Lubricating oil system, 057558-00EN00",
+        "D01 cetak 153 / PDF 157, Lubricating Oil System, narasi dan diagram 057558-00EN00",
+        "D01 cetak 155 / PDF 159, Lubricating oil filter dan Lubricating oil bypass filter"
+      ]
+    },
+    {
+      "system": "lubrication",
+      "source_from": "LO-COOLER",
+      "source_to": "LO-FILTER-BYPASS-VALVE",
+      "status": "source-only",
+      "route_ids": [],
+      "note": "Cabang filter bypass, bergantung tekanan diferensial.",
+      "source_refs": [
+        "D01 cetak 11 / PDF 15, Piping Diagram, Lubricating oil system, 057558-00EN00",
+        "D01 cetak 155 / PDF 159, Lubricating oil filter dan Lubricating oil bypass filter"
+      ]
+    },
+    {
+      "system": "lubrication",
+      "source_from": "LO-FILTER-BYPASS-VALVE",
+      "source_to": "LO-GALLERY",
+      "status": "source-only",
+      "route_ids": [],
+      "note": "Cabang filter bypass, bergantung tekanan diferensial.",
+      "source_refs": [
+        "D01 cetak 11 / PDF 15, Piping Diagram, Lubricating oil system, 057558-00EN00",
+        "D01 cetak 155 / PDF 159, Lubricating oil filter dan Lubricating oil bypass filter"
+      ]
+    },
+    {
+      "system": "lubrication",
+      "source_from": "LO-GALLERY",
+      "source_to": "LO-PRESSURE-CONTROL",
+      "status": "source-only",
+      "route_ids": [],
+      "note": "Cabang pengaturan tekanan dan drain, bergantung kondisi operasi.",
+      "source_refs": [
+        "D01 cetak 11 / PDF 15, Piping Diagram, Lubricating oil system, 057558-00EN00",
+        "D01 cetak 153 / PDF 157, Lubricating Oil System, narasi dan diagram 057558-00EN00",
+        "D01 cetak 154 / PDF 158, Lubricating oil pressure control valve"
+      ]
+    },
+    {
+      "system": "lubrication",
+      "source_from": "LO-PRESSURE-CONTROL",
+      "source_to": "LO-PAN",
+      "status": "source-only",
+      "route_ids": [],
+      "note": "Cabang pengaturan tekanan dan drain, bergantung kondisi operasi.",
+      "source_refs": [
+        "D01 cetak 11 / PDF 15, Piping Diagram, Lubricating oil system, 057558-00EN00",
+        "D01 cetak 153 / PDF 157, Lubricating Oil System, narasi dan diagram 057558-00EN00",
+        "D01 cetak 154 / PDF 158, Lubricating oil pressure control valve"
+      ]
+    },
+    {
+      "system": "lubrication",
+      "source_from": "LO-GALLERY",
+      "source_to": "LO-ROCKER",
+      "status": "source-only",
+      "route_ids": [],
+      "note": "Cabang dan tujuan muncul di skema servis. Titik 3D percabangan dan geometri bor belum dipastikan.",
+      "source_refs": [
+        "D01 cetak 11 / PDF 15, Piping Diagram, Lubricating oil system, 057558-00EN00",
+        "D01 cetak 153 / PDF 157, Lubricating Oil System, narasi dan diagram 057558-00EN00"
+      ]
+    },
+    {
+      "system": "lubrication",
+      "source_from": "LO-GALLERY",
+      "source_to": "LO-CAMSHAFT",
+      "status": "source-only",
+      "route_ids": [],
+      "note": "Cabang dan tujuan muncul di skema servis. Titik 3D percabangan dan geometri bor belum dipastikan.",
+      "source_refs": [
+        "D01 cetak 11 / PDF 15, Piping Diagram, Lubricating oil system, 057558-00EN00",
+        "D01 cetak 153 / PDF 157, Lubricating Oil System, narasi dan diagram 057558-00EN00"
+      ]
+    },
+    {
+      "system": "lubrication",
+      "source_from": "LO-GALLERY",
+      "source_to": "LO-MAIN-BEARINGS",
+      "status": "routed",
+      "route_ids": [
+        "LO-main-bearing-1",
+        "LO-main-film-1",
+        "LO-main-bearing-2",
+        "LO-main-film-2",
+        "LO-main-bearing-3",
+        "LO-main-film-3",
+        "LO-main-bearing-4",
+        "LO-main-film-4",
+        "LO-main-bearing-5",
+        "LO-main-film-5",
+        "LO-main-bearing-6",
+        "LO-main-film-6",
+        "LO-main-bearing-7",
+        "LO-main-film-7",
+        "LO-gallery-feed-4",
+        "LO-gallery-feed-3",
+        "LO-gallery-feed-2",
+        "LO-gallery-feed-1",
+        "LO-gallery-feed-5",
+        "LO-gallery-feed-6",
+        "LO-gallery-feed-7",
+        "LO-crankpin-1",
+        "LO-crankpin-2",
+        "LO-crankpin-3",
+        "LO-crankpin-4",
+        "LO-crankpin-5",
+        "LO-crankpin-6"
+      ],
+      "note": "Setiap ruas menyatakan sendiri tingkat bukti serta apakah bentuk fisik atau skema.",
+      "source_refs": [
+        "D01 cetak 11 / PDF 15, Piping Diagram, Lubricating oil system, 057558-00EN00",
+        "D01 cetak 153 / PDF 157, Lubricating Oil System, narasi dan diagram 057558-00EN00"
+      ]
+    },
+    {
+      "system": "lubrication",
+      "source_from": "LO-GALLERY",
+      "source_to": "LO-PISTON-NOZZLE",
+      "status": "source-only",
+      "route_ids": [],
+      "note": "Cabang dan tujuan muncul di skema servis. Titik 3D percabangan dan geometri bor belum dipastikan.",
+      "source_refs": [
+        "D01 cetak 153 / PDF 157, Lubricating Oil System, narasi dan diagram 057558-00EN00",
+        "D01 cetak 158 / PDF 162, Piston cooling nozzle, teks dan potongan 016371-00EN01"
+      ]
+    },
+    {
+      "system": "lubrication",
+      "source_from": "LO-PISTON-NOZZLE",
+      "source_to": "LO-PISTON",
+      "status": "source-only",
+      "route_ids": [],
+      "note": "Cabang dan tujuan muncul di skema servis. Titik 3D percabangan dan geometri bor belum dipastikan.",
+      "source_refs": [
+        "D01 cetak 158 / PDF 162, Piston cooling nozzle, teks dan potongan 016371-00EN01"
+      ]
+    },
+    {
+      "system": "lubrication",
+      "source_from": "LO-GALLERY",
+      "source_to": "LO-TURBO",
+      "status": "routed",
+      "route_ids": [
+        "LO-turbo-supply",
+        "LO-turbo-line",
+        "LO-turbo-bearings"
+      ],
+      "note": "Setiap ruas menyatakan sendiri tingkat bukti serta apakah bentuk fisik atau skema.",
+      "source_refs": [
+        "D01 cetak 11 / PDF 15, Piping Diagram, Lubricating oil system, 057558-00EN00",
+        "D01 cetak 153 / PDF 157, Lubricating Oil System, narasi dan diagram 057558-00EN00"
+      ]
+    },
+    {
+      "system": "lubrication",
+      "source_from": "LO-GALLERY",
+      "source_to": "LO-INJECTION-PUMP",
+      "status": "source-only",
+      "route_ids": [],
+      "note": "Distribusi oli ke pompa injeksi terpisah dari solar. Titik pemasangan belum dikenali.",
+      "source_refs": [
+        "D01 cetak 11 / PDF 15, Piping Diagram, Lubricating oil system, 057558-00EN00",
+        "D01 cetak 153 / PDF 157, Lubricating Oil System, narasi dan diagram 057558-00EN00"
+      ]
+    },
+    {
+      "system": "lubrication",
+      "source_from": "LO-ROCKER",
+      "source_to": "LO-PAN",
+      "status": "source-only",
+      "route_ids": [],
+      "note": "Jalur balik gravitasi dari komponen ke karter, tanpa pemetaan 3D terpisah.",
+      "source_refs": [
+        "D01 cetak 11 / PDF 15, Piping Diagram, Lubricating oil system, 057558-00EN00",
+        "D01 cetak 153 / PDF 157, Lubricating Oil System, narasi dan diagram 057558-00EN00"
+      ]
+    },
+    {
+      "system": "lubrication",
+      "source_from": "LO-CAMSHAFT",
+      "source_to": "LO-PAN",
+      "status": "source-only",
+      "route_ids": [],
+      "note": "Jalur balik gravitasi dari komponen ke karter, tanpa pemetaan 3D terpisah.",
+      "source_refs": [
+        "D01 cetak 11 / PDF 15, Piping Diagram, Lubricating oil system, 057558-00EN00",
+        "D01 cetak 153 / PDF 157, Lubricating Oil System, narasi dan diagram 057558-00EN00"
+      ]
+    },
+    {
+      "system": "lubrication",
+      "source_from": "LO-MAIN-BEARINGS",
+      "source_to": "LO-PAN",
+      "status": "routed",
+      "route_ids": [
+        "LO-rod-drain-1",
+        "LO-reservoir-1",
+        "LO-rod-drain-2",
+        "LO-reservoir-2",
+        "LO-rod-drain-3",
+        "LO-reservoir-3",
+        "LO-rod-drain-4",
+        "LO-reservoir-4",
+        "LO-rod-drain-5",
+        "LO-reservoir-5",
+        "LO-rod-drain-6",
+        "LO-reservoir-6",
+        "LO-main-end-spill",
+        "LO-main-end-return"
+      ],
+      "note": "Setiap ruas menyatakan sendiri tingkat bukti serta apakah bentuk fisik atau skema.",
+      "source_refs": [
+        "D01 cetak 11 / PDF 15, Piping Diagram, Lubricating oil system, 057558-00EN00",
+        "D01 cetak 153 / PDF 157, Lubricating Oil System, narasi dan diagram 057558-00EN00"
+      ]
+    },
+    {
+      "system": "lubrication",
+      "source_from": "LO-PISTON",
+      "source_to": "LO-PAN",
+      "status": "source-only",
+      "route_ids": [],
+      "note": "Jalur balik gravitasi dari komponen ke karter, tanpa pemetaan 3D terpisah.",
+      "source_refs": [
+        "D01 cetak 11 / PDF 15, Piping Diagram, Lubricating oil system, 057558-00EN00",
+        "D01 cetak 153 / PDF 157, Lubricating Oil System, narasi dan diagram 057558-00EN00"
+      ]
+    },
+    {
+      "system": "lubrication",
+      "source_from": "LO-TURBO",
+      "source_to": "LO-PAN",
+      "status": "routed",
+      "route_ids": [
+        "LO-turbo-return",
+        "LO-sump-return"
+      ],
+      "note": "Setiap ruas menyatakan sendiri tingkat bukti serta apakah bentuk fisik atau skema.",
+      "source_refs": [
+        "D01 cetak 11 / PDF 15, Piping Diagram, Lubricating oil system, 057558-00EN00",
+        "D01 cetak 153 / PDF 157, Lubricating Oil System, narasi dan diagram 057558-00EN00"
+      ]
+    },
+    {
+      "system": "lubrication",
+      "source_from": "LO-INJECTION-PUMP",
+      "source_to": "LO-PAN",
+      "status": "source-only",
+      "route_ids": [],
+      "note": "Return pelumasan pompa injeksi ke karter belum dirutekan.",
+      "source_refs": [
+        "D01 cetak 11 / PDF 15, Piping Diagram, Lubricating oil system, 057558-00EN00",
+        "D01 cetak 153 / PDF 157, Lubricating Oil System, narasi dan diagram 057558-00EN00"
+      ]
+    }
+  ],
+  "conditional_outlets": [
+    {
+      "component_id": "EXT-INTAKE-14",
+      "id": "aircooler-condensate",
+      "basis": "D05 Fig. 37 ref.15, AUTO DRAIN",
+      "status": "source-only",
+      "note": "Penguras kondensat otomatis di bawah cooler. Outlet terbuka saat katup mengeluarkan cairan dan tidak disimulasikan pada kondisi hangat."
+    }
+  ],
+  "additional_gaps": [
+    "D05 Fig. 90 / pipa leak-off berbeda dari delivery dan jalur overflow pompa. Penempatan tiap sambungan leak-off belum terkonfirmasi."
+  ]
+}

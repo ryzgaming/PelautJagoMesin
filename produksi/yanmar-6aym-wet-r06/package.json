@@ -1,0 +1,10 @@
+{
+  "name": "yanmar-6aym-wet-r06-portable",
+  "version": "6.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Private model, replaceable workspace UI, and production archive",
+  "engines": {"node": ">=22"},
+  "scripts": {"test": "node tests/model-api.mjs", "test:browser": "node tests/browser.mjs"},
+  "devDependencies": {"playwright": "1.62.1"}
+}

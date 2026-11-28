@@ -1,0 +1,3824 @@
+
+
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yanmar Shop - FIG 23. LOCKER ARM Schematic</title>
+
+    <link rel="apple-touch-icon" sizes="57x57" href="/Epitomy.YanmarShop/Content/Images/Favicon/apple-icon-57x57.png" />
+    <link rel="apple-touch-icon" sizes="60x60" href="/Epitomy.YanmarShop/Content/Images/Favicon/apple-icon-60x60.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="/Epitomy.YanmarShop/Content/Images/Favicon/apple-icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="/Epitomy.YanmarShop/Content/Images/Favicon/apple-icon-76x76.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="/Epitomy.YanmarShop/Content/Images/Favicon/apple-icon-114x114.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="/Epitomy.YanmarShop/Content/Images/Favicon/apple-icon-120x120.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="/Epitomy.YanmarShop/Content/Images/Favicon/apple-icon-144x144.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="/Epitomy.YanmarShop/Content/Images/Favicon/apple-icon-152x152.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/Epitomy.YanmarShop/Content/Images/Favicon/apple-icon-180x180.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/Epitomy.YanmarShop/Content/Images/Favicon/android-icon-192x192.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/Epitomy.YanmarShop/Content/Images/Favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/Epitomy.YanmarShop/Content/Images/Favicon/favicon-96x96.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/Epitomy.YanmarShop/Content/Images/Favicon/favicon-16x16.png" />
+    <link rel="manifest" href="/Epitomy.YanmarShop/Content/Images/Favicon/manifest.json" />
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="~/Epitomy.YanmarShop/Content/Images/Favicon/ms-icon-144x144.png" />
+    <meta name="theme-color" content="#ffffff">
+
+    
+
+
+
+    <link rel="stylesheet" type="text/css" href="/styles/site-en-GB.css" />
+
+    
+    
+    
+    
+
+    
+    <script src="/Epitomy.WebShop2019/Scripts/epitomy.epc2017.webshop.localization.en-GB.js" type="text/javascript"></script>
+    
+    
+
+    <meta content="Yanmar Shop - FIG 23. LOCKER ARM Schematic" name="title" />
+<meta content="View detailed interactive schematics and parts lists for FIG 23. LOCKER ARM at Yanmar Shop" name="description" />
+<meta content="index,follow" name="robots" />
+<meta content="3 months" name="revisit-after" />
+<meta content="Yanmar Shop - FIG 23. LOCKER ARM Schematic" name="twitter:title" />
+<meta content="View detailed interactive schematics and parts lists for FIG 23. LOCKER ARM at Yanmar Shop" name="twitter:description" />
+<meta content="summary" name="twitter:card" />
+<meta content="Yanmar Shop - FIG 23. LOCKER ARM Schematic" name="og:title" />
+<meta content="View detailed interactive schematics and parts lists for FIG 23. LOCKER ARM at Yanmar Shop" name="og:description" />
+    <link href="/Epitomy.YanmarShop/Styles/site.css?v=sP3kMPAEkpCoVfOZfEtlxJ0L1f6yw3SmoXGgw_ASdEQ" rel="stylesheet" type="text/css" />
+    <link href="/Epitomy.WebShop2019/Styles/jquery.fancybox.min.css?v=Vzbj7sDDS_woiFS3uNKo8eIuni59rjyNGtXfstRzStA" rel="stylesheet" type="text/css" />
+    
+
+</head>
+<body dir="ltr">
+
+    <div class="m-preloader">
+        <div class="wrapper">
+            <i class="fa fa-spinner fa-pulse fa-fw fa-5x"></i>
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+        <section id="layout-pre-header" class="hidden-xs hidden-sm m-preheader">
+            <div class="container">
+                <div class="row">
+                    
+
+
+
+<div class="col-md-4">
+    <div class="m-preheader-item">
+        <div class="widget widget-liquid-widget">
+    <div class="widget-body">
+    
+<a style="font-size:0.857em;" href="tel:01206302133" target="_blank" title="Call Us">Call: &#x2B;44 (0) 1206 302133</a>
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+
+
+<div class="col-md-4">
+    <div class="m-preheader-item">
+        <div class="widget widget-liquid-widget">
+    <div class="widget-body">
+    
+<!--<a style="display:block;text-align:center;font-size:0.857em;" href="/en-gb/documents" title="Document Library">Download Free Workshop &amp; Service Manuals</a>-->
+    </div>
+</div>
+
+    </div>
+</div>
+
+                </div>
+            </div>
+        </section>
+
+<div id="layout-wrapper" class="fixed-header">
+        <div class="m-megamenu-backdrop"></div>
+        <div class="m-header-backdrop"></div>
+        <header id="layout-header" class="hidden-print">
+            <div id="layout-header-main">
+                <div class="container">
+                    <div class="m-header-bg"></div>
+                    <div class="row">
+                        <div class="m-logo-wrapper col-xs-2 col-sm-4">
+
+
+
+<input type="image" class="m-header-logo img-responsive hidden-xs" onclick="window.location = 'https://yanmarshop.com/en-GB/home'" alt="Yanmar Shop" title="Yanmar Shop" src="/Epitomy.YanmarShop/Content/Images/logo-full.png" />
+<input type="image" class="m-header-logo-xs img-responsive center-block visible-xs" onclick="window.location = 'https://yanmarshop.com/en-GB/home'" alt="Yanmar Shop" title="Yanmar Shop" src="/Epitomy.YanmarShop/Content/Images/logo-mobile.png" />                        </div>
+                        
+
+
+<div class="widget-container">
+
+    <div class="widget-search col-xs-10 col-md-5 col-sm-8">
+    
+
+<div id="epi-global-search" class="m-header-search epi-global-search epi-globalsearch-search" data-suggest-url="/en-GB/catalog/all/suggest" data-product-id=""><input name="__RequestVerificationToken" type="hidden" value="CfDJ8GPNJ6jQFEhDumhbRZZzK3b226VasymEl77Itldz-ECctYL-EtkdiqroSfICZ_E4yCuqp03zvZemJzRlRpgfGWw20qpgOFwGNQFaaTXsLHTRPwiiTAxM2-nWkFN9KZR3cf_QlmHX4CjMlhIAvKy9a4g" />
+<form method="get" action="/en-GB/catalog/all/search?_t=a&amp;_id=yanmardata-1310603" class="search-form">
+	<input name="_t" value="a" type="hidden" />
+	<input name="_id" value="yanmardata-1310603" type="hidden" />
+
+    <div class="input-group">
+            <select name="_scp" class="hidden" readonly=""><option value="">All</option>
+</select>
+
+        <input name="_q" name="_q" type="text" type="text" class="form-control" aria_describedby="header-search-addon" placeholder="Search keyword, category, brand, or part" autofocus id="SteelSearchBoxPart_Context_Query" value="" />
+
+        <span class="input-group-btn">
+            <a class="epi-search-clear btn btn-link">
+                <i class="fa fa-close" aria-hidden="true"></i>
+                <span class="sr-only">Clear</span>
+            </a>
+
+            <button class="btn btn-default" id="header-search-addon" type="search">
+                <i class="fa fa-search" aria-hidden="true"></i>
+                <span class="sr-only">Search</span>
+            </button>
+
+                <button type="button" class="epi-microphone btn btn-default">
+                    <i class="fa fa-microphone" aria-hidden="true"></i>
+                    <span class="sr-only">Speech</span>
+                </button>
+        </span>
+    </div>
+</form>
+</div>
+
+</div>
+</div>
+
+
+<div class="widget-container">
+
+    <div class="widget widget-liquid-widget">
+    <div class="widget-body">
+    
+<div class="m-header-icon hidden-xs hidden-sm hidden-md hidden-lg col-xs-3 col-md-1 col-xs-offset-3 col-md-offset-0">
+  <button onclick="window.location = 'https://yanmarshop.com/en-GB/commerce/orders'">
+    <i class="fa m-orders-icon" aria-hidden="true"></i>
+    <span class="sr-only">Placed Orders</span>
+  </button>
+</div>
+<div class="m-header-icon hidden-xs hidden-sm col-md-offset-1 col-md-1 @cssClasses">
+        <button type="button" id="m-user-toggle" onclick="window.location = 'https://yanmarshop.com/login'" >
+            <i class="fa fa-user" aria-hidden="true"></i>
+            <span class="sr-only">Login/Register</span>
+
+            <div class="m-header-username hidden-xs hidden-sm">
+                <span>Login/Register</span>
+            </div>
+        </button>
+    </div>
+
+    <div class="m-header-icon visible-xs visible-sm col-xs-offset-3 col-xs-3 @cssClasses">
+        <button onclick="window.location = 'https://yanmarshop.com/login'" id="m-user-toggle-xs">
+            <i class="fa fa-user" aria-hidden="true"></i>
+            <span class="sr-only">Login/Register</span>
+        </button>
+    </div>
+
+    </div>
+</div>
+
+</div>
+
+
+<div class="widget-container">
+
+    <div class="widget widget-basket-summary-widget">
+    <div class="widget-body">
+    
+
+
+<div class="epi-basket-summary" data-template-url="/en-GB/commerce/baskets/summary/template/49g72zqtpcq2vvy317naf41pmw" data-popup-url="/en-GB/commerce/baskets/summary/popup/template/49g72zqtpcq2vvy317naf41pmw" data-widget-id="49g72zqtpcq2vvy317naf41pmw">
+    <div class="backdrop-show m-header-icon col-xs-3 col-md-1">
+
+        <button id="m-basket-toggle" class="hidden-xs hidden-sm" aria-haspopup="true" data-toggle="dropdown" aria-expanded="false">
+            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+            <span class="sr-only">Shopping Cart</span>
+        </button>
+
+        <div id="basketSummaryPlaceholder"></div>
+
+        <button class="visible-xs visible-sm" onclick="window.location = '/en-GB/commerce/baskets/current'">
+	        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+	        <span class="sr-only">Shopping Cart</span>
+        </button>
+    </div>
+</div>
+    </div>
+</div>
+
+</div>
+                    </div>
+                </div>
+            </div>
+	        <div id="layout-header-topnav">
+		        <div class="hidden-xs hidden-sm">
+			        
+		        </div>
+		        <div class="container">
+			        <div class="row">
+				        
+
+
+
+<div class="widget widget-mega-menu">
+    <div class="widget-body">
+    
+
+
+<div class="m-topnav-megamenu">
+    <div class="cd-dropdown-wrapper col-xs-12 col-md-2">
+        <a class="cd-dropdown-trigger hidden-xs hidden-sm m-topnav-button" href="#0">Browse by Categories</a>
+        <a class="cd-dropdown-trigger hidden-md hidden-lg" href="#0">
+            <i class="fa fa-bars" aria-hidden="true"></i>
+            <span class="sr-only">Browse by Categories</span>
+        </a>
+        <nav class="cd-dropdown " id="megaMenuDropdown" style="height: auto;">
+            <a href="#0" class="cd-close">Close</a>
+            <ul class="cd-dropdown-content" id="megamenu-content">
+                
+
+<li class="list-item has-children">
+    <a href="/en-GB/catalog/all/browse/bme-1895721/mariner-november-2018" target="_self">
+        <span>Mariner [November 2018]</span>
+    </a>
+
+         <ul class="is-hidden cd-secondary-dropdown depth-1">
+             <li class="go-back"><a href="#0">Back</a></li>
+             <li class="see-all hidden-md hidden-lg"><a href="/en-GB/catalog/all/browse/bme-1895721/mariner-november-2018">View all Mariner [November 2018]</a></li>
+
+<li class="list-item">
+    <a href="/en-GB/catalog/all/browse/bme-1895722/mariner-november-2018-outboard" target="_self">
+        <span>Outboard</span>
+    </a>
+
+</li>
+             <li class="see-all hidden-xs hidden-sm"><a href="/en-GB/catalog/all/browse/bme-1895721/mariner-november-2018">View all Mariner [November 2018]</a></li>
+
+         </ul>
+</li>
+
+<li class="list-item has-children">
+    <a href="/en-GB/catalog/all/browse/bme-1/mercury-marine-november-2018" target="_self">
+        <span>Mercury Marine [November 2018]</span>
+    </a>
+
+         <ul class="is-hidden cd-secondary-dropdown depth-1">
+             <li class="go-back"><a href="#0">Back</a></li>
+             <li class="see-all hidden-md hidden-lg"><a href="/en-GB/catalog/all/browse/bme-1/mercury-marine-november-2018">View all Mercury Marine [November 2018]</a></li>
+
+<li class="list-item">
+    <a href="/en-GB/catalog/all/browse/bme-1584515/mercury-marine-november-2018-oem" target="_self">
+        <span>[OEM]</span>
+    </a>
+
+</li>
+
+<li class="list-item">
+    <a href="/en-GB/catalog/all/browse/bme-1597347/mercury-marine-november-2018-accessories" target="_self">
+        <span>Accessories</span>
+    </a>
+
+</li>
+
+<li class="list-item">
+    <a href="/en-GB/catalog/all/browse/bme-35303/mercury-marine-november-2018-boats" target="_self">
+        <span>Boats</span>
+    </a>
+
+</li>
+
+<li class="list-item">
+    <a href="/en-GB/catalog/all/browse/bme-1584523/mercury-marine-november-2018-general-publications" target="_self">
+        <span>General Publications</span>
+    </a>
+
+</li>
+
+<li class="list-item">
+    <a href="/en-GB/catalog/all/browse/bme-1678750/mercury-marine-november-2018-inboard-and-towsports" target="_self">
+        <span>Inboard and TowSports</span>
+    </a>
+
+</li>
+
+<li class="list-item">
+    <a href="/en-GB/catalog/all/browse/bme-1623266/mercury-marine-november-2018-jet-drive-sportjet" target="_self">
+        <span>Jet Drive - SportJet</span>
+    </a>
+
+</li>
+
+<li class="list-item">
+    <a href="/en-GB/catalog/all/browse/bme-104515/mercury-marine-november-2018-outboard" target="_self">
+        <span>Outboard</span>
+    </a>
+
+</li>
+
+<li class="list-item">
+    <a href="/en-GB/catalog/all/browse/bme-1563260/mercury-marine-november-2018-reman-quicksilver-and-crate-engines" target="_self">
+        <span>Reman, Quicksilver, and  Crate engines</span>
+    </a>
+
+</li>
+
+<li class="list-item">
+    <a href="/en-GB/catalog/all/browse/bme-1148440/mercury-marine-november-2018-sterndrive" target="_self">
+        <span>Sterndrive</span>
+    </a>
+
+</li>
+
+<li class="list-item">
+    <a href="/en-GB/catalog/all/browse/bme-2/mercury-marine-november-2018-trolling-motor" target="_self">
+        <span>Trolling Motor</span>
+    </a>
+
+</li>
+
+<li class="list-item">
+    <a href="/en-GB/catalog/all/browse/bme-1148434/mercury-marine-november-2018-user-resources" target="_self">
+        <span>User Resources</span>
+    </a>
+
+</li>
+
+<li class="list-item">
+    <a href="/en-GB/catalog/all/browse/bme-1587257/mercury-marine-november-2018-zeus-pod-drive-doen-jet-drive" target="_self">
+        <span>Zeus Pod Drive, Doen Jet Drive</span>
+    </a>
+
+</li>
+             <li class="see-all hidden-xs hidden-sm"><a href="/en-GB/catalog/all/browse/bme-1/mercury-marine-november-2018">View all Mercury Marine [November 2018]</a></li>
+
+         </ul>
+</li>
+
+<li class="list-item has-children">
+    <a href="/en-GB/catalog/all/browse/yanmardata-1/yanmar-marine" target="_self">
+        <span>Yanmar Marine</span>
+    </a>
+
+         <ul class="is-hidden cd-secondary-dropdown depth-1">
+             <li class="go-back"><a href="#0">Back</a></li>
+             <li class="see-all hidden-md hidden-lg"><a href="/en-GB/catalog/all/browse/yanmardata-1/yanmar-marine">View all Yanmar Marine</a></li>
+
+<li class="list-item">
+    <a href="/en-GB/catalog/all/browse/yanmardata-1100519/yanmar-marine-clutch" target="_self">
+        <span>Clutch</span>
+    </a>
+
+</li>
+
+<li class="list-item">
+    <a href="/en-GB/catalog/all/browse/yanmardata-425850/yanmar-marine-electric-generator" target="_self">
+        <span>Electric Generator</span>
+    </a>
+
+</li>
+
+<li class="list-item">
+    <a href="/en-GB/catalog/all/browse/yanmardata-2/yanmar-marine-electric-generator-engine" target="_self">
+        <span>Electric Generator Engine</span>
+    </a>
+
+</li>
+
+<li class="list-item">
+    <a href="/en-GB/catalog/all/browse/yanmardata-168084/yanmar-marine-marine-auxiliary-engine-medium" target="_self">
+        <span>Marine Auxiliary Engine (Medium)</span>
+    </a>
+
+</li>
+
+<li class="list-item">
+    <a href="/en-GB/catalog/all/browse/yanmardata-4681/yanmar-marine-marine-auxiliary-engine-small" target="_self">
+        <span>Marine Auxiliary Engine (Small)</span>
+    </a>
+
+</li>
+
+<li class="list-item">
+    <a href="/en-GB/catalog/all/browse/yanmardata-1247082/yanmar-marine-marine-main-engine-medium" target="_self">
+        <span>Marine Main Engine (Medium)</span>
+    </a>
+
+</li>
+
+<li class="list-item">
+    <a href="/en-GB/catalog/all/browse/yanmardata-544237/yanmar-marine-marine-main-engine-small" target="_self">
+        <span>Marine Main Engine (Small)</span>
+    </a>
+
+</li>
+
+<li class="list-item">
+    <a href="/en-GB/catalog/all/browse/yanmardata-1593808/yanmar-marine-marine-others-medium" target="_self">
+        <span>Marine Others (Medium)</span>
+    </a>
+
+</li>
+
+<li class="list-item">
+    <a href="/en-GB/catalog/all/browse/yanmardata-1588269/yanmar-marine-marine-others-small" target="_self">
+        <span>Marine Others (Small)</span>
+    </a>
+
+</li>
+
+<li class="list-item">
+    <a href="/en-GB/catalog/all/browse/yanmardata-541403/yanmar-marine-others" target="_self">
+        <span>Others</span>
+    </a>
+
+</li>
+
+<li class="list-item">
+    <a href="/en-GB/catalog/all/browse/yanmardata-1586245/yanmar-marine-pleasure-boat" target="_self">
+        <span>Pleasure Boat</span>
+    </a>
+
+</li>
+             <li class="see-all hidden-xs hidden-sm"><a href="/en-GB/catalog/all/browse/yanmardata-1/yanmar-marine">View all Yanmar Marine</a></li>
+
+         </ul>
+</li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+
+    </div>
+</div>
+
+
+
+
+<div class="widget widget-liquid-widget">
+    <div class="widget-body">
+    
+<div class="hidden-xs hidden-sm col-md-6">
+
+<ul class="nav navbar-nav menu">
+            <li>
+                <a class="nav-link" href="https://yanmarshop.com/en-GB/catalog/all/browse/yanmardata-1/yanmar-marine">Parts Books</a>
+            </li>
+
+            <li>
+                <a class="nav-link" href="https://yanmarshop.com/en-GB/contact">Contact Us</a>
+            </li>
+</ul></div>
+    </div>
+</div>
+
+
+
+
+<div class="widget widget-sales-zone-selector">
+    <div class="widget-body">
+    
+
+
+
+<div class="hidden-xs hidden-sm m-topnav-item col-md-4 backdrop-show">
+    <div class="m-topnav-dropdown m-saleszone-dropdown epi-select2-none">
+        <select-x data-source='/en-GB/commerce/saleszones' data-placeholder="please select..." class="epi-saleszone-dropdown" data-callback-url="/en-GB/commerce/saleszones">
+            <select data-dropdown-css-class="header-select">
+                        <option value="UK">UK - Mainland</option>
+            </select>
+            <template-item v-cloak><span>{{text}}<br /><small>{{id}}</small></span></template-item>
+            <template-selected v-cloak><var>{{text}}</var></template-selected>
+        </select-x>
+    </div>
+</div>
+    </div>
+</div>
+
+			        </div>
+		        </div>
+	        </div>
+
+
+        </header>
+
+        <main id="layout-main">
+
+                <section id="layout-before">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="row">
+                        
+
+    <div class="col-xs-12 col-md-8 col-lg-9">
+        <nav class="epi-catalogue-breadcrumbs">
+            <ul class="m-catalogue-breadcrumb row" data-slick='{"initialSlide": 7}'>
+                <li class="first col-xs-4 col-sm-3 col-lg-2">
+                    <a href="https://yanmarshop.com" data-toggle="tooltip" data-placement="top" title="Home">Home</a>
+                </li>
+                <li class="current col-xs-4 col-sm-3 col-lg-2">
+                    <a href="/en-GB/catalog/all/browse" data-toggle="tooltip" data-placement="top" title="Catalogue">Catalogue</a>
+                </li>
+                        <li class="epi-catalogue-breadcrumb-item current col-xs-4 col-sm-3 col-lg-2" data-toggle="tooltip" data-placement="top" title="Yanmar Marine" data-siblings-url="/en-GB/catalog/all/siblings?id=yanmardata-0">
+                            <a href="/en-GB/catalog/all/browse/yanmardata-1/yanmar-marine">Yanmar Marine</a>
+                        </li>
+                        <li class="epi-catalogue-breadcrumb-item current col-xs-4 col-sm-3 col-lg-2" data-toggle="tooltip" data-placement="top" title="Marine Main Engine (Medium)" data-siblings-url="/en-GB/catalog/all/siblings?id=yanmardata-1">
+                            <a href="/en-GB/catalog/all/browse/yanmardata-1247082/yanmar-marine-marine-main-engine-medium">Marine Main Engine (Medium)</a>
+                        </li>
+                        <li class="epi-catalogue-breadcrumb-item current col-xs-4 col-sm-3 col-lg-2" data-toggle="tooltip" data-placement="top" title="AY Series" data-siblings-url="/en-GB/catalog/all/siblings?id=yanmardata-1247082">
+                            <a href="/en-GB/catalog/all/browse/yanmardata-1252928/yanmar-marine-marine-main-engine-medium-ay-series">AY Series</a>
+                        </li>
+                        <li class="epi-catalogue-breadcrumb-item current col-xs-4 col-sm-3 col-lg-2" data-toggle="tooltip" data-placement="top" title="6AYM-WET" data-siblings-url="/en-GB/catalog/all/siblings?id=yanmardata-1252928">
+                            <a href="/en-GB/catalog/all/browse/yanmardata-1310266/yanmar-marine-marine-main-engine-medium-ay-series-6aym-wet">6AYM-WET</a>
+                        </li>
+                        <li class="epi-catalogue-breadcrumb-item current col-xs-4 col-sm-3 col-lg-2" data-toggle="tooltip" data-placement="top" title="FIG 23. LOCKER ARM" data-siblings-url="/en-GB/catalog/all/siblings?id=yanmardata-1310266">
+                            <a href="/en-GB/catalog/all/servicebom/yanmardata-1310603/yanmar-marine-marine-main-engine-medium-ay-series-6aym-wet-fig-23-locker-arm">FIG 23. LOCKER ARM</a>
+                        </li>
+            </ul>
+        </nav>
+    </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<div class="m-sbom-page">
+    <section id="layout-body" class="1-col sbom-calc-height sbom-layout-body">
+        <div class="container-fluid sbom-full-height">
+            <div class="row sbom-full-height">
+                <div class="col-xs-12 sbom-full-height ">
+                    <div class="sbom-full-height m-layout-content sbom-layout">
+                        <div class="row sbom-full-height">
+                            <div class="m-bom-viewer span-8 sbom-full-height illus-1">
+                                
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="m-schematic-titles visible-print">
+        <header>
+            <h1>
+                FIG 23. LOCKER ARM
+                    <small>Page 1 of 1: </small>
+            </h1>
+        </header>
+    </div>
+
+
+    <section class="epi-servicebom-schematic schematicFullScreen sbom-full-height">
+        <div class="schematic-bg schematicFullScreen sbom-full-height">
+            <div class="container-fluid schematicFullScreen sbom-full-height">
+                <div class="row schematicFullScreen sbom-full-height">
+                    <div class="col-xs-12 schematic-bg schematicFullScreen sbom-full-height">
+<div id="epi-sb-schematic" class="epi-servicebom-schematicviewer img-responsive center-block" data-uri="/catalog/media/F53DEL3GOJSW4Y3INVQXE2LOMUXW2ZLENFQS66LBNZWWC4TEMF2GCL2HIJBFKT2NJJIUMVSHKRDU4QSUI5AVSRRWJVBFGR2OKBLE2LTTOZTXU" data-hightlightduration="3000"></div>
+
+<div class="m-bom-popup-controls hidden-xs hidden-sm">
+    <button id="epi-schematic-reset" type="button">
+        <i class="fa fa-home"></i>
+    </button>
+    <button id="epi-schematic-zoom-in" type="button">
+        <i class="fa fa-search-plus"></i>
+    </button>
+    <button id="epi-schematic-zoom-out" type="button">
+        <i class="fa fa-search-minus"></i>
+    </button>
+    <button id="epi-schematic-showall" type="button">
+        <i class="fa fa-eye"></i>
+    </button>
+    <button id="epi-schematic-print" type="button">
+        <i class="fa fa-print"></i>
+    </button>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="partsListToggle" class="m-schematic-list-toggle toggle-stretch hidden-print">
+            <div>
+                <i class="fa fa-list-ol"></i>
+            </div>
+        </div>
+
+        <div id="bomListToggle" class="m-bom-illustration-list-toggle toggle-stretch hidden-md hidden-lg hidden-print">
+            <div>
+                <i class="fa fa-clone"></i>
+            </div>
+        </div>
+
+
+        <div class="epi-servicebom-partsummary popBorder hidden-print" v-bind:class="{ hidden: !visible }" v-cloak>
+
+            <div class="popMobile visible-xs visible-sm">
+                <span class="part-ref">{{ part.referenceNo }}</span>
+                <span class="partDescription">{{ part.description }} {{ part.applicability }} {{ part.effectivity }}</span>
+
+
+                <i class="fa fa-chevron-circle-up" type="button" id="popMobileToggle"></i>
+            </div>
+
+            <div class="schematicPop">
+                <div class="popControls hidden-xs hidden-sm">
+                    <i class="fa fa-arrows"></i>
+                    <button class="pull-right" type="button" id="epi-sb-popupclose">x</button>
+                </div>
+
+                <div>
+                    <div class="m-bom-popup-window popInfo">
+                        <div class="m-bom-part-desc">{{ part.description }} {{ part.applicability }} {{ part.effectivity }}</div>
+                        <div class="m-bom-part-ref-no pull-right">{{ part.referenceNo }}</div>
+                        <div class="m-bom-part-no">{{ part.partNo }}</div>
+                        <a v-bind:href="part.url" title="More Details">More Details</a>
+                    </div>
+                    <div class="m-bom-popup-prices">
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <span v-if="part.commerceIsSuperseded">
+                                    Item Unavailable
+                                </span>                                
+                                <input v-else class="m-bom-part-qty number-spinner" id="epi-servicebom-qty"
+                                       v-bind:disabled="part.step == 0"
+                                       v-model="part.quantity"
+                                       v-bind:min="part.min"
+                                       v-bind:max="part.max"
+                                       v-bind:maxlength="part.maxlength" 
+                                       data-bts-force-step-divisibility="ceil"/>
+                            </div>
+                            <div class="col-xs-4">
+                                <div class="m-bom-part-price">
+                                    <span v-if="part.commerceIsSuperseded">
+                                        N/A
+                                    </span>
+                                    <span v-else>
+                                        {{ part.price }}
+                                    </span>                                   
+                                </div>
+                            </div>
+                            <div class="col-xs-4">
+                                <button id="epi-servicebom-buy" type="submit" class="btn btn-success btn-add btn-block epi-add-button" v-if="part.commerceIsSuperseded == true || (part.poa == false && part.commerceIsSuperseded == false)">
+                                    <span v-if="part.commerceIsSuperseded">Choose</span>
+                                    <span v-else>Add</span>
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+<section>
+        <div class="m-schematic-top-left hidden-xs hidden-sm">
+            <div class="m-schematic-titles">
+                <header>
+                    <h1>
+                        FIG 23. LOCKER ARM
+                        
+                    </h1>
+                </header>
+            </div>
+        </div>
+</section>
+
+
+                            </div>
+
+                            <div class="m-bom-parts-list sb-parts-list span-4">
+
+                                
+
+<div class="visible-print m-schematic-titles">
+    <h1>Parts List</h1>
+</div>
+<article class="sbom-full-height">
+    <div class="schematicMidRight sbom-full-height">
+        <div class="m-parts-list-headings">
+            <div class="row">
+                <div class="col-xs-2 col-lg-1 col-print-1">
+                    <div class="wrapper">
+                        <span class="text-center">Ref</span>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-lg-4 no-gutter col-print-4">
+                    <div class="wrapper">
+                        <span>Description</span>
+                    </div>
+                </div>
+                <div class="col-xs-2 col-lg-2 no-gutter col-print-3">
+                    <div class="wrapper">
+                        <span>Part No.</span>
+                    </div>
+                </div>
+	            <div class="col-lg-5 visible-lg col-print-4">
+                    <div class="row">
+                        <div class="col-xs-2 no-gutter col-print-6">
+                            <div class="wrapper">
+                                <span class="text-center">BOM Qty</span>
+                            </div>
+                        </div>
+                        <div class="col-xs-3 no-gutter col-print-6">
+                            <div class="wrapper">
+                                <span>Unit Price</span>
+                            </div>
+                        </div>
+                        <div class="col-xs-4 no-gutter hidden-print">
+                            <div class="wrapper">
+                                <span>Order Qty</span>
+                            </div>
+                        </div>
+                    </div>
+	            </div>
+            </div>
+        </div>
+        <div class="schematicParts" id="schematicParts">
+            <div class="epi-servicebom-partslist tableSchematic" id="results">
+                <div>
+                    <div class="parts-list-content">
+
+
+
+<div class="m-bom-listrow">
+
+    <div class="epi-servicebom-item "
+         data-consists-of='{"id":"yanmardata-1310604","partNo":"748960-11151","description":"ARM ASSY, ROCKER","referenceNo":"1","link":"1","quantity":"6","price":"£1701.31","poa":false,"commerceIsSuperseded":false,"productId":"748960-11151","isSuperseded":false,"isSelected":false,"supersession":null,"applicability":null,"effectivity":null,"url":"/en-GB/catalog/all/part/yanmardata-1310604/yanmar-marine-marine-main-engine-medium-ay-series-6aym-wet-fig-23-locker-arm-arm-assy-rocker","surcharge":0.0000,"min":1,"max":1,"maxlength":"1","step":1,"displayPrice":"£1701.31","href":null}'>
+
+        <div class="epi-basketline-add" data-part="{&quot;partNumber&quot;:&quot;748960-11151&quot;,&quot;description&quot;:&quot;ARM ASSY, ROCKER&quot;,&quot;itemImageUrl&quot;:null,&quot;options&quot;:null,&quot;itemUrl&quot;:&quot;/en-GB/catalog/all/partdetail/yanmardata-748960-11151?openSupersessionInfo=False&quot;,&quot;isSuperseded&quot;:false,&quot;supersessionUrl&quot;:&quot;/en-GB/commerce/items/supersessionselector?partNumber=748960-11151\u0026partUrl=%2Fen-GB%2Fcatalog%2Fall%2Fpartdetail%2Fyanmardata-748960-11151%3FopenSupersessionInfo%3DTrue&quot;,&quot;productVin&quot;:null,&quot;productSerial&quot;:null,&quot;productMake&quot;:null,&quot;productModel&quot;:null,&quot;warehouseCode&quot;:null}" data-url="/en-GB/commerce/baskets/current/lines" data-callback-url="" data-callback-method="">
+
+            <div class="row">
+                <div class="col-xs-2 col-lg-1 epi-servicebom-value col-print-1">
+                        <span class="m-sbom-ref text-center">1</span>
+                </div>
+                <div class="col-xs-6 col-lg-4 epi-servicebom-value no-gutter col-print-4">
+
+                    <span class="indent-0 m-bom-listtext">
+                        <a href="#details-yanmardata-1310604" data-toggle="collapse" aria-expanded="false" aria-controls="details-yanmardata-1310604">
+                                <span class="hidden-print"></span>
+                            ARM ASSY, ROCKER
+                        </a>
+                    </span>
+                    <div class="m-bom-listconditions">
+
+                    </div>
+                </div>
+                <div class="col-xs-4 col-lg-2 epi-servicebom-value no-gutter col-print-3">
+                    <span class="m-bom-listtext">748960-11151</span>
+                    <div class="epi-stock" data-sku="748960-11151" data-qty="1" data-enable-basket-add="True"></div>
+                </div>
+                <div class="col-xs-10 col-xs-offset-2 col-lg-5 col-lg-offset-0 col-print-4">
+                    <div class="row">
+                        <div class="col-lg-2 visible-lg no-gutter col-print-6">
+                            <span class="m-bom-listtext text-center">6</span>
+                        </div>
+
+                            <div class="col-xs-4 col-lg-3 epi-servicebom-list-price no-gutter col-print-6">
+                                <span class="m-bom-listtext">
+                                    <div class="text-left">
+                                        
+        <div>
+                <var>&#xA3;1701.31</var>
+            <div class="m-item-surcharge">
+            </div>
+        </div>
+
+                                    </div>
+                                </span>
+                            </div>
+                            <div class="col-xs-4 col-lg-4 no-gutter hidden-print">
+
+                                <input type="number" id="748960-11151-quantity"
+                                       value="1"
+                                       class="form-control add-qty number-spinner"
+                                       data-bts-force-step-divisibility="ceil"
+                                       min="1"
+                                       max="1"
+                                       maxlength="1"
+                                       data-bts-min="1"
+                                       data-bts-step="1"
+                                       data-bts-max="1" />
+                            </div>
+
+                        <div class="col-xs-4 col-lg-3 hidden-print">
+                            <a id="748960-11151-add" class="btn btn-success btn-add btn-block epi-add-button" role="button">
+                                    <i class="fa fa-shopping-cart  epi-gs-buy"></i>
+
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="m-bom-listdetails collapse hidden-print" id="details-yanmardata-1310604">
+        <div class="row">
+            <div class="col-xs-offset-1 col-xs-11 col-lg-6">
+                <span class="heading">Applicability</span>
+                <span class="value">
+                        <span>-</span>
+                </span>
+                <span class="heading">Effectivity</span>
+                <span class="value">
+                        <span>-</span>
+                </span>
+                <span class="heading">Notes</span>
+
+                    <span>-</span>
+
+            </div>
+            <div class="col-xs-11 col-xs-offset-1 col-lg-offset-0 col-lg-5">
+                <div class="m-bom-link text-right">
+                    <a href="/en-GB/catalog/all/part/yanmardata-1310604/yanmar-marine-marine-main-engine-medium-ay-series-6aym-wet-fig-23-locker-arm-arm-assy-rocker" title="More Details">More Details</a>
+                </div>
+                <div class="m-bom-order-qty">
+                    
+
+<div class="row">
+    <div class="col-xs-4">
+        <span class="heading">Min Qty</span>
+    </div>
+    <div class="col-xs-4">
+        <span class="heading">Inc Qty</span>
+    </div>
+    <div class="col-xs-4">
+        <span class="heading">Max Qty</span>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-4">
+        <var>1</var>
+    </div>
+    <div class="col-xs-4">
+        <var>1</var>
+    </div>
+    <div class="col-xs-4">
+        <var>1</var>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-4">
+        <span class="heading">Pack Qty</span>
+    </div>
+
+    <div class="col-xs-4">
+        <span class="heading">Lead Time (Days)</span>
+    </div>
+    <div class="col-xs-4">
+        <span class="heading">UOM</span>
+    </div>
+
+</div>
+<div class="row">
+    <div class="col-xs-4">
+        <var>1</var>
+    </div>
+    <div class="col-xs-4">
+        <var>-</var>
+    </div>
+    <div class="col-xs-4">
+        <var></var>
+    </div>
+</div>
+
+                </div>
+                <div class="m-bom-surcharge">
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="m-bom-listrow">
+
+    <div class="epi-servicebom-item "
+         data-consists-of='{"id":"yanmardata-1310605","partNo":"748960-11871","description":"ARM ASSY, ROCKER","referenceNo":"2","link":"2","quantity":"6","price":"£515.76","poa":false,"commerceIsSuperseded":false,"productId":"748960-11871","isSuperseded":false,"isSelected":false,"supersession":null,"applicability":null,"effectivity":null,"url":"/en-GB/catalog/all/part/yanmardata-1310605/yanmar-marine-marine-main-engine-medium-ay-series-6aym-wet-fig-23-locker-arm-arm-assy-rocker","surcharge":0.0000,"min":1,"max":1,"maxlength":"1","step":1,"displayPrice":"£515.76","href":null}'>
+
+        <div class="epi-basketline-add" data-part="{&quot;partNumber&quot;:&quot;748960-11871&quot;,&quot;description&quot;:&quot;ARM ASSY, ROCKER&quot;,&quot;itemImageUrl&quot;:null,&quot;options&quot;:null,&quot;itemUrl&quot;:&quot;/en-GB/catalog/all/partdetail/yanmardata-748960-11871?openSupersessionInfo=False&quot;,&quot;isSuperseded&quot;:false,&quot;supersessionUrl&quot;:&quot;/en-GB/commerce/items/supersessionselector?partNumber=748960-11871\u0026partUrl=%2Fen-GB%2Fcatalog%2Fall%2Fpartdetail%2Fyanmardata-748960-11871%3FopenSupersessionInfo%3DTrue&quot;,&quot;productVin&quot;:null,&quot;productSerial&quot;:null,&quot;productMake&quot;:null,&quot;productModel&quot;:null,&quot;warehouseCode&quot;:null}" data-url="/en-GB/commerce/baskets/current/lines" data-callback-url="" data-callback-method="">
+
+            <div class="row">
+                <div class="col-xs-2 col-lg-1 epi-servicebom-value col-print-1">
+                        <span class="m-sbom-ref text-center">2</span>
+                </div>
+                <div class="col-xs-6 col-lg-4 epi-servicebom-value no-gutter col-print-4">
+
+                    <span class="indent-0 m-bom-listtext">
+                        <a href="#details-yanmardata-1310605" data-toggle="collapse" aria-expanded="false" aria-controls="details-yanmardata-1310605">
+                                <span class="hidden-print"></span>
+                            ARM ASSY, ROCKER
+                        </a>
+                    </span>
+                    <div class="m-bom-listconditions">
+
+                    </div>
+                </div>
+                <div class="col-xs-4 col-lg-2 epi-servicebom-value no-gutter col-print-3">
+                    <span class="m-bom-listtext">748960-11871</span>
+                    <div class="epi-stock" data-sku="748960-11871" data-qty="1" data-enable-basket-add="True"></div>
+                </div>
+                <div class="col-xs-10 col-xs-offset-2 col-lg-5 col-lg-offset-0 col-print-4">
+                    <div class="row">
+                        <div class="col-lg-2 visible-lg no-gutter col-print-6">
+                            <span class="m-bom-listtext text-center">6</span>
+                        </div>
+
+                            <div class="col-xs-4 col-lg-3 epi-servicebom-list-price no-gutter col-print-6">
+                                <span class="m-bom-listtext">
+                                    <div class="text-left">
+                                        
+        <div>
+                <var>&#xA3;515.76</var>
+            <div class="m-item-surcharge">
+            </div>
+        </div>
+
+                                    </div>
+                                </span>
+                            </div>
+                            <div class="col-xs-4 col-lg-4 no-gutter hidden-print">
+
+                                <input type="number" id="748960-11871-quantity"
+                                       value="1"
+                                       class="form-control add-qty number-spinner"
+                                       data-bts-force-step-divisibility="ceil"
+                                       min="1"
+                                       max="1"
+                                       maxlength="1"
+                                       data-bts-min="1"
+                                       data-bts-step="1"
+                                       data-bts-max="1" />
+                            </div>
+
+                        <div class="col-xs-4 col-lg-3 hidden-print">
+                            <a id="748960-11871-add" class="btn btn-success btn-add btn-block epi-add-button" role="button">
+                                    <i class="fa fa-shopping-cart  epi-gs-buy"></i>
+
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="m-bom-listdetails collapse hidden-print" id="details-yanmardata-1310605">
+        <div class="row">
+            <div class="col-xs-offset-1 col-xs-11 col-lg-6">
+                <span class="heading">Applicability</span>
+                <span class="value">
+                        <span>-</span>
+                </span>
+                <span class="heading">Effectivity</span>
+                <span class="value">
+                        <span>-</span>
+                </span>
+                <span class="heading">Notes</span>
+
+                    <span>-</span>
+
+            </div>
+            <div class="col-xs-11 col-xs-offset-1 col-lg-offset-0 col-lg-5">
+                <div class="m-bom-link text-right">
+                    <a href="/en-GB/catalog/all/part/yanmardata-1310605/yanmar-marine-marine-main-engine-medium-ay-series-6aym-wet-fig-23-locker-arm-arm-assy-rocker" title="More Details">More Details</a>
+                </div>
+                <div class="m-bom-order-qty">
+                    
+
+<div class="row">
+    <div class="col-xs-4">
+        <span class="heading">Min Qty</span>
+    </div>
+    <div class="col-xs-4">
+        <span class="heading">Inc Qty</span>
+    </div>
+    <div class="col-xs-4">
+        <span class="heading">Max Qty</span>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-4">
+        <var>1</var>
+    </div>
+    <div class="col-xs-4">
+        <var>1</var>
+    </div>
+    <div class="col-xs-4">
+        <var>1</var>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-4">
+        <span class="heading">Pack Qty</span>
+    </div>
+
+    <div class="col-xs-4">
+        <span class="heading">Lead Time (Days)</span>
+    </div>
+    <div class="col-xs-4">
+        <span class="heading">UOM</span>
+    </div>
+
+</div>
+<div class="row">
+    <div class="col-xs-4">
+        <var>1</var>
+    </div>
+    <div class="col-xs-4">
+        <var>-</var>
+    </div>
+    <div class="col-xs-4">
+        <var></var>
+    </div>
+</div>
+
+                </div>
+                <div class="m-bom-surcharge">
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="m-bom-listrow">
+
+    <div class="epi-servicebom-item "
+         data-consists-of='{"id":"yanmardata-1310606","partNo":"148960-11221","description":"BUSH","referenceNo":"4","link":"4","quantity":"6","price":"£100.19","poa":false,"commerceIsSuperseded":false,"productId":"148960-11221","isSuperseded":false,"isSelected":false,"supersession":null,"applicability":null,"effectivity":null,"url":"/en-GB/catalog/all/part/yanmardata-1310606/yanmar-marine-marine-main-engine-medium-ay-series-6aym-wet-fig-23-locker-arm-bush","surcharge":0.0000,"min":1,"max":1,"maxlength":"1","step":1,"displayPrice":"£100.19","href":null}'>
+
+        <div class="epi-basketline-add" data-part="{&quot;partNumber&quot;:&quot;148960-11221&quot;,&quot;description&quot;:&quot;BUSH&quot;,&quot;itemImageUrl&quot;:null,&quot;options&quot;:null,&quot;itemUrl&quot;:&quot;/en-GB/catalog/all/partdetail/yanmardata-148960-11221?openSupersessionInfo=False&quot;,&quot;isSuperseded&quot;:false,&quot;supersessionUrl&quot;:&quot;/en-GB/commerce/items/supersessionselector?partNumber=148960-11221\u0026partUrl=%2Fen-GB%2Fcatalog%2Fall%2Fpartdetail%2Fyanmardata-148960-11221%3FopenSupersessionInfo%3DTrue&quot;,&quot;productVin&quot;:null,&quot;productSerial&quot;:null,&quot;productMake&quot;:null,&quot;productModel&quot;:null,&quot;warehouseCode&quot;:null}" data-url="/en-GB/commerce/baskets/current/lines" data-callback-url="" data-callback-method="">
+
+            <div class="row">
+                <div class="col-xs-2 col-lg-1 epi-servicebom-value col-print-1">
+                        <span class="m-sbom-ref text-center">4</span>
+                </div>
+                <div class="col-xs-6 col-lg-4 epi-servicebom-value no-gutter col-print-4">
+
+                    <span class="indent-0 m-bom-listtext">
+                        <a href="#details-yanmardata-1310606" data-toggle="collapse" aria-expanded="false" aria-controls="details-yanmardata-1310606">
+                                <span class="hidden-print"></span>
+                            BUSH
+                        </a>
+                    </span>
+                    <div class="m-bom-listconditions">
+
+                    </div>
+                </div>
+                <div class="col-xs-4 col-lg-2 epi-servicebom-value no-gutter col-print-3">
+                    <span class="m-bom-listtext">148960-11221</span>
+                    <div class="epi-stock" data-sku="148960-11221" data-qty="1" data-enable-basket-add="True"></div>
+                </div>
+                <div class="col-xs-10 col-xs-offset-2 col-lg-5 col-lg-offset-0 col-print-4">
+                    <div class="row">
+                        <div class="col-lg-2 visible-lg no-gutter col-print-6">
+                            <span class="m-bom-listtext text-center">6</span>
+                        </div>
+
+                            <div class="col-xs-4 col-lg-3 epi-servicebom-list-price no-gutter col-print-6">
+                                <span class="m-bom-listtext">
+                                    <div class="text-left">
+                                        
+        <div>
+                <var>&#xA3;100.19</var>
+            <div class="m-item-surcharge">
+            </div>
+        </div>
+
+                                    </div>
+                                </span>
+                            </div>
+                            <div class="col-xs-4 col-lg-4 no-gutter hidden-print">
+
+                                <input type="number" id="148960-11221-quantity"
+                                       value="1"
+                                       class="form-control add-qty number-spinner"
+                                       data-bts-force-step-divisibility="ceil"
+                                       min="1"
+                                       max="1"
+                                       maxlength="1"
+                                       data-bts-min="1"
+                                       data-bts-step="1"
+                                       data-bts-max="1" />
+                            </div>
+
+                        <div class="col-xs-4 col-lg-3 hidden-print">
+                            <a id="148960-11221-add" class="btn btn-success btn-add btn-block epi-add-button" role="button">
+                                    <i class="fa fa-shopping-cart  epi-gs-buy"></i>
+
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="m-bom-listdetails collapse hidden-print" id="details-yanmardata-1310606">
+        <div class="row">
+            <div class="col-xs-offset-1 col-xs-11 col-lg-6">
+                <span class="heading">Applicability</span>
+                <span class="value">
+                        <span>-</span>
+                </span>
+                <span class="heading">Effectivity</span>
+                <span class="value">
+                        <span>-</span>
+                </span>
+                <span class="heading">Notes</span>
+
+                    <span>-</span>
+
+            </div>
+            <div class="col-xs-11 col-xs-offset-1 col-lg-offset-0 col-lg-5">
+                <div class="m-bom-link text-right">
+                    <a href="/en-GB/catalog/all/part/yanmardata-1310606/yanmar-marine-marine-main-engine-medium-ay-series-6aym-wet-fig-23-locker-arm-bush" title="More Details">More Details</a>
+                </div>
+                <div class="m-bom-order-qty">
+                    
+
+<div class="row">
+    <div class="col-xs-4">
+        <span class="heading">Min Qty</span>
+    </div>
+    <div class="col-xs-4">
+        <span class="heading">Inc Qty</span>
+    </div>
+    <div class="col-xs-4">
+        <span class="heading">Max Qty</span>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-4">
+        <var>1</var>
+    </div>
+    <div class="col-xs-4">
+        <var>1</var>
+    </div>
+    <div class="col-xs-4">
+        <var>1</var>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-4">
+        <span class="heading">Pack Qty</span>
+    </div>
+
+    <div class="col-xs-4">
+        <span class="heading">Lead Time (Days)</span>
+    </div>
+    <div class="col-xs-4">
+        <span class="heading">UOM</span>
+    </div>
+
+</div>
+<div class="row">
+    <div class="col-xs-4">
+        <var>1</var>
+    </div>
+    <div class="col-xs-4">
+        <var>-</var>
+    </div>
+    <div class="col-xs-4">
+        <var></var>
+    </div>
+</div>
+
+                </div>
+                <div class="m-bom-surcharge">
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="m-bom-listrow">
+
+    <div class="epi-servicebom-item "
+         data-consists-of='{"id":"yanmardata-1310607","partNo":"148616-11230","description":"SCREW, VALVE ADJUST","referenceNo":"5","link":"5","quantity":"6","price":"£13.14","poa":false,"commerceIsSuperseded":false,"productId":"148616-11230","isSuperseded":false,"isSelected":false,"supersession":null,"applicability":null,"effectivity":null,"url":"/en-GB/catalog/all/part/yanmardata-1310607/yanmar-marine-marine-main-engine-medium-ay-series-6aym-wet-fig-23-locker-arm-screw-valve-adjust","surcharge":0.0000,"min":1,"max":1,"maxlength":"1","step":1,"displayPrice":"£13.14","href":null}'>
+
+        <div class="epi-basketline-add" data-part="{&quot;partNumber&quot;:&quot;148616-11230&quot;,&quot;description&quot;:&quot;SCREW, VALVE ADJUST&quot;,&quot;itemImageUrl&quot;:null,&quot;options&quot;:null,&quot;itemUrl&quot;:&quot;/en-GB/catalog/all/partdetail/yanmardata-148616-11230?openSupersessionInfo=False&quot;,&quot;isSuperseded&quot;:false,&quot;supersessionUrl&quot;:&quot;/en-GB/commerce/items/supersessionselector?partNumber=148616-11230\u0026partUrl=%2Fen-GB%2Fcatalog%2Fall%2Fpartdetail%2Fyanmardata-148616-11230%3FopenSupersessionInfo%3DTrue&quot;,&quot;productVin&quot;:null,&quot;productSerial&quot;:null,&quot;productMake&quot;:null,&quot;productModel&quot;:null,&quot;warehouseCode&quot;:null}" data-url="/en-GB/commerce/baskets/current/lines" data-callback-url="" data-callback-method="">
+
+            <div class="row">
+                <div class="col-xs-2 col-lg-1 epi-servicebom-value col-print-1">
+                        <span class="m-sbom-ref text-center">5</span>
+                </div>
+                <div class="col-xs-6 col-lg-4 epi-servicebom-value no-gutter col-print-4">
+
+                    <span class="indent-0 m-bom-listtext">
+                        <a href="#details-yanmardata-1310607" data-toggle="collapse" aria-expanded="false" aria-controls="details-yanmardata-1310607">
+                                <span class="hidden-print"></span>
+                            SCREW, VALVE ADJUST
+                        </a>
+                    </span>
+                    <div class="m-bom-listconditions">
+
+                    </div>
+                </div>
+                <div class="col-xs-4 col-lg-2 epi-servicebom-value no-gutter col-print-3">
+                    <span class="m-bom-listtext">148616-11230</span>
+                    <div class="epi-stock" data-sku="148616-11230" data-qty="1" data-enable-basket-add="True"></div>
+                </div>
+                <div class="col-xs-10 col-xs-offset-2 col-lg-5 col-lg-offset-0 col-print-4">
+                    <div class="row">
+                        <div class="col-lg-2 visible-lg no-gutter col-print-6">
+                            <span class="m-bom-listtext text-center">6</span>
+                        </div>
+
+                            <div class="col-xs-4 col-lg-3 epi-servicebom-list-price no-gutter col-print-6">
+                                <span class="m-bom-listtext">
+                                    <div class="text-left">
+                                        
+        <div>
+                <var>&#xA3;13.14</var>
+            <div class="m-item-surcharge">
+            </div>
+        </div>
+
+                                    </div>
+                                </span>
+                            </div>
+                            <div class="col-xs-4 col-lg-4 no-gutter hidden-print">
+
+                                <input type="number" id="148616-11230-quantity"
+                                       value="1"
+                                       class="form-control add-qty number-spinner"
+                                       data-bts-force-step-divisibility="ceil"
+                                       min="1"
+                                       max="1"
+                                       maxlength="1"
+                                       data-bts-min="1"
+                                       data-bts-step="1"
+                                       data-bts-max="1" />
+                            </div>
+
+                        <div class="col-xs-4 col-lg-3 hidden-print">
+                            <a id="148616-11230-add" class="btn btn-success btn-add btn-block epi-add-button" role="button">
+                                    <i class="fa fa-shopping-cart  epi-gs-buy"></i>
+
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="m-bom-listdetails collapse hidden-print" id="details-yanmardata-1310607">
+        <div class="row">
+            <div class="col-xs-offset-1 col-xs-11 col-lg-6">
+                <span class="heading">Applicability</span>
+                <span class="value">
+                        <span>-</span>
+                </span>
+                <span class="heading">Effectivity</span>
+                <span class="value">
+                        <span>-</span>
+                </span>
+                <span class="heading">Notes</span>
+
+                    <span>-</span>
+
+            </div>
+            <div class="col-xs-11 col-xs-offset-1 col-lg-offset-0 col-lg-5">
+                <div class="m-bom-link text-right">
+                    <a href="/en-GB/catalog/all/part/yanmardata-1310607/yanmar-marine-marine-main-engine-medium-ay-series-6aym-wet-fig-23-locker-arm-screw-valve-adjust" title="More Details">More Details</a>
+                </div>
+                <div class="m-bom-order-qty">
+                    
+
+<div class="row">
+    <div class="col-xs-4">
+        <span class="heading">Min Qty</span>
+    </div>
+    <div class="col-xs-4">
+        <span class="heading">Inc Qty</span>
+    </div>
+    <div class="col-xs-4">
+        <span class="heading">Max Qty</span>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-4">
+        <var>1</var>
+    </div>
+    <div class="col-xs-4">
+        <var>1</var>
+    </div>
+    <div class="col-xs-4">
+        <var>1</var>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-4">
+        <span class="heading">Pack Qty</span>
+    </div>
+
+    <div class="col-xs-4">
+        <span class="heading">Lead Time (Days)</span>
+    </div>
+    <div class="col-xs-4">
+        <span class="heading">UOM</span>
+    </div>
+
+</div>
+<div class="row">
+    <div class="col-xs-4">
+        <var>1</var>
+    </div>
+    <div class="col-xs-4">
+        <var>-</var>
+    </div>
+    <div class="col-xs-4">
+        <var></var>
+    </div>
+</div>
+
+                </div>
+                <div class="m-bom-surcharge">
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="m-bom-listrow">
+
+    <div class="epi-servicebom-item "
+         data-consists-of='{"id":"yanmardata-1310608","partNo":"26692-140002","description":"NUT, LOCK M14","referenceNo":"6","link":"6","quantity":"6","price":"POA","poa":true,"commerceIsSuperseded":true,"productId":"26692-140002","isSuperseded":false,"isSelected":false,"supersession":null,"applicability":null,"effectivity":null,"url":"/en-GB/catalog/all/part/yanmardata-1310608/yanmar-marine-marine-main-engine-medium-ay-series-6aym-wet-fig-23-locker-arm-nut-lock-m14","surcharge":0.0,"min":1,"max":1,"maxlength":"1","step":1,"displayPrice":"£0.00","href":null}'>
+
+        <div class="epi-basketline-add" data-part="{&quot;partNumber&quot;:&quot;26692-140002&quot;,&quot;description&quot;:&quot;NUT, LOCK M14&quot;,&quot;itemImageUrl&quot;:null,&quot;options&quot;:null,&quot;itemUrl&quot;:&quot;/en-GB/catalog/all/partdetail/yanmardata-26692-140002?openSupersessionInfo=False&quot;,&quot;isSuperseded&quot;:true,&quot;supersessionUrl&quot;:&quot;/en-GB/commerce/items/supersessionselector?partNumber=26692-140002\u0026partUrl=%2Fen-GB%2Fcatalog%2Fall%2Fpartdetail%2Fyanmardata-26692-140002%3FopenSupersessionInfo%3DTrue&quot;,&quot;productVin&quot;:null,&quot;productSerial&quot;:null,&quot;productMake&quot;:null,&quot;productModel&quot;:null,&quot;warehouseCode&quot;:null}" data-url="/en-GB/commerce/baskets/current/lines" data-callback-url="" data-callback-method="">
+
+            <div class="row">
+                <div class="col-xs-2 col-lg-1 epi-servicebom-value col-print-1">
+                        <span class="m-sbom-ref text-center">6</span>
+                </div>
+                <div class="col-xs-6 col-lg-4 epi-servicebom-value no-gutter col-print-4">
+
+                    <span class="indent-0 m-bom-listtext">
+                        <a href="#details-yanmardata-1310608" data-toggle="collapse" aria-expanded="false" aria-controls="details-yanmardata-1310608">
+                                <span class="hidden-print"></span>
+                            NUT, LOCK M14
+                        </a>
+                    </span>
+                    <div class="m-bom-listconditions">
+
+                    </div>
+                </div>
+                <div class="col-xs-4 col-lg-2 epi-servicebom-value no-gutter col-print-3">
+                    <span class="m-bom-listtext">26692-140002</span>
+                    <div class="epi-stock" data-sku="26692-140002" data-qty="1" data-enable-basket-add="True"></div>
+                </div>
+                <div class="col-xs-10 col-xs-offset-2 col-lg-5 col-lg-offset-0 col-print-4">
+                    <div class="row">
+                        <div class="col-lg-2 visible-lg no-gutter col-print-6">
+                            <span class="m-bom-listtext text-center">6</span>
+                        </div>
+
+                            <div class="col-xs-8 col-lg-7 no-gutter col-print-6">
+                                <span class=" m-bom-listtext supersession-reason">Unavailable - choose alternative:</span>
+                            </div>
+
+                        <div class="col-xs-4 col-lg-3 hidden-print">
+                            <a id="26692-140002-add" class="btn btn-success btn-add btn-block epi-add-button" role="button">
+                                    <i class="fa fa-list  epi-gs-buy"></i>
+
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="m-bom-listdetails collapse hidden-print" id="details-yanmardata-1310608">
+        <div class="row">
+            <div class="col-xs-offset-1 col-xs-11 col-lg-6">
+                <span class="heading">Applicability</span>
+                <span class="value">
+                        <span>-</span>
+                </span>
+                <span class="heading">Effectivity</span>
+                <span class="value">
+                        <span>-</span>
+                </span>
+                <span class="heading">Notes</span>
+
+                    <span>-</span>
+
+            </div>
+            <div class="col-xs-11 col-xs-offset-1 col-lg-offset-0 col-lg-5">
+                <div class="m-bom-link text-right">
+                    <a href="/en-GB/catalog/all/part/yanmardata-1310608/yanmar-marine-marine-main-engine-medium-ay-series-6aym-wet-fig-23-locker-arm-nut-lock-m14" title="More Details">More Details</a>
+                </div>
+                <div class="m-bom-order-qty">
+                    
+
+<div class="row">
+    <div class="col-xs-4">
+        <span class="heading">Min Qty</span>
+    </div>
+    <div class="col-xs-4">
+        <span class="heading">Inc Qty</span>
+    </div>
+    <div class="col-xs-4">
+        <span class="heading">Max Qty</span>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-4">
+        <var>1</var>
+    </div>
+    <div class="col-xs-4">
+        <var>1</var>
+    </div>
+    <div class="col-xs-4">
+        <var>1</var>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-4">
+        <span class="heading">Pack Qty</span>
+    </div>
+
+    <div class="col-xs-4">
+        <span class="heading">Lead Time (Days)</span>
+    </div>
+    <div class="col-xs-4">
+        <span class="heading">UOM</span>
+    </div>
+
+</div>
+<div class="row">
+    <div class="col-xs-4">
+        <var>1</var>
+    </div>
+    <div class="col-xs-4">
+        <var>-</var>
+    </div>
+    <div class="col-xs-4">
+        <var></var>
+    </div>
+</div>
+
+                </div>
+                <div class="m-bom-surcharge">
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="m-bom-listrow">
+
+    <div class="epi-servicebom-item "
+         data-consists-of='{"id":"yanmardata-1310609","partNo":"748960-11881","description":"ARM ASSY, ROCKER","referenceNo":"8","link":"8","quantity":"6","price":"£517.58","poa":false,"commerceIsSuperseded":false,"productId":"748960-11881","isSuperseded":false,"isSelected":false,"supersession":null,"applicability":null,"effectivity":null,"url":"/en-GB/catalog/all/part/yanmardata-1310609/yanmar-marine-marine-main-engine-medium-ay-series-6aym-wet-fig-23-locker-arm-arm-assy-rocker","surcharge":0.0000,"min":1,"max":1,"maxlength":"1","step":1,"displayPrice":"£517.58","href":null}'>
+
+        <div class="epi-basketline-add" data-part="{&quot;partNumber&quot;:&quot;748960-11881&quot;,&quot;description&quot;:&quot;ARM ASSY, ROCKER&quot;,&quot;itemImageUrl&quot;:null,&quot;options&quot;:null,&quot;itemUrl&quot;:&quot;/en-GB/catalog/all/partdetail/yanmardata-748960-11881?openSupersessionInfo=False&quot;,&quot;isSuperseded&quot;:false,&quot;supersessionUrl&quot;:&quot;/en-GB/commerce/items/supersessionselector?partNumber=748960-11881\u0026partUrl=%2Fen-GB%2Fcatalog%2Fall%2Fpartdetail%2Fyanmardata-748960-11881%3FopenSupersessionInfo%3DTrue&quot;,&quot;productVin&quot;:null,&quot;productSerial&quot;:null,&quot;productMake&quot;:null,&quot;productModel&quot;:null,&quot;warehouseCode&quot;:null}" data-url="/en-GB/commerce/baskets/current/lines" data-callback-url="" data-callback-method="">
+
+            <div class="row">
+                <div class="col-xs-2 col-lg-1 epi-servicebom-value col-print-1">
+                        <span class="m-sbom-ref text-center">8</span>
+                </div>
+                <div class="col-xs-6 col-lg-4 epi-servicebom-value no-gutter col-print-4">
+
+                    <span class="indent-0 m-bom-listtext">
+                        <a href="#details-yanmardata-1310609" data-toggle="collapse" aria-expanded="false" aria-controls="details-yanmardata-1310609">
+                                <span class="hidden-print"></span>
+                            ARM ASSY, ROCKER
+                        </a>
+                    </span>
+                    <div class="m-bom-listconditions">
+
+                    </div>
+                </div>
+                <div class="col-xs-4 col-lg-2 epi-servicebom-value no-gutter col-print-3">
+                    <span class="m-bom-listtext">748960-11881</span>
+                    <div class="epi-stock" data-sku="748960-11881" data-qty="1" data-enable-basket-add="True"></div>
+                </div>
+                <div class="col-xs-10 col-xs-offset-2 col-lg-5 col-lg-offset-0 col-print-4">
+                    <div class="row">
+                        <div class="col-lg-2 visible-lg no-gutter col-print-6">
+                            <span class="m-bom-listtext text-center">6</span>
+                        </div>
+
+                            <div class="col-xs-4 col-lg-3 epi-servicebom-list-price no-gutter col-print-6">
+                                <span class="m-bom-listtext">
+                                    <div class="text-left">
+                                        
+        <div>
+                <var>&#xA3;517.58</var>
+            <div class="m-item-surcharge">
+            </div>
+        </div>
+
+                                    </div>
+                                </span>
+                            </div>
+                            <div class="col-xs-4 col-lg-4 no-gutter hidden-print">
+
+                                <input type="number" id="748960-11881-quantity"
+                                       value="1"
+                                       class="form-control add-qty number-spinner"
+                                       data-bts-force-step-divisibility="ceil"
+                                       min="1"
+                                       max="1"
+                                       maxlength="1"
+                                       data-bts-min="1"
+                                       data-bts-step="1"
+                                       data-bts-max="1" />
+                            </div>
+
+                        <div class="col-xs-4 col-lg-3 hidden-print">
+                            <a id="748960-11881-add" class="btn btn-success btn-add btn-block epi-add-button" role="button">
+                                    <i class="fa fa-shopping-cart  epi-gs-buy"></i>
+
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="m-bom-listdetails collapse hidden-print" id="details-yanmardata-1310609">
+        <div class="row">
+            <div class="col-xs-offset-1 col-xs-11 col-lg-6">
+                <span class="heading">Applicability</span>
+                <span class="value">
+                        <span>-</span>
+                </span>
+                <span class="heading">Effectivity</span>
+                <span class="value">
+                        <span>-</span>
+                </span>
+                <span class="heading">Notes</span>
+
+                    <span>-</span>
+
+            </div>
+            <div class="col-xs-11 col-xs-offset-1 col-lg-offset-0 col-lg-5">
+                <div class="m-bom-link text-right">
+                    <a href="/en-GB/catalog/all/part/yanmardata-1310609/yanmar-marine-marine-main-engine-medium-ay-series-6aym-wet-fig-23-locker-arm-arm-assy-rocker" title="More Details">More Details</a>
+                </div>
+                <div class="m-bom-order-qty">
+                    
+
+<div class="row">
+    <div class="col-xs-4">
+        <span class="heading">Min Qty</span>
+    </div>
+    <div class="col-xs-4">
+        <span class="heading">Inc Qty</span>
+    </div>
+    <div class="col-xs-4">
+        <span class="heading">Max Qty</span>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-4">
+        <var>1</var>
+    </div>
+    <div class="col-xs-4">
+        <var>1</var>
+    </div>
+    <div class="col-xs-4">
+        <var>1</var>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-4">
+        <span class="heading">Pack Qty</span>
+    </div>
+
+    <div class="col-xs-4">
+        <span class="heading">Lead Time (Days)</span>
+    </div>
+    <div class="col-xs-4">
+        <span class="heading">UOM</span>
+    </div>
+
+</div>
+<div class="row">
+    <div class="col-xs-4">
+        <var>1</var>
+    </div>
+    <div class="col-xs-4">
+        <var>-</var>
+    </div>
+    <div class="col-xs-4">
+        <var></var>
+    </div>
+</div>
+
+                </div>
+                <div class="m-bom-surcharge">
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="m-bom-listrow">
+
+    <div class="epi-servicebom-item "
+         data-consists-of='{"id":"yanmardata-1310610","partNo":"148960-11221","description":"BUSH","referenceNo":"10","link":"10","quantity":"6","price":"£100.19","poa":false,"commerceIsSuperseded":false,"productId":"148960-11221","isSuperseded":false,"isSelected":false,"supersession":null,"applicability":null,"effectivity":null,"url":"/en-GB/catalog/all/part/yanmardata-1310610/yanmar-marine-marine-main-engine-medium-ay-series-6aym-wet-fig-23-locker-arm-bush","surcharge":0.0000,"min":1,"max":1,"maxlength":"1","step":1,"displayPrice":"£100.19","href":null}'>
+
+        <div class="epi-basketline-add" data-part="{&quot;partNumber&quot;:&quot;148960-11221&quot;,&quot;description&quot;:&quot;BUSH&quot;,&quot;itemImageUrl&quot;:null,&quot;options&quot;:null,&quot;itemUrl&quot;:&quot;/en-GB/catalog/all/partdetail/yanmardata-148960-11221?openSupersessionInfo=False&quot;,&quot;isSuperseded&quot;:false,&quot;supersessionUrl&quot;:&quot;/en-GB/commerce/items/supersessionselector?partNumber=148960-11221\u0026partUrl=%2Fen-GB%2Fcatalog%2Fall%2Fpartdetail%2Fyanmardata-148960-11221%3FopenSupersessionInfo%3DTrue&quot;,&quot;productVin&quot;:null,&quot;productSerial&quot;:null,&quot;productMake&quot;:null,&quot;productModel&quot;:null,&quot;warehouseCode&quot;:null}" data-url="/en-GB/commerce/baskets/current/lines" data-callback-url="" data-callback-method="">
+
+            <div class="row">
+                <div class="col-xs-2 col-lg-1 epi-servicebom-value col-print-1">
+                        <span class="m-sbom-ref text-center">10</span>
+                </div>
+                <div class="col-xs-6 col-lg-4 epi-servicebom-value no-gutter col-print-4">
+
+                    <span class="indent-0 m-bom-listtext">
+                        <a href="#details-yanmardata-1310610" data-toggle="collapse" aria-expanded="false" aria-controls="details-yanmardata-1310610">
+                                <span class="hidden-print"></span>
+                            BUSH
+                        </a>
+                    </span>
+                    <div class="m-bom-listconditions">
+
+                    </div>
+                </div>
+                <div class="col-xs-4 col-lg-2 epi-servicebom-value no-gutter col-print-3">
+                    <span class="m-bom-listtext">148960-11221</span>
+                    <div class="epi-stock" data-sku="148960-11221" data-qty="1" data-enable-basket-add="True"></div>
+                </div>
+                <div class="col-xs-10 col-xs-offset-2 col-lg-5 col-lg-offset-0 col-print-4">
+                    <div class="row">
+                        <div class="col-lg-2 visible-lg no-gutter col-print-6">
+                            <span class="m-bom-listtext text-center">6</span>
+                        </div>
+
+                            <div class="col-xs-4 col-lg-3 epi-servicebom-list-price no-gutter col-print-6">
+                                <span class="m-bom-listtext">
+                                    <div class="text-left">
+                                        
+        <div>
+                <var>&#xA3;100.19</var>
+            <div class="m-item-surcharge">
+            </div>
+        </div>
+
+                                    </div>
+                                </span>
+                            </div>
+                            <div class="col-xs-4 col-lg-4 no-gutter hidden-print">
+
+                                <input type="number" id="148960-11221-quantity"
+                                       value="1"
+                                       class="form-control add-qty number-spinner"
+                                       data-bts-force-step-divisibility="ceil"
+                                       min="1"
+                                       max="1"
+                                       maxlength="1"
+                                       data-bts-min="1"
+                                       data-bts-step="1"
+                                       data-bts-max="1" />
+                            </div>
+
+                        <div class="col-xs-4 col-lg-3 hidden-print">
+                            <a id="148960-11221-add" class="btn btn-success btn-add btn-block epi-add-button" role="button">
+                                    <i class="fa fa-shopping-cart  epi-gs-buy"></i>
+
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="m-bom-listdetails collapse hidden-print" id="details-yanmardata-1310610">
+        <div class="row">
+            <div class="col-xs-offset-1 col-xs-11 col-lg-6">
+                <span class="heading">Applicability</span>
+                <span class="value">
+                        <span>-</span>
+                </span>
+                <span class="heading">Effectivity</span>
+                <span class="value">
+                        <span>-</span>
+                </span>
+                <span class="heading">Notes</span>
+
+                    <span>-</span>
+
+            </div>
+            <div class="col-xs-11 col-xs-offset-1 col-lg-offset-0 col-lg-5">
+                <div class="m-bom-link text-right">
+                    <a href="/en-GB/catalog/all/part/yanmardata-1310610/yanmar-marine-marine-main-engine-medium-ay-series-6aym-wet-fig-23-locker-arm-bush" title="More Details">More Details</a>
+                </div>
+                <div class="m-bom-order-qty">
+                    
+
+<div class="row">
+    <div class="col-xs-4">
+        <span class="heading">Min Qty</span>
+    </div>
+    <div class="col-xs-4">
+        <span class="heading">Inc Qty</span>
+    </div>
+    <div class="col-xs-4">
+        <span class="heading">Max Qty</span>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-4">
+        <var>1</var>
+    </div>
+    <div class="col-xs-4">
+        <var>1</var>
+    </div>
+    <div class="col-xs-4">
+        <var>1</var>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-4">
+        <span class="heading">Pack Qty</span>
+    </div>
+
+    <div class="col-xs-4">
+        <span class="heading">Lead Time (Days)</span>
+    </div>
+    <div class="col-xs-4">
+        <span class="heading">UOM</span>
+    </div>
+
+</div>
+<div class="row">
+    <div class="col-xs-4">
+        <var>1</var>
+    </div>
+    <div class="col-xs-4">
+        <var>-</var>
+    </div>
+    <div class="col-xs-4">
+        <var></var>
+    </div>
+</div>
+
+                </div>
+                <div class="m-bom-surcharge">
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="m-bom-listrow">
+
+    <div class="epi-servicebom-item "
+         data-consists-of='{"id":"yanmardata-1310611","partNo":"148616-11230","description":"SCREW, VALVE ADJUST","referenceNo":"11","link":"11","quantity":"6","price":"£13.14","poa":false,"commerceIsSuperseded":false,"productId":"148616-11230","isSuperseded":false,"isSelected":false,"supersession":null,"applicability":null,"effectivity":null,"url":"/en-GB/catalog/all/part/yanmardata-1310611/yanmar-marine-marine-main-engine-medium-ay-series-6aym-wet-fig-23-locker-arm-screw-valve-adjust","surcharge":0.0000,"min":1,"max":1,"maxlength":"1","step":1,"displayPrice":"£13.14","href":null}'>
+
+        <div class="epi-basketline-add" data-part="{&quot;partNumber&quot;:&quot;148616-11230&quot;,&quot;description&quot;:&quot;SCREW, VALVE ADJUST&quot;,&quot;itemImageUrl&quot;:null,&quot;options&quot;:null,&quot;itemUrl&quot;:&quot;/en-GB/catalog/all/partdetail/yanmardata-148616-11230?openSupersessionInfo=False&quot;,&quot;isSuperseded&quot;:false,&quot;supersessionUrl&quot;:&quot;/en-GB/commerce/items/supersessionselector?partNumber=148616-11230\u0026partUrl=%2Fen-GB%2Fcatalog%2Fall%2Fpartdetail%2Fyanmardata-148616-11230%3FopenSupersessionInfo%3DTrue&quot;,&quot;productVin&quot;:null,&quot;productSerial&quot;:null,&quot;productMake&quot;:null,&quot;productModel&quot;:null,&quot;warehouseCode&quot;:null}" data-url="/en-GB/commerce/baskets/current/lines" data-callback-url="" data-callback-method="">
+
+            <div class="row">
+                <div class="col-xs-2 col-lg-1 epi-servicebom-value col-print-1">
+                        <span class="m-sbom-ref text-center">11</span>
+                </div>
+                <div class="col-xs-6 col-lg-4 epi-servicebom-value no-gutter col-print-4">
+
+                    <span class="indent-0 m-bom-listtext">
+                        <a href="#details-yanmardata-1310611" data-toggle="collapse" aria-expanded="false" aria-controls="details-yanmardata-1310611">
+                                <span class="hidden-print"></span>
+                            SCREW, VALVE ADJUST
+                        </a>
+                    </span>
+                    <div class="m-bom-listconditions">
+
+                    </div>
+                </div>
+                <div class="col-xs-4 col-lg-2 epi-servicebom-value no-gutter col-print-3">
+                    <span class="m-bom-listtext">148616-11230</span>
+                    <div class="epi-stock" data-sku="148616-11230" data-qty="1" data-enable-basket-add="True"></div>
+                </div>
+                <div class="col-xs-10 col-xs-offset-2 col-lg-5 col-lg-offset-0 col-print-4">
+                    <div class="row">
+                        <div class="col-lg-2 visible-lg no-gutter col-print-6">
+                            <span class="m-bom-listtext text-center">6</span>
+                        </div>
+
+                            <div class="col-xs-4 col-lg-3 epi-servicebom-list-price no-gutter col-print-6">
+                                <span class="m-bom-listtext">
+                                    <div class="text-left">
+                                        
+        <div>
+                <var>&#xA3;13.14</var>
+            <div class="m-item-surcharge">
+            </div>
+        </div>
+
+                                    </div>
+                                </span>
+                            </div>
+                            <div class="col-xs-4 col-lg-4 no-gutter hidden-print">
+
+                                <input type="number" id="148616-11230-quantity"
+                                       value="1"
+                                       class="form-control add-qty number-spinner"
+                                       data-bts-force-step-divisibility="ceil"
+                                       min="1"
+                                       max="1"
+                                       maxlength="1"
+                                       data-bts-min="1"
+                                       data-bts-step="1"
+                                       data-bts-max="1" />
+                            </div>
+
+                        <div class="col-xs-4 col-lg-3 hidden-print">
+                            <a id="148616-11230-add" class="btn btn-success btn-add btn-block epi-add-button" role="button">
+                                    <i class="fa fa-shopping-cart  epi-gs-buy"></i>
+
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="m-bom-listdetails collapse hidden-print" id="details-yanmardata-1310611">
+        <div class="row">
+            <div class="col-xs-offset-1 col-xs-11 col-lg-6">
+                <span class="heading">Applicability</span>
+                <span class="value">
+                        <span>-</span>
+                </span>
+                <span class="heading">Effectivity</span>
+                <span class="value">
+                        <span>-</span>
+                </span>
+                <span class="heading">Notes</span>
+
+                    <span>-</span>
+
+            </div>
+            <div class="col-xs-11 col-xs-offset-1 col-lg-offset-0 col-lg-5">
+                <div class="m-bom-link text-right">
+                    <a href="/en-GB/catalog/all/part/yanmardata-1310611/yanmar-marine-marine-main-engine-medium-ay-series-6aym-wet-fig-23-locker-arm-screw-valve-adjust" title="More Details">More Details</a>
+                </div>
+                <div class="m-bom-order-qty">
+                    
+
+<div class="row">
+    <div class="col-xs-4">
+        <span class="heading">Min Qty</span>
+    </div>
+    <div class="col-xs-4">
+        <span class="heading">Inc Qty</span>
+    </div>
+    <div class="col-xs-4">
+        <span class="heading">Max Qty</span>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-4">
+        <var>1</var>
+    </div>
+    <div class="col-xs-4">
+        <var>1</var>
+    </div>
+    <div class="col-xs-4">
+        <var>1</var>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-4">
+        <span class="heading">Pack Qty</span>
+    </div>
+
+    <div class="col-xs-4">
+        <span class="heading">Lead Time (Days)</span>
+    </div>
+    <div class="col-xs-4">
+        <span class="heading">UOM</span>
+    </div>
+
+</div>
+<div class="row">
+    <div class="col-xs-4">
+        <var>1</var>
+    </div>
+    <div class="col-xs-4">
+        <var>-</var>
+    </div>
+    <div class="col-xs-4">
+        <var></var>
+    </div>
+</div>
+
+                </div>
+                <div class="m-bom-surcharge">
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="m-bom-listrow">
+
+    <div class="epi-servicebom-item "
+         data-consists-of='{"id":"yanmardata-1310612","partNo":"26692-140002","description":"NUT, LOCK M14","referenceNo":"12","link":"12","quantity":"6","price":"POA","poa":true,"commerceIsSuperseded":true,"productId":"26692-140002","isSuperseded":false,"isSelected":false,"supersession":null,"applicability":null,"effectivity":null,"url":"/en-GB/catalog/all/part/yanmardata-1310612/yanmar-marine-marine-main-engine-medium-ay-series-6aym-wet-fig-23-locker-arm-nut-lock-m14","surcharge":0.0,"min":1,"max":1,"maxlength":"1","step":1,"displayPrice":"£0.00","href":null}'>
+
+        <div class="epi-basketline-add" data-part="{&quot;partNumber&quot;:&quot;26692-140002&quot;,&quot;description&quot;:&quot;NUT, LOCK M14&quot;,&quot;itemImageUrl&quot;:null,&quot;options&quot;:null,&quot;itemUrl&quot;:&quot;/en-GB/catalog/all/partdetail/yanmardata-26692-140002?openSupersessionInfo=False&quot;,&quot;isSuperseded&quot;:true,&quot;supersessionUrl&quot;:&quot;/en-GB/commerce/items/supersessionselector?partNumber=26692-140002\u0026partUrl=%2Fen-GB%2Fcatalog%2Fall%2Fpartdetail%2Fyanmardata-26692-140002%3FopenSupersessionInfo%3DTrue&quot;,&quot;productVin&quot;:null,&quot;productSerial&quot;:null,&quot;productMake&quot;:null,&quot;productModel&quot;:null,&quot;warehouseCode&quot;:null}" data-url="/en-GB/commerce/baskets/current/lines" data-callback-url="" data-callback-method="">
+
+            <div class="row">
+                <div class="col-xs-2 col-lg-1 epi-servicebom-value col-print-1">
+                        <span class="m-sbom-ref text-center">12</span>
+                </div>
+                <div class="col-xs-6 col-lg-4 epi-servicebom-value no-gutter col-print-4">
+
+                    <span class="indent-0 m-bom-listtext">
+                        <a href="#details-yanmardata-1310612" data-toggle="collapse" aria-expanded="false" aria-controls="details-yanmardata-1310612">
+                                <span class="hidden-print"></span>
+                            NUT, LOCK M14
+                        </a>
+                    </span>
+                    <div class="m-bom-listconditions">
+
+                    </div>
+                </div>
+                <div class="col-xs-4 col-lg-2 epi-servicebom-value no-gutter col-print-3">
+                    <span class="m-bom-listtext">26692-140002</span>
+                    <div class="epi-stock" data-sku="26692-140002" data-qty="1" data-enable-basket-add="True"></div>
+                </div>
+                <div class="col-xs-10 col-xs-offset-2 col-lg-5 col-lg-offset-0 col-print-4">
+                    <div class="row">
+                        <div class="col-lg-2 visible-lg no-gutter col-print-6">
+                            <span class="m-bom-listtext text-center">6</span>
+                        </div>
+
+                            <div class="col-xs-8 col-lg-7 no-gutter col-print-6">
+                                <span class=" m-bom-listtext supersession-reason">Unavailable - choose alternative:</span>
+                            </div>
+
+                        <div class="col-xs-4 col-lg-3 hidden-print">
+                            <a id="26692-140002-add" class="btn btn-success btn-add btn-block epi-add-button" role="button">
+                                    <i class="fa fa-list  epi-gs-buy"></i>
+
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="m-bom-listdetails collapse hidden-print" id="details-yanmardata-1310612">
+        <div class="row">
+            <div class="col-xs-offset-1 col-xs-11 col-lg-6">
+                <span class="heading">Applicability</span>
+                <span class="value">
+                        <span>-</span>
+                </span>
+                <span class="heading">Effectivity</span>
+                <span class="value">
+                        <span>-</span>
+                </span>
+                <span class="heading">Notes</span>
+
+                    <span>-</span>
+
+            </div>
+            <div class="col-xs-11 col-xs-offset-1 col-lg-offset-0 col-lg-5">
+                <div class="m-bom-link text-right">
+                    <a href="/en-GB/catalog/all/part/yanmardata-1310612/yanmar-marine-marine-main-engine-medium-ay-series-6aym-wet-fig-23-locker-arm-nut-lock-m14" title="More Details">More Details</a>
+                </div>
+                <div class="m-bom-order-qty">
+                    
+
+<div class="row">
+    <div class="col-xs-4">
+        <span class="heading">Min Qty</span>
+    </div>
+    <div class="col-xs-4">
+        <span class="heading">Inc Qty</span>
+    </div>
+    <div class="col-xs-4">
+        <span class="heading">Max Qty</span>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-4">
+        <var>1</var>
+    </div>
+    <div class="col-xs-4">
+        <var>1</var>
+    </div>
+    <div class="col-xs-4">
+        <var>1</var>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-4">
+        <span class="heading">Pack Qty</span>
+    </div>
+
+    <div class="col-xs-4">
+        <span class="heading">Lead Time (Days)</span>
+    </div>
+    <div class="col-xs-4">
+        <span class="heading">UOM</span>
+    </div>
+
+</div>
+<div class="row">
+    <div class="col-xs-4">
+        <var>1</var>
+    </div>
+    <div class="col-xs-4">
+        <var>-</var>
+    </div>
+    <div class="col-xs-4">
+        <var></var>
+    </div>
+</div>
+
+                </div>
+                <div class="m-bom-surcharge">
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="m-bom-listrow">
+
+    <div class="epi-servicebom-item "
+         data-consists-of='{"id":"yanmardata-1310613","partNo":"748960-11891","description":"SHAFT CMP, ROCKERARM","referenceNo":"14","link":"14","quantity":"6","price":"£491.33","poa":false,"commerceIsSuperseded":false,"productId":"748960-11891","isSuperseded":false,"isSelected":false,"supersession":null,"applicability":null,"effectivity":null,"url":"/en-GB/catalog/all/part/yanmardata-1310613/yanmar-marine-marine-main-engine-medium-ay-series-6aym-wet-fig-23-locker-arm-shaft-cmp-rockerarm","surcharge":0.0000,"min":1,"max":1,"maxlength":"1","step":1,"displayPrice":"£491.33","href":null}'>
+
+        <div class="epi-basketline-add" data-part="{&quot;partNumber&quot;:&quot;748960-11891&quot;,&quot;description&quot;:&quot;SHAFT CMP, ROCKERARM&quot;,&quot;itemImageUrl&quot;:null,&quot;options&quot;:null,&quot;itemUrl&quot;:&quot;/en-GB/catalog/all/partdetail/yanmardata-748960-11891?openSupersessionInfo=False&quot;,&quot;isSuperseded&quot;:false,&quot;supersessionUrl&quot;:&quot;/en-GB/commerce/items/supersessionselector?partNumber=748960-11891\u0026partUrl=%2Fen-GB%2Fcatalog%2Fall%2Fpartdetail%2Fyanmardata-748960-11891%3FopenSupersessionInfo%3DTrue&quot;,&quot;productVin&quot;:null,&quot;productSerial&quot;:null,&quot;productMake&quot;:null,&quot;productModel&quot;:null,&quot;warehouseCode&quot;:null}" data-url="/en-GB/commerce/baskets/current/lines" data-callback-url="" data-callback-method="">
+
+            <div class="row">
+                <div class="col-xs-2 col-lg-1 epi-servicebom-value col-print-1">
+                        <span class="m-sbom-ref text-center">14</span>
+                </div>
+                <div class="col-xs-6 col-lg-4 epi-servicebom-value no-gutter col-print-4">
+
+                    <span class="indent-0 m-bom-listtext">
+                        <a href="#details-yanmardata-1310613" data-toggle="collapse" aria-expanded="false" aria-controls="details-yanmardata-1310613">
+                                <span class="hidden-print"></span>
+                            SHAFT CMP, ROCKERARM
+                        </a>
+                    </span>
+                    <div class="m-bom-listconditions">
+
+                    </div>
+                </div>
+                <div class="col-xs-4 col-lg-2 epi-servicebom-value no-gutter col-print-3">
+                    <span class="m-bom-listtext">748960-11891</span>
+                    <div class="epi-stock" data-sku="748960-11891" data-qty="1" data-enable-basket-add="True"></div>
+                </div>
+                <div class="col-xs-10 col-xs-offset-2 col-lg-5 col-lg-offset-0 col-print-4">
+                    <div class="row">
+                        <div class="col-lg-2 visible-lg no-gutter col-print-6">
+                            <span class="m-bom-listtext text-center">6</span>
+                        </div>
+
+                            <div class="col-xs-4 col-lg-3 epi-servicebom-list-price no-gutter col-print-6">
+                                <span class="m-bom-listtext">
+                                    <div class="text-left">
+                                        
+        <div>
+                <var>&#xA3;491.33</var>
+            <div class="m-item-surcharge">
+            </div>
+        </div>
+
+                                    </div>
+                                </span>
+                            </div>
+                            <div class="col-xs-4 col-lg-4 no-gutter hidden-print">
+
+                                <input type="number" id="748960-11891-quantity"
+                                       value="1"
+                                       class="form-control add-qty number-spinner"
+                                       data-bts-force-step-divisibility="ceil"
+                                       min="1"
+                                       max="1"
+                                       maxlength="1"
+                                       data-bts-min="1"
+                                       data-bts-step="1"
+                                       data-bts-max="1" />
+                            </div>
+
+                        <div class="col-xs-4 col-lg-3 hidden-print">
+                            <a id="748960-11891-add" class="btn btn-success btn-add btn-block epi-add-button" role="button">
+                                    <i class="fa fa-shopping-cart  epi-gs-buy"></i>
+
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="m-bom-listdetails collapse hidden-print" id="details-yanmardata-1310613">
+        <div class="row">
+            <div class="col-xs-offset-1 col-xs-11 col-lg-6">
+                <span class="heading">Applicability</span>
+                <span class="value">
+                        <span>-</span>
+                </span>
+                <span class="heading">Effectivity</span>
+                <span class="value">
+                        <span>-</span>
+                </span>
+                <span class="heading">Notes</span>
+
+                    <span>-</span>
+
+            </div>
+            <div class="col-xs-11 col-xs-offset-1 col-lg-offset-0 col-lg-5">
+                <div class="m-bom-link text-right">
+                    <a href="/en-GB/catalog/all/part/yanmardata-1310613/yanmar-marine-marine-main-engine-medium-ay-series-6aym-wet-fig-23-locker-arm-shaft-cmp-rockerarm" title="More Details">More Details</a>
+                </div>
+                <div class="m-bom-order-qty">
+                    
+
+<div class="row">
+    <div class="col-xs-4">
+        <span class="heading">Min Qty</span>
+    </div>
+    <div class="col-xs-4">
+        <span class="heading">Inc Qty</span>
+    </div>
+    <div class="col-xs-4">
+        <span class="heading">Max Qty</span>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-4">
+        <var>1</var>
+    </div>
+    <div class="col-xs-4">
+        <var>1</var>
+    </div>
+    <div class="col-xs-4">
+        <var>1</var>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-4">
+        <span class="heading">Pack Qty</span>
+    </div>
+
+    <div class="col-xs-4">
+        <span class="heading">Lead Time (Days)</span>
+    </div>
+    <div class="col-xs-4">
+        <span class="heading">UOM</span>
+    </div>
+
+</div>
+<div class="row">
+    <div class="col-xs-4">
+        <var>1</var>
+    </div>
+    <div class="col-xs-4">
+        <var>-</var>
+    </div>
+    <div class="col-xs-4">
+        <var></var>
+    </div>
+</div>
+
+                </div>
+                <div class="m-bom-surcharge">
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="m-bom-listrow">
+
+    <div class="epi-servicebom-item "
+         data-consists-of='{"id":"yanmardata-1310614","partNo":"23876-005000","description":"PLUG, R005","referenceNo":"16","link":"16","quantity":"6","price":"£5.02","poa":false,"commerceIsSuperseded":false,"productId":"23876-005000","isSuperseded":false,"isSelected":false,"supersession":null,"applicability":null,"effectivity":null,"url":"/en-GB/catalog/all/part/yanmardata-1310614/yanmar-marine-marine-main-engine-medium-ay-series-6aym-wet-fig-23-locker-arm-plug-r005","surcharge":0.0000,"min":1,"max":1,"maxlength":"1","step":1,"displayPrice":"£5.02","href":null}'>
+
+        <div class="epi-basketline-add" data-part="{&quot;partNumber&quot;:&quot;23876-005000&quot;,&quot;description&quot;:&quot;PLUG, R005&quot;,&quot;itemImageUrl&quot;:null,&quot;options&quot;:null,&quot;itemUrl&quot;:&quot;/en-GB/catalog/all/partdetail/yanmardata-23876-005000?openSupersessionInfo=False&quot;,&quot;isSuperseded&quot;:false,&quot;supersessionUrl&quot;:&quot;/en-GB/commerce/items/supersessionselector?partNumber=23876-005000\u0026partUrl=%2Fen-GB%2Fcatalog%2Fall%2Fpartdetail%2Fyanmardata-23876-005000%3FopenSupersessionInfo%3DTrue&quot;,&quot;productVin&quot;:null,&quot;productSerial&quot;:null,&quot;productMake&quot;:null,&quot;productModel&quot;:null,&quot;warehouseCode&quot;:null}" data-url="/en-GB/commerce/baskets/current/lines" data-callback-url="" data-callback-method="">
+
+            <div class="row">
+                <div class="col-xs-2 col-lg-1 epi-servicebom-value col-print-1">
+                        <span class="m-sbom-ref text-center">16</span>
+                </div>
+                <div class="col-xs-6 col-lg-4 epi-servicebom-value no-gutter col-print-4">
+
+                    <span class="indent-0 m-bom-listtext">
+                        <a href="#details-yanmardata-1310614" data-toggle="collapse" aria-expanded="false" aria-controls="details-yanmardata-1310614">
+                                <span class="hidden-print"></span>
+                            PLUG, R005
+                        </a>
+                    </span>
+                    <div class="m-bom-listconditions">
+
+                    </div>
+                </div>
+                <div class="col-xs-4 col-lg-2 epi-servicebom-value no-gutter col-print-3">
+                    <span class="m-bom-listtext">23876-005000</span>
+                    <div class="epi-stock" data-sku="23876-005000" data-qty="1" data-enable-basket-add="True"></div>
+                </div>
+                <div class="col-xs-10 col-xs-offset-2 col-lg-5 col-lg-offset-0 col-print-4">
+                    <div class="row">
+                        <div class="col-lg-2 visible-lg no-gutter col-print-6">
+                            <span class="m-bom-listtext text-center">6</span>
+                        </div>
+
+                            <div class="col-xs-4 col-lg-3 epi-servicebom-list-price no-gutter col-print-6">
+                                <span class="m-bom-listtext">
+                                    <div class="text-left">
+                                        
+        <div>
+                <var>&#xA3;5.02</var>
+            <div class="m-item-surcharge">
+            </div>
+        </div>
+
+                                    </div>
+                                </span>
+                            </div>
+                            <div class="col-xs-4 col-lg-4 no-gutter hidden-print">
+
+                                <input type="number" id="23876-005000-quantity"
+                                       value="1"
+                                       class="form-control add-qty number-spinner"
+                                       data-bts-force-step-divisibility="ceil"
+                                       min="1"
+                                       max="1"
+                                       maxlength="1"
+                                       data-bts-min="1"
+                                       data-bts-step="1"
+                                       data-bts-max="1" />
+                            </div>
+
+                        <div class="col-xs-4 col-lg-3 hidden-print">
+                            <a id="23876-005000-add" class="btn btn-success btn-add btn-block epi-add-button" role="button">
+                                    <i class="fa fa-shopping-cart  epi-gs-buy"></i>
+
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="m-bom-listdetails collapse hidden-print" id="details-yanmardata-1310614">
+        <div class="row">
+            <div class="col-xs-offset-1 col-xs-11 col-lg-6">
+                <span class="heading">Applicability</span>
+                <span class="value">
+                        <span>-</span>
+                </span>
+                <span class="heading">Effectivity</span>
+                <span class="value">
+                        <span>-</span>
+                </span>
+                <span class="heading">Notes</span>
+
+                    <span>-</span>
+
+            </div>
+            <div class="col-xs-11 col-xs-offset-1 col-lg-offset-0 col-lg-5">
+                <div class="m-bom-link text-right">
+                    <a href="/en-GB/catalog/all/part/yanmardata-1310614/yanmar-marine-marine-main-engine-medium-ay-series-6aym-wet-fig-23-locker-arm-plug-r005" title="More Details">More Details</a>
+                </div>
+                <div class="m-bom-order-qty">
+                    
+
+<div class="row">
+    <div class="col-xs-4">
+        <span class="heading">Min Qty</span>
+    </div>
+    <div class="col-xs-4">
+        <span class="heading">Inc Qty</span>
+    </div>
+    <div class="col-xs-4">
+        <span class="heading">Max Qty</span>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-4">
+        <var>1</var>
+    </div>
+    <div class="col-xs-4">
+        <var>1</var>
+    </div>
+    <div class="col-xs-4">
+        <var>1</var>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-4">
+        <span class="heading">Pack Qty</span>
+    </div>
+
+    <div class="col-xs-4">
+        <span class="heading">Lead Time (Days)</span>
+    </div>
+    <div class="col-xs-4">
+        <span class="heading">UOM</span>
+    </div>
+
+</div>
+<div class="row">
+    <div class="col-xs-4">
+        <var>1</var>
+    </div>
+    <div class="col-xs-4">
+        <var>-</var>
+    </div>
+    <div class="col-xs-4">
+        <var></var>
+    </div>
+</div>
+
+                </div>
+                <div class="m-bom-surcharge">
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="m-bom-listrow">
+
+    <div class="epi-servicebom-item "
+         data-consists-of='{"id":"yanmardata-1310615","partNo":"22242-000320","description":"RING,  32","referenceNo":"17","link":"17","quantity":"6","price":"£1.87","poa":false,"commerceIsSuperseded":false,"productId":"22242-000320","isSuperseded":false,"isSelected":false,"supersession":null,"applicability":null,"effectivity":null,"url":"/en-GB/catalog/all/part/yanmardata-1310615/yanmar-marine-marine-main-engine-medium-ay-series-6aym-wet-fig-23-locker-arm-ring-32","surcharge":0.0000,"min":1,"max":1,"maxlength":"1","step":1,"displayPrice":"£1.87","href":null}'>
+
+        <div class="epi-basketline-add" data-part="{&quot;partNumber&quot;:&quot;22242-000320&quot;,&quot;description&quot;:&quot;RING,  32&quot;,&quot;itemImageUrl&quot;:null,&quot;options&quot;:null,&quot;itemUrl&quot;:&quot;/en-GB/catalog/all/partdetail/yanmardata-22242-000320?openSupersessionInfo=False&quot;,&quot;isSuperseded&quot;:false,&quot;supersessionUrl&quot;:&quot;/en-GB/commerce/items/supersessionselector?partNumber=22242-000320\u0026partUrl=%2Fen-GB%2Fcatalog%2Fall%2Fpartdetail%2Fyanmardata-22242-000320%3FopenSupersessionInfo%3DTrue&quot;,&quot;productVin&quot;:null,&quot;productSerial&quot;:null,&quot;productMake&quot;:null,&quot;productModel&quot;:null,&quot;warehouseCode&quot;:null}" data-url="/en-GB/commerce/baskets/current/lines" data-callback-url="" data-callback-method="">
+
+            <div class="row">
+                <div class="col-xs-2 col-lg-1 epi-servicebom-value col-print-1">
+                        <span class="m-sbom-ref text-center">17</span>
+                </div>
+                <div class="col-xs-6 col-lg-4 epi-servicebom-value no-gutter col-print-4">
+
+                    <span class="indent-0 m-bom-listtext">
+                        <a href="#details-yanmardata-1310615" data-toggle="collapse" aria-expanded="false" aria-controls="details-yanmardata-1310615">
+                                <span class="hidden-print"></span>
+                            RING,  32
+                        </a>
+                    </span>
+                    <div class="m-bom-listconditions">
+
+                    </div>
+                </div>
+                <div class="col-xs-4 col-lg-2 epi-servicebom-value no-gutter col-print-3">
+                    <span class="m-bom-listtext">22242-000320</span>
+                    <div class="epi-stock" data-sku="22242-000320" data-qty="1" data-enable-basket-add="True"></div>
+                </div>
+                <div class="col-xs-10 col-xs-offset-2 col-lg-5 col-lg-offset-0 col-print-4">
+                    <div class="row">
+                        <div class="col-lg-2 visible-lg no-gutter col-print-6">
+                            <span class="m-bom-listtext text-center">6</span>
+                        </div>
+
+                            <div class="col-xs-4 col-lg-3 epi-servicebom-list-price no-gutter col-print-6">
+                                <span class="m-bom-listtext">
+                                    <div class="text-left">
+                                        
+        <div>
+                <var>&#xA3;1.87</var>
+            <div class="m-item-surcharge">
+            </div>
+        </div>
+
+                                    </div>
+                                </span>
+                            </div>
+                            <div class="col-xs-4 col-lg-4 no-gutter hidden-print">
+
+                                <input type="number" id="22242-000320-quantity"
+                                       value="1"
+                                       class="form-control add-qty number-spinner"
+                                       data-bts-force-step-divisibility="ceil"
+                                       min="1"
+                                       max="1"
+                                       maxlength="1"
+                                       data-bts-min="1"
+                                       data-bts-step="1"
+                                       data-bts-max="1" />
+                            </div>
+
+                        <div class="col-xs-4 col-lg-3 hidden-print">
+                            <a id="22242-000320-add" class="btn btn-success btn-add btn-block epi-add-button" role="button">
+                                    <i class="fa fa-shopping-cart  epi-gs-buy"></i>
+
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="m-bom-listdetails collapse hidden-print" id="details-yanmardata-1310615">
+        <div class="row">
+            <div class="col-xs-offset-1 col-xs-11 col-lg-6">
+                <span class="heading">Applicability</span>
+                <span class="value">
+                        <span>-</span>
+                </span>
+                <span class="heading">Effectivity</span>
+                <span class="value">
+                        <span>-</span>
+                </span>
+                <span class="heading">Notes</span>
+
+                    <span>-</span>
+
+            </div>
+            <div class="col-xs-11 col-xs-offset-1 col-lg-offset-0 col-lg-5">
+                <div class="m-bom-link text-right">
+                    <a href="/en-GB/catalog/all/part/yanmardata-1310615/yanmar-marine-marine-main-engine-medium-ay-series-6aym-wet-fig-23-locker-arm-ring-32" title="More Details">More Details</a>
+                </div>
+                <div class="m-bom-order-qty">
+                    
+
+<div class="row">
+    <div class="col-xs-4">
+        <span class="heading">Min Qty</span>
+    </div>
+    <div class="col-xs-4">
+        <span class="heading">Inc Qty</span>
+    </div>
+    <div class="col-xs-4">
+        <span class="heading">Max Qty</span>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-4">
+        <var>1</var>
+    </div>
+    <div class="col-xs-4">
+        <var>1</var>
+    </div>
+    <div class="col-xs-4">
+        <var>1</var>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-4">
+        <span class="heading">Pack Qty</span>
+    </div>
+
+    <div class="col-xs-4">
+        <span class="heading">Lead Time (Days)</span>
+    </div>
+    <div class="col-xs-4">
+        <span class="heading">UOM</span>
+    </div>
+
+</div>
+<div class="row">
+    <div class="col-xs-4">
+        <var>1</var>
+    </div>
+    <div class="col-xs-4">
+        <var>-</var>
+    </div>
+    <div class="col-xs-4">
+        <var></var>
+    </div>
+</div>
+
+                </div>
+                <div class="m-bom-surcharge">
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="m-bom-listrow">
+
+    <div class="epi-servicebom-item "
+         data-consists-of='{"id":"yanmardata-1310616","partNo":"148620-11260","description":"SUPPORT","referenceNo":"18","link":"18","quantity":"6","price":"£242.57","poa":false,"commerceIsSuperseded":false,"productId":"148620-11260","isSuperseded":false,"isSelected":false,"supersession":null,"applicability":null,"effectivity":null,"url":"/en-GB/catalog/all/part/yanmardata-1310616/yanmar-marine-marine-main-engine-medium-ay-series-6aym-wet-fig-23-locker-arm-support","surcharge":0.0000,"min":1,"max":1,"maxlength":"1","step":1,"displayPrice":"£242.57","href":null}'>
+
+        <div class="epi-basketline-add" data-part="{&quot;partNumber&quot;:&quot;148620-11260&quot;,&quot;description&quot;:&quot;SUPPORT&quot;,&quot;itemImageUrl&quot;:null,&quot;options&quot;:null,&quot;itemUrl&quot;:&quot;/en-GB/catalog/all/partdetail/yanmardata-148620-11260?openSupersessionInfo=False&quot;,&quot;isSuperseded&quot;:false,&quot;supersessionUrl&quot;:&quot;/en-GB/commerce/items/supersessionselector?partNumber=148620-11260\u0026partUrl=%2Fen-GB%2Fcatalog%2Fall%2Fpartdetail%2Fyanmardata-148620-11260%3FopenSupersessionInfo%3DTrue&quot;,&quot;productVin&quot;:null,&quot;productSerial&quot;:null,&quot;productMake&quot;:null,&quot;productModel&quot;:null,&quot;warehouseCode&quot;:null}" data-url="/en-GB/commerce/baskets/current/lines" data-callback-url="" data-callback-method="">
+
+            <div class="row">
+                <div class="col-xs-2 col-lg-1 epi-servicebom-value col-print-1">
+                        <span class="m-sbom-ref text-center">18</span>
+                </div>
+                <div class="col-xs-6 col-lg-4 epi-servicebom-value no-gutter col-print-4">
+
+                    <span class="indent-0 m-bom-listtext">
+                        <a href="#details-yanmardata-1310616" data-toggle="collapse" aria-expanded="false" aria-controls="details-yanmardata-1310616">
+                                <span class="hidden-print"></span>
+                            SUPPORT
+                        </a>
+                    </span>
+                    <div class="m-bom-listconditions">
+
+                    </div>
+                </div>
+                <div class="col-xs-4 col-lg-2 epi-servicebom-value no-gutter col-print-3">
+                    <span class="m-bom-listtext">148620-11260</span>
+                    <div class="epi-stock" data-sku="148620-11260" data-qty="1" data-enable-basket-add="True"></div>
+                </div>
+                <div class="col-xs-10 col-xs-offset-2 col-lg-5 col-lg-offset-0 col-print-4">
+                    <div class="row">
+                        <div class="col-lg-2 visible-lg no-gutter col-print-6">
+                            <span class="m-bom-listtext text-center">6</span>
+                        </div>
+
+                            <div class="col-xs-4 col-lg-3 epi-servicebom-list-price no-gutter col-print-6">
+                                <span class="m-bom-listtext">
+                                    <div class="text-left">
+                                        
+        <div>
+                <var>&#xA3;242.57</var>
+            <div class="m-item-surcharge">
+            </div>
+        </div>
+
+                                    </div>
+                                </span>
+                            </div>
+                            <div class="col-xs-4 col-lg-4 no-gutter hidden-print">
+
+                                <input type="number" id="148620-11260-quantity"
+                                       value="1"
+                                       class="form-control add-qty number-spinner"
+                                       data-bts-force-step-divisibility="ceil"
+                                       min="1"
+                                       max="1"
+                                       maxlength="1"
+                                       data-bts-min="1"
+                                       data-bts-step="1"
+                                       data-bts-max="1" />
+                            </div>
+
+                        <div class="col-xs-4 col-lg-3 hidden-print">
+                            <a id="148620-11260-add" class="btn btn-success btn-add btn-block epi-add-button" role="button">
+                                    <i class="fa fa-shopping-cart  epi-gs-buy"></i>
+
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="m-bom-listdetails collapse hidden-print" id="details-yanmardata-1310616">
+        <div class="row">
+            <div class="col-xs-offset-1 col-xs-11 col-lg-6">
+                <span class="heading">Applicability</span>
+                <span class="value">
+                        <span>-</span>
+                </span>
+                <span class="heading">Effectivity</span>
+                <span class="value">
+                        <span>-</span>
+                </span>
+                <span class="heading">Notes</span>
+
+                    <span>-</span>
+
+            </div>
+            <div class="col-xs-11 col-xs-offset-1 col-lg-offset-0 col-lg-5">
+                <div class="m-bom-link text-right">
+                    <a href="/en-GB/catalog/all/part/yanmardata-1310616/yanmar-marine-marine-main-engine-medium-ay-series-6aym-wet-fig-23-locker-arm-support" title="More Details">More Details</a>
+                </div>
+                <div class="m-bom-order-qty">
+                    
+
+<div class="row">
+    <div class="col-xs-4">
+        <span class="heading">Min Qty</span>
+    </div>
+    <div class="col-xs-4">
+        <span class="heading">Inc Qty</span>
+    </div>
+    <div class="col-xs-4">
+        <span class="heading">Max Qty</span>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-4">
+        <var>1</var>
+    </div>
+    <div class="col-xs-4">
+        <var>1</var>
+    </div>
+    <div class="col-xs-4">
+        <var>1</var>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-4">
+        <span class="heading">Pack Qty</span>
+    </div>
+
+    <div class="col-xs-4">
+        <span class="heading">Lead Time (Days)</span>
+    </div>
+    <div class="col-xs-4">
+        <span class="heading">UOM</span>
+    </div>
+
+</div>
+<div class="row">
+    <div class="col-xs-4">
+        <var>1</var>
+    </div>
+    <div class="col-xs-4">
+        <var>-</var>
+    </div>
+    <div class="col-xs-4">
+        <var></var>
+    </div>
+</div>
+
+                </div>
+                <div class="m-bom-surcharge">
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="m-bom-listrow">
+
+    <div class="epi-servicebom-item "
+         data-consists-of='{"id":"yanmardata-1310617","partNo":"748620-11261","description":"BRIDGE ASSY, VALVE","referenceNo":"19","link":"19","quantity":"12","price":"£434.00","poa":false,"commerceIsSuperseded":false,"productId":"748620-11261","isSuperseded":false,"isSelected":false,"supersession":null,"applicability":null,"effectivity":null,"url":"/en-GB/catalog/all/part/yanmardata-1310617/yanmar-marine-marine-main-engine-medium-ay-series-6aym-wet-fig-23-locker-arm-bridge-assy-valve","surcharge":0.0000,"min":1,"max":1,"maxlength":"1","step":1,"displayPrice":"£434.00","href":null}'>
+
+        <div class="epi-basketline-add" data-part="{&quot;partNumber&quot;:&quot;748620-11261&quot;,&quot;description&quot;:&quot;BRIDGE ASSY, VALVE&quot;,&quot;itemImageUrl&quot;:null,&quot;options&quot;:null,&quot;itemUrl&quot;:&quot;/en-GB/catalog/all/partdetail/yanmardata-748620-11261?openSupersessionInfo=False&quot;,&quot;isSuperseded&quot;:false,&quot;supersessionUrl&quot;:&quot;/en-GB/commerce/items/supersessionselector?partNumber=748620-11261\u0026partUrl=%2Fen-GB%2Fcatalog%2Fall%2Fpartdetail%2Fyanmardata-748620-11261%3FopenSupersessionInfo%3DTrue&quot;,&quot;productVin&quot;:null,&quot;productSerial&quot;:null,&quot;productMake&quot;:null,&quot;productModel&quot;:null,&quot;warehouseCode&quot;:null}" data-url="/en-GB/commerce/baskets/current/lines" data-callback-url="" data-callback-method="">
+
+            <div class="row">
+                <div class="col-xs-2 col-lg-1 epi-servicebom-value col-print-1">
+                        <span class="m-sbom-ref text-center">19</span>
+                </div>
+                <div class="col-xs-6 col-lg-4 epi-servicebom-value no-gutter col-print-4">
+
+                    <span class="indent-0 m-bom-listtext">
+                        <a href="#details-yanmardata-1310617" data-toggle="collapse" aria-expanded="false" aria-controls="details-yanmardata-1310617">
+                                <span class="hidden-print"></span>
+                            BRIDGE ASSY, VALVE
+                        </a>
+                    </span>
+                    <div class="m-bom-listconditions">
+
+                    </div>
+                </div>
+                <div class="col-xs-4 col-lg-2 epi-servicebom-value no-gutter col-print-3">
+                    <span class="m-bom-listtext">748620-11261</span>
+                    <div class="epi-stock" data-sku="748620-11261" data-qty="1" data-enable-basket-add="True"></div>
+                </div>
+                <div class="col-xs-10 col-xs-offset-2 col-lg-5 col-lg-offset-0 col-print-4">
+                    <div class="row">
+                        <div class="col-lg-2 visible-lg no-gutter col-print-6">
+                            <span class="m-bom-listtext text-center">12</span>
+                        </div>
+
+                            <div class="col-xs-4 col-lg-3 epi-servicebom-list-price no-gutter col-print-6">
+                                <span class="m-bom-listtext">
+                                    <div class="text-left">
+                                        
+        <div>
+                <var>&#xA3;434.00</var>
+            <div class="m-item-surcharge">
+            </div>
+        </div>
+
+                                    </div>
+                                </span>
+                            </div>
+                            <div class="col-xs-4 col-lg-4 no-gutter hidden-print">
+
+                                <input type="number" id="748620-11261-quantity"
+                                       value="1"
+                                       class="form-control add-qty number-spinner"
+                                       data-bts-force-step-divisibility="ceil"
+                                       min="1"
+                                       max="1"
+                                       maxlength="1"
+                                       data-bts-min="1"
+                                       data-bts-step="1"
+                                       data-bts-max="1" />
+                            </div>
+
+                        <div class="col-xs-4 col-lg-3 hidden-print">
+                            <a id="748620-11261-add" class="btn btn-success btn-add btn-block epi-add-button" role="button">
+                                    <i class="fa fa-shopping-cart  epi-gs-buy"></i>
+
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="m-bom-listdetails collapse hidden-print" id="details-yanmardata-1310617">
+        <div class="row">
+            <div class="col-xs-offset-1 col-xs-11 col-lg-6">
+                <span class="heading">Applicability</span>
+                <span class="value">
+                        <span>-</span>
+                </span>
+                <span class="heading">Effectivity</span>
+                <span class="value">
+                        <span>-</span>
+                </span>
+                <span class="heading">Notes</span>
+
+                    <span>-</span>
+
+            </div>
+            <div class="col-xs-11 col-xs-offset-1 col-lg-offset-0 col-lg-5">
+                <div class="m-bom-link text-right">
+                    <a href="/en-GB/catalog/all/part/yanmardata-1310617/yanmar-marine-marine-main-engine-medium-ay-series-6aym-wet-fig-23-locker-arm-bridge-assy-valve" title="More Details">More Details</a>
+                </div>
+                <div class="m-bom-order-qty">
+                    
+
+<div class="row">
+    <div class="col-xs-4">
+        <span class="heading">Min Qty</span>
+    </div>
+    <div class="col-xs-4">
+        <span class="heading">Inc Qty</span>
+    </div>
+    <div class="col-xs-4">
+        <span class="heading">Max Qty</span>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-4">
+        <var>1</var>
+    </div>
+    <div class="col-xs-4">
+        <var>1</var>
+    </div>
+    <div class="col-xs-4">
+        <var>1</var>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-4">
+        <span class="heading">Pack Qty</span>
+    </div>
+
+    <div class="col-xs-4">
+        <span class="heading">Lead Time (Days)</span>
+    </div>
+    <div class="col-xs-4">
+        <span class="heading">UOM</span>
+    </div>
+
+</div>
+<div class="row">
+    <div class="col-xs-4">
+        <var>1</var>
+    </div>
+    <div class="col-xs-4">
+        <var>-</var>
+    </div>
+    <div class="col-xs-4">
+        <var></var>
+    </div>
+</div>
+
+                </div>
+                <div class="m-bom-surcharge">
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="m-bom-listrow">
+
+    <div class="epi-servicebom-item "
+         data-consists-of='{"id":"yanmardata-1310618","partNo":"140623-11740","description":"RETAINER","referenceNo":"21","link":"21","quantity":"12","price":"POA","poa":true,"commerceIsSuperseded":false,"productId":"140623-11740","isSuperseded":false,"isSelected":false,"supersession":null,"applicability":null,"effectivity":null,"url":"/en-GB/catalog/all/part/yanmardata-1310618/yanmar-marine-marine-main-engine-medium-ay-series-6aym-wet-fig-23-locker-arm-retainer","surcharge":0.0,"min":1,"max":2147483647,"maxlength":null,"step":0,"displayPrice":"£0.00","href":null}'>
+
+        <div class="epi-basketline-add epi-partdetail-disabled" data-part="{&quot;partNumber&quot;:&quot;140623-11740&quot;,&quot;description&quot;:&quot;RETAINER&quot;,&quot;itemImageUrl&quot;:null,&quot;options&quot;:null,&quot;itemUrl&quot;:&quot;/en-GB/catalog/all/partdetail/yanmardata-140623-11740?openSupersessionInfo=False&quot;,&quot;isSuperseded&quot;:false,&quot;supersessionUrl&quot;:&quot;/en-GB/commerce/items/supersessionselector?partNumber=140623-11740\u0026partUrl=%2Fen-GB%2Fcatalog%2Fall%2Fpartdetail%2Fyanmardata-140623-11740%3FopenSupersessionInfo%3DTrue&quot;,&quot;productVin&quot;:null,&quot;productSerial&quot;:null,&quot;productMake&quot;:null,&quot;productModel&quot;:null,&quot;warehouseCode&quot;:null}" data-url="/en-GB/commerce/baskets/current/lines" data-callback-url="" data-callback-method="">
+
+            <div class="row">
+                <div class="col-xs-2 col-lg-1 epi-servicebom-value col-print-1">
+                        <span class="m-sbom-ref text-center">21</span>
+                </div>
+                <div class="col-xs-6 col-lg-4 epi-servicebom-value no-gutter col-print-4">
+
+                    <span class="indent-0 m-bom-listtext">
+                        <a href="#details-yanmardata-1310618" data-toggle="collapse" aria-expanded="false" aria-controls="details-yanmardata-1310618">
+                                <span class="hidden-print"></span>
+                            RETAINER
+                        </a>
+                    </span>
+                    <div class="m-bom-listconditions">
+
+                    </div>
+                </div>
+                <div class="col-xs-4 col-lg-2 epi-servicebom-value no-gutter col-print-3">
+                    <span class="m-bom-listtext">140623-11740</span>
+                    <div class="epi-stock" data-sku="140623-11740" data-qty="1" data-enable-basket-add="True"></div>
+                </div>
+                <div class="col-xs-10 col-xs-offset-2 col-lg-5 col-lg-offset-0 col-print-4">
+                    <div class="row">
+                        <div class="col-lg-2 visible-lg no-gutter col-print-6">
+                            <span class="m-bom-listtext text-center">12</span>
+                        </div>
+
+                            <div class="col-xs-4 col-lg-3 epi-servicebom-list-price no-gutter col-print-6">
+                                <span class="m-bom-listtext">
+                                    <div class="text-left">
+                                        
+            <var>POA</var>
+
+                                    </div>
+                                </span>
+                            </div>
+                            <div class="col-xs-4 col-lg-4 no-gutter hidden-print">
+
+                                <input type="number" id="140623-11740-quantity"
+                                       value="1"
+                                       class="form-control add-qty number-spinner"
+                                       data-bts-force-step-divisibility="ceil"
+                                       min="1"
+                                       max="2147483647"
+                                       data-bts-min="1"
+                                       data-bts-step="0"
+                                       data-bts-max="2147483647" />
+                            </div>
+
+                        <div class="col-xs-4 col-lg-3 hidden-print">
+                            <a id="140623-11740-add" class="btn btn-success btn-add btn-block epi-add-button" role="button">
+                                    <i class="fa fa-shopping-cart  epi-gs-buy"></i>
+
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="m-bom-listdetails collapse hidden-print" id="details-yanmardata-1310618">
+        <div class="row">
+            <div class="col-xs-offset-1 col-xs-11 col-lg-6">
+                <span class="heading">Applicability</span>
+                <span class="value">
+                        <span>-</span>
+                </span>
+                <span class="heading">Effectivity</span>
+                <span class="value">
+                        <span>-</span>
+                </span>
+                <span class="heading">Notes</span>
+
+                    <span>-</span>
+
+            </div>
+            <div class="col-xs-11 col-xs-offset-1 col-lg-offset-0 col-lg-5">
+                <div class="m-bom-link text-right">
+                    <a href="/en-GB/catalog/all/part/yanmardata-1310618/yanmar-marine-marine-main-engine-medium-ay-series-6aym-wet-fig-23-locker-arm-retainer" title="More Details">More Details</a>
+                </div>
+                <div class="m-bom-order-qty">
+                    
+
+<div class="row">
+    <div class="col-xs-4">
+        <span class="heading">Min Qty</span>
+    </div>
+    <div class="col-xs-4">
+        <span class="heading">Inc Qty</span>
+    </div>
+    <div class="col-xs-4">
+        <span class="heading">Max Qty</span>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-4">
+        <var>-</var>
+    </div>
+    <div class="col-xs-4">
+        <var>0</var>
+    </div>
+    <div class="col-xs-4">
+        <var>-</var>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-4">
+        <span class="heading">Pack Qty</span>
+    </div>
+
+    <div class="col-xs-4">
+        <span class="heading">Lead Time (Days)</span>
+    </div>
+    <div class="col-xs-4">
+        <span class="heading">UOM</span>
+    </div>
+
+</div>
+<div class="row">
+    <div class="col-xs-4">
+        <var>-</var>
+    </div>
+    <div class="col-xs-4">
+        <var>-</var>
+    </div>
+    <div class="col-xs-4">
+        <var></var>
+    </div>
+</div>
+
+                </div>
+                <div class="m-bom-surcharge">
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="m-bom-listrow">
+
+    <div class="epi-servicebom-item "
+         data-consists-of='{"id":"yanmardata-1310619","partNo":"148616-11520","description":"SCREW","referenceNo":"22","link":"22","quantity":"12","price":"£10.84","poa":false,"commerceIsSuperseded":false,"productId":"148616-11520","isSuperseded":false,"isSelected":false,"supersession":null,"applicability":null,"effectivity":null,"url":"/en-GB/catalog/all/part/yanmardata-1310619/yanmar-marine-marine-main-engine-medium-ay-series-6aym-wet-fig-23-locker-arm-screw","surcharge":0.0000,"min":1,"max":1,"maxlength":"1","step":1,"displayPrice":"£10.84","href":null}'>
+
+        <div class="epi-basketline-add" data-part="{&quot;partNumber&quot;:&quot;148616-11520&quot;,&quot;description&quot;:&quot;SCREW&quot;,&quot;itemImageUrl&quot;:null,&quot;options&quot;:null,&quot;itemUrl&quot;:&quot;/en-GB/catalog/all/partdetail/yanmardata-148616-11520?openSupersessionInfo=False&quot;,&quot;isSuperseded&quot;:false,&quot;supersessionUrl&quot;:&quot;/en-GB/commerce/items/supersessionselector?partNumber=148616-11520\u0026partUrl=%2Fen-GB%2Fcatalog%2Fall%2Fpartdetail%2Fyanmardata-148616-11520%3FopenSupersessionInfo%3DTrue&quot;,&quot;productVin&quot;:null,&quot;productSerial&quot;:null,&quot;productMake&quot;:null,&quot;productModel&quot;:null,&quot;warehouseCode&quot;:null}" data-url="/en-GB/commerce/baskets/current/lines" data-callback-url="" data-callback-method="">
+
+            <div class="row">
+                <div class="col-xs-2 col-lg-1 epi-servicebom-value col-print-1">
+                        <span class="m-sbom-ref text-center">22</span>
+                </div>
+                <div class="col-xs-6 col-lg-4 epi-servicebom-value no-gutter col-print-4">
+
+                    <span class="indent-0 m-bom-listtext">
+                        <a href="#details-yanmardata-1310619" data-toggle="collapse" aria-expanded="false" aria-controls="details-yanmardata-1310619">
+                                <span class="hidden-print"></span>
+                            SCREW
+                        </a>
+                    </span>
+                    <div class="m-bom-listconditions">
+
+                    </div>
+                </div>
+                <div class="col-xs-4 col-lg-2 epi-servicebom-value no-gutter col-print-3">
+                    <span class="m-bom-listtext">148616-11520</span>
+                    <div class="epi-stock" data-sku="148616-11520" data-qty="1" data-enable-basket-add="True"></div>
+                </div>
+                <div class="col-xs-10 col-xs-offset-2 col-lg-5 col-lg-offset-0 col-print-4">
+                    <div class="row">
+                        <div class="col-lg-2 visible-lg no-gutter col-print-6">
+                            <span class="m-bom-listtext text-center">12</span>
+                        </div>
+
+                            <div class="col-xs-4 col-lg-3 epi-servicebom-list-price no-gutter col-print-6">
+                                <span class="m-bom-listtext">
+                                    <div class="text-left">
+                                        
+        <div>
+                <var>&#xA3;10.84</var>
+            <div class="m-item-surcharge">
+            </div>
+        </div>
+
+                                    </div>
+                                </span>
+                            </div>
+                            <div class="col-xs-4 col-lg-4 no-gutter hidden-print">
+
+                                <input type="number" id="148616-11520-quantity"
+                                       value="1"
+                                       class="form-control add-qty number-spinner"
+                                       data-bts-force-step-divisibility="ceil"
+                                       min="1"
+                                       max="1"
+                                       maxlength="1"
+                                       data-bts-min="1"
+                                       data-bts-step="1"
+                                       data-bts-max="1" />
+                            </div>
+
+                        <div class="col-xs-4 col-lg-3 hidden-print">
+                            <a id="148616-11520-add" class="btn btn-success btn-add btn-block epi-add-button" role="button">
+                                    <i class="fa fa-shopping-cart  epi-gs-buy"></i>
+
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="m-bom-listdetails collapse hidden-print" id="details-yanmardata-1310619">
+        <div class="row">
+            <div class="col-xs-offset-1 col-xs-11 col-lg-6">
+                <span class="heading">Applicability</span>
+                <span class="value">
+                        <span>-</span>
+                </span>
+                <span class="heading">Effectivity</span>
+                <span class="value">
+                        <span>-</span>
+                </span>
+                <span class="heading">Notes</span>
+
+                    <span>-</span>
+
+            </div>
+            <div class="col-xs-11 col-xs-offset-1 col-lg-offset-0 col-lg-5">
+                <div class="m-bom-link text-right">
+                    <a href="/en-GB/catalog/all/part/yanmardata-1310619/yanmar-marine-marine-main-engine-medium-ay-series-6aym-wet-fig-23-locker-arm-screw" title="More Details">More Details</a>
+                </div>
+                <div class="m-bom-order-qty">
+                    
+
+<div class="row">
+    <div class="col-xs-4">
+        <span class="heading">Min Qty</span>
+    </div>
+    <div class="col-xs-4">
+        <span class="heading">Inc Qty</span>
+    </div>
+    <div class="col-xs-4">
+        <span class="heading">Max Qty</span>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-4">
+        <var>1</var>
+    </div>
+    <div class="col-xs-4">
+        <var>1</var>
+    </div>
+    <div class="col-xs-4">
+        <var>1</var>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-4">
+        <span class="heading">Pack Qty</span>
+    </div>
+
+    <div class="col-xs-4">
+        <span class="heading">Lead Time (Days)</span>
+    </div>
+    <div class="col-xs-4">
+        <span class="heading">UOM</span>
+    </div>
+
+</div>
+<div class="row">
+    <div class="col-xs-4">
+        <var>1</var>
+    </div>
+    <div class="col-xs-4">
+        <var>-</var>
+    </div>
+    <div class="col-xs-4">
+        <var></var>
+    </div>
+</div>
+
+                </div>
+                <div class="m-bom-surcharge">
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="m-bom-listrow">
+
+    <div class="epi-servicebom-item "
+         data-consists-of='{"id":"yanmardata-1310620","partNo":"26776-120002","description":"NUT, LOCK M12","referenceNo":"23","link":"23","quantity":"12","price":"£3.11","poa":false,"commerceIsSuperseded":false,"productId":"26776-120002","isSuperseded":false,"isSelected":false,"supersession":null,"applicability":null,"effectivity":null,"url":"/en-GB/catalog/all/part/yanmardata-1310620/yanmar-marine-marine-main-engine-medium-ay-series-6aym-wet-fig-23-locker-arm-nut-lock-m12","surcharge":0.0000,"min":1,"max":1,"maxlength":"1","step":1,"displayPrice":"£3.11","href":null}'>
+
+        <div class="epi-basketline-add" data-part="{&quot;partNumber&quot;:&quot;26776-120002&quot;,&quot;description&quot;:&quot;NUT, LOCK M12&quot;,&quot;itemImageUrl&quot;:null,&quot;options&quot;:null,&quot;itemUrl&quot;:&quot;/en-GB/catalog/all/partdetail/yanmardata-26776-120002?openSupersessionInfo=False&quot;,&quot;isSuperseded&quot;:false,&quot;supersessionUrl&quot;:&quot;/en-GB/commerce/items/supersessionselector?partNumber=26776-120002\u0026partUrl=%2Fen-GB%2Fcatalog%2Fall%2Fpartdetail%2Fyanmardata-26776-120002%3FopenSupersessionInfo%3DTrue&quot;,&quot;productVin&quot;:null,&quot;productSerial&quot;:null,&quot;productMake&quot;:null,&quot;productModel&quot;:null,&quot;warehouseCode&quot;:null}" data-url="/en-GB/commerce/baskets/current/lines" data-callback-url="" data-callback-method="">
+
+            <div class="row">
+                <div class="col-xs-2 col-lg-1 epi-servicebom-value col-print-1">
+                        <span class="m-sbom-ref text-center">23</span>
+                </div>
+                <div class="col-xs-6 col-lg-4 epi-servicebom-value no-gutter col-print-4">
+
+                    <span class="indent-0 m-bom-listtext">
+                        <a href="#details-yanmardata-1310620" data-toggle="collapse" aria-expanded="false" aria-controls="details-yanmardata-1310620">
+                                <span class="hidden-print"></span>
+                            NUT, LOCK M12
+                        </a>
+                    </span>
+                    <div class="m-bom-listconditions">
+
+                    </div>
+                </div>
+                <div class="col-xs-4 col-lg-2 epi-servicebom-value no-gutter col-print-3">
+                    <span class="m-bom-listtext">26776-120002</span>
+                    <div class="epi-stock" data-sku="26776-120002" data-qty="1" data-enable-basket-add="True"></div>
+                </div>
+                <div class="col-xs-10 col-xs-offset-2 col-lg-5 col-lg-offset-0 col-print-4">
+                    <div class="row">
+                        <div class="col-lg-2 visible-lg no-gutter col-print-6">
+                            <span class="m-bom-listtext text-center">12</span>
+                        </div>
+
+                            <div class="col-xs-4 col-lg-3 epi-servicebom-list-price no-gutter col-print-6">
+                                <span class="m-bom-listtext">
+                                    <div class="text-left">
+                                        
+        <div>
+                <var>&#xA3;3.11</var>
+            <div class="m-item-surcharge">
+            </div>
+        </div>
+
+                                    </div>
+                                </span>
+                            </div>
+                            <div class="col-xs-4 col-lg-4 no-gutter hidden-print">
+
+                                <input type="number" id="26776-120002-quantity"
+                                       value="1"
+                                       class="form-control add-qty number-spinner"
+                                       data-bts-force-step-divisibility="ceil"
+                                       min="1"
+                                       max="1"
+                                       maxlength="1"
+                                       data-bts-min="1"
+                                       data-bts-step="1"
+                                       data-bts-max="1" />
+                            </div>
+
+                        <div class="col-xs-4 col-lg-3 hidden-print">
+                            <a id="26776-120002-add" class="btn btn-success btn-add btn-block epi-add-button" role="button">
+                                    <i class="fa fa-shopping-cart  epi-gs-buy"></i>
+
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="m-bom-listdetails collapse hidden-print" id="details-yanmardata-1310620">
+        <div class="row">
+            <div class="col-xs-offset-1 col-xs-11 col-lg-6">
+                <span class="heading">Applicability</span>
+                <span class="value">
+                        <span>-</span>
+                </span>
+                <span class="heading">Effectivity</span>
+                <span class="value">
+                        <span>-</span>
+                </span>
+                <span class="heading">Notes</span>
+
+                    <span>-</span>
+
+            </div>
+            <div class="col-xs-11 col-xs-offset-1 col-lg-offset-0 col-lg-5">
+                <div class="m-bom-link text-right">
+                    <a href="/en-GB/catalog/all/part/yanmardata-1310620/yanmar-marine-marine-main-engine-medium-ay-series-6aym-wet-fig-23-locker-arm-nut-lock-m12" title="More Details">More Details</a>
+                </div>
+                <div class="m-bom-order-qty">
+                    
+
+<div class="row">
+    <div class="col-xs-4">
+        <span class="heading">Min Qty</span>
+    </div>
+    <div class="col-xs-4">
+        <span class="heading">Inc Qty</span>
+    </div>
+    <div class="col-xs-4">
+        <span class="heading">Max Qty</span>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-4">
+        <var>1</var>
+    </div>
+    <div class="col-xs-4">
+        <var>1</var>
+    </div>
+    <div class="col-xs-4">
+        <var>1</var>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-4">
+        <span class="heading">Pack Qty</span>
+    </div>
+
+    <div class="col-xs-4">
+        <span class="heading">Lead Time (Days)</span>
+    </div>
+    <div class="col-xs-4">
+        <span class="heading">UOM</span>
+    </div>
+
+</div>
+<div class="row">
+    <div class="col-xs-4">
+        <var>1</var>
+    </div>
+    <div class="col-xs-4">
+        <var>-</var>
+    </div>
+    <div class="col-xs-4">
+        <var></var>
+    </div>
+</div>
+
+                </div>
+                <div class="m-bom-surcharge">
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="m-bom-listrow">
+
+    <div class="epi-servicebom-item "
+         data-consists-of='{"id":"yanmardata-1310621","partNo":"148620-11272","description":"BOLT","referenceNo":"24","link":"24","quantity":"6","price":"£36.47","poa":false,"commerceIsSuperseded":false,"productId":"148620-11272","isSuperseded":false,"isSelected":false,"supersession":null,"applicability":null,"effectivity":null,"url":"/en-GB/catalog/all/part/yanmardata-1310621/yanmar-marine-marine-main-engine-medium-ay-series-6aym-wet-fig-23-locker-arm-bolt","surcharge":0.0000,"min":1,"max":1,"maxlength":"1","step":1,"displayPrice":"£36.47","href":null}'>
+
+        <div class="epi-basketline-add" data-part="{&quot;partNumber&quot;:&quot;148620-11272&quot;,&quot;description&quot;:&quot;BOLT&quot;,&quot;itemImageUrl&quot;:null,&quot;options&quot;:null,&quot;itemUrl&quot;:&quot;/en-GB/catalog/all/partdetail/yanmardata-148620-11272?openSupersessionInfo=False&quot;,&quot;isSuperseded&quot;:false,&quot;supersessionUrl&quot;:&quot;/en-GB/commerce/items/supersessionselector?partNumber=148620-11272\u0026partUrl=%2Fen-GB%2Fcatalog%2Fall%2Fpartdetail%2Fyanmardata-148620-11272%3FopenSupersessionInfo%3DTrue&quot;,&quot;productVin&quot;:null,&quot;productSerial&quot;:null,&quot;productMake&quot;:null,&quot;productModel&quot;:null,&quot;warehouseCode&quot;:null}" data-url="/en-GB/commerce/baskets/current/lines" data-callback-url="" data-callback-method="">
+
+            <div class="row">
+                <div class="col-xs-2 col-lg-1 epi-servicebom-value col-print-1">
+                        <span class="m-sbom-ref text-center">24</span>
+                </div>
+                <div class="col-xs-6 col-lg-4 epi-servicebom-value no-gutter col-print-4">
+
+                    <span class="indent-0 m-bom-listtext">
+                        <a href="#details-yanmardata-1310621" data-toggle="collapse" aria-expanded="false" aria-controls="details-yanmardata-1310621">
+                                <span class="hidden-print"></span>
+                            BOLT
+                        </a>
+                    </span>
+                    <div class="m-bom-listconditions">
+
+                    </div>
+                </div>
+                <div class="col-xs-4 col-lg-2 epi-servicebom-value no-gutter col-print-3">
+                    <span class="m-bom-listtext">148620-11272</span>
+                    <div class="epi-stock" data-sku="148620-11272" data-qty="1" data-enable-basket-add="True"></div>
+                </div>
+                <div class="col-xs-10 col-xs-offset-2 col-lg-5 col-lg-offset-0 col-print-4">
+                    <div class="row">
+                        <div class="col-lg-2 visible-lg no-gutter col-print-6">
+                            <span class="m-bom-listtext text-center">6</span>
+                        </div>
+
+                            <div class="col-xs-4 col-lg-3 epi-servicebom-list-price no-gutter col-print-6">
+                                <span class="m-bom-listtext">
+                                    <div class="text-left">
+                                        
+        <div>
+                <var>&#xA3;36.47</var>
+            <div class="m-item-surcharge">
+            </div>
+        </div>
+
+                                    </div>
+                                </span>
+                            </div>
+                            <div class="col-xs-4 col-lg-4 no-gutter hidden-print">
+
+                                <input type="number" id="148620-11272-quantity"
+                                       value="1"
+                                       class="form-control add-qty number-spinner"
+                                       data-bts-force-step-divisibility="ceil"
+                                       min="1"
+                                       max="1"
+                                       maxlength="1"
+                                       data-bts-min="1"
+                                       data-bts-step="1"
+                                       data-bts-max="1" />
+                            </div>
+
+                        <div class="col-xs-4 col-lg-3 hidden-print">
+                            <a id="148620-11272-add" class="btn btn-success btn-add btn-block epi-add-button" role="button">
+                                    <i class="fa fa-shopping-cart  epi-gs-buy"></i>
+
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="m-bom-listdetails collapse hidden-print" id="details-yanmardata-1310621">
+        <div class="row">
+            <div class="col-xs-offset-1 col-xs-11 col-lg-6">
+                <span class="heading">Applicability</span>
+                <span class="value">
+                        <span>-</span>
+                </span>
+                <span class="heading">Effectivity</span>
+                <span class="value">
+                        <span>-</span>
+                </span>
+                <span class="heading">Notes</span>
+
+                    <span>-</span>
+
+            </div>
+            <div class="col-xs-11 col-xs-offset-1 col-lg-offset-0 col-lg-5">
+                <div class="m-bom-link text-right">
+                    <a href="/en-GB/catalog/all/part/yanmardata-1310621/yanmar-marine-marine-main-engine-medium-ay-series-6aym-wet-fig-23-locker-arm-bolt" title="More Details">More Details</a>
+                </div>
+                <div class="m-bom-order-qty">
+                    
+
+<div class="row">
+    <div class="col-xs-4">
+        <span class="heading">Min Qty</span>
+    </div>
+    <div class="col-xs-4">
+        <span class="heading">Inc Qty</span>
+    </div>
+    <div class="col-xs-4">
+        <span class="heading">Max Qty</span>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-4">
+        <var>1</var>
+    </div>
+    <div class="col-xs-4">
+        <var>1</var>
+    </div>
+    <div class="col-xs-4">
+        <var>1</var>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-4">
+        <span class="heading">Pack Qty</span>
+    </div>
+
+    <div class="col-xs-4">
+        <span class="heading">Lead Time (Days)</span>
+    </div>
+    <div class="col-xs-4">
+        <span class="heading">UOM</span>
+    </div>
+
+</div>
+<div class="row">
+    <div class="col-xs-4">
+        <var>1</var>
+    </div>
+    <div class="col-xs-4">
+        <var>-</var>
+    </div>
+    <div class="col-xs-4">
+        <var></var>
+    </div>
+</div>
+
+                </div>
+                <div class="m-bom-surcharge">
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="m-bom-listrow">
+
+    <div class="epi-servicebom-item "
+         data-consists-of='{"id":"yanmardata-1310622","partNo":"148620-11290","description":"BOLT","referenceNo":"25","link":"25","quantity":"6","price":"£23.74","poa":false,"commerceIsSuperseded":false,"productId":"148620-11290","isSuperseded":false,"isSelected":false,"supersession":null,"applicability":null,"effectivity":null,"url":"/en-GB/catalog/all/part/yanmardata-1310622/yanmar-marine-marine-main-engine-medium-ay-series-6aym-wet-fig-23-locker-arm-bolt","surcharge":0.0000,"min":1,"max":1,"maxlength":"1","step":1,"displayPrice":"£23.74","href":null}'>
+
+        <div class="epi-basketline-add" data-part="{&quot;partNumber&quot;:&quot;148620-11290&quot;,&quot;description&quot;:&quot;BOLT&quot;,&quot;itemImageUrl&quot;:null,&quot;options&quot;:null,&quot;itemUrl&quot;:&quot;/en-GB/catalog/all/partdetail/yanmardata-148620-11290?openSupersessionInfo=False&quot;,&quot;isSuperseded&quot;:false,&quot;supersessionUrl&quot;:&quot;/en-GB/commerce/items/supersessionselector?partNumber=148620-11290\u0026partUrl=%2Fen-GB%2Fcatalog%2Fall%2Fpartdetail%2Fyanmardata-148620-11290%3FopenSupersessionInfo%3DTrue&quot;,&quot;productVin&quot;:null,&quot;productSerial&quot;:null,&quot;productMake&quot;:null,&quot;productModel&quot;:null,&quot;warehouseCode&quot;:null}" data-url="/en-GB/commerce/baskets/current/lines" data-callback-url="" data-callback-method="">
+
+            <div class="row">
+                <div class="col-xs-2 col-lg-1 epi-servicebom-value col-print-1">
+                        <span class="m-sbom-ref text-center">25</span>
+                </div>
+                <div class="col-xs-6 col-lg-4 epi-servicebom-value no-gutter col-print-4">
+
+                    <span class="indent-0 m-bom-listtext">
+                        <a href="#details-yanmardata-1310622" data-toggle="collapse" aria-expanded="false" aria-controls="details-yanmardata-1310622">
+                                <span class="hidden-print"></span>
+                            BOLT
+                        </a>
+                    </span>
+                    <div class="m-bom-listconditions">
+
+                    </div>
+                </div>
+                <div class="col-xs-4 col-lg-2 epi-servicebom-value no-gutter col-print-3">
+                    <span class="m-bom-listtext">148620-11290</span>
+                    <div class="epi-stock" data-sku="148620-11290" data-qty="1" data-enable-basket-add="True"></div>
+                </div>
+                <div class="col-xs-10 col-xs-offset-2 col-lg-5 col-lg-offset-0 col-print-4">
+                    <div class="row">
+                        <div class="col-lg-2 visible-lg no-gutter col-print-6">
+                            <span class="m-bom-listtext text-center">6</span>
+                        </div>
+
+                            <div class="col-xs-4 col-lg-3 epi-servicebom-list-price no-gutter col-print-6">
+                                <span class="m-bom-listtext">
+                                    <div class="text-left">
+                                        
+        <div>
+                <var>&#xA3;23.74</var>
+            <div class="m-item-surcharge">
+            </div>
+        </div>
+
+                                    </div>
+                                </span>
+                            </div>
+                            <div class="col-xs-4 col-lg-4 no-gutter hidden-print">
+
+                                <input type="number" id="148620-11290-quantity"
+                                       value="1"
+                                       class="form-control add-qty number-spinner"
+                                       data-bts-force-step-divisibility="ceil"
+                                       min="1"
+                                       max="1"
+                                       maxlength="1"
+                                       data-bts-min="1"
+                                       data-bts-step="1"
+                                       data-bts-max="1" />
+                            </div>
+
+                        <div class="col-xs-4 col-lg-3 hidden-print">
+                            <a id="148620-11290-add" class="btn btn-success btn-add btn-block epi-add-button" role="button">
+                                    <i class="fa fa-shopping-cart  epi-gs-buy"></i>
+
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="m-bom-listdetails collapse hidden-print" id="details-yanmardata-1310622">
+        <div class="row">
+            <div class="col-xs-offset-1 col-xs-11 col-lg-6">
+                <span class="heading">Applicability</span>
+                <span class="value">
+                        <span>-</span>
+                </span>
+                <span class="heading">Effectivity</span>
+                <span class="value">
+                        <span>-</span>
+                </span>
+                <span class="heading">Notes</span>
+
+                    <span>-</span>
+
+            </div>
+            <div class="col-xs-11 col-xs-offset-1 col-lg-offset-0 col-lg-5">
+                <div class="m-bom-link text-right">
+                    <a href="/en-GB/catalog/all/part/yanmardata-1310622/yanmar-marine-marine-main-engine-medium-ay-series-6aym-wet-fig-23-locker-arm-bolt" title="More Details">More Details</a>
+                </div>
+                <div class="m-bom-order-qty">
+                    
+
+<div class="row">
+    <div class="col-xs-4">
+        <span class="heading">Min Qty</span>
+    </div>
+    <div class="col-xs-4">
+        <span class="heading">Inc Qty</span>
+    </div>
+    <div class="col-xs-4">
+        <span class="heading">Max Qty</span>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-4">
+        <var>1</var>
+    </div>
+    <div class="col-xs-4">
+        <var>1</var>
+    </div>
+    <div class="col-xs-4">
+        <var>1</var>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-4">
+        <span class="heading">Pack Qty</span>
+    </div>
+
+    <div class="col-xs-4">
+        <span class="heading">Lead Time (Days)</span>
+    </div>
+    <div class="col-xs-4">
+        <span class="heading">UOM</span>
+    </div>
+
+</div>
+<div class="row">
+    <div class="col-xs-4">
+        <var>1</var>
+    </div>
+    <div class="col-xs-4">
+        <var>-</var>
+    </div>
+    <div class="col-xs-4">
+        <var></var>
+    </div>
+</div>
+
+                </div>
+                <div class="m-bom-surcharge">
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="m-bom-listrow">
+
+    <div class="epi-servicebom-item "
+         data-consists-of='{"id":"yanmardata-1310623","partNo":"148960-11280","description":"BOLT","referenceNo":"26","link":"26","quantity":"6","price":"£97.56","poa":false,"commerceIsSuperseded":false,"productId":"148960-11280","isSuperseded":false,"isSelected":false,"supersession":null,"applicability":null,"effectivity":null,"url":"/en-GB/catalog/all/part/yanmardata-1310623/yanmar-marine-marine-main-engine-medium-ay-series-6aym-wet-fig-23-locker-arm-bolt","surcharge":0.0000,"min":1,"max":1,"maxlength":"1","step":1,"displayPrice":"£97.56","href":null}'>
+
+        <div class="epi-basketline-add" data-part="{&quot;partNumber&quot;:&quot;148960-11280&quot;,&quot;description&quot;:&quot;BOLT&quot;,&quot;itemImageUrl&quot;:null,&quot;options&quot;:null,&quot;itemUrl&quot;:&quot;/en-GB/catalog/all/partdetail/yanmardata-148960-11280?openSupersessionInfo=False&quot;,&quot;isSuperseded&quot;:false,&quot;supersessionUrl&quot;:&quot;/en-GB/commerce/items/supersessionselector?partNumber=148960-11280\u0026partUrl=%2Fen-GB%2Fcatalog%2Fall%2Fpartdetail%2Fyanmardata-148960-11280%3FopenSupersessionInfo%3DTrue&quot;,&quot;productVin&quot;:null,&quot;productSerial&quot;:null,&quot;productMake&quot;:null,&quot;productModel&quot;:null,&quot;warehouseCode&quot;:null}" data-url="/en-GB/commerce/baskets/current/lines" data-callback-url="" data-callback-method="">
+
+            <div class="row">
+                <div class="col-xs-2 col-lg-1 epi-servicebom-value col-print-1">
+                        <span class="m-sbom-ref text-center">26</span>
+                </div>
+                <div class="col-xs-6 col-lg-4 epi-servicebom-value no-gutter col-print-4">
+
+                    <span class="indent-0 m-bom-listtext">
+                        <a href="#details-yanmardata-1310623" data-toggle="collapse" aria-expanded="false" aria-controls="details-yanmardata-1310623">
+                                <span class="hidden-print"></span>
+                            BOLT
+                        </a>
+                    </span>
+                    <div class="m-bom-listconditions">
+
+                    </div>
+                </div>
+                <div class="col-xs-4 col-lg-2 epi-servicebom-value no-gutter col-print-3">
+                    <span class="m-bom-listtext">148960-11280</span>
+                    <div class="epi-stock" data-sku="148960-11280" data-qty="1" data-enable-basket-add="True"></div>
+                </div>
+                <div class="col-xs-10 col-xs-offset-2 col-lg-5 col-lg-offset-0 col-print-4">
+                    <div class="row">
+                        <div class="col-lg-2 visible-lg no-gutter col-print-6">
+                            <span class="m-bom-listtext text-center">6</span>
+                        </div>
+
+                            <div class="col-xs-4 col-lg-3 epi-servicebom-list-price no-gutter col-print-6">
+                                <span class="m-bom-listtext">
+                                    <div class="text-left">
+                                        
+        <div>
+                <var>&#xA3;97.56</var>
+            <div class="m-item-surcharge">
+            </div>
+        </div>
+
+                                    </div>
+                                </span>
+                            </div>
+                            <div class="col-xs-4 col-lg-4 no-gutter hidden-print">
+
+                                <input type="number" id="148960-11280-quantity"
+                                       value="1"
+                                       class="form-control add-qty number-spinner"
+                                       data-bts-force-step-divisibility="ceil"
+                                       min="1"
+                                       max="1"
+                                       maxlength="1"
+                                       data-bts-min="1"
+                                       data-bts-step="1"
+                                       data-bts-max="1" />
+                            </div>
+
+                        <div class="col-xs-4 col-lg-3 hidden-print">
+                            <a id="148960-11280-add" class="btn btn-success btn-add btn-block epi-add-button" role="button">
+                                    <i class="fa fa-shopping-cart  epi-gs-buy"></i>
+
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="m-bom-listdetails collapse hidden-print" id="details-yanmardata-1310623">
+        <div class="row">
+            <div class="col-xs-offset-1 col-xs-11 col-lg-6">
+                <span class="heading">Applicability</span>
+                <span class="value">
+                        <span>-</span>
+                </span>
+                <span class="heading">Effectivity</span>
+                <span class="value">
+                        <span>-</span>
+                </span>
+                <span class="heading">Notes</span>
+
+                    <span>-</span>
+
+            </div>
+            <div class="col-xs-11 col-xs-offset-1 col-lg-offset-0 col-lg-5">
+                <div class="m-bom-link text-right">
+                    <a href="/en-GB/catalog/all/part/yanmardata-1310623/yanmar-marine-marine-main-engine-medium-ay-series-6aym-wet-fig-23-locker-arm-bolt" title="More Details">More Details</a>
+                </div>
+                <div class="m-bom-order-qty">
+                    
+
+<div class="row">
+    <div class="col-xs-4">
+        <span class="heading">Min Qty</span>
+    </div>
+    <div class="col-xs-4">
+        <span class="heading">Inc Qty</span>
+    </div>
+    <div class="col-xs-4">
+        <span class="heading">Max Qty</span>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-4">
+        <var>1</var>
+    </div>
+    <div class="col-xs-4">
+        <var>1</var>
+    </div>
+    <div class="col-xs-4">
+        <var>1</var>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-4">
+        <span class="heading">Pack Qty</span>
+    </div>
+
+    <div class="col-xs-4">
+        <span class="heading">Lead Time (Days)</span>
+    </div>
+    <div class="col-xs-4">
+        <span class="heading">UOM</span>
+    </div>
+
+</div>
+<div class="row">
+    <div class="col-xs-4">
+        <var>1</var>
+    </div>
+    <div class="col-xs-4">
+        <var>-</var>
+    </div>
+    <div class="col-xs-4">
+        <var></var>
+    </div>
+</div>
+
+                </div>
+                <div class="m-bom-surcharge">
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</article>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+
+
+        </main>
+        
+
+    </div>
+    
+    
+
+
+<div class="widget-container">
+
+    <div class="widget widget-liquid-widget">
+    <div class="widget-body">
+    
+<style>
+  #layout-header-main .m-header-icon .m-count-circle {
+      pointer-events: none;
+  	cursor: pointer;
+  }
+  #layout-header-main .m-header-icon button:hover + #layout-header-main .m-header-icon .m-count-circle, #layout-header-main .m-header-icon button:active + #layout-header-main .m-header-icon .m-count-circle {
+    	background-color: #ffffff;
+  		color: #1e4568;
+	}
+  @media only screen and (min-width: 992px) {
+	#layout-header-main .m-header-icon button:hover + .m-count-circle, #layout-header-main .m-header-icon button:active + .m-count-circle {
+    	background-color: #A50104;
+	}
+  }
+</style>
+    </div>
+</div>
+
+</div>
+
+
+<div class="widget-container">
+
+    <div class="widget widget-liquid-widget">
+    <div class="widget-body">
+    
+
+
+    </div>
+</div>
+
+</div>
+    <script src="/OrchardCore.Resources/Scripts/jquery.min.js?v=LPqjrUPTy7JLF7d_egVOyJSNqMzCe-pJHfOwiuinBPk" type="text/javascript"></script>
+<script src="/Epitomy.WebShop.Core/Scripts/epitomy.webshop.core.min.js?v=A0TD0cyBwwvwWJChSR17RFa0IT8DeG2yaFIPEYXXcSA" type="text/javascript"></script>
+<script src="/Epitomy.WebShop/Scripts/epitomy.webshop.localization.en-GB.js" type="text/javascript"></script>
+<script src="/Epitomy.WebShop/Scripts/epitomy.webshop.min.js?v=AYTPMGZRBahtL2vXr_Oep3O4kyq4PWcYwxXnqcSlAi0" type="text/javascript"></script>
+<script src="/OrchardCore.Resources/Scripts/jquery-ui.min.js?v=IcrMqOnrmPHzJwK0F2aF8vlBr1GrW8fPiMy1Q1obsIA" type="text/javascript"></script>
+<script src="/Epitomy.Steel.Catalogue/Scripts/epitomy.steel.catalogue.min.js?v=FrCR7Chxr1cLYGiLFJlDqj1anGN7nPm94sWyEY_zKl8" type="text/javascript"></script>
+<script src="/Epitomy.WebShop/Scripts/jquery-i18n-min.js?v=TzGeeXojHEe00s8Ois7lw9B7cHQYAT3I6HBztZ9t-Ec" type="text/javascript"></script>
+<script src="/Epitomy.WebShop2019/Scripts/epitomy.epc2017.js?v=G9ifAP7enmUAgjrHgDMTYqErOBV3LS8ymtX60I2WOTk" type="text/javascript"></script>
+<script src="/Epitomy.WebShop2019/Scripts/epitomy.epc2017.webshop.js?v=A7D3jSI1k5xX5VLzX1GqiMZRznhp8fRNPN6AUfyj79k" type="text/javascript"></script>
+<script async="true" src="https://www.googletagmanager.com/gtag/js?id=UA-69118963-1" type="text/javascript"></script>
+<script type="text/javascript">
+    $(".epi-illustration-select").on("change",
+        function () {
+            var url = this.value;
+            window.location.replace(url);
+        });
+</script>
+<script type="text/javascript">
+        (function(epitomy) {
+            epitomy.services.setCulture('en-GB');
+            var region = $.datepicker.regional[epitomy.language];
+            $.datepicker.setDefaults( region );
+        })(epitomy);
+    </script>
+<script type="text/javascript">  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-69118963-1');
+</script>
+</body>
+</html>

@@ -1,0 +1,679 @@
+{
+  "exterior_sha256": "3edb9db0135c2714e913c2f8a5b120c1f747dec10927024acba17cd4e09a8302",
+  "internal_sha256": "46a8854081530e81d2a2af56dc936dbcd22e6b296343029510638e8d120252fa",
+  "missing_targets": [],
+  "duplicate_targets": 0,
+  "starter_points": 49,
+  "range_crank_deg": [
+    0,
+    2
+  ],
+  "teeth_count_flywheel": 180,
+  "starter_pinion_overlaps": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "pinion_vs_solid_flywheel": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "carrier_vs_fixed_annulus": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "fork_in_start": [
+    {
+      "collar": 0,
+      "nose": 0,
+      "solenoid_case": 0,
+      "coil": 0
+    },
+    {
+      "collar": 0,
+      "nose": 0,
+      "solenoid_case": 0,
+      "coil": 0
+    },
+    {
+      "collar": 0,
+      "nose": 0,
+      "solenoid_case": 0,
+      "coil": 0
+    },
+    {
+      "collar": 0,
+      "nose": 0,
+      "solenoid_case": 0,
+      "coil": 0
+    },
+    {
+      "collar": 0,
+      "nose": 0,
+      "solenoid_case": 0,
+      "coil": 0
+    },
+    {
+      "collar": 0,
+      "nose": 0,
+      "solenoid_case": 0,
+      "coil": 0
+    },
+    {
+      "collar": 0,
+      "nose": 0,
+      "solenoid_case": 0,
+      "coil": 0
+    },
+    {
+      "collar": 0,
+      "nose": 0,
+      "solenoid_case": 0,
+      "coil": 0
+    },
+    {
+      "collar": 0,
+      "nose": 0,
+      "solenoid_case": 0,
+      "coil": 0
+    },
+    {
+      "collar": 0,
+      "nose": 0,
+      "solenoid_case": 0,
+      "coil": 0
+    },
+    {
+      "collar": 0,
+      "nose": 0,
+      "solenoid_case": 0,
+      "coil": 0
+    },
+    {
+      "collar": 0,
+      "nose": 0,
+      "solenoid_case": 0,
+      "coil": 0
+    },
+    {
+      "collar": 0,
+      "nose": 0,
+      "solenoid_case": 0,
+      "coil": 0
+    },
+    {
+      "collar": 0,
+      "nose": 0,
+      "solenoid_case": 0,
+      "coil": 0
+    },
+    {
+      "collar": 0,
+      "nose": 0,
+      "solenoid_case": 0,
+      "coil": 0
+    },
+    {
+      "collar": 0,
+      "nose": 0,
+      "solenoid_case": 0,
+      "coil": 0
+    },
+    {
+      "collar": 0,
+      "nose": 0,
+      "solenoid_case": 0,
+      "coil": 0
+    },
+    {
+      "collar": 0,
+      "nose": 0,
+      "solenoid_case": 0,
+      "coil": 0
+    },
+    {
+      "collar": 0,
+      "nose": 0,
+      "solenoid_case": 0,
+      "coil": 0
+    },
+    {
+      "collar": 0,
+      "nose": 0,
+      "solenoid_case": 0,
+      "coil": 0
+    },
+    {
+      "collar": 0,
+      "nose": 0,
+      "solenoid_case": 0,
+      "coil": 0
+    },
+    {
+      "collar": 0,
+      "nose": 0,
+      "solenoid_case": 0,
+      "coil": 0
+    },
+    {
+      "collar": 0,
+      "nose": 0,
+      "solenoid_case": 0,
+      "coil": 0
+    },
+    {
+      "collar": 0,
+      "nose": 0,
+      "solenoid_case": 0,
+      "coil": 0
+    },
+    {
+      "collar": 0,
+      "nose": 0,
+      "solenoid_case": 0,
+      "coil": 0
+    },
+    {
+      "collar": 0,
+      "nose": 0,
+      "solenoid_case": 0,
+      "coil": 0
+    },
+    {
+      "collar": 0,
+      "nose": 0,
+      "solenoid_case": 0,
+      "coil": 0
+    },
+    {
+      "collar": 0,
+      "nose": 0,
+      "solenoid_case": 0,
+      "coil": 0
+    },
+    {
+      "collar": 0,
+      "nose": 0,
+      "solenoid_case": 0,
+      "coil": 0
+    },
+    {
+      "collar": 0,
+      "nose": 0,
+      "solenoid_case": 0,
+      "coil": 0
+    },
+    {
+      "collar": 0,
+      "nose": 0,
+      "solenoid_case": 0,
+      "coil": 0
+    },
+    {
+      "collar": 0,
+      "nose": 0,
+      "solenoid_case": 0,
+      "coil": 0
+    },
+    {
+      "collar": 0,
+      "nose": 0,
+      "solenoid_case": 0,
+      "coil": 0
+    },
+    {
+      "collar": 0,
+      "nose": 0,
+      "solenoid_case": 0,
+      "coil": 0
+    },
+    {
+      "collar": 0,
+      "nose": 0,
+      "solenoid_case": 0,
+      "coil": 0
+    },
+    {
+      "collar": 0,
+      "nose": 0,
+      "solenoid_case": 0,
+      "coil": 0
+    },
+    {
+      "collar": 0,
+      "nose": 0,
+      "solenoid_case": 0,
+      "coil": 0
+    },
+    {
+      "collar": 0,
+      "nose": 0,
+      "solenoid_case": 0,
+      "coil": 0
+    },
+    {
+      "collar": 0,
+      "nose": 0,
+      "solenoid_case": 0,
+      "coil": 0
+    },
+    {
+      "collar": 0,
+      "nose": 0,
+      "solenoid_case": 0,
+      "coil": 0
+    },
+    {
+      "collar": 0,
+      "nose": 0,
+      "solenoid_case": 0,
+      "coil": 0
+    },
+    {
+      "collar": 0,
+      "nose": 0,
+      "solenoid_case": 0,
+      "coil": 0
+    },
+    {
+      "collar": 0,
+      "nose": 0,
+      "solenoid_case": 0,
+      "coil": 0
+    },
+    {
+      "collar": 0,
+      "nose": 0,
+      "solenoid_case": 0,
+      "coil": 0
+    },
+    {
+      "collar": 0,
+      "nose": 0,
+      "solenoid_case": 0,
+      "coil": 0
+    },
+    {
+      "collar": 0,
+      "nose": 0,
+      "solenoid_case": 0,
+      "coil": 0
+    },
+    {
+      "collar": 0,
+      "nose": 0,
+      "solenoid_case": 0,
+      "coil": 0
+    },
+    {
+      "collar": 0,
+      "nose": 0,
+      "solenoid_case": 0,
+      "coil": 0
+    },
+    {
+      "collar": 0,
+      "nose": 0,
+      "solenoid_case": 0,
+      "coil": 0
+    }
+  ],
+  "sun_planet_and_internal_ring_overlaps": [
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ]
+  ],
+  "engaged_static_pairs": {
+    "EXT-ELECTRIC-48 / EXT-FLYWHEEL-01": 0,
+    "EXT-ELECTRIC-48 / EXT-FLYWHEEL-02": 0,
+    "EXT-ELECTRIC-48 / EXT-FLYWHEEL-20": 0,
+    "EXT-ELECTRIC-48 / EXT-ELECTRIC-49": 0,
+    "EXT-ELECTRIC-49 / EXT-FLYWHEEL-01": 0,
+    "EXT-ELECTRIC-49 / EXT-FLYWHEEL-02": 0,
+    "EXT-ELECTRIC-49 / EXT-FLYWHEEL-20": 0,
+    "EXT-ELECTRIC-45 / EXT-FLYWHEEL-01": 0,
+    "EXT-ELECTRIC-45 / EXT-FLYWHEEL-02": 0,
+    "EXT-ELECTRIC-45 / EXT-FLYWHEEL-20": 0,
+    "EXT-ELECTRIC-45 / EXT-ELECTRIC-49": 648,
+    "EXT-ELECTRIC-40 / EXT-FLYWHEEL-01": 0,
+    "EXT-ELECTRIC-40 / EXT-FLYWHEEL-02": 0,
+    "EXT-ELECTRIC-40 / EXT-FLYWHEEL-20": 0,
+    "EXT-ELECTRIC-40 / EXT-ELECTRIC-49": 0
+  },
+  "static_housing_pairs": {},
+  "belt_pitch_length_m": 0.7469268521041041,
+  "method": "Blender imports both GLBs. World-space triangle BVH with 49 samples through one tooth period of the outer flywheel. Planetary contacts are evaluated in the carrier reference frame. Pair counts describe geometric intersections, not stress/leakage."
+}

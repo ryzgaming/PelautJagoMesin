@@ -1,0 +1,159 @@
+{
+  "machine_model": "Yanmar 6AYM-WET",
+  "variant": {
+    "selected": "H-rating 555 kW (755 mhp) at 1840 rpm, IMO Tier II",
+    "selection": "Representative exact WET configuration chosen because requested model has no rating and H has matched photos plus dimensioned references.",
+    "scope": "Engine only, heat exchanger, turbocharger/intercooler and engine-mounted port hardware; excludes YXH240/YXH240L marine gear, transmission-side output shaft and boat-side piping.",
+    "alternatives": [
+      "M-rating 610 kW at 1900 rpm is separate and used only for conflict context."
+    ],
+    "auxiliary_outline": "GA01 engine-only WET without clutch supplements interfaces and geometry common to WET. GA title block does not identify rating."
+  },
+  "status": "UNVERIFIED",
+  "method": {
+    "source": "Yanmar Product Guide D03. PDF17 printed 32–33 H engine-only. PDF18 printed 34–35 M comparison.",
+    "render": "600 dpi vector rasterization with MuPDF clips. Pixel coordinates local to rendered clip, top left origin.",
+    "clip_pdf_rect_points": {
+      "right_side_H": [
+        420,
+        90,
+        540,
+        220
+      ],
+      "front_H": [
+        285,
+        90,
+        410,
+        220
+      ]
+    },
+    "scales": [
+      {
+        "locator": "D03 PDF 17, printed 33 Engine only / Front view, 600 dpi crop",
+        "printed_span_mm": 1305,
+        "pixel_span": 537.5,
+        "mm_per_px": 2.4279
+      },
+      {
+        "locator": "D03 PDF 17, printed 33 Engine only / Front view, 600 dpi crop",
+        "printed_span_mm": 1431,
+        "pixel_span": 589.5,
+        "mm_per_px": 2.4275
+      },
+      {
+        "locator": "D03 PDF 17, printed 33 Engine only / Right side view, 600 dpi crop",
+        "printed_span_mm": 1823,
+        "pixel_span": 750.5,
+        "mm_per_px": 2.429
+      },
+      {
+        "locator": "D03 PDF 17, printed 33 Engine only / Right side view, 600 dpi crop",
+        "printed_span_mm": 1000,
+        "pixel_span": 412.0,
+        "mm_per_px": 2.4272
+      }
+    ],
+    "working_side_scale_mm_per_px": 2.428,
+    "right_view_origin_px": [
+      222,
+      695
+    ],
+    "front_view_crank_center_px": [
+      445.5,
+      695
+    ],
+    "x_projection_direction": "Right of crop is +X.",
+    "z_projection_direction": "Left of front crop is +Z.",
+    "verification": "Viewed both H and M complete pages and 600 dpi H front/right and M right crops. D03 hidden head boundaries do not permit counting valve covers. Clearly marked No.1/No.6 leaders, six inline in specifications, in-line side geometry and exact model headings support application. D01 PDF14 topology and P05/P06/P07/P09 photographs also viewed. Also opened GA01 (public Yanmar drawing preview), full sheet and enhanced detail crops. Counted six valve covers in the uppermost top projection. Lower VIEW FROM UPPER is mount-layout detail only. No full-resolution manufacturing drawing examined."
+  },
+  "conflicts": [
+    {
+      "id": "DIM-01",
+      "axis": "height",
+      "catalogue_m": 1.431,
+      "catalogue_leaders_m": [
+        -0.552,
+        0.879
+      ],
+      "drawn_m": 1.56,
+      "difference_catalogue_m": 0.129,
+      "difference_catalogue_percent": 9.01,
+      "status": "UNVERIFIED",
+      "decision": "Preserve exhaust bellows and flange. GA01 front: nominal body endpoints +0.879/−0.5515 m; separate outgoing flange datum at +0.9885 m. These give height spans 1.4305 and 1.540 m for different features. D03 H flange outer silhouette gives about 1.560 m and is separately labelled ESTIMATED. +0.946 m is piston-removal clearance, never built geometry. Exact outer flange dimension remains UNVERIFIED.",
+      "sources": [
+        "D03 PDF 17, printed 32 Specifications",
+        "D03 PDF 17, printed 33 Engine only / Front view, 600 dpi crop",
+        "GA01 Yanmar outline B3-48660-4450, 2011-01-31 title block, 6AYM-WET without clutch, dimensioned front view"
+      ]
+    },
+    {
+      "id": "DIM-02",
+      "axis": "length",
+      "catalogue_m": 2.0,
+      "H_dimensioned_span_m": 1.823,
+      "H_drawn_physical_span_m": 1.952,
+      "difference_catalogue_m": -0.048,
+      "difference_catalogue_percent": -2.4,
+      "status": "DOCUMENTED",
+      "decision": "Leader endpoint difference explains catalog 2000 vs H right-view 1823 mm. GA01 no-clutch WET shows another 177 mm of aft projections: 520 from aft extremity to #1 versus 343 mm from gearbox mating interface to #1 in D03 H. Right-side D03 H drawing uses an abbreviated rear outline about 1952 mm over extrema; include engine-only rear hardware in GA where matched to photos/manual. Unmarked GA rating only permits a WET family envelope claim unless H assembly identity is independently confirmed.",
+      "sources": [
+        "D03 PDF 17, printed 32 Specifications",
+        "D03 PDF 17, printed 33 Engine only / Right side view, 600 dpi crop",
+        "D03 PDF18 printed 35 Engine only / Right side view (M)",
+        "GA01 Yanmar outline B3-48660-4450, 2011-01-31 title block, 6AYM-WET without clutch, dimensioned right side view"
+      ]
+    },
+    {
+      "id": "DIM-03",
+      "axis": "exhaust flange",
+      "upper_flange_leader_m": 0.989,
+      "drawn_outer_edge_m": 1.008,
+      "status": "UNVERIFIED",
+      "decision": "Record both at separate geometric landmarks. Exact flange mating plane thickness/interface and bore are unresolved.",
+      "sources": [
+        "D03 PDF 17, printed 33 Engine only / Front view, 600 dpi crop",
+        "D03 PDF 17, printed 33 Engine only / Right side view, 600 dpi crop",
+        "GA01 Yanmar outline B3-48660-4450, 2011-01-31 title block, 6AYM-WET without clutch, dimensioned front view"
+      ]
+    }
+  ],
+  "acceptance": [
+    {
+      "id": "AC-01",
+      "feature": "Coordinate and ownership contract",
+      "test": "Assembled GLBs use m, right-handed Y-up at common crank/rear-main-block seam, +X toward damper, +Z non-operation/right. No duplicate flywheel or damper geometry. Crank journal and external rotating components share axis.",
+      "status": "UNVERIFIED"
+    },
+    {
+      "id": "AC-02",
+      "feature": "Published model-independent dimensions",
+      "test": "Check six inline cylinders, bore/stroke 155/180 mm, No.1-to-No.6 center spacing 1000 mm and flywheel-to-damper numbering. Use 200 mm equal pitch as an inferred modeling input. List measured error for each.",
+      "status": "UNVERIFIED"
+    },
+    {
+      "id": "AC-03",
+      "feature": "Catalogue nominal and physical drawing envelope",
+      "test": "Publish catalogue LWH and full assembly vertex AABB. Compare X to GA no-clutch WET 2.000 m, Y to both nominal physical body-plane span 1.4305 m and physical top flange GA datum-to-pan span 1.540 m, and Z to GA width 1.305 m. Use 1% education target only on like endpoints. Report AABB differences independently against both nominal and outline readings. Mark exact physical H match UNVERIFIED where differences depend on rear plumbing or outer flange edge. Do not clip/reroute to force nominal H=1.431 m.",
+      "status": "UNVERIFIED"
+    },
+    {
+      "id": "AC-04",
+      "feature": "Evidence-based silhouette and registration",
+      "test": "Align H front/right and GA top/rear orthographic views to crank datum without nonuniform stretch. Target full WET engine-only X=2.000 m, including aft equipment identified in GA. H article X≈1.952 m is a projected abbreviated outline and reportable comparison only. Nominal Z=1.305 m. Compare upper flange and pan to drawing-defined surfaces separately from full AABB. Report model difference and dimensional evidence status for each.",
+      "status": "UNVERIFIED"
+    },
+    {
+      "id": "AC-05",
+      "feature": "Assembly interfaces and depth",
+      "test": "Report observed assembled jumps/offsets at deck/liner/rocker/shaft/sump and compare documented spans before claims. Transverse depths and ports left null require drawings or direct measurements. ± bands in datum are drawing estimates, not OEM manufacturing tolerances.",
+      "status": "UNVERIFIED"
+    }
+  ],
+  "gaps": [
+    "Full-size WET H installation drawing or measured H unit, especially exact rear equipment and flange stack. GA01 full sheet title block omits rating, raster is a low-resolution public preview.",
+    "Head gasket plane cross-section or explicit deck height from crank CL",
+    "Flange aperture/bolt circles, inlet/discharge geometry, shaft-stack offset details",
+    "Absolute photo-derived measurements and measured on-unit 3D envelope",
+    "Full-resolution upper detail for exact cover outlines and pipe/port geometry."
+  ]
+}

@@ -1,0 +1,278 @@
+{
+  "asset_hashes": {
+    "internal": "dd85bd1dfae6c699f7e69c70eb9c4c0f5209c0a5805e3e1733ad1e67b23f7f2b"
+  },
+  "coordinate_order": "glTF metres, Y up",
+  "freshwater_center": [
+    1.505,
+    0.303009245925864,
+    -0.08238107812148808
+  ],
+  "physical_gear_pairs": {
+    "INT-TIMING-08/EXT-COOLING-26": {
+      "centers_m": [
+        [
+          1.354,
+          0.158,
+          -0.15
+        ],
+        [
+          1.354,
+          0.303009245925864,
+          -0.08238107812148808
+        ]
+      ],
+      "pitch_m": [
+        0.11,
+        0.05
+      ],
+      "distance_axis_mm": 159.99999999999997,
+      "distance_plane_mm": 0.0,
+      "stationary_first_pair_min_surface_mm": 0.38002789369784296,
+      "max_triangle_crossings_33_poses": 0,
+      "overlap_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "INT-TIMING-05/EXT-COOLING-41": {
+      "centers_m": [
+        [
+          0.057,
+          0.2,
+          -0.427
+        ],
+        [
+          0.057,
+          0.3950925,
+          -0.43
+        ]
+      ],
+      "pitch_m": [
+        0.1400826,
+        0.05503261
+      ],
+      "distance_axis_mm": 195.11556461812575,
+      "distance_plane_mm": 0.0,
+      "stationary_first_pair_min_surface_mm": 0.3671993035823107,
+      "max_triangle_crossings_33_poses": 0,
+      "overlap_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  "assembled_triangle_contacts": {
+    "EXT-COOLING-03": {
+      "EXT-COOLING-06": 272,
+      "EXT-COOLING-24": 309,
+      "EXT-COOLING-27": 384,
+      "EXT-COOLING-28": 204,
+      "EXT-COOLING-302": 243,
+      "EXT-FRONT-01": 394
+    },
+    "EXT-COOLING-20": {},
+    "EXT-COOLING-21": {
+      "EXT-COOLING-25": 334,
+      "EXT-FRONT-01": 192
+    },
+    "EXT-COOLING-22": {},
+    "EXT-COOLING-23": {
+      "EXT-FRONT-01": 448
+    },
+    "EXT-COOLING-24": {
+      "EXT-COOLING-03": 309
+    },
+    "EXT-COOLING-25": {
+      "EXT-COOLING-21": 334
+    },
+    "EXT-COOLING-26": {
+      "EXT-COOLING-311": 1319
+    },
+    "EXT-COOLING-27": {
+      "EXT-COOLING-03": 384
+    },
+    "EXT-COOLING-28": {
+      "EXT-COOLING-03": 204
+    },
+    "EXT-COOLING-06": {
+      "EXT-COOLING-01": 84,
+      "EXT-COOLING-03": 272
+    },
+    "EXT-COOLING-302": {
+      "EXT-COOLING-03": 243,
+      "EXT-LUBE-05": 53
+    },
+    "EXT-COOLING-310": {},
+    "EXT-COOLING-311": {
+      "EXT-COOLING-26": 1319,
+      "EXT-COOLING-312": 87
+    },
+    "EXT-COOLING-312": {
+      "EXT-COOLING-311": 87
+    },
+    "EXT-COOLING-313": {
+      "EXT-COOLING-314": 703,
+      "EXT-FRONT-01": 256
+    },
+    "EXT-COOLING-314": {
+      "EXT-COOLING-313": 703
+    }
+  },
+  "pump_sweep_24_poses": 192,
+  "by_rotor": {
+    "EXT-COOLING-20": {
+      "EXT-FRONT-02": 0,
+      "EXT-FRONT-03": 0,
+      "EXT-FRONT-04": 0,
+      "EXT-FRONT-06": 0,
+      "EXT-FRONT-07": 0,
+      "EXT-FRONT-01": 0,
+      "INT-TIMING-10": 0,
+      "INT-PISTON-61": 0,
+      "INT-PISTON-62": 0,
+      "INT-PISTON-63": 0,
+      "INT-PISTON-64": 0,
+      "EXT-COOLING-03": 0,
+      "EXT-COOLING-313": 0
+    },
+    "EXT-COOLING-21": {
+      "EXT-FRONT-02": 0,
+      "EXT-FRONT-03": 0,
+      "EXT-FRONT-04": 0,
+      "EXT-FRONT-06": 0,
+      "EXT-FRONT-07": 0,
+      "EXT-FRONT-01": 192,
+      "INT-TIMING-10": 0,
+      "INT-PISTON-61": 0,
+      "INT-PISTON-62": 0,
+      "INT-PISTON-63": 0,
+      "INT-PISTON-64": 0,
+      "EXT-COOLING-03": 0,
+      "EXT-COOLING-313": 0
+    },
+    "EXT-COOLING-26": {
+      "EXT-FRONT-02": 0,
+      "EXT-FRONT-03": 0,
+      "EXT-FRONT-04": 0,
+      "EXT-FRONT-06": 0,
+      "EXT-FRONT-07": 0,
+      "EXT-FRONT-01": 0,
+      "INT-TIMING-10": 0,
+      "INT-PISTON-61": 0,
+      "INT-PISTON-62": 0,
+      "INT-PISTON-63": 0,
+      "INT-PISTON-64": 0,
+      "EXT-COOLING-03": 0,
+      "EXT-COOLING-313": 0
+    },
+    "EXT-COOLING-310": {
+      "EXT-FRONT-02": 0,
+      "EXT-FRONT-03": 0,
+      "EXT-FRONT-04": 0,
+      "EXT-FRONT-06": 0,
+      "EXT-FRONT-07": 0,
+      "EXT-FRONT-01": 0,
+      "INT-TIMING-10": 0,
+      "INT-PISTON-61": 0,
+      "INT-PISTON-62": 0,
+      "INT-PISTON-63": 0,
+      "INT-PISTON-64": 0,
+      "EXT-COOLING-03": 0,
+      "EXT-COOLING-313": 0
+    },
+    "EXT-COOLING-311": {
+      "EXT-FRONT-02": 0,
+      "EXT-FRONT-03": 0,
+      "EXT-FRONT-04": 0,
+      "EXT-FRONT-06": 0,
+      "EXT-FRONT-07": 0,
+      "EXT-FRONT-01": 0,
+      "INT-TIMING-10": 0,
+      "INT-PISTON-61": 0,
+      "INT-PISTON-62": 0,
+      "INT-PISTON-63": 0,
+      "INT-PISTON-64": 0,
+      "EXT-COOLING-03": 0,
+      "EXT-COOLING-313": 0
+    },
+    "EXT-COOLING-312": {
+      "EXT-FRONT-02": 0,
+      "EXT-FRONT-03": 0,
+      "EXT-FRONT-04": 0,
+      "EXT-FRONT-06": 0,
+      "EXT-FRONT-07": 0,
+      "EXT-FRONT-01": 0,
+      "INT-TIMING-10": 0,
+      "INT-PISTON-61": 0,
+      "INT-PISTON-62": 0,
+      "INT-PISTON-63": 0,
+      "INT-PISTON-64": 0,
+      "EXT-COOLING-03": 0,
+      "EXT-COOLING-313": 0
+    }
+  },
+  "limitations": "The WET parts catalogue and service diagram identify direct gear drive. Tooth count, module, helix, exact installation Z and body profiles are model estimates. Triangle overlap includes intended seal, flange, shaft and key contacts; each pair must be interpreted by role."
+}

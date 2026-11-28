@@ -1,0 +1,24 @@
+{
+  "using_review_GLB": {
+    "flow/water-lube.json": true,
+    "flow/fuel-gas.json": true,
+    "flow/routes.json": true,
+    "flow/source-coverage.json": true,
+    "motion/drivetrain.json": true,
+    "motion/shaft-inventory.json": true,
+    "motion/functions.json": true
+  },
+  "using_generated_GLB": {
+    "flow/water-lube.json": true,
+    "flow/fuel-gas.json": true,
+    "flow/routes.json": true,
+    "flow/source-coverage.json": true,
+    "motion/drivetrain.json": true,
+    "motion/shaft-inventory.json": true,
+    "motion/functions.json": false
+  },
+  "all_78_assembly_recipe_bytes_match_after_generation": true,
+  "function_registry_differences_with_generated_GLB": [
+    "assets_sha256"
+  ]
+}

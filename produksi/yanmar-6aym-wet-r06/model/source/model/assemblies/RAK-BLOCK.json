@@ -1,0 +1,511 @@
+{
+  "id": "RAK-BLOCK",
+  "nama": "Block dan crankcase",
+  "node_rakitan": "RAK-BLOCK",
+  "acuan": {
+    "no": 1,
+    "object_ids": [
+      "EXT-BLOCK-01"
+    ]
+  },
+  "diagram": {
+    "arah_pandang": [
+      0.31139957904815674,
+      0.5449492335319519,
+      -0.7784989476203918
+    ],
+    "atas": [
+      0,
+      1,
+      0
+    ]
+  },
+  "bagian": [
+    {
+      "no": 1,
+      "nama": "Coran block dan crankcase",
+      "object_ids": [
+        "EXT-BLOCK-01"
+      ],
+      "posisi": [],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D03 PDF 17 printed p. 33 / engine-only right elevation and front view",
+        "GA01 B3-48660-4450 / outline, top, end and rear housing details",
+        "P07 / profil dan rusuk"
+      ],
+      "fungsi": "Coran block dan crankcase",
+      "nomor_oem": null,
+      "role": null,
+      "ukuran": null
+    },
+    {
+      "no": 2,
+      "nama": "Tutup inspeksi kiri 1",
+      "object_ids": [
+        "EXT-BLOCK-02"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-BLOCK-02",
+          "arah": [
+            0,
+            0,
+            -1
+          ],
+          "jarak_m": 0.28,
+          "urutan": 2
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "P07 / tutup inspeksi sisi operasi"
+      ],
+      "fungsi": "Tutup inspeksi kiri 1",
+      "nomor_oem": null,
+      "role": null,
+      "ukuran": null
+    },
+    {
+      "no": 3,
+      "nama": "Tutup inspeksi kiri 2",
+      "object_ids": [
+        "EXT-BLOCK-03"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-BLOCK-03",
+          "arah": [
+            0,
+            0,
+            -1
+          ],
+          "jarak_m": 0.28,
+          "urutan": 3
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "P07 / tutup inspeksi sisi operasi"
+      ],
+      "fungsi": "Tutup inspeksi kiri 2",
+      "nomor_oem": null,
+      "role": null,
+      "ukuran": null
+    },
+    {
+      "no": 4,
+      "nama": "Tutup inspeksi kiri 3",
+      "object_ids": [
+        "EXT-BLOCK-04"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-BLOCK-04",
+          "arah": [
+            0,
+            0,
+            -1
+          ],
+          "jarak_m": 0.28,
+          "urutan": 4
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "P07 / tutup inspeksi sisi operasi"
+      ],
+      "fungsi": "Tutup inspeksi kiri 3",
+      "nomor_oem": null,
+      "role": null,
+      "ukuran": null
+    },
+    {
+      "no": 5,
+      "nama": "Tutup inspeksi kiri 4",
+      "object_ids": [
+        "EXT-BLOCK-05"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-BLOCK-05",
+          "arah": [
+            0,
+            0,
+            -1
+          ],
+          "jarak_m": 0.28,
+          "urutan": 5
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "P07 / tutup inspeksi sisi operasi"
+      ],
+      "fungsi": "Tutup inspeksi kiri 4",
+      "nomor_oem": null,
+      "role": null,
+      "ukuran": null
+    },
+    {
+      "no": 6,
+      "nama": "Tutup inspeksi kiri 5",
+      "object_ids": [
+        "EXT-BLOCK-06"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-BLOCK-06",
+          "arah": [
+            0,
+            0,
+            -1
+          ],
+          "jarak_m": 0.28,
+          "urutan": 6
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "P07 / tutup inspeksi sisi operasi"
+      ],
+      "fungsi": "Tutup inspeksi kiri 5",
+      "nomor_oem": null,
+      "role": null,
+      "ukuran": null
+    },
+    {
+      "no": 7,
+      "nama": "Tutup inspeksi kiri 6",
+      "object_ids": [
+        "EXT-BLOCK-07"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-BLOCK-07",
+          "arah": [
+            0,
+            0,
+            -1
+          ],
+          "jarak_m": 0.28,
+          "urutan": 7
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "P07 / tutup inspeksi sisi operasi"
+      ],
+      "fungsi": "Tutup inspeksi kiri 6",
+      "nomor_oem": null,
+      "role": null,
+      "ukuran": null
+    },
+    {
+      "no": 8,
+      "nama": "Tutup inspeksi kanan 1",
+      "object_ids": [
+        "EXT-BLOCK-08"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-BLOCK-08",
+          "arah": [
+            0,
+            0,
+            1
+          ],
+          "jarak_m": 0.28,
+          "urutan": 8
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "P17 / akses sisi non-operation"
+      ],
+      "fungsi": "Tutup inspeksi kanan 1",
+      "nomor_oem": null,
+      "role": null,
+      "ukuran": null
+    },
+    {
+      "no": 9,
+      "nama": "Tutup inspeksi kanan 2",
+      "object_ids": [
+        "EXT-BLOCK-09"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-BLOCK-09",
+          "arah": [
+            0,
+            0,
+            1
+          ],
+          "jarak_m": 0.28,
+          "urutan": 9
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "P17 / akses sisi non-operation"
+      ],
+      "fungsi": "Tutup inspeksi kanan 2",
+      "nomor_oem": null,
+      "role": null,
+      "ukuran": null
+    },
+    {
+      "no": 10,
+      "nama": "Tutup inspeksi kanan 3",
+      "object_ids": [
+        "EXT-BLOCK-10"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-BLOCK-10",
+          "arah": [
+            0,
+            0,
+            1
+          ],
+          "jarak_m": 0.28,
+          "urutan": 10
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "P17 / akses sisi non-operation"
+      ],
+      "fungsi": "Tutup inspeksi kanan 3",
+      "nomor_oem": null,
+      "role": null,
+      "ukuran": null
+    },
+    {
+      "no": 11,
+      "nama": "Tutup inspeksi kanan 4",
+      "object_ids": [
+        "EXT-BLOCK-11"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-BLOCK-11",
+          "arah": [
+            0,
+            0,
+            1
+          ],
+          "jarak_m": 0.28,
+          "urutan": 11
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "P17 / akses sisi non-operation"
+      ],
+      "fungsi": "Tutup inspeksi kanan 4",
+      "nomor_oem": null,
+      "role": null,
+      "ukuran": null
+    },
+    {
+      "no": 12,
+      "nama": "Tutup inspeksi kanan 5",
+      "object_ids": [
+        "EXT-BLOCK-12"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-BLOCK-12",
+          "arah": [
+            0,
+            0,
+            1
+          ],
+          "jarak_m": 0.28,
+          "urutan": 12
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "P17 / akses sisi non-operation"
+      ],
+      "fungsi": "Tutup inspeksi kanan 5",
+      "nomor_oem": null,
+      "role": null,
+      "ukuran": null
+    },
+    {
+      "no": 13,
+      "nama": "Tutup inspeksi kanan 6",
+      "object_ids": [
+        "EXT-BLOCK-13"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-BLOCK-13",
+          "arah": [
+            0,
+            0,
+            1
+          ],
+          "jarak_m": 0.28,
+          "urutan": 13
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "P17 / akses sisi non-operation"
+      ],
+      "fungsi": "Tutup inspeksi kanan 6",
+      "nomor_oem": null,
+      "role": null,
+      "ukuran": null
+    },
+    {
+      "no": 14,
+      "nama": "Kaki dudukan mesin",
+      "object_ids": [
+        "EXT-BLOCK-14"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-BLOCK-14",
+          "arah": [
+            0,
+            -1,
+            0
+          ],
+          "jarak_m": 0.28,
+          "urutan": 14
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "GA01 B3-48660-4450 / outline, top, end and rear housing details",
+        "P08 / dudukan depan",
+        "P18 / dudukan belakang"
+      ],
+      "fungsi": "Kaki dudukan mesin",
+      "nomor_oem": null,
+      "role": null,
+      "ukuran": null
+    },
+    {
+      "no": 15,
+      "nama": "Kaki dudukan mesin",
+      "object_ids": [
+        "EXT-BLOCK-15"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-BLOCK-15",
+          "arah": [
+            0,
+            -1,
+            0
+          ],
+          "jarak_m": 0.28,
+          "urutan": 15
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "GA01 B3-48660-4450 / outline, top, end and rear housing details",
+        "P08 / dudukan depan",
+        "P18 / dudukan belakang"
+      ],
+      "fungsi": "Kaki dudukan mesin",
+      "nomor_oem": null,
+      "role": null,
+      "ukuran": null
+    },
+    {
+      "no": 16,
+      "nama": "Kaki dudukan mesin",
+      "object_ids": [
+        "EXT-BLOCK-16"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-BLOCK-16",
+          "arah": [
+            0,
+            -1,
+            0
+          ],
+          "jarak_m": 0.28,
+          "urutan": 16
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "GA01 B3-48660-4450 / outline, top, end and rear housing details",
+        "P08 / dudukan depan",
+        "P18 / dudukan belakang"
+      ],
+      "fungsi": "Kaki dudukan mesin",
+      "nomor_oem": null,
+      "role": null,
+      "ukuran": null
+    },
+    {
+      "no": 17,
+      "nama": "Kaki dudukan mesin",
+      "object_ids": [
+        "EXT-BLOCK-17"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-BLOCK-17",
+          "arah": [
+            0,
+            -1,
+            0
+          ],
+          "jarak_m": 0.28,
+          "urutan": 17
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "GA01 B3-48660-4450 / outline, top, end and rear housing details",
+        "P08 / dudukan depan",
+        "P18 / dudukan belakang"
+      ],
+      "fungsi": "Kaki dudukan mesin",
+      "nomor_oem": null,
+      "role": null,
+      "ukuran": null
+    },
+    {
+      "no": 18,
+      "nama": "Pegangan servis oranye",
+      "object_ids": [
+        "EXT-BLOCK-18"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-BLOCK-18",
+          "arah": [
+            0,
+            0,
+            -1
+          ],
+          "jarak_m": 0.28,
+          "urutan": 18
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "P07 / pegangan di bawah pompa"
+      ],
+      "fungsi": "Pegangan servis oranye",
+      "nomor_oem": null,
+      "role": null,
+      "ukuran": null
+    }
+  ],
+  "notes": "Nomor posisi model. Lintasan ilustrasi, belum diperiksa untuk interferensi."
+}

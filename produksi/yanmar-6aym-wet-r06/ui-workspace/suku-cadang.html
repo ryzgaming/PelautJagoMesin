@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Daftar komponen · Yanmar 6AYM-WET</title>
+<style>
+*{box-sizing:border-box}body{margin:auto;max-width:860px;padding:1.2rem;color:#e8eeee;background:#151b1e;font:16px/1.5 system-ui,sans-serif}
+a{color:#75ddc3}header>a{display:inline-flex;align-items:center;min-height:44px}h1{font-size:clamp(1.6rem,6vw,2.1rem);margin:.5rem 0}p{color:#bbcccc;margin:.35rem 0 1rem}label{display:block;margin-bottom:.35rem}input,select{background:#202a2e;color:#ecf4f3;padding:.7rem;border:1px solid #526461;border-radius:.4rem;width:100%;font:inherit}form{display:grid;gap:.75rem;margin:1rem 0}article{border-top:1px solid #3a484a;padding:.8rem 0}article h2{margin:.2rem 0;font-size:1.12rem;text-transform:capitalize}summary{cursor:pointer;padding:.45rem 0;min-height:44px}details{border-top:1px solid #304044}
+small{display:block;color:#abbbbb}details a{display:inline-flex;align-items:center;min-height:44px;margin-right:.8rem}article>a{display:inline-flex;min-height:44px;align-items:center}
+</style></head><body><header><a href="./">‹ Kembali ke model 3D</a><h1>Daftar komponen Yanmar 6AYM-WET</h1><p id="scope">Memuat daftar suku cadang…</p><details><summary>Identitas unit acuan</summary><p>Lembar stok AAM menyebut 6AYM-WET H, 555 kW pada 1.840 rpm, dengan starter 24 V 7,0 kW. Angka 9502 terlihat pada pallet dan kardus suku cadang di seri foto. Nomor pada pelat mesin belum terbaca. Pilihan alternator dan tipe grounding belum dipastikan.</p><a href="https://aam-equipment.nl/wp-content/uploads/2025/08/22331-YANMAR-6AYM-WET-555kW-%40-1840-rpm.pdf">Lembar spesifikasi AAM</a></details></header>
+<form onsubmit="return false"><div><label for="fig">Gambar rakitan</label><select id="fig"><option value="">Semua gambar</option></select></div><div><label for="find">Cari nama katalog, nomor suku cadang, atau ID model</label><input type="search" id="find" placeholder="Misalnya nozzle atau 148691-53002"></div></form><p id="count" aria-live="polite"></p><main id="list"></main>
+<script>
+const figureSelect=document.querySelector('#fig'),search=document.querySelector('#find'),list=document.querySelector('#list');
+function el(tag,txt){const a=document.createElement(tag);a.textContent=txt;return a}
+function link(label,url){const a=el('a',label);a.href=url;return a}
+function show(figures){
+ list.replaceChildren();const query=search.value.trim().toLowerCase();let total=0, groups=0;
+ for(const fig of figures){
+  if(figureSelect.value && +figureSelect.value!==fig.figure)continue;
+  const groupMatch=(fig.figure+' '+fig.title).includes(query);
+  const hits=fig.positions.filter(r=>groupMatch||[r.description,r.partNo,...r.model_ids_with_same_pn].join(' ').toLowerCase().includes(query));
+  if(!hits.length)continue;
+  groups++;total+=hits.length;
+  const section=document.createElement('article');const heading=el('h2','Gambar '+fig.figure+' · '+fig.title);section.append(heading);
+  section.append(link('Lihat diagram dan nomor posisi pada sumber',fig.source));
+  if(fig.scope_anchor){section.append(document.createElement('br'),link('Buka rakitan terkait di model 3D','./?part='+encodeURIComponent(fig.scope_anchor)+'&view=exploded'))}
+  if(query||figureSelect.value){
+   hits.forEach(r=>{const row=document.createElement('details');row.append(el('summary',r.referenceNo+' · '+r.description),el('small',r.partNo+' · Jumlah pada katalog '+r.quantity));
+   if(r.model_ids_with_same_pn.length){row.append(el('small','Objek model dengan nomor suku cadang yang sama'));for(const id of r.model_ids_with_same_pn)row.append(link(id,'./?part='+encodeURIComponent(id)));}
+   else row.append(el('small','Nomor ini belum ditautkan ke objek 3D.'));
+   section.append(row)});
+  }else{const all=link('Periksa '+hits.length+' posisi','?fig='+fig.figure);section.append(document.createElement('br'),all);}
+  list.append(section);
+ }
+ document.querySelector('#count').textContent=total+' posisi katalog dalam '+groups+' gambar';
+}
+fetch('assets/daftar-yanmar.json').then(r=>{if(!r.ok)throw Error();return r.json()}).then(data=>{
+ document.querySelector('#scope').textContent=data.scope;
+ for(const f of data.figures){const o=el('option',f.figure+' · '+f.title);o.value=f.figure;figureSelect.append(o)}
+ figureSelect.value=new URLSearchParams(location.search).get('fig')||'';search.addEventListener('input',()=>show(data.figures));figureSelect.addEventListener('change',()=>show(data.figures));show(data.figures);
+}).catch(()=>document.querySelector('#scope').textContent='Daftar belum termuat. Muat ulang halaman ini.');
+</script></body></html>

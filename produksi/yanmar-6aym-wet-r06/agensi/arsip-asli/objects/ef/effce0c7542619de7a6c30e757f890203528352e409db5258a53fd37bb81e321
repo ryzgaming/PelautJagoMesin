@@ -1,0 +1,122 @@
+{
+  "id": "RAK-ELECTRIC",
+  "nama": "Elektrik",
+  "node_rakitan": "RAK-ELECTRIC",
+  "acuan": {
+    "no": 1,
+    "object_ids": [
+      "EXT-ELECTRIC-01"
+    ]
+  },
+  "diagram": {
+    "arah_pandang": [
+      0.31139957904815674,
+      0.5449492335319519,
+      0.7784989476203918
+    ],
+    "atas": [
+      0,
+      1,
+      0
+    ]
+  },
+  "bagian": [
+    {
+      "no": 1,
+      "nama": "Alternator dan pulley",
+      "object_ids": [
+        "EXT-ELECTRIC-01"
+      ],
+      "posisi": [],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 14 printed p. 10 / component locations, operation side",
+        "P08 / alternator di balik pelindung"
+      ],
+      "fungsi": "Alternator dan pulley",
+      "nomor_oem": null,
+      "ukuran": null
+    },
+    {
+      "no": 2,
+      "nama": "Starter listrik dan solenoid",
+      "object_ids": [
+        "EXT-ELECTRIC-02"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-ELECTRIC-02",
+          "arah": [
+            0,
+            0,
+            1
+          ],
+          "jarak_m": 0.28,
+          "urutan": 2
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 14 printed p. 10 / component locations, non-operation side",
+        "P17 / starter dekat flywheel"
+      ],
+      "fungsi": "Starter listrik dan solenoid",
+      "nomor_oem": null,
+      "ukuran": null
+    },
+    {
+      "no": 3,
+      "nama": "Harness starter dan alternator",
+      "object_ids": [
+        "EXT-ELECTRIC-03"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-ELECTRIC-03",
+          "arah": [
+            0,
+            0,
+            1
+          ],
+          "jarak_m": 0.28,
+          "urutan": 3
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "P08 / kabel alternator",
+        "P17 / kabel rendah starter"
+      ],
+      "fungsi": "Harness starter dan alternator",
+      "nomor_oem": null,
+      "ukuran": null
+    },
+    {
+      "no": 4,
+      "nama": "Rumah sensor dan panel koneksi",
+      "object_ids": [
+        "EXT-ELECTRIC-04"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-ELECTRIC-04",
+          "arah": [
+            0,
+            0,
+            1
+          ],
+          "jarak_m": 0.28,
+          "urutan": 4
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "P17 / panel dan kabel"
+      ],
+      "fungsi": "Rumah sensor dan panel koneksi",
+      "nomor_oem": null,
+      "ukuran": null
+    }
+  ],
+  "notes": "Nomor posisi model. Lintasan ilustrasi, belum diperiksa untuk interferensi."
+}

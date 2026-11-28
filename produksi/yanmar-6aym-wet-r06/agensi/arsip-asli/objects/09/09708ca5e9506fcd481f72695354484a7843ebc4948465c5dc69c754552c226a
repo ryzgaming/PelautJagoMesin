@@ -1,0 +1,34 @@
+"""Inspect the installed and exploded inlet valve in the exact exported GLB."""
+import bpy,json,math
+from pathlib import Path
+from mathutils import Vector
+out=Path(__file__).resolve().parent
+p=out.parent
+recipe=json.loads((p.parent/'assemblies/RAK-KATUP-1-1-1.json').read_text())
+bpy.ops.wm.read_factory_settings(use_empty=True)
+scene=bpy.context.scene;bpy.ops.import_scene.gltf(filepath=str(p/'internal.glb'))
+ids={r['object_ids'][0] for r in recipe['bagian']}
+for ob in scene.objects:
+    if ob.type=='MESH':
+        ob.hide_render=ob.name not in ids
+for row in recipe['bagian']:
+    ob=scene.objects[row['object_ids'][0]]
+    m=ob.matrix_world.copy();ob.parent=None;ob.matrix_world=m
+scene.render.engine='CYCLES';scene.cycles.samples=24;scene.cycles.use_denoising=False
+scene.world=bpy.data.worlds.new('Studio');scene.world.use_nodes=True
+scene.world.node_tree.nodes['Background'].inputs['Color'].default_value=(.17,.20,.24,1)
+def camera(pt,look):
+    cd=bpy.data.cameras.new('Camera');o=bpy.data.objects.new('Camera',cd);scene.collection.objects.link(o)
+    cd.type='ORTHO';cd.ortho_scale=.34;o.location=pt;o.rotation_euler=(Vector(look)-o.location).to_track_quat('-Z','Y').to_euler();return o
+c=Vector((.174,.034,.555))
+for title,offset,power in [('Key',(.2,.4,.36),24),('Fill',(-.29,.06,.18),18),('Edge',(.05,-.26,.2),22)]:
+    l=bpy.data.lights.new(title,'AREA');l.energy=power;l.size=.32
+    ob=bpy.data.objects.new(title,l);scene.collection.objects.link(ob);ob.location=c+Vector(offset);ob.rotation_euler=(c-ob.location).to_track_quat('-Z','Y').to_euler()
+scene.render.resolution_x=560;scene.render.resolution_y=680;scene.render.resolution_percentage=100
+for i in [0,1]:
+    if i:
+        for row in recipe['bagian']:
+            for motion in row['posisi']:
+                x,y,z=motion['arah'];scene.objects[motion['object_id']].location+=Vector((x,-z,y))*motion['jarak_m']
+    target=c+Vector((0,0,.084*i));scene.camera=camera(target+Vector((.11,.84,.14)),target);scene.camera.data.ortho_scale=.16 if not i else .355
+    scene.render.filepath=str(out/('valve-exploded.png' if i else 'valve-installed.png'));bpy.ops.render.render(write_still=True)

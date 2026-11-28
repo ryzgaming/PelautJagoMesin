@@ -1,0 +1,736 @@
+{
+ "generated": "2026-11-27",
+ "engine": "Caterpillar 3512C",
+ "round": 2,
+ "sources": [
+  {
+   "id": "D01",
+   "title": "3512C with DGB(TM) Marine Auxiliary/Electric Propulsion Engine 1632 bkW (1550 ekW) 1800 rpm",
+   "publisher": "Caterpillar (dihosting dealer Pon Cat, pon-cat.com)",
+   "revision": "LEHM0180-00 (12-14), TMI DM5826-00, (c)2014",
+   "url": "https://www.pon-cat.com/application/files/1816/4087/3508/CM20210304-5db5f-8ec3f.pdf",
+   "locator": "hlm. 1 (Specifications, Dimensions drawing Right Side/Front, tabel Engine Dimensions & Weight), hlm. 2 (Standard Engine Equipment)",
+   "supports": "rotasi CCW, SAE No.00 flywheel housing 183 gigi, dimensi L/W/H, berat kering, dual turbo water-cooled bearings, aftercooler core, jacket water pump gear-driven, vibration damper & guard, oil cooler, oil filter",
+   "variant": "3512C HD (stroke 215) dengan Dynamic Gas Blending, marine auxiliary/DEP, IMO II",
+   "evidence_status": "OBSERVED",
+   "note": "Dokumen resmi Cat di host dealer. Halaman dan gambar dimensi dibuka langsung. Angka displacement 78.08 L di dokumen tidak konsisten dengan 170x215 V12 (lihat conflicts).",
+   "sha256": "083d1688275d5194ffd8c6b8499021513ee0b7dd8c6e5626005e8cdcc4e81276",
+   "local_path": "/tmp/claude-0/c3512/doc/D_poncat_CM20210304.pdf"
+  },
+  {
+   "id": "D02",
+   "title": "3512C IMO II Marine Propulsion Engine - Commercial Applications",
+   "publisher": "Caterpillar (dihosting dealer GMMCO, test-api.gmmco.in)",
+   "revision": "LEHM22783-00, (c)2024 (PDF ModDate 2024-10-01)",
+   "url": "https://test-api.gmmco.in/uploads/3512_C_Brochure_f35eee0463.pdf",
+   "locator": "hlm. 1 (Engine Specifications, Standard Equipment, dua render 3D depan dan samping), hlm. 2 (Ratings table, Engine Dimensions & Weight + gambar garis samping/depan)",
+   "supports": "konfigurasi V12 4-tak, bore x stroke standar dan HD, displacement 51.8/58.6 L, rotasi CW/CCW, SAE No.00, dual ECM, dual turbo, dimensi dan berat (HD), cat kuning (render)",
+   "variant": "3512C IMO II propulsion (standar 190 mm dan HD 215 mm; dimensi/berat di hlm. 2 tanpa keterangan varian, cocok dengan HD Tier3/IMO II dari D05)",
+   "evidence_status": "OBSERVED",
+   "note": "Host 'test-api' milik dealer resmi Cat India; isi berlogo Cat. Panjang 2465 mm tidak cocok dengan 104.2 in (lihat conflicts).",
+   "sha256": "d1dcedb89beab5e31dd032b0940b4893cd94e20452808b55d5d59e6f138cb220",
+   "local_path": "/tmp/claude-0/c3512/doc/D_gmmco_3512C_Brochure.pdf"
+  },
+  {
+   "id": "D03",
+   "title": "3512C HD Marine Engine 2575 mhp / 1895 bkW @ 1800 rpm - Ship-Assist Tugs/Yachts/Patrol Craft/Military",
+   "publisher": "Caterpillar (dihosting Power Gen Enterprises, powergenenterprises.com, berkas E4239)",
+   "revision": "LEHM4885-03 (8-05), (c)2005",
+   "url": "https://powergenenterprises.com/wp-content/uploads/2019/10/E4239-Caterpillar-3512C-HD-Engine-brochure.pdf",
+   "locator": "hlm. 1 (Specifications, Standard Engine Equipment), hlm. 2 (performance, heat rejection), hlm. 3 (Dimensions L/W/H gambar samping dan depan, Drawing #276-0041)",
+   "supports": "compression ratio 14.7:1, separate circuit aftercooler, power-core air cleaners, dry gas-tight exhaust manifold + SOLAS heat shield, wastegate, modular pulse exhaust manifold, single exhaust outlet, dual crankcase breather di atas, accessory drives, Caterpillar yellow paint, lifting eyes, dimensi dan berat LW/COMM",
+   "variant": "3512C HD (rating D, 1800 rpm) tahun 2005, A3 ECM - generasi lebih tua dari IMO II saat ini",
+   "evidence_status": "OBSERVED",
+   "note": "Dokumen resmi Cat versi lama di host pihak ketiga (broker mesin).",
+   "sha256": "c76786d8c69c997d0318db61951e866d59c99d150a354524541a58f23ec04b90",
+   "local_path": "/tmp/claude-0/c3512/doc/D_powergen_E4239_3512CHD.pdf"
+  },
+  {
+   "id": "D04",
+   "title": "3512C Commercial Propulsion Engines (produk 18404461) - halaman produk",
+   "publisher": "PT Trakindo Utama (dealer resmi Cat Indonesia), trakindo.co.id",
+   "revision": "tidak bertanggal, diakses 2026-11-27",
+   "url": "https://trakindo.co.id/3512c-18404461",
+   "locator": "bagian 'SPECIFICATIONS FOR 3512C' (Engine Specifications, Dimensions & Weights)",
+   "supports": "bore 170, stroke 190 / HD 215, displacement 51.8 / 58.6 L, rotasi CCW atau CW, V12 4-tak, Twin Turbocharged, dimensi min/max, berat kering min/max",
+   "variant": "3512C IMO II / China II propulsion (halaman campur standar dan HD)",
+   "evidence_status": "DOCUMENTED",
+   "note": "Teks halaman dealer (data katalog Cat). Field 'Length - Engine 222.2 mm' jelas salah satuan.",
+   "sha256": "95ae76fc14c2b620c242d19311c973c0a2128e1f88be4f8d45d859233f4a4bbe",
+   "local_path": "/tmp/claude-0/c3512/doc/D_trakindo_3512c_18404461.html"
+  },
+  {
+   "id": "D05",
+   "title": "3512C HD High Performance Propulsion Engine (produk 18408746) - halaman produk",
+   "publisher": "PT Trakindo Utama, trakindo.co.id",
+   "revision": "tidak bertanggal, diakses 2026-11-27",
+   "url": "https://trakindo.co.id/3512c-hd-18408746",
+   "locator": "bagian 'SPECIFICATIONS FOR 3512C HD'",
+   "supports": "HD: bore 170, stroke 215, 58.6 L, rotasi CCW, Vee 12, TTA, W 2037, H 2222.6, L 2645 mm, berat kering 7488 kg, EPA Tier 3/IMO II",
+   "variant": "3512C HD propulsion (EPA Tier 3, IMO II), 1000-1765 bkW, 1600-1800 rpm",
+   "evidence_status": "DOCUMENTED",
+   "note": "Teks halaman dealer.",
+   "sha256": "0a31e6b622e6467b555dcd35d88b7bb546875331180cb1a449669a8291387bd1",
+   "local_path": "/tmp/claude-0/c3512/doc/D_trakindo_3512chd_18408746.html"
+  },
+  {
+   "id": "D06",
+   "title": "TM 5-2815-232-14 Engine, Diesel, Caterpillar Model 3508 (juga 3512, 3516) - hlm. 'Firing Order (Injection Sequence)/3500 Engine Specifications' dan 'Engine Specifications'",
+   "publisher": "U.S. Army (transkripsi Integrated Publishing, tpub.com)",
+   "revision": "tidak tertera; seri 3500 generasi awal (S/N 49Y, 24Z, 65Z, 67Z)",
+   "url": "https://automotiveenginemechanics.tpub.com/TM-5-2815-232-14/TM-5-2815-232-140026.htm ; https://automotiveenginemechanics.tpub.com/TM-5-2815-232-14/TM-5-2815-232-140603.htm",
+   "locator": "halaman 140026 (tabel 3500 engine specifications, fig. B62375X1), halaman 140603 (3512 Engines Engine Specifications)",
+   "supports": "sudut V 60 derajat, 4 katup/silinder, firing order 3512 rotasi standar, definisi rotasi, penomoran silinder, compression ratio 13:1 (3512 awal)",
+   "variant": "3512 generasi awal (bukan 3512B/C)",
+   "evidence_status": "DOCUMENTED",
+   "note": "Dokumen pemerintah AS (publik), transkripsi HTML. Berlaku untuk 3512 awal; penerapan ke 3512C = INFERRED (keluarga 3500 sama, bore/stroke standar sama).",
+   "sha256": "9eabcb08a82275d4ad307cd0151b46c39212213c1d9ea2159cc8cc6ef9af8437 ; 252febd765b62d77b555e82e1539a331f141b85c5602269f4e8d26403de7b45d",
+   "local_path": "/tmp/claude-0/c3512/doc/D_tpub_TM5-2815-232-14_140026.html ; /tmp/claude-0/c3512/doc/D_tpub_TM5-2815-232-14_140603.html"
+  },
+  {
+   "id": "D07",
+   "title": "Marine Power Systems Archives - Warren CAT (redirect dari URL 3512C IMO II)",
+   "publisher": "Warren CAT",
+   "revision": "diakses 2026-11-27",
+   "url": "https://www.warrencat.com/new-equipment/power-systems/marine-power-systems/3512c-propulsion-engine-imo-ii",
+   "locator": "-",
+   "supports": "tidak ada (halaman daftar, tanpa spesifikasi)",
+   "variant": "-",
+   "evidence_status": "UNVERIFIED",
+   "note": "Dicatat sebagai kegagalan; tidak dipakai.",
+   "sha256": "15974d8372054505db5968fdc697e6ece574186b653d96a007576af1c4bfa8d0",
+   "local_path": "/tmp/claude-0/c3512/doc/D_warrencat_3512c_imoii.html"
+  }
+ ],
+ "specs": {
+  "jumlah_silinder": {
+   "nilai": 12,
+   "satuan": "silinder",
+   "source_id": "D02",
+   "locator": "hlm. 1 Configuration 'V 12, 4-Stroke Cycle Diesel'",
+   "status": "OBSERVED",
+   "also": [
+    "D01 hlm.1",
+    "D03 hlm.1",
+    "D04",
+    "D05"
+   ]
+  },
+  "konfigurasi": {
+   "nilai": "V12, 4-tak diesel",
+   "satuan": null,
+   "source_id": "D02",
+   "locator": "hlm. 1",
+   "status": "OBSERVED"
+  },
+  "bore": {
+   "nilai": 170,
+   "satuan": "mm",
+   "source_id": "D02",
+   "locator": "hlm. 1 Bore x Stroke",
+   "status": "OBSERVED",
+   "also": [
+    "D01",
+    "D03",
+    "D04",
+    "D05"
+   ]
+  },
+  "stroke_standar": {
+   "nilai": 190,
+   "satuan": "mm",
+   "source_id": "D02",
+   "locator": "hlm. 1 'Standard: 170 mm x 190 mm'",
+   "status": "OBSERVED",
+   "also": [
+    "D04"
+   ]
+  },
+  "stroke_HD": {
+   "nilai": 215,
+   "satuan": "mm",
+   "source_id": "D02",
+   "locator": "hlm. 1 'High Displacement: 170 mm x 215 mm'",
+   "status": "OBSERVED",
+   "also": [
+    "D01",
+    "D03",
+    "D05"
+   ]
+  },
+  "displacement_standar": {
+   "nilai": 51.8,
+   "satuan": "L",
+   "source_id": "D02",
+   "locator": "hlm. 1 Displacement 'Standard: 51.8 L / 3161 cu in'",
+   "status": "OBSERVED",
+   "also": [
+    "D04"
+   ],
+   "cek_hitung": "pi/4*17^2*19*12 = 51.75 L"
+  },
+  "displacement_HD": {
+   "nilai": 58.6,
+   "satuan": "L",
+   "source_id": "D02",
+   "locator": "hlm. 1 'High Displacement: 58.6 L / 3574 cu in'",
+   "status": "OBSERVED",
+   "also": [
+    "D03 (58.6 L)",
+    "D05"
+   ],
+   "cek_hitung": "pi/4*17^2*21.5*12 = 58.56 L"
+  },
+  "compression_ratio_HD_2005": {
+   "nilai": "14.7:1",
+   "satuan": null,
+   "source_id": "D03",
+   "locator": "hlm. 1 Specifications",
+   "status": "OBSERVED",
+   "varian": "3512C HD LEHM4885-03 (2005)"
+  },
+  "sudut_V": {
+   "nilai": 60,
+   "satuan": "derajat",
+   "source_id": "D06",
+   "locator": "hlm. 140026 '60 V-12'",
+   "status": "DOCUMENTED",
+   "varian": "3512 awal; untuk 3512C = INFERRED (tidak ditemukan di dokumen 3512C)"
+  },
+  "katup_per_silinder": {
+   "nilai": 4,
+   "satuan": null,
+   "source_id": "D06",
+   "locator": "hlm. 140026",
+   "status": "DOCUMENTED",
+   "varian": "3512 awal; 3512C = INFERRED"
+  },
+  "firing_order_rotasi_standar_CCW": {
+   "nilai": "1-12-9-4-5-8-11-2-3-10-7-6",
+   "satuan": null,
+   "source_id": "D06",
+   "locator": "hlm. 140026 tabel Firing Order (Injection Sequence) dan hlm. 140603",
+   "status": "DOCUMENTED",
+   "varian": "3512 awal; 3512C = INFERRED, konfirmasi di OMM 3512C"
+  },
+  "firing_order_rotasi_lawan_CW": {
+   "nilai": null,
+   "satuan": null,
+   "source_id": "D06",
+   "locator": "hlm. 140026: tertulis '14-9-8-5-2-11 -10-3-6-7-12' (transkripsi rusak, tampaknya kehilangan tanda hubung)",
+   "status": "UNVERIFIED"
+  },
+  "penomoran_silinder": {
+   "nilai": "No.1 = silinder depan sisi kanan; No.2 = silinder depan sisi kiri; kiri/kanan dilihat dari ujung flywheel; depan = ujung berlawanan flywheel",
+   "satuan": null,
+   "source_id": "D06",
+   "locator": "hlm. 140026 NOTE",
+   "status": "DOCUMENTED",
+   "varian": "3512 awal"
+  },
+  "arah_putar": {
+   "nilai": "Counterclockwise (standar, dilihat dari ujung flywheel); opsi Clockwise (reverse rotation)",
+   "satuan": null,
+   "source_id": "D02",
+   "locator": "hlm. 1 Rotation (from flywheel end) 'Clockwise or Counterclockwise'; Standard Equipment 'CW or CCW Rotation, LH or RH Service'",
+   "status": "OBSERVED",
+   "also": [
+    "D01 hlm.1 'Counterclockwise rotation'",
+    "D03 hlm.1 CCW",
+    "D04",
+    "D05 CCW"
+   ]
+  },
+  "flywheel_housing": {
+   "nilai": "SAE No. 00",
+   "satuan": null,
+   "source_id": "D02",
+   "locator": "hlm. 1 Flywheel Housing",
+   "status": "OBSERVED",
+   "also": [
+    "D01 hlm.1 'SAE No. 00 flywheel and flywheel housing (183 teeth)'"
+   ]
+  },
+  "flywheel_ring_gear_gigi": {
+   "nilai": 183,
+   "satuan": "gigi",
+   "source_id": "D01",
+   "locator": "hlm. 1 Specifications",
+   "status": "OBSERVED",
+   "varian": "3512C HD DGB"
+  },
+  "aspirasi": {
+   "nilai": "Twin turbocharged - aftercooled",
+   "satuan": null,
+   "source_id": "D02",
+   "locator": "hlm. 1 Aspiration",
+   "status": "OBSERVED"
+  },
+  "rpm_rated": {
+   "nilai": "1200 / 1600 / 1800",
+   "satuan": "rpm",
+   "source_id": "D02",
+   "locator": "hlm. 1",
+   "status": "OBSERVED"
+  },
+  "daya_range_IMOII": {
+   "nilai": "955-1903",
+   "satuan": "bkW",
+   "source_id": "D02",
+   "locator": "hlm. 2 tabel Ratings",
+   "status": "OBSERVED"
+  },
+  "lube_oil_refill": {
+   "nilai": "152 / 318 / 625",
+   "satuan": "L",
+   "source_id": "D02",
+   "locator": "hlm. 1 Refill capacity (tergantung pan 250/500/1000 jam)",
+   "status": "OBSERVED"
+  },
+  "cooling_engine_only_HD2005": {
+   "nilai": 156.8,
+   "satuan": "L",
+   "source_id": "D03",
+   "locator": "hlm. 1",
+   "status": "OBSERVED"
+  },
+  "dimensi_IMOII_HD_LxWxH": {
+   "nilai": {
+    "L": 2647,
+    "W": 2037,
+    "H": 2223
+   },
+   "satuan": "mm",
+   "source_id": "D02",
+   "locator": "hlm. 2 Engine Dimensions & Weight: 104.2 in / 87.5 in / 80.2 in (L ditulis 2465 mm, lihat conflicts; nilai mm L di sini dari 104.2 in)",
+   "status": "OBSERVED",
+   "cocok": [
+    "D05: L 2645, W 2037, H 2222.6 mm"
+   ]
+  },
+  "berat_kering_IMOII_HD": {
+   "nilai": 7488,
+   "satuan": "kg",
+   "source_id": "D02",
+   "locator": "hlm. 2 Dry weight (approx) 16,508 lb / 7488 kg",
+   "status": "OBSERVED",
+   "also": [
+    "D05"
+   ]
+  },
+  "dimensi_DGB_LxWxH": {
+   "nilai": {
+    "L": 2644.5,
+    "W": 2036.9,
+    "H": 2113.3
+   },
+   "satuan": "mm",
+   "source_id": "D01",
+   "locator": "hlm. 1 Engine Dimensions & Weight (L sampai flywheel housing)",
+   "status": "OBSERVED",
+   "varian": "3512C HD DGB marine aux/DEP"
+  },
+  "berat_kering_DGB": {
+   "nilai": "6532-7411",
+   "satuan": "kg",
+   "source_id": "D01",
+   "locator": "hlm. 1 Weight, Net Dry (approx)",
+   "status": "OBSERVED"
+  },
+  "dimensi_propulsi_dealer_LxWxH": {
+   "nilai": {
+    "L": 2590,
+    "W": 2037,
+    "H": 1904
+   },
+   "satuan": "mm",
+   "source_id": "D04",
+   "locator": "Dimensions & Weights (min=max)",
+   "status": "DOCUMENTED",
+   "varian": "3512C IMO II propulsion (tanpa keterangan konfigurasi)"
+  },
+  "berat_kering_propulsi_dealer": {
+   "nilai": "6532-8104",
+   "satuan": "kg",
+   "source_id": "D04",
+   "locator": "Minimum/Maximum Dry Weight",
+   "status": "DOCUMENTED"
+  },
+  "dimensi_HD_2005_LxWxH": {
+   "nilai": {
+    "L": 3153,
+    "W": 2232,
+    "H": 2065
+   },
+   "satuan": "mm",
+   "source_id": "D03",
+   "locator": "hlm. 3 Engine Dimensions (Drawing #276-0041)",
+   "status": "OBSERVED",
+   "varian": "3512C HD 2575 mhp, LEHM4885-03 (2005), kemungkinan termasuk heat exchanger/SW pump terpasang"
+  },
+  "berat_kering_HD_2005": {
+   "nilai": {
+    "LW": 6725,
+    "COMM": 7484
+   },
+   "satuan": "kg",
+   "source_id": "D03",
+   "locator": "hlm. 1 dan 3",
+   "status": "OBSERVED"
+  },
+  "warna_cat": {
+   "nilai": "Caterpillar yellow",
+   "satuan": null,
+   "source_id": "D03",
+   "locator": "hlm. 1 General 'Caterpillar(R) yellow paint'",
+   "status": "OBSERVED",
+   "also": [
+    "D02 render hlm.1 (kuning; rail mounting hitam; heat shield abu-abu)"
+   ]
+  },
+  "heat_rejection_HD_1895bkW": {
+   "nilai": {
+    "coolant": 664,
+    "aftercooler": 458,
+    "atmosphere": 151
+   },
+   "satuan": "kW",
+   "source_id": "D03",
+   "locator": "hlm. 2",
+   "status": "OBSERVED"
+  }
+ },
+ "layout": {
+  "turbocharger": {
+   "jumlah": 2,
+   "keterangan": "Dual turbochargers dengan water-cooled bearings dan heat shields; wastegate (D03)",
+   "source_id": "D02",
+   "locator": "hlm. 1 Standard Equipment",
+   "status": "OBSERVED",
+   "posisi": "ujung belakang (ujung flywheel), tinggi di atas mesin, satu per bank, air cleaner bulat di luar tiap sisi",
+   "posisi_source": [
+    "D03 hlm. 3 gambar samping (air cleaner bulat di ujung berlawanan pulley/pipa depan) dan depan (dua air cleaner mengapit di atas)",
+    "D01 hlm. 1 gambar Right Side/Front",
+    "D02 hlm. 1 render samping"
+   ],
+   "posisi_status": "INFERRED (dibaca dari gambar resmi yang OBSERVED; turbo sendiri tertutup heat shield/air cleaner, tidak berlabel)"
+  },
+  "air_cleaner": {
+   "keterangan": "power-core air cleaners dengan service indicator, bulat besar berkisi",
+   "source_id": "D03",
+   "locator": "hlm. 1 Air Inlet System; hlm. 3 gambar",
+   "status": "OBSERVED",
+   "posisi": "atas-belakang, kiri dan kanan (terlihat dua di tampilan depan D03)",
+   "posisi_status": "INFERRED"
+  },
+  "aftercooler": {
+   "keterangan": "separate circuit aftercooler, core tahan korosi (D03); D01/D02: corrosion-resistant aftercooler core",
+   "source_id": "D03",
+   "locator": "hlm. 1 Air Inlet System",
+   "status": "OBSERVED",
+   "sirkuit": "separate circuit (SCAC) pada D03 2005; D03 Cooling System: 'Both combined and separate circuit options'",
+   "posisi": null,
+   "posisi_catatan": "Tidak tertulis. Gambar menunjukkan rumah besar di atas tengah (lembah V) - pada D01 tampilan depan ada kotak di tengah atas; identifikasi sebagai aftercooler = INFERRED, perlu konfirmasi",
+   "posisi_status": "INFERRED"
+  },
+  "exhaust_manifold": {
+   "jenis": "dry gas-tight, modular pulse exhaust manifold, heat shield SOLAS, single exhaust outlet (opsi keluaran vertikal/horizontal)",
+   "source_id": "D03",
+   "locator": "hlm. 1 Exhaust System dan Common Optional Equipment",
+   "status": "OBSERVED",
+   "varian": "3512C HD 2005",
+   "catatan": "Render D02 (IMO II 2024) menunjukkan penutup abu-abu panjang di atas mesin (heat shield) - OBSERVED, identitas sebagai shield exhaust = INFERRED",
+   "water_cooled": false
+  },
+  "flywheel_housing": {
+   "ukuran": "SAE No. 00",
+   "posisi": "ujung belakang",
+   "source_id": "D02",
+   "locator": "hlm. 1",
+   "status": "OBSERVED"
+  },
+  "vibration_damper": {
+   "keterangan": "vibration damper and guard",
+   "posisi": "ujung depan, tengah bawah di ujung crankshaft (guard hitam bulat)",
+   "source_id": "D02",
+   "locator": "hlm. 1 Standard Equipment + render depan",
+   "status": "OBSERVED",
+   "also": [
+    "D01 hlm.2",
+    "D03 hlm.1 dan gambar depan hlm.3"
+   ]
+  },
+  "jacket_water_pump": {
+   "keterangan": "gear-driven centrifugal jacket water pump",
+   "source_id": "D02",
+   "locator": "hlm. 1 Standard Equipment",
+   "status": "OBSERVED",
+   "posisi": "ujung depan, bawah (dua rumah pompa volute di sudut bawah kiri dan kanan pada render depan D02)",
+   "posisi_status": "INFERRED (pompa mana JW dan mana aux tidak dilabeli)"
+  },
+  "auxiliary_water_pump": {
+   "keterangan": "centrifugal auxiliary (fresh) water pump - sirkuit aftercooler",
+   "source_id": "D02",
+   "locator": "hlm. 1",
+   "status": "OBSERVED",
+   "posisi": "lihat jacket_water_pump",
+   "posisi_status": "INFERRED"
+  },
+  "sea_water_pump": {
+   "keterangan": "opsional pada IMO II (D01, D02); engine-mounted SW pump dan heat exchanger pada konfigurasi LW/COMM D03",
+   "source_id": "D02",
+   "locator": "hlm. 1 Optional Attachments",
+   "status": "OBSERVED"
+  },
+  "heat_exchanger": {
+   "keterangan": "pendinginan heat exchanger atau keel cooled; opsi plate-type heat exchanger (D02); engine-mounted HE pada D03",
+   "source_id": "D02",
+   "locator": "hlm. 1 Cooling, Optional Attachments",
+   "status": "OBSERVED",
+   "posisi": null
+  },
+  "oil_cooler": {
+   "keterangan": "engine oil cooler standar",
+   "source_id": "D01",
+   "locator": "hlm. 2 Standard Engine Equipment",
+   "status": "OBSERVED",
+   "posisi": null
+  },
+  "oil_filter": {
+   "keterangan": "oil filter dengan service indicator, oil level gauge, oil filler, gear-type oil pump, pre-lube strategy",
+   "source_id": "D03",
+   "locator": "hlm. 1 Lube System",
+   "status": "OBSERVED",
+   "posisi": null
+  },
+  "fuel_filter": {
+   "keterangan": "fuel filter dengan service indicator, fuel transfer pump, SOLAS fuel connections dengan spill shield",
+   "source_id": "D03",
+   "locator": "hlm. 1 Fuel System",
+   "status": "OBSERVED",
+   "posisi": null
+  },
+  "fuel_injection": {
+   "keterangan": "electronic unit injectors (electronically controlled unit injectors)",
+   "source_id": "D02",
+   "locator": "hlm. 1",
+   "status": "OBSERVED"
+  },
+  "crankcase_breather": {
+   "keterangan": "dual crankcase breathers dipasang di atas (top-mounted)",
+   "source_id": "D03",
+   "locator": "hlm. 1 Lube System",
+   "status": "OBSERVED"
+  },
+  "ecm_kontrol": {
+   "keterangan": "dual ECM (ADEM6 pada IMO II 2024; dual A3 pada 2005; dual A4 pada DGB 2014); harness plug-and-run port dan starboard; engine-mounted instrument panel",
+   "source_id": "D02",
+   "locator": "hlm. 1",
+   "status": "OBSERVED",
+   "also": [
+    "D01 hlm.2",
+    "D03 hlm.1"
+   ]
+  },
+  "starter": {
+   "keterangan": null,
+   "source_id": null,
+   "status": "UNVERIFIED",
+   "catatan": "Tidak disebut di dokumen yang dibuka"
+  },
+  "mounting": {
+   "keterangan": "mounting rails (opsi) atau three-point trunnion mounts; render D02 menunjukkan rail hitam memanjang sepanjang blok dengan oil pan dalam di bawahnya",
+   "source_id": "D03",
+   "locator": "hlm. 1 Mounting System; D02 hlm.1 render",
+   "status": "OBSERVED"
+  },
+  "power_takeoff": {
+   "keterangan": "accessory drives lower RH dan lower LH (rotasi standar); upper dan lower RH/LH (rotasi lawan); two-sided front housing",
+   "source_id": "D03",
+   "locator": "hlm. 1 Power Take-Offs",
+   "status": "OBSERVED",
+   "varian": "3512C HD 2005"
+  },
+  "lifting_eyes": {
+   "keterangan": "lifting eyes standar",
+   "source_id": "D03",
+   "locator": "hlm. 1 General",
+   "status": "OBSERVED"
+  }
+ },
+ "variants": [
+  {
+   "nama": "3512C (standar) IMO II/China II propulsion",
+   "stroke_mm": 190,
+   "displacement_L": 51.8,
+   "sumber": [
+    "D02",
+    "D04"
+   ]
+  },
+  {
+   "nama": "3512C HD (High Displacement) propulsion IMO II / EPA Tier 3",
+   "stroke_mm": 215,
+   "displacement_L": 58.6,
+   "dimensi_mm": "2645-2647 x 2037 x 2223",
+   "berat_kg": 7488,
+   "sumber": [
+    "D02",
+    "D05"
+   ]
+  },
+  {
+   "nama": "3512C HD with DGB marine auxiliary/DEP (2014)",
+   "stroke_mm": 215,
+   "dimensi_mm": "2644.5 x 2036.9 x 2113.3",
+   "berat_kg": "6532-7411",
+   "sumber": [
+    "D01"
+   ]
+  },
+  {
+   "nama": "3512C HD 2575 mhp ship-assist/yacht/patrol (2005, LEHM4885-03)",
+   "stroke_mm": 215,
+   "dimensi_mm": "3153 x 2232 x 2065",
+   "berat_kg": "6725 (LW) / 7484 (COMM)",
+   "sumber": [
+    "D03"
+   ]
+  },
+  {
+   "nama": "3512 generasi awal (bukan C)",
+   "stroke_mm": 190,
+   "displacement_L": 51.8,
+   "catatan": "hanya untuk sudut V, firing order, penomoran silinder",
+   "sumber": [
+    "D06"
+   ]
+  },
+  {
+   "nama": "3512B / 3512E / 3516C",
+   "catatan": "tidak dipakai; tidak ada data dari varian ini yang dicampur. Catatan: angka 78.08 L di D01 kemungkinan milik 3516C HD, tidak dipakai",
+   "sumber": []
+  }
+ ],
+ "conflicts": [
+  {
+   "topik": "displacement D01",
+   "isi": "D01 hlm.1 menulis 78.08 L (4765 in3) bersama 170 x 215 mm V-12; hitungan 12 x pi/4 x 17^2 x 21.5 = 58.56 L. 78.08 L = 16 silinder (3516C HD). Stroke juga ditulis 8.346 in (seharusnya 8.46 in). Dipakai 58.6 L dari D02/D05.",
+   "source_ids": [
+    "D01",
+    "D02",
+    "D05"
+   ]
+  },
+  {
+   "topik": "panjang D02",
+   "isi": "D02 hlm.2 menulis '104.2 in / 2465 mm' (juga di gambar '2465 [104.2]'); 104.2 in = 2647 mm. D05 menulis 2645 mm, D01 2644.5 mm. Kemungkinan salah ketik 2465 vs 2645.",
+   "source_ids": [
+    "D02",
+    "D05",
+    "D01"
+   ]
+  },
+  {
+   "topik": "tinggi",
+   "isi": "D04 1904 mm (propulsi, tanpa konfigurasi) vs D02/D05 2223 mm (HD) vs D01 2113 mm (DGB) vs D03 2065 mm (2005). Bergantung konfigurasi; pilih satu varian untuk model.",
+   "source_ids": [
+    "D01",
+    "D02",
+    "D03",
+    "D04",
+    "D05"
+   ]
+  },
+  {
+   "topik": "panjang D03",
+   "isi": "D03 3153 mm jauh lebih panjang dari 2590-2647 mm; kemungkinan termasuk heat exchanger/pipa depan dan air cleaner pada konfigurasi 2005.",
+   "source_ids": [
+    "D03"
+   ]
+  },
+  {
+   "topik": "D04 Length - Engine",
+   "isi": "D04 menulis 'Length - Engine 222.2 mm' (tidak masuk akal; snippet pencarian putaran 1 menyebut 111.1 in). Tidak dipakai.",
+   "source_ids": [
+    "D04"
+   ]
+  },
+  {
+   "topik": "berat maksimum",
+   "isi": "D04 max dry weight 8104 kg vs D01 7411 kg vs D02/D05 7488 kg.",
+   "source_ids": [
+    "D01",
+    "D02",
+    "D04",
+    "D05"
+   ]
+  },
+  {
+   "topik": "compression ratio",
+   "isi": "D06 13:1 (3512 awal) vs D03 14.7:1 (3512C HD 2005). Varian berbeda; untuk 3512C pakai D03.",
+   "source_ids": [
+    "D03",
+    "D06"
+   ]
+  }
+ ],
+ "gaps": [
+  "sudut V untuk 3512C belum dari dokumen 3512C (hanya 3512 awal, D06)",
+  "firing order 3512C dan urutan rotasi lawan belum terverifikasi dari OMM 3512C",
+  "posisi aftercooler, oil cooler, oil filter, fuel filter, starter, ECM tidak tertulis",
+  "starter (jumlah, sisi, jenis udara/listrik) tidak ditemukan",
+  "general dimension drawing resmi (mis. #276-0041) tidak tersedia publik",
+  "jarak antar silinder, jarak bank, tinggi poros engkol dari dasar rail tidak ditemukan",
+  "dimensi untuk varian standar 190 mm IMO II tidak dipisah jelas (D04 mencampur)",
+  "spec sheet marine generator set 3512C (produk 18417692) tidak berhasil dibuka"
+ ],
+ "failures": [
+  {
+   "url": "https://www.cat.com/en_US/products/new/power-systems/marine-power-systems/commercial-propulsion-engines/18404461.html",
+   "hasil": "HTTP 403"
+  },
+  {
+   "url": "https://wwwawsqaext.cat.com/en_US/.../18404461.html",
+   "hasil": "CONNECT tunnel failed 502"
+  },
+  {
+   "url": "https://cartermachinery.com/buy/new/equipment/machines/marine-power-systems/3512c-imo-ii-18404461",
+   "hasil": "HTTP 403"
+  },
+  {
+   "url": "https://www.hawthornecat.com/item/3512c-5/",
+   "hasil": "HTTP 403"
+  },
+  {
+   "url": "https://www.warrencat.com/new-equipment/power-systems/marine-power-systems/3512c-propulsion-engine-imo-ii (dan halaman genset HD)",
+   "hasil": "200 tetapi halaman arsip/daftar tanpa spesifikasi"
+  },
+  {
+   "url": "https://trakindo.co.id/request-pdf?type=brochure&products[]=3912",
+   "hasil": "200 HTML (form permintaan), bukan PDF"
+  },
+  {
+   "url": "https://web.archive.org/cdx/search/cdx ... dan https://web.archive.org/",
+   "hasil": "Connection reset by peer (tidak terjangkau dari proxy)"
+  },
+  {
+   "url": "s7d2.scene7.com/is/content/Caterpillar/...",
+   "hasil": "tidak ditemukan URL PDF 3512C lewat pencarian"
+  },
+  {
+   "url": "scribd.com (LEHM0010-00, LEHM0015-00, 3512C Tier 3)",
+   "hasil": "tidak diunduh: unggahan pengguna, perlu login/lisensi tidak jelas"
+  }
+ ],
+ "images_observed": [
+  "/tmp/claude-0/c3512/doc/p_poncat-1.png",
+  "/tmp/claude-0/c3512/doc/crop_dim-1.png",
+  "/tmp/claude-0/c3512/doc/p_gmmco-1.png",
+  "/tmp/claude-0/c3512/doc/p_gmmco-2.png",
+  "/tmp/claude-0/c3512/doc/img/front-1.png",
+  "/tmp/claude-0/c3512/doc/img/side-1.png",
+  "/tmp/claude-0/c3512/doc/p_powergen-1.png",
+  "/tmp/claude-0/c3512/doc/p_powergen-3.png"
+ ]
+}

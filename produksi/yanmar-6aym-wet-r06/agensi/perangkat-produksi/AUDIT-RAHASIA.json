@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "scope": "Exported agent and production-tool files, plus regular file contents of retained tar.gz archives.",
+  "patterns": [
+    "private_key",
+    "known_token_shape"
+  ],
+  "matches": [],
+  "limitations": "Pattern scan is not proof that arbitrary unknown secret formats are absent. Project configuration inspected separately; no credentials found. Original archives retained byte-for-byte.",
+  "archive_content_pattern_matches": []
+}

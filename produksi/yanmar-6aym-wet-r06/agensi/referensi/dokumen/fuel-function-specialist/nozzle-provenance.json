@@ -1,0 +1,26 @@
+{
+  "current_asset_sha256": "526ce37f126203eb288388dbd7922dd85749b19ddf8ef82ee5bfcf9d472ec8f5",
+  "nozzle_mesh_indices": [
+    591,
+    591,
+    591,
+    591,
+    591,
+    591
+  ],
+  "same_shared_mesh": true,
+  "generator_hole_banks": [
+    [
+      8,
+      0.3,
+      160
+    ],
+    [
+      4,
+      0.22,
+      90
+    ]
+  ],
+  "historical_ray_audit_hash": "4b69ad9975928cfa80be62ddc7c6a1c5caa241900bd3aef299081c1e6406ae05",
+  "status": "Geometry definitions and shared mesh checked; current ray recheck pending final asset."
+}

@@ -1,0 +1,71 @@
+{
+  "id": "RAK-FLYWHEEL",
+  "nama": "Flywheel dan housing",
+  "node_rakitan": "RAK-FLYWHEEL",
+  "acuan": {
+    "no": 1,
+    "object_ids": [
+      "EXT-FLYWHEEL-01"
+    ]
+  },
+  "diagram": {
+    "arah_pandang": [
+      -1.0,
+      0.0,
+      0.0
+    ],
+    "atas": [
+      0,
+      1,
+      0
+    ]
+  },
+  "bagian": [
+    {
+      "no": 1,
+      "nama": "Flywheel housing SAE #0",
+      "object_ids": [
+        "EXT-FLYWHEEL-01"
+      ],
+      "posisi": [],
+      "status": "ESTIMATED",
+      "sumber": [
+        "GA01 B3-48660-4450 / outline, top, end and rear housing details",
+        "P18 / housing, flange dan rusuk"
+      ],
+      "fungsi": "Flywheel housing SAE #0",
+      "nomor_oem": null,
+      "role": null,
+      "ukuran": null
+    },
+    {
+      "no": 2,
+      "nama": "Flywheel dan hub pusat",
+      "object_ids": [
+        "EXT-FLYWHEEL-02"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-FLYWHEEL-02",
+          "arah": [
+            -1,
+            0,
+            0
+          ],
+          "jarak_m": 0.28,
+          "urutan": 2
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "GA01 B3-48660-4450 / outline, top, end and rear housing details",
+        "P06 / roda merah dan hub"
+      ],
+      "fungsi": "Flywheel dan hub pusat",
+      "nomor_oem": null,
+      "role": null,
+      "ukuran": null
+    }
+  ],
+  "notes": "Nomor posisi model. Lintasan ilustrasi, belum diperiksa untuk interferensi."
+}

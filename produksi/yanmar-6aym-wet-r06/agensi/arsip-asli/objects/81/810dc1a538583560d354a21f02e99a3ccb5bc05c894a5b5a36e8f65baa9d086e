@@ -1,0 +1,37 @@
+{
+  "id": "INT-FUELINJ",
+  "nama": "Fuel injector",
+  "node_rakitan": "RAK-INT-FUELINJ",
+  "acuan": [
+    {
+      "no": 1,
+      "object_ids": [
+        "INT-FUELINJ-11",
+        "INT-FUELINJ-12",
+        "INT-FUELINJ-21",
+        "INT-FUELINJ-22",
+        "INT-FUELINJ-31",
+        "INT-FUELINJ-32",
+        "INT-FUELINJ-41",
+        "INT-FUELINJ-42",
+        "INT-FUELINJ-51",
+        "INT-FUELINJ-52",
+        "INT-FUELINJ-61",
+        "INT-FUELINJ-62"
+      ],
+      "sumber": "D01 PDF 114 dan bagian Fuel Injection Equipment"
+    }
+  ],
+  "diagram": {
+    "arah_pandang": [
+      1,
+      0.7,
+      1
+    ],
+    "atas": [
+      0,
+      1,
+      0
+    ]
+  }
+}

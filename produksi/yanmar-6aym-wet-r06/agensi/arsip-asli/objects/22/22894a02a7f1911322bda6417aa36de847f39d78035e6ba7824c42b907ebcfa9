@@ -1,0 +1,78 @@
+"""Render old site master, first rebuild, and current exterior on common studio cameras.
+
+Usage: blender -b -t 3 --python render_comparison.py -- OLD_GLB
+The legacy model was authored front -X, crank Y=.52, crankcase rear ~X=.75–.85.
+This enables qualitative comparison only. Parts, nominal fit and scope differ.
+"""
+import json
+from math import pi
+from pathlib import Path
+import sys
+import bpy
+from mathutils import Vector, Matrix
+
+folder=Path(__file__).resolve().parent
+baseline=Path(sys.argv[sys.argv.index('--')+1]).resolve()
+output=folder/'before-after'
+output.mkdir(exist_ok=True)
+views={'depan':(1,0,0),'belakang':(-1,0,0),'kiri':(0,1,0),'kanan':(0,-1,0),
+       'atas':(0,0,1),'tiga_perempat':(1,1.55,.52)}
+configuration={
+  'renderer':'Cycles CPU, 5 samples, denoising off',
+  'resolution':[660,495],'orthographic_scale_m':2.85,
+  'camera_center_blender_xyz_m':[.69,0,.218],'view_directions_blender':views,
+  'baseline_alignment': 'Legacy root transformed by Rz(180°), translation (+.85,0,−.52) in Blender metres. Datum is approximate.',
+  'baseline_local_file':str(baseline),
+  'notes':'Kamera, frame, lighting dan material tetap. Referensi 3/4 kiri-depan menyesuaikan P08. Baseline v8 adalah aset produktif lama, bukan bukti.'
+}
+(output/'settings.json').write_text(json.dumps(configuration,indent=2)+'\n')
+
+def create_lamp(kind,p,target,energy,size):
+    light=bpy.data.lights.new(kind,'AREA')
+    light.energy=energy
+    light.shape='DISK'
+    light.size=size
+    obj=bpy.data.objects.new(kind,light)
+    bpy.context.collection.objects.link(obj)
+    obj.location=p
+    obj.rotation_euler=(Vector(target)-obj.location).to_track_quat('-Z','Y').to_euler()
+
+for revision,model in (('legacy',baseline),('v1',folder/'v1/exterior.glb'),('v4',folder/'exterior.glb')):
+    bpy.ops.wm.read_factory_settings(use_empty=True)
+    bpy.ops.import_scene.gltf(filepath=str(model.resolve()))
+    scene=bpy.context.scene
+    if revision=='legacy':
+        alignment=Matrix.Translation((.85,0,-.52))@Matrix.Rotation(pi,4,'Z')
+        for obj in scene.objects:
+            if obj.parent is None:
+                obj.matrix_world=alignment@obj.matrix_world
+    scene.render.engine='CYCLES'
+    scene.cycles.device='CPU'
+    scene.cycles.samples=5
+    scene.cycles.use_denoising=False
+    scene.render.resolution_x,scene.render.resolution_y=configuration['resolution']
+    scene.render.resolution_percentage=100
+    scene.render.image_settings.file_format='PNG'
+    scene.world=bpy.data.worlds.new('Studio')
+    scene.world.use_nodes=True
+    scene.world.node_tree.nodes['Background'].inputs[0].default_value=(.31,.31,.31,1)
+    scene.world.node_tree.nodes['Background'].inputs[1].default_value=.58
+    scene.view_settings.view_transform='AgX'
+    material=bpy.data.materials.new('Neutral')
+    material.diffuse_color=(.41,.41,.41,1)
+    camera=bpy.data.cameras.new('Comparison Camera')
+    camera.type='ORTHO'
+    camera.ortho_scale=configuration['orthographic_scale_m']
+    obj=bpy.data.objects.new('Comparison Camera',camera)
+    scene.collection.objects.link(obj)
+    scene.camera=obj
+    center=Vector(configuration['camera_center_blender_xyz_m'])
+    for key,p,energy,size in [('Key',(2,2,3),190,2.7),('Fill',(-1,-2,2),145,2.9),('Rim',(-2,1,1.7),110,2.2)]:
+        create_lamp(key,p,center,energy,size)
+    for view,direction in views.items():
+        obj.location=center+Vector(direction).normalized()*8
+        obj.rotation_euler=(center-obj.location).to_track_quat('-Z','Y').to_euler()
+        for mode in (('neutral','color') if revision in ('legacy','v4') and view=='tiga_perempat' else ('neutral',)):
+            scene.view_layers[0].material_override=material if mode=='neutral' else None
+            scene.render.filepath=str(output/f'{revision}_{mode}_{view}.png')
+            bpy.ops.render.render(write_still=True)

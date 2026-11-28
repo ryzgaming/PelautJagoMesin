@@ -1,0 +1,67 @@
+{
+  "assets": {
+    "exterior": "60fd5009808ff5baa563c63cd6a3dfb3040bdf1a7c2152522a5f21e01ced6e20",
+    "internal": "46a8854081530e81d2a2af56dc936dbcd22e6b296343029510638e8d120252fa"
+  },
+  "camera_plan": {
+    "depan": [
+      [
+        1,
+        0,
+        0
+      ],
+      1.91
+    ],
+    "belakang": [
+      [
+        -1,
+        0,
+        0
+      ],
+      1.91
+    ],
+    "kiri": [
+      [
+        0,
+        1,
+        0
+      ],
+      2.27
+    ],
+    "kanan": [
+      [
+        0,
+        -1,
+        0
+      ],
+      2.27
+    ],
+    "atas": [
+      [
+        0,
+        0,
+        1
+      ],
+      2.27
+    ],
+    "tiga_perempat": [
+      [
+        1,
+        1,
+        0.37
+      ],
+      2.42
+    ]
+  },
+  "center_blender_m": [
+    0.6840000152587891,
+    0.009999999776482582,
+    0.2240000069141388
+  ],
+  "resolution": [
+    1000,
+    920
+  ],
+  "engine": "Cycles CPU 12 samples, denoising off, AgX, 4 area lights",
+  "appearance": "neutral matte; internal hidden in six installed exterior renders; exterior hidden in internal render"
+}

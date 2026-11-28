@@ -1,0 +1,270 @@
+{
+  "id": "RAK-LUBE",
+  "nama": "Pelumasan",
+  "node_rakitan": "RAK-LUBE",
+  "acuan": {
+    "no": 1,
+    "object_ids": [
+      "EXT-LUBE-01"
+    ]
+  },
+  "diagram": {
+    "arah_pandang": [
+      0.31139957904815674,
+      0.5449492335319519,
+      0.7784989476203918
+    ],
+    "atas": [
+      0,
+      1,
+      0
+    ]
+  },
+  "bagian": [
+    {
+      "no": 1,
+      "nama": "Header oli dan dudukan filter",
+      "object_ids": [
+        "EXT-LUBE-01"
+      ],
+      "posisi": [],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 14 printed p. 10 / component locations, non-operation side",
+        "P17 / dua tabung oli dan filter bypass"
+      ],
+      "fungsi": "Header oli dan dudukan filter",
+      "nomor_oem": null,
+      "role": null,
+      "ukuran": null
+    },
+    {
+      "no": 2,
+      "nama": "Cangkang cartridge oli 1",
+      "object_ids": [
+        "EXT-LUBE-02"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-LUBE-02",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.28,
+          "urutan": 2
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 159 printed p155 / Lubricating oil filter; cartridge replacement",
+        "D05 Parts Catalog 0CG10-M34300 / Figs.45/46 WET, cartridge position 3, alternative 3-1",
+        "P17 / external pair of hanging oil filters"
+      ],
+      "fungsi": "Cangkang cartridge oli 1",
+      "nomor_oem": null,
+      "role": "shell",
+      "ukuran": null
+    },
+    {
+      "no": 3,
+      "nama": "Cangkang cartridge oli 2",
+      "object_ids": [
+        "EXT-LUBE-03"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-LUBE-03",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.28,
+          "urutan": 3
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 159 printed p155 / Lubricating oil filter; cartridge replacement",
+        "D05 Parts Catalog 0CG10-M34300 / Figs.45/46 WET, cartridge position 3, alternative 3-1",
+        "P17 / external pair of hanging oil filters"
+      ],
+      "fungsi": "Cangkang cartridge oli 2",
+      "nomor_oem": null,
+      "role": "shell",
+      "ukuran": null
+    },
+    {
+      "no": 4,
+      "nama": "Tutup luar strainer sentrifugal",
+      "object_ids": [
+        "EXT-LUBE-04"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-LUBE-04",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.28,
+          "urutan": 4
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 160 printed p156 / centrifugal bypass strainer exploded Fig.016205-01E",
+        "D05 Parts Catalog 0CG10-M34300 / Fig.47 LUB.OIL BY-PASS STRAINER",
+        "P17 / bypass unit on non-operation side"
+      ],
+      "fungsi": "Tutup luar strainer sentrifugal",
+      "nomor_oem": null,
+      "role": "shell",
+      "ukuran": null
+    },
+    {
+      "no": 5,
+      "nama": "Rumah terbuka pendingin oli",
+      "object_ids": [
+        "EXT-LUBE-05"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-LUBE-05",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.28,
+          "urutan": 5
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D05 Parts Catalogue WET / Fig. 42 / pos. 2",
+        "D01 PDF 161 cetak 157, Lubricating oil cooler"
+      ],
+      "fungsi": "Rumah terbuka pendingin oli",
+      "nomor_oem": "148620-33030",
+      "role": "shell",
+      "ukuran": null
+    },
+    {
+      "no": 6,
+      "nama": "Oli tekan menuju pendingin pelat",
+      "object_ids": [
+        "EXT-LUBE-300"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-LUBE-300",
+          "arah": [
+            0,
+            0,
+            1
+          ],
+          "jarak_m": 0.28,
+          "urutan": 6
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 157, cetak 153, Lubricating Oil System",
+        "D05 Fig 49, pipa oli 148620-39150 / 148620-39160"
+      ],
+      "fungsi": "Oli tekan menuju pendingin pelat",
+      "nomor_oem": null,
+      "role": "pipe",
+      "ukuran": null
+    },
+    {
+      "no": 7,
+      "nama": "Pendingin oli ke rumah filter utama",
+      "object_ids": [
+        "EXT-LUBE-301"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-LUBE-301",
+          "arah": [
+            0,
+            0,
+            1
+          ],
+          "jarak_m": 0.28,
+          "urutan": 7
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 157, cetak 153, Lubricating Oil System",
+        "D05 Fig 49, pipa sambungan oli"
+      ],
+      "fungsi": "Pendingin oli ke rumah filter utama",
+      "nomor_oem": null,
+      "role": "pipe",
+      "ukuran": null
+    },
+    {
+      "no": 8,
+      "nama": "Pipa suplai oli ke turbo",
+      "object_ids": [
+        "EXT-LUBE-302"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-LUBE-302",
+          "arah": [
+            0,
+            0,
+            1
+          ],
+          "jarak_m": 0.28,
+          "urutan": 8
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 157, cetak 153, Lubricating Oil System",
+        "D05 Fig 50, pipa suplai turbo 148660-39412"
+      ],
+      "fungsi": "Pipa suplai oli ke turbo",
+      "nomor_oem": null,
+      "role": "pipe",
+      "ukuran": null
+    },
+    {
+      "no": 9,
+      "nama": "Pipa gravitasi dari turbo ke blok",
+      "object_ids": [
+        "EXT-LUBE-303"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-LUBE-303",
+          "arah": [
+            0,
+            0,
+            1
+          ],
+          "jarak_m": 0.28,
+          "urutan": 9
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 157, cetak 153, Lubricating Oil System",
+        "D05 Fig 51, pipa oli balik 148660-39741"
+      ],
+      "fungsi": "Pipa gravitasi dari turbo ke blok",
+      "nomor_oem": null,
+      "role": "pipe",
+      "ukuran": null
+    }
+  ],
+  "notes": "Nomor posisi model. Lintasan ilustrasi, belum diperiksa untuk interferensi."
+}

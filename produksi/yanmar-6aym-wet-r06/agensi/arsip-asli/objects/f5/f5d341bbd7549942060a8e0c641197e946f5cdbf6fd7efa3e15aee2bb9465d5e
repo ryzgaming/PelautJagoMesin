@@ -1,0 +1,140 @@
+{
+  "status": "UNVERIFIED",
+  "scope": "Independent Three.js r128 parsing of both GLBs in the export datum. No geometry edits.",
+  "checks": {
+    "componentCount": 581,
+    "assemblyCount": 11,
+    "systemCount": 5
+  },
+  "hashes": {
+    "exterior": "c5e9f1f826074cbebb161f5ba15ada8392744e15f9f786ff360078f095843e53",
+    "internal": "11ea34ec436e43053f70f8e1162391669e377daebee501cba515dc218f388bf9"
+  },
+  "dimensions": [
+    {
+      "axis": "X",
+      "export_mm": 2002.68,
+      "nominalCatalogue_mm": 2000,
+      "projectedExtrema_mm": 1952,
+      "nominalDelta_pct": 0.13
+    },
+    {
+      "axis": "Z",
+      "export_mm": 1305,
+      "nominalCatalogue_mm": 1305,
+      "projectedExtrema_mm": 1305,
+      "nominalDelta_pct": 0
+    },
+    {
+      "axis": "Y",
+      "export_mm": 1541,
+      "nominalCatalogue_mm": 1431,
+      "projectedExtrema_mm": 1560,
+      "nominalDelta_pct": 7.69
+    }
+  ],
+  "cylinders": [
+    {
+      "cylinder": 1,
+      "cylinderAxis": "Y",
+      "deckY_mm": 490,
+      "linerTopY_mm": 490,
+      "deckMinusLiner_mm": 0,
+      "pistonCrownTdcY_mm": 488.44,
+      "deckMinusTdcCrown_mm": 1.56,
+      "linerToHeadAxisOffsetX_mm": 0,
+      "linerToHeadAxisOffsetZ_mm": 0,
+      "rockerTopRestY_mm": 654,
+      "bonnetOuterTopY_mm": 722,
+      "rockerToOuterBonnetRoofEnvelope_mm": 68
+    },
+    {
+      "cylinder": 2,
+      "cylinderAxis": "Y",
+      "deckY_mm": 490,
+      "linerTopY_mm": 490,
+      "deckMinusLiner_mm": 0,
+      "pistonCrownTdcY_mm": 488.44,
+      "deckMinusTdcCrown_mm": 1.56,
+      "linerToHeadAxisOffsetX_mm": 0,
+      "linerToHeadAxisOffsetZ_mm": 0,
+      "rockerTopRestY_mm": 654,
+      "bonnetOuterTopY_mm": 722,
+      "rockerToOuterBonnetRoofEnvelope_mm": 68
+    },
+    {
+      "cylinder": 3,
+      "cylinderAxis": "Y",
+      "deckY_mm": 490,
+      "linerTopY_mm": 490,
+      "deckMinusLiner_mm": 0,
+      "pistonCrownTdcY_mm": 488.44,
+      "deckMinusTdcCrown_mm": 1.56,
+      "linerToHeadAxisOffsetX_mm": 0,
+      "linerToHeadAxisOffsetZ_mm": 0,
+      "rockerTopRestY_mm": 654,
+      "bonnetOuterTopY_mm": 722,
+      "rockerToOuterBonnetRoofEnvelope_mm": 68
+    },
+    {
+      "cylinder": 4,
+      "cylinderAxis": "Y",
+      "deckY_mm": 490,
+      "linerTopY_mm": 490,
+      "deckMinusLiner_mm": 0,
+      "pistonCrownTdcY_mm": 488.44,
+      "deckMinusTdcCrown_mm": 1.56,
+      "linerToHeadAxisOffsetX_mm": 0,
+      "linerToHeadAxisOffsetZ_mm": 0,
+      "rockerTopRestY_mm": 654,
+      "bonnetOuterTopY_mm": 722,
+      "rockerToOuterBonnetRoofEnvelope_mm": 68
+    },
+    {
+      "cylinder": 5,
+      "cylinderAxis": "Y",
+      "deckY_mm": 490,
+      "linerTopY_mm": 490,
+      "deckMinusLiner_mm": 0,
+      "pistonCrownTdcY_mm": 488.44,
+      "deckMinusTdcCrown_mm": 1.56,
+      "linerToHeadAxisOffsetX_mm": 0,
+      "linerToHeadAxisOffsetZ_mm": 0,
+      "rockerTopRestY_mm": 654,
+      "bonnetOuterTopY_mm": 722,
+      "rockerToOuterBonnetRoofEnvelope_mm": 68
+    },
+    {
+      "cylinder": 6,
+      "cylinderAxis": "Y",
+      "deckY_mm": 490,
+      "linerTopY_mm": 490,
+      "deckMinusLiner_mm": 0,
+      "pistonCrownTdcY_mm": 488.44,
+      "deckMinusTdcCrown_mm": 1.56,
+      "linerToHeadAxisOffsetX_mm": 0,
+      "linerToHeadAxisOffsetZ_mm": 0,
+      "rockerTopRestY_mm": 654,
+      "bonnetOuterTopY_mm": 722,
+      "rockerToOuterBonnetRoofEnvelope_mm": 68
+    }
+  ],
+  "shaftPairs": [
+    {
+      "name": "flywheel to crankshaft rear flange",
+      "axialGap_mm": -1,
+      "centerOffsetYZ_mm": 0
+    },
+    {
+      "name": "crankshaft nose to damper",
+      "axialGap_mm": 0,
+      "centerOffsetYZ_mm": 0
+    }
+  ],
+  "limitations": [
+    "Cylinder per-axis checks use exported mesh bounding boxes; analytically advance piston assembly from exported rest to TDC using illustrative crank-slider data.",
+    "Rocker to bonnet measurement references outer roof extrema only. Bounding boxes do not prove local inside clearance or surface collision.",
+    "A negative shaft-pair gap is axial overlap of the exported portions; mating face, hub counterbore and fastener/joint clearances still require sectional or surface inspection.",
+    "Projected dimensions are documented-view estimates. This independent report does not replace physical or browser QA."
+  ]
+}

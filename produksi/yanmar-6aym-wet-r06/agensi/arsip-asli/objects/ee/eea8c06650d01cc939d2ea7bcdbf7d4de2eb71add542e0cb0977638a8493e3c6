@@ -1,0 +1,333 @@
+{
+  "machine_model": "Yanmar 6AYM-WET",
+  "system": "fuel",
+  "status": "UNVERIFIED",
+  "applicability": "Target model 6AYM-WET H-rating 555 kW, engine-only. Diagram fungsi manual keluarga 6AYM-WGT/WET/WST mendukung aliran yang dipetakan. Tabel D01 dan brosur D03 mengonfirmasi jenis pompa atau direct injection pada WET sesuai cakupan tiap sumber. Komponen kapal direpresentasikan sebagai konteks skematik.",
+  "nodes": [
+    {
+      "id": "FUEL-TANK",
+      "name": "Tangki bahan bakar kapal",
+      "kind": "external_context",
+      "location_hint": "Instalasi kapal, lokasi spesifik belum diketahui.",
+      "status": "DOCUMENTED",
+      "source_refs": [
+        "D01 cetak 110 / PDF 114, Fuel Injection Equipment, fig. 057559-00EN01"
+      ]
+    },
+    {
+      "id": "FUEL-WATER-SEP",
+      "name": "Water separator",
+      "kind": "external_context",
+      "location_hint": "Hull fitting di sisi suplai luar mesin.",
+      "status": "DOCUMENTED",
+      "source_refs": [
+        "D01 cetak 12 / PDF 16, Fuel oil system, fig. 057559-00EN00",
+        "D01 cetak 152 / PDF 156, Water separator"
+      ]
+    },
+    {
+      "id": "FUEL-INLET",
+      "name": "Fuel inlet pipe",
+      "kind": "interface",
+      "location_hint": "Antarmuka suplai menuju feed pump, menurut diagram.",
+      "status": "DOCUMENTED",
+      "source_refs": [
+        "D01 cetak 12 / PDF 16, Fuel oil system, fig. 057559-00EN00"
+      ]
+    },
+    {
+      "id": "FUEL-FEED-PUMP",
+      "name": "Fuel feed pump",
+      "kind": "pump",
+      "location_hint": "Operation side, dipasang di sisi injection pump.",
+      "status": "DOCUMENTED",
+      "source_refs": [
+        "D01 cetak 10 / PDF 14, Location of Components – Operation side",
+        "D01 cetak 141 / PDF 145, Fuel Feed Pump"
+      ]
+    },
+    {
+      "id": "FUEL-PRIMING-PUMP",
+      "name": "Fuel priming pump",
+      "kind": "pump_subassembly",
+      "location_hint": "Operation side, terpasang pada fuel feed pump.",
+      "status": "DOCUMENTED",
+      "source_refs": [
+        "D01 cetak 10 / PDF 14, Location of Components – Operation side",
+        "D01 cetak 141 / PDF 145, Fuel Feed Pump"
+      ]
+    },
+    {
+      "id": "FUEL-FILTER",
+      "name": "Fuel filter",
+      "kind": "filter",
+      "location_hint": "Operation side, antara feed pump dan injection pump pada aliran.",
+      "status": "DOCUMENTED",
+      "source_refs": [
+        "D01 cetak 10 / PDF 14, Location of Components – Operation side",
+        "D01 cetak 151 / PDF 155, Fuel Filter"
+      ]
+    },
+    {
+      "id": "FUEL-INJECTION-PUMP",
+      "name": "Fuel injection pump YANMAR YPE-1615",
+      "kind": "injection_pump",
+      "location_hint": "Operation side, rakitan pompa enam elemen segaris.",
+      "status": "DOCUMENTED",
+      "source_refs": [
+        "D01 cetak 10 / PDF 14, Location of Components – Operation side",
+        "D01 cetak 9 / PDF 13, kolom 6AYM-WET M dan H",
+        "D01 cetak 111 / PDF 115, Fuel injection pump/governor, kolom YPE-1615"
+      ]
+    },
+    {
+      "id": "FUEL-GOVERNOR",
+      "name": "All-speed governor",
+      "kind": "mechanical_control",
+      "location_hint": "Operation side, bagian dari rakitan fuel injection pump/governor.",
+      "status": "DOCUMENTED",
+      "source_refs": [
+        "D01 cetak 10 / PDF 14, Location of Components – Operation side",
+        "D01 cetak 111 / PDF 115, Fuel injection pump/governor, kolom YPE-1615"
+      ]
+    },
+    {
+      "id": "FUEL-INJECTION-PIPES",
+      "name": "Injection pipes",
+      "kind": "line_group",
+      "location_hint": "Enam jalur fungsional tersendiri dari pompa ke masing-masing injektor.",
+      "status": "DOCUMENTED",
+      "source_refs": [
+        "D01 cetak 12 / PDF 16, Fuel oil system, fig. 057559-00EN00",
+        "D01 cetak 110 / PDF 114, Fuel Injection Equipment, fig. 057559-00EN01"
+      ]
+    },
+    {
+      "id": "FUEL-INJECTORS",
+      "name": "Fuel injectors dan nozzles",
+      "kind": "injector_group",
+      "location_hint": "Satu injektor untuk setiap silinder, dengan nozzle menghadap ruang bakar.",
+      "status": "DOCUMENTED",
+      "source_refs": [
+        "D01 cetak 110 / PDF 114, Fuel Injection Equipment, fig. 057559-00EN01",
+        "D01 cetak 146 / PDF 150, Fuel Injector, kolom 6AYM-WGT/6AYM-WET",
+        "D03 cetak 32 dan 34 / PDF 17–18, 6AYM-WET H-rating dan M-rating, Combustion system"
+      ]
+    },
+    {
+      "id": "FUEL-CYLINDERS",
+      "name": "Ruang bakar silinder 1–6",
+      "kind": "combustion_group",
+      "location_hint": "Enam silinder segaris. No. 1 di sisi flywheel.",
+      "status": "DOCUMENTED",
+      "source_refs": [
+        "D01 cetak 9 / PDF 13, kolom 6AYM-WET M dan H",
+        "D03 cetak 32 dan 34 / PDF 17–18, 6AYM-WET H-rating dan M-rating, Combustion system"
+      ]
+    },
+    {
+      "id": "FUEL-PRESSURE-VALVE",
+      "name": "Pressure control valve",
+      "kind": "valve",
+      "location_hint": "Cabang overflow di outlet pompa injeksi berdasarkan diagram.",
+      "status": "DOCUMENTED",
+      "source_refs": [
+        "D01 cetak 12 / PDF 16, Fuel oil system, fig. 057559-00EN00",
+        "D01 cetak 110 / PDF 114, Fuel Injection Equipment, fig. 057559-00EN01"
+      ]
+    },
+    {
+      "id": "FUEL-OVERFLOW",
+      "name": "Fuel overflow pipe",
+      "kind": "interface",
+      "location_hint": "Antarmuka keluar overflow pada diagram.",
+      "status": "DOCUMENTED",
+      "source_refs": [
+        "D01 cetak 12 / PDF 16, Fuel oil system, fig. 057559-00EN00",
+        "D01 cetak 110 / PDF 114, Fuel Injection Equipment, fig. 057559-00EN01"
+      ]
+    },
+    {
+      "id": "FUEL-DRAIN",
+      "name": "Fuel drain pipe",
+      "kind": "interface",
+      "location_hint": "Antarmuka drain terpisah dari overflow pada diagram.",
+      "status": "DOCUMENTED",
+      "source_refs": [
+        "D01 cetak 12 / PDF 16, Fuel oil system, fig. 057559-00EN00",
+        "D01 cetak 110 / PDF 114, Fuel Injection Equipment, fig. 057559-00EN01"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "to": "FUEL-WATER-SEP",
+      "purpose": "Merepresentasikan suplai tangki ke separator pada sisi kapal.",
+      "operating_condition": "Saat feed pump menyuplai bahan bakar.",
+      "status": "INFERRED",
+      "source_refs": [
+        "D01 cetak 12 / PDF 16, Fuel oil system, fig. 057559-00EN00",
+        "D01 cetak 110 / PDF 114, Fuel Injection Equipment, fig. 057559-00EN01"
+      ],
+      "from": "FUEL-TANK"
+    },
+    {
+      "to": "FUEL-INLET",
+      "purpose": "Menyalurkan bahan bakar dari separator ke inlet mesin.",
+      "operating_condition": "Saat feed pump menyuplai bahan bakar.",
+      "status": "DOCUMENTED",
+      "source_refs": [
+        "D01 cetak 12 / PDF 16, Fuel oil system, fig. 057559-00EN00"
+      ],
+      "from": "FUEL-WATER-SEP"
+    },
+    {
+      "to": "FUEL-FEED-PUMP",
+      "purpose": "Menyuplai sisi isap feed pump.",
+      "operating_condition": "Saat feed pump menyuplai bahan bakar.",
+      "status": "DOCUMENTED",
+      "source_refs": [
+        "D01 cetak 12 / PDF 16, Fuel oil system, fig. 057559-00EN00",
+        "D01 cetak 141 / PDF 145, Fuel Feed Pump"
+      ],
+      "from": "FUEL-INLET"
+    },
+    {
+      "to": "FUEL-FILTER",
+      "purpose": "Mendorong bahan bakar ke elemen filter.",
+      "operating_condition": "Saat feed pump menyuplai bahan bakar.",
+      "status": "DOCUMENTED",
+      "source_refs": [
+        "D01 cetak 110 / PDF 114, Fuel Injection Equipment, fig. 057559-00EN01",
+        "D01 cetak 141 / PDF 145, Fuel Feed Pump",
+        "D01 cetak 151 / PDF 155, Fuel Filter"
+      ],
+      "from": "FUEL-FEED-PUMP"
+    },
+    {
+      "to": "FUEL-INJECTION-PUMP",
+      "purpose": "Mengirim bahan bakar yang telah disaring ke pompa injeksi.",
+      "operating_condition": "Saat feed pump menyuplai bahan bakar.",
+      "status": "DOCUMENTED",
+      "source_refs": [
+        "D01 cetak 110 / PDF 114, Fuel Injection Equipment, fig. 057559-00EN01",
+        "D01 cetak 151 / PDF 155, Fuel Filter"
+      ],
+      "from": "FUEL-FILTER"
+    },
+    {
+      "to": "FUEL-INJECTION-PIPES",
+      "purpose": "Plunger menaikkan tekanan dan pompa mengirim pulsa bahan bakar ke jalur silinder terkait.",
+      "operating_condition": "Secara bergiliran saat elemen pompa menyalurkan bahan bakar ke silinder terkait.",
+      "status": "DOCUMENTED",
+      "source_refs": [
+        "D01 cetak 12 / PDF 16, Fuel oil system, fig. 057559-00EN00",
+        "D01 cetak 110 / PDF 114, Fuel Injection Equipment, fig. 057559-00EN01",
+        "D01 cetak 111 / PDF 115, Fuel injection pump/governor, kolom YPE-1615"
+      ],
+      "from": "FUEL-INJECTION-PUMP"
+    },
+    {
+      "to": "FUEL-INJECTORS",
+      "purpose": "Setiap pipa menyalurkan pulsa bahan bakar ke satu injektor.",
+      "operating_condition": "Secara bergiliran saat elemen pompa menyalurkan bahan bakar ke silinder terkait.",
+      "status": "DOCUMENTED",
+      "source_refs": [
+        "D01 cetak 110 / PDF 114, Fuel Injection Equipment, fig. 057559-00EN01"
+      ],
+      "from": "FUEL-INJECTION-PIPES"
+    },
+    {
+      "to": "FUEL-CYLINDERS",
+      "purpose": "Nozzle mengabutkan bahan bakar langsung ke ruang bakar.",
+      "operating_condition": "Saat tekanan bahan bakar mengangkat nozzle valve melawan pegas.",
+      "status": "DOCUMENTED",
+      "source_refs": [
+        "D01 cetak 110 / PDF 114, Fuel Injection Equipment, fig. 057559-00EN01",
+        "D01 cetak 146 / PDF 150, Fuel Injector, kolom 6AYM-WGT/6AYM-WET",
+        "D03 cetak 32 dan 34 / PDF 17–18, 6AYM-WET H-rating dan M-rating, Combustion system"
+      ],
+      "from": "FUEL-INJECTORS"
+    },
+    {
+      "to": "FUEL-PRESSURE-VALVE",
+      "purpose": "Menghubungkan rangkaian pompa ke cabang kontrol tekanan overflow.",
+      "operating_condition": "Saat pressure control valve membuka jalur overflow.",
+      "status": "DOCUMENTED",
+      "source_refs": [
+        "D01 cetak 12 / PDF 16, Fuel oil system, fig. 057559-00EN00",
+        "D01 cetak 111 / PDF 115, Fuel injection pump/governor, kolom YPE-1615"
+      ],
+      "from": "FUEL-INJECTION-PUMP"
+    },
+    {
+      "to": "FUEL-OVERFLOW",
+      "purpose": "Menyalurkan bahan bakar dari katup ke antarmuka overflow.",
+      "operating_condition": "Saat pressure control valve membuka jalur overflow.",
+      "status": "DOCUMENTED",
+      "source_refs": [
+        "D01 cetak 12 / PDF 16, Fuel oil system, fig. 057559-00EN00",
+        "D01 cetak 111 / PDF 115, Fuel injection pump/governor, kolom YPE-1615"
+      ],
+      "from": "FUEL-PRESSURE-VALVE"
+    },
+    {
+      "to": "FUEL-DRAIN",
+      "purpose": "Menunjukkan koneksi drain terpisah dari pompa ke antarmuka keluar.",
+      "operating_condition": "Kondisi aktif dan terminasi di kapal belum dinyatakan pada diagram.",
+      "status": "DOCUMENTED",
+      "source_refs": [
+        "D01 cetak 12 / PDF 16, Fuel oil system, fig. 057559-00EN00",
+        "D01 cetak 110 / PDF 114, Fuel Injection Equipment, fig. 057559-00EN01"
+      ],
+      "from": "FUEL-INJECTION-PUMP"
+    }
+  ],
+  "gaps": [
+    "Kurva pipa, panjang, titik port 3D, posisi klem, diameter, dan nomor suku cadang masih belum terverifikasi untuk WET.",
+    "Rencana perpipaan kapal diperlukan untuk menetapkan letak tangki, water separator, jalur suplai, dan terminasi fuel drain/overflow.",
+    "D01 memperlihatkan cabang atas melalui simbol bulat tanpa label yang menyatu dengan overflow setelah pressure control valve. Identitas simbol dan perilaku cabang belum terverifikasi.",
+    "D01 menunjukkan fuel priming pump sebagai bagian feed pump. Jalur internal priming dan operasi berdasarkan keadaan belum dipetakan.",
+    "D01 cetak 110/PDF 114 menyebut suplai ke filter kira-kira 0,4–0,7 MPa. Tabel delivery pressure feed pump pada cetak 111/PDF 115 menyebut 0,66–0,97 MPa. Kondisi pembanding belum dipastikan sehingga pressure rendah disisihkan dari data simulasi."
+  ],
+  "source_observations": [
+    {
+      "status": "DOCUMENTED",
+      "observation": "Aliran utama, drain, dan overflow dibaca langsung dari diagram serta uraian manual. Panah skema menyatakan hubungan fungsional.",
+      "source_refs": [
+        "D01 cetak 12 / PDF 16, Fuel oil system, fig. 057559-00EN00",
+        "D01 cetak 110 / PDF 114, Fuel Injection Equipment, fig. 057559-00EN01"
+      ]
+    },
+    {
+      "status": "DOCUMENTED",
+      "observation": "WET memakai pompa YPE-1615 dengan all-speed governor. YPE-1617 tercantum untuk WGT.",
+      "source_refs": [
+        "D01 cetak 111 / PDF 115, Fuel injection pump/governor, kolom YPE-1615"
+      ]
+    },
+    {
+      "status": "DOCUMENTED",
+      "observation": "WET H dan M memakai direct injection pada enam silinder segaris.",
+      "source_refs": [
+        "D01 cetak 9 / PDF 13, kolom 6AYM-WET M dan H",
+        "D03 cetak 32 dan 34 / PDF 17–18, 6AYM-WET H-rating dan M-rating, Combustion system"
+      ]
+    },
+    {
+      "status": "DOCUMENTED",
+      "observation": "Opening pressure nozzle 31 ± 0,5 MPa untuk WET. Nilai ini adalah spesifikasi pembukaan nozzle.",
+      "source_refs": [
+        "D01 cetak 146 / PDF 150, Fuel Injector, kolom 6AYM-WGT/6AYM-WET"
+      ]
+    },
+    {
+      "status": "INFERRED",
+      "observation": "Tangki sebagai node hulu separator menggabungkan uraian sumber suplai dengan diagram yang dimulai sebelum separator. Komponen antara keduanya bergantung instalasi kapal.",
+      "source_refs": [
+        "D01 cetak 12 / PDF 16, Fuel oil system, fig. 057559-00EN00",
+        "D01 cetak 110 / PDF 114, Fuel Injection Equipment, fig. 057559-00EN01"
+      ]
+    }
+  ]
+}

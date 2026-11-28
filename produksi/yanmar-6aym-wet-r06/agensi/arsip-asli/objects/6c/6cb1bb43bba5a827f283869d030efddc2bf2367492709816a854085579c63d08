@@ -1,0 +1,60 @@
+{
+  "id": "INT-MAIN",
+  "nama": "Main bearings",
+  "node_rakitan": "RAK-INT-MAIN",
+  "acuan": [
+    {
+      "no": 1,
+      "object_ids": [
+        "INT-MAIN-11",
+        "INT-MAIN-12",
+        "INT-MAIN-13",
+        "INT-MAIN-14",
+        "INT-MAIN-15",
+        "INT-MAIN-21",
+        "INT-MAIN-22",
+        "INT-MAIN-23",
+        "INT-MAIN-24",
+        "INT-MAIN-25",
+        "INT-MAIN-31",
+        "INT-MAIN-32",
+        "INT-MAIN-33",
+        "INT-MAIN-34",
+        "INT-MAIN-35",
+        "INT-MAIN-41",
+        "INT-MAIN-42",
+        "INT-MAIN-43",
+        "INT-MAIN-44",
+        "INT-MAIN-45",
+        "INT-MAIN-51",
+        "INT-MAIN-52",
+        "INT-MAIN-53",
+        "INT-MAIN-54",
+        "INT-MAIN-55",
+        "INT-MAIN-61",
+        "INT-MAIN-62",
+        "INT-MAIN-63",
+        "INT-MAIN-64",
+        "INT-MAIN-65",
+        "INT-MAIN-71",
+        "INT-MAIN-72",
+        "INT-MAIN-73",
+        "INT-MAIN-74",
+        "INT-MAIN-75"
+      ],
+      "sumber": "D01 PDF 104 & 106 / cetak 100 & 102"
+    }
+  ],
+  "diagram": {
+    "arah_pandang": [
+      1,
+      0.7,
+      1
+    ],
+    "atas": [
+      0,
+      1,
+      0
+    ]
+  }
+}

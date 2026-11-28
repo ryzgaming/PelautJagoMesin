@@ -1,0 +1,97 @@
+{
+  "pemisahan_paket": "PASS",
+  "qa_geometri_keseluruhan": "UNVERIFIED",
+  "browser": {
+    "chromium": "156.0.8078.79",
+    "playwright": "1.62.1",
+    "node": "24.22.3",
+    "rendering": "Chromium software WebGL via ANGLE SwiftShader"
+  },
+  "captured_viewports": [
+    {
+      "file": "browser/studio-desktop.png",
+      "pixels": [
+        1280,
+        800
+      ],
+      "cssViewport": [
+        1280,
+        800
+      ],
+      "dpr": 1
+    },
+    {
+      "file": "browser/studio-hp.png",
+      "pixels": [
+        780,
+        1688
+      ],
+      "cssViewport": [
+        390,
+        844
+      ],
+      "dpr": 2
+    },
+    {
+      "file": "browser/minimal-desktop.png",
+      "pixels": [
+        1280,
+        800
+      ],
+      "cssViewport": [
+        1280,
+        800
+      ],
+      "dpr": 1
+    },
+    {
+      "file": "browser/minimal-hp.png",
+      "pixels": [
+        780,
+        1688
+      ],
+      "cssViewport": [
+        390,
+        844
+      ],
+      "dpr": 2
+    }
+  ],
+  "browser_scenarios": 4,
+  "matrix_samples_per_scenario": 10,
+  "model_mesh_ids": 1184,
+  "same_pose_world_matrices": true,
+  "geometry_sha256": {
+    "exterior": "defc58c070a871da2068b2ddd4388ff51b340a1014dfde2226f7e47946a89121",
+    "internal": "526ce37f126203eb288388dbd7922dd85749b19ddf8ef82ee5bfcf9d472ec8f5"
+  },
+  "exact_active_files_tested": {
+    "model/manifest.json": "c3fb0c9afc4179b1812e4baa039f530748f46e6342592c0b06b52cc2824329fb",
+    "model/runtime/engine-session.js": "b83f5b3a92d5152ef93ee3e626eb7e29d41799946e1a306b25e6b86883e526ab",
+    "model/runtime/powertrain.js": "178a96fc9d794b0e674ecd7f6efaa62ea677e3b6f9868fff40448d132021edf2",
+    "model/assets/exterior.glb": "defc58c070a871da2068b2ddd4388ff51b340a1014dfde2226f7e47946a89121",
+    "model/assets/internal.glb": "526ce37f126203eb288388dbd7922dd85749b19ddf8ef82ee5bfcf9d472ec8f5",
+    "model/assets/data.json": "329566981da8e0c2ba9d1096cd69c1d29fcce9acc71c1621d20016785fd6adad",
+    "ui-workspace/index.html": "9b4966742ce1e51f26f2d2e28ce75ebc77cc1bd15a3f7c5c32b15f0335baa9f3",
+    "ui-workspace/studio.js": "2022a1626a737767250c4e7f4ffcae5ea537615c89c86e5249e69a9d544acd69",
+    "ui-workspace/minimal.html": "491aad89bbb888a0325bc772c736931f32d37f7151e766a7562586b8f0f99bc7",
+    "ui-workspace/minimal.js": "a8500f5e776d605de0ec911f0edd15991bb5b669e82608bd4821c1999c8bcadc"
+  },
+  "checked_local_link_count": 32,
+  "historical_paths_verified": 7819,
+  "r06_archival_paths": 2314,
+  "generated_caches_excluded_r06": 79,
+  "original_r06_root_unchanged_in_audit": true,
+  "reports": [
+    "model-identik.json",
+    "inventaris.json",
+    "batas-runtime.json",
+    "browser/ringkasan.json",
+    "browser/fallback.json"
+  ],
+  "limits": [
+    "Physical phone and speaker fidelity were outside package QA.",
+    "All-model geometry was not requalified. The 696 unclassified r05 surface-contact pairs and unverified OEM dimensions remain open.",
+    "Historical agent briefs are reconstructed task briefs, not recovered chat transcripts."
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "arch": "x86_64",
+  "python": "3.12.14",
+  "blender": "4.3.2",
+  "glTF_exporter": "io_scene_gltf2, bundled with Blender",
+  "normal_build_python_packages": "Python standard library; bpy, bmesh and mathutils bundled in Blender",
+  "optional_profile_regeneration": "NumPy and Shapely 2.x (not required for normal run)",
+  "linked_external_assets": {
+    "exterior.blend": [],
+    "internal.blend": []
+  },
+  "source_project_file_dependency_test": "blender -b <master> --python-expr \"import bpy; print(bpy.utils.blend_paths(absolute=True))\"",
+  "source_masters_sha256": {
+    "exterior": "348d31ac5de8b16352421f643291410b86d59e9634988d0a5ca6d2dfdfb12157",
+    "internal": "2dd18541aade76c03c06d9a41ca1aa7c853ff5115a6e89b1b5f4d44dde381e58"
+  }
+}

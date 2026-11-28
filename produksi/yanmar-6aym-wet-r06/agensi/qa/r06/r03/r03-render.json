@@ -1,0 +1,92 @@
+{
+  "asset_sha256": "bba7f1e1dc4baca7ed8c68caa63561264905d62f9c524227e0d4b126296ad707",
+  "select": {
+    "shell": [
+      "EXT-INTAKE-02"
+    ],
+    "parts": [
+      "EXT-INTAKE-06",
+      "EXT-INTAKE-07",
+      "EXT-INTAKE-08",
+      "EXT-INTAKE-09",
+      "EXT-INTAKE-10",
+      "EXT-INTAKE-11",
+      "EXT-INTAKE-12",
+      "EXT-INTAKE-13",
+      "EXT-INTAKE-14",
+      "EXT-INTAKE-15",
+      "EXT-INTAKE-16"
+    ],
+    "core": [
+      "EXT-INTAKE-08"
+    ],
+    "offsets": {
+      "EXT-INTAKE-06": [
+        0.0,
+        0.0,
+        -0.98
+      ],
+      "EXT-INTAKE-07": [
+        0.0,
+        0.0,
+        0.3
+      ],
+      "EXT-INTAKE-08": [
+        0.0,
+        0.0,
+        -0.69
+      ],
+      "EXT-INTAKE-09": [
+        0.0,
+        0.0,
+        -0.84
+      ],
+      "EXT-INTAKE-10": [
+        0.0,
+        0.0,
+        0.18
+      ],
+      "EXT-INTAKE-11": [
+        0.0,
+        0.0,
+        -0.69
+      ],
+      "EXT-INTAKE-12": [
+        0.0,
+        0.0,
+        -1.12
+      ],
+      "EXT-INTAKE-13": [
+        0.0,
+        0.0,
+        0.39
+      ],
+      "EXT-INTAKE-14": [
+        0.0,
+        -0.14,
+        0.0
+      ],
+      "EXT-INTAKE-15": [
+        0.0,
+        0.0,
+        -0.76
+      ],
+      "EXT-INTAKE-16": [
+        0.0,
+        0.0,
+        -0.8
+      ]
+    }
+  },
+  "camera_blender": [
+    -2.454685688018799,
+    2.928356885910034,
+    2.303333044052124
+  ],
+  "target_blender": [
+    -0.1599999964237213,
+    0.05999999865889549,
+    0.7200000286102295
+  ],
+  "mode": "Fixed orthographic camera across versions, 1.05 assembled/X-ray, 1.65 exploded. Shell transparency weight .18. QA render, not browser screenshot."
+}

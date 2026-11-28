@@ -1,0 +1,26 @@
+import { readFile, writeFile } from 'node:fs/promises';
+const root = new URL('../',import.meta.url);
+const read = (file,encoding) => readFile(new URL(file,root),encoding);
+const [template,license,css,three,diagram,app,data,exterior,internal] = await Promise.all([
+  read('index.html','utf8'), read('assets/THREE-LICENSE.txt','utf8'), read('assets/studio.css','utf8'),
+  read('assets/three-bundle.js','utf8'),read('assets/assembly-diagram.js','utf8'),read('assets/studio.js','utf8'),
+  read('assets/data.json','utf8'),read('assets/exterior.glb'),read('assets/internal.glb')
+]);
+const plateDir = 'assets/injector-plates/';
+const names = {section:['injector-section.webp','image/webp'],
+  exploded:['injector-exploded.webp','image/webp'],pdf:['injector-section-exploded.pdf','application/pdf']};
+const plateEntries = await Promise.all(Object.entries(names).map(async ([key,[file,mime]])=>
+  [key,'data:'+mime+';base64,'+(await read(plateDir+file)).toString('base64')]));
+const plates = '<script type="application/json" id="embedded-injector-plates">'+
+  JSON.stringify(Object.fromEntries(plateEntries))+'</script>';
+const safeJS = (source) => source.replace(/<\/script/gi,'<\\/script');
+const scripts = [three,diagram,app].map(source=>'<script>\n'+safeJS(source)+'\n</script>').join('\n');
+const styles = '<style>\n'+css+'\n</style>';
+const json = '<script type="application/json" id="embedded-data">'+data.replace(/</g,'\\u003c')+'</script>';
+const mesh = (id,model) => '<script type="application/octet-stream" id="embedded-'+id+'">'+model.toString('base64')+'</script>';
+const content = template
+  .replace(/<link rel="stylesheet" href="assets\/studio.css">/,()=>styles)
+  .replace(/^\s*<script defer src="assets\/[^"]+"><\/script>\r?\n/gm,'\n')
+  .replace('<body>',()=>'<body>\n<!--\n'+license+'\n-->')
+  .replace('</body>',()=>[json,plates,mesh('exterior',exterior),mesh('internal',internal),scripts,'</body>'].join('\n'));
+await writeFile(new URL('yanmar-6aym-wet-gpt-r04-draft.html',root),content);

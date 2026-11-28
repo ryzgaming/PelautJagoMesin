@@ -1,0 +1,150 @@
+{
+  "id": "RAK-LUBE",
+  "nama": "Pelumasan",
+  "node_rakitan": "RAK-LUBE",
+  "acuan": {
+    "no": 1,
+    "object_ids": [
+      "EXT-LUBE-01"
+    ]
+  },
+  "diagram": {
+    "arah_pandang": [
+      0.31139957904815674,
+      0.5449492335319519,
+      0.7784989476203918
+    ],
+    "atas": [
+      0,
+      1,
+      0
+    ]
+  },
+  "bagian": [
+    {
+      "no": 1,
+      "nama": "Header oli dan dudukan filter",
+      "object_ids": [
+        "EXT-LUBE-01"
+      ],
+      "posisi": [],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 14 printed p. 10 / component locations, non-operation side",
+        "P17 / dua tabung oli dan filter bypass"
+      ],
+      "fungsi": "Header oli dan dudukan filter",
+      "nomor_oem": null,
+      "ukuran": null
+    },
+    {
+      "no": 2,
+      "nama": "Filter oli utama",
+      "object_ids": [
+        "EXT-LUBE-02"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-LUBE-02",
+          "arah": [
+            0,
+            -1,
+            0
+          ],
+          "jarak_m": 0.28,
+          "urutan": 2
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 14 printed p. 10 / component locations, non-operation side",
+        "P17 / dua tabung oli dan filter bypass"
+      ],
+      "fungsi": "Filter oli utama",
+      "nomor_oem": null,
+      "ukuran": null
+    },
+    {
+      "no": 3,
+      "nama": "Filter oli utama",
+      "object_ids": [
+        "EXT-LUBE-03"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-LUBE-03",
+          "arah": [
+            0,
+            -1,
+            0
+          ],
+          "jarak_m": 0.28,
+          "urutan": 3
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 14 printed p. 10 / component locations, non-operation side",
+        "P17 / dua tabung oli dan filter bypass"
+      ],
+      "fungsi": "Filter oli utama",
+      "nomor_oem": null,
+      "ukuran": null
+    },
+    {
+      "no": 4,
+      "nama": "Filter bypass oli",
+      "object_ids": [
+        "EXT-LUBE-04"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-LUBE-04",
+          "arah": [
+            0,
+            -1,
+            0
+          ],
+          "jarak_m": 0.28,
+          "urutan": 4
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 14 printed p. 10 / component locations, non-operation side",
+        "P17 / dua tabung oli dan filter bypass"
+      ],
+      "fungsi": "Filter bypass oli",
+      "nomor_oem": null,
+      "ukuran": null
+    },
+    {
+      "no": 5,
+      "nama": "Rumah oil cooler",
+      "object_ids": [
+        "EXT-LUBE-05"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-LUBE-05",
+          "arah": [
+            0,
+            0,
+            1
+          ],
+          "jarak_m": 0.28,
+          "urutan": 5
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 14 printed p. 10 / component locations, non-operation side",
+        "P17 / body panjang di balik filter dan penutup"
+      ],
+      "fungsi": "Rumah oil cooler",
+      "nomor_oem": null,
+      "ukuran": null
+    }
+  ],
+  "notes": "Nomor posisi model. Lintasan ilustrasi, belum diperiksa untuk interferensi."
+}

@@ -1,0 +1,186 @@
+"""YPE-1615, Yanmar maintenance manual p.111; shapes estimated except stated bore."""
+from math import cos, sin, pi
+
+SECTION = "D01 PDF 115 / cetak 111, gambar penampang 020523-00E dan kolom YPE-1615"
+CATALOG = "D05 0CG10-M34300 fig.74 / pompa injeksi Yanmar 6AYM-WET"
+REFS = [SECTION, CATALOG]
+NOTE = ("Potongan edukasi pompa YPE-1615. Diameter plunger 16 mm mengikuti D01. "
+        "Ukuran lainnya, kontur dalam rumah dan posisi ilustrasi diestimasi. "
+        "Profil cam, alur heliks, jumlah lilitan, dan setelan per nomor seri belum diverifikasi.")
+
+
+def open_casting(api, pieces):
+    """Remove actual interior volume from the casting before combining its outside details."""
+    subtract, box, cylinder = (api[k] for k in ('subtract', 'box', 'cylinder'))
+    center_z, ys = api['injector_z'], api['Y']
+    subtract(pieces[0], box((.702,.274,-.4015),(.528,.219,.125),api['cast'],.003))
+    subtract(pieces[0], box((.710,.199,-.463),(.468,.055,.043),api['cast'],.003))
+    # The separate rear FIP drive shaft enters the cam chamber through this gland.
+    subtract(pieces[0],cylinder((.425,.200,-.427),api['X'],.0163,.077,api['steel'],48,0))
+    # Perpendicular bore for the feed crosshead and piston at the dedicated eccentric.
+    subtract(pieces[0],cylinder((.464,.200,-.472),api['Z'],.0133,.079,api['steel'],40,0))
+    # Inlet on the supply-gallery side, above the cam access cover.
+    subtract(pieces[0],cylinder((.506,.356,-.464),(0,0,1),.0077,.048,api['steel'],32,0))
+    # The modeled floor strip continues below the plunger chamber. Open its
+    # inner face to the cam envelope, preserving the exterior lower face.
+    subtract(pieces[2], box((.702,.180,-.426),(.504,.029,.074),api['cast'],.002))
+    # Face-mounted feed pump needs a real seat around its cast rear spigot.
+    seat=[(.415,.140),(.455,.135),(.522,.152),(.530,.220),(.504,.238),(.438,.234)]
+    for casting in (pieces[0],pieces[2]):
+        subtract(casting,api['prism'](seat,'z',-.511,-.407,api['cast'],.004))
+
+    # A mounting plug and its nut project into the feed station on the old casting.
+    # Drill their local coaxial relief as well as the body, retaining the outer wall.
+    for shape in pieces[4:]:
+        xyz=shape.location
+        if .415 < xyz.x < .505 and .17 < xyz.z < .23:
+            subtract(shape,cylinder((.464,.200,-.469),api['Z'],.01335,.099,api['steel'],48,0))
+
+    subtract(pieces[0],cylinder((.978,.200,-.427),api['X'],.010,.106,api['cast'],32,0))
+    # Measured sweep of the third pump lobe and the keyed governor carrier.
+    # Counterbore each contributing casting island before joining; untouched outer
+    # faces and plug heads are retained.
+    api['bpy'].context.view_layer.update()
+    def local_bore(point,axis,radius,length):
+        axis_index=0 if axis==api['X'] else 1
+        high=[v+(length*.5 if j==axis_index else radius) for j,v in enumerate(point)]
+        low=[v-(length*.5 if j==axis_index else radius) for j,v in enumerate(point)]
+        for obj in pieces:
+            corners=[obj.matrix_world@api['Vector'](v) for v in obj.bound_box]
+            xyz=[(v.x,v.z,-v.y) for v in corners]
+            if any(max(v[j] for v in xyz)<low[j] or min(v[j] for v in xyz)>high[j] for j in range(3)):
+                continue
+            subtract(obj,cylinder(point,axis,radius,length,api['cast'],64,0))
+    local_bore((.642,.200,-.427),api['X'],.033,.028)
+    local_bore((1.010,.200,-.427),api['X'],.0264,.020)
+    # The feed valve station projects into a pre-existing mounting boss on the
+    # main body. Open the whole local socket, including this overlapping boss.
+    for sx in (.441,.498):
+        for sz in (-.466,-.484):
+            local_bore((sx,.202,sz),api['Y'],.00845,.038)
+    for x,boss in zip(api['delivery_x'], api['pump_delivery_bosses']):
+        for casting in (pieces[0],pieces[1],boss):
+            subtract(casting, cylinder((x,.396,center_z),ys,.0168,.076,api['steel'],32,0))
+
+
+def build(api):
+    add, ring, annulus, cylinder, box, mesh, sweep = (
+        api[k] for k in ('add','ring','annulus','cylinder','box','mesh','sweep'))
+    X,Y = api['X'],api['Y']
+    steel, machined, dark = api['steel'],api['boltmat'],api['black']
+    brass=api['appearance']('Bronze guide · warna edukasi', (.38,.23,.083), .68,.33)
+    stations=api['delivery_x']
+    z=api['injector_z']
+    shaft_y=.200
+    moved=api['reparent_part']('EXT-FUEL-01','RAK-INJECTION','RAK-FUEL',role='shell')
+    shell=next(p for p in api['parts'] if p['id']=='EXT-FUEL-01')
+    shell.update(xray_shell=True, note=NOTE, source_refs=list(dict.fromkeys(shell['source_refs']+REFS)))
+    shell['sumber']=shell['source_refs']
+    api['bpy'].data.objects[shell['id']]['xray_shell']=True
+    rows=[{'no':1,'nama':shell['nama'],'object_ids':[shell['id']],'role':'shell','posisi':[],
+           'status':'ESTIMATED','sumber':shell['source_refs'],'fungsi':'Rumah berlubang dan penopang elemen pompa.'}]
+
+    def register(number, name, shapes, vector, distance, remark, origin=None):
+        obj=add('FUEL',number,name,shapes,REFS,remark+' '+NOTE,parent='RAK-INJECTION',
+                nested_under='RAK-FUEL',role='inner',direction=vector,origin=origin)
+        n=len(rows)+1
+        api['parts'][-1]['xray_content']=True
+        rows.append({'no':n,'nama':name,'object_ids':[obj.name],'role':'inner',
+                     'posisi':[{'object_id':obj.name,'arah':list(vector),'jarak_m':distance,'urutan':n}],
+                     'status':'ESTIMATED','sumber':REFS,'fungsi':remark})
+    def lobepoints(x, angle):
+        verts=[]
+        n=48
+        for xoffset in (-.012,-.010,.010,.012):
+            bevel=.001 if abs(xoffset)>.011 else 0.
+            for i in range(n):
+                t=2*pi*i/n
+                rad=.022+.010*max(0,cos(t-angle))**2.5-bevel
+                verts.append((x+xoffset,shaft_y+rad*cos(t),z+rad*sin(t)))
+        faces=[tuple(reversed(range(n))),tuple(range(3*n,4*n))]
+        faces.extend((j*n+i,j*n+(i+1)%n,(j+1)*n+(i+1)%n,(j+1)*n+i)
+                     for j in range(3) for i in range(n))
+        return mesh(verts,faces,machined,0,True)
+    # Pump cam is separate from engine valve camshaft. The indexing shown is static.
+    phase=[0,2,4,1,5,3]
+    shaft=[cylinder((.695,shaft_y,z),X,.014,.496,machined,36,.001)]
+    for i,x in enumerate(stations):
+        shaft.append(lobepoints(x,-phase[i]*pi/3))
+    for x in (.451,.922):
+        shaft.append(cylinder((x,shaft_y,z),X,.020,.014,steel,36,.001))
+    register(21,'Poros nok pompa injeksi · enam nok',shaft,(-1,0,0),.28,
+             'Nok pompa mengangkat roller tappet pada enam stasiun.')
+    # Dedicated eccentric between the end bearing and first delivery lobe.
+    eccentric=cylinder((.464,.200,-.4246),X,.0185,.010,steel,80,.00025)
+    api['subtract'](eccentric,cylinder((.464,.200,-.427),X,.01398,.024,steel,48,0))
+    register(240,'Eksentrik penggerak pompa feed',eccentric,(1,0,0),.19,
+             'Eksentrik pompa kerja ganda berputar bersama poros nok; throw rekonstruksi 2,4 mm.')
+    # Rack teeth face the six pinions around the plungers.
+    rack_z=z+.023
+    rack=[cylinder((.690,.327,rack_z),X,.0042,.49,steel,24,.0005),
+          box((.684,.327,rack_z),(.435,.008,.007),machined,.0007)]
+    for x in stations:
+        for offset in (-.010,-.005,0,.005,.010):
+            rack.append(box((x+offset,.327,rack_z-.0037),(.0026,.006,.0038),brass,.0004))
+    register(22,'Batang pengatur bergigi (control rack)',rack,(0,0,1),.16,
+             'Gerak memanjang rack memutar pinion untuk mengatur penyaluran.')
+    def coil(x,y0,y1,r,wire,turns,mat):
+        # Closed tube mesh around a sampled helix. Tube ends close at the seats.
+        verts=[]; sides=8; steps=turns*20
+        for j in range(steps+1):
+            t=j/steps; a=2*pi*turns*t
+            for k in range(sides):
+                b=k*2*pi/sides
+                verts.append((x+(r+wire*cos(b))*cos(a), y0+t*(y1-y0)+wire*sin(b),
+                              z+(r+wire*cos(b))*sin(a)))
+        faces=[tuple(reversed(range(sides))),tuple(range(steps*sides,(steps+1)*sides))]
+        faces.extend((j*sides+k,j*sides+(k+1)%sides,(j+1)*sides+(k+1)%sides,(j+1)*sides+k)
+                     for j in range(steps) for k in range(sides))
+        return mesh(verts,faces,mat,0,True)
+    import runpy
+    cam_contact=runpy.run_path(str(api['OUT'].parent/'motion'/'pump_cam.py'))['roller_clearance']
+    for i,x in enumerate(stations):
+        # Find the elevation of a horizontal tangency to the roller for this lobe pose.
+        offset=cam_contact(0,phase[i])
+        cy=shaft_y+offset+.009
+        roller=cylinder((x,cy,z),X,.009,.018,steel,28,.0007)
+        carrier=[cylinder((x,cy,z),X,.0038,.031,machined,24,.0004),
+                *[box((x+dx,cy+.010,z),(.005,.030,.017),machined,.002) for dx in (-.012,.012)],
+                cylinder((x,cy+.025,z),Y,.018,.009,machined,32,.0008)]
+        register(23+i,f'Tappet dan spindle pompa {i+1}',carrier,(0,0,-1),.12,
+                 'Tappet bergerak aksial mengikuti nok dan mengangkat plunger.')
+        register(300+i,f'Roller tappet pompa {i+1}',roller,(0,0,-1),.16,
+                 'Roller ikut terangkat oleh nok dan berputar terhadap spindle.',(x,cy,z))
+        seat=cy+.032
+        register(29+i,f'Pegas balik plunger {i+1}',coil(x,seat+.003,.314,.014,.0018,7,machined),
+                 (0,1,0),.19,'Pegas kembali terpasang antara kedua dudukan.',(x,.314,z))
+        register(270+i,f'Dudukan bawah pegas plunger {i+1}',annulus((x,seat,z),Y,.018,.0071,.004,steel),
+                 (0,1,0),.15,'Dudukan bawah bergerak bersama plunger.')
+        register(276+i,f'Dudukan atas pegas plunger {i+1}',annulus((x,.317,z),Y,.019,.009,.004,machined),
+                 (0,1,0),.23,'Dudukan atas tetap pada rumah elemen.')
+        # The slender lapped section is the 16 mm OD measured item in D01.
+        stem=[cylinder((x,(seat+.376)/2,z),Y,.008,.376-seat,steel,36,.0004),
+              cylinder((x,seat-.001,z),Y,.010,.004,steel,32,.0004)]
+        register(35+i,f'Plunger pompa {i+1} · Ø16 mm',stem,(0,1,0),.30,
+                 'Plunger bergerak aksial di dalam laras. Diameter dari tabel WET, alur metering masih ilustratif.')
+        barrel=ring((x,.355,z),Y,[(-.036,.00825),(-.036,.014),(-.029,.014),(-.020,.0118),
+                        (.014,.0118),(.016,.0154),(.034,.0154),(.035,.00825)],brass,36)
+        api['subtract'](barrel,cylinder((x,.356,z),X,.003,.049,machined,20,0))
+        pinion=annulus((x,.327,z),Y,.017,.0143,.009,brass)
+        teeth=[box((x+.017*cos(a),.327,z+.017*sin(a)),(.003,.007,.003),brass,.0004)
+               for a in [k*2*pi/14 for k in range(14)]]
+        register(41+i,f'Laras dan pinion pengatur elemen {i+1}',[barrel,pinion,*teeth],(0,1,0),.42,
+                 'Bore membimbing plunger dan port samping terhubung ruang bahan bakar. Pinion dimodelkan bersama sebagai kelompok tampilan.')
+        register(47+i,f'Poppet delivery {i+1}',[
+                 cylinder((x,.401,z),Y,.0055,.010,steel,28,.0006),
+                 cylinder((x,.405,z),Y,.0078,.002,steel,24,.0004)],
+                 (0,1,0),.50,'Poppet bergerak ketika bahan bakar bertekanan melewati katup.')
+        register(282+i,f'Dudukan tetap delivery {i+1}',annulus((x,.394,z),Y,.014,.0035,.007,brass),
+                 (0,1,0),.47,'Dudukan tetap segaris dengan batang delivery.')
+        register(288+i,f'Pegas delivery {i+1}',coil(x,.407,.416,.0055,.0008,4,machined),
+                 (0,1,0),.54,'Pegas menekan poppet menuju dudukan.',(x,.416,z))
+    api['register_recipe']({'id':'RAK-INJECTION','nama':'Bagian dalam pompa injeksi YPE-1615',
+        'parent_rakitan':'RAK-FUEL','node_rakitan':'RAK-INJECTION','acuan':{'no':1,'object_ids':['EXT-FUEL-01']},
+        'diagram':{'arah_pandang':[.24,.32,-.92],'atas':[0,1,0]},'bagian':rows,
+        'status':'ESTIMATED','source_refs':REFS,'notes':NOTE+
+        ' Governor, feed pump, coupling dan boost compensator terpisah pada fig.75–78 belum dicakup oleh potongan pompa ini.'})

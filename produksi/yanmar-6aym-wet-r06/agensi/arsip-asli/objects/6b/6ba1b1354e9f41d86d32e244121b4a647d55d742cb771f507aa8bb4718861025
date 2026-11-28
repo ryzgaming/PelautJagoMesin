@@ -1,0 +1,206 @@
+{
+  "assets_sha256": {
+    "exterior": "4c446622b671039c9bad8fdfbffc959892710cc16db2f92515cf58d9b8210440",
+    "internal": "dd85bd1dfae6c699f7e69c70eb9c4c0f5209c0a5805e3e1733ad1e67b23f7f2b"
+  },
+  "mesh_count": 1125,
+  "aabb_candidate_pairs": 18,
+  "surface_crossing_pair_count": 4,
+  "method": "Assembled Blender GLB reimport, world AABB broad phase, triangle BVH overlap. Surface crossings include intended threads, interference fits and overlaps within an educational assembly. Solid penetration and motion are distinct checks.",
+  "pairs": [
+    {
+      "a": "EXT-FUEL-12",
+      "b": "EXT-FUEL-01",
+      "surface_pairs": 1855,
+      "glTF_crossing_face_bounds_m": [
+        [
+          [
+            0.4172239303588867,
+            0.13700000941753387,
+            -0.5052007436752319
+          ],
+          [
+            0.5185204148292542,
+            0.23099999129772186,
+            -0.41200000047683716
+          ]
+        ],
+        [
+          [
+            0.4079831838607788,
+            0.09431326389312744,
+            -0.4910000264644623
+          ],
+          [
+            0.9939999580383301,
+            0.3830000162124634,
+            -0.34199997782707214
+          ]
+        ]
+      ]
+    },
+    {
+      "a": "EXT-BLOCK-01",
+      "b": "INT-TIMING-05",
+      "surface_pairs": 166,
+      "glTF_crossing_face_bounds_m": [
+        [
+          [
+            0.04449993371963501,
+            0.21799999475479126,
+            -0.3149999976158142
+          ],
+          [
+            1.3055000305175781,
+            0.24000000953674316,
+            -0.2804644703865051
+          ]
+        ],
+        [
+          [
+            0.04500000178813934,
+            0.20225627720355988,
+            -0.40348315238952637
+          ],
+          [
+            0.0689999982714653,
+            0.2499992996454239,
+            -0.28325068950653076
+          ]
+        ]
+      ]
+    },
+    {
+      "a": "EXT-COOLING-04",
+      "b": "EXT-FLYWHEEL-01",
+      "surface_pairs": 29,
+      "glTF_crossing_face_bounds_m": [
+        [
+          [
+            -0.06399999558925629,
+            0.31505900621414185,
+            -0.37998417019844055
+          ],
+          [
+            -0.05299999564886093,
+            0.36898282170295715,
+            -0.33255741000175476
+          ]
+        ],
+        [
+          [
+            -0.06300000101327896,
+            0.2936815321445465,
+            -0.38199377059936523
+          ],
+          [
+            -0.05700000002980232,
+            0.3781306743621826,
+            -0.2739642262458801
+          ]
+        ]
+      ]
+    },
+    {
+      "a": "EXT-BLOCK-01",
+      "b": "INT-TIMING-04",
+      "surface_pairs": 24,
+      "glTF_crossing_face_bounds_m": [
+        [
+          [
+            0.04449993371963501,
+            0.21799999475479126,
+            -0.2839999794960022
+          ],
+          [
+            1.3055000305175781,
+            0.23499999940395355,
+            -0.2789999842643738
+          ]
+        ],
+        [
+          [
+            0.04500000178813934,
+            0.16923847794532776,
+            -0.2809063792228699
+          ],
+          [
+            0.0689999982714653,
+            0.22549013793468475,
+            -0.17308902740478516
+          ]
+        ]
+      ]
+    },
+    {
+      "a": "EXT-COOLING-41",
+      "b": "EXT-FUEL-100",
+      "surface_pairs": 0
+    },
+    {
+      "a": "EXT-COOLING-45",
+      "b": "EXT-FUEL-100",
+      "surface_pairs": 0
+    },
+    {
+      "a": "EXT-COOLING-38",
+      "b": "EXT-FUEL-100",
+      "surface_pairs": 0
+    },
+    {
+      "a": "EXT-COOLING-41",
+      "b": "EXT-FUEL-09",
+      "surface_pairs": 0
+    },
+    {
+      "a": "EXT-COOLING-36",
+      "b": "EXT-FUEL-09",
+      "surface_pairs": 0
+    },
+    {
+      "a": "EXT-FUEL-403",
+      "b": "EXT-FUEL-110",
+      "surface_pairs": 0
+    },
+    {
+      "a": "EXT-FUEL-403",
+      "b": "EXT-FUEL-11",
+      "surface_pairs": 0
+    },
+    {
+      "a": "EXT-FRONT-01",
+      "b": "EXT-FRONT-02",
+      "surface_pairs": 0
+    },
+    {
+      "a": "EXT-FRONT-03",
+      "b": "EXT-FRONT-02",
+      "surface_pairs": 0
+    },
+    {
+      "a": "EXT-BLOCK-01",
+      "b": "INT-CRANK-07",
+      "surface_pairs": 0
+    },
+    {
+      "a": "EXT-BLOCK-01",
+      "b": "INT-TIMING-02",
+      "surface_pairs": 0
+    },
+    {
+      "a": "EXT-OILPAN-01",
+      "b": "INT-TIMING-07",
+      "surface_pairs": 0
+    },
+    {
+      "a": "EXT-FRONT-01",
+      "b": "INT-TIMING-08",
+      "surface_pairs": 0
+    },
+    {
+      "a": "EXT-FRONT-01",
+      "b": "INT-TIMING-10",
+      "surface_pairs": 0
+    }
+  ]
+}

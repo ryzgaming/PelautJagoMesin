@@ -1,0 +1,1056 @@
+{
+ "engine": "Caterpillar 3512C HD marine propulsion (IMO II)",
+ "variant_locked": "D02 LEHM22783-00 (dimensi), pembanding D01 LEHM0180-00 dan D03 LEHM4885-03",
+ "generated": "2026-11-27",
+ "coordinate_system": {
+  "unit": "m",
+  "up": "+Y",
+  "origin": "sumbu crankshaft tepat di bidang muka belakang blok (pertemuan blok dengan flywheel housing)",
+  "x": "+X sepanjang sumbu crankshaft menuju ujung depan (damper)",
+  "z": "+Z ke sisi KANAN mesin (kanan dilihat dari ujung flywheel menghadap depan)",
+  "cylinder_numbering": {
+   "value": "No.1 depan kanan, No.2 depan kiri; ganjil bank kanan, genap bank kiri",
+   "status": "INFERRED",
+   "source_ids": [
+    "D06"
+   ],
+   "method": "konvensi 3512 awal (D06 hlm. 140026 NOTE), diterapkan ke 3512C"
+  },
+  "datum_mapping": {
+   "datum_01": "garis '01' di gambar D01 hlm.1 (dan D03 hlm.3) = sumbu crankshaft (lewat pusat damper di tampilan Front) -> Y=0",
+   "datum_03_side": "garis '03' tampilan Right Side D01 (px x=387) dianggap bidang muka belakang blok -> X=0; status INFERRED (letaknya tepat di depan flywheel housing; label tidak dijelaskan di dokumen)",
+   "datum_03_front": "garis '03' tampilan Front (px x=1749.5) = bidang tengah mesin -> Z=0",
+   "status": "INFERRED"
+  }
+ },
+ "measurement_basis": {
+  "drawing": "D01 LEHM0180-00 hlm.1 'Dimensions' Right Side + Front (vektor, dirender pdftoppm -r 600). File: /tmp/claude-0/c3512/doc/dim/d01_draw.png (crop 2250,4400 dari pdftoppm -r 600 D01 hlm.1)",
+  "why_not_D02_drawing": "Gambar garis D02 hlm.2 (gambar tertanam 8412x3466 px) menampilkan 8 tutup katup per sisi dan 8 pintu crankcase (mesin 16 silinder, kemungkinan 3516C) serta tidak proporsional terhadap angka yang ditulis (L/H gambar 1.68 vs 2647/2223 = 1.19). Tidak dipakai untuk ukur. Render 3D D02 hlm.1 menampilkan 6 tutup katup (benar 3512C) tetapi perspektif, tidak untuk ukur.",
+  "scale": {
+   "value": 3.107,
+   "unit": "mm/px",
+   "status": "ESTIMATED",
+   "source_ids": [
+    "D02",
+    "D01"
+   ],
+   "method": "Garis ekstensi D01: panjang (1) px 315->1167 = 852 px; lebar (2) px 1422->2078 = 656 px; tinggi (3) px 154->869 = 715 px. Nilai D02 (2647/2037/2223 mm) memberi 3.107/3.105/3.109 mm/px (rata 3.107, sebaran 0.13%). Nilai D01 (2644.5/2036.9) memberi 3.104/3.105 tetapi tinggi D01 2113.3 memberi 2.956 (tidak konsisten dengan gambarnya sendiri) -> gambar D01 sesuai dimensi HD IMO II D02, bukan tinggi teks D01.",
+   "uncertainty": "lebar garis 3 px (+-5 mm); ukuran keseluruhan +-0.5%; fitur dalam (silinder, damper, tangki) +-2-3% karena gambar pemasaran disederhanakan"
+  },
+  "conversion": "X=(px-387)*s; Y=(610-py)*s; Z=(1749.5-px_front)*s (kiri gambar Front = sisi kanan mesin)"
+ },
+ "overall": {
+  "length": {
+   "value": 2.647,
+   "unit": "m",
+   "status": "DOCUMENTED",
+   "source_ids": [
+    "D02",
+    "D05",
+    "D01"
+   ],
+   "method": "D02 hlm.2 104.2 in (teks mm '2465' salah ketik, lihat konflik); D05 2645 mm; D01 2644.5 mm '(1) Length (to flywheel housing)' = muka belakang flywheel housing sampai ujung depan",
+   "definition": "muka belakang flywheel housing ke titik terdepan"
+  },
+  "width": {
+   "value": 2.037,
+   "unit": "m",
+   "status": "DOCUMENTED",
+   "source_ids": [
+    "D02",
+    "D05",
+    "D01"
+   ],
+   "method": "D02 hlm.2 80.2 in / 2037 mm"
+  },
+  "height": {
+   "value": 2.223,
+   "unit": "m",
+   "status": "DOCUMENTED",
+   "source_ids": [
+    "D02",
+    "D05"
+   ],
+   "method": "D02 hlm.2 87.5 in / 2223 mm; cocok dengan ukur gambar D01 715 px x 3.104 = 2219 mm",
+   "definition": "dasar oil pan ke titik tertinggi"
+  },
+  "dry_weight": {
+   "value": 7488,
+   "unit": "kg",
+   "status": "DOCUMENTED",
+   "source_ids": [
+    "D02",
+    "D05"
+   ],
+   "method": "D02 hlm.2 16,508 lb / 7488 kg"
+  },
+  "x_min_flywheel_housing_rear_face": {
+   "value": -0.224,
+   "unit": "m",
+   "status": "ESTIMATED",
+   "source_ids": [
+    "D01",
+    "D02"
+   ],
+   "method": "skala piksel D01 hlm.1 (s=3.107 mm/px); garis ekstensi kiri dimensi (1) px x=315"
+  },
+  "x_max": {
+   "value": 2.423,
+   "unit": "m",
+   "status": "ESTIMATED",
+   "source_ids": [
+    "D01",
+    "D02"
+   ],
+   "method": "skala piksel D01 hlm.1 (s=3.107 mm/px); garis ekstensi kanan dimensi (1) px x=1167 (ujung depan tangki/pipa air depan)"
+  },
+  "x_min_extreme_incl_air_cleaner_outlet": {
+   "value": -0.721,
+   "unit": "m",
+   "status": "ESTIMATED",
+   "source_ids": [
+    "D01",
+    "D03"
+   ],
+   "method": "skala piksel D01 hlm.1 (s=3.107 mm/px); piksel gambar terkiri tampilan samping px x=155 (rumah udara/outlet buang belakang atas); panjang ekstrem 1013 px = 3.147 m cocok dengan L D03 3153 mm"
+  },
+  "z_min": {
+   "value": -1.021,
+   "unit": "m",
+   "status": "ESTIMATED",
+   "source_ids": [
+    "D01",
+    "D02"
+   ],
+   "method": "skala piksel D01 hlm.1 (s=3.107 mm/px); garis ekstensi dimensi (2) px 2078, simetris"
+  },
+  "z_max": {
+   "value": 1.018,
+   "unit": "m",
+   "status": "ESTIMATED",
+   "source_ids": [
+    "D01",
+    "D02"
+   ],
+   "method": "skala piksel D01 hlm.1 (s=3.107 mm/px); garis ekstensi dimensi (2) px 1422"
+  },
+  "z_widest_at_y": {
+   "value": 0.538,
+   "unit": "m",
+   "status": "ESTIMATED",
+   "source_ids": [
+    "D01"
+   ],
+   "method": "skala piksel D01 hlm.1 (s=3.107 mm/px); lebar maksimum terjadi pada elemen pelat trapesium di bawah air cleaner (px y 437-453); identitas elemen UNKNOWN"
+  },
+  "y_max": {
+   "value": 1.417,
+   "unit": "m",
+   "status": "ESTIMATED",
+   "source_ids": [
+    "D01",
+    "D02"
+   ],
+   "method": "skala piksel D01 hlm.1 (s=3.107 mm/px); garis ekstensi atas dimensi (3) px y=154"
+  },
+  "y_min": {
+   "value": -0.805,
+   "unit": "m",
+   "status": "ESTIMATED",
+   "source_ids": [
+    "D01",
+    "D02"
+   ],
+   "method": "skala piksel D01 hlm.1 (s=3.107 mm/px); garis ekstensi bawah dimensi (3) px y=869 = dasar oil pan"
+  }
+ },
+ "crank_height": {
+  "above_oil_pan_bottom": {
+   "value": 0.805,
+   "unit": "m",
+   "status": "ESTIMATED",
+   "source_ids": [
+    "D01"
+   ],
+   "method": "skala piksel D01 hlm.1 (s=3.107 mm/px); datum 01 (py 610) ke dasar pan (py 869) = 259 px"
+  },
+  "above_mount_rail_base": {
+   "value": 0.528,
+   "unit": "m",
+   "status": "ESTIMATED",
+   "source_ids": [
+    "D01"
+   ],
+   "method": "skala piksel D01 hlm.1 (s=3.107 mm/px); datum 01 ke sisi bawah rel dudukan (py 780) = 170 px; rel dudukan bawaan gambar marine D01/D02"
+  }
+ },
+ "mounting_feet": {
+  "type": {
+   "value": "dua rel dudukan memanjang berbaut (tampak 4 kelompok lubang di gambar samping)",
+   "status": "ESTIMATED",
+   "source_ids": [
+    "D01",
+    "D02"
+   ],
+   "method": "gambar D01 dan render D02 hlm.1 (rel hitam)"
+  },
+  "x_range": {
+   "value": [
+    -0.295,
+    1.905
+   ],
+   "unit": "m",
+   "status": "ESTIMATED",
+   "source_ids": [
+    "D01"
+   ],
+   "method": "skala piksel D01 hlm.1 (s=3.107 mm/px); garis rel px x 292-1000"
+  },
+  "y_top": {
+   "value": -0.32,
+   "unit": "m",
+   "status": "ESTIMATED",
+   "source_ids": [
+    "D01"
+   ],
+   "method": "skala piksel D01 hlm.1 (s=3.107 mm/px); py 713"
+  },
+  "y_bottom": {
+   "value": -0.528,
+   "unit": "m",
+   "status": "ESTIMATED",
+   "source_ids": [
+    "D01"
+   ],
+   "method": "skala piksel D01 hlm.1 (s=3.107 mm/px); py 780"
+  },
+  "z_outer": {
+   "value": 0.589,
+   "unit": "m",
+   "status": "ESTIMATED",
+   "source_ids": [
+    "D01"
+   ],
+   "method": "skala piksel D01 hlm.1 (s=3.107 mm/px); flens dudukan tampilan Front px x 1560-1940 -> +-0.59 m; lebar rel tidak terbaca jelas"
+  },
+  "z_inner": {
+   "value": 0.371,
+   "unit": "m",
+   "status": "ESTIMATED",
+   "source_ids": [
+    "D01"
+   ],
+   "method": "skala piksel D01 hlm.1 (s=3.107 mm/px); tepi dalam braket px 1630 (kasar)"
+  }
+ },
+ "block": {
+  "x_rear_face": {
+   "value": 0.0,
+   "unit": "m",
+   "status": "INFERRED",
+   "source_ids": [
+    "D01"
+   ],
+   "method": "definisi titik asal = datum 03 tampilan samping"
+  },
+  "x_front_face": {
+   "value": 1.883,
+   "unit": "m",
+   "status": "ESTIMATED",
+   "source_ids": [
+    "D01"
+   ],
+   "method": "skala piksel D01 hlm.1 (s=3.107 mm/px); garis tegak panjang px x 991-996 (y 381-714) tepat di belakang damper; dianggap muka depan blok/front gear housing (INFERRED)"
+  },
+  "length": {
+   "value": 1.883,
+   "unit": "m",
+   "status": "ESTIMATED",
+   "source_ids": [
+    "D01"
+   ],
+   "method": "x_front_face - x_rear_face"
+  },
+  "width": {
+   "value": null,
+   "unit": "m",
+   "status": "UNKNOWN",
+   "source_ids": [],
+   "method": "blok tertutup tangki depan, pompa, dan pipa di tampilan Front; tidak terukur"
+  },
+  "deck_height_from_crank_along_bank_axis": {
+   "value": null,
+   "unit": "m",
+   "status": "UNKNOWN",
+   "source_ids": [
+    "D01"
+   ],
+   "method": "tidak terukur langsung. Petunjuk: tepi bawah deretan kepala silinder bank kanan di gambar samping py 433 -> Y=+0.550 m (proyeksi tepi luar deck); bila setengah lebar kepala ~0.15 m, jarak deck sepanjang sumbu bank ~0.72 m (ESTIMATED kasar, bukan ukuran)",
+   "hint_projected_head_bottom_y": 0.55
+  },
+  "v_angle": {
+   "value": 60,
+   "unit": "deg",
+   "status": "INFERRED",
+   "source_ids": [
+    "D06"
+   ],
+   "method": "D06 hlm.140026 '60 V-12' untuk 3512 awal; tidak tertulis di dokumen 3512C"
+  },
+  "bank_axis": {
+   "value": "bank kanan miring 30 deg dari vertikal ke +Z, bank kiri 30 deg ke -Z",
+   "status": "INFERRED",
+   "source_ids": [
+    "D06"
+   ],
+   "method": "V 60 deg simetris"
+  },
+  "cylinder_pitch": {
+   "value": 0.27,
+   "unit": "m",
+   "status": "ESTIMATED",
+   "source_ids": [
+    "D01"
+   ],
+   "method": "skala piksel D01 hlm.1 (s=3.107 mm/px); jarak rata-rata pusat 5 tutup katup terlihat bank kanan (890-542.5)/4 = 86.9 px"
+  },
+  "bank_offset_x": {
+   "value": null,
+   "unit": "m",
+   "status": "UNKNOWN",
+   "source_ids": [
+    "D06"
+   ],
+   "method": "connecting rod berdampingan; bank kiri tidak terlihat. Silinder 1 (kanan) paling depan -> bank kiri bergeser ke belakang (-X) sebesar offset (INFERRED dari D06). Nilai tidak ada di dokumen terbuka.",
+   "modeling_placeholder": {
+    "value": 0.065,
+    "status": "ILLUSTRATIVE",
+    "note": "bukan pengukuran; hanya agar model bisa dibangun, label ilustrasi"
+   }
+  },
+  "bore": {
+   "value": 0.17,
+   "unit": "m",
+   "status": "DOCUMENTED",
+   "source_ids": [
+    "D02"
+   ],
+   "method": "D02 hlm.1"
+  },
+  "stroke": {
+   "value": 0.215,
+   "unit": "m",
+   "status": "DOCUMENTED",
+   "source_ids": [
+    "D02"
+   ],
+   "method": "D02 hlm.1 High Displacement"
+  },
+  "cylinders": {
+   "1": {
+    "value": 1.563,
+    "unit": "m",
+    "status": "ESTIMATED",
+    "source_ids": [
+     "D01",
+     "D06"
+    ],
+    "method": "skala piksel D01 hlm.1 (s=3.107 mm/px); pusat tutup katup bank kanan di gambar Right Side (5 terlihat di px 542.5/627.5/714/801/890, ke-6 tertutup kotak, diekstrapolasi px 455.6); pusat tutup katup = sumbu silinder (INFERRED)",
+    "bank": "kanan (+Z)"
+   },
+   "3": {
+    "value": 1.293,
+    "unit": "m",
+    "status": "ESTIMATED",
+    "source_ids": [
+     "D01",
+     "D06"
+    ],
+    "method": "skala piksel D01 hlm.1 (s=3.107 mm/px); pusat tutup katup bank kanan di gambar Right Side (5 terlihat di px 542.5/627.5/714/801/890, ke-6 tertutup kotak, diekstrapolasi px 455.6); pusat tutup katup = sumbu silinder (INFERRED)",
+    "bank": "kanan (+Z)"
+   },
+   "5": {
+    "value": 1.023,
+    "unit": "m",
+    "status": "ESTIMATED",
+    "source_ids": [
+     "D01",
+     "D06"
+    ],
+    "method": "skala piksel D01 hlm.1 (s=3.107 mm/px); pusat tutup katup bank kanan di gambar Right Side (5 terlihat di px 542.5/627.5/714/801/890, ke-6 tertutup kotak, diekstrapolasi px 455.6); pusat tutup katup = sumbu silinder (INFERRED)",
+    "bank": "kanan (+Z)"
+   },
+   "7": {
+    "value": 0.753,
+    "unit": "m",
+    "status": "ESTIMATED",
+    "source_ids": [
+     "D01",
+     "D06"
+    ],
+    "method": "skala piksel D01 hlm.1 (s=3.107 mm/px); pusat tutup katup bank kanan di gambar Right Side (5 terlihat di px 542.5/627.5/714/801/890, ke-6 tertutup kotak, diekstrapolasi px 455.6); pusat tutup katup = sumbu silinder (INFERRED)",
+    "bank": "kanan (+Z)"
+   },
+   "9": {
+    "value": 0.483,
+    "unit": "m",
+    "status": "ESTIMATED",
+    "source_ids": [
+     "D01",
+     "D06"
+    ],
+    "method": "skala piksel D01 hlm.1 (s=3.107 mm/px); pusat tutup katup bank kanan di gambar Right Side (5 terlihat di px 542.5/627.5/714/801/890, ke-6 tertutup kotak, diekstrapolasi px 455.6); pusat tutup katup = sumbu silinder (INFERRED)",
+    "bank": "kanan (+Z)"
+   },
+   "11": {
+    "value": 0.213,
+    "unit": "m",
+    "status": "ESTIMATED",
+    "source_ids": [
+     "D01",
+     "D06"
+    ],
+    "method": "skala piksel D01 hlm.1 (s=3.107 mm/px); pusat tutup katup bank kanan di gambar Right Side (5 terlihat di px 542.5/627.5/714/801/890, ke-6 tertutup kotak, diekstrapolasi px 455.6); pusat tutup katup = sumbu silinder (INFERRED)",
+    "bank": "kanan (+Z)"
+   },
+   "2": {
+    "value": null,
+    "unit": "m",
+    "status": "UNKNOWN",
+    "source_ids": [
+     "D06"
+    ],
+    "method": "x silinder 1 dikurangi bank_offset_x (belum terukur); bank kiri tidak terlihat di gambar samping kanan",
+    "bank": "kiri (-Z)",
+    "formula": "x(2) = x(1) - bank_offset_x"
+   },
+   "4": {
+    "value": null,
+    "unit": "m",
+    "status": "UNKNOWN",
+    "source_ids": [
+     "D06"
+    ],
+    "method": "x silinder 3 dikurangi bank_offset_x (belum terukur); bank kiri tidak terlihat di gambar samping kanan",
+    "bank": "kiri (-Z)",
+    "formula": "x(4) = x(3) - bank_offset_x"
+   },
+   "6": {
+    "value": null,
+    "unit": "m",
+    "status": "UNKNOWN",
+    "source_ids": [
+     "D06"
+    ],
+    "method": "x silinder 5 dikurangi bank_offset_x (belum terukur); bank kiri tidak terlihat di gambar samping kanan",
+    "bank": "kiri (-Z)",
+    "formula": "x(6) = x(5) - bank_offset_x"
+   },
+   "8": {
+    "value": null,
+    "unit": "m",
+    "status": "UNKNOWN",
+    "source_ids": [
+     "D06"
+    ],
+    "method": "x silinder 7 dikurangi bank_offset_x (belum terukur); bank kiri tidak terlihat di gambar samping kanan",
+    "bank": "kiri (-Z)",
+    "formula": "x(8) = x(7) - bank_offset_x"
+   },
+   "10": {
+    "value": null,
+    "unit": "m",
+    "status": "UNKNOWN",
+    "source_ids": [
+     "D06"
+    ],
+    "method": "x silinder 9 dikurangi bank_offset_x (belum terukur); bank kiri tidak terlihat di gambar samping kanan",
+    "bank": "kiri (-Z)",
+    "formula": "x(10) = x(9) - bank_offset_x"
+   },
+   "12": {
+    "value": null,
+    "unit": "m",
+    "status": "UNKNOWN",
+    "source_ids": [
+     "D06"
+    ],
+    "method": "x silinder 11 dikurangi bank_offset_x (belum terukur); bank kiri tidak terlihat di gambar samping kanan",
+    "bank": "kiri (-Z)",
+    "formula": "x(12) = x(11) - bank_offset_x"
+   }
+  },
+  "cylinder_note": "x silinder bank kanan dari depan ke belakang: 1,3,5,7,9,11. Silinder 11 tertutup kotak di gambar (diekstrapolasi). Silinder paling belakang 0.213 m dari muka belakang blok, paling depan 1.563 m."
+ },
+ "cylinder_heads": {
+  "count_per_bank": {
+   "value": 6,
+   "unit": "buah",
+   "status": "DOCUMENTED",
+   "source_ids": [
+    "D02",
+    "D01"
+   ],
+   "method": "render D02 hlm.1 dan gambar D01 memperlihatkan satu tutup katup per silinder"
+  },
+  "type": {
+   "value": "kepala silinder individual per silinder (satu tutup katup per silinder)",
+   "status": "INFERRED",
+   "source_ids": [
+    "D01",
+    "D02"
+   ],
+   "method": "tutup katup terpisah per silinder terlihat; pembagian kepala tidak tertulis"
+  },
+  "valves_per_cylinder": {
+   "value": 4,
+   "unit": "buah",
+   "status": "INFERRED",
+   "source_ids": [
+    "D06"
+   ],
+   "method": "D06 untuk 3512 awal"
+  },
+  "valve_cover_length_x": {
+   "value": 0.186,
+   "unit": "m",
+   "status": "ESTIMATED",
+   "source_ids": [
+    "D01"
+   ],
+   "method": "skala piksel D01 hlm.1 (s=3.107 mm/px); lebar kubah tutup katup ~60 px; jarak sekat antar tutup = pitch 0.270"
+  },
+  "head_plus_cover_projected_height": {
+   "value": 0.32,
+   "unit": "m",
+   "status": "ESTIMATED",
+   "source_ids": [
+    "D01"
+   ],
+   "method": "skala piksel D01 hlm.1 (s=3.107 mm/px); pita kepala+tutup di samping py 330-433 (Y +0.870 ke +0.550) proyeksi, bukan tinggi sepanjang sumbu bank"
+  },
+  "y_range_projected_right_bank": {
+   "value": [
+    0.55,
+    0.87
+   ],
+   "unit": "m",
+   "status": "ESTIMATED",
+   "source_ids": [
+    "D01"
+   ],
+   "method": "skala piksel D01 hlm.1 (s=3.107 mm/px); "
+  }
+ },
+ "flywheel_housing": {
+  "size": {
+   "value": "SAE No. 00",
+   "status": "DOCUMENTED",
+   "source_ids": [
+    "D02",
+    "D01"
+   ],
+   "method": "D02 hlm.1; D01 hlm.1 (183 gigi ring gear)"
+  },
+  "x_range": {
+   "value": [
+    -0.224,
+    0.0
+   ],
+   "unit": "m",
+   "status": "ESTIMATED",
+   "source_ids": [
+    "D01"
+   ],
+   "method": "skala piksel D01 hlm.1 (s=3.107 mm/px); dari garis ekstensi dimensi (1) ke datum 03: 72 px = 0.224 m"
+  },
+  "flange_diameter_SAE_J617": {
+   "value": null,
+   "unit": "m",
+   "status": "UNKNOWN",
+   "source_ids": [],
+   "method": "standar SAE J617 tidak dibuka dalam sesi ini. Nilai yang umum dikutip untuk SAE 00 (bore 31.0 in = 787.4 mm) belum diverifikasi; jangan dipakai sebagai data sebelum dicek"
+  },
+  "outer_diameter_estimate": {
+   "value": null,
+   "unit": "m",
+   "status": "UNKNOWN",
+   "source_ids": [
+    "D01"
+   ],
+   "method": "tepi housing tertutup air cleaner dan rel di gambar samping; tidak terukur"
+  }
+ },
+ "damper": {
+  "guard_diameter": {
+   "value": 0.652,
+   "unit": "m",
+   "status": "ESTIMATED",
+   "source_ids": [
+    "D01"
+   ],
+   "method": "skala piksel D01 hlm.1 (s=3.107 mm/px); lingkaran guard kawat tampilan Front px x 1645-1855 (210 px), pusat di datum 01; damper sendiri di dalam guard, sedikit lebih kecil"
+  },
+  "center": {
+   "value": [
+    null,
+    0.0,
+    0.0
+   ],
+   "unit": "m",
+   "status": "ESTIMATED",
+   "source_ids": [
+    "D01"
+   ],
+   "method": "pusat di sumbu crank (datum 01 lewat pusat guard)"
+  },
+  "x_range": {
+   "value": [
+    1.889,
+    2.075
+   ],
+   "unit": "m",
+   "status": "ESTIMATED",
+   "source_ids": [
+    "D01"
+   ],
+   "method": "skala piksel D01 hlm.1 (s=3.107 mm/px); bagian berusuk di gambar samping px x 995-1055; sisi bawah py 715 -> jari-jari 0.326 m cocok dengan guard"
+  }
+ },
+ "oil_pan": {
+  "bottom_y": {
+   "value": -0.805,
+   "unit": "m",
+   "status": "ESTIMATED",
+   "source_ids": [
+    "D01"
+   ],
+   "method": "skala piksel D01 hlm.1 (s=3.107 mm/px); py 868-869"
+  },
+  "top_y_estimate": {
+   "value": -0.264,
+   "unit": "m",
+   "status": "ESTIMATED",
+   "source_ids": [
+    "D01"
+   ],
+   "method": "skala piksel D01 hlm.1 (s=3.107 mm/px); garis horizontal panjang py 695 (x 391-877) dianggap flens pan/dasar blok (INFERRED)"
+  },
+  "depth": {
+   "value": 0.541,
+   "unit": "m",
+   "status": "ESTIMATED",
+   "source_ids": [
+    "D01"
+   ],
+   "method": "bottom_y ke top_y_estimate"
+  },
+  "depth_below_rail": {
+   "value": 0.277,
+   "unit": "m",
+   "status": "ESTIMATED",
+   "source_ids": [
+    "D01"
+   ],
+   "method": "skala piksel D01 hlm.1 (s=3.107 mm/px); bagian pan di bawah rel dudukan py 780-869"
+  },
+  "x_range_lower_sump": {
+   "value": [
+    -0.028,
+    1.771
+   ],
+   "unit": "m",
+   "status": "ESTIMATED",
+   "source_ids": [
+    "D01"
+   ],
+   "method": "skala piksel D01 hlm.1 (s=3.107 mm/px); garis dasar pan px x 378-957"
+  },
+  "width_lower_sump": {
+   "value": 0.777,
+   "unit": "m",
+   "status": "ESTIMATED",
+   "source_ids": [
+    "D01"
+   ],
+   "method": "skala piksel D01 hlm.1 (s=3.107 mm/px); tampilan Front px x 1625-1875; z +-0.39"
+  },
+  "capacity_note": {
+   "value": "refill 152/318/625 L tergantung pan 250/500/1000 jam",
+   "status": "DOCUMENTED",
+   "source_ids": [
+    "D02"
+   ],
+   "method": "D02 hlm.1; bentuk pan beda per opsi"
+  }
+ },
+ "turbochargers": {
+  "count": {
+   "value": 2,
+   "unit": "buah",
+   "status": "DOCUMENTED",
+   "source_ids": [
+    "D02"
+   ],
+   "method": "D02 hlm.1 dual turbochargers"
+  },
+  "position": {
+   "value": "ujung belakang atas, satu per bank, di sisi dalam air cleaner (di antara air cleaner dan tengah mesin), di atas flywheel housing",
+   "status": "INFERRED",
+   "source_ids": [
+    "D01",
+    "D02",
+    "D03"
+   ],
+   "method": "gambar samping D01/D03 dan render D02: rumah turbo tertutup air cleaner dan heat shield, tidak berlabel"
+  },
+  "approx_center": {
+   "value": [
+    -0.28,
+    0.833,
+    null
+   ],
+   "unit": "m",
+   "status": "INFERRED",
+   "source_ids": [
+    "D01"
+   ],
+   "method": "x,y diambil sama dengan pusat air cleaner (inlet kompresor menempel pada air cleaner); z antara 0.2 dan 0.7 tidak terukur"
+  },
+  "scroll_housing_diameter": {
+   "value": null,
+   "unit": "m",
+   "status": "UNKNOWN",
+   "source_ids": [],
+   "method": "tertutup di semua gambar resmi"
+  }
+ },
+ "air_cleaners": {
+  "count": {
+   "value": 2,
+   "unit": "buah",
+   "status": "ESTIMATED",
+   "source_ids": [
+    "D01",
+    "D03"
+   ],
+   "method": "dua bentuk bundar terlihat kiri dan kanan di tampilan Front D01 dan D03"
+  },
+  "type": {
+   "value": "silinder bundar berkisi, sumbu ke arah Z (muka menghadap ke luar samping)",
+   "status": "ESTIMATED",
+   "source_ids": [
+    "D01",
+    "D02",
+    "D03"
+   ],
+   "method": "lingkaran di tampilan samping, elips sempit di tampilan depan"
+  },
+  "diameter": {
+   "value": 0.553,
+   "unit": "m",
+   "status": "ESTIMATED",
+   "source_ids": [
+    "D01"
+   ],
+   "method": "skala piksel D01 hlm.1 (s=3.107 mm/px); lingkaran tampilan samping ~px x 208-386 (178 px); tampilan Front tinggi px 260-435 (175 px)"
+  },
+  "thickness_z": {
+   "value": 0.28,
+   "unit": "m",
+   "status": "ESTIMATED",
+   "source_ids": [
+    "D01"
+   ],
+   "method": "skala piksel D01 hlm.1 (s=3.107 mm/px); lebar elips di tampilan Front 75-100 px"
+  },
+  "center_right": {
+   "value": [
+    -0.28,
+    0.833,
+    0.868
+   ],
+   "unit": "m",
+   "status": "ESTIMATED",
+   "source_ids": [
+    "D01"
+   ],
+   "method": "skala piksel D01 hlm.1 (s=3.107 mm/px); samping: pusat px (297,342); Front: kanan mesin px x 1420-1520 pusat 1470"
+  },
+  "center_left": {
+   "value": [
+    -0.28,
+    0.833,
+    -0.909
+   ],
+   "unit": "m",
+   "status": "ESTIMATED",
+   "source_ids": [
+    "D01"
+   ],
+   "method": "skala piksel D01 hlm.1 (s=3.107 mm/px); Front: kiri mesin px x 2005-2080 pusat 2042; asimetri kecil kemungkinan dari pipa di depannya"
+  }
+ },
+ "aftercooler": {
+  "location": {
+   "value": "atas lembah V, bagian tengah-belakang di bawah/di samping heat shield atas",
+   "status": "INFERRED",
+   "source_ids": [
+    "D01",
+    "D03"
+   ],
+   "method": "rumah kotak besar berbaut di atas deretan kepala silinder pada gambar samping; tidak berlabel"
+  },
+  "top_housing_envelope_side": {
+   "value": {
+    "x": [
+     0.336,
+     1.398
+    ],
+    "y": [
+     0.91,
+     1.227
+    ]
+   },
+   "unit": "m",
+   "status": "ESTIMATED",
+   "source_ids": [
+    "D01"
+   ],
+   "method": "skala piksel D01 hlm.1 (s=3.107 mm/px); kotak berbaut px x 495-837, y 215-317 di gambar samping; identitas sebagai aftercooler INFERRED"
+  },
+  "width_z": {
+   "value": null,
+   "unit": "m",
+   "status": "UNKNOWN",
+   "source_ids": [],
+   "method": "tertutup tangki depan di tampilan Front"
+  }
+ },
+ "exhaust_manifold": {
+  "type": {
+   "value": "kering, gas-tight, modular pulse, dengan heat shield SOLAS, satu outlet",
+   "status": "DOCUMENTED",
+   "source_ids": [
+    "D03"
+   ],
+   "method": "D03 hlm.1 (varian 2005)"
+  },
+  "per_bank": {
+   "value": 1,
+   "unit": "buah",
+   "status": "INFERRED",
+   "source_ids": [
+    "D03"
+   ],
+   "method": "satu manifold per bank ke turbo masing-masing"
+  },
+  "location": {
+   "value": "atas tengah mesin di bawah penutup abu-abu panjang (render D02); posisi tepat dalam atau luar V tidak terlihat",
+   "status": "INFERRED",
+   "source_ids": [
+    "D02"
+   ],
+   "method": "render D02 hlm.1"
+  },
+  "top_shield_envelope_side": {
+   "value": {
+    "x": [
+     0.04,
+     1.687
+    ],
+    "y_top": 1.398
+   },
+   "unit": "m",
+   "status": "ESTIMATED",
+   "source_ids": [
+    "D01"
+   ],
+   "method": "skala piksel D01 hlm.1 (s=3.107 mm/px); garis atas miring di gambar samping px x 400-930, puncak py ~160"
+  },
+  "exhaust_outlet": {
+   "value": {
+    "x": [
+     -0.705,
+     -0.534
+    ],
+    "y": 1.15
+   },
+   "unit": "m",
+   "status": "ESTIMATED",
+   "source_ids": [
+    "D01"
+   ],
+   "method": "skala piksel D01 hlm.1 (s=3.107 mm/px); flens datar di puncak belakang kiri gambar samping; identitas sebagai outlet buang INFERRED (D03: single exhaust outlet)"
+  }
+ },
+ "front_tank_heat_exchanger": {
+  "present": {
+   "value": "ya, kotak tegak di ujung depan atas (tangki ekspansi dengan tutup pengisi; HE/keel cooler opsional)",
+   "status": "ESTIMATED",
+   "source_ids": [
+    "D01",
+    "D03"
+   ],
+   "method": "kotak dengan tutup di atas pada gambar samping D01 dan kotak lebar di tampilan Front"
+  },
+  "x_range": {
+   "value": [
+    2.107,
+    2.386
+   ],
+   "unit": "m",
+   "status": "ESTIMATED",
+   "source_ids": [
+    "D01"
+   ],
+   "method": "skala piksel D01 hlm.1 (s=3.107 mm/px); px x 1065-1155"
+  },
+  "y_range": {
+   "value": [
+    0.528,
+    1.181
+   ],
+   "unit": "m",
+   "status": "ESTIMATED",
+   "source_ids": [
+    "D01"
+   ],
+   "method": "skala piksel D01 hlm.1 (s=3.107 mm/px); samping py 230-440; Front py 230-455"
+  },
+  "z_range": {
+   "value": [
+    -0.561,
+    0.542
+   ],
+   "unit": "m",
+   "status": "ESTIMATED",
+   "source_ids": [
+    "D01"
+   ],
+   "method": "skala piksel D01 hlm.1 (s=3.107 mm/px); Front px x 1575-1930"
+  },
+  "identity": {
+   "value": "tangki ekspansi; apakah berisi heat exchanger tidak terlihat",
+   "status": "INFERRED",
+   "source_ids": [
+    "D01",
+    "D02"
+   ]
+  }
+ },
+ "water_pumps_accessory_drive": {
+  "pumps": {
+   "value": "jacket water pump dan auxiliary water pump digerakkan roda gigi, di ujung depan bawah kiri dan kanan",
+   "status": "INFERRED",
+   "source_ids": [
+    "D02"
+   ],
+   "method": "D02 hlm.1 Standard Equipment; posisi dari render dan gambar Front; pompa mana JW dan mana AW tidak berlabel"
+  },
+  "round_housing_left_front": {
+   "value": [
+    null,
+    -0.099,
+    -0.421
+   ],
+   "unit": "m",
+   "status": "ESTIMATED",
+   "source_ids": [
+    "D01"
+   ],
+   "method": "skala piksel D01 hlm.1 (s=3.107 mm/px); lingkaran px x 1860-1910, y 615-670 di tampilan Front (sisi kiri mesin), diameter ~0.16 m; x di depan blok tidak terukur"
+  },
+  "right_front_elbow": {
+   "value": [
+    null,
+    -0.047,
+    0.427
+   ],
+   "unit": "m",
+   "status": "ESTIMATED",
+   "source_ids": [
+    "D01"
+   ],
+   "method": "skala piksel D01 hlm.1 (s=3.107 mm/px); siku pipa besar px x 1580-1645 di sisi kanan; pipa naik ke tangki depan"
+  },
+  "accessory_drive": {
+   "value": "ada (D03 'accessory drives'); lokasi tidak tertulis",
+   "status": "DOCUMENTED",
+   "source_ids": [
+    "D03"
+   ],
+   "method": "D03 hlm.1"
+  }
+ },
+ "starter": {
+  "side": {
+   "value": "kanan (+Z), bagian bawah flywheel housing",
+   "status": "INFERRED",
+   "source_ids": [
+    "P10"
+   ],
+   "method": "foto P10 (unit genset 3512C, bukan marine) memperlihatkan starter di bawah flywheel housing sisi kanan; untuk marine propulsion belum terlihat"
+  },
+  "count_type": {
+   "value": null,
+   "status": "UNKNOWN",
+   "source_ids": [],
+   "method": "jumlah dan jenis (udara/listrik) tidak ditemukan"
+  },
+  "approx_position": {
+   "value": [
+    -0.115,
+    null,
+    null
+   ],
+   "unit": "m",
+   "status": "INFERRED",
+   "source_ids": [
+    "P10",
+    "D01"
+   ],
+   "method": "x di dalam rentang flywheel housing (-0.22..0); y,z tidak terukur"
+  }
+ },
+ "conflicts": [
+  {
+   "topic": "tinggi",
+   "values_mm": {
+    "D02": 2223,
+    "D05": 2222.6,
+    "D01": 2113.3,
+    "D03": 2065,
+    "D04": 1904
+   },
+   "chosen": 2223,
+   "reason": "varian terkunci D02; gambar D01 sendiri terukur 2219 mm dengan skala dari L dan W-nya, sehingga teks 2113.3 D01 kemungkinan konfigurasi lain atau salah; D03 2005 konfigurasi lama"
+  },
+  {
+   "topic": "panjang D02",
+   "values_mm": {
+    "D02_teks": 2465,
+    "D02_inci": 2647,
+    "D05": 2645,
+    "D01": 2644.5,
+    "D03": 3153
+   },
+   "chosen": 2647,
+   "reason": "2465 salah ketik; 3153 (D03) cocok dengan panjang ekstrem termasuk air cleaner/outlet yang terukur 3147 mm di gambar D01"
+  },
+  {
+   "topic": "gambar garis D02",
+   "detail": "gambar dimensi D02 hlm.2 menampilkan 8 silinder per bank (16 silinder) dan tidak proporsional dengan angkanya; tidak dipakai untuk ukur"
+  },
+  {
+   "topic": "label datum 03",
+   "detail": "'03' dipakai untuk garis tegak di tampilan samping (dekat muka belakang blok) dan garis tengah di tampilan depan; arti resmi tidak tertulis, dipetakan INFERRED"
+  }
+ ],
+ "work_files": [
+  "/tmp/claude-0/c3512/doc/dim/d01_draw.png",
+  "/tmp/claude-0/c3512/doc/dim/d01_heads.png",
+  "/tmp/claude-0/c3512/doc/dim/g2-000.jpg",
+  "/tmp/claude-0/c3512/doc/dim/g2_small.png"
+ ]
+}

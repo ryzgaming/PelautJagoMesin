@@ -1,0 +1,628 @@
+'use strict';
+
+const $ = (id) => document.getElementById(id);
+const stage = $('stage');
+const panel = $('panel');
+const panelBody = $('panel-body');
+const state = {mode:'home', selected:null, isolated:false, xray:false, system:null, angle:0, running:false, poseOverview:false};
+const entries = new Map();
+const groups = new Map();
+const shellMaterials = new Map();
+let T, scene, camera, controls, renderer, roots, data, stopDiagram, previousView, selectionBox;
+const labels = {
+  BLOCK:'Blok silinder', HEADS:'Kepala silinder', OILPAN:'Bak oli', FLYWHEEL:'Roda gila',
+  FRONT:'Ujung peredam', INTAKE:'Pemasukan udara', EXHAUST:'Gas buang', FUEL:'Bahan bakar',
+  COOLING:'Pendinginan', LUBE:'Pelumasan', ELECTRIC:'Kelistrikan', CRANK:'Poros engkol',
+  MAIN:'Bantalan utama', PISTON:'Piston dan ring', ROD:'Batang penghubung', LINER:'Liner silinder',
+  CAM:'Poros nok', VALVE:'Mekanisme katup', FUELINJ:'Injektor', TIMING:'Roda gigi timing',
+  OILPUMP:'Pompa oli'
+};
+const systemLabels = {
+  fuel:'Bahan bakar', lubrication:'Pelumasan', freshwater:'Air tawar', seawater:'Air laut',
+  'intake-exhaust':'Udara dan gas buang', 'air-exhaust':'Udara dan gas buang', air_exhaust:'Udara dan gas buang'
+};
+// Vectors are in the shared meter datum. Parts on the same interface stay together.
+const spreadVectors = {
+  BLOCK:[0,0,0], HEADS:[0,.38,0], OILPAN:[0,-.35,0], FLYWHEEL:[-.43,0,0],
+  FRONT:[.33,0,0], INTAKE:[0,.67,0], EXHAUST:[0,0,.41], FUEL:[0,0,-.42],
+  COOLING:[.59,0,0], LUBE:[0,-.14,-.33], ELECTRIC:[-.44,0,-.28], CRANK:[0,0,0],
+  MAIN:[0,-.13,0], PISTON:[0,.17,0], ROD:[0,.09,0], LINER:[0,.28,0],
+  CAM:[0,0,.22], VALVE:[0,.55,0], FUELINJ:[0,.48,0], TIMING:[.12,0,0], OILPUMP:[0,-.19,0]
+};
+
+function element(tag, text, className) {
+  const node = document.createElement(tag);
+  if (text !== undefined) node.textContent = text;
+  if (className) node.className = className;
+  return node;
+}
+function button(text, handler, pressed) {
+  const node = element('button', text);
+  node.type = 'button';
+  node.addEventListener('click', handler);
+  if (pressed !== undefined) node.setAttribute('aria-pressed', String(pressed));
+  return node;
+}
+function groupName(id) {
+  return labels[id.replace(/^RAK-(?:INT-)?/, '')] || id;
+}
+function componentName(entry) {
+  return entry.nama || entry.name || entry.id;
+}
+function componentGroup(entry) {
+  return entry.parent?.startsWith('RAK-') ? entry.parent
+    : entry.rakitan || entry.assembly || 'Komponen';
+}
+function setPanel(title, render) {
+  $('panel-title').textContent = title;
+  panelBody.replaceChildren();
+  render(panelBody);
+  panel.hidden = false;
+  $('parts').setAttribute('aria-expanded', String(state.mode === 'parts'));
+}
+function closePanel() {
+  panel.hidden = true;
+  $('parts').setAttribute('aria-expanded','false');
+}
+function sourceLinks(parent, refs = []) {
+  if (!Array.isArray(refs)) refs = [refs];
+  const list = element('ul', undefined, 'registry');
+  for (const ref of refs) {
+    if (!ref) continue;
+    const line = typeof ref === 'string' ? ref : ref.locator || ref.id || JSON.stringify(ref);
+    const item = element('li', line);
+    const source = data.sources.find(({id}) => line.startsWith(id) || line.includes(' '+id));
+    if (source?.url) {
+      const link = element('a', 'Buka sumber');
+      link.href = source.url;
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+      item.append(document.createTextNode(' · '), link);
+    }
+    list.append(item);
+  }
+  if (list.children.length) parent.append(list);
+}
+function showParts() {
+  setPanel('Komponen', (body) => {
+    const byGroup = new Map();
+    for (const entry of entries.values()) {
+      const group = componentGroup(entry);
+      if (!byGroup.has(group)) byGroup.set(group, []);
+      byGroup.get(group).push(entry);
+    }
+    for (const [key, parts] of byGroup) {
+      const section = element('details');
+      section.open = parts.some(({id}) => id === state.selected);
+      section.append(element('summary', groupName(key) + ' · ' + parts.length));
+      const list = element('div', undefined, 'group-items');
+      for (const entry of parts) {
+        list.append(button(componentName(entry), () => select(entry.id), entry.id === state.selected));
+      }
+      section.append(list);
+      body.append(section);
+    }
+    if (!entries.size) body.append(element('p', 'Inventaris model belum tersedia.'));
+  });
+}
+function renderComponent(entry) {
+  setPanel(componentName(entry), (body) => {
+    body.append(element('span', (entry.status || 'UNVERIFIED').toString() + ' · ' + entry.id, 'status'));
+    const notes = entry.notes || entry.catatan || entry.note;
+    if (notes) for (const note of [].concat(notes)) body.append(element('p', typeof note === 'string' ? note : JSON.stringify(note)));
+    const partNumbers = [].concat(entry.part_number || []).filter(Boolean);
+    if (partNumbers.length) body.append(element('p', 'Nomor katalog ' + partNumbers.join(', ')));
+    body.append(element('small','Jumlah pada model '+(entry.quantity || entry.count || entry.jumlah || 1)));
+    sourceLinks(body, entry.source_refs || entry.sumber);
+    const actions = element('div', undefined, 'actions');
+    actions.append(button('Daftar komponen', () => changeMode('parts')));
+    if (entry.object) actions.append(button(state.isolated ? 'Tampilkan semua' : 'Isolasi', () => {
+      state.isolated = !state.isolated;
+      applyPose();
+      frame();
+      renderComponent(entry);
+    }, state.isolated));
+    const parts = assemblyRows(componentGroup(entry), entry);
+    if (entry.object && parts.length > 1) actions.append(button('Eksplor rakitan', () => openDiagram(entry)));
+    body.append(actions);
+  });
+}
+function select(id) {
+  if (state.mode === 'assembly') {
+    state.selected = id;
+    refreshHighlight();
+    for (const [key, control] of state.assemblyControls) control.setAttribute('aria-pressed', String(key === id));
+    const entry = entries.get(id);
+    const detail = $('assembly-detail');
+    detail.replaceChildren(element('h3', componentName(entry)), element('p', (entry.status || 'UNVERIFIED')+' · '+entry.id));
+    sourceLinks(detail, entry.source_refs || entry.sumber);
+    return;
+  }
+  const entry = entries.get(id);
+  if (!entry) return;
+  state.isolated = state.isolated && state.selected === id;
+  state.selected = id;
+  changeMode('component');
+}
+function assemblyRows(group, anchor) {
+  const scopedCylinder = ['RAK-INT-PISTON','RAK-INT-ROD','RAK-INT-LINER','RAK-INT-VALVE','RAK-INT-FUELINJ'].includes(group);
+  const cylinder = (entry) => {
+    const parsedParent = entry.parent?.match(/^MOT-INT-[A-Z]+-(\d)(?:-|$)/)?.[1];
+    if (parsedParent) return Number(parsedParent);
+    const center = new T.Box3().setFromObject(entry.object).getCenter(new T.Vector3());
+    return Math.max(1,Math.min(6,Math.round((center.x-.209)/.2)+1));
+  };
+  const localCylinder = scopedCylinder && anchor?.object ? cylinder(anchor) : null;
+  return Array.from(entries.values()).filter(entry => componentGroup(entry) === group && entry.object
+    && (!localCylinder || cylinder(entry) === localCylinder));
+}
+function openDiagram(entry) {
+  const id = componentGroup(entry);
+  const group = groups.get(id)?.object;
+  if (!group) return;
+  previousView = {
+    mode:state.mode, selected:state.selected, isolated:state.isolated,
+    position:camera.position.clone(), target:controls.target.clone()
+  };
+  state.mode = 'assembly';
+  state.running = false;
+  state.assemblyGroup = id;
+  state.assemblyControls = new Map();
+  const components = assemblyRows(id, entry);
+  state.assemblyParts = new Set(components.map(part=>part.id));
+  applyPose();
+  setPanel('Eksplor rakitan', body => {
+    body.append(button('Kembali', restoreDiagram));
+    const detail = element('section', undefined, 'details');
+    detail.id = 'assembly-detail';
+    body.append(detail);
+  });
+  const boxes = components.map(({object}) => new T.Box3().setFromObject(object));
+  const order = components.map((part, index) => ({part,index,center:boxes[index].getCenter(new T.Vector3())}));
+  const vector = new T.Vector3(...(spreadVectors[id.replace(/^RAK-(?:INT-)?/,'')] || [1,0,0]));
+  const direction = vector.lengthSq() ? vector.normalize() : new T.Vector3(1,0,0);
+  const authored = data.assemblies[id] || {};
+  order.sort((a,b) => a.center.dot(direction)-b.center.dot(direction));
+  const offsets = new Map(order.map(({part}, index) => {
+    const item = authored.parts?.find(row => row.id === part.id || row.component_id === part.id);
+    const offset = item?.offset_m || item?.explode_vector_m || item?.explode_m;
+    const magnitude = Math.min(.065, .4 / components.length);
+    return [part.id, Array.isArray(offset) ? new T.Vector3(...offset) :
+      direction.clone().multiplyScalar((index-(order.length-1)/2)*magnitude)];
+  }));
+  const meshes = [];
+  const rows = [];
+  const trows = [];
+  for (const part of components) {
+    const key = part.id;
+    const number = Array.isArray(part.part_number) ? part.part_number.join(', ') : part.part_number;
+    // Catalog numbers may repeat across physically distinct meshes.
+    rows.push([key, componentName(part), part.quantity || part.count || part.jumlah || 1, number]);
+    const control = button(componentName(part), () => select(key), state.selected === key);
+    state.assemblyControls.set(key, control);
+    trows.push(control);
+    part.object.traverse(mesh => {
+      if (!mesh.isMesh || mesh.userData.component !== key) return;
+      const inverseRotation = mesh.parent.getWorldQuaternion(new T.Quaternion()).invert();
+      mesh.userData.no = key;
+      mesh.userData.ws = mesh.position.clone();
+      mesh.userData.ev = offsets.get(key).clone().applyQuaternion(inverseRotation);
+      meshes.push(mesh);
+    });
+  }
+  const part = {group,rows,meshes,trows,idn:groupName(id)};
+  const model = {camera, axis:'x', cfg:{nosLabel:'No. katalog'}, rowStatus:(_part,row) => ({
+    jumlah:'ilustrasi', nomor:row[3] ? 'katalog' : 'model', identifier:row[3]
+  })};
+  stopDiagram = window.openAssemblyDiagram(model, part, stage, panelBody);
+  select(entry.id);
+  if (authored.view?.some(Boolean)) {
+    const view = new T.Vector3(...authored.view).normalize();
+    if (Math.abs(view.y) > .95) view.x = .24;
+    camera.position.copy(controls.target).add(view);
+  }
+  requestAnimationFrame(() => frame());
+  updateNav();
+}
+function leaveDiagram() {
+  if (!stopDiagram) return;
+  stopDiagram();
+  stopDiagram = null;
+  state.assemblyControls = null;
+  state.assemblyGroup = null;
+  state.assemblyParts = null;
+}
+function restoreDiagram() {
+  const view = previousView;
+  leaveDiagram();
+  previousView = null;
+  if (!view) return;
+  state.selected = view.selected;
+  state.isolated = view.isolated;
+  changeMode(view.mode);
+  camera.position.copy(view.position);
+  controls.target.copy(view.target);
+  controls.update();
+}
+function showSystems() {
+  setPanel('Sistem', body => {
+    const tabs = element('div', undefined, 'tabs');
+    tabs.setAttribute('aria-label','Pilih sistem');
+    for (const graph of data.systems) tabs.append(button(systemLabels[graph.system] || graph.system,
+      () => { state.system = graph.system; showSystems(); }, state.system === graph.system));
+    body.append(tabs);
+    const graph = data.systems.find(({system}) => system === state.system);
+    if (!graph) { body.append(element('p', 'Data sistem belum tersedia.')); return; }
+    body.append(element('span', graph.status, 'status'), element('p', graph.applicability));
+    const names = new Map(graph.nodes.map(node => [node.id, node.name || node.label || node.id]));
+    const list = element('ol', undefined, 'system-edges');
+    for (const edge of graph.edges) {
+      const item = element('li');
+      const known = ['DOCUMENTED','OBSERVED','INFERRED'].includes(edge.status);
+      const separator = known ? ' → ' : ' · ';
+      item.append(element('h3', (names.get(edge.from) || edge.from) + separator + (names.get(edge.to) || edge.to)),
+        element('span', edge.status || 'UNKNOWN', 'status'));
+      if (edge.purpose) item.append(element('p', edge.purpose));
+      if (edge.operating_condition) item.append(element('small', edge.operating_condition));
+      const detail = element('details');
+      detail.append(element('summary','Rujukan hubungan'));
+      sourceLinks(detail, edge.source_refs);
+      item.append(detail);
+      list.append(item);
+    }
+    body.append(list);
+    if (graph.gaps?.length) {
+      const details = element('details');
+      details.append(element('summary','Batas verifikasi'));
+      for (const gap of graph.gaps) details.append(element('p', gap));
+      body.append(details);
+    }
+  });
+}
+function showOperation() {
+  setPanel('Pengoperasian', body => {
+    body.append(element('p','Rating H tercatat 555 kW pada 1.840 rpm. Model memperlihatkan mekanisme mesin pada kecepatan belajar.'));
+    const sample = kinematicParts();
+    const toggle = button(state.running ? 'Hentikan animasi' : 'Jalankan animasi', () => {
+      state.running = !state.running;
+      showOperation();
+    }, state.running);
+    toggle.disabled = !sample;
+    body.append(toggle, element('p', sample ?
+      'Ilustrasi satu putaran poros engkol, roda gila, peredam, batang penghubung dan piston. Fase fisik unit belum terverifikasi. Aktifkan X-ray untuk melihat gerak internal.'
+      : 'Gerak disiapkan setelah pivot dan hubungan poros terverifikasi pada ekspor model.'),
+      element('p','Untuk prosedur pengoperasian unit, gunakan manual Yanmar yang sesuai nomor seri.'));
+    sourceLinks(body, ['D02 · Operation Manual','D03 · H-rating']);
+  });
+}
+function showSources() {
+  setPanel('Sumber dan batas model', body => {
+    body.append(element('p','Varian H 555 kW pada 1.840 rpm dipilih sebagai konfigurasi rujukan. Cakupan mencakup peralatan yang terpasang pada mesin.'),
+      element('h3','Ukuran katalog nominal'),
+      element('p','2,000 × 1,305 × 1,431 m (panjang × lebar × tinggi). D03, halaman PDF 17.'),
+      element('h3','Ekstrem proyeksi gambar teknik'));
+    const ext = data.extrema;
+    if (ext?.length === 3) {
+      const values = ext.map(value => Number(value).toLocaleString('id-ID',{minimumFractionDigits:3,maximumFractionDigits:3}));
+      body.append(element('p', values.join(' × ') + ' m (panjang × lebar × tinggi). Estimasi tepi-ke-tepi pada gambar D03. Tepi komponen mengikuti datum gambar dan batas pandang.'));
+    }
+    body.append(element('p','Rekonstruksi pembelajaran independen. Afiliasi dengan Yanmar tidak ada.'));
+    const registered = element('ul',undefined,'registry');
+    for (const source of data.sources) {
+      const li = element('li');
+      const link = element('a', source.id + ' · ' + source.title);
+      link.href = source.url;
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+      li.append(link);
+      if (source.status) li.append(element('small', source.status));
+      registered.append(li);
+    }
+    body.append(registered);
+  });
+}
+function updateNav() {
+  for (const node of document.querySelectorAll('[data-mode]')) node.setAttribute('aria-pressed', String(node.dataset.mode === state.mode));
+  $('xray').setAttribute('aria-pressed',String(state.xray));
+  $('spread-box').hidden = state.mode !== 'overview';
+  document.body.classList.toggle('overview-open',state.mode === 'overview');
+}
+function changeMode(mode) {
+  if (!data) return;
+  leaveDiagram();
+  state.mode = mode;
+  if (mode !== 'operation') { state.running = false; state.angle = 0; }
+  if (['home','overview','systems','operation'].includes(mode)) {
+    state.poseOverview = mode === 'overview';
+    state.selected = null;
+    state.isolated = false;
+  }
+  updateNav();
+  if (mode === 'parts') showParts();
+  else if (mode === 'systems') showSystems();
+  else if (mode === 'operation') showOperation();
+  else if (mode === 'component') renderComponent(entries.get(state.selected));
+  else if (mode === 'sources') showSources();
+  else closePanel();
+  applyPose();
+  if (['home','overview','systems','operation'].includes(mode)) requestAnimationFrame(() => frame());
+}
+
+function applyPose() {
+  if (!renderer || !roots) return;
+  const spread = state.poseOverview && state.mode !== 'assembly' ? Number($('spread').value)/100 : 0;
+  for (const [id, {object,base}] of groups) {
+    const vector = spreadVectors[id.replace(/^RAK-(?:INT-)?/,'')];
+    object.position.copy(base);
+    if (vector) object.position.addScaledVector(new T.Vector3(...vector), spread);
+    object.visible = state.mode !== 'assembly' || state.assemblyGroup === id;
+  }
+  for (const entry of entries.values()) {
+    if (!entry.object) continue;
+    const visible = state.mode === 'assembly' ? state.assemblyParts.has(entry.id)
+      : !state.isolated || entry.id === state.selected;
+    entry.object.visible = visible;
+  }
+  roots[1]?.traverse(object => {
+    if (object.isMesh) object.visible = !object.userData.component ||
+      state.xray || state.mode === 'assembly' || state.isolated ||
+      entries.get(object.userData.component)?.id === state.selected;
+  });
+  for (const [mesh, {solid, transparent}] of shellMaterials) {
+    mesh.material = state.xray ? transparent : solid;
+  }
+  applyKinematics();
+  refreshHighlight();
+}
+function refreshHighlight() {
+  if (!selectionBox) return;
+  const selected = entries.get(state.selected)?.object;
+  selectionBox.visible = Boolean(selected && selected.visible);
+  if (!selectionBox.visible) return;
+  selected.updateWorldMatrix(true,true);
+  selectionBox.box.setFromObject(selected);
+}
+
+let motion;
+function kinematicParts() {
+  if (motion) return motion;
+  if (!roots || !data.kinematics) return null;
+  const config = data.kinematics.viewer;
+  if (!config?.enabled || !Array.isArray(config.rotators) || !Array.isArray(config.cylinders)
+      || !Number.isFinite(config.throw_m) || !Number.isFinite(config.rod_cc_m)
+      || config.rod_cc_m <= config.throw_m) return null;
+  const lookup = (id) => roots.map(root => root?.getObjectByName(id)).find(Boolean);
+  const rotators = config.rotators.map(entry => ({...entry, object:lookup(entry.node)}));
+  const cylinders = config.cylinders.map(entry => ({...entry, rod:lookup(entry.rod), piston:lookup(entry.piston)}));
+  if (!rotators.length || !cylinders.length || rotators.some(({object, factor})=>!object || !Number.isFinite(factor))
+      || cylinders.some(entry => !entry.rod || !entry.piston || !Number.isFinite(entry.phase_deg))) return null;
+  for (const entry of rotators) entry.base = entry.object.quaternion.clone();
+  for (const entry of cylinders) {
+    entry.rodBase = entry.rod.quaternion.clone();
+    entry.pistonBase = entry.piston.position.clone();
+    entry.rodPosition = entry.rod.position.clone();
+  }
+  motion = {...config, rotators, cylinders, axis:new T.Vector3(1,0,0)};
+  return motion;
+}
+function applyKinematics() {
+  const config = kinematicParts();
+  if (!config) return;
+  const {axis,rotators,cylinders} = config;
+  const rotation = new T.Quaternion();
+  for (const {object,base,factor} of rotators) {
+    object.quaternion.copy(base).premultiply(rotation.setFromAxisAngle(axis,state.angle * factor));
+  }
+  for (const entry of cylinders) {
+    const phase = entry.phase_deg * Math.PI/180;
+    const theta = state.angle + phase;
+    const pin = (angle) => {
+      const y = config.throw_m * Math.cos(angle);
+      const z = -config.throw_m * Math.sin(angle);
+      return {y,z,wrist:y+Math.sqrt(config.rod_cc_m ** 2-z ** 2)};
+    };
+    const start = pin(phase);
+    const now = pin(theta);
+    entry.rod.position.copy(entry.rodPosition);
+    entry.rod.position.y += now.y-start.y;
+    entry.rod.position.z += now.z-start.z;
+    const offset = Math.atan2(-now.z,now.wrist-now.y) - Math.atan2(-start.z,start.wrist-start.y);
+    entry.rod.quaternion.copy(entry.rodBase).premultiply(rotation.setFromAxisAngle(axis,offset));
+    entry.piston.position.copy(entry.pistonBase);
+    entry.piston.position.y += now.wrist-start.wrist;
+  }
+}
+function frame() {
+  if (!renderer || !roots) return;
+  scene.updateMatrixWorld(true);
+  const box = new T.Box3();
+  for (const root of roots) root?.traverseVisible(object => {
+    if (!object.isMesh) return;
+    if (!object.geometry.boundingBox) object.geometry.computeBoundingBox();
+    box.union(object.geometry.boundingBox.clone().applyMatrix4(object.matrixWorld));
+  });
+  if (box.isEmpty()) return;
+  const target = box.getCenter(new T.Vector3());
+  const radius = box.getSize(new T.Vector3()).length() / 2;
+  const slope = Math.tan(T.MathUtils.degToRad(camera.fov/2));
+  const direction = camera.position.clone().sub(controls.target).normalize();
+  const right = camera.up.clone().cross(direction).normalize();
+  const up = direction.clone().cross(right).normalize();
+  let distance = .1;
+  for (const x of [box.min.x,box.max.x]) for (const y of [box.min.y,box.max.y]) for (const z of [box.min.z,box.max.z]) {
+    const delta = new T.Vector3(x,y,z).sub(target);
+    const needed = Math.max(Math.abs(delta.dot(right))/(slope*camera.aspect),Math.abs(delta.dot(up))/slope);
+    distance = Math.max(distance,delta.dot(direction)+needed*1.19);
+  }
+  controls.target.copy(target);
+  camera.position.copy(target).addScaledVector(direction, distance);
+  controls.minDistance = Math.max(.08,radius*.18);
+  controls.maxDistance = Math.max(15,distance*3);
+  controls.update();
+}
+function installModels(results) {
+  roots = results.map(result => result.status === 'fulfilled' ? result.value.scene : null);
+  for (const [i,root] of roots.entries()) {
+    if (!root) continue;
+    scene.add(root);
+    root.updateMatrixWorld(true);
+    root.traverse(object => {
+      if (object.name.startsWith('RAK-')) groups.set(object.name,{object,base:object.position.clone()});
+      const id = object.userData.id || object.name;
+      const entry = entries.get(id);
+      if (!entry) return;
+      entry.object = object;
+      object.traverse(mesh => {
+        if (!mesh.isMesh) return;
+        mesh.userData.component = id;
+        if (i !== 0 || !entry.xray_shell) return;
+        const hide = (material) => {
+          const copy = material.clone();
+          copy.transparent = true;
+          copy.opacity = .18;
+          copy.depthWrite = false;
+          return copy;
+        };
+        shellMaterials.set(mesh,{solid:mesh.material,
+          transparent:Array.isArray(mesh.material) ? mesh.material.map(hide) : hide(mesh.material)});
+      });
+    });
+  }
+  applyPose();
+  frame();
+}
+function initializeViewport() {
+  T = window.THREE;
+  if (!T?.GLTFLoader || !T?.OrbitControls) throw new Error('Pustaka 3D tidak dapat dibuka.');
+  const host = $('canvas');
+  scene = new T.Scene();
+  selectionBox = new T.Box3Helper(new T.Box3(),0x79ead0);
+  selectionBox.visible = false;
+  scene.add(selectionBox);
+  camera = new T.PerspectiveCamera(35,1,.025,80);
+  camera.position.set(2.25,1.5,-2.6);
+  renderer = new T.WebGLRenderer({alpha:true,antialias:true,powerPreference:'high-performance'});
+  renderer.outputEncoding = T.sRGBEncoding;
+  renderer.setPixelRatio(Math.min(1.7,window.devicePixelRatio || 1));
+  host.append(renderer.domElement);
+  const ambient = new T.HemisphereLight(0xeaf8f6,0x5a4943,1.02);
+  scene.add(ambient);
+  for (const [x,y,z,color,intensity] of [[1,2,-3,0xfff5df,1.95],[-3,1,2,0xbbdce8,1.3],[4,1,2,0xffffff,.72]]) {
+    const light = new T.DirectionalLight(color,intensity);
+    light.position.set(x,y,z);
+    scene.add(light);
+  }
+  controls = new T.OrbitControls(camera,renderer.domElement);
+  controls.enableDamping = true;
+  let start;
+  const pointer = new T.Vector2();
+  const raycaster = new T.Raycaster();
+  renderer.domElement.addEventListener('pointerdown',event => {
+    start = event.isPrimary && event.button === 0 ? [event.clientX,event.clientY] : null;
+  });
+  renderer.domElement.addEventListener('pointerup',event => {
+    if (!start || Math.hypot(event.clientX-start[0],event.clientY-start[1])>6 || !roots) return;
+    const rect = renderer.domElement.getBoundingClientRect();
+    pointer.set(2*(event.clientX-rect.left)/rect.width-1,1-2*(event.clientY-rect.top)/rect.height);
+    raycaster.setFromCamera(pointer,camera);
+    const visible = [];
+    for (const root of roots) root?.traverseVisible(mesh => {
+      if (mesh.isMesh && mesh.userData.component) visible.push(mesh);
+    });
+    const hits = raycaster.intersectObjects(visible,false);
+    const hit = hits.find(({object})=>!state.xray || !shellMaterials.has(object)) || hits[0];
+    if (hit) select(hit.object.userData.component);
+  });
+  renderer.domElement.addEventListener('webglcontextlost',event=>{
+    event.preventDefault();
+    $('loading').textContent='Tampilan 3D terputus. Informasi komponen masih dapat dibuka.';
+    $('loading').hidden=false;
+  });
+  renderer.domElement.addEventListener('webglcontextrestored',()=>{
+    if (roots?.every(Boolean)) $('loading').hidden=true;
+  });
+  let oldAspect;
+  new ResizeObserver(() => {
+    if (!host.clientWidth || !host.clientHeight) return;
+    const aspect = host.clientWidth/host.clientHeight;
+    renderer.setSize(host.clientWidth,host.clientHeight,false);
+    camera.aspect = aspect;
+    camera.updateProjectionMatrix();
+    if (!stopDiagram && state.mode !== 'component' && oldAspect && Math.abs(aspect-oldAspect) > .15) frame();
+    oldAspect = aspect;
+  }).observe(host);
+  let before;
+  renderer.setAnimationLoop((time) => {
+    const delta = Math.min(.05,(time-(before ?? time))/1000);
+    before = time;
+    if (state.running) {
+      state.angle = (state.angle + delta*.85)%(2*Math.PI);
+      applyKinematics();
+    }
+    controls.update();
+    renderer.render(scene,camera);
+  });
+}
+async function start() {
+  try {
+    const embedded = $('embedded-data');
+    if (embedded) data = JSON.parse(embedded.textContent);
+    else {
+      const response = await fetch('assets/data.json');
+      if (!response.ok) throw new Error('Informasi komponen tidak dapat dibuka.');
+      data = await response.json();
+    }
+    for (const entry of data.components) entries.set(entry.id,entry);
+    state.system = data.systems[0]?.system;
+    if (data.reviewApproved === true) $('review-status').hidden = true;
+    initializeViewport();
+    const loader = new T.GLTFLoader();
+    const loadModel = (name) => {
+      const asset = $('embedded-'+name);
+      if (!asset) return loader.loadAsync('assets/'+name+'.glb');
+      return new Promise((resolve,reject) => {
+        const encoded = asset.textContent;
+        const bytes = new Uint8Array(encoded.length/4*3-(encoded.endsWith('==') ? 2 : Number(encoded.endsWith('='))));
+        const chunkSize = 64*1024;
+        let write = 0;
+        for (let index=0;index<encoded.length;index+=chunkSize) {
+          const chunk = atob(encoded.slice(index,index+chunkSize));
+          for (let offset=0;offset<chunk.length;offset++) bytes[write++]=chunk.charCodeAt(offset);
+        }
+        loader.parse(bytes.buffer,'',resolve,reject);
+      });
+    };
+    const results = await Promise.allSettled(['exterior','internal'].map(loadModel));
+    installModels(results);
+    if (!roots[0] && !roots[1]) throw new Error('Kedua model 3D gagal dimuat. Buka Komponen untuk melihat inventaris.');
+    if (!roots[0] || !roots[1]) {
+      $('loading').textContent = 'Sebagian aset 3D gagal dimuat. Inventaris komponen tetap tersedia.';
+    } else $('loading').hidden = true;
+    if (state.mode === 'operation') showOperation();
+    if (state.mode === 'component') renderComponent(entries.get(state.selected));
+  } catch (error) {
+    $('loading').textContent = error.message || 'Model 3D tidak dapat ditampilkan pada perangkat ini.';
+  }
+}
+for (const node of document.querySelectorAll('[data-mode]')) node.addEventListener('click', () => changeMode(node.dataset.mode));
+$('parts').addEventListener('click', () => changeMode('parts'));
+$('sources').addEventListener('click', () => changeMode('sources'));
+$('reset').addEventListener('click', () => {
+  state.xray = false;
+  state.running = false;
+  state.angle = 0;
+  $('spread').value = 50;
+  $('spread-value').value = '50%';
+  if (camera) camera.position.copy(controls.target).add(new T.Vector3(2.25,1.5,-2.6));
+  changeMode('home');
+});
+$('close').addEventListener('click', () => state.mode === 'assembly' ? restoreDiagram() : closePanel());
+$('xray').addEventListener('click',() => { state.xray = !state.xray; updateNav(); applyPose(); });
+$('spread').addEventListener('input', () => { $('spread-value').value = $('spread').value + '%'; applyPose(); });
+$('spread').addEventListener('change', () => frame());
+window.addEventListener('keydown',event => {
+  if (event.key !== 'Escape') return;
+  if (state.mode === 'assembly') restoreDiagram();
+  else if (!panel.hidden) closePanel();
+});
+start();

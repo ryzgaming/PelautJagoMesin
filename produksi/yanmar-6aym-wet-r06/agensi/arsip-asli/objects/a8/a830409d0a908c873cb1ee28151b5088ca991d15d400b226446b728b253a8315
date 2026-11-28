@@ -1,0 +1,149 @@
+{
+  "revision": "r01",
+  "model": "gpt-6.2-sol",
+  "coordinator": "/root",
+  "mode": "direct_user_request_not_queue",
+  "roles": [
+    {
+      "role": "documents",
+      "agent_id": "/root/documents",
+      "state": "completed",
+      "revision": "r01",
+      "evidence": [
+        "doc/evidence-doc.json",
+        "doc/sources.json"
+      ]
+    },
+    {
+      "role": "photos",
+      "agent_id": "/root/photos",
+      "state": "completed",
+      "revision": "r01",
+      "evidence": [
+        "foto/evidence-foto.json",
+        "foto/evidence-foto-top.json"
+      ]
+    },
+    {
+      "role": "video",
+      "agent_id": "/root/video",
+      "state": "completed",
+      "revision": "r01",
+      "evidence": [
+        "video/evidence-video.json"
+      ]
+    },
+    {
+      "role": "dimension",
+      "agent_id": "/root/dimension",
+      "state": "completed",
+      "revision": "r01",
+      "evidence": [
+        "model/datum.json",
+        "model/dimension-report.json"
+      ]
+    },
+    {
+      "role": "fuel",
+      "agent_id": "/root/fuel",
+      "state": "completed",
+      "revision": "r01",
+      "evidence": [
+        "model/systems/fuel.json"
+      ]
+    },
+    {
+      "role": "freshwater",
+      "agent_id": "/root/freshwater",
+      "state": "completed",
+      "revision": "r01",
+      "evidence": [
+        "model/systems/freshwater.json"
+      ]
+    },
+    {
+      "role": "seawater",
+      "agent_id": "/root/seawater",
+      "state": "completed",
+      "revision": "r01",
+      "evidence": [
+        "model/systems/seawater.json"
+      ]
+    },
+    {
+      "role": "lubrication",
+      "agent_id": "/root/lubrication",
+      "state": "completed",
+      "revision": "r01",
+      "evidence": [
+        "model/systems/lubrication.json"
+      ]
+    },
+    {
+      "role": "intake-exhaust",
+      "agent_id": "/root/intake_exhaust",
+      "state": "completed",
+      "revision": "r01",
+      "evidence": [
+        "model/systems/intake-exhaust.json"
+      ]
+    },
+    {
+      "role": "exterior",
+      "agent_id": "/root/exterior",
+      "state": "completed",
+      "revision": "r01",
+      "evidence": [
+        "model/exterior/exterior.glb",
+        "model/exterior/inventory.json"
+      ]
+    },
+    {
+      "role": "internals",
+      "agent_id": "/root/internals",
+      "state": "completed",
+      "revision": "r01",
+      "evidence": [
+        "model/internal/internal.glb",
+        "model/internal/inventory.json"
+      ]
+    },
+    {
+      "role": "integrator",
+      "agent_id": "/root/integrator",
+      "state": "completed",
+      "revision": "r01",
+      "evidence": [
+        "review/index.html",
+        "qa/integration-fit.json"
+      ]
+    },
+    {
+      "role": "qa",
+      "agent_id": "/root/qa",
+      "state": "completed",
+      "revision": "r01",
+      "evidence": [
+        "qa/round2/reimport.json",
+        "qa/round2/fit.json",
+        "qa/acceptance.md"
+      ]
+    }
+  ],
+  "notes": [
+    "13 distinct child agents invoked through collaboration tool.",
+    "Existing owner-private Site cloned for baseline; no publication yet.",
+    "YouTube videos inaccessible; excluded Mitsubishi video is not target evidence.",
+    "No catalogue approval.",
+    "All 13 roles completed their assigned work; completion does not imply verification.",
+    "Final QA: 3 open findings. Browser runtime and source gaps remain. No source commit, deployment, catalogue action or queue claim.",
+    "Offline draft and editable package provided for owner inspection only. Resume with exact sources and permitted browser runtime, then independent QA."
+  ],
+  "state": "needs_evidence",
+  "audit_status": "UNVERIFIED",
+  "ready_for_private_review": false,
+  "catalog_approved": false,
+  "published": false,
+  "offline_draft": "review/yanmar-6aym-wet-gpt-draft.html",
+  "repair_rounds": 2
+}

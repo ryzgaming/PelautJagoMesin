@@ -1,0 +1,58 @@
+{
+  "id": "INT-CRANK",
+  "nama": "Crankshaft",
+  "node_rakitan": "RAK-INT-CRANK",
+  "acuan": [
+    {
+      "no": 1,
+      "object_ids": [
+        "INT-CRANK-01",
+        "INT-CRANK-02",
+        "INT-CRANK-03",
+        "INT-CRANK-04",
+        "INT-CRANK-05",
+        "INT-CRANK-06",
+        "INT-CRANK-07",
+        "INT-CRANK-08",
+        "INT-CRANK-09",
+        "INT-CRANK-10",
+        "INT-CRANK-REAR-NECK",
+        "INT-CRANK-20",
+        "INT-CRANK-21",
+        "INT-CRANK-23",
+        "INT-CRANK-22",
+        "INT-CRANK-30",
+        "INT-CRANK-31",
+        "INT-CRANK-32",
+        "INT-CRANK-34",
+        "INT-CRANK-40",
+        "INT-CRANK-41",
+        "INT-CRANK-42",
+        "INT-CRANK-50",
+        "INT-CRANK-51",
+        "INT-CRANK-52",
+        "INT-CRANK-60",
+        "INT-CRANK-61",
+        "INT-CRANK-63",
+        "INT-CRANK-62",
+        "INT-CRANK-70",
+        "INT-CRANK-71",
+        "INT-CRANK-72",
+        "INT-CRANK-74"
+      ],
+      "sumber": "D01 PDF 104–106 / cetak 100–102"
+    }
+  ],
+  "diagram": {
+    "arah_pandang": [
+      1,
+      0.7,
+      1
+    ],
+    "atas": [
+      0,
+      1,
+      0
+    ]
+  }
+}

@@ -1,0 +1,173 @@
+{
+  "checked_relative_references": [
+    {
+      "referer": "ui-workspace/suku-cadang.html",
+      "reference": "./",
+      "target": "ui-workspace"
+    },
+    {
+      "referer": "ui-workspace/index.html",
+      "reference": "assets/studio.css",
+      "target": "ui-workspace/assets/studio.css"
+    },
+    {
+      "referer": "ui-workspace/index.html",
+      "reference": "../model/runtime/vendor/three-bundle.js",
+      "target": "model/runtime/vendor/three-bundle.js"
+    },
+    {
+      "referer": "ui-workspace/index.html",
+      "reference": "assets/assembly-diagram.js",
+      "target": "ui-workspace/assets/assembly-diagram.js"
+    },
+    {
+      "referer": "ui-workspace/index.html",
+      "reference": "../model/runtime/vendor/flow-ribbons.js",
+      "target": "model/runtime/vendor/flow-ribbons.js"
+    },
+    {
+      "referer": "ui-workspace/index.html",
+      "reference": "../model/runtime/vendor/combustion-glow.js",
+      "target": "model/runtime/vendor/combustion-glow.js"
+    },
+    {
+      "referer": "ui-workspace/index.html",
+      "reference": "../model/runtime/vendor/engine-audio.js",
+      "target": "model/runtime/vendor/engine-audio.js"
+    },
+    {
+      "referer": "ui-workspace/index.html",
+      "reference": "../model/runtime/vendor/functional-motion.js",
+      "target": "model/runtime/vendor/functional-motion.js"
+    },
+    {
+      "referer": "ui-workspace/index.html",
+      "reference": "studio.js",
+      "target": "ui-workspace/studio.js"
+    },
+    {
+      "referer": "ui-workspace/minimal.html",
+      "reference": "minimal.css",
+      "target": "ui-workspace/minimal.css"
+    },
+    {
+      "referer": "ui-workspace/minimal.html",
+      "reference": "../model/runtime/vendor/three-bundle.js",
+      "target": "model/runtime/vendor/three-bundle.js"
+    },
+    {
+      "referer": "ui-workspace/minimal.html",
+      "reference": "../model/runtime/vendor/flow-ribbons.js",
+      "target": "model/runtime/vendor/flow-ribbons.js"
+    },
+    {
+      "referer": "ui-workspace/minimal.html",
+      "reference": "../model/runtime/vendor/combustion-glow.js",
+      "target": "model/runtime/vendor/combustion-glow.js"
+    },
+    {
+      "referer": "ui-workspace/minimal.html",
+      "reference": "../model/runtime/vendor/engine-audio.js",
+      "target": "model/runtime/vendor/engine-audio.js"
+    },
+    {
+      "referer": "ui-workspace/minimal.html",
+      "reference": "../model/runtime/vendor/functional-motion.js",
+      "target": "model/runtime/vendor/functional-motion.js"
+    },
+    {
+      "referer": "ui-workspace/minimal.html",
+      "reference": "minimal.js",
+      "target": "ui-workspace/minimal.js"
+    },
+    {
+      "referer": "ui-workspace/minimal.html",
+      "reference": "./",
+      "target": "ui-workspace"
+    },
+    {
+      "referer": "ui-workspace/perbandingan.html",
+      "reference": "./?view=operation",
+      "target": "ui-workspace"
+    },
+    {
+      "referer": "ui-workspace/perbandingan.html",
+      "reference": "./?view=drives&drive=starter-pinion",
+      "target": "ui-workspace"
+    },
+    {
+      "referer": "ui-workspace/perbandingan.html",
+      "reference": "./minimal.html",
+      "target": "ui-workspace/minimal.html"
+    },
+    {
+      "referer": "ui-workspace/perbandingan.html",
+      "reference": "assets/review-r06/perbandingan-desktop.png",
+      "target": "ui-workspace/assets/review-r06/perbandingan-desktop.png"
+    },
+    {
+      "referer": "ui-workspace/perbandingan.html",
+      "reference": "assets/review-r06/perbandingan-hp.png",
+      "target": "ui-workspace/assets/review-r06/perbandingan-hp.png"
+    },
+    {
+      "referer": "ui-workspace/perbandingan.html",
+      "reference": "assets/review-r06/pembakaran.png",
+      "target": "ui-workspace/assets/review-r06/pembakaran.png"
+    },
+    {
+      "referer": "ui-workspace/perbandingan.html",
+      "reference": "assets/review-r06/plunger-comparison.png",
+      "target": "ui-workspace/assets/review-r06/plunger-comparison.png"
+    },
+    {
+      "referer": "ui-workspace/perbandingan.html",
+      "reference": "assets/review-r06/rekaman-start-browser.mp4",
+      "target": "ui-workspace/assets/review-r06/rekaman-start-browser.mp4"
+    },
+    {
+      "referer": "ui-workspace/perbandingan.html",
+      "reference": "assets/review-r06/starting-running-stopping-illustration.wav",
+      "target": "ui-workspace/assets/review-r06/starting-running-stopping-illustration.wav"
+    },
+    {
+      "referer": "ui-workspace/perbandingan.html",
+      "reference": "assets/review-r06/hasil-review.txt",
+      "target": "ui-workspace/assets/review-r06/hasil-review.txt"
+    },
+    {
+      "referer": "ui-workspace/perbandingan.html",
+      "reference": "assets/review-r06/referensi-fungsi.json",
+      "target": "ui-workspace/assets/review-r06/referensi-fungsi.json"
+    },
+    {
+      "referer": "ui-workspace/minimal.js",
+      "reference": "../model/runtime/engine-session.js",
+      "target": "model/runtime/engine-session.js"
+    },
+    {
+      "referer": "ui-workspace/studio.js",
+      "reference": "../model/runtime/engine-session.js",
+      "target": "model/runtime/engine-session.js"
+    },
+    {
+      "referer": "ui-workspace/studio.js",
+      "reference": "./presentation.js",
+      "target": "ui-workspace/presentation.js"
+    },
+    {
+      "referer": "model/runtime/engine-session.js",
+      "reference": "./powertrain.js",
+      "target": "model/runtime/powertrain.js"
+    }
+  ],
+  "unresolved_relative_references": [],
+  "external_absolute_workspace_tokens": [],
+  "active_core_DOM_tokens": [],
+  "minimal_Studio_specific_dependencies": [],
+  "immutable_manifest": {
+    "assets/exterior.glb": true,
+    "assets/internal.glb": true,
+    "assets/data.json": true
+  }
+}

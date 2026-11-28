@@ -1,0 +1,80 @@
+{
+  "id": "RAK-FLYWHEEL-DISK",
+  "nama": "Flywheel dan ring gear",
+  "node_rakitan": "RAK-FLYWHEEL-DISK",
+  "parent_rakitan": "RAK-FLYWHEEL",
+  "acuan": {
+    "no": 1,
+    "object_ids": [
+      "EXT-FLYWHEEL-02"
+    ]
+  },
+  "diagram": {
+    "arah_pandang": [
+      -0.9,
+      0.25,
+      -0.32
+    ],
+    "atas": [
+      0,
+      1,
+      0
+    ]
+  },
+  "bagian": [
+    {
+      "no": 1,
+      "nama": "Cakram flywheel dan hub",
+      "object_ids": [
+        "EXT-FLYWHEEL-02"
+      ],
+      "role": "shell",
+      "fungsi": "Menyimpan energi rotasi dan meneruskan putaran ke flange sisi keluaran.",
+      "posisi": [],
+      "sumber": [
+        "GA01 B3-48660-4450 / outline, top, end and rear housing details",
+        "P06 / roda merah dan hub",
+        "D05 Parts catalog 0CG10-M34300 Fig.38 Crankshaft & flywheel WET #6, #8, #9",
+        "D01 service PDF 113 / printed 109: flywheel Ø632, ring pitch Ø630, 180 teeth",
+        "GA01 B3-48660-4450: SAE attachment face and flywheel PCD"
+      ],
+      "status": "ESTIMATED",
+      "nomor_oem": null
+    },
+    {
+      "no": 2,
+      "nama": "Ring gear starter · 180 gigi",
+      "object_ids": [
+        "EXT-FLYWHEEL-20"
+      ],
+      "role": "inner",
+      "fungsi": "Memberi bidang gigi untuk pinion starter; pitch Ø630 mm. Gigi, lebar dan seat berupa pendekatan visual.",
+      "posisi": [
+        {
+          "object_id": "EXT-FLYWHEEL-20",
+          "arah": [
+            -1,
+            0,
+            0
+          ],
+          "jarak_m": 0.14,
+          "urutan": 2
+        }
+      ],
+      "sumber": [
+        "D05 Parts catalog 0CG10-M34300 Fig.38 Crankshaft & flywheel WET #6, #8, #9",
+        "D01 service PDF 113 / printed 109: flywheel Ø632, ring pitch Ø630, 180 teeth",
+        "GA01 B3-48660-4450: SAE attachment face and flywheel PCD"
+      ],
+      "status": "ESTIMATED",
+      "nomor_oem": "133670-21600"
+    }
+  ],
+  "source_refs": [
+    "D05 Parts catalog 0CG10-M34300 Fig.38 Crankshaft & flywheel WET #6, #8, #9",
+    "D01 service PDF 113 / printed 109: flywheel Ø632, ring pitch Ø630, 180 teeth",
+    "GA01 B3-48660-4450: SAE attachment face and flywheel PCD"
+  ],
+  "status": "UNVERIFIED",
+  "notes": "D05 #6 adalah rakitan lengkap. Pengikat pusat #9 tetap menyatu pada mesh cakram; profil gigi dan suaian termal belum terukur."
+}

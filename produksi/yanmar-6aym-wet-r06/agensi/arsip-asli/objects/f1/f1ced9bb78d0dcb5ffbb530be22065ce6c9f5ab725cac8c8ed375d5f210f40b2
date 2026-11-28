@@ -1,0 +1,84 @@
+"""R04 external fuel and gas lines, from the very centrelines played in the viewer."""
+import json
+import math
+from collections import defaultdict
+from pathlib import Path
+from mathutils import Vector
+
+def tube(api,centers,radius,material,sides=24,bore=None):
+    """Parallel transport circular sections, keeping each section normal to its tangent."""
+    points=list(map(Vector,centers))
+    outer=[]; inner=[]
+    normal=None
+    for k,p in enumerate(points):
+        axis=(points[min(k+1,len(points)-1)]-points[max(0,k-1)]).normalized()
+        if normal is None:
+            _,normal,_=api['vec_basis'](axis)
+        normal=(normal-axis*normal.dot(axis)).normalized()
+        other=axis.cross(normal)
+        rays=[normal*math.cos(2*math.pi*j/sides)+other*math.sin(2*math.pi*j/sides) for j in range(sides)]
+        outer.append([p+v*radius for v in rays])
+        if bore:inner.append([p+v*bore for v in rays])
+    return api['polygon_loft'](outer+inner[::-1],material,0,bool(bore))
+
+def build(api):
+    source=Path(api['OUT']).parent/'flow'/'fuel-gas.json'
+    doc=json.loads(source.read_text())
+    by_mesh=defaultdict(list)
+    by_id={r['id']:r for r in doc['routes']}
+    for route in doc['routes']:
+        if route.get('mesh'):by_mesh[route['mesh']].append(route)
+    metallic=api['steel']
+    for part,segments in by_mesh.items():
+        ident,group,suffix=part.split('-')
+        if part=='EXT-INTAKE-05':
+            import runpy
+            api['remove_part'](part)
+            runpy.run_path(str(Path(api['OUT'])/'charge_duct.py'))['build'](api,segments[0])
+            continue
+        pressure=part in {f'EXT-FUEL-{i:02d}' for i in range(3,9)}
+        fuel=group=='FUEL'
+        material=api['rubber'] if part in ('EXT-FUEL-403','EXT-FUEL-404') else metallic if fuel or group=='INTAKE' and suffix=='05' else api['cast']
+        coords=list(segments[0]['points'])
+        for more in segments[1:]:
+            if coords[-1]!=more['points'][0]:raise ValueError('Disconnected mesh '+part)
+            coords.extend(more['points'][1:])
+        outer=segments[0]['radius_m']
+        bore=.0027 if pressure else outer*.81
+        sides=16 if fuel else 32
+        shapes=[tube(api,coords,outer,material,sides,bore)]
+        def collar(i,ro,width,mat,hex_n=None):
+            p=Vector(coords[i]); k=i if i>=0 else len(coords)+i
+            axis=Vector(coords[min(len(coords)-1,k+1)])-Vector(coords[max(0,k-1)])
+            if hex_n:
+                # A hexagonal outside and a round through bore. Use a proper machined annulus.
+                shapes.append(api['ring'](p,axis,[(-width/2,bore),(-width/2,ro*.93),(-width*.37,ro),
+                    (width*.37,ro),(width/2,ro*.93),(width/2,bore)],mat,hex_n))
+            else:
+                shapes.append(api['annulus'](p,axis,ro,bore,width,mat))
+        if pressure:
+            collar(-10,.0092,.013,metallic,6)
+            shapes.append(api['annulus'](coords[0],(0,1,0),.0093,bore,.005,metallic))
+            desc=f'Pipa tekanan tinggi silinder {int(suffix)-2}, termasuk sambungan holder'
+        elif fuel:
+            collar(3,outer*1.4,.012,metallic,6)
+            desc=segments[0]['name']
+        else:
+            for i in (() if part=='EXT-INTAKE-03' else (2,) if part=='EXT-EXHAUST-110' else (2,-3)):
+                collar(i,outer*1.18,.012,api['cover'])
+                collar(i,outer*1.21,.005,metallic)
+            desc=segments[0]['name']
+        if part=='EXT-INTAKE-03':
+            adapter=api['box']((.0015,.747,-.130),(.012,.132,.258),api['cast'],.004)
+            api['subtract'](adapter,api['cylinder']((.0015,.747,-.130),(1,0,0),.050,.038,material,48,0))
+            shapes.append(adapter)
+            for y in (.690,.804):
+                for z in (-.248,-.012):
+                    shapes.append(api['bolt']((.005,y,z),(1,0,0),.006))
+        # Use the existing IDs so saved selections, BOM and user bookmarks keep working.
+        index=next((j for j,p in enumerate(api['parts']) if p['id']==part),None)
+        if index is not None:api['remove_part'](part)
+        api['add'](group,int(suffix),desc,shapes,segments[0]['source_refs'],
+            'Pipa berongga dibangun dari titik aliran yang sama dengan penanda saat mesin berjalan. '
+            'Titik tertutup dan ukuran lokal adalah perkiraan model.',direction=(0,0,-1 if fuel else 1))
+        if index is not None:api['parts'].insert(index,api['parts'].pop())

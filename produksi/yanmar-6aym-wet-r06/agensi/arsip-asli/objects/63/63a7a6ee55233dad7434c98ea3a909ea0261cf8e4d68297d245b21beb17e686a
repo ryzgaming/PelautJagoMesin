@@ -1,0 +1,35 @@
+{
+  "revision": "r01",
+  "model_glb": "/workspace/private-production/yanmar-6aym-wet-20261128/review/assets/exterior.glb",
+  "sha256": "c5e9f1f826074cbebb161f5ba15ada8392744e15f9f786ff360078f095843e53",
+  "method": "Visual landmark pose estimate. Yaw 0 is operation side (Blender +Y = GLB \u2212Z); positive yaw goes toward damper (+X). No EXIF or survey camera calibration claimed.",
+  "target_blender_m": [
+    0.7099999785423279,
+    0.0,
+    0.1899999976158142
+  ],
+  "poses": {
+    "P07": {
+      "yaw_from_left_degrees": 0,
+      "elevation_degrees": 2,
+      "distance_m": 2.9,
+      "lens_mm": 39,
+      "camera_location_blender_m": [
+        0.7099999785423279,
+        2.898233413696289,
+        0.29120853543281555
+      ]
+    },
+    "P08": {
+      "yaw_from_left_degrees": 28,
+      "elevation_degrees": 13,
+      "distance_m": 2.45,
+      "lens_mm": 32,
+      "camera_location_blender_m": [
+        1.8307256698608398,
+        2.107778310775757,
+        0.7411301136016846
+      ]
+    }
+  }
+}

@@ -1,0 +1,105 @@
+{
+  "gear_disk_surface_pairs": 0,
+  "gear_housing_surface_pairs": 0,
+  "disk_housing_surface_pairs": 0,
+  "flywheel_holes_open_primary_depth": 12,
+  "sae_holes_open_primary_depth": 16,
+  "disk_pivot": [
+    -0.04899999871850014,
+    0.0,
+    0.0
+  ],
+  "gear_pivot": [
+    -0.04899999871850014,
+    0.0,
+    0.0
+  ],
+  "bonnet_nested_mesh_count": [
+    5,
+    5,
+    5,
+    5,
+    5,
+    5
+  ],
+  "distinct_nodes_resolve": true,
+  "sampled_degrees_disk_housing_gear_housing_disk_gear": {
+    "0": [
+      0,
+      0,
+      0
+    ],
+    "0.5": [
+      0,
+      0,
+      0
+    ],
+    "1": [
+      0,
+      0,
+      0
+    ],
+    "1.5": [
+      0,
+      0,
+      0
+    ],
+    "2": [
+      0,
+      0,
+      0
+    ],
+    "8.3": [
+      0,
+      0,
+      0
+    ],
+    "15": [
+      0,
+      0,
+      0
+    ],
+    "22.5": [
+      0,
+      0,
+      0
+    ],
+    "45": [
+      0,
+      0,
+      0
+    ],
+    "90": [
+      0,
+      0,
+      0
+    ],
+    "137": [
+      0,
+      0,
+      0
+    ],
+    "200": [
+      0,
+      0,
+      0
+    ],
+    "275": [
+      0,
+      0,
+      0
+    ],
+    "359": [
+      0,
+      0,
+      0
+    ]
+  },
+  "scope": "Uji impor ulang GLB scratch dengan geometri spesialis housing + dependensi. Tidak menggantikan QA ekspor gabungan.",
+  "source_sha256": "edfbe9a6084a8f073b2a982db1b5d3040c02a7880f5e94dd2d6f17d58a331327",
+  "omissions": [
+    "Baut pusat flywheel tetap menyatu dengan mesh; bentuk gigi, seat dan batas ruang coran merupakan estimasi.",
+    "Tiga belas komponen berlainan dalam Fig24 mencakup housing rocker bawah tersendiri, belum dilengkapi semua hardware. Cakupan tiap bonnet adalah Fig24 ref 8, 9, 12, 13, 14.",
+    "Varian bak oli terpasang belum cocok dengan nomor seri; detail flange serta 26 lubang mengikuti model, bukan hitungan BOM terpasang."
+  ]
+}

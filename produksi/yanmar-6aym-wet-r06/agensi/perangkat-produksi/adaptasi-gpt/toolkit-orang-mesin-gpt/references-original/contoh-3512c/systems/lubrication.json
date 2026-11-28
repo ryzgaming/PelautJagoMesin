@@ -1,0 +1,338 @@
+{
+ "machine_model": "Caterpillar 3512C HD marine propulsion",
+ "system": "lubrication",
+ "status": "PARTIAL",
+ "applicability": "3512C HD (170x215 mm, 58.6 L, V12 4-tak) propulsi laut. Sumber utama D03 LEHM4885-03 (2005, A3 ECM, rating D 1800 rpm) dan D02 LEHM22783-00 (IMO II, ADEM6); D01 LEHM0180-00 varian DGB auxiliary/DEP (pendukung saja); D05 halaman dealer HD Tier3/IMO II. D06 (3512 generasi awal) TIDAK dipakai. Foto P10-P26 sebagian besar genset/frac, bukan marine; dipakai hanya untuk tata letak kasar.",
+ "nodes": [
+  {
+   "id": "sump",
+   "name": "Oil pan (250-hour LW atau 1000-hour COMM; D02: 250/500/1000 jam)",
+   "kind": "sump",
+   "location_hint": "bawah blok",
+   "status": "DOCUMENTED",
+   "source_refs": [
+    "D03 hlm. 1 (LW/COMM configuration)",
+    "D02 hlm. 1 (Oil change interval, refill capacity)",
+    "P03/P06 oil pan lebar (genset)"
+   ]
+  },
+  {
+   "id": "oil_pump",
+   "name": "Gear-type oil pump",
+   "kind": "pump",
+   "location_hint": "digerakkan mesin; posisi tidak tertulis",
+   "status": "DOCUMENTED",
+   "source_refs": [
+    "D03 hlm. 1 (Lube System)",
+    "D01 hlm. 2",
+    "D02 hlm. 1 ('oil pump')"
+   ]
+  },
+  {
+   "id": "prelube",
+   "name": "Pre-lube strategy; engine-mounted electric pre-lube pump (opsi)",
+   "kind": "pump",
+   "location_hint": "posisi tidak tertulis",
+   "status": "DOCUMENTED",
+   "source_refs": [
+    "D03 hlm. 1 (Lube System; Common Optional Equipment)"
+   ]
+  },
+  {
+   "id": "oil_cooler",
+   "name": "Engine oil cooler (didinginkan jacket water)",
+   "kind": "heat_exchanger",
+   "location_hint": "posisi tidak tertulis",
+   "status": "DOCUMENTED",
+   "source_refs": [
+    "D03 hlm. 1 (Cooling System)",
+    "D01 hlm. 2",
+    "D02 hlm. 1 tidak mencantumkan oil cooler"
+   ]
+  },
+  {
+   "id": "oil_filter",
+   "name": "Oil filter with service indicators",
+   "kind": "filter",
+   "location_hint": "posisi tidak tertulis; P19 filter Cat kuning di sisi kanan (frac)",
+   "status": "DOCUMENTED",
+   "source_refs": [
+    "D03 hlm. 1 (Lube System; Instrumentation 'oil filter differential')",
+    "D01 hlm. 2",
+    "D02 hlm. 1",
+    "P19 (frac, bukan marine)"
+   ]
+  },
+  {
+   "id": "main_gallery",
+   "name": "Main oil gallery di blok",
+   "kind": "passage",
+   "location_hint": "di dalam blok",
+   "status": "INFERRED",
+   "source_refs": [
+    "INFERRED: prinsip mesin diesel 4-tak bertekanan"
+   ]
+  },
+  {
+   "id": "crank_brg",
+   "name": "Main dan connecting rod bearings",
+   "kind": "consumer",
+   "location_hint": "poros engkol",
+   "status": "INFERRED",
+   "source_refs": [
+    "INFERRED"
+   ]
+  },
+  {
+   "id": "piston_cool",
+   "name": "Piston cooling jets dan piston",
+   "kind": "consumer",
+   "location_hint": "bawah piston",
+   "status": "INFERRED",
+   "source_refs": [
+    "INFERRED: lazim pada diesel turbo daya tinggi; tidak tertulis"
+   ]
+  },
+  {
+   "id": "cam_valve",
+   "name": "Dual camshafts, valve train, dan (bila MEUI) rocker injector",
+   "kind": "consumer",
+   "location_hint": "blok dan kepala silinder",
+   "status": "INFERRED",
+   "source_refs": [
+    "D05 (dual camshafts) untuk keberadaan; pelumasan INFERRED"
+   ]
+  },
+  {
+   "id": "gear_train",
+   "name": "Gear train dan accessory drives",
+   "kind": "consumer",
+   "location_hint": "front/rear housing",
+   "status": "INFERRED",
+   "source_refs": [
+    "D03 hlm. 1 (accessory drives, two-sided front housing) untuk keberadaan; pelumasan INFERRED"
+   ]
+  },
+  {
+   "id": "turbo_brg",
+   "name": "Bantalan turbo (2 turbo, housing berpendingin air)",
+   "kind": "consumer",
+   "location_hint": "atas belakang, satu per bank (P14 genset)",
+   "status": "INFERRED",
+   "source_refs": [
+    "D03 hlm. 1 / D01 / D02 (water-cooled bearings) untuk keberadaan; suplai oli INFERRED"
+   ]
+  },
+  {
+   "id": "breathers",
+   "name": "Top-mounted dual crankcase breathers (D03) / Closed crankcase ventilation (D05, IMO II)",
+   "kind": "ventilation",
+   "location_hint": "atas mesin (D03)",
+   "status": "DOCUMENTED",
+   "source_refs": [
+    "D03 hlm. 1 (Lube System)",
+    "D05 bagian fitur ('Closed crankcase ventilation system')"
+   ]
+  },
+  {
+   "id": "oil_ind",
+   "name": "Oil level gauge, oil filler, tekanan oli, beda tekanan filter, shutoff tekanan oli rendah",
+   "kind": "instrument",
+   "location_hint": "panel mesin dan blok",
+   "status": "DOCUMENTED",
+   "source_refs": [
+    "D03 hlm. 1 (Lube System, Instrumentation, Protection System)"
+   ]
+  }
+ ],
+ "edges": [
+  {
+   "from": "sump",
+   "to": "oil_pump",
+   "purpose": "isap oli dari oil pan",
+   "operating_condition": "mesin jalan",
+   "status": "INFERRED",
+   "source_refs": [
+    "INFERRED"
+   ]
+  },
+  {
+   "from": "prelube",
+   "to": "main_gallery",
+   "purpose": "pra-pelumasan sebelum start",
+   "operating_condition": "sebelum start (strategi pre-lube)",
+   "status": "INFERRED",
+   "source_refs": [
+    "D03 hlm. 1 'Pre-lube strategy' (keberadaan); titik masuk INFERRED"
+   ]
+  },
+  {
+   "from": "sump",
+   "to": "prelube",
+   "purpose": "isap pompa pre-lube",
+   "operating_condition": "sebelum start",
+   "status": "INFERRED",
+   "source_refs": [
+    "INFERRED"
+   ]
+  },
+  {
+   "from": "oil_pump",
+   "to": "oil_cooler",
+   "purpose": "oli bertekanan ke pendingin",
+   "operating_condition": "mesin jalan",
+   "status": "INFERRED",
+   "source_refs": [
+    "INFERRED; urutan cooler-filter tidak tertulis"
+   ]
+  },
+  {
+   "from": "oil_cooler",
+   "to": "oil_filter",
+   "purpose": "oli dingin ke filter",
+   "operating_condition": "mesin jalan",
+   "status": "UNKNOWN",
+   "source_refs": [
+    "urutan tidak tertulis"
+   ]
+  },
+  {
+   "from": "oil_filter",
+   "to": "main_gallery",
+   "purpose": "oli bersih ke gallery utama",
+   "operating_condition": "mesin jalan",
+   "status": "INFERRED",
+   "source_refs": [
+    "INFERRED"
+   ]
+  },
+  {
+   "from": "main_gallery",
+   "to": "crank_brg",
+   "purpose": "pelumasan bantalan",
+   "operating_condition": "mesin jalan",
+   "status": "INFERRED",
+   "source_refs": [
+    "INFERRED"
+   ]
+  },
+  {
+   "from": "main_gallery",
+   "to": "piston_cool",
+   "purpose": "pendinginan piston",
+   "operating_condition": "mesin jalan",
+   "status": "INFERRED",
+   "source_refs": [
+    "INFERRED"
+   ]
+  },
+  {
+   "from": "main_gallery",
+   "to": "cam_valve",
+   "purpose": "pelumasan camshaft dan valve train",
+   "operating_condition": "mesin jalan",
+   "status": "INFERRED",
+   "source_refs": [
+    "INFERRED"
+   ]
+  },
+  {
+   "from": "main_gallery",
+   "to": "gear_train",
+   "purpose": "pelumasan roda gigi",
+   "operating_condition": "mesin jalan",
+   "status": "INFERRED",
+   "source_refs": [
+    "INFERRED"
+   ]
+  },
+  {
+   "from": "main_gallery",
+   "to": "turbo_brg",
+   "purpose": "suplai oli bantalan turbo",
+   "operating_condition": "mesin jalan",
+   "status": "INFERRED",
+   "source_refs": [
+    "INFERRED: turbo bantalan luncur memakai oli mesin; tidak tertulis"
+   ]
+  },
+  {
+   "from": "crank_brg",
+   "to": "sump",
+   "purpose": "kembali gravitasi",
+   "operating_condition": "mesin jalan",
+   "status": "INFERRED",
+   "source_refs": [
+    "INFERRED"
+   ]
+  },
+  {
+   "from": "piston_cool",
+   "to": "sump",
+   "purpose": "kembali gravitasi",
+   "operating_condition": "mesin jalan",
+   "status": "INFERRED",
+   "source_refs": [
+    "INFERRED"
+   ]
+  },
+  {
+   "from": "cam_valve",
+   "to": "sump",
+   "purpose": "kembali melalui saluran drain",
+   "operating_condition": "mesin jalan",
+   "status": "INFERRED",
+   "source_refs": [
+    "INFERRED"
+   ]
+  },
+  {
+   "from": "gear_train",
+   "to": "sump",
+   "purpose": "kembali gravitasi",
+   "operating_condition": "mesin jalan",
+   "status": "INFERRED",
+   "source_refs": [
+    "INFERRED"
+   ]
+  },
+  {
+   "from": "turbo_brg",
+   "to": "sump",
+   "purpose": "drain oli turbo",
+   "operating_condition": "mesin jalan",
+   "status": "INFERRED",
+   "source_refs": [
+    "INFERRED"
+   ]
+  },
+  {
+   "from": "sump",
+   "to": "breathers",
+   "purpose": "gas blow-by dari crankcase keluar lewat breather",
+   "operating_condition": "mesin jalan",
+   "status": "INFERRED",
+   "source_refs": [
+    "D03 hlm. 1 / D05 (keberadaan); arah gas INFERRED"
+   ]
+  },
+  {
+   "from": "oil_filter",
+   "to": "oil_ind",
+   "purpose": "sensor tekanan oli dan beda tekanan filter",
+   "operating_condition": "mesin jalan",
+   "status": "DOCUMENTED",
+   "source_refs": [
+    "D03 hlm. 1 (Instrumentation, Protection System)"
+   ]
+  }
+ ],
+ "gaps": [
+  "Diagram pelumasan resmi 3500C tidak tersedia publik; seluruh rute internal INFERRED.",
+  "Urutan oil cooler vs filter, bypass valve filter/cooler, relief valve pompa: tidak ada data.",
+  "Ada atau tidaknya piston cooling jet dan suplai oli turbo pada 3512C tidak tertulis di dokumen yang dibuka.",
+  "Breather: D03 (2005) 'top-mounted dual crankcase breathers' vs D05 (IMO II) 'closed crankcase ventilation' - konfigurasi bergantung tahun/varian; ke mana gas CCV dialirkan (inlet turbo?) UNKNOWN.",
+  "Kapasitas oli berbeda: D03 155 L refill, D02 152/318/625 L per oil pan, D01 779.8 L (varian DGB) - ikuti manual maker.",
+  "Posisi pompa, cooler, dan filter di mesin marine belum terlihat; P19 adalah unit frac."
+ ]
+}

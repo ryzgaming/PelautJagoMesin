@@ -1,0 +1,514 @@
+{
+  "machine_model": "Yanmar 6AYM-WET",
+  "system": "intake-exhaust",
+  "status": "INFERRED",
+  "applicability": "H-rating 555 kW pada 1840 rpm, engine-only, mengikuti datum r01. D01 cetak 9 dan D03 mencantumkan spesifikasi WET H. Potongan turbo, lokasi komponen, prosedur bongkar dan diagram cooling D01 diterbitkan untuk keluarga WGT/WET/WST. Sambungan fungsional pada unit sasaran menggunakan status INFERRED sesuai kombinasi dokumen dan foto. D01 mencatat turbo air-cooled dan coolant mengalir melalui exhaust manifold di skema keluarga.",
+  "author": {
+    "agent_id": "/root/intake_exhaust",
+    "role": "Spesialis Intake–Exhaust"
+  },
+  "nodes": [
+    {
+      "id": "IE-AIR-FILTER",
+      "name": "Air filter / pre-cleaner",
+      "kind": "filter",
+      "location_hint": "Di sekitar inlet kompresor pada rakitan turbo. Tipe elemen dan pemasangan pada unit foto belum terverifikasi.",
+      "status": "INFERRED",
+      "source_refs": [
+        "D05-MIRROR Fig.31–32, CLEANER, PRE dan SILENCER; tabel keluarga dengan kolom (A) 6AYM-WET",
+        "D01 cetak 166 / PDF 170, Turbocharger, Design and function",
+        "P05, foto sisi kanan (non-operation)"
+      ]
+    },
+    {
+      "id": "IE-TURBO-COMPRESSOR",
+      "name": "Kompresor turbocharger TD13M",
+      "kind": "compressor",
+      "location_hint": "Rakitan turbo di atas sisi kanan (non-operation). Model TD13M dicantumkan untuk WET H; port kompresor mengikuti potongan keluarga.",
+      "status": "DOCUMENTED",
+      "source_refs": [
+        "D01 cetak 9 / PDF 13, Engine Specifications, kolom WET H",
+        "D01 cetak 10 / PDF 14, Location of Components",
+        "D01 cetak 166 / PDF 170, Turbocharger, Design and function",
+        "D01 cetak 167 / PDF 171, potongan turbocharger",
+        "P05, foto sisi kanan (non-operation)"
+      ],
+      "assembly_ref": "LO-TURBO"
+    },
+    {
+      "id": "SW-AIR-COOLER",
+      "name": "Air cooler (intercooler), sisi udara",
+      "kind": "heat-exchanger",
+      "location_hint": "Pada ujung sisi kiri (operation), ditunjukkan terpisah dari coolant tank dalam diagram lokasi. Core fin-and-tube didinginkan air laut.",
+      "status": "DOCUMENTED",
+      "source_refs": [
+        "D01 cetak 9 / PDF 13, Engine Specifications, kolom WET H",
+        "D01 cetak 10 / PDF 14, Location of Components",
+        "D01 cetak 159 / PDF 163, Cooling Water System",
+        "D03 PDF 17 / cetak 32–33, 6AYM-WET H-rating, Specifications dan Engine only views",
+        "P07, foto sisi kiri (operation)"
+      ],
+      "cross_system": [
+        "seawater"
+      ]
+    },
+    {
+      "id": "IE-INTAKE-MANIFOLD",
+      "name": "Intake manifold",
+      "kind": "manifold",
+      "location_hint": "Bagian atas sisi kiri (operation). Rumah memanjang terlihat di P07 dan diidentifikasi oleh skema Yanmar.",
+      "status": "OBSERVED",
+      "source_refs": [
+        "D01 cetak 10 / PDF 14, Location of Components",
+        "D01 cetak 33 / PDF 37, Removing the intake manifold",
+        "P07, foto sisi kiri (operation)"
+      ]
+    },
+    {
+      "id": "IE-CYL-01",
+      "name": "Silinder 1",
+      "kind": "cylinder",
+      "location_hint": "Silinder 1, paling dekat flywheel.",
+      "status": "DOCUMENTED",
+      "source_refs": [
+        "D01 cetak 9 / PDF 13, Engine Specifications, kolom WET H",
+        "D03 PDF 17 / cetak 32–33, 6AYM-WET H-rating, Specifications dan Engine only views"
+      ]
+    },
+    {
+      "id": "IE-CYL-02",
+      "name": "Silinder 2",
+      "kind": "cylinder",
+      "location_hint": "Silinder 2, dihitung dari flywheel.",
+      "status": "DOCUMENTED",
+      "source_refs": [
+        "D01 cetak 9 / PDF 13, Engine Specifications, kolom WET H",
+        "D03 PDF 17 / cetak 32–33, 6AYM-WET H-rating, Specifications dan Engine only views"
+      ]
+    },
+    {
+      "id": "IE-CYL-03",
+      "name": "Silinder 3",
+      "kind": "cylinder",
+      "location_hint": "Silinder 3, dihitung dari flywheel.",
+      "status": "DOCUMENTED",
+      "source_refs": [
+        "D01 cetak 9 / PDF 13, Engine Specifications, kolom WET H",
+        "D03 PDF 17 / cetak 32–33, 6AYM-WET H-rating, Specifications dan Engine only views"
+      ]
+    },
+    {
+      "id": "IE-CYL-04",
+      "name": "Silinder 4",
+      "kind": "cylinder",
+      "location_hint": "Silinder 4, dihitung dari flywheel.",
+      "status": "DOCUMENTED",
+      "source_refs": [
+        "D01 cetak 9 / PDF 13, Engine Specifications, kolom WET H",
+        "D03 PDF 17 / cetak 32–33, 6AYM-WET H-rating, Specifications dan Engine only views"
+      ]
+    },
+    {
+      "id": "IE-CYL-05",
+      "name": "Silinder 5",
+      "kind": "cylinder",
+      "location_hint": "Silinder 5, dihitung dari flywheel.",
+      "status": "DOCUMENTED",
+      "source_refs": [
+        "D01 cetak 9 / PDF 13, Engine Specifications, kolom WET H",
+        "D03 PDF 17 / cetak 32–33, 6AYM-WET H-rating, Specifications dan Engine only views"
+      ]
+    },
+    {
+      "id": "IE-CYL-06",
+      "name": "Silinder 6",
+      "kind": "cylinder",
+      "location_hint": "Silinder 6, paling dekat damper.",
+      "status": "DOCUMENTED",
+      "source_refs": [
+        "D01 cetak 9 / PDF 13, Engine Specifications, kolom WET H",
+        "D03 PDF 17 / cetak 32–33, 6AYM-WET H-rating, Specifications dan Engine only views"
+      ]
+    },
+    {
+      "id": "FW-EXHAUST-MANIFOLD",
+      "name": "Exhaust manifold, sisi gas",
+      "kind": "manifold",
+      "location_hint": "Bagian atas sisi kanan (non-operation). Jalur coolant terpisah dari aliran gas dalam rakitan yang sama.",
+      "status": "INFERRED",
+      "source_refs": [
+        "D01 cetak 10 / PDF 14, Location of Components",
+        "D01 cetak 11 / PDF 15, Piping Diagram, Cooling water system",
+        "D01 cetak 35 / PDF 39, Removing the cooling water pipe (coolant)",
+        "D01 cetak 159 / PDF 163, Cooling Water System",
+        "D05-MIRROR Fig.27, EXHAUST MANIFOLD; enam gasket pada kolom (A)",
+        "P05, foto sisi kanan (non-operation)"
+      ],
+      "cross_system": [
+        "freshwater"
+      ]
+    },
+    {
+      "id": "IE-TURBO-TURBINE",
+      "name": "Turbin turbocharger TD13M",
+      "kind": "turbine",
+      "location_hint": "Satu rakitan dengan kompresor pada sisi kanan (non-operation). Tata letak port mengikuti potongan keluarga.",
+      "status": "DOCUMENTED",
+      "source_refs": [
+        "D01 cetak 9 / PDF 13, Engine Specifications, kolom WET H",
+        "D01 cetak 10 / PDF 14, Location of Components",
+        "D01 cetak 166 / PDF 170, Turbocharger, Design and function",
+        "D01 cetak 167 / PDF 171, potongan turbocharger",
+        "P05, foto sisi kanan (non-operation)"
+      ],
+      "assembly_ref": "LO-TURBO"
+    },
+    {
+      "id": "IE-EXHAUST-OUTLET",
+      "name": "Exhaust bend dan flange keluar mesin",
+      "kind": "interface",
+      "location_hint": "Flange atas pada exhaust bend di sisi kanan turbo. Batas sistem engine-only pada pengepasan exhaust kapal.",
+      "status": "OBSERVED",
+      "source_refs": [
+        "D01 cetak 34 / PDF 38, Removing the air duct dan Removing the turbocharger",
+        "D01 cetak 166 / PDF 170, Turbocharger, Design and function",
+        "D03 PDF 17 / cetak 32–33, 6AYM-WET H-rating, Specifications dan Engine only views",
+        "P05, foto sisi kanan (non-operation)"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "IE-AIR-FILTER",
+      "to": "IE-TURBO-COMPRESSOR",
+      "purpose": "Udara dari pre-cleaner masuk ke kompresor.",
+      "operating_condition": "Mesin menyala.",
+      "status": "INFERRED",
+      "source_refs": [
+        "D05-MIRROR Fig.31–32, CLEANER, PRE dan SILENCER; tabel keluarga dengan kolom (A) 6AYM-WET",
+        "D01 cetak 166 / PDF 170, Turbocharger, Design and function",
+        "P05, foto sisi kanan (non-operation)"
+      ],
+      "medium": "udara",
+      "route_3d_status": "UNKNOWN",
+      "route_3d": null
+    },
+    {
+      "from": "IE-TURBO-COMPRESSOR",
+      "to": "SW-AIR-COOLER",
+      "purpose": "Udara bertekanan mengalir ke intercooler untuk didinginkan.",
+      "operating_condition": "Mesin menyala.",
+      "status": "INFERRED",
+      "source_refs": [
+        "D03 PDF 17 / cetak 32–33, 6AYM-WET H-rating, Specifications dan Engine only views",
+        "D01 cetak 34 / PDF 38, Removing the air duct dan Removing the turbocharger",
+        "D01 cetak 166 / PDF 170, Turbocharger, Design and function",
+        "D01 cetak 159 / PDF 163, Cooling Water System"
+      ],
+      "medium": "udara",
+      "route_3d_status": "UNKNOWN",
+      "route_3d": null
+    },
+    {
+      "from": "SW-AIR-COOLER",
+      "to": "IE-INTAKE-MANIFOLD",
+      "purpose": "Udara yang didinginkan mengisi intake manifold.",
+      "operating_condition": "Mesin menyala.",
+      "status": "INFERRED",
+      "source_refs": [
+        "D03 PDF 17 / cetak 32–33, 6AYM-WET H-rating, Specifications dan Engine only views",
+        "D01 cetak 10 / PDF 14, Location of Components",
+        "D01 cetak 34 / PDF 38, Removing the air duct dan Removing the turbocharger",
+        "D01 cetak 159 / PDF 163, Cooling Water System",
+        "P07, foto sisi kiri (operation)"
+      ],
+      "medium": "udara",
+      "route_3d_status": "UNKNOWN",
+      "route_3d": null
+    },
+    {
+      "from": "IE-INTAKE-MANIFOLD",
+      "to": "IE-CYL-01",
+      "purpose": "Menyalurkan udara ke silinder ketika katup intake terbuka.",
+      "operating_condition": "Langkah intake pada silinder terkait.",
+      "status": "INFERRED",
+      "source_refs": [
+        "D01 cetak 9 / PDF 13, Engine Specifications, kolom WET H",
+        "D03 PDF 17 / cetak 32–33, 6AYM-WET H-rating, Specifications dan Engine only views",
+        "D01 cetak 10 / PDF 14, Location of Components",
+        "D01 cetak 33 / PDF 37, Removing the intake manifold",
+        "D05-MIRROR Fig.25, SUC. MANIFOLD; manifold dan enam gasket pada kolom (A)"
+      ],
+      "medium": "udara",
+      "route_3d_status": "UNKNOWN",
+      "route_3d": null
+    },
+    {
+      "from": "IE-CYL-01",
+      "to": "FW-EXHAUST-MANIFOLD",
+      "purpose": "Menyalurkan gas sisa pembakaran ke exhaust manifold.",
+      "operating_condition": "Katup exhaust silinder terkait terbuka.",
+      "status": "INFERRED",
+      "source_refs": [
+        "D01 cetak 9 / PDF 13, Engine Specifications, kolom WET H",
+        "D03 PDF 17 / cetak 32–33, 6AYM-WET H-rating, Specifications dan Engine only views",
+        "D01 cetak 10 / PDF 14, Location of Components",
+        "D05-MIRROR Fig.27, EXHAUST MANIFOLD; enam gasket pada kolom (A)"
+      ],
+      "medium": "gas buang",
+      "route_3d_status": "UNKNOWN",
+      "route_3d": null
+    },
+    {
+      "from": "IE-INTAKE-MANIFOLD",
+      "to": "IE-CYL-02",
+      "purpose": "Menyalurkan udara ke silinder ketika katup intake terbuka.",
+      "operating_condition": "Langkah intake pada silinder terkait.",
+      "status": "INFERRED",
+      "source_refs": [
+        "D01 cetak 9 / PDF 13, Engine Specifications, kolom WET H",
+        "D03 PDF 17 / cetak 32–33, 6AYM-WET H-rating, Specifications dan Engine only views",
+        "D01 cetak 10 / PDF 14, Location of Components",
+        "D01 cetak 33 / PDF 37, Removing the intake manifold",
+        "D05-MIRROR Fig.25, SUC. MANIFOLD; manifold dan enam gasket pada kolom (A)"
+      ],
+      "medium": "udara",
+      "route_3d_status": "UNKNOWN",
+      "route_3d": null
+    },
+    {
+      "from": "IE-CYL-02",
+      "to": "FW-EXHAUST-MANIFOLD",
+      "purpose": "Menyalurkan gas sisa pembakaran ke exhaust manifold.",
+      "operating_condition": "Katup exhaust silinder terkait terbuka.",
+      "status": "INFERRED",
+      "source_refs": [
+        "D01 cetak 9 / PDF 13, Engine Specifications, kolom WET H",
+        "D03 PDF 17 / cetak 32–33, 6AYM-WET H-rating, Specifications dan Engine only views",
+        "D01 cetak 10 / PDF 14, Location of Components",
+        "D05-MIRROR Fig.27, EXHAUST MANIFOLD; enam gasket pada kolom (A)"
+      ],
+      "medium": "gas buang",
+      "route_3d_status": "UNKNOWN",
+      "route_3d": null
+    },
+    {
+      "from": "IE-INTAKE-MANIFOLD",
+      "to": "IE-CYL-03",
+      "purpose": "Menyalurkan udara ke silinder ketika katup intake terbuka.",
+      "operating_condition": "Langkah intake pada silinder terkait.",
+      "status": "INFERRED",
+      "source_refs": [
+        "D01 cetak 9 / PDF 13, Engine Specifications, kolom WET H",
+        "D03 PDF 17 / cetak 32–33, 6AYM-WET H-rating, Specifications dan Engine only views",
+        "D01 cetak 10 / PDF 14, Location of Components",
+        "D01 cetak 33 / PDF 37, Removing the intake manifold",
+        "D05-MIRROR Fig.25, SUC. MANIFOLD; manifold dan enam gasket pada kolom (A)"
+      ],
+      "medium": "udara",
+      "route_3d_status": "UNKNOWN",
+      "route_3d": null
+    },
+    {
+      "from": "IE-CYL-03",
+      "to": "FW-EXHAUST-MANIFOLD",
+      "purpose": "Menyalurkan gas sisa pembakaran ke exhaust manifold.",
+      "operating_condition": "Katup exhaust silinder terkait terbuka.",
+      "status": "INFERRED",
+      "source_refs": [
+        "D01 cetak 9 / PDF 13, Engine Specifications, kolom WET H",
+        "D03 PDF 17 / cetak 32–33, 6AYM-WET H-rating, Specifications dan Engine only views",
+        "D01 cetak 10 / PDF 14, Location of Components",
+        "D05-MIRROR Fig.27, EXHAUST MANIFOLD; enam gasket pada kolom (A)"
+      ],
+      "medium": "gas buang",
+      "route_3d_status": "UNKNOWN",
+      "route_3d": null
+    },
+    {
+      "from": "IE-INTAKE-MANIFOLD",
+      "to": "IE-CYL-04",
+      "purpose": "Menyalurkan udara ke silinder ketika katup intake terbuka.",
+      "operating_condition": "Langkah intake pada silinder terkait.",
+      "status": "INFERRED",
+      "source_refs": [
+        "D01 cetak 9 / PDF 13, Engine Specifications, kolom WET H",
+        "D03 PDF 17 / cetak 32–33, 6AYM-WET H-rating, Specifications dan Engine only views",
+        "D01 cetak 10 / PDF 14, Location of Components",
+        "D01 cetak 33 / PDF 37, Removing the intake manifold",
+        "D05-MIRROR Fig.25, SUC. MANIFOLD; manifold dan enam gasket pada kolom (A)"
+      ],
+      "medium": "udara",
+      "route_3d_status": "UNKNOWN",
+      "route_3d": null
+    },
+    {
+      "from": "IE-CYL-04",
+      "to": "FW-EXHAUST-MANIFOLD",
+      "purpose": "Menyalurkan gas sisa pembakaran ke exhaust manifold.",
+      "operating_condition": "Katup exhaust silinder terkait terbuka.",
+      "status": "INFERRED",
+      "source_refs": [
+        "D01 cetak 9 / PDF 13, Engine Specifications, kolom WET H",
+        "D03 PDF 17 / cetak 32–33, 6AYM-WET H-rating, Specifications dan Engine only views",
+        "D01 cetak 10 / PDF 14, Location of Components",
+        "D05-MIRROR Fig.27, EXHAUST MANIFOLD; enam gasket pada kolom (A)"
+      ],
+      "medium": "gas buang",
+      "route_3d_status": "UNKNOWN",
+      "route_3d": null
+    },
+    {
+      "from": "IE-INTAKE-MANIFOLD",
+      "to": "IE-CYL-05",
+      "purpose": "Menyalurkan udara ke silinder ketika katup intake terbuka.",
+      "operating_condition": "Langkah intake pada silinder terkait.",
+      "status": "INFERRED",
+      "source_refs": [
+        "D01 cetak 9 / PDF 13, Engine Specifications, kolom WET H",
+        "D03 PDF 17 / cetak 32–33, 6AYM-WET H-rating, Specifications dan Engine only views",
+        "D01 cetak 10 / PDF 14, Location of Components",
+        "D01 cetak 33 / PDF 37, Removing the intake manifold",
+        "D05-MIRROR Fig.25, SUC. MANIFOLD; manifold dan enam gasket pada kolom (A)"
+      ],
+      "medium": "udara",
+      "route_3d_status": "UNKNOWN",
+      "route_3d": null
+    },
+    {
+      "from": "IE-CYL-05",
+      "to": "FW-EXHAUST-MANIFOLD",
+      "purpose": "Menyalurkan gas sisa pembakaran ke exhaust manifold.",
+      "operating_condition": "Katup exhaust silinder terkait terbuka.",
+      "status": "INFERRED",
+      "source_refs": [
+        "D01 cetak 9 / PDF 13, Engine Specifications, kolom WET H",
+        "D03 PDF 17 / cetak 32–33, 6AYM-WET H-rating, Specifications dan Engine only views",
+        "D01 cetak 10 / PDF 14, Location of Components",
+        "D05-MIRROR Fig.27, EXHAUST MANIFOLD; enam gasket pada kolom (A)"
+      ],
+      "medium": "gas buang",
+      "route_3d_status": "UNKNOWN",
+      "route_3d": null
+    },
+    {
+      "from": "IE-INTAKE-MANIFOLD",
+      "to": "IE-CYL-06",
+      "purpose": "Menyalurkan udara ke silinder ketika katup intake terbuka.",
+      "operating_condition": "Langkah intake pada silinder terkait.",
+      "status": "INFERRED",
+      "source_refs": [
+        "D01 cetak 9 / PDF 13, Engine Specifications, kolom WET H",
+        "D03 PDF 17 / cetak 32–33, 6AYM-WET H-rating, Specifications dan Engine only views",
+        "D01 cetak 10 / PDF 14, Location of Components",
+        "D01 cetak 33 / PDF 37, Removing the intake manifold",
+        "D05-MIRROR Fig.25, SUC. MANIFOLD; manifold dan enam gasket pada kolom (A)"
+      ],
+      "medium": "udara",
+      "route_3d_status": "UNKNOWN",
+      "route_3d": null
+    },
+    {
+      "from": "IE-CYL-06",
+      "to": "FW-EXHAUST-MANIFOLD",
+      "purpose": "Menyalurkan gas sisa pembakaran ke exhaust manifold.",
+      "operating_condition": "Katup exhaust silinder terkait terbuka.",
+      "status": "INFERRED",
+      "source_refs": [
+        "D01 cetak 9 / PDF 13, Engine Specifications, kolom WET H",
+        "D03 PDF 17 / cetak 32–33, 6AYM-WET H-rating, Specifications dan Engine only views",
+        "D01 cetak 10 / PDF 14, Location of Components",
+        "D05-MIRROR Fig.27, EXHAUST MANIFOLD; enam gasket pada kolom (A)"
+      ],
+      "medium": "gas buang",
+      "route_3d_status": "UNKNOWN",
+      "route_3d": null
+    },
+    {
+      "from": "FW-EXHAUST-MANIFOLD",
+      "to": "IE-TURBO-TURBINE",
+      "purpose": "Gas dari manifold memasuki turbin dan memutarnya.",
+      "operating_condition": "Mesin menyala.",
+      "status": "INFERRED",
+      "source_refs": [
+        "D01 cetak 10 / PDF 14, Location of Components",
+        "D01 cetak 166 / PDF 170, Turbocharger, Design and function",
+        "D01 cetak 34 / PDF 38, Removing the air duct dan Removing the turbocharger",
+        "P05, foto sisi kanan (non-operation)"
+      ],
+      "medium": "gas buang",
+      "route_3d_status": "UNKNOWN",
+      "route_3d": null
+    },
+    {
+      "from": "IE-TURBO-TURBINE",
+      "to": "IE-EXHAUST-OUTLET",
+      "purpose": "Gas keluar dari turbin dan melewati bend menuju flange keluar mesin.",
+      "operating_condition": "Mesin menyala.",
+      "status": "INFERRED",
+      "source_refs": [
+        "D01 cetak 166 / PDF 170, Turbocharger, Design and function",
+        "D01 cetak 34 / PDF 38, Removing the air duct dan Removing the turbocharger",
+        "D03 PDF 17 / cetak 32–33, 6AYM-WET H-rating, Specifications dan Engine only views",
+        "P05, foto sisi kanan (non-operation)"
+      ],
+      "medium": "gas buang",
+      "route_3d_status": "UNKNOWN",
+      "route_3d": null
+    }
+  ],
+  "cross_system": {
+    "SW-AIR-COOLER": {
+      "systems": [
+        "intake-exhaust",
+        "seawater"
+      ],
+      "meaning": "Satu intercooler. Jalur udara dan air laut adalah dua sisi terpisah."
+    },
+    "FW-HEAT-EXCHANGER": {
+      "systems": [
+        "freshwater",
+        "seawater"
+      ],
+      "meaning": "Coolant tank dan heat exchanger terpisah dari intercooler.",
+      "source_refs": [
+        "D01 cetak 10 / PDF 14, Location of Components",
+        "D01 cetak 159 / PDF 163, Cooling Water System"
+      ]
+    },
+    "FW-EXHAUST-MANIFOLD": {
+      "systems": [
+        "intake-exhaust",
+        "freshwater"
+      ],
+      "meaning": "Satu manifold dengan sisi gas buang dan sisi coolant.",
+      "source_refs": [
+        "D01 cetak 11 / PDF 15, Piping Diagram, Cooling water system",
+        "D01 cetak 35 / PDF 39, Removing the cooling water pipe (coolant)",
+        "D01 cetak 159 / PDF 163, Cooling Water System"
+      ]
+    },
+    "LO-TURBO": {
+      "systems": [
+        "intake-exhaust",
+        "lubrication"
+      ],
+      "meaning": "Satu rakitan turbo dengan kompresor dan turbin pada poros yang sama, serta jalur pelumasan bantalan.",
+      "source_refs": [
+        "D01 cetak 166 / PDF 170, Turbocharger, Design and function",
+        "D01 cetak 167 / PDF 171, potongan turbocharger"
+      ]
+    }
+  },
+  "gaps": [
+    "UNKNOWN — rute pipa 3D, letak dan orientasi port yang tersembunyi, serta koordinat sambungan unit H 555 kW.",
+    "UNKNOWN — tipe elemen, susunan aktual pre-cleaner/silencer dan varian part pada unit foto. Daftar komponen mirror berlaku tingkat keluarga dan urutan kolom HTML tidak dapat dibaca sebagai kuantitas per serial.",
+    "UNKNOWN — penerapan dan konfigurasi pendinginan exhaust bend serta wet exhaust di luar flange mesin pada instalasi kapal. Manual keluarga membuktikan jalur coolant pada exhaust manifold dan mengidentifikasi turbo sebagai air-cooled."
+  ],
+  "inspected_source_refs": [
+    "D01-service.pdf, gambar PDF 13, 14, 15, 37, 38, 39, 163, 170, 171 dibaca langsung",
+    "D03-product-guide.pdf, gambar PDF 17 dibaca langsung",
+    "P05.jpg dan P07.jpg, foto AAM Equipment dibaca langsung",
+    "D05-MIRROR, doc/D05-parts-download, salinan HTML teks Parts Catalog 0CG10-M34300 April 2014, Fig.25, 27, 31–33, 36–37. SHA-256 06910e661e9026ff07373860ec0f775c55fb5109ac19a756cbbc73b0e7fe4fee. https://pdfcoffee.com/6aym-wet-parts-catalogepdf-pdf-free.html"
+  ]
+}

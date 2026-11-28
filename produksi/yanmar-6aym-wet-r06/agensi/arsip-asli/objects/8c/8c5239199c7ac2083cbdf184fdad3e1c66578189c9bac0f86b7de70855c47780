@@ -1,0 +1,66 @@
+{
+  "sources": [
+    {
+      "id": "D05-F54",
+      "title": "Parts Catalog 0CG10-M34300EN Fig.54 COOLING FRESH WATER PUMP",
+      "scope": "kolom A, 6AYM-WET; kecocokan nomor seri unit belum diketahui",
+      "url": "https://yanmarshop.com/en-GB/catalog/all/servicebom/yanmardata-1311058/yanmar-marine-marine-main-engine-medium-ay-series-6aym-wet-fig-54-cooling-fresh-water-pump",
+      "source_used": "doc/section-evidence/catalog-transcript.txt §Fig.54 (1939–1963)"
+    },
+    {
+      "id": "D05-F55",
+      "title": "Parts Catalog 0CG10-M34300EN Fig.55 COOLING SEA WATER PUMP",
+      "scope": "kolom A, 6AYM-WET; kecocokan nomor seri unit belum diketahui",
+      "url": "https://yanmarshop.com/en-GB/catalog/all/servicebom/yanmardata-1311091/yanmar-marine-marine-main-engine-medium-ay-series-6aym-wet-fig-55-cooling-pumpsea-water",
+      "source_used": "doc/section-evidence/catalog-transcript.txt §Fig.55 (1967–1987)"
+    },
+    {
+      "id": "D01",
+      "title": "Service manual 6AYM-WGT/WET/WST PDF p164 printed 160",
+      "scope": "Gambar bawah adalah potongan pompa sentrifugal freshwater, gambar atas exploded pompa air laut. Bentuk dipelajari langsung dari gambar keluarga; D05 mengonfirmasi keberadaan komponen WET.",
+      "source_used": "doc/cooling-pumps-specialist/D01-fresh.png",
+      "sha256_pdf": "bd68c39b57e2f84137ed990f87163cc652f8cbbb59e19d782526a089f3566160"
+    }
+  ],
+  "freshwater": {
+    "recipe": "RAK-COOLANT-PUMP",
+    "parent_part": "EXT-COOLING-03",
+    "drawing": "D05-F54",
+    "bom_to_mesh": {
+      "2": "03",
+      "3": "20",
+      "4": "21",
+      "6": "22",
+      "7": "23",
+      "9": "24",
+      "11": "26",
+      "15": "27",
+      "16": "28",
+      "17": "25"
+    },
+    "other": "No.1 induk, 21/22 pengikat diwakili bentuk gabungan belum diurai satu per satu. No.5,8,10,12–14,18–20,23–32 belum direkonsiliasi ke mesh sendiri; termasuk spacer, ring, key, gasket drive-case, pin, hose fittings dan detail dudukan."
+  },
+  "seawater": {
+    "recipe": "RAK-SEAWATER-PUMP",
+    "parent_part": "EXT-COOLING-04",
+    "drawing": "D05-F55",
+    "bom_to_mesh": {
+      "2": "35",
+      "3": "39",
+      "4": "04",
+      "5": "45",
+      "7": "42",
+      "9": "36",
+      "10": "44",
+      "12": "41",
+      "16": [
+        "37",
+        "38"
+      ],
+      "21": "40"
+    },
+    "other": "No.1 induk. No.17–20 lima O-ring dengan empat part number; -43 mewakili bentuk satu ring dudukan estimasi. No.6,8,11,13–15,17–20,22–27 belum direkonsiliasi seluruhnya; baut cover berupa kelompok gabungan. Dua bearing #16 digambarkan terpisah."
+  },
+  "mesh_id_prefix": "EXT-COOLING-",
+  "limits": "Part names/numbers from catalog. Surface sections, orientation of gear and contact, fillets, blade/tooth/ball count, volute, impeller, chamber and mechanical seal dimensions are estimates. No claim on clearances or balancing. Non-destructive sectional study only."
+}

@@ -1,0 +1,599 @@
+{
+  "machine_model": "Yanmar 6AYM-WET",
+  "system": "lubrication",
+  "status": "UNVERIFIED",
+  "applicability": "6AYM-WET H-rating 555 kW pada 1840 rpm, engine only, datum r01. Pelumasan paksa dengan gear pump dan pendinginan oli oleh coolant didukung tabel spesifikasi WET H. D01 mendokumentasikan skema fungsional keluarga 6AYM-WGT/WET/WST. Penerapan cabang, komponen, dan petunjuk lokasinya pada WET H menggunakan label INFERRED, kecuali fitur yang tercakup langsung pada tabel spesifikasi. Pada node DOCUMENTED, detail lokasi dan penggerak tetap mengikuti bukti keluarga.",
+  "author": {
+    "agent_id": "/root/lubrication",
+    "role": "Spesialis sistem lubrication",
+    "revision": "r01"
+  },
+  "nodes": [
+    {
+      "id": "LO-PAN",
+      "name": "Oil pan (bak oli mesin)",
+      "kind": "reservoir",
+      "location_hint": "Di bawah crankcase. Tabel manual mencantumkan varian standard oil pan dan shallow oil pan.",
+      "status": "DOCUMENTED",
+      "source_evidence_status": "DOCUMENTED",
+      "source_refs": [
+        "D01 cetak 9 / PDF 13, Engine Specifications, kolom WET H dan sel Lubricating system lintas varian",
+        "D01 cetak 11 / PDF 15, Piping Diagram, Lubricating oil system, 057558-00EN00",
+        "D01 cetak 153 / PDF 157, Lubricating Oil System, narasi dan diagram 057558-00EN00"
+      ]
+    },
+    {
+      "id": "LO-PICKUP",
+      "name": "Oil inlet pipe",
+      "kind": "suction_pipe",
+      "location_hint": "Menghubungkan area bak oli ke sisi isap gear pump pada skema.",
+      "status": "INFERRED",
+      "source_evidence_status": "DOCUMENTED",
+      "source_refs": [
+        "D01 cetak 11 / PDF 15, Piping Diagram, Lubricating oil system, 057558-00EN00",
+        "D01 cetak 154 / PDF 158, Lubricating oil pump disassembly and reassembly"
+      ]
+    },
+    {
+      "id": "LO-PUMP",
+      "name": "Lubricating oil gear pump",
+      "kind": "pump",
+      "location_hint": "Tipe gear untuk pelumasan paksa pada tabel WET H. Lokasi bawah cylinder block serta penggerak dari crankshaft gear mengikuti uraian keluarga.",
+      "status": "DOCUMENTED",
+      "source_evidence_status": "DOCUMENTED",
+      "source_refs": [
+        "D01 cetak 9 / PDF 13, Engine Specifications, kolom WET H dan sel Lubricating system lintas varian",
+        "D01 cetak 153 / PDF 157, Lubricating oil pump design dan gambar 013279-00E"
+      ]
+    },
+    {
+      "id": "LO-PUMP-SAFETY",
+      "name": "Oil pump safety valve",
+      "kind": "relief_valve",
+      "location_hint": "Terintegrasi pada pompa. Simbol tunggal pada skema mewakili fungsi relief. Gambar pompa keluarga menandai safety valve A dan B.",
+      "status": "INFERRED",
+      "source_evidence_status": "DOCUMENTED",
+      "source_refs": [
+        "D01 cetak 11 / PDF 15, Piping Diagram, Lubricating oil system, 057558-00EN00",
+        "D01 cetak 153 / PDF 157, Lubricating Oil System, narasi dan diagram 057558-00EN00",
+        "D01 cetak 153 / PDF 157, Lubricating oil pump design dan gambar 013279-00E"
+      ]
+    },
+    {
+      "id": "LO-COOLER",
+      "name": "Engine lubricating oil cooler",
+      "kind": "heat_exchanger",
+      "location_hint": "Jalur oli pada cooler sisi non-operation. D01 mendeskripsikan plate-type cooler berpendingin coolant. Antarmuka sisi coolant dipetakan sebagai FW-ENGINE-OIL-COOLER.",
+      "status": "INFERRED",
+      "source_evidence_status": "DOCUMENTED",
+      "source_refs": [
+        "D01 cetak 9 / PDF 13, Engine Specifications, kolom WET H dan sel Lubricating system lintas varian",
+        "D01 cetak 10 / PDF 14, Location of Components",
+        "D02 cetak 10 / PDF 14, Location of Components",
+        "D01 cetak 157 / PDF 161, Lubricating oil cooler"
+      ]
+    },
+    {
+      "id": "LO-FILTER",
+      "name": "Main full-flow lubricating oil filter",
+      "kind": "filter_group",
+      "location_hint": "Elemen kertas full-flow pada sisi non-operation, terpasang di sisi cylinder body bersama cooler.",
+      "status": "INFERRED",
+      "source_evidence_status": "DOCUMENTED",
+      "source_refs": [
+        "D01 cetak 10 / PDF 14, Location of Components",
+        "D02 cetak 10 / PDF 14, Location of Components",
+        "D01 cetak 11 / PDF 15, Piping Diagram, Lubricating oil system, 057558-00EN00",
+        "D01 cetak 155 / PDF 159, Lubricating oil filter dan Lubricating oil bypass filter"
+      ]
+    },
+    {
+      "id": "LO-FILTER-BYPASS-VALVE",
+      "name": "Full-flow filter bypass valve",
+      "kind": "bypass_valve",
+      "location_hint": "Di jalur paralel terhadap elemen kertas dalam skema filter utama.",
+      "status": "INFERRED",
+      "source_evidence_status": "DOCUMENTED",
+      "source_refs": [
+        "D01 cetak 11 / PDF 15, Piping Diagram, Lubricating oil system, 057558-00EN00",
+        "D01 cetak 155 / PDF 159, Lubricating oil filter dan Lubricating oil bypass filter"
+      ]
+    },
+    {
+      "id": "LO-CENTRIFUGAL-FILTER",
+      "name": "Centrifugal bypass oil filter",
+      "kind": "side_stream_filter",
+      "location_hint": "Unit centrifuge terpisah di sisi non-operation dekat rakitan filter utama.",
+      "status": "INFERRED",
+      "source_evidence_status": "DOCUMENTED",
+      "source_refs": [
+        "D01 cetak 10 / PDF 14, Location of Components",
+        "D02 cetak 10 / PDF 14, Location of Components",
+        "D01 cetak 153 / PDF 157, Lubricating Oil System, narasi dan diagram 057558-00EN00",
+        "D01 cetak 155 / PDF 159, Lubricating oil filter dan Lubricating oil bypass filter",
+        "D01 cetak 156 / PDF 160, exploded view filter bypass"
+      ]
+    },
+    {
+      "id": "LO-GALLERY",
+      "name": "Lubricating oil main gallery",
+      "kind": "internal_passage",
+      "location_hint": "Saluran distribusi dalam cylinder body.",
+      "status": "INFERRED",
+      "source_evidence_status": "DOCUMENTED",
+      "source_refs": [
+        "D01 cetak 11 / PDF 15, Piping Diagram, Lubricating oil system, 057558-00EN00",
+        "D01 cetak 153 / PDF 157, Lubricating Oil System, narasi dan diagram 057558-00EN00",
+        "D01 cetak 154 / PDF 158, Lubricating oil pressure control valve"
+      ]
+    },
+    {
+      "id": "LO-PRESSURE-CONTROL",
+      "name": "Oil pressure control valve",
+      "kind": "pressure_regulator",
+      "location_hint": "Teks servis menempatkan katup tepat sebelum mulut main gallery. Diagram menunjukkan cabang balik pada area masuk main gallery.",
+      "status": "INFERRED",
+      "source_evidence_status": "DOCUMENTED",
+      "source_refs": [
+        "D01 cetak 11 / PDF 15, Piping Diagram, Lubricating oil system, 057558-00EN00",
+        "D01 cetak 153 / PDF 157, Lubricating Oil System, narasi dan diagram 057558-00EN00",
+        "D01 cetak 154 / PDF 158, Lubricating oil pressure control valve"
+      ]
+    },
+    {
+      "id": "LO-ROCKER",
+      "name": "Rocker arm",
+      "kind": "lubrication_endpoint",
+      "location_hint": "Rakitan rocker arm di bagian atas kepala silinder.",
+      "status": "INFERRED",
+      "source_evidence_status": "DOCUMENTED",
+      "source_refs": [
+        "D01 cetak 11 / PDF 15, Piping Diagram, Lubricating oil system, 057558-00EN00",
+        "D01 cetak 153 / PDF 157, Lubricating Oil System, narasi dan diagram 057558-00EN00"
+      ]
+    },
+    {
+      "id": "LO-CAMSHAFT",
+      "name": "Camshaft",
+      "kind": "lubrication_endpoint",
+      "location_hint": "Area camshaft di dalam mesin.",
+      "status": "INFERRED",
+      "source_evidence_status": "DOCUMENTED",
+      "source_refs": [
+        "D01 cetak 11 / PDF 15, Piping Diagram, Lubricating oil system, 057558-00EN00",
+        "D01 cetak 153 / PDF 157, Lubricating Oil System, narasi dan diagram 057558-00EN00"
+      ]
+    },
+    {
+      "id": "LO-MAIN-BEARINGS",
+      "name": "Main bearings",
+      "kind": "lubrication_endpoint",
+      "location_hint": "Area bantalan utama crankshaft di dalam crankcase.",
+      "status": "INFERRED",
+      "source_evidence_status": "DOCUMENTED",
+      "source_refs": [
+        "D01 cetak 11 / PDF 15, Piping Diagram, Lubricating oil system, 057558-00EN00",
+        "D01 cetak 153 / PDF 157, Lubricating Oil System, narasi dan diagram 057558-00EN00"
+      ]
+    },
+    {
+      "id": "LO-PISTON-NOZZLE",
+      "name": "Piston cooling nozzle",
+      "kind": "oil_jet",
+      "location_hint": "Terpasang pada bagian bawah cylinder body menurut potongan manual keluarga.",
+      "status": "INFERRED",
+      "source_evidence_status": "DOCUMENTED",
+      "source_refs": [
+        "D01 cetak 158 / PDF 162, Piston cooling nozzle, teks dan potongan 016371-00EN01"
+      ]
+    },
+    {
+      "id": "LO-PISTON",
+      "name": "Piston",
+      "kind": "oil_cooling_endpoint",
+      "location_hint": "Permukaan piston yang menerima jet oli dari nozzle.",
+      "status": "INFERRED",
+      "source_evidence_status": "DOCUMENTED",
+      "source_refs": [
+        "D01 cetak 11 / PDF 15, Piping Diagram, Lubricating oil system, 057558-00EN00",
+        "D01 cetak 153 / PDF 157, Lubricating Oil System, narasi dan diagram 057558-00EN00",
+        "D01 cetak 158 / PDF 162, Piston cooling nozzle, teks dan potongan 016371-00EN01"
+      ]
+    },
+    {
+      "id": "LO-TURBO",
+      "name": "Turbocharger",
+      "kind": "lubrication_endpoint",
+      "location_hint": "Turbocharger di bagian atas sisi non-operation.",
+      "status": "INFERRED",
+      "source_evidence_status": "DOCUMENTED",
+      "source_refs": [
+        "D01 cetak 10 / PDF 14, Location of Components",
+        "D02 cetak 10 / PDF 14, Location of Components",
+        "D01 cetak 11 / PDF 15, Piping Diagram, Lubricating oil system, 057558-00EN00",
+        "D01 cetak 153 / PDF 157, Lubricating Oil System, narasi dan diagram 057558-00EN00"
+      ]
+    },
+    {
+      "id": "LO-INJECTION-PUMP",
+      "name": "Fuel injection pump · sisi oli",
+      "kind": "lubrication_endpoint",
+      "location_hint": "Pompa injeksi pada operation side. Node ini mewakili sambungan oli pelumas pada skema keluarga.",
+      "status": "INFERRED",
+      "source_evidence_status": "DOCUMENTED",
+      "source_refs": [
+        "D01 cetak 10 / PDF 14, Location of Components",
+        "D02 cetak 10 / PDF 14, Location of Components",
+        "D01 cetak 11 / PDF 15, Piping Diagram, Lubricating oil system, 057558-00EN00",
+        "D01 cetak 153 / PDF 157, Lubricating Oil System, narasi dan diagram 057558-00EN00"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "LO-PAN",
+      "to": "LO-PICKUP",
+      "purpose": "Bak memasok oli ke inlet pipe.",
+      "operating_condition": "Pompa oli berputar dan menyuplai aliran.",
+      "status": "INFERRED",
+      "source_evidence_status": "DOCUMENTED",
+      "source_refs": [
+        "D01 cetak 11 / PDF 15, Piping Diagram, Lubricating oil system, 057558-00EN00",
+        "D01 cetak 154 / PDF 158, Lubricating oil pump disassembly and reassembly"
+      ]
+    },
+    {
+      "from": "LO-PICKUP",
+      "to": "LO-PUMP",
+      "purpose": "Inlet pipe memasok sisi isap gear pump.",
+      "operating_condition": "Pompa oli berputar dan menyuplai aliran.",
+      "status": "INFERRED",
+      "source_evidence_status": "DOCUMENTED",
+      "source_refs": [
+        "D01 cetak 11 / PDF 15, Piping Diagram, Lubricating oil system, 057558-00EN00",
+        "D01 cetak 154 / PDF 158, Lubricating oil pump disassembly and reassembly"
+      ]
+    },
+    {
+      "from": "LO-PUMP",
+      "to": "LO-COOLER",
+      "purpose": "Sisi tekan pompa memasok engine oil cooler untuk melepas panas ke coolant.",
+      "operating_condition": "Pompa oli berputar dan menyuplai aliran.",
+      "status": "INFERRED",
+      "source_evidence_status": "DOCUMENTED",
+      "source_refs": [
+        "D01 cetak 11 / PDF 15, Piping Diagram, Lubricating oil system, 057558-00EN00",
+        "D01 cetak 153 / PDF 157, Lubricating Oil System, narasi dan diagram 057558-00EN00",
+        "D01 cetak 157 / PDF 161, Lubricating oil cooler"
+      ]
+    },
+    {
+      "from": "LO-PUMP",
+      "to": "LO-PUMP-SAFETY",
+      "purpose": "Cabang keluaran pompa menuju safety valve.",
+      "operating_condition": "Relief bekerja ketika tekanan keluaran mencapai kondisi buka safety valve.",
+      "status": "INFERRED",
+      "source_evidence_status": "DOCUMENTED",
+      "source_refs": [
+        "D01 cetak 11 / PDF 15, Piping Diagram, Lubricating oil system, 057558-00EN00",
+        "D01 cetak 153 / PDF 157, Lubricating Oil System, narasi dan diagram 057558-00EN00",
+        "D01 cetak 153 / PDF 157, Lubricating oil pump design dan gambar 013279-00E"
+      ]
+    },
+    {
+      "from": "LO-PUMP-SAFETY",
+      "to": "LO-PAN",
+      "purpose": "Cabang relief mengembalikan oli ke bak.",
+      "operating_condition": "Safety valve terbuka.",
+      "status": "INFERRED",
+      "source_evidence_status": "DOCUMENTED",
+      "source_refs": [
+        "D01 cetak 11 / PDF 15, Piping Diagram, Lubricating oil system, 057558-00EN00",
+        "D01 cetak 153 / PDF 157, Lubricating Oil System, narasi dan diagram 057558-00EN00"
+      ]
+    },
+    {
+      "from": "LO-PUMP",
+      "to": "LO-CENTRIFUGAL-FILTER",
+      "purpose": "Sebagian aliran dari sisi tekan sebelum cooler masuk ke filter bypass sentrifugal.",
+      "operating_condition": "Pompa oli berputar dan menyuplai aliran.",
+      "status": "INFERRED",
+      "source_evidence_status": "DOCUMENTED",
+      "source_refs": [
+        "D01 cetak 11 / PDF 15, Piping Diagram, Lubricating oil system, 057558-00EN00",
+        "D01 cetak 153 / PDF 157, Lubricating Oil System, narasi dan diagram 057558-00EN00"
+      ]
+    },
+    {
+      "from": "LO-CENTRIFUGAL-FILTER",
+      "to": "LO-PAN",
+      "purpose": "Oli dari filter bypass sentrifugal kembali ke bak.",
+      "operating_condition": "Cabang filter sentrifugal menerima aliran.",
+      "status": "INFERRED",
+      "source_evidence_status": "DOCUMENTED",
+      "source_refs": [
+        "D01 cetak 11 / PDF 15, Piping Diagram, Lubricating oil system, 057558-00EN00",
+        "D01 cetak 153 / PDF 157, Lubricating Oil System, narasi dan diagram 057558-00EN00"
+      ]
+    },
+    {
+      "from": "LO-COOLER",
+      "to": "LO-FILTER",
+      "purpose": "Oli dari cooler menuju elemen kertas full-flow.",
+      "operating_condition": "Aliran melalui elemen filter utama.",
+      "status": "INFERRED",
+      "source_evidence_status": "DOCUMENTED",
+      "source_refs": [
+        "D01 cetak 11 / PDF 15, Piping Diagram, Lubricating oil system, 057558-00EN00",
+        "D01 cetak 153 / PDF 157, Lubricating Oil System, narasi dan diagram 057558-00EN00",
+        "D01 cetak 155 / PDF 159, Lubricating oil filter dan Lubricating oil bypass filter"
+      ]
+    },
+    {
+      "from": "LO-FILTER",
+      "to": "LO-GALLERY",
+      "purpose": "Filter utama memasok oli tersaring ke main gallery.",
+      "operating_condition": "Aliran melalui elemen filter utama.",
+      "status": "INFERRED",
+      "source_evidence_status": "DOCUMENTED",
+      "source_refs": [
+        "D01 cetak 11 / PDF 15, Piping Diagram, Lubricating oil system, 057558-00EN00",
+        "D01 cetak 153 / PDF 157, Lubricating Oil System, narasi dan diagram 057558-00EN00",
+        "D01 cetak 155 / PDF 159, Lubricating oil filter dan Lubricating oil bypass filter"
+      ]
+    },
+    {
+      "from": "LO-COOLER",
+      "to": "LO-FILTER-BYPASS-VALVE",
+      "purpose": "Oli dari cooler mencapai jalur paralel yang melewati elemen kertas.",
+      "operating_condition": "Bypass valve terbuka ketika beda tekanan melintasi filter utama melampaui ambangnya.",
+      "status": "INFERRED",
+      "source_evidence_status": "DOCUMENTED",
+      "source_refs": [
+        "D01 cetak 11 / PDF 15, Piping Diagram, Lubricating oil system, 057558-00EN00",
+        "D01 cetak 155 / PDF 159, Lubricating oil filter dan Lubricating oil bypass filter"
+      ]
+    },
+    {
+      "from": "LO-FILTER-BYPASS-VALVE",
+      "to": "LO-GALLERY",
+      "purpose": "Jalur paralel memasok oli tanpa penyaringan elemen kertas utama ke main gallery.",
+      "operating_condition": "Bypass valve terbuka ketika beda tekanan melintasi filter utama melampaui ambangnya.",
+      "status": "INFERRED",
+      "source_evidence_status": "DOCUMENTED",
+      "source_refs": [
+        "D01 cetak 11 / PDF 15, Piping Diagram, Lubricating oil system, 057558-00EN00",
+        "D01 cetak 155 / PDF 159, Lubricating oil filter dan Lubricating oil bypass filter"
+      ]
+    },
+    {
+      "from": "LO-GALLERY",
+      "to": "LO-PRESSURE-CONTROL",
+      "purpose": "Cabang di area masuk gallery mengalirkan kelebihan oli ke katup pengatur tekanan.",
+      "operating_condition": "Tekanan oli masuk melampaui nilai regulasi.",
+      "status": "INFERRED",
+      "source_evidence_status": "DOCUMENTED",
+      "source_refs": [
+        "D01 cetak 11 / PDF 15, Piping Diagram, Lubricating oil system, 057558-00EN00",
+        "D01 cetak 153 / PDF 157, Lubricating Oil System, narasi dan diagram 057558-00EN00",
+        "D01 cetak 154 / PDF 158, Lubricating oil pressure control valve"
+      ]
+    },
+    {
+      "from": "LO-PRESSURE-CONTROL",
+      "to": "LO-PAN",
+      "purpose": "Oli berlebih keluar lewat outlet katup ke bak.",
+      "operating_condition": "Katup pengatur tekanan membuka outlet.",
+      "status": "INFERRED",
+      "source_evidence_status": "DOCUMENTED",
+      "source_refs": [
+        "D01 cetak 11 / PDF 15, Piping Diagram, Lubricating oil system, 057558-00EN00",
+        "D01 cetak 153 / PDF 157, Lubricating Oil System, narasi dan diagram 057558-00EN00",
+        "D01 cetak 154 / PDF 158, Lubricating oil pressure control valve"
+      ]
+    },
+    {
+      "from": "LO-GALLERY",
+      "to": "LO-ROCKER",
+      "purpose": "Main gallery menyuplai oli pelumas rocker arm.",
+      "operating_condition": "Pompa oli berputar dan menyuplai aliran.",
+      "status": "INFERRED",
+      "source_evidence_status": "DOCUMENTED",
+      "source_refs": [
+        "D01 cetak 11 / PDF 15, Piping Diagram, Lubricating oil system, 057558-00EN00",
+        "D01 cetak 153 / PDF 157, Lubricating Oil System, narasi dan diagram 057558-00EN00"
+      ]
+    },
+    {
+      "from": "LO-GALLERY",
+      "to": "LO-CAMSHAFT",
+      "purpose": "Main gallery menyuplai oli pelumas camshaft.",
+      "operating_condition": "Pompa oli berputar dan menyuplai aliran.",
+      "status": "INFERRED",
+      "source_evidence_status": "DOCUMENTED",
+      "source_refs": [
+        "D01 cetak 11 / PDF 15, Piping Diagram, Lubricating oil system, 057558-00EN00",
+        "D01 cetak 153 / PDF 157, Lubricating Oil System, narasi dan diagram 057558-00EN00"
+      ]
+    },
+    {
+      "from": "LO-GALLERY",
+      "to": "LO-MAIN-BEARINGS",
+      "purpose": "Main gallery menyuplai oli pelumas bantalan utama.",
+      "operating_condition": "Pompa oli berputar dan menyuplai aliran.",
+      "status": "INFERRED",
+      "source_evidence_status": "DOCUMENTED",
+      "source_refs": [
+        "D01 cetak 11 / PDF 15, Piping Diagram, Lubricating oil system, 057558-00EN00",
+        "D01 cetak 153 / PDF 157, Lubricating Oil System, narasi dan diagram 057558-00EN00"
+      ]
+    },
+    {
+      "from": "LO-GALLERY",
+      "to": "LO-PISTON-NOZZLE",
+      "purpose": "Main gallery memasok oli ke nozzle pendingin piston.",
+      "operating_condition": "Pompa oli berputar dan menyuplai aliran.",
+      "status": "INFERRED",
+      "source_evidence_status": "DOCUMENTED",
+      "source_refs": [
+        "D01 cetak 153 / PDF 157, Lubricating Oil System, narasi dan diagram 057558-00EN00",
+        "D01 cetak 158 / PDF 162, Piston cooling nozzle, teks dan potongan 016371-00EN01"
+      ]
+    },
+    {
+      "from": "LO-PISTON-NOZZLE",
+      "to": "LO-PISTON",
+      "purpose": "Jet oli mengenai permukaan piston untuk pendinginan.",
+      "operating_condition": "Manual mendeskripsikan efek pendinginan ketika piston bergerak turun.",
+      "status": "INFERRED",
+      "source_evidence_status": "DOCUMENTED",
+      "source_refs": [
+        "D01 cetak 158 / PDF 162, Piston cooling nozzle, teks dan potongan 016371-00EN01"
+      ]
+    },
+    {
+      "from": "LO-GALLERY",
+      "to": "LO-TURBO",
+      "purpose": "Main gallery memasok oli untuk turbocharger.",
+      "operating_condition": "Pompa oli berputar dan menyuplai aliran.",
+      "status": "INFERRED",
+      "source_evidence_status": "DOCUMENTED",
+      "source_refs": [
+        "D01 cetak 11 / PDF 15, Piping Diagram, Lubricating oil system, 057558-00EN00",
+        "D01 cetak 153 / PDF 157, Lubricating Oil System, narasi dan diagram 057558-00EN00"
+      ]
+    },
+    {
+      "from": "LO-GALLERY",
+      "to": "LO-INJECTION-PUMP",
+      "purpose": "Main gallery memasok oli pelumas ke fuel injection pump.",
+      "operating_condition": "Pompa oli berputar dan menyuplai aliran.",
+      "status": "INFERRED",
+      "source_evidence_status": "DOCUMENTED",
+      "source_refs": [
+        "D01 cetak 11 / PDF 15, Piping Diagram, Lubricating oil system, 057558-00EN00",
+        "D01 cetak 153 / PDF 157, Lubricating Oil System, narasi dan diagram 057558-00EN00"
+      ]
+    },
+    {
+      "from": "LO-ROCKER",
+      "to": "LO-PAN",
+      "purpose": "Oli kembali ke bak sesuai skema fungsional keluarga.",
+      "operating_condition": "Setelah oli melewati komponen selama sirkulasi.",
+      "status": "INFERRED",
+      "source_evidence_status": "DOCUMENTED",
+      "source_refs": [
+        "D01 cetak 11 / PDF 15, Piping Diagram, Lubricating oil system, 057558-00EN00",
+        "D01 cetak 153 / PDF 157, Lubricating Oil System, narasi dan diagram 057558-00EN00"
+      ]
+    },
+    {
+      "from": "LO-CAMSHAFT",
+      "to": "LO-PAN",
+      "purpose": "Oli kembali ke bak sesuai skema fungsional keluarga.",
+      "operating_condition": "Setelah oli melewati komponen selama sirkulasi.",
+      "status": "INFERRED",
+      "source_evidence_status": "DOCUMENTED",
+      "source_refs": [
+        "D01 cetak 11 / PDF 15, Piping Diagram, Lubricating oil system, 057558-00EN00",
+        "D01 cetak 153 / PDF 157, Lubricating Oil System, narasi dan diagram 057558-00EN00"
+      ]
+    },
+    {
+      "from": "LO-MAIN-BEARINGS",
+      "to": "LO-PAN",
+      "purpose": "Oli kembali ke bak sesuai skema fungsional keluarga.",
+      "operating_condition": "Setelah oli melewati komponen selama sirkulasi.",
+      "status": "INFERRED",
+      "source_evidence_status": "DOCUMENTED",
+      "source_refs": [
+        "D01 cetak 11 / PDF 15, Piping Diagram, Lubricating oil system, 057558-00EN00",
+        "D01 cetak 153 / PDF 157, Lubricating Oil System, narasi dan diagram 057558-00EN00"
+      ]
+    },
+    {
+      "from": "LO-PISTON",
+      "to": "LO-PAN",
+      "purpose": "Oli kembali ke bak sesuai skema fungsional keluarga.",
+      "operating_condition": "Setelah oli melewati komponen selama sirkulasi.",
+      "status": "INFERRED",
+      "source_evidence_status": "DOCUMENTED",
+      "source_refs": [
+        "D01 cetak 11 / PDF 15, Piping Diagram, Lubricating oil system, 057558-00EN00",
+        "D01 cetak 153 / PDF 157, Lubricating Oil System, narasi dan diagram 057558-00EN00"
+      ]
+    },
+    {
+      "from": "LO-TURBO",
+      "to": "LO-PAN",
+      "purpose": "Oli kembali ke bak sesuai skema fungsional keluarga.",
+      "operating_condition": "Setelah oli melewati komponen selama sirkulasi.",
+      "status": "INFERRED",
+      "source_evidence_status": "DOCUMENTED",
+      "source_refs": [
+        "D01 cetak 11 / PDF 15, Piping Diagram, Lubricating oil system, 057558-00EN00",
+        "D01 cetak 153 / PDF 157, Lubricating Oil System, narasi dan diagram 057558-00EN00"
+      ]
+    },
+    {
+      "from": "LO-INJECTION-PUMP",
+      "to": "LO-PAN",
+      "purpose": "Oli kembali ke bak sesuai skema fungsional keluarga.",
+      "operating_condition": "Setelah oli melewati komponen selama sirkulasi.",
+      "status": "INFERRED",
+      "source_evidence_status": "DOCUMENTED",
+      "source_refs": [
+        "D01 cetak 11 / PDF 15, Piping Diagram, Lubricating oil system, 057558-00EN00",
+        "D01 cetak 153 / PDF 157, Lubricating Oil System, narasi dan diagram 057558-00EN00"
+      ]
+    }
+  ],
+  "gaps": [
+    "Konfigurasi standard atau shallow oil pan, part number, revisi dan serial unit memerlukan bukti WET H yang cocok.",
+    "Diagram menyatakan hubungan fungsional. Posisi port, bentuk dan dimensi pipa, galeri internal, jalur drain setiap komponen, serta percabangan menuju bearing lebih lanjut belum terverifikasi pada WET H.",
+    "Konfigurasi filter utama, safety valve pompa, dan ambang bypass filter memerlukan konfirmasi sesuai revisi unit. Tabel uji kinerja pompa pada D01 cetak 153 memakai putaran mesin 1900 rpm sehingga titik uji tersebut belum mengonfirmasi performa pada rating H 1840 rpm.",
+    "D01 menggambarkan satu cabang safety pada skema tetapi gambar pompa menandai safety valve A dan B. Fungsi cabang direpresentasikan oleh satu node. Hubungan port internal A dan B belum dipetakan.",
+    "D01 menempatkan katup pengatur dalam skema pada cabang main gallery, sementara teks servis menyebut posisi tepat sebelum pintu masuknya. Node GALLERY mewakili area masuk dan distribusi secara fungsional.",
+    "Jumlah, ukuran, arah jet, serta kedudukan nozzle pendingin piston terhadap geometri WET H belum terverifikasi."
+  ],
+  "sources": [
+    {
+      "id": "D01",
+      "title": "Service Manual — Marine Propulsion Engine 6AYM-WGT, 6AYM-WET, 6AYM-WST",
+      "publisher": "YANMAR CO., LTD.",
+      "revision": "0B6AY-EN0010; PDF Dec 2013, modified Jan 2014",
+      "url": "https://dealer.yanmar.com.au/bulletins/SERVICE/6AYM-W_Service_manual.pdf",
+      "sha256": "bd68c39b57e2f84137ed990f87163cc652f8cbbb59e19d782526a089f3566160",
+      "file": "doc/D01-service.pdf",
+      "inspected_locators": [
+        "D01 cetak 9 / PDF 13, Engine Specifications, kolom WET H dan sel Lubricating system lintas varian",
+        "D01 cetak 10 / PDF 14, Location of Components",
+        "D01 cetak 11 / PDF 15, Piping Diagram, Lubricating oil system, 057558-00EN00",
+        "D01 cetak 153 / PDF 157, Lubricating Oil System, narasi dan diagram 057558-00EN00",
+        "D01 cetak 153 / PDF 157, Lubricating oil pump design dan gambar 013279-00E",
+        "D01 cetak 154 / PDF 158, Lubricating oil pump disassembly and reassembly",
+        "D01 cetak 154 / PDF 158, Lubricating oil pressure control valve",
+        "D01 cetak 155 / PDF 159, Lubricating oil filter dan Lubricating oil bypass filter",
+        "D01 cetak 156 / PDF 160, exploded view filter bypass",
+        "D01 cetak 157 / PDF 161, Lubricating oil cooler",
+        "D01 cetak 158 / PDF 162, Piston cooling nozzle, teks dan potongan 016371-00EN01"
+      ],
+      "applicability": "Tabel mencakup kolom WET H. Skema pelumasan dan uraian komponen berlaku pada tingkat keluarga 6AYM-WGT/WET/WST.",
+      "status": "DOCUMENTED"
+    },
+    {
+      "id": "D02",
+      "title": "Marine Diesel Engine Operation Manual 6AYM-WGT, 6AYM-WET, 6AYM-WST",
+      "publisher": "YANMAR CO., LTD.",
+      "revision": "0A6AY-G00401; metadata June 2013",
+      "url": "https://www.yanmar.com/media/global/com/product/marinecommercial/propulsionEngine-HighSpeed/operationmanual/6AYM-WST_WET_WGT_OPM_0A6AY-G00401.pdf",
+      "sha256": "d8ea101654d254869bbcf2590c01987c079b1b2c8a296a79e07201b7254979b1",
+      "file": "doc/D02-operation.pdf",
+      "inspected_locators": [
+        "D02 cetak 10 / PDF 14, Location of Components"
+      ],
+      "applicability": "Gambar lokasi komponen tingkat keluarga, konsisten dengan D01.",
+      "status": "DOCUMENTED"
+    }
+  ]
+}

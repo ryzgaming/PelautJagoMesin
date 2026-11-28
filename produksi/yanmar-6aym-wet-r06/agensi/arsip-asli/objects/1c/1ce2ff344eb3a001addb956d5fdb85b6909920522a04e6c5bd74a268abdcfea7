@@ -1,0 +1,140 @@
+{
+  "revision": "r02",
+  "baseline_exterior_sha256": "c5e9f1f826074cbebb161f5ba15ada8392744e15f9f786ff360078f095843e53",
+  "glb_sha256": "7f4eab14803a9b0ee1671b346985f31f70c6248e9a41f6d51104257118106ed5",
+  "status": "FAIL",
+  "visual_status": "UNVERIFIED",
+  "machine_model": "Yanmar 6AYM-WET H 555 kW engine-only",
+  "dimensions": [
+    {
+      "feature": "Panjang nominal engine-only",
+      "nominal_mm": 2000,
+      "measured_mm": 2002.677,
+      "difference_pct": 0.13385,
+      "status": "PASS",
+      "source": "GA01 / rantai 520 + 1000 + 480; D03 PDF 17 printed p.32"
+    },
+    {
+      "feature": "Lebar nominal engine-only",
+      "nominal_mm": 1305,
+      "measured_mm": 1305.0,
+      "difference_pct": 0.0,
+      "status": "PASS",
+      "source": "GA01 Front view; D03 PDF 17 printed p.32"
+    },
+    {
+      "feature": "Tinggi nominal engine-only",
+      "nominal_mm": 1431,
+      "measured_mm": 1541.0,
+      "difference_pct": 7.687,
+      "status": "FAIL",
+      "source": "D03 PDF 17 printed p.32 dan p.33, GA01"
+    },
+    {
+      "feature": "Tinggi fisik termasuk flange exhaust menurut proyeksi GA",
+      "nominal_mm": 1540.0,
+      "measured_mm": 1541.0,
+      "difference_pct": 0.06494,
+      "status": "PASS",
+      "source": "GA01 / 817+171.5 di atas crank + 551.5 di bawah crank. D03 pembulatan ke 989 dan 552."
+    }
+  ],
+  "dimension_scope": "Panjang dan lebar lulus sasaran geometri nominal 1%. Tinggi nominal gagal karena perbedaan definisi tinggi katalog dan flange gas buang. Proyeksi fisik terpisah. Kecocokan teknik OEM dan lintasan urai belum terverifikasi.",
+  "scope": "Fokus pada pompa injeksi, fitting delivery, pipa injeksi, pasangan filter dan rusuk intake sisi operasi. Datum, geometri internal dan envelope ekspor dipertahankan.",
+  "applicability": [
+    {
+      "source": "P07",
+      "scope": "Foto sisi operasi dari listing 6AYM-WET H 555 kW pada 1840 rpm. Deret enam outlet, pasangan tabung gantung, intake dengan dua pita rusuk."
+    },
+    {
+      "source": "P08",
+      "scope": "Foto WET H tiga perempat sisi operasi dari arah damper. Profil bertingkat, pompa dan pegas governor, bidang servis, bentuk ujung housing dan drain filter. Hubungan serial belum dipastikan."
+    },
+    {
+      "source": "P14 panel kiri",
+      "scope": "Montase dealer untuk aplikasi Statum. Konfirmasi otonom bentuk pompa dan fitting yang terlihat. Selang di luar mesin dan perangkat instalasi pada panel kanan tidak masuk lingkup."
+    },
+    {
+      "source": "D01 PDF 14, cetak 10 / lokasi komponen sisi operasi",
+      "scope": "Menguatkan identitas komponen. Peta lokasi tidak memberi dimensi coran, ukuran ulir atau tata letak tersembunyi."
+    }
+  ],
+  "renewed_components": {
+    "EXT-FUEL-01/02": "Pompa memiliki perimeter bertingkat, telapak dengan scallop, deret boss, governor dengan tuas dan pegas balik.",
+    "EXT-FUEL-03–08": "Enam jalur tekanan logam dengan loop berkarakter berbeda. Dua belokan diberi stagger lokal setelah uji tumpang tindih mesh.",
+    "EXT-FUEL-09–12": "Kepala filter ganda asimetris, dua tabung dengan rim dan sumbat masing-masing, pompa feed dan dua lengkung selang.",
+    "EXT-FUEL-13–18": "Enam fitting delivery terpisah dengan seat bertingkat, hex dan leher.",
+    "EXT-FUEL-19/20": "Pelat servis bawah dan dua bidang pelat identifikasi tanpa tulisan.",
+    "EXT-INTAKE-01": "Coran intake dengan dua pita rusuk terpisah, seam horizontal luar dan kedua tutup ujung berbeda."
+  },
+  "fit": {
+    "report": "fuel-fit.json",
+    "pipe_count": 6,
+    "fitting_count": 6,
+    "paired_filter_count": 2,
+    "pipe_pair_crossings": [],
+    "note": "Pemeriksaan reimport GLB Blender pada posisi terpasang. Kontak pipa pada fitting dan pada head memeriksa masuknya mesh dan batas tampilan pembelajaran."
+  },
+  "common_camera": {
+    "procedure": "render_r02_fuel.py. Kamera orthographic 1.43 m, AgX, 780 × 440, CPU Cycles 4 sampel tanpa denoising. Pencahayaan dan kamera sama antar revisi. Sudut cocok secara kualitatif; tidak dikalibrasi terhadap foto perspektif.",
+    "p07": [
+      "renders-r02-fuel/r01_p07_neutral.png",
+      "renders-r02-fuel/r02_p07_neutral.png",
+      "renders-r02-fuel/r01_p07_color.png",
+      "renders-r02-fuel/r02_p07_color.png"
+    ],
+    "p08": [
+      "renders-r02-fuel/r01_p08_neutral.png",
+      "renders-r02-fuel/r02_p08_neutral.png",
+      "renders-r02-fuel/r01_p08_color.png",
+      "renders-r02-fuel/r02_p08_color.png"
+    ],
+    "inspected": true,
+    "observations": [
+      "Kedua kamera memperlihatkan enam fitting terpisah dan loop yang berbeda, relief rumah pompa, pegas governor dan dua bentuk kepala filter di atas tabung.",
+      "Dua sabuk rib intake sekarang terlihat dan terbelah seam menerus. Sudut P08 memperlihatkan ujung cap berbeda.",
+      "Kontur rumah aktual yang tampak di P08/P14 memiliki lebih banyak relief lokal dan braket. Panjang loop fleksibel, posisi union dan profil coran masih perkiraan."
+    ]
+  },
+  "open_items": [
+    "Ukuran coran dan profil lokal governor, section tabung, ulir, port belakang dan permukaan duduk OEM belum terverifikasi.",
+    "Foto mendukung siluet berbeda dari lengkung pipa. Bagian tertutup di balik manifold dan penentuan jalur absolut masih perkiraan.",
+    "Profil aktual braket filter dan sambungan selang lengkung belum sepenuhnya dapat dilihat.",
+    "Kasus tinggi katalog vs tinggi fisik flange tetap terbuka. R02 tidak mengubah envelope ini.",
+    "Lubang, clearance dan rongga internal sekitar timing train dibahas oleh pemeriksaan integrasi; lingkup revisi eksterior ini tidak mengubahnya."
+  ],
+  "full_views": [
+    {
+      "view": "depan",
+      "neutral": "renders-r02/neutral_depan.png",
+      "color": "renders-r02/color_depan.png"
+    },
+    {
+      "view": "belakang",
+      "neutral": "renders-r02/neutral_belakang.png",
+      "color": "renders-r02/color_belakang.png"
+    },
+    {
+      "view": "kiri",
+      "neutral": "renders-r02/neutral_kiri.png",
+      "color": "renders-r02/color_kiri.png"
+    },
+    {
+      "view": "kanan",
+      "neutral": "renders-r02/neutral_kanan.png",
+      "color": "renders-r02/color_kanan.png"
+    },
+    {
+      "view": "atas",
+      "neutral": "renders-r02/neutral_atas.png",
+      "color": "renders-r02/color_atas.png"
+    },
+    {
+      "view": "tiga_perempat",
+      "neutral": "renders-r02/neutral_tiga_perempat.png",
+      "color": "renders-r02/color_tiga_perempat.png"
+    }
+  ],
+  "full_views_inspected": true,
+  "full_views_render_settings": "renders-r02/render-settings.json"
+}

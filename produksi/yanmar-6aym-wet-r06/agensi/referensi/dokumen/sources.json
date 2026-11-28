@@ -1,0 +1,237 @@
+{
+  "evidence_file": "evidence-doc.json",
+  "sources": [
+    {
+      "id": "D01",
+      "title": "Service Manual — Marine Propulsion Engine 6AYM-WGT, 6AYM-WET, 6AYM-WST",
+      "publisher": "YANMAR CO., LTD.",
+      "revision": "0B6AY-EN0010; PDF Dec 2013, modified Jan 2014",
+      "url": "https://dealer.yanmar.com.au/bulletins/SERVICE/6AYM-W_Service_manual.pdf",
+      "file": "D01-service.pdf",
+      "sha256": "bd68c39b57e2f84137ed990f87163cc652f8cbbb59e19d782526a089f3566160",
+      "locators": [
+        "PDF 2 code",
+        "PDF 13–16 specifications, layout and systems",
+        "PDF 63 liner",
+        "PDF 90, 92 head and rocker",
+        "PDF 96–97 piston",
+        "PDF 100 rod",
+        "PDF 104–105 crank",
+        "PDF 112–113 gears, flywheel, damper"
+      ],
+      "evidence_status": "DOCUMENTED",
+      "limitations": "PDF 222 halaman; pdftotext -layout menghasilkan pemisah halaman; pilih halaman OCR atau buka render. Ilustrasi keluarga bersifat representatif; kolom WET H dikunci di spesifikasi."
+    },
+    {
+      "id": "D02",
+      "title": "Marine Diesel Engine Operation Manual 6AYM-WGT, 6AYM-WET, 6AYM-WST",
+      "publisher": "YANMAR CO., LTD.",
+      "revision": "0A6AY-G00401; metadata June 2013",
+      "url": "https://www.yanmar.com/media/global/com/product/marinecommercial/propulsionEngine-HighSpeed/operationmanual/6AYM-WST_WET_WGT_OPM_0A6AY-G00401.pdf",
+      "file": "D02-operation.pdf",
+      "sha256": "d8ea101654d254869bbcf2590c01987c079b1b2c8a296a79e07201b7254979b1",
+      "locators": [
+        "PDF 13 / cetak 9 spesifikasi WET H/M",
+        "PDF 14 / cetak 10 lokasi komponen"
+      ],
+      "evidence_status": "DOCUMENTED",
+      "limitations": "PDF 60 halaman; teks tertanam tak dapat diekstrak dengan pdftotext -layout; halaman angka dan layout dilihat langsung."
+    },
+    {
+      "id": "D03",
+      "title": "Products Guide — Marine Diesel Engine",
+      "publisher": "YANMAR CO., LTD.",
+      "revision": "2016-08",
+      "url": "https://www.yanmar.com/media/global/2016/catalog/diesel_engine_product_guide_201608.pdf",
+      "file": "D03-product-guide.pdf",
+      "sha256": "effb2cb7ef35e641ee0dd394802d38e8a2f5087ce0544334cc738fb536e592eb",
+      "locators": [
+        "PDF 17 / cetak 32–33 WET H",
+        "PDF 18 / cetak 34–35 WET M"
+      ],
+      "evidence_status": "DOCUMENTED",
+      "limitations": "Dua spread asli dibaca secara visual, teks via pdftotext -layout. Orthographic view dengan dimensi, sebagian datum bukan envelope maksimal."
+    },
+    {
+      "id": "D05",
+      "title": "6AYM-WET — Yanmar Shop Engineering Parts Catalogue",
+      "publisher": "Yanmar Shop; data parts Yanmar",
+      "revision": "0CG10-M34300 (revisi HTML tidak diketahui)",
+      "url": "https://yanmarshop.com/en-GB/catalog/all/browse/yanmardata-1310266/yanmar-marine-marine-main-engine-medium-ay-series-6aym-wet",
+      "file": "D05-fig38.html",
+      "sha256": "01ef6ccecd99f0cc860f71b434c2a2605cebada679ee8c5ce17650a76e474bd1",
+      "locators": [
+        {
+          "figure": 38,
+          "url": "https://yanmarshop.com/en-GB/catalog/all/servicebom/yanmardata-1310833/yanmar-marine-marine-main-engine-medium-ay-series-6aym-wet-fig-38-crankshaft-flywheel"
+        },
+        {
+          "figure": 39,
+          "url": "https://yanmarshop.com/en-GB/catalog/all/servicebom/yanmardata-1310847/yanmar-marine-marine-main-engine-medium-ay-series-6aym-wet-fig-39-piston-connecting-rod"
+        }
+      ],
+      "evidence_status": "DOCUMENTED",
+      "limitations": "HTML BOM dan kedua gambar SVG OEM berhasil diunduh dan dibuka secara visual. Diagram exploded tidak berdimensi. Nomor part alternatif butuh serial. PDF katalog lengkap tidak tersedia.",
+      "support_files": [
+        {
+          "file": "D05-fig39.html",
+          "sha256": "42c3d63f4bb59af91d33ec995535501ce249621b204466b6966fb23f9ecc8f3e"
+        },
+        {
+          "file": "D05-fig38.svg",
+          "sha256": "e3e2a8271c6319542320b24de12ee260638178f4ef48e39133a83dd35255dfb5"
+        },
+        {
+          "file": "D05-fig39.svg",
+          "sha256": "3017172159df913c39f50bda61489260c35136f757f617f4d5747046a0da0a7c"
+        }
+      ]
+    },
+    {
+      "id": "D06",
+      "title": "6AY SERIES — Marine Commercial — YANMAR Philippines",
+      "publisher": "Yanmar",
+      "revision": "halaman aktif; snapshot lokal 2026-11-28",
+      "url": "https://www.yanmar.com/ph/marinecommercial/products/propulsion_engine-high_speed/6ayseries/",
+      "file": "D06-current-product.html",
+      "sha256": "b325a7d943375f987965ebb0207f52e50cbbcf5cb44e0b291b16f5dda3bafc18",
+      "locators": [
+        "PRINCIPAL DATA; dua kolom 6AYM-WET"
+      ],
+      "evidence_status": "DOCUMENTED",
+      "limitations": "HTML yang diunduh dan dibaca menamai rating 555 kW sebagai C."
+    }
+  ],
+  "conflicts": [
+    {
+      "topic": "Panjang daftar vs datum lokal",
+      "values": [
+        "2000 mm di tabel H dan garis keseluruhan view M",
+        "1823 mm pada rantai rear interface → front view H (343+1000+480)"
+      ],
+      "source_refs": [
+        {
+          "source_id": "D03",
+          "pages": "PDF 17 / cetak 32",
+          "locator": "Specifications, 6AYM-WET H"
+        },
+        {
+          "source_id": "D03",
+          "pages": "PDF 17 / cetak 33",
+          "locator": "Dimensions, Engine only / Front view dan Engine only / Right side view"
+        },
+        {
+          "source_id": "D03",
+          "pages": "PDF 18 / cetak 35",
+          "locator": "Dimensions, Engine only"
+        }
+      ],
+      "resolution": "Pertahankan dimensi katalog dan dimensi datum 1823 secara terpisah. Ekstensi dari datum 1823 mm hingga envelope 2000 mm tidak ditetapkan sebagai ukuran komponen."
+    },
+    {
+      "topic": "Tinggi nominal vs protrusi pada view depan",
+      "values": [
+        "1431 mm cocok 879+552",
+        "H menulis 946 mm dari crank center ke fitur atas lain dan flange 817+172 mm dari crank center (ujung paling atas pada gambar)"
+      ],
+      "source_refs": [
+        {
+          "source_id": "D03",
+          "pages": "PDF 17 / cetak 32",
+          "locator": "Specifications, 6AYM-WET H"
+        },
+        {
+          "source_id": "D03",
+          "pages": "PDF 17 / cetak 33",
+          "locator": "Dimensions, Engine only / Front view dan Engine only / Right side view"
+        }
+      ],
+      "resolution": "Gunakan 1431 untuk audit terhadap datum nominal. Laporkan envelope mesh dengan flange secara terpisah."
+    },
+    {
+      "topic": "Label duty rating sumber",
+      "values": [
+        "H di manual dan katalog 2016",
+        "C di halaman OEM aktif"
+      ],
+      "source_refs": [
+        {
+          "source_id": "D01",
+          "pages": "PDF 13 / cetak 9",
+          "locator": "Engine Specifications, kolom 6AYM-WET H dan sel lintas kolom"
+        },
+        {
+          "source_id": "D02",
+          "pages": "PDF 13 / cetak 9",
+          "locator": "Specifications, 6AYM-WET H"
+        },
+        {
+          "source_id": "D03",
+          "pages": "PDF 17 / cetak 32",
+          "locator": "Specifications, 6AYM-WET H"
+        },
+        {
+          "source_id": "D06",
+          "pages": null,
+          "locator": "PRINCIPAL DATA"
+        }
+      ],
+      "resolution": "Target 555 kW / 1840 rpm H sesuai rujukan gambar H; jangan memetakan part antar revisi tanpa serial."
+    },
+    {
+      "topic": "Displacement precision",
+      "values": [
+        "20.38 L service",
+        "20.379 L operation/product"
+      ],
+      "source_refs": [
+        {
+          "source_id": "D01",
+          "pages": "PDF 13 / cetak 9",
+          "locator": "Engine Specifications, kolom 6AYM-WET H dan sel lintas kolom"
+        },
+        {
+          "source_id": "D02",
+          "pages": "PDF 13 / cetak 9",
+          "locator": "Specifications, 6AYM-WET H"
+        },
+        {
+          "source_id": "D03",
+          "pages": "PDF 17 / cetak 32",
+          "locator": "Specifications, 6AYM-WET H"
+        }
+      ],
+      "resolution": "Pembulatan desimal, pakai 20.379 L."
+    },
+    {
+      "topic": "Starter baseline vs opsi",
+      "values": [
+        "24 V 7 kW dalam katalog; electric atau air starting tersedia di manual"
+      ],
+      "source_refs": [
+        {
+          "source_id": "D03",
+          "pages": "PDF 17 / cetak 32",
+          "locator": "Specifications, 6AYM-WET H"
+        },
+        {
+          "source_id": "D01",
+          "pages": "PDF 13 / cetak 9",
+          "locator": "Engine Specifications, kolom 6AYM-WET H dan sel lintas kolom"
+        },
+        {
+          "source_id": "D02",
+          "pages": "PDF 13 / cetak 9",
+          "locator": "Specifications, 6AYM-WET H"
+        }
+      ],
+      "resolution": "Baseline electric; ilustrasi air starting hanya kalau konfigurasi spesifik diketahui."
+    }
+  ],
+  "gaps": [
+    "Drawing instalasi OEM terpisah, datum ISO/SAE lengkap, model CAD dan gambar manufaktur tidak ditemukan. Brosur OEM memuat gambar ukuran GA depan, kanan dan belakang dengan gearbox.",
+    "Tidak ada dimensi crank center ke deck, pin center ke crown, jarak pusat rod, panjang/diameter luar liner lengkap, diameter kompresi bowl/volume clearance, rasio kompresi atau timing valve angle yang tervalidasi.",
+    "Tidak ada gambar berdimensi fase crankpin yang dilihat. Crank tersebut direferensikan oleh gambar isometrik D01 dan BOM WET D05.",
+    "Serial unit, kode revisi part serta konfigurasi starter, sump, panel kontrol dan pengecatan belum diketahui. Dua exploded view OEM diunduh melalui Yanmar Shop. Parts catalog PDF lengkap belum didapat."
+  ]
+}

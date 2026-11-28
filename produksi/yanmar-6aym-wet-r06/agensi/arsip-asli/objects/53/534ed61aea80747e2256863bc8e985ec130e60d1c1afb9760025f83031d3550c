@@ -1,0 +1,30 @@
+import json,struct,sys
+from pathlib import Path
+asset=Path(sys.argv[1]).resolve()
+with asset.open('rb') as f:
+ f.read(12)
+ n,_=struct.unpack('<2I',f.read(8))
+ data=json.loads(f.read(n))
+nodes=data['nodes']
+by_name={n['name']:n for n in nodes}
+assert len(by_name)==len(nodes)
+parents={nodes[i]['name']:n['name'] for n in nodes for i in n.get('children',[])}
+parts=json.loads((asset.parent/'inventory.json').read_text())['components']
+owners={p['parent'] for p in parts}
+nested={}
+for path in (asset.parent.parent/'assemblies').glob('*.json'):
+ recipe=json.loads(path.read_text())
+ parent=recipe.get('parent_rakitan')
+ group=recipe['id']
+ if not parent or group not in owners:
+  continue
+ anchor=recipe['acuan']['object_ids'][0]
+ members={id for row in recipe['bagian'] for id in row['object_ids']}
+ assert all(i in by_name for i in members),(group,members-set(by_name))
+ assert group in by_name and parents[group]==parent,(group,parent)
+ assert anchor in members and parents[anchor]==group,(group,anchor,parents.get(anchor))
+ p_recipe=json.loads((path.parent/(parent+'.json')).read_text())
+ exposed={i for row in p_recipe['bagian'] for i in row['object_ids']}
+ assert anchor in exposed and (members-{anchor}).isdisjoint(exposed),(group,anchor)
+ nested[group]={'mesh_ids':len(members),'anchor':anchor,'parent':parent}
+print(json.dumps({'nested_count':len(nested),'nested':nested},indent=2))

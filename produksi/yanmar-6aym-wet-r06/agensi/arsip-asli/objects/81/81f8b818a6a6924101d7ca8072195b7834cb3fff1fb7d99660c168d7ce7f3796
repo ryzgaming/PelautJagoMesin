@@ -1,0 +1,210 @@
+{
+  "id": "RAK-COOLING",
+  "nama": "Pendinginan",
+  "node_rakitan": "RAK-COOLING",
+  "acuan": {
+    "no": 1,
+    "object_ids": [
+      "EXT-COOLING-01"
+    ]
+  },
+  "diagram": {
+    "arah_pandang": [
+      0.31139957904815674,
+      0.5449492335319519,
+      0.7784989476203918
+    ],
+    "atas": [
+      0,
+      1,
+      0
+    ]
+  },
+  "bagian": [
+    {
+      "no": 1,
+      "nama": "Coolant tank dan heat exchanger depan",
+      "object_ids": [
+        "EXT-COOLING-01"
+      ],
+      "posisi": [],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 14 printed p. 10 / component locations, operation side",
+        "GA01 B3-48660-4450 / outline, top, end and rear housing details",
+        "P08 / cap samping dan rusuk",
+        "P09 / muka depan"
+      ],
+      "fungsi": "Coolant tank dan heat exchanger depan",
+      "nomor_oem": null,
+      "ukuran": null
+    },
+    {
+      "no": 2,
+      "nama": "Leher dan tutup pengisian coolant",
+      "object_ids": [
+        "EXT-COOLING-02"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-02",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.4,
+          "urutan": 2
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 14 printed p. 10 / component locations, operation side",
+        "P08 / penutup bagian atas"
+      ],
+      "fungsi": "Leher dan tutup pengisian coolant",
+      "nomor_oem": null,
+      "ukuran": null
+    },
+    {
+      "no": 3,
+      "nama": "Pompa air tawar",
+      "object_ids": [
+        "EXT-COOLING-03"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-03",
+          "arah": [
+            0,
+            0,
+            1
+          ],
+          "jarak_m": 0.4,
+          "urutan": 3
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 14 printed p. 10 / component locations, non-operation side",
+        "GA01 B3-48660-4450 / outline, top, end and rear housing details",
+        "P17 / pump cover di depan kanan"
+      ],
+      "fungsi": "Pompa air tawar",
+      "nomor_oem": null,
+      "ukuran": null
+    },
+    {
+      "no": 4,
+      "nama": "Pompa air laut",
+      "object_ids": [
+        "EXT-COOLING-04"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-04",
+          "arah": [
+            0,
+            0,
+            -1
+          ],
+          "jarak_m": 0.4,
+          "urutan": 4
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 14 printed p. 10 / component locations, operation side",
+        "GA01 B3-48660-4450 / outline, top, end and rear housing details",
+        "P18 / pompa bulat di bawah air cooler"
+      ],
+      "fungsi": "Pompa air laut",
+      "nomor_oem": null,
+      "ukuran": null
+    },
+    {
+      "no": 5,
+      "nama": "Siku dan sambungan air laut",
+      "object_ids": [
+        "EXT-COOLING-05"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-05",
+          "arah": [
+            0,
+            0,
+            -1
+          ],
+          "jarak_m": 0.4,
+          "urutan": 5
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "P07 / siku belakang ke luar",
+        "P18 / sambungan berkelok",
+        "GA01 B3-48660-4450 / outline, top, end and rear housing details"
+      ],
+      "fungsi": "Siku dan sambungan air laut",
+      "nomor_oem": null,
+      "ukuran": null
+    },
+    {
+      "no": 6,
+      "nama": "Selang pendingin kanan",
+      "object_ids": [
+        "EXT-COOLING-06"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-06",
+          "arah": [
+            0,
+            0,
+            1
+          ],
+          "jarak_m": 0.4,
+          "urutan": 6
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "P17 / sambungan sisi non-operation",
+        "P18 / selang sisi kanan atas",
+        "D01 PDF 14 printed p. 10 / component locations, non-operation side"
+      ],
+      "fungsi": "Selang pendingin kanan",
+      "nomor_oem": null,
+      "ukuran": null
+    },
+    {
+      "no": 7,
+      "nama": "Water rail casting dan termostat",
+      "object_ids": [
+        "EXT-COOLING-07"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-07",
+          "arah": [
+            0,
+            0,
+            1
+          ],
+          "jarak_m": 0.4,
+          "urutan": 7
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "P17 / rail berseksi memanjang",
+        "D01 PDF 15 / skema sirkuit"
+      ],
+      "fungsi": "Water rail casting dan termostat",
+      "nomor_oem": null,
+      "ukuran": null
+    }
+  ],
+  "notes": "Nomor posisi model. Lintasan ilustrasi, belum diperiksa untuk interferensi."
+}

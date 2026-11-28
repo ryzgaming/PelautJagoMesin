@@ -1,0 +1,978 @@
+# Exterior 3512C HD marine - Blender 5.3 bpy. Semua koordinat ditulis dalam sistem datum
+# (Y atas, +X depan, +Z kanan) lalu dikonversi ke Blender Z-up: B = (x, -z, y).
+import bpy, bmesh, json, math, os, sys
+from mathutils import Vector, Matrix
+
+OUT = "/tmp/claude-0/c3512/model/exterior"
+FIX = int(os.environ.get("FIX", "1"))   # 0 = versi awal, 1 = setelah putaran perbaikan
+V = Vector
+C3 = Matrix(((1, 0, 0), (0, 0, -1), (0, 1, 0)))
+C4 = C3.to_4x4()
+
+bpy.ops.wm.read_factory_settings(use_empty=True)
+scene = bpy.context.scene
+
+# ---------------- material ----------------
+def mat(name, rgb, metal=0.0, rough=0.5):
+    m = bpy.data.materials.new(name)
+    m.use_nodes = True
+    b = m.node_tree.nodes.get("Principled BSDF")
+    b.inputs["Base Color"].default_value = (*rgb, 1)
+    b.inputs["Metallic"].default_value = metal
+    b.inputs["Roughness"].default_value = rough
+    m.diffuse_color = (*rgb, 1); m.metallic = metal; m.roughness = rough
+    return m
+
+def s2l(c):
+    c = c / 255.0
+    return c / 12.92 if c <= 0.04045 else ((c + 0.055) / 1.055) ** 2.4
+
+YEL = mat("CAT_Yellow_EST", tuple(s2l(v) for v in (232, 178, 82)), 0.0, 0.45)   # median piksel P22/P23
+BLK = mat("Black_Rail", (0.018, 0.018, 0.018), 0.0, 0.55)
+TRB = mat("Turbo_Metal_DarkGray", (0.10, 0.10, 0.11), 0.85, 0.45)
+SHD = mat("HeatShield_Gray", (0.52, 0.53, 0.55), 0.7, 0.35)
+STL = mat("Steel_Bolt", (0.62, 0.62, 0.64), 1.0, 0.35)
+RUB = mat("Rubber_Black", (0.012, 0.012, 0.012), 0.0, 0.85)
+MED = mat("AirFilter_Media_Blue", (0.03, 0.07, 0.25), 0.0, 0.9)
+FLY = mat("Flywheel_Steel", (0.20, 0.20, 0.21), 0.9, 0.5)
+PNL = mat("Panel_Black", (0.025, 0.025, 0.03), 0.1, 0.4)
+GRY = mat("Starter_Gray", (0.35, 0.36, 0.37), 0.5, 0.5)
+FWH = mat("Filter_White", (0.80, 0.80, 0.78), 0.0, 0.5)
+
+# ---------------- geometri dasar (datum) ----------------
+def frame(axis, up=(0, 1, 0)):
+    z = V(axis).normalized()
+    u = V(up)
+    if abs(z.dot(u)) > 0.95:
+        u = V((1, 0, 0)) if abs(z.x) < 0.9 else V((0, 0, 1))
+    x = u.cross(z).normalized()
+    y = z.cross(x)
+    return Matrix((x, y, z)).transposed()
+
+def M4(c, R=None, s=(1, 1, 1)):
+    R = R if R is not None else Matrix.Identity(3)
+    return Matrix.Translation(V(c)) @ R.to_4x4() @ Matrix.Diagonal((*s, 1))
+
+INV = []
+COLL = {}
+EMP = {}
+
+class Part:
+    def __init__(self, pid, nama, rak, mat_, status, sumber, catatan="", jumlah=1):
+        self.pid, self.nama, self.rak, self.status, self.sumber, self.catatan, self.jumlah = pid, nama, rak, status, sumber, catatan, jumlah
+        self.bm = bmesh.new(); self.mats = [mat_]
+    def mi(self, m):
+        if m is None: return 0
+        if m not in self.mats: self.mats.append(m)
+        return self.mats.index(m)
+    def _setmat(self, faces, m):
+        i = self.mi(m)
+        for f in faces: f.material_index = i
+    def _new_faces(self, before):
+        return [f for f in self.bm.faces if f.index == -1 or f not in before]
+
+    def box(self, c, s, R=None, bev=0.0, seg=2, m=None):
+        before = set(self.bm.faces)
+        r = bmesh.ops.create_cube(self.bm, size=1.0, matrix=M4(c, R, s))
+        if bev > 0:
+            edges = list({e for v in r["verts"] for e in v.link_edges})
+            bmesh.ops.bevel(self.bm, geom=edges, offset=bev, segments=seg, affect="EDGES", profile=0.5, clamp_overlap=True)
+        self._setmat([f for f in self.bm.faces if f not in before], m)
+
+    def cyl(self, c, axis, r, h, n=24, r2=None, bev=0.0, m=None, up=(0, 1, 0)):
+        before = set(self.bm.faces)
+        R = frame(axis, up)
+        res = bmesh.ops.create_cone(self.bm, cap_ends=True, cap_tris=False, segments=n, radius1=r,
+                                    radius2=(r if r2 is None else r2), depth=h, matrix=M4(c, R))
+        if bev > 0:
+            edges = [e for e in {e for v in res["verts"] for e in v.link_edges}
+                     if any(len(f.verts) > 4 for f in e.link_faces)]
+            bmesh.ops.bevel(self.bm, geom=edges, offset=bev, segments=2, affect="EDGES", clamp_overlap=True)
+        self._setmat([f for f in self.bm.faces if f not in before], m)
+
+    def bolt(self, c, axis, r=0.012, h=0.014, m=STL):
+        self.cyl(V(c) + V(axis).normalized() * h / 2, axis, r, h, n=6, m=m)
+
+    def bolt_circle(self, c, axis, rc, nb, r=0.011, h=0.012, ang0=0.0, m=STL):
+        R = frame(axis)
+        for i in range(nb):
+            a = ang0 + 2 * math.pi * i / nb
+            p = V(c) + R @ V((rc * math.cos(a), rc * math.sin(a), 0))
+            self.bolt(p, axis, r, h, m)
+
+    def lathe(self, prof, c, axis, n=32, caps=(True, True), m=None, up=(0, 1, 0), a0=0.0, a1=2 * math.pi, closed=True):
+        bm = self.bm; R = frame(axis, up); rings = []
+        nn = n if closed else n + 1
+        for (r, h) in prof:
+            ring = []
+            for i in range(nn):
+                a = a0 + (a1 - a0) * i / n
+                ring.append(bm.verts.new(V(c) + R @ V((r * math.cos(a), r * math.sin(a), h))))
+            rings.append(ring)
+        fs = []
+        for k in range(len(rings) - 1):
+            A, B = rings[k], rings[k + 1]
+            for i in range(n):
+                j = (i + 1) % nn
+                fs.append(bm.faces.new((A[i], A[j], B[j], B[i])))
+        if closed:
+            if caps[0] and prof[0][0] > 1e-5: fs.append(bm.faces.new(list(reversed(rings[0]))))
+            if caps[1] and prof[-1][0] > 1e-5: fs.append(bm.faces.new(rings[-1]))
+        self._setmat(fs, m)
+        return rings
+
+    def sweep(self, path, radius, n=16, caps=True, closed=False, m=None):
+        bm = self.bm
+        pts = [V(p) for p in path]
+        rad = radius if isinstance(radius, (list, tuple)) else [radius] * len(pts)
+        P, Rr = [pts[0]], [rad[0]]
+        for p, r in zip(pts[1:], rad[1:]):
+            if (p - P[-1]).length > 1e-5: P.append(p); Rr.append(r)
+        N = len(P)
+        T = []
+        for i in range(N):
+            if closed: t = P[(i + 1) % N] - P[i - 1]
+            elif i == 0: t = P[1] - P[0]
+            elif i == N - 1: t = P[-1] - P[-2]
+            else: t = (P[i + 1] - P[i]).normalized() + (P[i] - P[i - 1]).normalized()
+            T.append(t.normalized())
+        nrm = frame(T[0]).col[0]
+        rings = []
+        for i in range(N):
+            if i > 0:
+                q = T[i - 1].rotation_difference(T[i]); nrm = q @ nrm
+                nrm = (nrm - T[i] * nrm.dot(T[i])).normalized()
+            b = T[i].cross(nrm)
+            rings.append([bm.verts.new(P[i] + Rr[i] * (math.cos(2 * math.pi * k / n) * nrm + math.sin(2 * math.pi * k / n) * b)) for k in range(n)])
+        fs = []
+        segs = range(N) if closed else range(N - 1)
+        for i in segs:
+            A, B = rings[i], rings[(i + 1) % N]
+            for k in range(n):
+                fs.append(bm.faces.new((A[k], A[(k + 1) % n], B[(k + 1) % n], B[k])))
+        if caps and not closed:
+            fs.append(bm.faces.new(list(reversed(rings[0])))); fs.append(bm.faces.new(rings[-1]))
+        self._setmat(fs, m)
+        return P, T
+
+    def loft(self, sections, caps=True, m=None):
+        bm = self.bm
+        rings = [[bm.verts.new(V(p)) for p in s] for s in sections]
+        n = len(sections[0]); fs = []
+        for a, b in zip(rings[:-1], rings[1:]):
+            for k in range(n):
+                fs.append(bm.faces.new((a[k], a[(k + 1) % n], b[(k + 1) % n], b[k])))
+        if caps:
+            fs.append(bm.faces.new(list(reversed(rings[0])))); fs.append(bm.faces.new(rings[-1]))
+        self._setmat(fs, m)
+
+    def prism(self, poly, axis_pts, plane="zy", bev=0.0, m=None):
+        """poly: titik 2D; plane 'zy' diekstrusi sepanjang X (axis_pts=(x0,x1)); 'xy' sepanjang Z."""
+        bm = self.bm; a0, a1 = axis_pts
+        def P3(q, t):
+            return V((t, q[1], q[0])) if plane == "zy" else V((q[0], q[1], t))
+        A = [bm.verts.new(P3(q, a0)) for q in poly]
+        B = [bm.verts.new(P3(q, a1)) for q in poly]
+        n = len(poly); fs = [bm.faces.new(A), bm.faces.new(list(reversed(B)))]
+        for k in range(n):
+            fs.append(bm.faces.new((A[(k + 1) % n], A[k], B[k], B[(k + 1) % n])))
+        bmesh.ops.recalc_face_normals(bm, faces=fs)
+        if bev > 0:
+            edges = list({e for f in fs for e in f.edges})
+            r = bmesh.ops.bevel(bm, geom=edges, offset=bev, segments=2, affect="EDGES", clamp_overlap=True)
+            fs = fs + list(r["faces"])
+        self._setmat([f for f in fs if f.is_valid], m)
+
+    def finish(self):
+        bm = self.bm
+        bmesh.ops.transform(bm, matrix=C4, verts=bm.verts)
+        bmesh.ops.recalc_face_normals(bm, faces=bm.faces)
+        me = bpy.data.meshes.new(self.pid)
+        bm.to_mesh(me); bm.free()
+        for mm in self.mats: me.materials.append(mm)
+        cen = sum((v.co for v in me.vertices), V()) / max(1, len(me.vertices))
+        me.transform(Matrix.Translation(-cen))
+        ob = bpy.data.objects.new(self.pid, me)
+        ob.location = cen
+        for p in me.polygons: p.use_smooth = False
+        if self.rak not in COLL:
+            c = bpy.data.collections.new("RAK-" + self.rak); scene.collection.children.link(c); COLL[self.rak] = c
+            e = bpy.data.objects.new("RAK-" + self.rak, None); c.objects.link(e); EMP[self.rak] = e
+        COLL[self.rak].objects.link(ob); ob.parent = EMP[self.rak]
+        # ukuran bbox dalam datum
+        ws = [C3.inverted() @ (v.co + cen) for v in me.vertices]
+        lo = V((min(w.x for w in ws), min(w.y for w in ws), min(w.z for w in ws)))
+        hi = V((max(w.x for w in ws), max(w.y for w in ws), max(w.z for w in ws)))
+        INV.append(dict(id=self.pid, nama=self.nama, rakitan=self.rak, jumlah=self.jumlah, status=self.status,
+                        sumber=self.sumber, ukuran_utama_m=dict(dx=round(hi.x - lo.x, 3), dy=round(hi.y - lo.y, 3), dz=round(hi.z - lo.z, 3)),
+                        bbox_datum_m=dict(min=[round(t, 3) for t in lo], max=[round(t, 3) for t in hi]), catatan=self.catatan))
+        return ob
+
+def fillet(pts, r, n=8):
+    pts = [V(p) for p in pts]; out = [pts[0]]
+    for i in range(1, len(pts) - 1):
+        a, b, c = pts[i - 1], pts[i], pts[i + 1]
+        d1, d2 = b - a, c - b
+        rr = min(r, d1.length * 0.45, d2.length * 0.45)
+        p0 = b - d1.normalized() * rr; p2 = b + d2.normalized() * rr
+        for k in range(n + 1):
+            t = k / n
+            out.append((1 - t) ** 2 * p0 + 2 * (1 - t) * t * b + t * t * p2)
+    out.append(pts[-1]); return out
+
+def pipe(p, pts, r, bend=0.12, flanges=(True, True), fr=None, nb=6, n=20, m=None, fm=None):
+    path = fillet(pts, bend)
+    P, T = p.sweep(path, r, n=n, m=m)
+    fr = fr or r * 1.55
+    for k, use in ((0, flanges[0]), (-1, flanges[1])):
+        if not use: continue
+        t = T[k] if k == -1 else -T[0]
+        c = P[k] - t * 0.012
+        p.cyl(c, t, fr, 0.024, n=n, m=fm if fm else m, bev=0.004)
+        p.bolt_circle(c + t * 0.012, t, (fr + r) / 2, nb, r=min(0.011, (fr - r) / 2.6), h=0.01)
+    return P, T
+
+def rrect(cx, zc, yc, w, h, r, n=64):
+    """bagian persegi bulat di bidang Z-Y pada x=cx; titik berjumlah tetap n (untuk loft)."""
+    r = min(r, w / 2, h / 2)
+    hw, hh = w / 2 - r, h / 2 - r
+    pts = []
+    for i in range(n):
+        a = 2 * math.pi * i / n
+        dz, dy = math.cos(a), math.sin(a)
+        # proyeksi superelips sederhana: pusat sudut + r*arah
+        sz = hw * (1 if dz > 0 else -1) if abs(dz) > 1e-9 else 0
+        sy = hh * (1 if dy > 0 else -1) if abs(dy) > 1e-9 else 0
+        pts.append(V((cx, yc + sy + r * dy, zc + sz + r * dz)))
+    return pts
+
+ASM = {}
+def asm_part(aid, no, nama, status, sumber, fungsi):
+    A = ASM[aid]
+    A["bagian"].setdefault(no, dict(no=no, nama=nama, object_ids=[], posisi=[], status=status, sumber=sumber, fungsi=fungsi, nomor_oem=None, ukuran=None))
+def asm_pos(aid, no, oid, arah, jarak, urutan):
+    b = ASM[aid]["bagian"][no]
+    b["object_ids"].append(oid)
+    b["posisi"].append(dict(object_id=oid, arah=[round(v, 4) for v in V(arah).normalized()], jarak_m=jarak, urutan=urutan))
+
+# ---------------- data datum ----------------
+CYLX = [1.563, 1.293, 1.023, 0.753, 0.483, 0.213]   # silinder 1,3,5,7,9,11 (bank kanan), datum.json
+BANK_OFF = 0.065   # offset bank kiri: UNKNOWN di datum; 0.065 m ILLUSTRATIVE, disamakan dengan Internal Modeler (silinder 2 di X 1.498, 12 di X 0.148)
+LNOTE = "bank kiri digeser -0.065 m di X (offset bank kiri ILLUSTRATIVE, disamakan dengan Internal Modeler: dua connecting rod berdampingan per crankpin pada V12; nilai tidak tertulis di dokumen)"
+S30, C30 = 0.5, math.sqrt(3) / 2
+def bank(s):
+    u = V((0, C30, s * S30)); n = V((0, -S30, s * C30)); return u, n
+def BP(s, x, d, a):
+    u, n = bank(s); return V((x, 0, 0)) + u * d + n * a
+def bankR(s):
+    u, n = bank(s); X = V((1, 0, 0)); return Matrix((X, u, X.cross(u))).transposed()
+
+SRC_D01S = "D01 hlm. 1 gambar Dimensions tampak Right Side (skala 3.107 mm/px, datum.json)"
+SRC_D01F = "D01 hlm. 1 gambar Dimensions tampak Front (datum.json)"
+SRC_D02R = "D02 hlm. 1 render 3D samping kanan dan depan (img/side-1.png, img/front-1.png)"
+
+# ================= RAKITAN: REL DUDUKAN =================
+for s, tag in ((1, "R"), (-1, "L")):
+    p = Part(f"EXT-REL-{tag}", f"Rel dudukan (mounting rail) {'kanan' if s>0 else 'kiri'}", "REL", BLK, "ESTIMATED",
+             SRC_D01S + "; " + SRC_D01F + "; " + SRC_D02R,
+             "x -0.295..1.905, y -0.528..-0.32, z luar 0.589 (datum.mounting_feet); penampang kanal C dan tebal pelat ILLUSTRATIVE")
+    zo = 0.589 * s
+    # web tegak + flens atas/bawah (kanal C menghadap ke dalam)
+    p.box((0.805, -0.424, zo - s * 0.012), (2.20, 0.208, 0.024), bev=0.004)
+    p.box((0.805, -0.332, zo - s * 0.10), (2.20, 0.024, 0.20), bev=0.004)
+    p.box((0.805, -0.516, zo - s * 0.10), (2.20, 0.024, 0.20), bev=0.004)
+    # kelompok lubang/baut (D02 render: 2x2, 1x2, 1x2, 2x3)
+    for gx, cols, rows in ((-0.013, 2, 2), (0.58, 1, 2), (1.20, 1, 2), (1.73, 2, 3)):
+        for ci in range(cols):
+            for ri in range(rows):
+                p.bolt((gx + ci * 0.06 - (cols - 1) * 0.03, -0.39 - ri * 0.05 + (rows - 2) * 0.0, zo), (0, 0, s), r=0.014, h=0.012)
+    p.finish()
+    q = Part(f"EXT-BRAKET-{tag}", f"Braket dudukan blok ke rel {'kanan' if s>0 else 'kiri'} (4 buah)", "REL", YEL, "ILLUSTRATIVE",
+             SRC_D02R + " (tiang penghubung terlihat di atas rel)", "posisi x mengikuti kelompok baut rel; bentuk ILLUSTRATIVE", jumlah=4)
+    for gx in (-0.013, 0.58, 1.20, 1.73):
+        q.box((max(gx, 0.06), -0.29, s * 0.50), (0.14, 0.07, 0.20), bev=0.01)
+        q.box((max(gx, 0.06), -0.29, s * 0.50), (0.02, 0.07, 0.20), R=None, bev=0.0)
+    q.finish()
+
+# ================= RAKITAN: OIL PAN =================
+p = Part("EXT-OILPAN-01", "Oil pan (sump) dengan flens", "OILPAN", YEL, "ESTIMATED", SRC_D01S + "; " + SRC_D01F,
+         "dasar y -0.805, flens -0.264, sump bawah x -0.028..1.771, lebar +-0.39 (datum.oil_pan); tebal flens dan jarak baut ILLUSTRATIVE")
+p.box((0.94, -0.278, 0), (1.90, 0.028, 0.98), bev=0.006)                 # flens pan
+p.loft([rrect(x, 0, -0.30, 0.92 if i else 0.92, 0.03, 0.02, 48) for i, x in enumerate((0.0, 1.86))] , m=YEL)
+p.box((0.875, -0.5525, 0), (1.80, 0.505, 0.78), bev=0.035, seg=3)          # sump bawah
+p.box((0.93, -0.325, 0), (1.86, 0.07, 0.86), bev=0.02)                   # transisi
+for x in [0.02 + 0.155 * i for i in range(13)]:
+    for s in (1, -1): p.bolt((x, -0.264, s * 0.465), (0, 1, 0), r=0.011, h=0.012)
+p.box((1.778, -0.64, 0.12), (0.012, 0.16, 0.13), bev=0.004)              # tutup kecil depan pan (D02 render depan)
+p.box((1.778, -0.64, -0.06), (0.012, 0.16, 0.13), bev=0.004)
+p.cyl((1.785, -0.74, 0.03), (1, 0, 0), 0.022, 0.03, n=6, m=STL)         # drain plug
+p.finish()
+
+# ================= RAKITAN: BLOK =================
+p = Part("EXT-BLOK-01", "Blok silinder V12 (crankcase + deck V 60 derajat) dengan rusuk coran", "BLOK", YEL, "ESTIMATED",
+         SRC_D01S + "; datum.block (x 0..1.883, V 60 INFERRED, deck dari pita kepala silinder)",
+         "lebar crankcase +-0.47 dan profil lembah V ESTIMATED/ILLUSTRATIVE (datum.block.width UNKNOWN)")
+dk_o, dk_i = BP(1, 0, 0.62, 0.15), BP(1, 0, 0.62, -0.15)
+poly = [(-0.47, -0.264), (0.47, -0.264), (0.47, 0.25), (dk_o.z, dk_o.y), (dk_i.z, dk_i.y), (0.09, 0.47),
+        (-0.09, 0.47), (-dk_i.z, dk_i.y), (-dk_o.z, dk_o.y), (-0.47, 0.25)]
+p.prism(poly, (0.0, 1.883), "zy")
+for s in (1, -1):
+    for x in [0.078 + 0.27 * i for i in range(7)]:                         # rusuk tegak antar silinder
+        p.box((min(max(x - (0 if s > 0 else BANK_OFF), 0.016), 1.867), -0.01, s * 0.482), (0.032, 0.50, 0.026), bev=0.006)
+    p.box((0.94, 0.225, s * 0.484), (1.88, 0.06, 0.03), bev=0.008)        # boss memanjang (camshaft)
+    p.box((0.94, -0.245, s * 0.48), (1.88, 0.035, 0.022), bev=0.006)      # bibir bawah
+    # rusuk miring dinding bank (lihat render D02)
+    if FIX:
+        R_ = bankR(s)
+        for x in CYLX:
+            for dx in (-0.09, 0.09):
+                p.box(BP(s, x - (0 if s > 0 else BANK_OFF) + dx, 0.47, 0.168), (0.05, 0.26, 0.03), R=R_, bev=0.008)   # boss baut kepala di dinding bank
+        p.box(BP(s, 0.94, 0.60, 0.165), (1.88, 0.03, 0.035), R=R_, bev=0.006)            # bibir deck
+p.finish()
+
+for s, tag in ((1, "R"), (-1, "L")):
+    for i, x in enumerate(CYLX):
+        cx = x - (0 if s > 0 else BANK_OFF)
+        no = (2 * i + 1) if s > 0 else (2 * i + 2)
+        q = Part(f"EXT-PINTU-{tag}{i+1}", f"Pintu inspeksi crankcase (crankcase door) silinder {no}", "BLOK", YEL,
+                 "ILLUSTRATIVE" if s < 0 else "ESTIMATED",
+                 ("P11 (genset 3512C, tutup inspeksi persegi sisi kiri)" if s < 0 else SRC_D02R + "; P03"),
+                 "satu per silinder per sisi; ukuran 0.20 x 0.15 m ESTIMATED dari render D02; 6 baut ILLUSTRATIVE" + ("; keberadaan OBSERVED (P11); posisi X: " + LNOTE if s < 0 else ""))
+        q.box((cx, 0.03, s * 0.478), (0.21, 0.16, 0.016), bev=0.008)
+        q.box((cx, 0.03, s * 0.488), (0.15, 0.10, 0.008), bev=0.004)
+        for bx in (-0.085, 0, 0.085):
+            for by in (-0.062, 0.062):
+                q.bolt((cx + bx, 0.03 + by, s * 0.486), (0, 0, s), r=0.009, h=0.01)
+        q.finish()
+
+# ================= RAKITAN: KEPALA SILINDER + TUTUP KATUP =================
+for s, tag in ((1, "R"), (-1, "L")):
+    R = bankR(s)
+    for i, x in enumerate(CYLX):
+        cx = x - (0 if s > 0 else BANK_OFF)
+        no = (2 * i + 1) if s > 0 else (2 * i + 2)
+        u, n = bank(s)
+        h = Part(f"EXT-KEPALA-{tag}{i+1}", f"Kepala silinder (cylinder head) individual silinder {no}", "KEPALA", YEL, "ESTIMATED" if s > 0 else "ILLUSTRATIVE",
+                 SRC_D01S + " (pita kepala+tutup y 0.55..0.87); datum.cylinder_heads", "kepala individual per silinder INFERRED; tinggi 0.16 m dan lebar 0.30 m ESTIMATED; bentuk rinci (tepi miring, 4 boss baut, rusuk, flens port exhaust, boss jumper air) ILLUSTRATIVE (QA-06)" + ("; posisi X: " + LNOTE if s < 0 else ""))
+        h.box(BP(s, cx, 0.645, 0.0), (0.250, 0.05, 0.30), R=R, bev=0.008)                 # flens dasar ke deck
+        h.box(BP(s, cx, 0.715, 0.0), (0.236, 0.10, 0.282), R=R, bev=0.03, seg=1)          # badan bertepi miring
+        h.box(BP(s, cx, 0.770, 0.0), (0.250, 0.022, 0.30), R=R, bev=0.006)               # bibir atas
+        for bx in (-0.112, 0.112):                                                          # boss baut kepala tegak di 4 sudut
+            for ba in (-0.135, 0.135):
+                h.cyl(BP(s, cx + bx, 0.705, ba), u, 0.021, 0.13, n=12, bev=0.004)
+        for bx in (-0.06, 0.06):
+            h.box(BP(s, cx + bx, 0.705, 0.146), (0.018, 0.10, 0.016), R=R, bev=0.004)
+        h.box(BP(s, cx, 0.715, 0.147), (0.07, 0.05, 0.012), R=R, bev=0.004)            # tutup lubang coran / water jacket plug
+        h.cyl(BP(s, cx, 0.715, 0.153), n, 0.012, 0.012, n=6, m=STL)
+        h.cyl(BP(s, cx, 0.70, -0.146), -n, 0.062, 0.012, n=20, bev=0.003)             # flens port exhaust (muka dalam)
+        h.cyl(BP(s, cx + 0.115, 0.735, 0.0), V((1, 0, 0)), 0.03, 0.02, n=14, bev=0.004) # boss jumper air antar kepala
+        for bx in (-0.105, 0.105):
+            for ba in (-0.135, 0.135):
+                h.bolt(BP(s, cx + bx, 0.78, ba), u, r=0.013, h=0.02)
+        h.finish()
+        c = Part(f"EXT-TUTUPKATUP-{tag}{i+1}", f"Tutup katup (valve cover) silinder {no}", "KEPALA", YEL, "OBSERVED" if s > 0 else "ILLUSTRATIVE",
+                 "P12, P19 (tutup per silinder bertepi miring); D02 hlm. 1 render; " + SRC_D01S + ("; P26, P11 (bank kiri, genset)" if s < 0 else ""),
+                 "pusat x dari datum.block.cylinders; panjang kubah 0.186 m (datum.cylinder_heads.valve_cover_length_x) ESTIMATED" + ("; bentuk OBSERVED (P26); posisi X: " + LNOTE if s < 0 else ""))
+        ac = 0.035
+        c.box(BP(s, cx, 0.792, ac), (0.226, 0.026, 0.205), R=R, bev=0.006)
+        c.box(BP(s, cx, 0.862, ac), (0.186, 0.12, 0.175), R=R, bev=0.038, seg=1)   # kubah bertepi miring
+        c.box(BP(s, cx, 0.925, ac), (0.12, 0.02, 0.11), R=R, bev=0.012, seg=1)
+        for bx in (-0.068, 0.068):
+            for ba in (-0.055, 0.055):
+                c.bolt(BP(s, cx + bx, 0.91, ac + ba), u, r=0.010, h=0.03)
+        c.cyl(BP(s, cx - 0.06, 0.83, ac + 0.09), n, 0.018, 0.02, n=12)               # boss konektor
+        c.finish()
+
+# ================= RAKITAN: EXHAUST (manifold kering di lembah V) =================
+for s, tag in ((1, "R"), (-1, "L")):
+    e = Part(f"EXT-EXHMAN-{tag}", f"Exhaust manifold kering modular bank {'kanan' if s>0 else 'kiri'} dengan runner per silinder",
+             "EXHAUST", TRB, "INFERRED" if s > 0 else "ILLUSTRATIVE",
+             "D03 hlm. 1 (dry, gas-tight, modular pulse, SOLAS shield, satu outlet); datum.exhaust_manifold; letak di lembah V INFERRED",
+             "rute runner, diameter (0.13 m pipa utama) dan sambungan slip ILLUSTRATIVE; manifold tersembunyi di bawah aftercooler" + ("; runner dan sambungan slip: " + LNOTE if s < 0 else ""))
+    zm, ym = s * 0.105, 0.82
+    e.sweep([V((1.66, ym, zm)), V((0.10, ym, zm))], 0.062, n=20)
+    e.cyl((1.68, ym, zm), (1, 0, 0), 0.066, 0.04, n=20, bev=0.005)
+    for x in [cx + 0.135 - (0 if s > 0 else BANK_OFF) for cx in CYLX[1:]]:
+        e.cyl((x, ym, zm), (1, 0, 0), 0.072, 0.035, n=20, bev=0.004)            # sambungan slip/bellows
+    for x in CYLX:
+        cx = x - (0 if s > 0 else BANK_OFF)
+        s0 = BP(s, cx, 0.70, -0.158)
+        _, n_ = bank(s)
+        path = [s0, s0 - n_ * 0.05, V((cx, 0.78, s * 0.15)), V((cx, ym, zm))]
+        e.sweep(fillet(path, 0.04, 6), 0.036, n=14)
+        e.cyl(s0 - n_ * 0.006, -n_, 0.055, 0.014, n=14)
+        e.bolt_circle(s0 - n_ * 0.013, -n_, 0.046, 4, r=0.008, h=0.008)
+    # ke turbin: belakang lalu naik ke inlet tangensial di atas rumah turbin
+    tz = s * 0.38
+    path = fillet([V((0.12, ym, zm)), V((-0.02, ym, zm)), V((-0.10, 0.95, s * 0.30)), V((-0.10, 1.0, tz)), V((-0.17, 1.0, tz))], 0.07, 8)
+    e.sweep(path, 0.062, n=20)
+    e.finish()
+
+# ================= RAKITAN: TURBO =================
+def volute(p, c, e1, e2, axis, R0, R1, r0, r1, th0, th1, m, n=18, steps=56):
+    c = V(c); e1 = V(e1); e2 = V(e2)
+    pts, rr = [], []
+    for k in range(steps + 1):
+        t = k / steps; th = th0 + (th1 - th0) * t
+        Rr = R0 + (R1 - R0) * t
+        pts.append(c + Rr * (math.cos(th) * e1 + math.sin(th) * e2)); rr.append(r0 + (r1 - r0) * t)
+    P, T = p.sweep(pts, rr, n=n, m=m)
+    return P[-1], T[-1], rr[-1]
+
+TX, TY = -0.28, 0.833
+SRC_TRB = "D02 hlm. 1 dan D03 hlm. 1 (dual turbochargers; D01 hlm. 2 water-cooled bearings); posisi datum.turbochargers.approx_center (-0.28, 0.833) INFERRED; P14 (genset, belakang)"
+def wheel(p, c, ax, r_hub0, r_hub1, r_tip, z0, z1, nbl, back=None, m=None):
+    ax = V(ax); c = V(c)
+    p.lathe([(0.0001, z0), (r_hub0, z0), (r_hub1, z1), (0.0001, z1)], c, ax, n=32, m=m)
+    if back: p.cyl(c + ax * (z0 + 0.003), ax, back, 0.006, n=40, m=m)
+    R_ = frame(ax)
+    for k in range(nbl):
+        a_ = 2 * math.pi * k / nbl
+        rad = R_ @ V((math.cos(a_), math.sin(a_), 0)); tan = ax.cross(rad)
+        rm = (r_hub0 + r_tip) / 2
+        Rb = Matrix((tan, ax, rad)).transposed() @ Matrix.Rotation(math.radians(25), 3, "Z")
+        p.box(c + ax * ((z0 + z1) / 2) + rad * rm, (0.004, (z1 - z0) * 0.9, r_tip - r_hub0), R=Rb, m=m)
+for s, tag in ((1, "R"), (-1, "L")):
+    if s > 0:
+        ASM["EXT-TRB-R"] = dict(id="EXT-TRB-R", nama="Turbocharger bank kanan", node_rakitan="RAK-TRB-R",
+                                acuan=dict(no=2, object_ids=["EXT-TRB-R-CHRA-1"]), diagram=dict(arah_pandang=[0.80, -0.45, -0.40], atas=[0, 1, 0]), bagian={})
+        NT = "turbo kanan dipecah untuk Eksplor Rangkaian; diameter rumah keong UNKNOWN (tertutup di gambar resmi) -> ukuran ILLUSTRATIVE; poros turbo sejajar Z"
+        tc = Part("EXT-TRB-R-KOMPRESOR-1", "Rumah kompresor (keong) turbo kanan dengan nosel inlet dan flens", "TRB-R", TRB, "INFERRED", SRC_TRB, NT)
+        tch = Part("EXT-TRB-R-CHRA-1", "Center housing / bearing housing turbo kanan (berpendingin air, acuan)", "TRB-R", TRB, "INFERRED", SRC_TRB + "; D01 hlm. 2 (water-cooled bearings)", NT)
+        tt = Part("EXT-TRB-R-TURBIN-1", "Rumah turbin (keong) turbo kanan dengan stub inlet berflens dan outlet aksial", "TRB-R", TRB, "INFERRED", SRC_TRB, NT)
+    else:
+        tc = tch = tt = Part(f"EXT-TURBO-{tag}", f"Turbocharger bank {'kanan' if s>0 else 'kiri'} (rumah keong kompresor + turbin, center housing berpendingin air)",
+             "TURBO", TRB, "INFERRED", SRC_TRB,
+             "diameter rumah keong UNKNOWN (tertutup di gambar resmi) -> ukuran ILLUSTRATIVE; poros turbo sejajar Z")
+    t = tc
+    ax = V((0, 0, s))
+    # kompresor
+    zc = s * 0.60
+    t.cyl((TX, TY, zc), ax, 0.115, 0.07, n=40, bev=0.01)                         # cakram belakang
+    endc, tc_, rc_ = volute(t, (TX, TY, zc), (1, 0, 0), (0, 1, 0), ax, 0.105, 0.150, 0.03, 0.062, math.pi * 0.05 - 2 * math.pi * 0.95, math.pi * 0.0, TRB)
+    t.lathe([(0.085, 0.0), (0.095, 0.05), (0.10, 0.09), (0.125, 0.135), (0.13, 0.145)], (TX, TY, zc), ax, n=40, caps=(False, False))  # nosel inlet
+    t.cyl((TX, TY, s * 0.744), ax, 0.135, 0.012, n=40, m=STL)
+    t.bolt_circle((TX, TY, s * 0.75), ax, 0.122, 8, r=0.008, h=0.008)
+    t.sweep([endc, endc + tc_ * 0.05], rc_, n=18)                                 # stub outlet kompresor
+    t.cyl(endc + tc_ * 0.055, tc_, rc_ + 0.025, 0.02, n=18, bev=0.004)
+    # center housing (bantalan, berpendingin air)
+    t = tch
+    t.cyl((TX, TY, s * 0.50), ax, 0.085, 0.09, n=28, bev=0.008)
+    t.cyl((TX, TY + 0.09, s * 0.50), (0, 1, 0), 0.016, 0.05, n=10, m=STL)
+    t.cyl((TX, TY - 0.09, s * 0.50), (0, 1, 0), 0.016, 0.05, n=10, m=STL)
+    # turbin
+    t = tt
+    zt = s * 0.38
+    t.cyl((TX, TY, zt), ax, 0.125, 0.085, n=40, bev=0.01)
+    endt, tt_, rt_ = volute(t, (TX, TY, zt), (1, 0, 0), (0, -1, 0), ax, 0.118, 0.165, 0.035, 0.07, math.pi * 0.05 - 2 * math.pi * 0.95 - math.pi / 2, -math.pi / 2, TRB)
+    t.sweep([endt, endt + tt_ * 0.06], rt_, n=18)                                 # stub inlet turbin + flens ke manifold
+    t.cyl(endt + tt_ * 0.07, tt_, rt_ + 0.03, 0.022, n=18, bev=0.004)
+    t.bolt_circle(endt + tt_ * 0.082, tt_, rt_ + 0.018, 6, r=0.008, h=0.008)
+    t.lathe([(0.10, 0.0), (0.095, 0.06), (0.085, 0.10)], (TX, TY, s * 0.335), -ax, n=32, caps=(False, True))   # outlet aksial
+    if s > 0:
+        A = "EXT-TRB-R"
+        for p_ in (tc, tch, tt): p_.finish()
+        asm_part(A, 1, "Rumah kompresor (compressor housing, keong) dengan nosel inlet dan flens outlet", "INFERRED", SRC_TRB, "mengumpulkan udara bertekanan dari roda kompresor dan mengalirkannya ke aftercooler")
+        asm_pos(A, 1, "EXT-TRB-R-KOMPRESOR-1", (0, 0, 1), 0.30, 2)
+        asm_part(A, 2, "Center housing / bearing housing (CHRA, acuan, berpendingin air)", "INFERRED", SRC_TRB + "; D01 hlm. 2 (water-cooled bearings)", "menyangga poros rotor pada bantalan berpelumas oli dan didinginkan air")
+        asm_part(A, 3, "Rumah turbin (turbine housing, keong) dengan stub inlet berflens dan outlet aksial", "INFERRED", SRC_TRB, "mengarahkan gas buang dari manifold ke roda turbin lalu ke outlet buang")
+        asm_pos(A, 3, "EXT-TRB-R-TURBIN-1", (0, 0, -1), 0.25, 2)
+        cw = Part("EXT-TRB-R-RODAKOMP-1", "Roda kompresor (compressor wheel) turbo kanan", "TRB-R", STL, "ILLUSTRATIVE", "tidak terlihat di foto atau gambar resmi", "jumlah sudu (12), diameter 0.16 m ILLUSTRATIVE")
+        wheel(cw, (TX, TY, 0), (0, 0, 1), 0.03, 0.014, 0.08, 0.565, 0.655, 12, back=0.08)
+        cw.cyl((TX, TY, 0.545), (0, 0, 1), 0.008, 0.06, n=10)
+        cw.finish()
+        asm_part(A, 4, "Roda kompresor (compressor wheel)", "ILLUSTRATIVE", "tidak terlihat; bagian lazim turbocharger", "menghisap dan memampatkan udara masuk; seporos dengan roda turbin")
+        asm_pos(A, 4, "EXT-TRB-R-RODAKOMP-1", (0, 0, 1), 0.16, 3)
+        tw = Part("EXT-TRB-R-RODATURB-1", "Roda turbin (turbine wheel) turbo kanan", "TRB-R", FLY, "ILLUSTRATIVE", "tidak terlihat di foto atau gambar resmi", "jumlah sudu (11), diameter 0.17 m ILLUSTRATIVE")
+        wheel(tw, (TX, TY, 0), (0, 0, -1), 0.032, 0.018, 0.085, -0.425, -0.345, 11, back=0.085)
+        tw.cyl((TX, TY, 0.44), (0, 0, 1), 0.01, 0.04, n=10)
+        tw.finish()
+        asm_part(A, 5, "Roda turbin (turbine wheel) dengan poros", "ILLUSTRATIVE", "tidak terlihat; bagian lazim turbocharger", "diputar gas buang dan memutar roda kompresor lewat poros")
+        asm_pos(A, 5, "EXT-TRB-R-RODATURB-1", (0, 0, -1), 0.12, 3)
+        asm_part(A, 6, "Clamp V-band", "ILLUSTRATIVE", "tidak terlihat; cara sambungan rumah keong ke center housing ILLUSTRATIVE", "menjepit rumah kompresor dan rumah turbin ke center housing; dibuka pertama saat membongkar")
+        for k, (zz, d_, dist) in enumerate(((0.553, 1, 0.20), (0.447, -1, 0.06))):
+            vb = Part(f"EXT-TRB-R-VBAND-{k+1}", "Clamp V-band turbo kanan", "TRB-R", STL, "ILLUSTRATIVE", "ILLUSTRATIVE", "r dalam 0.088 m ILLUSTRATIVE")
+            vb.lathe([(0.088, zz - 0.009), (0.104, zz - 0.009), (0.106, zz), (0.104, zz + 0.009), (0.088, zz + 0.009), (0.088, zz - 0.009)], (TX, TY, 0), (0, 0, 1), n=40, caps=(False, False))
+            vb.box((TX, TY + 0.112, zz), (0.05, 0.016, 0.016), bev=0.003)          # lug T-bolt
+            vb.cyl((TX, TY + 0.112, zz), (1, 0, 0), 0.005, 0.07, n=8)
+            vb.finish()
+            asm_pos(A, 6, f"EXT-TRB-R-VBAND-{k+1}", (0, 0, d_), dist, 1)
+    else:
+        tt.finish()
+    TURBO_END = (endc, tc_, rc_)
+    # pipa udara kompresor ke aftercooler (naik lalu maju di atas)
+    a = Part(f"EXT-PIPAUDARA-{tag}", f"Pipa udara tekan (compressor discharge) bank {'kanan' if s>0 else 'kiri'} ke aftercooler", "TURBO", YEL, "ESTIMATED",
+             SRC_D01S + " (pipa melengkung teratas X 0.08..0.66, Y ~1.39); " + SRC_D02R, "puncak pipa Y 1.417 = datum.overall.y_max (garis ekstensi atas D01, QA-03); rute antara ujung dan diameter 0.13 m ESTIMATED; sambungan ke aftercooler INFERRED")
+    st = endc + tc_ * 0.066
+    pts = [st, st + tc_ * 0.20, V((st.x + 0.05, 1.24, s * 0.56)), V((0.08, 1.352, s * 0.40)), V((0.42, 1.352, s * 0.22)), V((0.52, 1.24, s * 0.20))]
+    pipe(a, pts, 0.065, bend=0.16, flanges=(False, True), m=YEL, nb=8)
+    a.cyl(st + tc_ * 0.06, tc_, 0.075, 0.05, n=24, m=RUB)                          # sambungan karet/klem
+    a.finish()
+    # pelindung panas turbin (heat shield)
+    hs = Part(f"EXT-SHIELD-T{tag}", f"Heat shield rumah turbin bank {'kanan' if s>0 else 'kiri'}", "TRB-R" if s > 0 else "TURBO", SHD, "ESTIMATED",
+              SRC_D02R + " (penutup abu-abu di atas turbo); D03 hlm. 1 (SOLAS shield)", "bentuk cangkang setengah ILLUSTRATIVE")
+    hs.lathe([(0.205, -0.07), (0.215, -0.06), (0.215, 0.06), (0.205, 0.07)], (TX, TY, zt), ax, n=36, a0=math.radians(-10), a1=math.radians(190), closed=False, caps=(False, False))
+    hs.lathe([(0.198, -0.07), (0.208, -0.06), (0.208, 0.06), (0.198, 0.07)], (TX, TY, zt), ax, n=36, a0=math.radians(-10), a1=math.radians(190), closed=False, caps=(False, False))
+    hs.finish()
+    if s > 0:
+        asm_part("EXT-TRB-R", 7, "Heat shield rumah turbin (setengah cangkang)", "ESTIMATED", SRC_D02R + " (penutup abu-abu di atas turbo); D03 hlm. 1 (SOLAS shield)", "melindungi awak dan komponen sekitar dari panas rumah turbin")
+        asm_pos("EXT-TRB-R", 7, "EXT-SHIELD-TR", (0, 1, 0), 0.25, 1)
+
+# kolektor buang dan outlet tunggal
+x_ = Part("EXT-EXHOUT-01", "Kolektor dan outlet gas buang tunggal (flens datar atas)", "EXHAUST", TRB, "ESTIMATED",
+          SRC_D01S + " (flens datar X -0.705..-0.534, Y 1.15; datum.exhaust_manifold.exhaust_outlet); D03 hlm. 1 'single exhaust outlet'; P14 (elbow tengah atas)",
+          "pipa dari kedua turbin INFERRED; diameter pipa ILLUSTRATIVE")
+for s in (1, -1):
+    pts = [V((TX, TY, s * 0.28)), V((TX, TY, s * 0.18)), V((-0.50, 0.96, s * 0.10)), V((-0.60, 0.98, s * 0.04))]
+    x_.sweep(fillet(pts, 0.08, 8), 0.075, n=20)
+x_.lathe([(0.0001, 0.88), (0.10, 0.90), (0.105, 1.02), (0.08, 1.08), (0.065, 1.10), (0.065, 1.13)], (-0.62, 0, 0), (0, 1, 0), n=32)
+x_.cyl((-0.62, 1.14, 0), (0, 1, 0), 0.0855, 0.02, n=32, m=STL, bev=0.003)
+x_.bolt_circle((-0.62, 1.15, 0), (0, 1, 0), 0.072, 8, r=0.007, h=0.008)
+x_.finish()
+
+# ================= RAKITAN: AIR CLEANER =================
+for s, tag in ((1, "R"), (-1, "L")):
+    zc = s * 0.880
+    a = Part(f"EXT-AIRCL-{tag}", f"Air cleaner power core bundar bank {'kanan' if s>0 else 'kiri'} dengan muka berkisi", "AIRCLEANER", YEL, "ESTIMATED",
+             SRC_D01S + " (lingkaran O 0.553 m, pusat (-0.28, 0.833)); " + SRC_D01F + "; " + SRC_D02R + "; P22 (marine)",
+             "pusat z dipakai simetris +-0.880 (datum: +0.868/-0.909, rata-rata) agar lebar total <= 2.04 m; tebal 0.252 m ESTIMATED (D01 Front elips 75-100 px = 0.23-0.31 m; dipilih agar lebar total sesuai D02 2.037 m +-1%, QA-02); pola kisi ESTIMATED dari render D02")
+    ax = V((0, 0, s)); c0 = V((TX, TY, s * 0.745))
+    a.lathe([(0.14, 0.0), (0.25, 0.0), (0.272, 0.02), (0.2765, 0.04), (0.2765, 0.217), (0.27, 0.237), (0.258, 0.252), (0.0001, 0.252)], c0, ax, n=48)
+    a.sweep([c0 + ax * 0.254 + frame(ax).col[0] * 0.0 + V((0.245 * math.cos(2 * math.pi * k / 64), 0.245 * math.sin(2 * math.pi * k / 64), 0)) for k in range(64)], 0.012, n=8, closed=True)
+    a.cyl(c0 + ax * 0.256, ax, 0.232, 0.006, n=48, m=MED)
+    for k in range(-4, 5):                                                       # kisi horizontal
+        yy = k * 0.05; half = math.sqrt(max(0.0, 0.232 ** 2 - yy ** 2))
+        if half < 0.03: continue
+        a.box((TX, TY + yy, s * (0.745 + 0.263)), (2 * half, 0.016, 0.012), bev=0.003)
+    for xx in (-0.08, 0.08):
+        a.box((TX + xx, TY, s * (0.745 + 0.265)), (0.014, 0.44 if xx else 0.46, 0.010), bev=0.003)
+    for k in range(12):
+        ang = 2 * math.pi * k / 12
+        a.bolt(c0 + ax * 0.252 + V((0.262 * math.cos(ang), 0.262 * math.sin(ang), 0)), ax, r=0.010, h=0.01)
+    a.cyl((TX, TY + 0.29, s * 0.88), (0, 1, 0), 0.018, 0.04, n=12, m=STL)        # indikator servis
+    a.finish()
+    b = Part(f"EXT-AIRCLBRK-{tag}", f"Braket pelat trapesium penyangga air cleaner {'kanan' if s>0 else 'kiri'}", "AIRCLEANER", YEL, "ESTIMATED",
+             SRC_D01F + " (lebar maksimum di y 0.538, datum.overall.z_widest_at_y); " + SRC_D02R, "identitas elemen UNKNOWN di datum; dibuat sebagai braket penyangga (INFERRED)")
+    b.prism([(-0.46, 0.0), (-0.10, 0.0), (-0.16, 0.08), (-0.40, 0.08)], (s * 0.48, s * 1.01), plane="xy", bev=0.006) if False else None
+    poly = [(-0.48, 0.0), (-0.08, 0.0), (-0.14, 0.035), (-0.42, 0.035)]
+    for q in [poly]:
+        pass
+    b.box((-0.28, 0.538, s * 0.76), (0.38, 0.03, 0.52), bev=0.006)
+    b.box((-0.28, 0.40, s * 0.52), (0.30, 0.27, 0.03), bev=0.006)
+    b.box((-0.28, 0.47, s * 0.64), (0.03, 0.15, 0.26), R=Matrix.Rotation(math.radians(-s * 0), 3, "X"), bev=0.004)
+    if FIX:   # pelat miring trapesium dari bawah air cleaner ke sisi blok (garis miring D01 Front)
+        L = math.hypot(0.38, 0.16); ang = math.atan2(0.16, 0.38)
+        b.box((-0.28, 0.45, s * 0.79), (0.30, 0.02, L), R=Matrix.Rotation(-s * ang, 3, "X"), bev=0.004)
+        b.box((-0.28, 0.45, s * 0.60), (0.02, 0.16, 0.36), bev=0.003)
+    b.finish()
+
+# ================= RAKITAN: AFTERCOOLER =================
+ac = Part("EXT-AFTERCOOLER-01", "Rumah aftercooler (separate circuit aftercooler) bersirip di atas lembah V", "AFTERCOOLER", YEL, "ESTIMATED",
+          SRC_D01S + " (kotak berbaut X 0.336..1.398, Y 0.91..1.227; datum.aftercooler); P12, P15, P17 (rumah bersirip-rusuk); D03 hlm. 1",
+          "lebar Z +-0.30 ESTIMATED dari P12 (kira-kira 0.35x lebar mesin); identitas sebagai aftercooler INFERRED di datum")
+ac.box((0.867, 1.09, 0), (1.062, 0.27, 0.60), bev=0.025, seg=2)
+ac.box((0.867, 1.215, 0), (1.09, 0.025, 0.63), bev=0.006)                     # flens tutup
+for x in [0.38 + 0.0885 * i for i in range(12)]:
+    for s in (1, -1):
+        ac.box((x, 1.08, s * 0.305), (0.018, 0.22, 0.018), bev=0.003)          # sirip/rusuk tegak
+        ac.bolt((x + 0.044, 1.228, s * 0.30), (0, 1, 0), r=0.010, h=0.012)
+for s in (1, -1):
+    ac.box((0.867, 0.985, s * 0.305), (1.062, 0.02, 0.022), bev=0.004)
+ac.cyl((1.43, 1.06, 0), (1, 0, 0), 0.10, 0.07, n=32, bev=0.01)                 # elbow inlet depan bundar (P17)
+ac.bolt_circle((1.468, 1.06, 0), (1, 0, 0), 0.085, 8)
+ac.finish()
+for s, tag in ((1, "R"), (-1, "L")):
+    im = Part(f"EXT-INLETMAN-{tag}", f"Inlet air manifold dan elbow inlet per silinder bank {'kanan' if s>0 else 'kiri'}", "AFTERCOOLER", YEL, "ESTIMATED" if s > 0 else "ILLUSTRATIVE",
+              SRC_D02R + " (menara/elbow tegak dari rumah atas ke tiap kepala, baris T-fitting); " + SRC_D01S + ("; P26 (elbow tegak bank kiri, genset)" if s < 0 else ""),
+              "6 elbow per bank; diameter 0.10 m ESTIMATED dari render D02" + ("; elbow dan badan T: " + LNOTE if s < 0 else ""))
+    im.box((0.89 - (0 if s > 0 else BANK_OFF / 2), 0.925, s * 0.265), (1.56 + (0 if s > 0 else BANK_OFF), 0.075, 0.10), bev=0.02)
+    for x in CYLX:
+        cx = x - (0 if s > 0 else BANK_OFF)
+        u, n = bank(s)
+        st = BP(s, cx, 0.78, -0.115)
+        path = fillet([st, st + u * 0.05, V((cx, 0.90, s * 0.265))], 0.04, 6)
+        im.sweep(path, 0.048, n=18)
+        im.cyl(st + u * 0.008, u, 0.066, 0.016, n=18, bev=0.003)
+        im.bolt_circle(st + u * 0.016, u, 0.056, 4, r=0.008, h=0.008, ang0=math.pi / 4)
+        im.cyl((cx, 0.925, s * 0.265), (1, 0, 0), 0.058, 0.11, n=18, bev=0.006)   # badan T
+    im.finish()
+
+sh = Part("EXT-SHIELD-01", "Heat shield atas (penutup abu-abu) di atas aftercooler dan jalur buang", "AFTERCOOLER", SHD, "ESTIMATED",
+          SRC_D01S + " (garis atas miring X 0.04..1.687, puncak Y 1.398; datum.exhaust_manifold.top_shield_envelope_side); " + SRC_D02R,
+          "lebar Z +-0.31 ILLUSTRATIVE; isi di bawahnya INFERRED")
+secs = []
+for x, ytop in ((0.04, 1.30), (0.20, 1.398), (0.80, 1.398), (1.30, 1.33), (1.687, 1.255)):
+    secs.append(rrect(x, 0, (ytop + 1.20) / 2, 0.62, ytop - 1.20, 0.07, 64))
+sh.loft(secs)
+for x in (0.25, 0.65, 1.05, 1.45):
+    for s in (1, -1): sh.bolt((x, 1.25, s * 0.311), (0, 0, s), r=0.01, h=0.01)
+sh.finish()
+
+# ================= RAKITAN: FLYWHEEL HOUSING =================
+fh = Part("EXT-FWHOUSING-01", "Flywheel housing SAE No. 00 dengan flens dan lingkar baut", "FLYWHEEL", YEL, "ESTIMATED",
+          "D02 hlm. 1 dan D01 hlm. 1 (SAE No. 00); x -0.224..0 (datum.flywheel_housing.x_range); P14 (bentuk persegi-bulat)",
+          "diameter flens UNKNOWN di datum (SAE J617 tidak dibuka) -> R 0.50 m ILLUSTRATIVE; lingkar 16 baut ILLUSTRATIVE")
+secA = rrect(0.0, 0, 0.12, 0.94, 0.86, 0.22, 96)
+secB = rrect(-0.16, 0, 0.0, 1.0, 1.0, 0.5, 96)
+fh.loft([secA, secB])
+fh.cyl((-0.192, 0, 0), (1, 0, 0), 0.52, 0.064, n=72, bev=0.01)
+fh.lathe([(0.40, 0.0), (0.40, 0.03), (0.43, 0.03), (0.43, 0.0)], (-0.224, 0, 0), (1, 0, 0), n=72, caps=(False, False))
+fh.bolt_circle((-0.224, 0, 0), (-1, 0, 0), 0.485, 16, r=0.013, h=0.014)
+for ang in (30, 150):                                                             # rusuk penguat
+    a = math.radians(ang)
+    fh.box((-0.09, 0.47 * math.sin(a) * 0.0 + 0.30, 0.42 * math.cos(a)), (0.15, 0.30, 0.03), bev=0.005)
+for k in range(8):                                                                   # rusuk radial luar housing (P14: housing bercoran)
+    a_ = 2 * math.pi * (k + 0.5) / 8
+    fh.box((-0.10, 0.06 + 0.47 * math.sin(a_), 0.47 * math.cos(a_)), (0.17, 0.035, 0.07), R=Matrix.Rotation(-a_, 3, "X"), bev=0.006)
+fh.box((-0.20, -0.36, 0.30), (0.03, 0.12, 0.16), bev=0.008)                             # tutup inspeksi/timing di flens bawah
+fh.bolt_circle((-0.215, -0.36, 0.30), (-1, 0, 0), 0.06, 4, r=0.008, h=0.008, ang0=math.pi / 4)
+fh.finish()
+fw = Part("EXT-FLYWHEEL-01", "Muka flywheel (183 gigi ring gear) terlihat di bore housing", "FLYWHEEL", FLY, "ILLUSTRATIVE",
+          "D01 hlm. 1 (183 gigi ring gear, SAE 00); P14 (flywheel bundar tengah bawah)", "jumlah 183 gigi DOCUMENTED (D01 hlm. 1); diameter luar 0.79 m, muka kopling, 8 lubang dan pola baut hub ILLUSTRATIVE (catatan QA: dipakai sebagai acuan Internal Modeler)")
+fw.cyl((-0.20, 0, 0), (1, 0, 0), 0.372, 0.04, n=96, bev=0.004)
+fw.cyl((-0.183, 0, 0), (1, 0, 0), 0.378, 0.03, n=96, m=FLY)                        # rim ring gear
+for k in range(183):                                                                # 183 gigi ring gear (D01 hlm. 1)
+    a_ = 2 * math.pi * k / 183
+    fw.box((-0.183, 0.386 * math.sin(a_), 0.386 * math.cos(a_)), (0.028, 0.0075, 0.018), R=Matrix.Rotation(-a_, 3, "X"), m=FLY)
+fw.lathe([(0.0001, -0.222), (0.30, -0.222), (0.31, -0.215), (0.31, -0.21), (0.0001, -0.21)], (0, 0, 0), (1, 0, 0), n=72)   # muka kopling terangkat
+fw.cyl((-0.226, 0, 0), (1, 0, 0), 0.13, 0.012, n=40)
+for k in range(8):                                                                  # lubang baut kopling
+    a_ = 2 * math.pi * k / 8
+    fw.cyl((-0.2235, 0.255 * math.sin(a_), 0.255 * math.cos(a_)), (1, 0, 0), 0.016, 0.004, n=12, m=BLK)
+fw.bolt_circle((-0.225, 0, 0), (-1, 0, 0), 0.10, 12, r=0.012, h=0.012)
+fw.finish()
+st = Part("EXT-STARTER-01", "Starter motor di kanan bawah flywheel housing", "FLYWHEEL", GRY, "INFERRED",
+          "P10 (genset 3512C: starter di bawah flywheel housing sisi kanan); datum.starter (x -0.115, sisi kanan)",
+          "jumlah dan jenis (udara/listrik) UNKNOWN; badan maju sepanjang blok; ukuran ILLUSTRATIVE")
+st.cyl((0.12, -0.20, 0.56), (1, 0, 0), 0.085, 0.36, n=28, bev=0.012)
+st.cyl((-0.08, -0.20, 0.56), (1, 0, 0), 0.07, 0.05, n=28)
+st.cyl((0.10, -0.10, 0.56), (1, 0, 0), 0.042, 0.20, n=20, bev=0.006)
+st.cyl((-0.03, -0.20, 0.56), (1, 0, 0), 0.11, 0.02, n=28, m=STL)
+st.finish()
+
+# ================= RAKITAN: DEPAN (front gear cover, damper, guard) =================
+fc = Part("EXT-FRONTCOVER-01", "Front gear cover / housing dengan rangka angkat berusuk X", "DEPAN", YEL, "ESTIMATED",
+          SRC_D02R + " (depan: rangka berusuk X dan lubang); P15 (rangka pengangkat rusuk)", "tebal dan pola lubang ILLUSTRATIVE")
+fc.prism([(-0.46, -0.30), (0.46, -0.30), (0.48, 0.30), (0.30, 0.64), (-0.30, 0.64), (-0.48, 0.30)], (1.883, 1.93), "zy", bev=0.01)
+for (z0, y0, z1, y1) in ((-0.28, 0.30, 0.28, 0.66), (0.28, 0.30, -0.28, 0.66)):
+    L = math.hypot(z1 - z0, y1 - y0); ang = math.atan2(y1 - y0, z1 - z0)
+    fc.box((1.95, (y0 + y1) / 2, (z0 + z1) / 2), (0.04, 0.05, L), R=Matrix.Rotation(-ang, 3, "X"), bev=0.008)
+fc.box((1.95, 0.64, 0), (0.04, 0.05, 0.62), bev=0.008)
+fc.box((1.95, 0.32, 0), (0.04, 0.05, 0.62), bev=0.008)
+for z in (-0.30, 0.30):
+    fc.box((1.95, 0.48, z), (0.04, 0.36, 0.05), bev=0.008)
+for (z, y) in ((0, 0.48), (-0.17, 0.40), (0.17, 0.40), (-0.17, 0.57), (0.17, 0.57)):
+    fc.cyl((1.972, y, z), (1, 0, 0), 0.032, 0.012, n=20, m=BLK)                  # lubang (gelap)
+for k in range(16):
+    t = k / 16
+    zz = -0.45 + 0.9 * t
+    fc.bolt((1.93, -0.28, zz), (1, 0, 0), r=0.01, h=0.01)
+fc.finish()
+dm = Part("EXT-DAMPER-01", "Vibration damper / puli depan", "DEPAN", FLY, "ESTIMATED",
+          "D01 hlm. 2 (vibration damper and guard); datum.damper (x 1.889..2.075, pusat di sumbu crank)", "diameter damper 0.48 m ILLUSTRATIVE (hanya guard yang terukur)")
+dm.lathe([(0.0001, 1.93), (0.10, 1.93), (0.10, 1.95), (0.24, 1.955), (0.245, 1.965), (0.245, 2.025), (0.24, 2.035), (0.10, 2.04), (0.08, 2.06), (0.0001, 2.06)], (0, 0, 0), (1, 0, 0), n=48)
+for k in range(24):
+    a = 2 * math.pi * k / 24
+    dm.box((1.995, 0.243 * math.sin(a), 0.243 * math.cos(a)), (0.05, 0.012, 0.012), R=Matrix.Rotation(-a, 3, "X"))
+dm.bolt_circle((2.06, 0, 0), (1, 0, 0), 0.06, 8, r=0.010)
+dm.finish()
+gd = Part("EXT-GUARD-01", "Guard kawat damper (O 0.652 m)", "DEPAN", YEL, "ESTIMATED",
+          SRC_D01F + " (lingkaran guard O 0.652 m); P23 (guard kawat spiral kuning, marine)", "jumlah cincin kawat ILLUSTRATIVE")
+for i, rr in enumerate([0.326, 0.300, 0.272, 0.244, 0.216, 0.188, 0.160, 0.132, 0.104, 0.076]):
+    gd.sweep([V((2.085, rr * math.sin(2 * math.pi * k / 72), rr * math.cos(2 * math.pi * k / 72))) for k in range(72)], 0.004, n=6, closed=True)
+for xx in (1.96, 2.0, 2.04):
+    gd.sweep([V((xx, 0.326 * math.sin(2 * math.pi * k / 72), 0.326 * math.cos(2 * math.pi * k / 72))) for k in range(72)], 0.004, n=6, closed=True)
+gd.sweep([V((1.945, 0.33 * math.sin(2 * math.pi * k / 72), 0.33 * math.cos(2 * math.pi * k / 72))) for k in range(72)], 0.012, n=8, closed=True)
+for k in range(8):
+    a = 2 * math.pi * k / 8 + math.pi / 8
+    gd.sweep([V((2.085, 0.05 * math.sin(a), 0.05 * math.cos(a))), V((2.085, 0.326 * math.sin(a), 0.326 * math.cos(a))), V((1.95, 0.33 * math.sin(a), 0.33 * math.cos(a)))], 0.005, n=6)
+gd.finish()
+
+# ================= RAKITAN: PENDINGIN DEPAN (tangki ekspansi + heat exchanger) =================
+tk = Part("EXT-TANGKI-01", "Tangki ekspansi (expansion tank) dengan atap miring dan tutup pengisi", "PENDINGIN", YEL, "ESTIMATED",
+          SRC_D01S + " (kotak X 2.107..2.386, Y s/d 1.181); " + SRC_D01F + " (Z -0.561..0.542); P22, P23 (marine: tangki atap miring selebar mesin)",
+          "pembagian tinggi tangki/HE (y 0.95) ESTIMATED dari P23 (tangki kira-kira 1/3 atas)")
+tk.prism([(2.107, 0.95), (2.386, 0.95), (2.386, 1.07), (2.107, 1.181)], (-0.561, 0.542), plane="xy", bev=0.02)
+tk.cyl((2.18, 1.16, -0.01), (0.37, 0.93, 0), 0.05, 0.04, n=24, m=YEL, bev=0.008)
+tk.cyl((2.172, 1.185, -0.01), (0.37, 0.93, 0), 0.035, 0.02, n=24, m=STL)
+tk.finish()
+# ---- Heat exchanger shell-and-tube, dipecah per bagian (Eksplor Rangkaian) ----
+# Sumbu shell = X (tutup depan ber-pelat X di P23 menghadap +X); bundel ditarik ke +X.
+ASM["EXT-HX"] = dict(id="EXT-HX", nama="Heat exchanger shell-and-tube depan (jacket water / aftercooler, didinginkan air laut)", node_rakitan="RAK-HX",
+                     acuan=dict(no=1, object_ids=["EXT-HX-SHELL-1"]), diagram=dict(arah_pandang=[-0.35, -0.40, -0.85], atas=[0, 1, 0]), bagian={})
+SRC_HX = "P22, P23, P25 (marine: inti bertabung bersirip terlihat di sisi, pelat X di muka depan, selang hitam); D03 hlm. 1 (engine-mounted SW pump and heat exchanger); " + SRC_D01F
+X0, X1 = 2.150, 2.350            # muka flens shell belakang / depan
+FY0, FY1, FZ = 0.545, 0.935, 0.55  # batas flens (dimensi luar lama dipertahankan)
+BY0, BY1, BZ = 0.575, 0.905, 0.50  # badan shell
+IY0, IY1, IZ = 0.585, 0.895, 0.49  # lubang dalam
+def rect_ring(p, x0, x1, y0, y1, z, iy0, iy1, iz, m=None, bev=0.0):
+    t = x1 - x0; xc = (x0 + x1) / 2
+    p.box((xc, (y1 + iy1) / 2, 0), (t, y1 - iy1, 2 * z), bev=bev, m=m)
+    p.box((xc, (y0 + iy0) / 2, 0), (t, iy0 - y0, 2 * z), bev=bev, m=m)
+    for sg in (1, -1):
+        p.box((xc, (iy0 + iy1) / 2, sg * (z + iz) / 2), (t, iy1 - iy0, z - iz), bev=bev, m=m)
+# 1 shell (acuan)
+asm_part("EXT-HX", 1, "Rumah / shell heat exchanger (acuan, tidak bergerak)", "OBSERVED", SRC_HX, "menampung bundel tabung dan aliran air pendingin mesin di sisi shell; dudukan ke mesin")
+sh_ = Part("EXT-HX-SHELL-1", "Rumah / shell heat exchanger (acuan)", "HX", YEL, "OBSERVED", SRC_HX,
+           "keberadaan OBSERVED; dimensi luar dipertahankan dari model sebelumnya (ESTIMATED, datum.front_tank_heat_exchanger); jendela samping meniru inti bersirip yang terlihat di P22/P25; tebal dinding ILLUSTRATIVE")
+sh_.box((2.25, BY1 - 0.005, 0), (X1 - X0, 0.01, 2 * BZ))
+sh_.box((2.25, BY0 + 0.005, 0), (X1 - X0, 0.01, 2 * BZ))
+for sg in (1, -1):                                   # dinding samping berjendela (bingkai)
+    zz = sg * (BZ - 0.005)
+    sh_.box((2.25, BY1 - 0.03, zz), (X1 - X0, 0.05, 0.012), bev=0.003)
+    sh_.box((2.25, BY0 + 0.03, zz), (X1 - X0, 0.05, 0.012), bev=0.003)
+    sh_.box((X0 + 0.03, 0.74, zz), (0.05, BY1 - BY0, 0.012), bev=0.003)
+    sh_.box((X1 - 0.03, 0.74, zz), (0.05, BY1 - BY0, 0.012), bev=0.003)
+    sh_.box((2.25, 0.74, zz), (0.02, BY1 - BY0, 0.012), bev=0.003)
+for xf in (X0, X1 - 0.012):                          # flens ujung
+    rect_ring(sh_, xf, xf + 0.012, FY0, FY1, FZ, IY0, IY1, IZ, bev=0.002)
+for (zz, xx) in ((0.427, 2.23), (-0.44, 2.22)):      # nosel bawah ke pipa air
+    sh_.cyl((xx, BY0 - 0.012, zz), (0, -1, 0), 0.075, 0.024, n=24, bev=0.003)
+sh_.box((2.25, BY0 - 0.006, 0.0), (0.12, 0.012, 0.20), bev=0.003)   # dudukan bawah
+sh_.finish()
+# 4 bundel tabung
+asm_part("EXT-HX", 4, "Bundel tabung (tube bundle): tube sheet depan dan belakang, tabung, baffle/support plate", "ILLUSTRATIVE",
+         "P22, P25 (tabung bersirip terlihat di sisi; jumlah dan susunan tabung tidak terbaca)", "memisahkan air laut di dalam tabung dari air pendingin mesin di sisi shell; panas berpindah lewat dinding tabung")
+bd = Part("EXT-HX-BUNDLE-1", "Bundel tabung (tube sheet, tabung, baffle)", "HX", STL, "ILLUSTRATIVE",
+          "P22, P25 (inti bertabung terlihat)", "jumlah tabung (12 x 38), diameter 12 mm, 6 baffle segmental, tube sheet belakang mengambang: semuanya ILLUSTRATIVE")
+RS0, RS1 = 2.170, 2.180
+FS0, FS1 = 2.353, 2.365
+bd.box(((RS0 + RS1) / 2, 0.74, 0), (RS1 - RS0, IY1 - IY0 - 0.01, 2 * IZ - 0.01), m=YEL)            # tube sheet belakang (mengambang)
+bd.box(((FS0 + FS1) / 2, 0.74, 0), (FS1 - FS0, FY1 - FY0, 2 * FZ), m=YEL, bev=0.002)            # tube sheet depan (terjepit)
+for iy in range(12):
+    for iz in range(38):
+        yy = 0.605 + iy * 0.025; zz = -0.4625 + iz * 0.025
+        bd.cyl(((RS0 + FS1) / 2 - 0.002, yy, zz), (1, 0, 0), 0.0062, FS0 - RS0 + 0.004, n=6, m=STL)
+for k, xb in enumerate((2.205, 2.230, 2.255, 2.280, 2.305, 2.330)):   # baffle segmental bergantian
+    h_ = (IY1 - IY0 - 0.01) * 0.75
+    yc = (IY0 + 0.005 + h_ / 2) if k % 2 == 0 else (IY1 - 0.005 - h_ / 2)
+    bd.box((xb, yc, 0), (0.004, h_, 2 * IZ - 0.01), m=YEL)
+for zz in (-0.40, 0.40):                                                 # tie rod
+    bd.cyl(((RS1 + FS0) / 2, 0.74, zz), (1, 0, 0), 0.008, FS0 - RS1, n=10, m=YEL)
+bd.finish()
+asm_pos("EXT-HX", 4, "EXT-HX-BUNDLE-1", (1, 0, 0), 0.22, 4)
+# 2 tutup depan, 3 tutup belakang
+asm_part("EXT-HX", 2, "Tutup ujung depan (front end cover / bonnet) dengan flens", "OBSERVED", "P23 (muka depan dengan pelat X dan baut tepi); P22",
+         "menutup ruang air laut depan dan mengarahkan aliran balik tabung; dibuka untuk menarik bundel")
+fcv = Part("EXT-HX-TUTUPDEPAN-1", "Tutup ujung depan heat exchanger", "HX", YEL, "OBSERVED", "P23, P22",
+           "bentuk pelat datar dengan panel terangkat ESTIMATED dari P23; tebal ILLUSTRATIVE")
+fcv.box((2.374, 0.74, 0), (0.012, FY1 - FY0, 2 * FZ), bev=0.003)
+fcv.box((2.383, 0.74, 0), (0.006, 0.28, 0.88), bev=0.004)
+fcv.finish()
+asm_pos("EXT-HX", 2, "EXT-HX-TUTUPDEPAN-1", (1, 0, 0), 0.33, 6)
+asm_part("EXT-HX", 3, "Tutup ujung belakang (rear end cover / bonnet) dengan flens", "ILLUSTRATIVE", "P22 (ujung belakang gelap di sisi HE); bentuk bonnet tidak terlihat jelas",
+         "menutup ruang air laut belakang (masuk/keluar air laut); menahan anoda seng")
+rcv = Part("EXT-HX-TUTUPBELAKANG-1", "Tutup ujung belakang heat exchanger (bonnet)", "HX", YEL, "ILLUSTRATIVE", "P22", "bentuk bonnet ILLUSTRATIVE")
+rcv.box((2.141, 0.74, 0), (0.012, FY1 - FY0, 2 * FZ), bev=0.003)
+rcv.box((2.1265, 0.74, 0), (0.017, 0.28, 0.94), bev=0.008, seg=2)
+rcv.finish()
+asm_pos("EXT-HX", 3, "EXT-HX-TUTUPBELAKANG-1", (-1, 0, 0), 0.15, 5)
+# 5 gasket / O-ring tutup (satu nomor, tiga posisi)
+asm_part("EXT-HX", 5, "Gasket / O-ring flens tutup", "ILLUSTRATIVE", "tidak terlihat di foto; perapat flens umum pada heat exchanger shell-and-tube",
+         "merapatkan sambungan flens shell, tube sheet, dan tutup agar air laut dan air pendingin tidak bocor")
+for k, (x0g, dirg, dg, ur) in enumerate(((X1, 1, 0.27, 3), (FS1, 1, 0.30, 2), (X0 - 0.003, -1, 0.07, 3))):
+    g = Part(f"EXT-HX-GASKET-{k+1}", "Gasket / O-ring flens tutup heat exchanger", "HX", RUB, "ILLUSTRATIVE", "ILLUSTRATIVE (tidak terlihat di foto)", "tebal 3 mm ILLUSTRATIVE")
+    rect_ring(g, x0g, x0g + 0.003, FY0 + 0.004, FY1 - 0.004, FZ - 0.004, IY0, IY1, IZ)
+    g.finish()
+    asm_pos("EXT-HX", 5, f"EXT-HX-GASKET-{k+1}", (dirg, 0, 0), dg, ur)
+# 6 baut tutup (satu nomor, banyak posisi)
+asm_part("EXT-HX", 6, "Baut flens tutup (hex bolt dengan ring)", "ILLUSTRATIVE", "P23 (baut di tepi muka depan terlihat); jumlah dan ukuran ILLUSTRATIVE",
+         "menjepit tutup, gasket, dan tube sheet ke flens shell")
+bpos = [(yy, -0.48 + 0.16 * i) for yy in (0.56, 0.92) for i in range(7)] + [(yy, sg * 0.525) for sg in (1, -1) for yy in (0.66, 0.74, 0.82)]
+nb_ = 0
+for side, (xh, d_) in (("D", (2.380, 1)), ("B", (2.135, -1))):
+    for (yy, zz) in bpos:
+        nb_ += 1
+        b_ = Part(f"EXT-HX-BAUT-{nb_}", f"Baut flens tutup {'depan' if d_ > 0 else 'belakang'}", "HX", STL, "ILLUSTRATIVE", "P23 (baut tepi depan)", "M12 x 50 ILLUSTRATIVE")
+        b_.cyl((xh + d_ * 0.006, yy, zz), (d_, 0, 0), 0.0115, 0.012, n=6)                # kepala hex
+        b_.cyl((xh + d_ * 0.0005, yy, zz), (d_, 0, 0), 0.013, 0.001, n=16)              # ring
+        L_ = abs(xh - (X1 - 0.012 if d_ > 0 else X0 + 0.012))
+        b_.cyl((xh - d_ * L_ / 2, yy, zz), (d_, 0, 0), 0.006, L_, n=10)                  # batang ke flens shell
+        b_.finish()
+        asm_pos("EXT-HX", 6, f"EXT-HX-BAUT-{nb_}", (d_, 0, 0), 0.45 if d_ > 0 else 0.30, 1)
+# 7 plug drain/vent (satu nomor, tiga posisi)
+asm_part("EXT-HX", 7, "Plug drain / vent", "ILLUSTRATIVE", "tidak terlihat di foto; plug pembuangan dan ventilasi umum pada heat exchanger",
+         "membuang air saat perawatan dan membuang udara terperangkap saat pengisian")
+for k, (c_, d_, dist) in enumerate((((2.25, BY0, -0.25), (0, -1, 0), 0.08), ((2.386, 0.86, 0.36), (1, 0, 0), 0.40), ((2.126, 0.60, 0.30), (0, -1, 0), 0.08))):
+    pg = Part(f"EXT-HX-PLUG-{k+1}", "Plug drain / vent heat exchanger", "HX", STL, "ILLUSTRATIVE", "ILLUSTRATIVE", "ukuran ILLUSTRATIVE")
+    c_ = V(c_); d_ = V(d_)
+    pg.cyl(c_ + d_ * 0.006, d_, 0.012, 0.012, n=6)
+    pg.cyl(c_ - d_ * 0.008, d_, 0.008, 0.016, n=10)
+    pg.finish()
+    asm_pos("EXT-HX", 7, f"EXT-HX-PLUG-{k+1}", d_, dist, 1)
+# 8 anoda seng
+asm_part("EXT-HX", 8, "Anoda seng (zinc anode) dengan sumbat berulir", "ILLUSTRATIVE", "tidak terlihat di foto; lazim pada heat exchanger berpendingin air laut",
+         "dikorbankan terhadap korosi galvanik agar tabung dan tutup tidak terkikis air laut; diperiksa dan diganti berkala")
+an = Part("EXT-HX-ANODA-1", "Anoda seng pada tutup belakang", "HX", GRY, "ILLUSTRATIVE", "ILLUSTRATIVE", "posisi dan ukuran ILLUSTRATIVE")
+an.cyl((2.112, 0.82, -0.30), (-1, 0, 0), 0.016, 0.012, n=6, m=STL)
+an.cyl((2.135, 0.82, -0.30), (1, 0, 0), 0.011, 0.034, n=12)
+an.finish()
+asm_pos("EXT-HX", 8, "EXT-HX-ANODA-1", (-1, 0, 0), 0.28, 2)
+pl = Part("EXT-HEXPLATE-01", "Pelat depan berbentuk X pada heat exchanger (tanpa logo)", "HX", PNL, "OBSERVED",
+          "P23 (pelat X di depan heat exchanger)", "tulisan merek tidak dibuat (aturan tanpa logo); ukuran ESTIMATED")
+pl.box((2.392, 0.74, 0), (0.008, 0.30, 0.46), bev=0.003)
+for sg in (1, -1):
+    pl.box((2.398, 0.74, 0), (0.008, 0.05, 0.50), R=Matrix.Rotation(sg * math.radians(32), 3, "X"), m=STL)
+for zz in (-0.21, 0.21):
+    for yy in (0.61, 0.87): pl.bolt((2.396, yy, zz), (1, 0, 0), r=0.01, h=0.008)
+pl.finish()
+asm_part("EXT-HX", 9, "Pelat penutup depan berbentuk X (dekoratif, tanpa logo)", "OBSERVED", "P23 (pelat X di depan heat exchanger)", "pelindung dan penanda muka depan heat exchanger; ikut dilepas bersama tutup depan")
+asm_pos("EXT-HX", 9, "EXT-HEXPLATE-01", (1, 0, 0), 0.33, 6)
+for s, tag in ((1, "R"), (-1, "L")):
+    hz = Part(f"EXT-SELANG-{tag}", f"Selang karet hitam heat exchanger {'kanan' if s>0 else 'kiri'}", "PENDINGIN", RUB, "OBSERVED",
+              "P23 (dua selang hitam di muka heat exchanger)", "rute ESTIMATED")
+    pts = [V((2.36, 0.93, s * 0.27)), V((2.395, 0.90, s * 0.27)), V((2.40, 0.64, s * 0.27)), V((2.36, 0.56, s * 0.36)), V((2.30, 0.54, s * 0.43))]
+    hz.sweep(fillet(pts, 0.06, 8), 0.034, n=16)
+    for q in (pts[0], pts[-1]): hz.cyl(q, (1, 0, 0) if q is pts[0] else (0, 0, s), 0.04, 0.03, n=16, m=STL)
+    hz.finish()
+
+# ================= RAKITAN: POMPA AIR + PIPA =================
+def pump(pid, nama, c, r, depth, status, src, cat, m=YEL):
+    p = Part(pid, nama, "POMPA", m, status, src, cat)
+    p.lathe([(0.0001, 0.0), (r * 0.6, 0.0), (r, depth * 0.25), (r, depth * 0.8), (r * 0.7, depth), (0.0001, depth)], c, (1, 0, 0), n=36)
+    endp, tp, rp = volute(p, V(c) + V((depth * 0.5, 0, 0)), (0, 0, 1), (0, 1, 0), (1, 0, 0), r * 0.85, r * 1.15, r * 0.18, r * 0.32, -2 * math.pi * 0.8, 0.0, m)
+    p.bolt_circle(V(c) + V((depth, 0, 0)), (1, 0, 0), r * 0.55, 6, r=0.009)
+    return p, endp, tp, rp
+
+jw, _, _, _ = pump("EXT-POMPAJW-01", "Jacket water pump (digerakkan roda gigi) depan kanan bawah", (1.93, -0.047, 0.427), 0.10, 0.11, "INFERRED",
+                   "D01 hlm. 2, D02 hlm. 1 (jacket water pump gear-driven); " + SRC_D01F + " (siku pipa besar kanan (y -0.047, z 0.427)); " + SRC_D02R,
+                   "identitas JW vs auxiliary tidak berlabel (datum INFERRED); ukuran ILLUSTRATIVE")
+jw.finish()
+aw, _, _, _ = pump("EXT-POMPAAW-01", "Auxiliary (aftercooler) water pump depan kiri bawah", (1.93, -0.099, -0.421), 0.095, 0.10, "INFERRED",
+                   "D02 hlm. 1 (auxiliary water pump); " + SRC_D01F + " (rumah bundar y -0.099, z -0.421)", "identitas JW vs AW tidak berlabel; ukuran ILLUSTRATIVE")
+aw.finish()
+sw, _, _, _ = pump("EXT-POMPASW-01", "Sea water pump (opsional) dengan pipa isap berflens", (2.06, -0.10, -0.50) if FIX else (2.06, -0.17, -0.52), 0.075, 0.09, "OBSERVED",
+                   "P23 (pompa air laut bundar kecil di depan bawah sisi kiri mesin = kanan gambar); P22; D01 hlm. 2 / D02 hlm. 1 (opsi); D03 hlm. 1",
+                   "Catatan: brief menyebut depan kanan; P23 tampak depan menaruhnya di kanan gambar = sisi KIRI mesin (konvensi datum). Posisi ESTIMATED dari P23 (skala guard O 0.652)")
+SWZ, SWY = (-0.50, -0.10) if FIX else (-0.52, -0.17)
+pipe(sw, [V((2.105, SWY - 0.10, SWZ)), V((2.105, -0.42, SWZ)), V((2.17, -0.47, SWZ - 0.10))], 0.045, bend=0.06, flanges=(False, True), fr=0.085, nb=6, m=YEL, fm=STL)
+sw.finish()
+pp = Part("EXT-PIPAAIR-R", "Pipa air besar kanan: jacket water pump ke heat exchanger (siku bawah, naik tegak)", "POMPA", YEL, "ESTIMATED",
+          SRC_D01S + " (pipa tegak X ~2.23, Y -0.12..0.48, siku bawah); " + SRC_D01F, "diameter 0.12 m ESTIMATED")
+pipe(pp, [V((2.03, -0.047, 0.427)), V((2.23, -0.047, 0.427)), V((2.23, 0.535, 0.427))], 0.06, bend=0.12, m=YEL, nb=6)
+pp.finish()
+pp = Part("EXT-PIPAAIR-L", "Pipa air laut kiri: sea water pump ke heat exchanger", "POMPA", YEL, "ESTIMATED",
+          "P23 (pipa air besar sisi kiri dan kanan); " + SRC_D01F, "rute ESTIMATED")
+pipe(pp, [V((2.10, -0.01 if FIX else -0.08, -0.50 if FIX else -0.52)), V((2.20, 0.06 if FIX else 0.0, -0.47)), V((2.22, 0.535, -0.44))], 0.05, bend=0.1, m=YEL, nb=6)
+pp.finish()
+pu = Part("EXT-PIPAU-01", "Pipa air berbentuk U terbalik depan kiri (pompa auxiliary ke aftercooler)", "POMPA", YEL, "ESTIMATED",
+          "P15, P12 (genset: pipa U terbalik naik dari pompa depan bawah); " + SRC_D02R + " (depan: pipa besar dari atas turun ke pompa bawah)",
+          "rute untuk konfigurasi marine ILLUSTRATIVE")
+pipe(pu, [V((1.97, 0.02, -0.421)), V((1.99, 0.80, -0.44)), V((1.92, 1.14, -0.40)), V((1.62, 1.14, -0.22)), V((1.50, 1.06, -0.12)), V((1.47, 1.06, -0.05))], 0.055, bend=0.16, m=YEL, nb=6)
+pu.finish()
+pu = Part("EXT-PIPAU-02", "Pipa air U terbalik depan kanan (rumah termostat ke heat exchanger)", "POMPA", YEL, "ILLUSTRATIVE",
+          "P12, P22 (pipa air melengkung tegak di depan)", "rute ILLUSTRATIVE")
+pipe(pu, [V((1.76, 1.02, 0.12)), V((1.80, 1.13, 0.30)), V((2.02, 1.10, 0.42)), V((2.05, 0.78, 0.44)), V((2.107, 0.78, 0.44))], 0.05, bend=0.12, m=YEL, nb=6)
+pu.finish()
+th = Part("EXT-TERMOSTAT-01", "Rumah termostat / water outlet di ujung depan atas dengan pipa ke tangki, dan dua rumah bundar menghadap kanan", "POMPA", YEL, "OBSERVED",
+          "P12 (rumah termostat di ujung depan atas); " + SRC_D01S + " (dua lingkaran X ~1.96, Y ~0.80 dan ~0.975)", "identitas dua rumah bundar (termostat atau pompa) UNKNOWN; ukuran ILLUSTRATIVE")
+th.box((1.74, 0.84, 0), (0.20, 0.30, 0.34), bev=0.03)
+th.cyl((1.74, 1.02, 0.08), (0, 1, 0), 0.07, 0.08, n=24, bev=0.01)
+th.cyl((1.74, 1.02, -0.08), (0, 1, 0), 0.07, 0.08, n=24, bev=0.01)
+if FIX:
+    for (yy, rr) in ((0.795, 0.080), (0.975, 0.062)):
+        th.lathe([(0.0001, 0.0), (rr, 0.0), (rr + 0.012, 0.015), (rr + 0.012, 0.035), (rr, 0.05), (rr * 0.5, 0.07), (0.0001, 0.07)], (1.96, yy, 0.20), (0, 0, 1), n=32)
+        th.bolt_circle((1.96, yy, 0.235), (0, 0, 1), rr + 0.002, 6, r=0.009, h=0.012)
+    th.box((1.90, 0.88, 0.16), (0.14, 0.30, 0.10), bev=0.02)
+pipe(th, [V((1.74, 1.06, 0.0)), V((1.95, 1.06, 0.0)), V((2.107, 1.04, 0.0))], 0.055, bend=0.08, m=YEL, nb=6)
+th.finish()
+
+# ================= RAKITAN: SISI KANAN (oil cooler, filter, ECM, panel) =================
+oc = Part("EXT-OILCOOLER-01", "Engine oil cooler (didinginkan jacket water) sisi kanan", "SISIKANAN", YEL, "ESTIMATED",
+          "D01 hlm. 2, D03 hlm. 1 (oil cooler); " + SRC_D02R + " (silinder horizontal memanjang di samping blok)", "identitas silinder di render sebagai oil cooler INFERRED; sisi kanan ESTIMATED")
+oc.cyl((0.89, 0.08, 0.565), (1, 0, 0), 0.09, 0.66, n=32)
+for xx, sg in ((0.53, -1), (1.25, 1)):
+    oc.lathe([(0.105, 0), (0.105, 0.04), (0.08, 0.08), (0.0001, 0.09)], (xx, 0.08, 0.565), (sg, 0, 0), n=32)
+    oc.bolt_circle((xx, 0.08, 0.565), (1, 0, 0), 0.098, 10, r=0.008, h=0.006)
+for xx in (0.70, 1.08):
+    oc.box((xx, 0.08, 0.50), (0.05, 0.08, 0.06), bev=0.008)
+pipe(oc, [V((1.30, 0.08, 0.565)), V((1.40, 0.08, 0.60)), V((1.40, -0.02, 0.60))], 0.035, bend=0.05, flanges=(False, False), m=YEL)
+oc.finish()
+of = Part("EXT-FILTEROLI-01", "Oil filter (3 tabung) dengan kepala filter, sisi kanan", "SISIKANAN", YEL, "INFERRED",
+          "D01 hlm. 2, D03 hlm. 1 (oil filter with service indicators); P19 (3512C frac: 3 filter kuning menggantung di sisi kanan)",
+          "posisi marine belum terkonfirmasi (P19 adalah frac); ukuran ILLUSTRATIVE", jumlah=3)
+of.box((1.44, -0.09, 0.58), (0.36, 0.06, 0.13), bev=0.012)
+for xx in (1.33, 1.44, 1.55):
+    of.lathe([(0.0001, -0.30), (0.048, -0.30), (0.055, -0.29), (0.055, -0.135), (0.05, -0.12), (0.0001, -0.12)], (xx, 0, 0.58), (0, 1, 0), n=28)
+of.finish()
+ff = Part("EXT-FILTERBB-01", "Fuel filter (2 tabung) dengan kepala filter, sisi kanan", "SISIKANAN", FWH, "INFERRED",
+          "D03 hlm. 1 (fuel filter with service indicator); P19 (3512C frac: 2 filter di sisi kanan tengah)", "posisi marine belum terkonfirmasi; ukuran ILLUSTRATIVE", jumlah=2)
+ff.box((1.75, 0.41, 0.58), (0.24, 0.05, 0.12), bev=0.01, m=YEL)
+for xx in (1.69, 1.81):
+    ff.lathe([(0.0001, 0.14), (0.045, 0.14), (0.052, 0.15), (0.052, 0.375), (0.048, 0.385), (0.0001, 0.385)], (xx, 0, 0.58), (0, 1, 0), n=28)
+ff.finish()
+ec = Part("EXT-ECM-01", "Kotak ECM (dual ECM) sisi kanan belakang bawah", "SISIKANAN", PNL, "ESTIMATED",
+          "D02 hlm. 1 (dual ECM); " + SRC_D01S + " (kotak X 0.05..0.37, Y -0.12..0.30)", "identitas kotak di gambar sebagai ECM INFERRED")
+ec.box((0.21, 0.11, 0.515), (0.30, 0.36, 0.07), bev=0.012)
+for yy in (0.0, 0.2):
+    ec.cyl((0.12, yy, 0.56), (0, 0, 1), 0.02, 0.03, n=16, m=STL)
+for xx in (0.08, 0.34):
+    for yy in (-0.05, 0.27): ec.bolt((xx, yy, 0.55), (0, 0, 1), r=0.009)
+ec.finish()
+pn = Part("EXT-PANEL-01", "Panel kontrol / instrumen mesin sisi kanan atas belakang", "SISIKANAN", PNL, "OBSERVED",
+          "P22 (marine: panel kontrol hitam di sisi kanan di atas tengah-belakang); " + SRC_D01S + " (kotak X 0.12..0.33, Y 0.61..1.02)", "kedalaman 0.15 m ILLUSTRATIVE")
+pn.box((0.225, 0.815, 0.62), (0.21, 0.41, 0.15), bev=0.012)
+pn.box((0.225, 0.89, 0.697), (0.15, 0.12, 0.006), m=GRY)
+for k, yy in enumerate((0.70, 0.74)):
+    for j in range(3): pn.cyl((0.17 + j * 0.05, yy, 0.70), (0, 0, 1), 0.012, 0.02, n=12, m=STL)
+pn.box((0.225, 0.58, 0.58), (0.06, 0.08, 0.06), bev=0.005, m=YEL)
+pn.finish()
+sb = Part("EXT-GALERI-R", "Batang galeri memanjang di bawah tutup katup bank kanan (identitas belum diketahui)", "SISIKANAN", YEL, "ESTIMATED",
+          SRC_D02R + " (batang kotak memanjang X ~0.37..1.57, Y ~0.44..0.51)", "identitas (fuel manifold atau penutup galeri) UNKNOWN; bentuk dari render saja")
+sb.box((0.97, 0.475, 0.50), (1.20, 0.07, 0.06), bev=0.012)
+for x in CYLX[:-1]:
+    sb.bolt((x, 0.475, 0.53), (0, 0, 1), r=0.009)
+sb.finish()
+
+lt = Part("EXT-TERMBOX-L", "Kotak terminal / junction box sisi kiri dekat flywheel housing", "SISIKIRI", YEL, "OBSERVED",
+          "P11 (genset 3512C: kotak ECM/terminal dekat flywheel housing sisi kiri)", "unit genset; keberadaan pada marine belum terkonfirmasi; ukuran dan posisi ESTIMATED dari P11")
+lt.box((0.20, 0.02, -0.535), (0.26, 0.22, 0.10), bev=0.015)
+lt.box((0.20, 0.02, -0.588), (0.22, 0.18, 0.008), bev=0.004)
+for xx in (0.09, 0.31):
+    for yy in (-0.07, 0.11): lt.bolt((xx, yy, -0.592), (0, 0, -1), r=0.008)
+lt.cyl((0.20, 0.14, -0.535), (0, 1, 0), 0.02, 0.04, n=12, m=STL)
+lt.finish()
+hn = Part("EXT-HARNESS-L", "Bundel kabel (wiring harness) sepanjang bank kiri dengan klem", "SISIKIRI", RUB, "OBSERVED",
+          "P11 (bundel kabel melintang di bawah tutup katup bank kiri); P10 (bank kanan, genset)", "rute dan diameter 0.03 m ESTIMATED; jumlah klem ILLUSTRATIVE")
+pts = [V((1.70, 0.44, -0.515)), V((0.03, 0.44, -0.515)), V((-0.03, 0.30, -0.53)), V((0.08, 0.14, -0.54))]
+hn.sweep(fillet(pts, 0.06, 6), 0.016, n=10)
+for xx in [CYLX[i] - BANK_OFF + 0.135 for i in range(6)]:
+    hn.box((xx, 0.44, -0.515), (0.025, 0.045, 0.045), m=STL)
+hn.finish()
+lp = Part("EXT-PIPAAIR-L2", "Pipa air sisi kiri depan: dari pompa auxiliary ke samping blok", "SISIKIRI", YEL, "ILLUSTRATIVE",
+          "P11 dan P26 (genset: pipa melengkung turun di depan sisi kiri lalu menyusur ke belakang)", "rute dan diameter ILLUSTRATIVE; hanya terlihat di genset")
+pipe(lp, [V((1.88, -0.14, -0.43)), V((1.72, -0.17, -0.53)), V((1.20, -0.17, -0.53)), V((1.10, -0.10, -0.50))], 0.04, bend=0.08, m=YEL, nb=6)
+lp.finish()
+
+# ---------------- simpan ----------------
+for o in scene.objects: o.select_set(False)
+tris = 0
+dg = bpy.context.evaluated_depsgraph_get()
+for o in scene.objects:
+    if o.type == "MESH":
+        me = o.evaluated_get(dg).to_mesh()
+        me.calc_loop_triangles(); tris += len(me.loop_triangles)
+        o.evaluated_get(dg).to_mesh_clear()
+print("OBJECTS", sum(1 for o in scene.objects if o.type == "MESH"), "TRIS", tris)
+os.makedirs(os.path.join(OUT, "assemblies"), exist_ok=True)
+for aid, A in ASM.items():
+    for b in A["bagian"].values():
+        for ps in b["posisi"]:
+            ob = bpy.data.objects[ps["object_id"]]
+            ob["explode_dir"] = ps["arah"]; ob["explode_dist_m"] = ps["jarak_m"]; ob["explode_order"] = ps["urutan"]; ob["assembly"] = aid; ob["part_no"] = b["no"]
+        for oid in b["object_ids"]:
+            for it in INV:
+                if it["id"] == oid: it["rakitan_eksplor"] = aid; it["no_posisi_model"] = b["no"]
+    for oid in A["acuan"]["object_ids"]:
+        bpy.data.objects[oid]["assembly"] = aid; bpy.data.objects[oid]["part_no"] = A["acuan"]["no"]; bpy.data.objects[oid]["explode_dist_m"] = 0.0
+    out = dict(A); out["bagian"] = [A["bagian"][k] for k in sorted(A["bagian"])]
+    ac = [b for b in out["bagian"] if b["no"] == A["acuan"]["no"]][0]
+    ac["object_ids"] = list(A["acuan"]["object_ids"])
+    ac["posisi"] = [dict(object_id=o, arah=[0, 0, 0], jarak_m=0.0, urutan=0) for o in ac["object_ids"]]
+    out["catatan"] = "Nomor = nomor posisi model (bukan nomor OEM; parts book 3512C tidak publik). arah dalam koordinat dunia datum/glTF (m, +Y atas, +X depan, +Z kanan). jarak_m = pergeseran pada eksplor penuh; urutan = urutan pelepasan (1 pertama). Tabrakan dengan rakitan lain di luar rakitan ini tidak diperiksa."
+    json.dump(out, open(os.path.join(OUT, "assemblies", aid + ".json"), "w"), ensure_ascii=False, indent=1)
+bpy.ops.wm.save_as_mainfile(filepath=os.path.join(OUT, "exterior.blend"))
+bpy.ops.export_scene.gltf(filepath=os.path.join(OUT, "exterior.glb"), export_format="GLB", export_apply=True, export_yup=True, export_extras=True)
+json.dump(dict(model="Caterpillar 3512C HD marine propulsion - eksterior", sistem_koordinat="datum.json (m, +Y atas, +X depan, +Z kanan, asal sumbu crank di muka belakang blok)",
+               segitiga_total=tris, objek_mesh=len(INV), bank_offset_kiri_m=BANK_OFF, item=INV),
+          open(os.path.join(OUT, "inventory.json"), "w"), ensure_ascii=False, indent=1)

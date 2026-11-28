@@ -1,0 +1,222 @@
+"""Lay out the model-derived teaching renders for print and mobile."""
+import json
+from html import escape
+from pathlib import Path
+
+from PIL import Image, ImageDraw, ImageFont
+
+HERE=Path(__file__).resolve().parent
+PLATES=HERE/"plates"
+RAW=PLATES/"raw"
+W,H=1240,1760
+FIG_X,FIG_Y,FIG_W,FIG_H=276,180,688,1220
+GREEN="#256353"
+INK="#172632"
+MUTED="#425963"
+PAPER="#f7f9f7"
+STROKE="#a7c1bd"
+PANEL="#e8f2ef"
+FONT_PATH=Path('/usr/share/fonts/truetype/dejavu')
+FONT_REGULAR=FONT_PATH/"DejaVuSans.ttf"
+FONT_BOLD=FONT_PATH/"DejaVuSans-Bold.ttf"
+marks=json.loads((RAW/"markers.json").read_text())
+
+def font(size,bold=False):
+    return ImageFont.truetype(str(FONT_BOLD if bold else FONT_REGULAR),size)
+
+def page(title,note):
+    image=Image.new("RGB",(W,H),PAPER)
+    d=ImageDraw.Draw(image)
+    d.rounded_rectangle((40,40,W-40,H-40),radius=32,outline="#c7d8d4",width=2,fill=PAPER)
+    d.text((74,64),"YANMAR 6AYM-WET H  •  TP2",font=font(22,True),fill=GREEN)
+    d.text((70,98),title,font=font(56,True),fill=INK)
+    d.text((74,172),note,font=font(22),fill=MUTED)
+    d.line((74,215,W-74,215),fill=STROKE,width=2)
+    return image,d
+
+def figure(image,name, box=(FIG_X,FIG_Y,FIG_W,FIG_H)):
+    ob=Image.open(RAW/(name+".png")).convert("RGBA")
+    assert ob.getchannel('A').getbbox(), f"Empty render {name}"
+    x,y,w,h=box
+    im=ob.resize((w,h),Image.Resampling.LANCZOS)
+    image.paste(im,(x,y),im)
+    return lambda i: (x+marks[name][str(i)][0]*w/ob.width,y+marks[name][str(i)][1]*h/ob.height)
+
+def point(d,x,y):
+    d.ellipse((x-6,y-6,x+6,y+6),fill=GREEN,outline=PAPER,width=2)
+
+def spread(rows,min_gap,low,high):
+    ordered=sorted(rows,key=lambda item:item[1])
+    ys=[]
+    for item in ordered:
+        at=max(low,item[1],ys[-1]+min_gap if ys else low)
+        ys.append(at)
+    if ys and ys[-1]>high:
+        ys[-1]=high
+        for i in list(range(len(ys)-1))[::-1]:
+            ys[i]=min(ys[i],ys[i+1]-min_gap)
+    return list(zip(ordered,ys))
+
+def captions(d,project,mapping,side,low=322,high=1333,gap=60):
+    coords=[(i,*project(i),title) for i,title in mapping.items()]
+    arranged=spread([(i,y,x,title) for i,x,y,title in coords],gap,low,high)
+    left=side=="left"
+    for (n,y,x,label),dest_y in arranged:
+        start=328 if left else 907
+        end=382 if left else 863
+        via=430 if left else 811
+        if abs(x-via)>40:
+            d.line((start,dest_y,end,dest_y,via,y,x,y),fill=GREEN,width=2)
+        else:
+            d.line((start,dest_y,end,dest_y,x,y),fill=GREEN,width=2)
+        point(d,x,y)
+        if n!=99:
+            nx=87 if left else 936
+            d.rounded_rectangle((nx-18,dest_y-18,nx+28,dest_y+17),radius=9,fill=PANEL)
+            d.text((nx+5,dest_y),f"{n:02d}",font=font(16,True),fill=GREEN,anchor="mm")
+            tx=125 if left else 976
+        else:
+            tx=87 if left else 915
+        for k,line in enumerate(label.split("\n")):
+            d.text((tx,dest_y+(k-(len(label.split("\n"))-1)/2)*27),line,
+                   fill=INK,font=font(22,True),anchor="lm")
+
+def footer(d,lines):
+    d.line((74,1627,W-74,1627),fill=STROKE,width=2)
+    for i,line in enumerate(lines):
+        d.text((74,1644+31*i),line,font=font(17,i==0),fill=MUTED)
+
+def info(d, x,y,w,title,body):
+    d.rounded_rectangle((x,y,x+w,y+145),radius=22,fill=PANEL)
+    d.text((x+25,y+21),title,font=font(26,True),fill=GREEN)
+    for i,s in enumerate(body):
+        d.text((x+25,y+66+28*i),s,font=font(20),fill=INK)
+
+section,d=page("Potongan injektor","Rumah dibelah memanjang, jarum dan pegas tetap utuh.")
+p=figure(section,"section",(FIG_X,209,FIG_W,FIG_H))
+captions(d,p,{2:"Cap nut",1:"Saluran masuk",16:"O-ring atas",17:"O-ring bawah",15:"Nozzle nut"},"left",324,1150,91)
+captions(d,p,{3:"Adjusting bolt",4:"Locknut",8:"Pegas nozzle",9:"Spring holder",10:"Spacer",13:"Jarum nozzle",14:"Nozzle body"},"right",335,1140,72)
+d.rounded_rectangle((74,1244,476,1599),radius=22,fill="#ebf3f0",outline=STROKE,width=2)
+d.text((99,1264),"Ujung nozzle · diperbesar",font=font(21,True),fill=GREEN)
+t=figure(section,"tip",(118,1297,208,272))
+x,y=t(99)
+d.line((x,y,268,y,294,1524,427,1524),fill=GREEN,width=2)
+point(d,x,y)
+d.text((295,1533),"Lubang semprot",font=font(17,True),fill=INK)
+info(d,499,1263,665,"Tekanan buka 31 ± 0,5 MPa",
+     ["Angkat jarum 0,50 ± 0,01 mm pada spesifikasi WET."])
+info(d,499,1429,665,"Dua kelompok lubang semprot",
+     ["8 × Ø0,30 mm · sudut 160°", "4 × Ø0,22 mm · sudut 90°"])
+footer(d,["Sumber  D01 Fuel Injector, cetak hlm. 146–148 · D05 Fig. 79, 6AYM-WET.",
+          "Kontur dan ukuran adalah ilustrasi. Fungsi komponen ada pada legenda bernomor."])
+
+explode,d=page("Urai komponen injektor","Susunan urai untuk identifikasi komponen dan fungsi.")
+p=figure(explode,"exploded",(FIG_X,218,FIG_W,FIG_H))
+captions(d,p,{2:"Cap nut",4:"Locknut",6:"Gasket bawah",1:"Rumah injektor",16:"O-ring atas",
+              17:"O-ring bawah",8:"Pegas nozzle",10:"Spacer pembatas",14:"Nozzle body"},"left",280,1330,70)
+captions(d,p,{5:"Gasket atas",3:"Adjusting bolt",7:"Retainer atas",9:"Spring holder",11:"Dowel atas",
+              12:"Dowel bawah",13:"Jarum nozzle",15:"Nozzle nut"},"right",310,1390,73)
+info(d,74,1440,1092,"Pasangan nozzle · 148691-53002",
+     ["Fig. 79 mencantumkan nozzle body dan jarum sebagai satu nozzle assembly.",
+      "Dua pasang dowel menjaga orientasi rumah, spacer, dan pasangan nozzle."])
+footer(d,["Sumber  D05 Fig. 79, 6AYM-WET · D01 Fuel Injector, cetak hlm. 146–148.",
+          "Jarak dan arah urai bersifat ilustratif. Fungsi komponen ada pada legenda bernomor."])
+
+functions=[
+    ("Rumah injektor","Menopang komponen dan menyalurkan bahan bakar ke nozzle."),
+    ("Cap nut","Menutup dan melindungi setelan di atas rumah."),
+    ("Adjusting bolt","Mengatur gaya awal pegas dan tekanan pembukaan jarum."),
+    ("Locknut","Mengunci posisi adjusting bolt."),
+    ("Gasket atas","Merapatkan sambungan cap nut dengan locknut."),
+    ("Gasket bawah","Merapatkan sambungan locknut dengan rumah injektor."),
+    ("Retainer atas","Meneruskan gaya adjusting bolt ke ujung atas pegas."),
+    ("Pegas nozzle","Menekan jarum kembali ke dudukannya setelah injeksi."),
+    ("Spring holder","Menopang ujung bawah pegas dan meneruskan gaya ke jarum."),
+    ("Spacer pembatas","Memposisikan nozzle dan membatasi langkah angkat jarum."),
+    ("Dowel atas","Menjaga kesejajaran rumah injektor dengan spacer."),
+    ("Dowel bawah","Menjaga kesejajaran spacer dengan pasangan nozzle."),
+    ("Jarum nozzle","Terangkat oleh tekanan bahan bakar untuk membuka aliran."),
+    ("Nozzle body","Memandu jarum dan membentuk semprotan di ujung nozzle."),
+    ("Nozzle nut","Mengikat nozzle dan spacer ke rumah injektor."),
+    ("O-ring atas","Merapatkan dudukan atas rumah pada injector sleeve."),
+    ("O-ring bawah","Merapatkan dudukan bawah rumah di cylinder head."),
+]
+
+def wrap(draw, message, typeface, width):
+    lines=[]
+    for word in message.split():
+        if not lines or draw.textlength(lines[-1]+" "+word,font=typeface)>width:
+            lines.append(word)
+        else:
+            lines[-1]+=" "+word
+    return lines
+
+legend,d=page("Nama dan fungsi komponen","Nomor mengikuti gambar potongan dan urai injektor mekanis TP2.")
+for i,(name,function) in enumerate(functions,1):
+    x=74 if i<=9 else 633
+    y=253+147*((i-1) if i<=9 else (i-10))
+    d.rounded_rectangle((x,y,x+533,y+120),radius=18,fill=PANEL)
+    d.rounded_rectangle((x+16,y+17,x+59,y+55),radius=9,fill=GREEN)
+    d.text((x+37,y+36),f"{i:02d}",fill=PAPER,font=font(18,True),anchor="mm")
+    d.text((x+75,y+17),name,fill=INK,font=font(26,True))
+    for j,line in enumerate(wrap(d,function,font(22),438)):
+        d.text((x+75,y+56+j*25),line,fill=MUTED,font=font(22))
+footer(d,["Sumber  D01 Fuel Injector, cetak hlm. 146–148 · D05 Fig. 79, 6AYM-WET.",
+          "Nama teknis mengikuti pasangan komponen pada gambar servis."])
+
+for name,im in [("injector-section",section),("injector-exploded",explode)]:
+    im.save(PLATES/f"{name}.png",optimize=True)
+    im.resize((1024,1453),Image.Resampling.LANCZOS).save(PLATES/f"{name}.webp",quality=90, method=6)
+section.save(PLATES/"injector-section-exploded.pdf",save_all=True,
+             append_images=[explode,legend],resolution=144.0,title="Yanmar 6AYM-WET H — Injektor mekanis TP2",
+             subject="Potongan, urai dan fungsi komponen untuk pembelajaran")
+
+entries="\n".join(
+    f'<li><span class="number">{i:02d}</span>'
+    f'<div><h2>{escape(name)}</h2><p>{escape(function)}</p></div></li>'
+    for i,(name,function) in enumerate(functions,1)
+)
+html="""<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nama dan fungsi komponen injektor TP2</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#f7f9f7;color:#172632;font:1rem/1.5 system-ui,sans-serif}
+main{width:min(100%,68rem);padding:clamp(1rem,4vw,3rem);margin:auto}
+h1,p{margin:0}
+h1{font-size:clamp(1.7rem,5vw,3rem);line-height:1.12;margin:.4rem 0 .8rem}
+.eyebrow{color:#256353;font-weight:700}
+a{color:#246152;font-weight:650;text-underline-offset:.15em}
+.links{display:flex;flex-wrap:wrap;gap:.55rem 1.2rem;margin:1.25rem 0}
+.links a{min-height:44px;display:inline-flex;align-items:center}
+ol{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.65rem;list-style:none;margin:1.2rem 0 0;padding:0}
+li{background:#e8f2ef;border-radius:.75rem;padding:.85rem .9rem;display:flex;align-items:baseline;gap:.75rem}
+.number{background:#256353;border-radius:.35rem;padding:.15rem .45rem;color:#fff;font-weight:700}
+h2{font-size:1.05rem;margin:0 0 .2rem;line-height:1.35}
+li p{color:#354c57}
+footer{margin:1.45rem 0 0;padding-top:1rem;border-top:1px solid #a7c1bd;color:#354c57}
+@media(max-width:640px){ol{grid-template-columns:minmax(0,1fr)}}
+</style>
+</head>
+<body>
+<main>
+<p class="eyebrow">Yanmar 6AYM-WET H · Injektor mekanis TP2</p>
+<h1>Nama dan fungsi komponen</h1>
+<p>Nomor mengikuti gambar potongan dan urai.</p>
+<nav class="links" aria-label="Gambar injektor">
+<a href="injector-section.webp">Gambar potongan</a>
+<a href="injector-exploded.webp">Gambar urai</a>
+<a href="injector-section-exploded.pdf" download>Unduh PDF</a>
+</nav>
+<ol aria-label="Fungsi komponen menurut nomor gambar" role="list">
+__ENTRIES__
+</ol>
+<footer>D01 Fuel Injector, cetak hlm. 146–148 · D05 Fig. 79, 6AYM-WET.</footer>
+</main>
+</body>
+</html>
+"""
+(PLATES/"injector-legend.html").write_text(html.replace("__ENTRIES__",entries),encoding="utf-8")

@@ -1,0 +1,255 @@
+{
+ "machine_model": "Caterpillar 3512C HD marine propulsion",
+ "system": "seawater (raw water)",
+ "status": "PARTIAL",
+ "applicability": {
+  "berlaku": "Hanya konfigurasi heat exchanger cooled on-engine (SCAC). Pada konfigurasi keel cooled, sistem air laut milik mesin tidak ada; S1 hlm. 34: raw water system pada remote HEX independen dari mesin.",
+  "sumber_status": "Sea water pump OPSIONAL pada IMO II (D01 hlm. 2, D02 hlm. 1 Optional Attachments); terpasang pada konfigurasi LW/COMM 2005 (D03 hlm. 1). Foto P22-P23 menunjukkan unit marine dengan pompa bundar berflens di depan kanan bawah (identifikasi sebagai SW pump dari evidence-foto2, OBSERVED).",
+  "susunan": "Seri (default S1 hlm. 34: aftercooler HEX 'low temp' dulu, lalu jacket water HEX 'high temp') atau paralel (S1 hlm. 35). Susunan pada 3512C tidak tertulis; model memakai seri dengan label INFERRED.",
+  "sumber_tambahan": {
+   "id": "S1",
+   "url": "https://www.pon-cat.com/application/files/5616/7524/4531/LEBM0025_-_Marine_Commissioning_Procedure.pdf",
+   "local": "/tmp/claude-0/c3512/doc/sys/LEBM0025.pdf",
+   "pages_opened": "hlm. 27-35 (teks dan gambar hlm. 29, 33, 34, 35 dibuka)"
+  }
+ },
+ "nodes": [
+  {
+   "id": "sea_in",
+   "name": "Seawater supply (sea chest, katup isap kapal)",
+   "kind": "vessel_inlet",
+   "location_hint": "sisi kapal, di luar batas mesin",
+   "status": "DOCUMENTED",
+   "source_refs": [
+    {
+     "id": "S1",
+     "locator": "LEBM0025-03 Marine Commissioning Guide (pon-cat.com, sha256 1de52529...) hlm. 34 kotak 'Seawater Supply'; diagram/teks tipikal mesin marine Cat, tidak khusus 3512C"
+    }
+   ]
+  },
+  {
+   "id": "sw_strainer",
+   "name": "Saringan air laut (sea strainer)",
+   "kind": "strainer",
+   "location_hint": "sisi kapal",
+   "status": "INFERRED",
+   "source_refs": [
+    {
+     "id": "PRINSIP",
+     "locator": "prinsip umum instalasi air laut; tidak disebut di D01-D03 atau S1 hlm. 27-35"
+    }
+   ]
+  },
+  {
+   "id": "sw_pump",
+   "name": "Sea water pump (centrifugal, non-self-priming, engine-mounted)",
+   "kind": "pump",
+   "location_hint": "depan kanan bawah (P22, P23)",
+   "status": "DOCUMENTED",
+   "source_refs": [
+    {
+     "id": "D03",
+     "locator": "LEHM4885-03 hlm. 1 Cooling System 'centrifugal non-self-priming auxiliary sea water pump'; LW/COMM 'engine-mounted SW pump'; opsi 'High capacity engine-mounted SW pumps'"
+    },
+    {
+     "id": "D01",
+     "locator": "LEHM0180-00 hlm. 2 Optional 'Sea water pump'"
+    },
+    {
+     "id": "D02",
+     "locator": "LEHM22783-00 hlm. 1 Optional 'Sea water pump'"
+    },
+    {
+     "id": "S1",
+     "locator": "LEBM0025-03 Marine Commissioning Guide (pon-cat.com, sha256 1de52529...) hlm. 34 'Raw Water/Aftercooler Pump'; diagram/teks tipikal mesin marine Cat, tidak khusus 3512C"
+    },
+    {
+     "id": "P22",
+     "locator": "foto depan kanan bawah, pompa bundar berflens"
+    },
+    {
+     "id": "P23",
+     "locator": "foto kanan bawah"
+    }
+   ]
+  },
+  {
+   "id": "ac_hex",
+   "name": "Aftercooler (separate circuit) heat exchanger, sisi air laut",
+   "kind": "heat_exchanger",
+   "location_hint": "depan mesin",
+   "status": "DOCUMENTED",
+   "source_refs": [
+    {
+     "id": "S1",
+     "locator": "LEBM0025-03 Marine Commissioning Guide (pon-cat.com, sha256 1de52529...) hlm. 34 'Aftercooler Heat Exchanger'; diagram/teks tipikal mesin marine Cat, tidak khusus 3512C"
+    }
+   ]
+  },
+  {
+   "id": "jw_hex",
+   "name": "Jacket water heat exchanger, sisi air laut (plate-type opsional)",
+   "kind": "heat_exchanger",
+   "location_hint": "depan mesin di bawah tangki ekspansi (P22, P25)",
+   "status": "DOCUMENTED",
+   "source_refs": [
+    {
+     "id": "S1",
+     "locator": "LEBM0025-03 Marine Commissioning Guide (pon-cat.com, sha256 1de52529...) hlm. 34 'Jacket Water Heat Exchanger'; diagram/teks tipikal mesin marine Cat, tidak khusus 3512C"
+    },
+    {
+     "id": "D03",
+     "locator": "LEHM4885-03 hlm. 1 'engine-mounted ... heat exchanger'; opsi plate-type dengan integrated fuel cooler"
+    },
+    {
+     "id": "P25",
+     "locator": "foto inti bersirip"
+    }
+   ]
+  },
+  {
+   "id": "fuel_cooler",
+   "name": "Fuel cooler terintegrasi pada plate-type HE (opsi)",
+   "kind": "heat_exchanger",
+   "location_hint": "menyatu dengan HE; posisi aliran tidak tertulis",
+   "status": "DOCUMENTED",
+   "source_refs": [
+    {
+     "id": "D03",
+     "locator": "LEHM4885-03 hlm. 1 Common Optional 'plate-type heat exchanger with integrated fuel cooler'"
+    }
+   ]
+  },
+  {
+   "id": "sea_out",
+   "name": "Seawater return (overboard)",
+   "kind": "vessel_outlet",
+   "location_hint": "sisi kapal",
+   "status": "DOCUMENTED",
+   "source_refs": [
+    {
+     "id": "S1",
+     "locator": "LEBM0025-03 Marine Commissioning Guide (pon-cat.com, sha256 1de52529...) hlm. 34 'Seawater Return'; diagram/teks tipikal mesin marine Cat, tidak khusus 3512C"
+    }
+   ]
+  }
+ ],
+ "edges": [
+  {
+   "from": "sea_in",
+   "to": "sw_strainer",
+   "purpose": "menyaring air laut sebelum pompa",
+   "operating_condition": "mesin hidup",
+   "status": "INFERRED",
+   "source_refs": [
+    {
+     "id": "PRINSIP",
+     "locator": "prinsip umum; tidak tertulis di sumber"
+    }
+   ]
+  },
+  {
+   "from": "sw_strainer",
+   "to": "sw_pump",
+   "purpose": "isap pompa air laut",
+   "operating_condition": "pompa non-self-priming: sisi isap harus terisi (INFERRED dari D03 'non-self-priming')",
+   "status": "INFERRED",
+   "source_refs": [
+    {
+     "id": "S1",
+     "locator": "LEBM0025-03 Marine Commissioning Guide (pon-cat.com, sha256 1de52529...) hlm. 34 diagram Seawater Supply -> pump (965/966 di inlet pompa); diagram/teks tipikal mesin marine Cat, tidak khusus 3512C"
+    },
+    {
+     "id": "D03",
+     "locator": "LEHM4885-03 hlm. 1"
+    }
+   ]
+  },
+  {
+   "from": "sw_pump",
+   "to": "ac_hex",
+   "purpose": "air laut ke HEX aftercooler (low temp) lebih dulu",
+   "operating_condition": "susunan seri (S1 tipikal)",
+   "status": "INFERRED",
+   "source_refs": [
+    {
+     "id": "S1",
+     "locator": "LEBM0025-03 Marine Commissioning Guide (pon-cat.com, sha256 1de52529...) hlm. 34 diagram seri; 954 'Raw / sea water temp to HEX inlet (low temp or parallel)'; diagram/teks tipikal mesin marine Cat, tidak khusus 3512C"
+    }
+   ]
+  },
+  {
+   "from": "ac_hex",
+   "to": "jw_hex",
+   "purpose": "air laut dari HEX aftercooler ke HEX jacket water (high temp)",
+   "operating_condition": "susunan seri",
+   "status": "INFERRED",
+   "source_refs": [
+    {
+     "id": "S1",
+     "locator": "LEBM0025-03 Marine Commissioning Guide (pon-cat.com, sha256 1de52529...) hlm. 34 diagram seri; diagram/teks tipikal mesin marine Cat, tidak khusus 3512C"
+    }
+   ]
+  },
+  {
+   "from": "jw_hex",
+   "to": "sea_out",
+   "purpose": "air laut keluar ke overboard",
+   "operating_condition": "susunan seri",
+   "status": "INFERRED",
+   "source_refs": [
+    {
+     "id": "S1",
+     "locator": "LEBM0025-03 Marine Commissioning Guide (pon-cat.com, sha256 1de52529...) hlm. 34 957/964 'from HEX outlet (high temp or parallel)'; diagram/teks tipikal mesin marine Cat, tidak khusus 3512C"
+    }
+   ]
+  },
+  {
+   "from": "sw_pump",
+   "to": "jw_hex",
+   "purpose": "cabang paralel ke HEX jacket water",
+   "operating_condition": "hanya bila susunan paralel",
+   "status": "INFERRED",
+   "source_refs": [
+    {
+     "id": "S1",
+     "locator": "LEBM0025-03 Marine Commissioning Guide (pon-cat.com, sha256 1de52529...) hlm. 35 diagram paralel; diagram/teks tipikal mesin marine Cat, tidak khusus 3512C"
+    }
+   ]
+  },
+  {
+   "from": "ac_hex",
+   "to": "sea_out",
+   "purpose": "keluar dari HEX aftercooler pada susunan paralel",
+   "operating_condition": "hanya bila paralel",
+   "status": "INFERRED",
+   "source_refs": [
+    {
+     "id": "S1",
+     "locator": "LEBM0025-03 Marine Commissioning Guide (pon-cat.com, sha256 1de52529...) hlm. 35; diagram/teks tipikal mesin marine Cat, tidak khusus 3512C"
+    }
+   ]
+  },
+  {
+   "from": "sw_pump",
+   "to": "fuel_cooler",
+   "purpose": "pendinginan bahan bakar",
+   "operating_condition": "hanya opsi plate-type HE dengan fuel cooler; posisi dalam aliran tidak tertulis",
+   "status": "UNKNOWN",
+   "source_refs": [
+    {
+     "id": "D03",
+     "locator": "LEHM4885-03 hlm. 1"
+    }
+   ]
+  }
+ ],
+ "gaps": [
+  "Susunan seri vs paralel untuk 3512C tidak tertulis; diagram S1 tipikal lintas model.",
+  "Sea chest, katup, saringan, anoda seng, pipa overboard, dan ukuran sambungan: tidak ada di sumber yang dibuka (strainer = INFERRED).",
+  "Posisi fuel cooler pada jalur air laut dan apakah ada di unit foto: UNKNOWN.",
+  "Pada konfigurasi keel cooled tidak ada node air laut milik mesin; sistem kapal di luar lingkup.",
+  "Arah putar dan penggerak SW pump (roda gigi, belt, atau accessory drive) tidak tertulis; D03 hanya menyebut 'engine-mounted' dan accessory drives lower RH/LH.",
+  "Jalur pipa pada foto P22-P23 tidak dilacak; tidak ada arah aliran dari foto."
+ ]
+}

@@ -1,0 +1,6 @@
+# Kriteria penerimaan r05
+- Impor ulang kedua GLB final dan ikat semua hasil ke SHA-256. Bandingkan area intake terhadap r04 dengan kamera dan fokus identik.
+- Klasifikasikan persinggungan segitiga berdasarkan posisi dan fungsi. Dudukan, gasket, ikatan/ulir yang disederhanakan dan sentuhan pemasangan memerlukan alasan. Penetrasi obstruktif, lintasan yang tersumbat, dan poros yang menggesek housing adalah cacat yang harus ditinjau.
+- Sapu semua pasangan pada keadaan rakit dan pasangan bergerak terhadap seluruh rakitan dalam 720° poros engkol. Cantumkan interval, uji penetrasi terkurung jika relevan, serta persinggungan baru/berulang. Sampel tidak membuktikan kestabilan kontinu.
+- Gunakan transform aktual setelah GLTFLoader dan tick viewer. Uji sumbu, titik pivot, arah dan rasio dengan diagram sumber. Pastikan rumah, pipa, filter dan pengencang terpasang diam kecuali menempel pada komponen yang memang bergerak. Turbo yang berputar ilustratif tidak punya rasio tetap terhadap crank. Klaim arah/rasio tak bersumber tetap UNVERIFIED.
+- Verifikasi Uraikan/Potongan dan Operasi di browser desktop/HP jika tersedia. Bedakan hasil logic harness, render Blender dan WebGL perangkat; pertahankan keterbatasan r04 terkait OEM, hal tersembunyi, kebocoran dan fungsi fluida.

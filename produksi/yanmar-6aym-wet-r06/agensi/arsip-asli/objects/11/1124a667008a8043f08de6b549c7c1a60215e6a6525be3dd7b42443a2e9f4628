@@ -1,0 +1,362 @@
+{
+  "id": "RAK-AIRCOOLER",
+  "nama": "Air cooler / intercooler",
+  "node_rakitan": "RAK-AIRCOOLER",
+  "parent_rakitan": "RAK-INTAKE",
+  "status": "UNVERIFIED",
+  "source_refs": [
+    "D05 Parts Catalog 0CG10-M34300EN / Fig. 37 AIR COOLER, column A 6AYM-WET",
+    "D05-37 exploded image / original OEM callouts; geometry schematic",
+    "P18 / actual WET H flywheel end and end covers"
+  ],
+  "acuan": {
+    "no": 1,
+    "object_ids": [
+      "EXT-INTAKE-02"
+    ]
+  },
+  "diagram": {
+    "arah_pandang": [
+      -0.76,
+      0.32,
+      -0.566
+    ],
+    "atas": [
+      0,
+      1,
+      0
+    ]
+  },
+  "bagian": [
+    {
+      "no": 1,
+      "nama": "Rumah air cooler",
+      "object_ids": [
+        "EXT-INTAKE-02"
+      ],
+      "posisi": [],
+      "status": "ESTIMATED",
+      "role": "shell",
+      "sumber": [
+        "D05 Parts Catalog 0CG10-M34300EN / Fig. 37 AIR COOLER, column A 6AYM-WET",
+        "D05-37 exploded image / original OEM callouts; geometry schematic",
+        "P18 / actual WET H flywheel end and end covers"
+      ],
+      "fungsi": "No. 2. Coran berlubang dengan plenum udara dan dudukan insert. Dimensi pukal mengikuti P18/GA. Bentuk rongga ditafsirkan.",
+      "nomor_oem": "148699-18500",
+      "ukuran": null
+    },
+    {
+      "no": 2,
+      "nama": "Tutup air cooler sisi operasi",
+      "object_ids": [
+        "EXT-INTAKE-06"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-INTAKE-06",
+          "arah": [
+            0,
+            0,
+            -1
+          ],
+          "jarak_m": 0.98,
+          "urutan": 2
+        }
+      ],
+      "status": "ESTIMATED",
+      "role": "cover",
+      "sumber": [
+        "D05 Parts Catalog 0CG10-M34300EN / Fig. 37 AIR COOLER, column A 6AYM-WET",
+        "D05-37 exploded image / original OEM callouts; geometry schematic",
+        "P18 / actual WET H flywheel end and end covers"
+      ],
+      "fungsi": "No. 3. Tutup ruang air berkaitan dengan rib pemisah dan dua sambungan; profil port dimodelkan dari skema dan foto.",
+      "nomor_oem": "148699-18510",
+      "ukuran": null
+    },
+    {
+      "no": 3,
+      "nama": "Tutup balik air cooler",
+      "object_ids": [
+        "EXT-INTAKE-07"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-INTAKE-07",
+          "arah": [
+            0,
+            0,
+            1
+          ],
+          "jarak_m": 0.3,
+          "urutan": 2
+        }
+      ],
+      "status": "ESTIMATED",
+      "role": "cover",
+      "sumber": [
+        "D05 Parts Catalog 0CG10-M34300EN / Fig. 37 AIR COOLER, column A 6AYM-WET",
+        "D05-37 exploded image / original OEM callouts; geometry schematic",
+        "P18 / actual WET H flywheel end and end covers"
+      ],
+      "fungsi": "No. 4. Tutup kubah pada sisi non-operasi dengan dua boss; detail port tidak berdimensi.",
+      "nomor_oem": "148660-18520",
+      "ukuran": null
+    },
+    {
+      "no": 4,
+      "nama": "Bundel inti air cooler",
+      "object_ids": [
+        "EXT-INTAKE-08"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-INTAKE-08",
+          "arah": [
+            0,
+            0,
+            -1
+          ],
+          "jarak_m": 0.69,
+          "urutan": 3
+        }
+      ],
+      "status": "ESTIMATED",
+      "role": "core",
+      "sumber": [
+        "D05 Parts Catalog 0CG10-M34300EN / Fig. 37 AIR COOLER, column A 6AYM-WET",
+        "D05-37 exploded image / original OEM callouts; geometry schematic"
+      ],
+      "fungsi": "No. 5. Tabung lurus longitudinal, dua pelat ujung berlubang, dan penahan yang terlihat di skema. Jumlah 91 tabung, pitch, radius dan posisi penahan pada model adalah estimasi edukasi.",
+      "nomor_oem": "133615-18621",
+      "ukuran": null
+    },
+    {
+      "no": 5,
+      "nama": "O-ring tutup sisi operasi",
+      "object_ids": [
+        "EXT-INTAKE-09"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-INTAKE-09",
+          "arah": [
+            0,
+            0,
+            -1
+          ],
+          "jarak_m": 0.84,
+          "urutan": 2
+        }
+      ],
+      "status": "ESTIMATED",
+      "role": "seal",
+      "sumber": [
+        "D05 Parts Catalog 0CG10-M34300EN / Fig. 37 AIR COOLER, column A 6AYM-WET",
+        "D05-37 exploded image / original OEM callouts; geometry schematic"
+      ],
+      "fungsi": "No. 8. Tiga O-ring D05; penampang dan dudukan geometri diperkirakan.",
+      "nomor_oem": "24326-001900",
+      "ukuran": null
+    },
+    {
+      "no": 6,
+      "nama": "O-ring tutup sisi non-operasi",
+      "object_ids": [
+        "EXT-INTAKE-10"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-INTAKE-10",
+          "arah": [
+            0,
+            0,
+            1
+          ],
+          "jarak_m": 0.18,
+          "urutan": 2
+        }
+      ],
+      "status": "ESTIMATED",
+      "role": "seal",
+      "sumber": [
+        "D05 Parts Catalog 0CG10-M34300EN / Fig. 37 AIR COOLER, column A 6AYM-WET",
+        "D05-37 exploded image / original OEM callouts; geometry schematic"
+      ],
+      "fungsi": "No. 8. Tiga O-ring D05; penampang dan dudukan geometri diperkirakan.",
+      "nomor_oem": "24326-001900",
+      "ukuran": null
+    },
+    {
+      "no": 7,
+      "nama": "O-ring keliling bundel inti",
+      "object_ids": [
+        "EXT-INTAKE-11"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-INTAKE-11",
+          "arah": [
+            0,
+            0,
+            -1
+          ],
+          "jarak_m": 0.69,
+          "urutan": 3
+        }
+      ],
+      "status": "ESTIMATED",
+      "role": "seal",
+      "sumber": [
+        "D05 Parts Catalog 0CG10-M34300EN / Fig. 37 AIR COOLER, column A 6AYM-WET",
+        "D05-37 exploded image / original OEM callouts; geometry schematic"
+      ],
+      "fungsi": "No. 8. Tiga O-ring D05; penampang dan dudukan geometri diperkirakan.",
+      "nomor_oem": "24326-001900",
+      "ukuran": null
+    },
+    {
+      "no": 8,
+      "nama": "Set baut tutup sisi operasi",
+      "object_ids": [
+        "EXT-INTAKE-12"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-INTAKE-12",
+          "arah": [
+            0,
+            0,
+            -1
+          ],
+          "jarak_m": 1.12,
+          "urutan": 1
+        }
+      ],
+      "status": "ESTIMATED",
+      "role": "fastener",
+      "sumber": [
+        "D05 Parts Catalog 0CG10-M34300EN / Fig. 37 AIR COOLER, column A 6AYM-WET",
+        "D05-37 exploded image / original OEM callouts; geometry schematic"
+      ],
+      "fungsi": "No. 13 dan 14. Jumlah gabungan 8 × M10X35 dan 4 × M10X75. Pembagian menurut sisi dan posisi model diperkirakan. Ulir disederhanakan.",
+      "nomor_oem": null,
+      "ukuran": null
+    },
+    {
+      "no": 9,
+      "nama": "Set baut tutup sisi non-operasi",
+      "object_ids": [
+        "EXT-INTAKE-13"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-INTAKE-13",
+          "arah": [
+            0,
+            0,
+            1
+          ],
+          "jarak_m": 0.39,
+          "urutan": 1
+        }
+      ],
+      "status": "ESTIMATED",
+      "role": "fastener",
+      "sumber": [
+        "D05 Parts Catalog 0CG10-M34300EN / Fig. 37 AIR COOLER, column A 6AYM-WET",
+        "D05-37 exploded image / original OEM callouts; geometry schematic"
+      ],
+      "fungsi": "No. 13 dan 14. Jumlah gabungan 8 × M10X35 dan 4 × M10X75. Pembagian menurut sisi dan posisi model diperkirakan. Ulir disederhanakan.",
+      "nomor_oem": null,
+      "ukuran": null
+    },
+    {
+      "no": 10,
+      "nama": "Katup auto drain air cooler",
+      "object_ids": [
+        "EXT-INTAKE-14"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-INTAKE-14",
+          "arah": [
+            0,
+            -1,
+            0
+          ],
+          "jarak_m": 0.14,
+          "urutan": 1
+        }
+      ],
+      "status": "ESTIMATED",
+      "role": "drain",
+      "sumber": [
+        "D05 Parts Catalog 0CG10-M34300EN / Fig. 37 AIR COOLER, column A 6AYM-WET",
+        "D05-37 exploded image / original OEM callouts; geometry schematic",
+        "P18 / actual WET H flywheel end and end covers"
+      ],
+      "fungsi": "No. 15. Auto drain terletak di bawah housing. Mekanisme katup internal tidak tersedia.",
+      "nomor_oem": "148660-18640",
+      "ukuran": null
+    },
+    {
+      "no": 11,
+      "nama": "Rib pemisah ruang air",
+      "object_ids": [
+        "EXT-INTAKE-15"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-INTAKE-15",
+          "arah": [
+            0,
+            0,
+            -1
+          ],
+          "jarak_m": 0.76,
+          "urutan": 2
+        }
+      ],
+      "status": "ESTIMATED",
+      "role": "divider",
+      "sumber": [
+        "D05 Parts Catalog 0CG10-M34300EN / Fig. 37 AIR COOLER, column A 6AYM-WET",
+        "D05-37 exploded image / original OEM callouts; geometry schematic"
+      ],
+      "fungsi": "No. 6. Tujuan visual membagi ruang tutup sisi operasi. Profil penampang dan orientasi putar tidak dipastikan.",
+      "nomor_oem": "133615-18970",
+      "ukuran": null
+    },
+    {
+      "no": 12,
+      "nama": "Seal rib pemisah",
+      "object_ids": [
+        "EXT-INTAKE-16"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-INTAKE-16",
+          "arah": [
+            0,
+            0,
+            -1
+          ],
+          "jarak_m": 0.8,
+          "urutan": 2
+        }
+      ],
+      "status": "ESTIMATED",
+      "role": "seal",
+      "sumber": [
+        "D05 Parts Catalog 0CG10-M34300EN / Fig. 37 AIR COOLER, column A 6AYM-WET",
+        "D05-37 exploded image / original OEM callouts; geometry schematic"
+      ],
+      "fungsi": "No. 7. Seal memanjang di dekat bidang penutup. Geometri penerapan ditafsirkan.",
+      "nomor_oem": "133615-18980",
+      "ukuran": null
+    }
+  ],
+  "notes": "Nomor posisi model. Gerak aksial mengikuti sisi tutup no. 3 yang diperlihatkan pada diagram. Urutan hanya untuk pembelajaran. Jalur internal, geometri segel dan jumlah tabung berbasis interpretasi visual; bentuk dan jumlah tabung model bukan spesifikasi OEM."
+}

@@ -1,0 +1,87 @@
+{
+  "revision": "r04",
+  "machine_model": "Yanmar 6AYM-WET H 555 kW engine-only",
+  "glb_sha256": "e860291eac958af9bba6566891d6462e47d1c7694921c424dc702695fb02e887",
+  "r03_baseline_sha256": "153c7f88e907a9832d11cd05ad4f822332aae1667506cc1a902dbefa648a67ad",
+  "route_sha256": "0830845dd4b9903bb19d329b8839e6c69a937821cfc4485c434fbe521d8f2225",
+  "status": "FAIL",
+  "visual_status": "UNVERIFIED",
+  "dimensions": [
+    {
+      "feature": "Panjang nominal engine-only",
+      "nominal_mm": 2000,
+      "measured_mm": 2002.676964,
+      "difference_pct": 0.133848,
+      "status": "PASS",
+      "source": "GA01 / rantai 520 + 1000 + 480; D03 PDF 17 printed p.32"
+    },
+    {
+      "feature": "Lebar nominal engine-only",
+      "nominal_mm": 1305,
+      "measured_mm": 1305.145383,
+      "difference_pct": 0.01114,
+      "status": "PASS",
+      "source": "GA01 Front view; D03 PDF 17 printed p.32"
+    },
+    {
+      "feature": "Tinggi nominal engine-only",
+      "nominal_mm": 1431,
+      "measured_mm": 1541.000009,
+      "difference_pct": 7.686933,
+      "status": "FAIL",
+      "source": "D03 PDF 17 printed p.32 dan p.33, GA01"
+    },
+    {
+      "feature": "Tinggi fisik termasuk flange exhaust menurut proyeksi GA",
+      "nominal_mm": 1540.0,
+      "measured_mm": 1541.000009,
+      "difference_pct": 0.064936,
+      "status": "PASS",
+      "source": "GA01 / 817+171.5 di atas crank + 551.5 di bawah crank. D03 pembulatan ke 989 dan 552."
+    }
+  ],
+  "dimensions_scope": "Tinggi fisik hingga flange exhaust sekitar 1541 mm. Dasar perbedaan dengan tinggi katalog 1431 mm masih terbuka.",
+  "catalog_fig36": {
+    "scope_anchor": "EXT-INTAKE-05",
+    "nested_recipe": "../assemblies/RAK-CHARGEDUCT.json",
+    "node_count": 41,
+    "drawings": "D05 Fig. 36 posisi 1–7, kolom WET",
+    "assembled": "renders-r04-charge-duct/assembled.png",
+    "exploded": "renders-r04-charge-duct/exploded.png",
+    "inspected": true,
+    "note": "Tiga duct kaku, dua expansion joint, empat gasket, dan 16 pasang baut–mur. Serial, ukuran lokal, kurva pipa, dan lintasan servis OEM belum terverifikasi."
+  },
+  "export": {
+    "mesh_count": 358,
+    "node_count": 394,
+    "triangles": 868129,
+    "r03_nested_preserved": 54,
+    "r04_nested_total": 55,
+    "stable_selection_check": "compatibility-r04.json",
+    "manifest": "hashes-r04.txt",
+    "retired_coolant_proxy": "EXT-COOLING-07 digantikan oleh EXT-COOLING-302 dan termostat EXT-COOLING-55 hingga 60."
+  },
+  "alignment": {
+    "graph_and_geometry_source_check": "source-sync-r04.json",
+    "route_count": 163,
+    "physical_route_segments": 29,
+    "port_count": 160,
+    "result": "Titik sampel jalur fisik, ID mesh, dan komponen dalam data sumber cocok dengan graf viewer. Titik akhir sesuai titik port yang dideklarasikan dalam ambang hitung 0,2 mm.",
+    "limits": "Posisi port di dalam casting dan jalur yang tersembunyi adalah estimasi atau skematis sesuai register. Kecocokan data belum menunjukkan kedap fluida, sambungan OEM, atau kebenaran dinamika aliran."
+  },
+  "host_surfaces": {
+    "report": "host-surfaces-r04.json",
+    "sample_count_r03_to_r04": 157747,
+    "limits": "Blender BVH nearest world surface at vertices and triangle centroids, excluding each recorded port neighborhood. Volume is an oriented surface sum across overlapping component shells, not a solid Boolean volume measurement.",
+    "observation": "Batas luar keenam kepala, intake manifold, air cooler dan blok tetap sama. Perbedaan permukaan lokal yang terukur di luar area port dijelaskan dalam laporan."
+  },
+  "render_comparison": {
+    "settings": "renders-r04/render-settings.json",
+    "inspected": true,
+    "neutral": "renders-r04/compare-r03-neutral.jpg",
+    "color": "renders-r04/compare-r03-color.jpg",
+    "observation": "Perbandingan enam arah dengan r03 memperlihatkan casting utama tetap terlihat utuh. Perubahan siluet terkonsentrasi pada rute pipa, flensa jalur udara, dan rail pendingin lama yang dipensiunkan."
+  },
+  "coverage": "../../qa/coverage/assembly-coverage.json",
+  "independent_qa": "Pemeriksaan kontak, jalur berongga, dan perilaku viewer dinilai terpisah di folder QA r04."
+}

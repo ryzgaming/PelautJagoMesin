@@ -1,0 +1,1374 @@
+{
+  "id": "RAK-CHARGEDUCT",
+  "nama": "Duct udara pengisian dan expansion joint · Fig. 36",
+  "node_rakitan": "RAK-CHARGEDUCT",
+  "parent_rakitan": "RAK-INTAKE",
+  "status": "ESTIMATED",
+  "source_refs": [
+    "D05 Fig. 36 AIR DUCT, AIR HEATER, ref. 1–7 / 6AYM-WET",
+    "D01 PDF 14, 163, 170–171 / air cooler, turbocharger"
+  ],
+  "acuan": {
+    "no": 1,
+    "object_ids": [
+      "EXT-INTAKE-05"
+    ]
+  },
+  "diagram": {
+    "arah_pandang": [
+      0.38,
+      0.43,
+      0.82
+    ],
+    "atas": [
+      0,
+      1,
+      0
+    ]
+  },
+  "bagian": [
+    {
+      "no": 1,
+      "nama": "Duct pangkal kompresor",
+      "object_ids": [
+        "EXT-INTAKE-05"
+      ],
+      "role": "pipe",
+      "status": "ESTIMATED",
+      "nomor_oem": "148660-18111",
+      "ukuran": null,
+      "source_ref_pos": 1,
+      "source_refs": [
+        "D05 Fig. 36 AIR DUCT, AIR HEATER, ref. 1–7 / 6AYM-WET / posisi 1",
+        "D01 PDF 14, 163, 170–171 / air cooler, turbocharger"
+      ],
+      "sumber": [
+        "D05 Fig. 36 AIR DUCT, AIR HEATER, ref. 1–7 / 6AYM-WET / posisi 1",
+        "D01 PDF 14, 163, 170–171 / air cooler, turbocharger"
+      ],
+      "fungsi": "Tiga duct terhubung berurutan melalui dua expansion joint. Empat bidang gasket dan lubang baut terbuka dimodelkan. Jarak antarmuka, orientasi, dimensi bore dan bentuk lipatan diestimasi dari ilustrasi.",
+      "posisi": []
+    },
+    {
+      "no": 2,
+      "nama": "Duct tengah dua flensa",
+      "object_ids": [
+        "EXT-INTAKE-50"
+      ],
+      "role": "pipe",
+      "status": "ESTIMATED",
+      "nomor_oem": "148660-18151",
+      "ukuran": null,
+      "source_ref_pos": 2,
+      "source_refs": [
+        "D05 Fig. 36 AIR DUCT, AIR HEATER, ref. 1–7 / 6AYM-WET / posisi 2",
+        "D01 PDF 14, 163, 170–171 / air cooler, turbocharger"
+      ],
+      "sumber": [
+        "D05 Fig. 36 AIR DUCT, AIR HEATER, ref. 1–7 / 6AYM-WET / posisi 2",
+        "D01 PDF 14, 163, 170–171 / air cooler, turbocharger"
+      ],
+      "fungsi": "Tiga duct terhubung berurutan melalui dua expansion joint. Empat bidang gasket dan lubang baut terbuka dimodelkan. Jarak antarmuka, orientasi, dimensi bore dan bentuk lipatan diestimasi dari ilustrasi.",
+      "posisi": [
+        {
+          "object_id": "EXT-INTAKE-50",
+          "arah": [
+            -0.9878783822059631,
+            0.10976425558328629,
+            -0.10976425558328629
+          ],
+          "jarak_m": 0.3644173476672909,
+          "urutan": 3
+        }
+      ]
+    },
+    {
+      "no": 3,
+      "nama": "Duct siku masuk air cooler",
+      "object_ids": [
+        "EXT-INTAKE-51"
+      ],
+      "role": "pipe",
+      "status": "ESTIMATED",
+      "nomor_oem": "148660-18122",
+      "ukuran": null,
+      "source_ref_pos": 7,
+      "source_refs": [
+        "D05 Fig. 36 AIR DUCT, AIR HEATER, ref. 1–7 / 6AYM-WET / posisi 7",
+        "D01 PDF 14, 163, 170–171 / air cooler, turbocharger"
+      ],
+      "sumber": [
+        "D05 Fig. 36 AIR DUCT, AIR HEATER, ref. 1–7 / 6AYM-WET / posisi 7",
+        "D01 PDF 14, 163, 170–171 / air cooler, turbocharger"
+      ],
+      "fungsi": "Tiga duct terhubung berurutan melalui dua expansion joint. Empat bidang gasket dan lubang baut terbuka dimodelkan. Jarak antarmuka, orientasi, dimensi bore dan bentuk lipatan diestimasi dari ilustrasi.",
+      "posisi": [
+        {
+          "object_id": "EXT-INTAKE-51",
+          "arah": [
+            -0.9906155467033386,
+            0.09664542227983475,
+            -0.09664542227983475
+          ],
+          "jarak_m": 0.8277680818851536,
+          "urutan": 8
+        }
+      ]
+    },
+    {
+      "no": 4,
+      "nama": "Expansion joint udara 1",
+      "object_ids": [
+        "EXT-INTAKE-52"
+      ],
+      "role": "coupling",
+      "status": "ESTIMATED",
+      "nomor_oem": "126684-18900",
+      "ukuran": null,
+      "source_ref_pos": 3,
+      "source_refs": [
+        "D05 Fig. 36 AIR DUCT, AIR HEATER, ref. 1–7 / 6AYM-WET / posisi 3",
+        "D01 PDF 14, 163, 170–171 / air cooler, turbocharger"
+      ],
+      "sumber": [
+        "D05 Fig. 36 AIR DUCT, AIR HEATER, ref. 1–7 / 6AYM-WET / posisi 3",
+        "D01 PDF 14, 163, 170–171 / air cooler, turbocharger"
+      ],
+      "fungsi": "Sambungan fleksibel berongga dengan dua flensa dan lipatan elastis. Profil dan bahan visual diestimasi.",
+      "posisi": [
+        {
+          "object_id": "EXT-INTAKE-52",
+          "arah": [
+            -0.9694521427154541,
+            0.1425664871931076,
+            -0.19959308207035065
+          ],
+          "jarak_m": 0.1753567827511095,
+          "urutan": 4
+        }
+      ]
+    },
+    {
+      "no": 5,
+      "nama": "Gasket joint 1 sisi 1",
+      "object_ids": [
+        "EXT-INTAKE-54"
+      ],
+      "role": "seal",
+      "status": "ESTIMATED",
+      "nomor_oem": "126684-18911",
+      "ukuran": null,
+      "source_ref_pos": 4,
+      "source_refs": [
+        "D05 Fig. 36 AIR DUCT, AIR HEATER, ref. 1–7 / 6AYM-WET / posisi 4",
+        "D01 PDF 14, 163, 170–171 / air cooler, turbocharger"
+      ],
+      "sumber": [
+        "D05 Fig. 36 AIR DUCT, AIR HEATER, ref. 1–7 / 6AYM-WET / posisi 4",
+        "D01 PDF 14, 163, 170–171 / air cooler, turbocharger"
+      ],
+      "fungsi": "Merapatkan kedua muka flensa, dengan satu bore aliran dan empat clearance bolt.",
+      "posisi": [
+        {
+          "object_id": "EXT-INTAKE-54",
+          "arah": [
+            -0.9815006852149963,
+            0.1894082874059677,
+            -0.02794400230050087
+          ],
+          "jarak_m": 0.1400900520108503,
+          "urutan": 5
+        }
+      ]
+    },
+    {
+      "no": 6,
+      "nama": "Baut M10 × 40 joint 1.1.1",
+      "object_ids": [
+        "EXT-INTAKE-58"
+      ],
+      "role": "fastener",
+      "status": "ESTIMATED",
+      "nomor_oem": "26106-100402",
+      "ukuran": null,
+      "source_ref_pos": 5,
+      "source_refs": [
+        "D05 Fig. 36 AIR DUCT, AIR HEATER, ref. 1–7 / 6AYM-WET / posisi 5",
+        "D01 PDF 14, 163, 170–171 / air cooler, turbocharger"
+      ],
+      "sumber": [
+        "D05 Fig. 36 AIR DUCT, AIR HEATER, ref. 1–7 / 6AYM-WET / posisi 5",
+        "D01 PDF 14, 163, 170–171 / air cooler, turbocharger"
+      ],
+      "fungsi": "Mengikat dua flensa dan satu gasket. Panjang nominal baut 40 mm menurut katalog.",
+      "posisi": [
+        {
+          "object_id": "EXT-INTAKE-58",
+          "arah": [
+            -0.7703749537467957,
+            -0.10003937780857086,
+            0.6296939849853516
+          ],
+          "jarak_m": 0.13704952593441608,
+          "urutan": 2
+        }
+      ]
+    },
+    {
+      "no": 7,
+      "nama": "Mur M10 joint 1.1.1",
+      "object_ids": [
+        "EXT-INTAKE-74"
+      ],
+      "role": "fastener",
+      "status": "ESTIMATED",
+      "nomor_oem": "26366-100002",
+      "ukuran": null,
+      "source_ref_pos": 6,
+      "source_refs": [
+        "D05 Fig. 36 AIR DUCT, AIR HEATER, ref. 1–7 / 6AYM-WET / posisi 6",
+        "D01 PDF 14, 163, 170–171 / air cooler, turbocharger"
+      ],
+      "sumber": [
+        "D05 Fig. 36 AIR DUCT, AIR HEATER, ref. 1–7 / 6AYM-WET / posisi 6",
+        "D01 PDF 14, 163, 170–171 / air cooler, turbocharger"
+      ],
+      "fungsi": "Mur M10 duduk pada muka luar flensa joint. Profil ulir tidak disimulasikan.",
+      "posisi": [
+        {
+          "object_id": "EXT-INTAKE-74",
+          "arah": [
+            -0.9933574795722961,
+            -0.08768922090530396,
+            -0.07450837641954422
+          ],
+          "jarak_m": 0.21389422017220855,
+          "urutan": 1
+        }
+      ]
+    },
+    {
+      "no": 8,
+      "nama": "Baut M10 × 40 joint 1.1.2",
+      "object_ids": [
+        "EXT-INTAKE-59"
+      ],
+      "role": "fastener",
+      "status": "ESTIMATED",
+      "nomor_oem": "26106-100402",
+      "ukuran": null,
+      "source_ref_pos": 5,
+      "source_refs": [
+        "D05 Fig. 36 AIR DUCT, AIR HEATER, ref. 1–7 / 6AYM-WET / posisi 5",
+        "D01 PDF 14, 163, 170–171 / air cooler, turbocharger"
+      ],
+      "sumber": [
+        "D05 Fig. 36 AIR DUCT, AIR HEATER, ref. 1–7 / 6AYM-WET / posisi 5",
+        "D01 PDF 14, 163, 170–171 / air cooler, turbocharger"
+      ],
+      "fungsi": "Mengikat dua flensa dan satu gasket. Panjang nominal baut 40 mm menurut katalog.",
+      "posisi": [
+        {
+          "object_id": "EXT-INTAKE-59",
+          "arah": [
+            -0.8572437763214111,
+            -0.25576430559158325,
+            0.44689786434173584
+          ],
+          "jarak_m": 0.053605406485535086,
+          "urutan": 2
+        }
+      ]
+    },
+    {
+      "no": 9,
+      "nama": "Mur M10 joint 1.1.2",
+      "object_ids": [
+        "EXT-INTAKE-75"
+      ],
+      "role": "fastener",
+      "status": "ESTIMATED",
+      "nomor_oem": "26366-100002",
+      "ukuran": null,
+      "source_ref_pos": 6,
+      "source_refs": [
+        "D05 Fig. 36 AIR DUCT, AIR HEATER, ref. 1–7 / 6AYM-WET / posisi 6",
+        "D01 PDF 14, 163, 170–171 / air cooler, turbocharger"
+      ],
+      "sumber": [
+        "D05 Fig. 36 AIR DUCT, AIR HEATER, ref. 1–7 / 6AYM-WET / posisi 6",
+        "D01 PDF 14, 163, 170–171 / air cooler, turbocharger"
+      ],
+      "fungsi": "Mur M10 duduk pada muka luar flensa joint. Profil ulir tidak disimulasikan.",
+      "posisi": [
+        {
+          "object_id": "EXT-INTAKE-75",
+          "arah": [
+            -0.8847988247871399,
+            -0.10857591032981873,
+            -0.4531470835208893
+          ],
+          "jarak_m": 0.17274751004779645,
+          "urutan": 1
+        }
+      ]
+    },
+    {
+      "no": 10,
+      "nama": "Baut M10 × 40 joint 1.1.3",
+      "object_ids": [
+        "EXT-INTAKE-60"
+      ],
+      "role": "fastener",
+      "status": "ESTIMATED",
+      "nomor_oem": "26106-100402",
+      "ukuran": null,
+      "source_ref_pos": 5,
+      "source_refs": [
+        "D05 Fig. 36 AIR DUCT, AIR HEATER, ref. 1–7 / 6AYM-WET / posisi 5",
+        "D01 PDF 14, 163, 170–171 / air cooler, turbocharger"
+      ],
+      "sumber": [
+        "D05 Fig. 36 AIR DUCT, AIR HEATER, ref. 1–7 / 6AYM-WET / posisi 5",
+        "D01 PDF 14, 163, 170–171 / air cooler, turbocharger"
+      ],
+      "fungsi": "Mengikat dua flensa dan satu gasket. Panjang nominal baut 40 mm menurut katalog.",
+      "posisi": [
+        {
+          "object_id": "EXT-INTAKE-60",
+          "arah": [
+            -0.5358823537826538,
+            0.808158278465271,
+            0.24435675144195557
+          ],
+          "jarak_m": 0.0897182108734028,
+          "urutan": 2
+        }
+      ]
+    },
+    {
+      "no": 11,
+      "nama": "Mur M10 joint 1.1.3",
+      "object_ids": [
+        "EXT-INTAKE-76"
+      ],
+      "role": "fastener",
+      "status": "ESTIMATED",
+      "nomor_oem": "26366-100002",
+      "ukuran": null,
+      "source_ref_pos": 6,
+      "source_refs": [
+        "D05 Fig. 36 AIR DUCT, AIR HEATER, ref. 1–7 / 6AYM-WET / posisi 6",
+        "D01 PDF 14, 163, 170–171 / air cooler, turbocharger"
+      ],
+      "sumber": [
+        "D05 Fig. 36 AIR DUCT, AIR HEATER, ref. 1–7 / 6AYM-WET / posisi 6",
+        "D01 PDF 14, 163, 170–171 / air cooler, turbocharger"
+      ],
+      "fungsi": "Mur M10 duduk pada muka luar flensa joint. Profil ulir tidak disimulasikan.",
+      "posisi": [
+        {
+          "object_id": "EXT-INTAKE-76",
+          "arah": [
+            -0.8281545639038086,
+            0.360502153635025,
+            -0.4291832149028778
+          ],
+          "jarak_m": 0.18712969686534067,
+          "urutan": 1
+        }
+      ]
+    },
+    {
+      "no": 12,
+      "nama": "Baut M10 × 40 joint 1.1.4",
+      "object_ids": [
+        "EXT-INTAKE-61"
+      ],
+      "role": "fastener",
+      "status": "ESTIMATED",
+      "nomor_oem": "26106-100402",
+      "ukuran": null,
+      "source_ref_pos": 5,
+      "source_refs": [
+        "D05 Fig. 36 AIR DUCT, AIR HEATER, ref. 1–7 / 6AYM-WET / posisi 5",
+        "D01 PDF 14, 163, 170–171 / air cooler, turbocharger"
+      ],
+      "sumber": [
+        "D05 Fig. 36 AIR DUCT, AIR HEATER, ref. 1–7 / 6AYM-WET / posisi 5",
+        "D01 PDF 14, 163, 170–171 / air cooler, turbocharger"
+      ],
+      "fungsi": "Mengikat dua flensa dan satu gasket. Panjang nominal baut 40 mm menurut katalog.",
+      "posisi": [
+        {
+          "object_id": "EXT-INTAKE-61",
+          "arah": [
+            -0.6958364844322205,
+            0.46843376755714417,
+            0.5444091558456421
+          ],
+          "jarak_m": 0.15478498777747388,
+          "urutan": 2
+        }
+      ]
+    },
+    {
+      "no": 13,
+      "nama": "Mur M10 joint 1.1.4",
+      "object_ids": [
+        "EXT-INTAKE-77"
+      ],
+      "role": "fastener",
+      "status": "ESTIMATED",
+      "nomor_oem": "26366-100002",
+      "ukuran": null,
+      "source_ref_pos": 6,
+      "source_refs": [
+        "D05 Fig. 36 AIR DUCT, AIR HEATER, ref. 1–7 / 6AYM-WET / posisi 6",
+        "D01 PDF 14, 163, 170–171 / air cooler, turbocharger"
+      ],
+      "sumber": [
+        "D05 Fig. 36 AIR DUCT, AIR HEATER, ref. 1–7 / 6AYM-WET / posisi 6",
+        "D01 PDF 14, 163, 170–171 / air cooler, turbocharger"
+      ],
+      "fungsi": "Mur M10 duduk pada muka luar flensa joint. Profil ulir tidak disimulasikan.",
+      "posisi": [
+        {
+          "object_id": "EXT-INTAKE-77",
+          "arah": [
+            -0.9509450197219849,
+            0.298936128616333,
+            -0.07962898164987564
+          ],
+          "jarak_m": 0.22566913753060744,
+          "urutan": 1
+        }
+      ]
+    },
+    {
+      "no": 14,
+      "nama": "Gasket joint 1 sisi 2",
+      "object_ids": [
+        "EXT-INTAKE-55"
+      ],
+      "role": "seal",
+      "status": "ESTIMATED",
+      "nomor_oem": "126684-18911",
+      "ukuran": null,
+      "source_ref_pos": 4,
+      "source_refs": [
+        "D05 Fig. 36 AIR DUCT, AIR HEATER, ref. 1–7 / 6AYM-WET / posisi 4",
+        "D01 PDF 14, 163, 170–171 / air cooler, turbocharger"
+      ],
+      "sumber": [
+        "D05 Fig. 36 AIR DUCT, AIR HEATER, ref. 1–7 / 6AYM-WET / posisi 4",
+        "D01 PDF 14, 163, 170–171 / air cooler, turbocharger"
+      ],
+      "fungsi": "Merapatkan kedua muka flensa, dengan satu bore aliran dan empat clearance bolt.",
+      "posisi": [
+        {
+          "object_id": "EXT-INTAKE-55",
+          "arah": [
+            -0.9673729538917542,
+            0.06137321516871452,
+            -0.24581073224544525
+          ],
+          "jarak_m": 0.2165083453309852,
+          "urutan": 6
+        }
+      ]
+    },
+    {
+      "no": 15,
+      "nama": "Baut M10 × 40 joint 1.2.1",
+      "object_ids": [
+        "EXT-INTAKE-62"
+      ],
+      "role": "fastener",
+      "status": "ESTIMATED",
+      "nomor_oem": "26106-100402",
+      "ukuran": null,
+      "source_ref_pos": 5,
+      "source_refs": [
+        "D05 Fig. 36 AIR DUCT, AIR HEATER, ref. 1–7 / 6AYM-WET / posisi 5",
+        "D01 PDF 14, 163, 170–171 / air cooler, turbocharger"
+      ],
+      "sumber": [
+        "D05 Fig. 36 AIR DUCT, AIR HEATER, ref. 1–7 / 6AYM-WET / posisi 5",
+        "D01 PDF 14, 163, 170–171 / air cooler, turbocharger"
+      ],
+      "fungsi": "Mengikat dua flensa dan satu gasket. Panjang nominal baut 40 mm menurut katalog.",
+      "posisi": [
+        {
+          "object_id": "EXT-INTAKE-62",
+          "arah": [
+            -0.9749703407287598,
+            -0.16828154027462006,
+            -0.1453070044517517
+          ],
+          "jarak_m": 0.29843963138115065,
+          "urutan": 2
+        }
+      ]
+    },
+    {
+      "no": 16,
+      "nama": "Mur M10 joint 1.2.1",
+      "object_ids": [
+        "EXT-INTAKE-78"
+      ],
+      "role": "fastener",
+      "status": "ESTIMATED",
+      "nomor_oem": "26366-100002",
+      "ukuran": null,
+      "source_ref_pos": 6,
+      "source_refs": [
+        "D05 Fig. 36 AIR DUCT, AIR HEATER, ref. 1–7 / 6AYM-WET / posisi 6",
+        "D01 PDF 14, 163, 170–171 / air cooler, turbocharger"
+      ],
+      "sumber": [
+        "D05 Fig. 36 AIR DUCT, AIR HEATER, ref. 1–7 / 6AYM-WET / posisi 6",
+        "D01 PDF 14, 163, 170–171 / air cooler, turbocharger"
+      ],
+      "fungsi": "Mur M10 duduk pada muka luar flensa joint. Profil ulir tidak disimulasikan.",
+      "posisi": [
+        {
+          "object_id": "EXT-INTAKE-78",
+          "arah": [
+            -0.9921862483024597,
+            -0.07200592011213303,
+            0.10189076513051987
+          ],
+          "jarak_m": 0.16251166620718263,
+          "urutan": 1
+        }
+      ]
+    },
+    {
+      "no": 17,
+      "nama": "Baut M10 × 40 joint 1.2.2",
+      "object_ids": [
+        "EXT-INTAKE-63"
+      ],
+      "role": "fastener",
+      "status": "ESTIMATED",
+      "nomor_oem": "26106-100402",
+      "ukuran": null,
+      "source_ref_pos": 5,
+      "source_refs": [
+        "D05 Fig. 36 AIR DUCT, AIR HEATER, ref. 1–7 / 6AYM-WET / posisi 5",
+        "D01 PDF 14, 163, 170–171 / air cooler, turbocharger"
+      ],
+      "sumber": [
+        "D05 Fig. 36 AIR DUCT, AIR HEATER, ref. 1–7 / 6AYM-WET / posisi 5",
+        "D01 PDF 14, 163, 170–171 / air cooler, turbocharger"
+      ],
+      "fungsi": "Mengikat dua flensa dan satu gasket. Panjang nominal baut 40 mm menurut katalog.",
+      "posisi": [
+        {
+          "object_id": "EXT-INTAKE-63",
+          "arah": [
+            -0.8884344100952148,
+            -0.1751171201467514,
+            -0.4242855906486511
+          ],
+          "jarak_m": 0.2867902487288355,
+          "urutan": 2
+        }
+      ]
+    },
+    {
+      "no": 18,
+      "nama": "Mur M10 joint 1.2.2",
+      "object_ids": [
+        "EXT-INTAKE-79"
+      ],
+      "role": "fastener",
+      "status": "ESTIMATED",
+      "nomor_oem": "26366-100002",
+      "ukuran": null,
+      "source_ref_pos": 6,
+      "source_refs": [
+        "D05 Fig. 36 AIR DUCT, AIR HEATER, ref. 1–7 / 6AYM-WET / posisi 6",
+        "D01 PDF 14, 163, 170–171 / air cooler, turbocharger"
+      ],
+      "sumber": [
+        "D05 Fig. 36 AIR DUCT, AIR HEATER, ref. 1–7 / 6AYM-WET / posisi 6",
+        "D01 PDF 14, 163, 170–171 / air cooler, turbocharger"
+      ],
+      "fungsi": "Mur M10 duduk pada muka luar flensa joint. Profil ulir tidak disimulasikan.",
+      "posisi": [
+        {
+          "object_id": "EXT-INTAKE-79",
+          "arah": [
+            -0.8935026526451111,
+            -0.08360034227371216,
+            -0.4412073493003845
+          ],
+          "jarak_m": 0.13997313058293281,
+          "urutan": 1
+        }
+      ]
+    },
+    {
+      "no": 19,
+      "nama": "Baut M10 × 40 joint 1.2.3",
+      "object_ids": [
+        "EXT-INTAKE-64"
+      ],
+      "role": "fastener",
+      "status": "ESTIMATED",
+      "nomor_oem": "26106-100402",
+      "ukuran": null,
+      "source_ref_pos": 5,
+      "source_refs": [
+        "D05 Fig. 36 AIR DUCT, AIR HEATER, ref. 1–7 / 6AYM-WET / posisi 5",
+        "D01 PDF 14, 163, 170–171 / air cooler, turbocharger"
+      ],
+      "sumber": [
+        "D05 Fig. 36 AIR DUCT, AIR HEATER, ref. 1–7 / 6AYM-WET / posisi 5",
+        "D01 PDF 14, 163, 170–171 / air cooler, turbocharger"
+      ],
+      "fungsi": "Mengikat dua flensa dan satu gasket. Panjang nominal baut 40 mm menurut katalog.",
+      "posisi": [
+        {
+          "object_id": "EXT-INTAKE-64",
+          "arah": [
+            -0.8975172638893127,
+            0.10786742717027664,
+            -0.42758306860923767
+          ],
+          "jarak_m": 0.3065986475488223,
+          "urutan": 2
+        }
+      ]
+    },
+    {
+      "no": 20,
+      "nama": "Mur M10 joint 1.2.3",
+      "object_ids": [
+        "EXT-INTAKE-80"
+      ],
+      "role": "fastener",
+      "status": "ESTIMATED",
+      "nomor_oem": "26366-100002",
+      "ukuran": null,
+      "source_ref_pos": 6,
+      "source_refs": [
+        "D05 Fig. 36 AIR DUCT, AIR HEATER, ref. 1–7 / 6AYM-WET / posisi 6",
+        "D01 PDF 14, 163, 170–171 / air cooler, turbocharger"
+      ],
+      "sumber": [
+        "D05 Fig. 36 AIR DUCT, AIR HEATER, ref. 1–7 / 6AYM-WET / posisi 6",
+        "D01 PDF 14, 163, 170–171 / air cooler, turbocharger"
+      ],
+      "fungsi": "Mur M10 duduk pada muka luar flensa joint. Profil ulir tidak disimulasikan.",
+      "posisi": [
+        {
+          "object_id": "EXT-INTAKE-80",
+          "arah": [
+            -0.821519136428833,
+            0.4043617844581604,
+            -0.40199241042137146
+          ],
+          "jarak_m": 0.17704960806363768,
+          "urutan": 1
+        }
+      ]
+    },
+    {
+      "no": 21,
+      "nama": "Baut M10 × 40 joint 1.2.4",
+      "object_ids": [
+        "EXT-INTAKE-65"
+      ],
+      "role": "fastener",
+      "status": "ESTIMATED",
+      "nomor_oem": "26106-100402",
+      "ukuran": null,
+      "source_ref_pos": 5,
+      "source_refs": [
+        "D05 Fig. 36 AIR DUCT, AIR HEATER, ref. 1–7 / 6AYM-WET / posisi 5",
+        "D01 PDF 14, 163, 170–171 / air cooler, turbocharger"
+      ],
+      "sumber": [
+        "D05 Fig. 36 AIR DUCT, AIR HEATER, ref. 1–7 / 6AYM-WET / posisi 5",
+        "D01 PDF 14, 163, 170–171 / air cooler, turbocharger"
+      ],
+      "fungsi": "Mengikat dua flensa dan satu gasket. Panjang nominal baut 40 mm menurut katalog.",
+      "posisi": [
+        {
+          "object_id": "EXT-INTAKE-65",
+          "arah": [
+            -0.9805712103843689,
+            0.10415655374526978,
+            -0.16622711718082428
+          ],
+          "jarak_m": 0.3175221174139133,
+          "urutan": 2
+        }
+      ]
+    },
+    {
+      "no": 22,
+      "nama": "Mur M10 joint 1.2.4",
+      "object_ids": [
+        "EXT-INTAKE-81"
+      ],
+      "role": "fastener",
+      "status": "ESTIMATED",
+      "nomor_oem": "26366-100002",
+      "ukuran": null,
+      "source_ref_pos": 6,
+      "source_refs": [
+        "D05 Fig. 36 AIR DUCT, AIR HEATER, ref. 1–7 / 6AYM-WET / posisi 6",
+        "D01 PDF 14, 163, 170–171 / air cooler, turbocharger"
+      ],
+      "sumber": [
+        "D05 Fig. 36 AIR DUCT, AIR HEATER, ref. 1–7 / 6AYM-WET / posisi 6",
+        "D01 PDF 14, 163, 170–171 / air cooler, turbocharger"
+      ],
+      "fungsi": "Mur M10 duduk pada muka luar flensa joint. Profil ulir tidak disimulasikan.",
+      "posisi": [
+        {
+          "object_id": "EXT-INTAKE-81",
+          "arah": [
+            -0.9297115206718445,
+            0.366469144821167,
+            0.03656403720378876
+          ],
+          "jarak_m": 0.19535640992236372,
+          "urutan": 1
+        }
+      ]
+    },
+    {
+      "no": 23,
+      "nama": "Expansion joint udara 2",
+      "object_ids": [
+        "EXT-INTAKE-53"
+      ],
+      "role": "coupling",
+      "status": "ESTIMATED",
+      "nomor_oem": "126684-18900",
+      "ukuran": null,
+      "source_ref_pos": 3,
+      "source_refs": [
+        "D05 Fig. 36 AIR DUCT, AIR HEATER, ref. 1–7 / 6AYM-WET / posisi 3",
+        "D01 PDF 14, 163, 170–171 / air cooler, turbocharger"
+      ],
+      "sumber": [
+        "D05 Fig. 36 AIR DUCT, AIR HEATER, ref. 1–7 / 6AYM-WET / posisi 3",
+        "D01 PDF 14, 163, 170–171 / air cooler, turbocharger"
+      ],
+      "fungsi": "Sambungan fleksibel berongga dengan dua flensa dan lipatan elastis. Profil dan bahan visual diestimasi.",
+      "posisi": [
+        {
+          "object_id": "EXT-INTAKE-53",
+          "arah": [
+            -0.9941490292549133,
+            0.0911303237080574,
+            -0.05799202248454094
+          ],
+          "jarak_m": 0.6035312869298924,
+          "urutan": 5
+        }
+      ]
+    },
+    {
+      "no": 24,
+      "nama": "Gasket joint 2 sisi 1",
+      "object_ids": [
+        "EXT-INTAKE-56"
+      ],
+      "role": "seal",
+      "status": "ESTIMATED",
+      "nomor_oem": "126684-18911",
+      "ukuran": null,
+      "source_ref_pos": 4,
+      "source_refs": [
+        "D05 Fig. 36 AIR DUCT, AIR HEATER, ref. 1–7 / 6AYM-WET / posisi 4",
+        "D01 PDF 14, 163, 170–171 / air cooler, turbocharger"
+      ],
+      "sumber": [
+        "D05 Fig. 36 AIR DUCT, AIR HEATER, ref. 1–7 / 6AYM-WET / posisi 4",
+        "D01 PDF 14, 163, 170–171 / air cooler, turbocharger"
+      ],
+      "fungsi": "Merapatkan kedua muka flensa, dengan satu bore aliran dan empat clearance bolt.",
+      "posisi": [
+        {
+          "object_id": "EXT-INTAKE-56",
+          "arah": [
+            -0.9893772006034851,
+            0.13491477072238922,
+            -0.054136011749506
+          ],
+          "jarak_m": 0.5667013366696784,
+          "urutan": 7
+        }
+      ]
+    },
+    {
+      "no": 25,
+      "nama": "Baut M10 × 40 joint 2.1.1",
+      "object_ids": [
+        "EXT-INTAKE-66"
+      ],
+      "role": "fastener",
+      "status": "ESTIMATED",
+      "nomor_oem": "26106-100402",
+      "ukuran": null,
+      "source_ref_pos": 5,
+      "source_refs": [
+        "D05 Fig. 36 AIR DUCT, AIR HEATER, ref. 1–7 / 6AYM-WET / posisi 5",
+        "D01 PDF 14, 163, 170–171 / air cooler, turbocharger"
+      ],
+      "sumber": [
+        "D05 Fig. 36 AIR DUCT, AIR HEATER, ref. 1–7 / 6AYM-WET / posisi 5",
+        "D01 PDF 14, 163, 170–171 / air cooler, turbocharger"
+      ],
+      "fungsi": "Mengikat dua flensa dan satu gasket. Panjang nominal baut 40 mm menurut katalog.",
+      "posisi": [
+        {
+          "object_id": "EXT-INTAKE-66",
+          "arah": [
+            -0.9853020310401917,
+            0.16421924531459808,
+            0.047032084316015244
+          ],
+          "jarak_m": 0.4785896385743009,
+          "urutan": 2
+        }
+      ]
+    },
+    {
+      "no": 26,
+      "nama": "Mur M10 joint 2.1.1",
+      "object_ids": [
+        "EXT-INTAKE-82"
+      ],
+      "role": "fastener",
+      "status": "ESTIMATED",
+      "nomor_oem": "26366-100002",
+      "ukuran": null,
+      "source_ref_pos": 6,
+      "source_refs": [
+        "D05 Fig. 36 AIR DUCT, AIR HEATER, ref. 1–7 / 6AYM-WET / posisi 6",
+        "D01 PDF 14, 163, 170–171 / air cooler, turbocharger"
+      ],
+      "sumber": [
+        "D05 Fig. 36 AIR DUCT, AIR HEATER, ref. 1–7 / 6AYM-WET / posisi 6",
+        "D01 PDF 14, 163, 170–171 / air cooler, turbocharger"
+      ],
+      "fungsi": "Mur M10 duduk pada muka luar flensa joint. Profil ulir tidak disimulasikan.",
+      "posisi": [
+        {
+          "object_id": "EXT-INTAKE-82",
+          "arah": [
+            -0.9998155236244202,
+            0.013354776427149773,
+            0.013806797564029694
+          ],
+          "jarak_m": 0.6009807172102594,
+          "urutan": 1
+        }
+      ]
+    },
+    {
+      "no": 27,
+      "nama": "Baut M10 × 40 joint 2.1.2",
+      "object_ids": [
+        "EXT-INTAKE-67"
+      ],
+      "role": "fastener",
+      "status": "ESTIMATED",
+      "nomor_oem": "26106-100402",
+      "ukuran": null,
+      "source_ref_pos": 5,
+      "source_refs": [
+        "D05 Fig. 36 AIR DUCT, AIR HEATER, ref. 1–7 / 6AYM-WET / posisi 5",
+        "D01 PDF 14, 163, 170–171 / air cooler, turbocharger"
+      ],
+      "sumber": [
+        "D05 Fig. 36 AIR DUCT, AIR HEATER, ref. 1–7 / 6AYM-WET / posisi 5",
+        "D01 PDF 14, 163, 170–171 / air cooler, turbocharger"
+      ],
+      "fungsi": "Mengikat dua flensa dan satu gasket. Panjang nominal baut 40 mm menurut katalog.",
+      "posisi": [
+        {
+          "object_id": "EXT-INTAKE-67",
+          "arah": [
+            -0.9769939184188843,
+            0.16615508496761322,
+            -0.1336994618177414
+          ],
+          "jarak_m": 0.4730137062493144,
+          "urutan": 2
+        }
+      ]
+    },
+    {
+      "no": 28,
+      "nama": "Mur M10 joint 2.1.2",
+      "object_ids": [
+        "EXT-INTAKE-83"
+      ],
+      "role": "fastener",
+      "status": "ESTIMATED",
+      "nomor_oem": "26366-100002",
+      "ukuran": null,
+      "source_ref_pos": 6,
+      "source_refs": [
+        "D05 Fig. 36 AIR DUCT, AIR HEATER, ref. 1–7 / 6AYM-WET / posisi 6",
+        "D01 PDF 14, 163, 170–171 / air cooler, turbocharger"
+      ],
+      "sumber": [
+        "D05 Fig. 36 AIR DUCT, AIR HEATER, ref. 1–7 / 6AYM-WET / posisi 6",
+        "D01 PDF 14, 163, 170–171 / air cooler, turbocharger"
+      ],
+      "fungsi": "Mur M10 duduk pada muka luar flensa joint. Profil ulir tidak disimulasikan.",
+      "posisi": [
+        {
+          "object_id": "EXT-INTAKE-83",
+          "arah": [
+            -0.9914442896842957,
+            0.013453967869281769,
+            -0.1298351138830185
+          ],
+          "jarak_m": 0.5965498614775475,
+          "urutan": 1
+        }
+      ]
+    },
+    {
+      "no": 29,
+      "nama": "Baut M10 × 40 joint 2.1.3",
+      "object_ids": [
+        "EXT-INTAKE-68"
+      ],
+      "role": "fastener",
+      "status": "ESTIMATED",
+      "nomor_oem": "26106-100402",
+      "ukuran": null,
+      "source_ref_pos": 5,
+      "source_refs": [
+        "D05 Fig. 36 AIR DUCT, AIR HEATER, ref. 1–7 / 6AYM-WET / posisi 5",
+        "D01 PDF 14, 163, 170–171 / air cooler, turbocharger"
+      ],
+      "sumber": [
+        "D05 Fig. 36 AIR DUCT, AIR HEATER, ref. 1–7 / 6AYM-WET / posisi 5",
+        "D01 PDF 14, 163, 170–171 / air cooler, turbocharger"
+      ],
+      "fungsi": "Mengikat dua flensa dan satu gasket. Panjang nominal baut 40 mm menurut katalog.",
+      "posisi": [
+        {
+          "object_id": "EXT-INTAKE-68",
+          "arah": [
+            -0.9481432437896729,
+            0.2910732328891754,
+            -0.127674400806427
+          ],
+          "jarak_m": 0.5305296325542938,
+          "urutan": 2
+        }
+      ]
+    },
+    {
+      "no": 30,
+      "nama": "Mur M10 joint 2.1.3",
+      "object_ids": [
+        "EXT-INTAKE-84"
+      ],
+      "role": "fastener",
+      "status": "ESTIMATED",
+      "nomor_oem": "26366-100002",
+      "ukuran": null,
+      "source_ref_pos": 6,
+      "source_refs": [
+        "D05 Fig. 36 AIR DUCT, AIR HEATER, ref. 1–7 / 6AYM-WET / posisi 6",
+        "D01 PDF 14, 163, 170–171 / air cooler, turbocharger"
+      ],
+      "sumber": [
+        "D05 Fig. 36 AIR DUCT, AIR HEATER, ref. 1–7 / 6AYM-WET / posisi 6",
+        "D01 PDF 14, 163, 170–171 / air cooler, turbocharger"
+      ],
+      "fungsi": "Mur M10 duduk pada muka luar flensa joint. Profil ulir tidak disimulasikan.",
+      "posisi": [
+        {
+          "object_id": "EXT-INTAKE-84",
+          "arah": [
+            -0.98324054479599,
+            0.13039013743400574,
+            -0.1274220496416092
+          ],
+          "jarak_m": 0.6431107972796964,
+          "urutan": 1
+        }
+      ]
+    },
+    {
+      "no": 31,
+      "nama": "Baut M10 × 40 joint 2.1.4",
+      "object_ids": [
+        "EXT-INTAKE-69"
+      ],
+      "role": "fastener",
+      "status": "ESTIMATED",
+      "nomor_oem": "26106-100402",
+      "ukuran": null,
+      "source_ref_pos": 5,
+      "source_refs": [
+        "D05 Fig. 36 AIR DUCT, AIR HEATER, ref. 1–7 / 6AYM-WET / posisi 5",
+        "D01 PDF 14, 163, 170–171 / air cooler, turbocharger"
+      ],
+      "sumber": [
+        "D05 Fig. 36 AIR DUCT, AIR HEATER, ref. 1–7 / 6AYM-WET / posisi 5",
+        "D01 PDF 14, 163, 170–171 / air cooler, turbocharger"
+      ],
+      "fungsi": "Mengikat dua flensa dan satu gasket. Panjang nominal baut 40 mm menurut katalog.",
+      "posisi": [
+        {
+          "object_id": "EXT-INTAKE-69",
+          "arah": [
+            -0.9569284915924072,
+            0.28836777806282043,
+            0.03364229574799538
+          ],
+          "jarak_m": 0.5355069975547546,
+          "urutan": 2
+        }
+      ]
+    },
+    {
+      "no": 32,
+      "nama": "Mur M10 joint 2.1.4",
+      "object_ids": [
+        "EXT-INTAKE-85"
+      ],
+      "role": "fastener",
+      "status": "ESTIMATED",
+      "nomor_oem": "26366-100002",
+      "ukuran": null,
+      "source_ref_pos": 6,
+      "source_refs": [
+        "D05 Fig. 36 AIR DUCT, AIR HEATER, ref. 1–7 / 6AYM-WET / posisi 6",
+        "D01 PDF 14, 163, 170–171 / air cooler, turbocharger"
+      ],
+      "sumber": [
+        "D05 Fig. 36 AIR DUCT, AIR HEATER, ref. 1–7 / 6AYM-WET / posisi 6",
+        "D01 PDF 14, 163, 170–171 / air cooler, turbocharger"
+      ],
+      "fungsi": "Mur M10 duduk pada muka luar flensa joint. Profil ulir tidak disimulasikan.",
+      "posisi": [
+        {
+          "object_id": "EXT-INTAKE-85",
+          "arah": [
+            -0.9915539622306824,
+            0.12956169247627258,
+            0.005877783056348562
+          ],
+          "jarak_m": 0.6472229602365724,
+          "urutan": 1
+        }
+      ]
+    },
+    {
+      "no": 33,
+      "nama": "Gasket joint 2 sisi 2",
+      "object_ids": [
+        "EXT-INTAKE-57"
+      ],
+      "role": "seal",
+      "status": "ESTIMATED",
+      "nomor_oem": "126684-18911",
+      "ukuran": null,
+      "source_ref_pos": 4,
+      "source_refs": [
+        "D05 Fig. 36 AIR DUCT, AIR HEATER, ref. 1–7 / 6AYM-WET / posisi 4",
+        "D01 PDF 14, 163, 170–171 / air cooler, turbocharger"
+      ],
+      "sumber": [
+        "D05 Fig. 36 AIR DUCT, AIR HEATER, ref. 1–7 / 6AYM-WET / posisi 4",
+        "D01 PDF 14, 163, 170–171 / air cooler, turbocharger"
+      ],
+      "fungsi": "Merapatkan kedua muka flensa, dengan satu bore aliran dan empat clearance bolt.",
+      "posisi": [
+        {
+          "object_id": "EXT-INTAKE-57",
+          "arah": [
+            -0.9970945119857788,
+            0.06315973401069641,
+            -0.0425846129655838
+          ],
+          "jarak_m": 0.6438472475625275,
+          "urutan": 8
+        }
+      ]
+    },
+    {
+      "no": 34,
+      "nama": "Baut M10 × 40 joint 2.2.1",
+      "object_ids": [
+        "EXT-INTAKE-70"
+      ],
+      "role": "fastener",
+      "status": "ESTIMATED",
+      "nomor_oem": "26106-100402",
+      "ukuran": null,
+      "source_ref_pos": 5,
+      "source_refs": [
+        "D05 Fig. 36 AIR DUCT, AIR HEATER, ref. 1–7 / 6AYM-WET / posisi 5",
+        "D01 PDF 14, 163, 170–171 / air cooler, turbocharger"
+      ],
+      "sumber": [
+        "D05 Fig. 36 AIR DUCT, AIR HEATER, ref. 1–7 / 6AYM-WET / posisi 5",
+        "D01 PDF 14, 163, 170–171 / air cooler, turbocharger"
+      ],
+      "fungsi": "Mengikat dua flensa dan satu gasket. Panjang nominal baut 40 mm menurut katalog.",
+      "posisi": [
+        {
+          "object_id": "EXT-INTAKE-70",
+          "arah": [
+            -0.9985273480415344,
+            -0.038532551378011703,
+            0.03818964958190918
+          ],
+          "jarak_m": 0.7001755100523219,
+          "urutan": 2
+        }
+      ]
+    },
+    {
+      "no": 35,
+      "nama": "Mur M10 joint 2.2.1",
+      "object_ids": [
+        "EXT-INTAKE-86"
+      ],
+      "role": "fastener",
+      "status": "ESTIMATED",
+      "nomor_oem": "26366-100002",
+      "ukuran": null,
+      "source_ref_pos": 6,
+      "source_refs": [
+        "D05 Fig. 36 AIR DUCT, AIR HEATER, ref. 1–7 / 6AYM-WET / posisi 6",
+        "D01 PDF 14, 163, 170–171 / air cooler, turbocharger"
+      ],
+      "sumber": [
+        "D05 Fig. 36 AIR DUCT, AIR HEATER, ref. 1–7 / 6AYM-WET / posisi 6",
+        "D01 PDF 14, 163, 170–171 / air cooler, turbocharger"
+      ],
+      "fungsi": "Mur M10 duduk pada muka luar flensa joint. Profil ulir tidak disimulasikan.",
+      "posisi": [
+        {
+          "object_id": "EXT-INTAKE-86",
+          "arah": [
+            -0.9993495345115662,
+            0.035917408764362335,
+            0.003211389761418104
+          ],
+          "jarak_m": 0.5614534954291861,
+          "urutan": 1
+        }
+      ]
+    },
+    {
+      "no": 36,
+      "nama": "Baut M10 × 40 joint 2.2.2",
+      "object_ids": [
+        "EXT-INTAKE-71"
+      ],
+      "role": "fastener",
+      "status": "ESTIMATED",
+      "nomor_oem": "26106-100402",
+      "ukuran": null,
+      "source_ref_pos": 5,
+      "source_refs": [
+        "D05 Fig. 36 AIR DUCT, AIR HEATER, ref. 1–7 / 6AYM-WET / posisi 5",
+        "D01 PDF 14, 163, 170–171 / air cooler, turbocharger"
+      ],
+      "sumber": [
+        "D05 Fig. 36 AIR DUCT, AIR HEATER, ref. 1–7 / 6AYM-WET / posisi 5",
+        "D01 PDF 14, 163, 170–171 / air cooler, turbocharger"
+      ],
+      "fungsi": "Mengikat dua flensa dan satu gasket. Panjang nominal baut 40 mm menurut katalog.",
+      "posisi": [
+        {
+          "object_id": "EXT-INTAKE-71",
+          "arah": [
+            -0.995998740196228,
+            -0.03761009871959686,
+            -0.0810677632689476
+          ],
+          "jarak_m": 0.7173484909561497,
+          "urutan": 2
+        }
+      ]
+    },
+    {
+      "no": 37,
+      "nama": "Mur M10 joint 2.2.2",
+      "object_ids": [
+        "EXT-INTAKE-87"
+      ],
+      "role": "fastener",
+      "status": "ESTIMATED",
+      "nomor_oem": "26366-100002",
+      "ukuran": null,
+      "source_ref_pos": 6,
+      "source_refs": [
+        "D05 Fig. 36 AIR DUCT, AIR HEATER, ref. 1–7 / 6AYM-WET / posisi 6",
+        "D01 PDF 14, 163, 170–171 / air cooler, turbocharger"
+      ],
+      "sumber": [
+        "D05 Fig. 36 AIR DUCT, AIR HEATER, ref. 1–7 / 6AYM-WET / posisi 6",
+        "D01 PDF 14, 163, 170–171 / air cooler, turbocharger"
+      ],
+      "fungsi": "Mur M10 duduk pada muka luar flensa joint. Profil ulir tidak disimulasikan.",
+      "posisi": [
+        {
+          "object_id": "EXT-INTAKE-87",
+          "arah": [
+            -0.9891769289970398,
+            0.03460605815052986,
+            -0.14258812367916107
+          ],
+          "jarak_m": 0.5827290457415625,
+          "urutan": 1
+        }
+      ]
+    },
+    {
+      "no": 38,
+      "nama": "Baut M10 × 40 joint 2.2.3",
+      "object_ids": [
+        "EXT-INTAKE-72"
+      ],
+      "role": "fastener",
+      "status": "ESTIMATED",
+      "nomor_oem": "26106-100402",
+      "ukuran": null,
+      "source_ref_pos": 5,
+      "source_refs": [
+        "D05 Fig. 36 AIR DUCT, AIR HEATER, ref. 1–7 / 6AYM-WET / posisi 5",
+        "D01 PDF 14, 163, 170–171 / air cooler, turbocharger"
+      ],
+      "sumber": [
+        "D05 Fig. 36 AIR DUCT, AIR HEATER, ref. 1–7 / 6AYM-WET / posisi 5",
+        "D01 PDF 14, 163, 170–171 / air cooler, turbocharger"
+      ],
+      "fungsi": "Mengikat dua flensa dan satu gasket. Panjang nominal baut 40 mm menurut katalog.",
+      "posisi": [
+        {
+          "object_id": "EXT-INTAKE-72",
+          "arah": [
+            -0.9947314262390137,
+            0.07350403815507889,
+            -0.07145930826663971
+          ],
+          "jarak_m": 0.7454484018131978,
+          "urutan": 2
+        }
+      ]
+    },
+    {
+      "no": 39,
+      "nama": "Mur M10 joint 2.2.3",
+      "object_ids": [
+        "EXT-INTAKE-88"
+      ],
+      "role": "fastener",
+      "status": "ESTIMATED",
+      "nomor_oem": "26366-100002",
+      "ukuran": null,
+      "source_ref_pos": 6,
+      "source_refs": [
+        "D05 Fig. 36 AIR DUCT, AIR HEATER, ref. 1–7 / 6AYM-WET / posisi 6",
+        "D01 PDF 14, 163, 170–171 / air cooler, turbocharger"
+      ],
+      "sumber": [
+        "D05 Fig. 36 AIR DUCT, AIR HEATER, ref. 1–7 / 6AYM-WET / posisi 6",
+        "D01 PDF 14, 163, 170–171 / air cooler, turbocharger"
+      ],
+      "fungsi": "Mur M10 duduk pada muka luar flensa joint. Profil ulir tidak disimulasikan.",
+      "posisi": [
+        {
+          "object_id": "EXT-INTAKE-88",
+          "arah": [
+            -0.97807776927948,
+            0.16521960496902466,
+            -0.1267533302307129
+          ],
+          "jarak_m": 0.6169907865269892,
+          "urutan": 1
+        }
+      ]
+    },
+    {
+      "no": 40,
+      "nama": "Baut M10 × 40 joint 2.2.4",
+      "object_ids": [
+        "EXT-INTAKE-73"
+      ],
+      "role": "fastener",
+      "status": "ESTIMATED",
+      "nomor_oem": "26106-100402",
+      "ukuran": null,
+      "source_ref_pos": 5,
+      "source_refs": [
+        "D05 Fig. 36 AIR DUCT, AIR HEATER, ref. 1–7 / 6AYM-WET / posisi 5",
+        "D01 PDF 14, 163, 170–171 / air cooler, turbocharger"
+      ],
+      "sumber": [
+        "D05 Fig. 36 AIR DUCT, AIR HEATER, ref. 1–7 / 6AYM-WET / posisi 5",
+        "D01 PDF 14, 163, 170–171 / air cooler, turbocharger"
+      ],
+      "fungsi": "Mengikat dua flensa dan satu gasket. Panjang nominal baut 40 mm menurut katalog.",
+      "posisi": [
+        {
+          "object_id": "EXT-INTAKE-73",
+          "arah": [
+            -0.9962266087532043,
+            0.07516892999410629,
+            0.043383777141571045
+          ],
+          "jarak_m": 0.7289377266802055,
+          "urutan": 2
+        }
+      ]
+    },
+    {
+      "no": 41,
+      "nama": "Mur M10 joint 2.2.4",
+      "object_ids": [
+        "EXT-INTAKE-89"
+      ],
+      "role": "fastener",
+      "status": "ESTIMATED",
+      "nomor_oem": "26366-100002",
+      "ukuran": null,
+      "source_ref_pos": 6,
+      "source_refs": [
+        "D05 Fig. 36 AIR DUCT, AIR HEATER, ref. 1–7 / 6AYM-WET / posisi 6",
+        "D01 PDF 14, 163, 170–171 / air cooler, turbocharger"
+      ],
+      "sumber": [
+        "D05 Fig. 36 AIR DUCT, AIR HEATER, ref. 1–7 / 6AYM-WET / posisi 6",
+        "D01 PDF 14, 163, 170–171 / air cooler, turbocharger"
+      ],
+      "fungsi": "Mur M10 duduk pada muka luar flensa joint. Profil ulir tidak disimulasikan.",
+      "posisi": [
+        {
+          "object_id": "EXT-INTAKE-89",
+          "arah": [
+            -0.9852473139762878,
+            0.17076990008354187,
+            0.011203278787434101
+          ],
+          "jarak_m": 0.5969375927478755,
+          "urutan": 1
+        }
+      ]
+    }
+  ],
+  "notes": "Tiga duct terhubung berurutan melalui dua expansion joint. Empat bidang gasket dan lubang baut terbuka dimodelkan. Jarak antarmuka, orientasi, dimensi bore dan bentuk lipatan diestimasi dari ilustrasi."
+}

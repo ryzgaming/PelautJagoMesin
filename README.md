@@ -2,6 +2,10 @@
 
 Prepared from Sites version 7, commit 6eede2205ca2b38d50295ebc84ef4294cb77261e.
 
+## Sumber model Yanmar R06
+
+[Paket produksi Yanmar 6AYM-WET R06](produksi/README.md) berisi tiga folder terpisah: **model**, **ui-workspace**, dan **agensi**. Seluruh sumber serta arsip tersedia di repo melalui Git/Git LFS. Paket berada di luar website/katalog.
+
 ## Cloudflare Pages setup
 
 - Repository: ryzgaming/PelautJagoMesin

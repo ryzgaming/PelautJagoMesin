@@ -1,0 +1,244 @@
+{
+  "samples": [
+    {
+      "label": "home",
+      "mode": "home",
+      "running": false,
+      "time": 0,
+      "angle": 0,
+      "phase": "running",
+      "engaged": false,
+      "clocks": {
+        "running": 0,
+        "starting": 0,
+        "both": 0
+      },
+      "controls": [
+        "Mulai",
+        "Ulang",
+        "Rute",
+        "Fokus",
+        "Starter",
+        "Operasi",
+        "Potongan blok",
+        "Penggerak",
+        "Tur animasi"
+      ],
+      "status": "Siap",
+      "viewport": [
+        1280,
+        800,
+        1
+      ],
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "contextLost": false,
+      "stage": null,
+      "overflow": 0
+    },
+    {
+      "label": "operation-ready",
+      "mode": "operation",
+      "running": false,
+      "time": 0,
+      "angle": 0,
+      "phase": "running",
+      "engaged": false,
+      "clocks": {
+        "running": 0,
+        "starting": 0,
+        "both": 0
+      },
+      "controls": [
+        "Mulai",
+        "Ulang",
+        "Rute",
+        "Fokus",
+        "Starter",
+        "Operasi",
+        "Potongan blok",
+        "Penggerak",
+        "Tur animasi"
+      ],
+      "status": "Siap",
+      "viewport": [
+        1280,
+        800,
+        1
+      ],
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "contextLost": false,
+      "stage": null,
+      "overflow": 0
+    },
+    {
+      "label": "normal-start",
+      "mode": "operation",
+      "running": true,
+      "time": 0.15000000000000002,
+      "angle": 0.1275,
+      "phase": "running",
+      "engaged": false,
+      "clocks": {
+        "running": 0.1275,
+        "starting": 0,
+        "both": 0.1275
+      },
+      "controls": [
+        "Jeda",
+        "Ulang",
+        "Rute",
+        "Fokus",
+        "Starter",
+        "Operasi",
+        "Potongan blok",
+        "Penggerak",
+        "Tur animasi"
+      ],
+      "status": "Berjalan",
+      "viewport": [
+        1280,
+        800,
+        1
+      ],
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "contextLost": false,
+      "stage": null,
+      "overflow": 0
+    },
+    {
+      "label": "pause",
+      "mode": "operation",
+      "running": false,
+      "time": 0.46670000000000067,
+      "angle": 0.3966950000000006,
+      "phase": "running",
+      "engaged": false,
+      "clocks": {
+        "running": 0.3966950000000006,
+        "starting": 0,
+        "both": 0.3966950000000006
+      },
+      "controls": [
+        "Mulai",
+        "Ulang",
+        "Rute",
+        "Fokus",
+        "Starter",
+        "Operasi",
+        "Potongan blok",
+        "Penggerak",
+        "Tur animasi"
+      ],
+      "status": "Jeda",
+      "viewport": [
+        1280,
+        800,
+        1
+      ],
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "contextLost": false,
+      "stage": null,
+      "overflow": 0
+    },
+    {
+      "label": "reset",
+      "mode": "operation",
+      "running": false,
+      "time": 0,
+      "angle": 0,
+      "phase": "running",
+      "engaged": false,
+      "clocks": {
+        "running": 0,
+        "starting": 0,
+        "both": 0
+      },
+      "controls": [
+        "Mulai",
+        "Ulang",
+        "Rute",
+        "Fokus",
+        "Starter",
+        "Operasi",
+        "Potongan blok",
+        "Penggerak",
+        "Tur animasi"
+      ],
+      "status": "Siap",
+      "viewport": [
+        1280,
+        800,
+        1
+      ],
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "contextLost": false,
+      "stage": null,
+      "overflow": 0
+    },
+    {
+      "label": "starter-selected",
+      "mode": "drives",
+      "running": false,
+      "time": 0,
+      "angle": 0,
+      "phase": "starting",
+      "engaged": false,
+      "clocks": {
+        "running": 0,
+        "starting": 0,
+        "both": 0
+      },
+      "controls": [
+        "Mulai",
+        "Ulang",
+        "Rincian",
+        "Fokus",
+        "Idle",
+        "Operasi"
+      ],
+      "status": "Starter · Siap",
+      "viewport": [
+        1280,
+        800,
+        1
+      ],
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "contextLost": false,
+      "stage": null,
+      "overflow": 0
+    },
+    {
+      "label": "starter-spinning",
+      "mode": "drives",
+      "running": true,
+      "time": 0.05,
+      "angle": 0.017499999999999998,
+      "phase": "starting",
+      "engaged": true,
+      "clocks": {
+        "running": 0,
+        "starting": 0.017499999999999998,
+        "both": 0.017499999999999998
+      },
+      "controls": [
+        "Jeda",
+        "Ulang",
+        "Rincian",
+        "Fokus",
+        "Idle",
+        "Operasi"
+      ],
+      "status": "Starter · Berjalan",
+      "viewport": [
+        1280,
+        800,
+        1
+      ],
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "contextLost": false,
+      "stage": null,
+      "overflow": 0
+    }
+  ],
+  "errors": []
+}

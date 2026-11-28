@@ -1,0 +1,17 @@
+{
+  "exterior_sha256": "3edb9db0135c2714e913c2f8a5b120c1f747dec10927024acba17cd4e09a8302",
+  "internal_sha256": "46a8854081530e81d2a2af56dc936dbcd22e6b296343029510638e8d120252fa",
+  "manifest_sha256": "4b8d55ff94dc8e470b4510dfa2cdf6c9de9fed816c8bf2db5aa04ddc514f5deb",
+  "inventory_sha256": "38a663e6f834fdc87d9ddec9a72676778c057cd4a240c6c4dbb77a93aca7943b",
+  "groups": 83,
+  "components": {
+    "legacy": 434,
+    "fixed_or_condition": 571,
+    "driven": 141
+  },
+  "tested_enclosure_pairs": 99,
+  "enclosure_poses": 24,
+  "starter_tooth_clearance_poses": 181,
+  "starter_assembly_poses": 49,
+  "selected_drive_regressions": []
+}

@@ -1,0 +1,88 @@
+"""Inspect the charge-air duct in assembled and exploded poses from the exported GLB."""
+import argparse
+import hashlib
+import json
+from pathlib import Path
+import sys
+
+import bpy
+from mathutils import Vector
+
+parser=argparse.ArgumentParser(description=__doc__)
+parser.add_argument('input',type=Path)
+parser.add_argument('recipe',type=Path)
+parser.add_argument('output',type=Path)
+args=parser.parse_args(sys.argv[sys.argv.index('--')+1:])
+args.output.mkdir(parents=True,exist_ok=True)
+recipe=json.loads(args.recipe.read_text())
+
+def world(p):
+    x,y,z=p
+    return Vector((x,-z,y))
+
+bpy.ops.wm.read_factory_settings(use_empty=True)
+bpy.ops.import_scene.gltf(filepath=str(args.input.resolve()))
+scene=bpy.context.scene
+members={id for row in recipe['bagian'] for id in row['object_ids']}
+objects={ob.name:ob for ob in scene.objects if ob.type=='MESH' and ob.name in members}
+assert set(objects)==members
+for ob in scene.objects:
+    if ob.type=='MESH':
+        ob.hide_render=ob.name not in objects
+base={key:ob.location.copy() for key,ob in objects.items()}
+moves={p['object_id']:p for row in recipe['bagian'] for p in row['posisi']}
+
+scene.render.engine='CYCLES'
+scene.cycles.device='CPU'
+scene.cycles.samples=12
+scene.cycles.use_denoising=False
+scene.render.resolution_x,scene.render.resolution_y=1120,700
+scene.render.image_settings.file_format='PNG'
+scene.view_settings.view_transform='AgX'
+scene.world=bpy.data.worlds.new('Studio')
+scene.world.use_nodes=True
+background=scene.world.node_tree.nodes['Background']
+background.inputs[0].default_value=(.082,.115,.163,1)
+background.inputs[1].default_value=.60
+camera=bpy.data.cameras.new('Duct camera')
+camera.type='ORTHO'
+obj=bpy.data.objects.new('Duct camera',camera)
+scene.collection.objects.link(obj)
+scene.camera=obj
+lamps=[]
+for name,offset,power,size in [('Key',(1.2,1.4,1.9),260,1.45),
+                               ('Fill',(-1.4,1,.5),95,1.4),
+                               ('Rim',(.15,-1.2,1.24),110,1.28)]:
+    source=bpy.data.lights.new(name,'AREA')
+    source.shape='DISK'
+    source.energy=power
+    source.size=size
+    lamp=bpy.data.objects.new(name,source)
+    scene.collection.objects.link(lamp)
+    lamps.append((lamp,Vector(offset)))
+
+for filename,fraction in [('assembled',0),('exploded',1)]:
+    for id,move in moves.items():
+        objects[id].location=base[id]+world(move['arah'])*move['jarak_m']*fraction
+    bpy.context.view_layer.update()
+    points=[ob.matrix_world @ Vector(corner) for ob in objects.values() for corner in ob.bound_box]
+    low=Vector([min(p[i] for p in points) for i in range(3)])
+    high=Vector([max(p[i] for p in points) for i in range(3)])
+    center=(low+high)/2
+    for lamp,offset in lamps:
+        lamp.location=center+offset
+        lamp.rotation_euler=(-offset).to_track_quat('-Z','Y').to_euler()
+    direction=world(recipe['diagram']['arah_pandang']).normalized()
+    obj.location=center+direction*5
+    obj.rotation_euler=(-direction).to_track_quat('-Z','Y').to_euler()
+    inv=obj.rotation_euler.to_matrix().inverted()
+    screen=[inv@(v-center) for v in points]
+    camera.ortho_scale=2.24*max(max(abs(v.x) for v in screen),
+                                1120/700*max(abs(v.y) for v in screen))
+    scene.render.filepath=str((args.output/(filename+'.png')).resolve())
+    bpy.ops.render.render(write_still=True)
+(args.output/'render.json').write_text(json.dumps({
+    'asset_sha256':hashlib.sha256(args.input.read_bytes()).hexdigest(),
+    'recipe':recipe['id'],'node_count':len(objects),
+    'method':'Blender GLB reimport, Cycles CPU, 12 samples, orthographic; isolated duct casting and hardware'
+},indent=2)+'\n')

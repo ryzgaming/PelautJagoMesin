@@ -1,0 +1,79 @@
+{
+  "id": "INT-VALVE",
+  "nama": "Valve train",
+  "node_rakitan": "RAK-INT-VALVE",
+  "acuan": [
+    {
+      "no": 1,
+      "object_ids": [
+        "INT-VALVE-101",
+        "INT-VALVE-102",
+        "INT-VALVE-103",
+        "INT-VALVE-104",
+        "INT-VALVE-105",
+        "INT-VALVE-112",
+        "INT-VALVE-113",
+        "INT-VALVE-114",
+        "INT-VALVE-115",
+        "INT-VALVE-201",
+        "INT-VALVE-202",
+        "INT-VALVE-203",
+        "INT-VALVE-204",
+        "INT-VALVE-205",
+        "INT-VALVE-212",
+        "INT-VALVE-213",
+        "INT-VALVE-214",
+        "INT-VALVE-215",
+        "INT-VALVE-301",
+        "INT-VALVE-302",
+        "INT-VALVE-303",
+        "INT-VALVE-304",
+        "INT-VALVE-305",
+        "INT-VALVE-312",
+        "INT-VALVE-313",
+        "INT-VALVE-314",
+        "INT-VALVE-315",
+        "INT-VALVE-401",
+        "INT-VALVE-402",
+        "INT-VALVE-403",
+        "INT-VALVE-404",
+        "INT-VALVE-405",
+        "INT-VALVE-412",
+        "INT-VALVE-413",
+        "INT-VALVE-414",
+        "INT-VALVE-415",
+        "INT-VALVE-501",
+        "INT-VALVE-502",
+        "INT-VALVE-503",
+        "INT-VALVE-504",
+        "INT-VALVE-505",
+        "INT-VALVE-512",
+        "INT-VALVE-513",
+        "INT-VALVE-514",
+        "INT-VALVE-515",
+        "INT-VALVE-601",
+        "INT-VALVE-602",
+        "INT-VALVE-603",
+        "INT-VALVE-604",
+        "INT-VALVE-605",
+        "INT-VALVE-612",
+        "INT-VALVE-613",
+        "INT-VALVE-614",
+        "INT-VALVE-615"
+      ],
+      "sumber": "D01 PDF 86–93 / cetak 82–89 dan D03 PDF 17 / cetak 32"
+    }
+  ],
+  "diagram": {
+    "arah_pandang": [
+      1,
+      0.7,
+      1
+    ],
+    "atas": [
+      0,
+      1,
+      0
+    ]
+  }
+}

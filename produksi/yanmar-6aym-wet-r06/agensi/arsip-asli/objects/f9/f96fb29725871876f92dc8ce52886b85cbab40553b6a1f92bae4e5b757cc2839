@@ -1,0 +1,125 @@
+"""Render the actual GLB at the nested viewer camera for static diagnosis in Blender."""
+import argparse
+import hashlib
+import json
+import math
+from pathlib import Path
+import sys
+
+import bpy
+import bmesh
+from mathutils import Vector
+
+
+def scene_coordinates(v):
+    return Vector((v[0], -v[2], v[1]))
+
+
+def transparent_copy(material):
+    """Keep GLB surfaces and reduce opacity to match the viewer X-ray shell."""
+    result = material.copy()
+    result.use_nodes = True
+    graph = result.node_tree
+    output = next(node for node in graph.nodes if node.type == 'OUTPUT_MATERIAL')
+    surface = output.inputs["Surface"]
+    if not surface.links:
+        return result
+    original = surface.links[0].from_socket
+    transparent = graph.nodes.new('ShaderNodeBsdfTransparent')
+    blend = graph.nodes.new('ShaderNodeMixShader')
+    blend.inputs[0].default_value = 0.18
+    graph.links.new(transparent.outputs[0], blend.inputs[1])
+    graph.links.new(original, blend.inputs[2])
+    graph.links.new(blend.outputs[0], surface)
+    return result
+
+
+def clip_diagnostic_mesh(obj, plane):
+    """Bisect in-memory diagnostic mesh with the viewer plane; leave the GLB unchanged."""
+    normal = scene_coordinates(plane['normal'])
+    point = normal * -plane['constant']
+    local_point = obj.matrix_world.inverted() @ point
+    local_normal = (obj.matrix_world.to_3x3().transposed() @ normal).normalized()
+    mesh = bmesh.new()
+    mesh.from_mesh(obj.data)
+    bmesh.ops.bisect_plane(mesh,geom=list(mesh.verts)+list(mesh.edges)+list(mesh.faces),
+                          dist=1e-7,plane_co=local_point,plane_no=local_normal,clear_inner=True)
+    if any(normal.dot(obj.matrix_world @ vertex.co)+plane['constant'] < -1e-5 for vertex in mesh.verts):
+        raise RuntimeError(f"Divergent clipping half for {obj.name}")
+    obj.data = obj.data.copy()
+    mesh.to_mesh(obj.data)
+    mesh.free()
+
+
+def render(glb, destination, pose):
+    bpy.ops.wm.read_factory_settings(use_empty=True)
+    bpy.ops.import_scene.gltf(filepath=str(glb))
+    scene = bpy.context.scene
+    visible = set(pose['visible'])
+    shells = set(pose['shells'])
+    seen = set()
+    for obj in scene.objects:
+        if obj.type != 'MESH':
+            continue
+        obj.hide_render = obj.name not in visible
+        if not obj.hide_render:
+            seen.add(obj.name)
+        if obj.name in shells:
+            if pose.get('plane'):
+                clip_diagnostic_mesh(obj,pose['plane'])
+            else:
+                for slot in obj.material_slots:
+                    if slot.material:
+                        slot.material = transparent_copy(slot.material)
+    if seen != visible:
+        raise RuntimeError("Unmapped visible IDs: " + ', '.join(sorted(visible - seen)))
+    target = scene_coordinates(pose['target'])
+    bpy.ops.object.camera_add(location=scene_coordinates(pose['position']))
+    camera = bpy.context.object
+    camera.data.sensor_fit = 'VERTICAL'
+    camera.data.angle_y = math.radians(pose['fov'])
+    camera.rotation_euler = (target - camera.location).to_track_quat('-Z', 'Y').to_euler()
+    scene.camera = camera
+    for delta, power, size in [((.8, -.9, 1), 65, 1), ((-.9,.5,.3), 42, .8), ((.25,.8,.55), 40, .65)]:
+        bpy.ops.object.light_add(type='AREA', location=target + Vector(delta))
+        light = bpy.context.object
+        light.data.energy = power
+        light.data.shape = 'DISK'
+        light.data.size = size
+        light.rotation_euler = (target - light.location).to_track_quat('-Z','Y').to_euler()
+    scene.world = bpy.data.worlds.new('Studio Graphite')
+    scene.world.use_nodes = True
+    scene.world.node_tree.nodes['Background'].inputs['Color'].default_value = (.04,.055,.064,1)
+    scene.world.node_tree.nodes['Background'].inputs['Strength'].default_value = .55
+    scene.render.engine = 'CYCLES'
+    scene.cycles.samples = 16
+    scene.cycles.use_denoising = False
+    scene.render.resolution_x = 920
+    scene.render.resolution_y = round(920/pose['aspect'])
+    scene.render.resolution_percentage = 100
+    scene.render.image_settings.file_format = 'PNG'
+    scene.render.filepath = str(destination)
+    bpy.ops.render.render(write_still=True)
+
+
+parser = argparse.ArgumentParser()
+parser.add_argument('glb', type=lambda path: Path(path).resolve())
+parser.add_argument('--internal', type=lambda path: Path(path).resolve())
+parser.add_argument('poses', type=lambda path: Path(path).resolve())
+parser.add_argument('scopes', nargs='*')
+args = parser.parse_args(sys.argv[sys.argv.index('--') + 1:])
+diagnostic = json.loads(args.poses.read_text())
+if hashlib.sha256(args.glb.read_bytes()).hexdigest() != diagnostic['exterior_sha256']:
+    raise SystemExit('GLB does not match the viewport pose evidence hash.')
+for pose in diagnostic['poses']:
+    if args.scopes and pose['scope'] not in args.scopes:
+        continue
+    glb = args.glb
+    if pose['core'].startswith('INT-'):
+        glb = args.internal
+        if not glb:
+            continue
+        if hashlib.sha256(glb.read_bytes()).hexdigest() != diagnostic['internal_sha256']:
+            raise SystemExit('Internal GLB does not match the viewport pose evidence hash.')
+    target = args.poses.parent / ('blender-' + pose['kind'] + '-' + pose['scope'].lower() + '.png')
+    render(glb, target, pose)

@@ -1,0 +1,314 @@
+# Load internal.blend, write kinematics.json, run static + swept interference checks,
+# envelope check, triangle count, render 6 views (neutral + color), export GLB.
+import bpy, math, json, os, sys, hashlib, re
+from mathutils import Vector, Matrix
+from mathutils.bvhtree import BVHTree
+
+OUT = '/tmp/claude-0/c3512/model/internal'
+DO_RENDER = '--norender' not in sys.argv
+bpy.ops.wm.open_mainfile(filepath=os.path.join(OUT, 'internal.blend'))
+st = json.load(open(os.path.join(OUT, '_build_state.json')))
+sys.path.insert(0, OUT)
+D2R = math.pi / 180
+ob = bpy.data.objects
+
+# ------------------------------------------------------------ constants mirrored from build
+R = 0.1075; L = st['ROD_L']; FIRING = [1, 12, 9, 4, 5, 8, 11, 2, 3, 10, 7, 6]
+XR = {1: 1.563, 3: 1.293, 5: 1.023, 7: 0.753, 9: 0.483, 11: 0.213}
+def cx(c): return XR[c] if c % 2 else XR[c - 1] - 0.065
+def bank(c): return 'R' if c % 2 else 'L'
+def bb(c): return 30.0 if c % 2 else -30.0
+PHI = {c: 60.0 * i for i, c in enumerate(FIRING)}
+BP0 = {c: (bb(c) + PHI[c]) % 360 for c in PHI}
+def ydir(b): return Vector((0, math.cos(b * D2R), math.sin(b * D2R)))
+HUB_T, CUP_T = 0.066, 0.121
+RATIO = HUB_T / (CUP_T - HUB_T)
+HD = {'IN': 120.0, 'EX': 120.0, 'INJ': 60.0}
+def peak(c, k): return {'IN': PHI[c] + 470.0, 'EX': PHI[c] + 250.0, 'INJ': PHI[c] + 5.0}[k] % 720
+def w720(a):
+    a %= 720.0
+    return a - 720 if a > 360 else a
+def lift(k, phi, c):
+    d = w720(phi - peak(c, k)); h = 0.008 if k == 'INJ' else 0.010
+    return 0.0 if abs(d) >= HD[k] else h * math.cos(0.5 * math.pi * d / HD[k]) ** 2
+
+# ------------------------------------------------------------ kinematics.json
+cyls = []
+for c in range(1, 13):
+    u = ydir(bb(c))
+    cyls.append(dict(
+        silinder=c, piston=f'INT-PISTON-{c:02d}', rod=f'INT-ROD-{c:02d}',
+        ikut_piston=[f'INT-PIN-{c:02d}'] + [f'INT-RING-{c:02d}-{k}' for k in (1, 2, 3)],
+        ikut_rod=[f'INT-ROD-{c:02d}-CAP', f'INT-ROD-{c:02d}-BOLT1', f'INT-ROD-{c:02d}-BOLT2'],
+        bank='kanan (+Z)' if c % 2 else 'kiri (-Z)',
+        sumbu=[0.0, round(u.y, 6), round(u.z, 6)],
+        x_silinder=round(cx(c), 4),
+        x_silinder_status='ESTIMATED (datum)' if c % 2 else 'ILLUSTRATIVE (x ganjil - 0.065 placeholder)',
+        pin_TDC=[round(cx(c), 4), round((R + L) * u.y, 5), round((R + L) * u.z, 5)],
+        fase_engkol_TDC_pembakaran_deg=PHI[c],
+        beta_crankpin_0_deg=BP0[c],
+        crankpin_x=round((cx(c) + cx(c + 1 if c % 2 else c - 1)) / 2, 4),
+        rod_x=round(cx(c), 4),
+        katup=dict(IN=[f'INT-KATUP-{c:02d}-IN1', f'INT-KATUP-{c:02d}-IN2'], EX=[f'INT-KATUP-{c:02d}-EX1', f'INT-KATUP-{c:02d}-EX2']),
+        puncak_lobe_deg_engkol=dict(IN=peak(c, 'IN'), EX=peak(c, 'EX'), INJ=peak(c, 'INJ')),
+    ))
+kin = dict(
+    catatan='Sudut engkol phi (derajat) = 0 saat silinder 1 di TDC pembakaran; model statis disusun pada phi=0. Putaran CCW dilihat dari flywheel (D02/D05 DOCUMENTED) = rotasi positif mengitari sumbu -X (tangan kanan). beta diukur pada bidang YZ dari +Y ke +Z; beta_crankpin(phi) = beta_crankpin_0 - phi.',
+    satuan='m, derajat',
+    radius_engkol=R, radius_engkol_status='DOCUMENTED (stroke 215 mm / 2, D02 hlm. 1)',
+    panjang_rod=round(L, 4), panjang_rod_status='ESTIMATED (deck 0.620 (atas blok exterior, ESTIMATED dari D01) - tinggi kompresi piston 0.130 - radius engkol 0.1075 - celah 0.0015)',
+    sudut_V_deg=60, sudut_V_status='INFERRED (D06)',
+    firing_order=FIRING, firing_order_status='INFERRED (D06, 3512 awal, CCW)',
+    interval_pembakaran_deg=60,
+    rumus=dict(
+        crank='objek INT-CRANK-01, INT-GEAR-R-CRANK, INT-GEAR-F-CRANK serta node EXTERIOR EXT-FLYWHEEL-01 (termasuk ring gear 183 gigi) dan EXT-DAMPER-01 (flywheel dan damper tidak dimodelkan di internal): rotation_x = -phi (rad), pusat sumbu X',
+        crankpin='P = (crankpin_x, r*cos(beta), r*sin(beta)), beta = beta_crankpin_0 - phi',
+        alpha='alpha = beta - beta_bank (beta_bank = +30 kanan, -30 kiri)',
+        piston='s = r*cos(alpha) + sqrt(L^2 - (r*sin(alpha))^2); pin = (x_silinder,0,0) + s*sumbu; objek piston/pin/ring hanya bertranslasi sepanjang sumbu: posisi = posisi_awal + (s - s0)*sumbu',
+        rod='objek rod/cap/baut: origin di P (pada rod_x); rotation_x = atan2(Qz-Pz, Qy-Py) dengan Q = pin piston',
+        cam='INT-CAM-R/L dan INT-GEAR-R-CAM-R/L: rotation_x = -phi/2 relatif ke posisi awal (rasio 1:2, arah searah crank ILLUSTRATIVE)',
+        idler='INT-GEAR-R-IDLER-R/L: rotation_x = +phi*36/44 (berlawanan arah crank)',
+        pompa_oli='INT-GEAR-F-OILPUMP dan INT-OILPUMP-GEAR1: rotation_x = +phi*36/26; INT-OILPUMP-GEAR2: rotation_x = -phi*36/26',
+        lift_lobe='lift = h*cos^2(90*d/hd) bila |d|<hd, d = phi - puncak (dibungkus ke -360..360); h IN/EX 0.010, INJ 0.008; hd IN/EX 120, INJ 60 (semua ILLUSTRATIVE)',
+        valve_train='tappet dan ujung bawah push rod naik sepanjang sumbu bank sebesar lift; rocker berputar mengitari X lokal delta = -s*lift/0.055 rad (s=+1 kanan, -1 kiri); bridge, katup, retainer turun sepanjang -sumbu sebesar lift*1.200 (rasio rocker 0.066/0.055); pegas memendek sama; plunger injector turun lift*1.200. Nilai lift dan delta pada phi=0 ada di valve_train_awal.'),
+    rasio_putaran={'INT-CRANK-01': 1.0, 'INT-CAM-R': 0.5, 'INT-CAM-L': 0.5, 'INT-GEAR-R-IDLER-R': -36 / 44, 'INT-GEAR-R-IDLER-L': -36 / 44,
+                   'INT-GEAR-F-OILPUMP': -36 / 26, 'INT-OILPUMP-GEAR1': -36 / 26, 'INT-OILPUMP-GEAR2': 36 / 26,
+                   'EXT-FLYWHEEL-01 (exterior)': 1.0, 'EXT-DAMPER-01 (exterior)': 1.0},
+    crankshaft='INT-CRANK-01', camshaft=['INT-CAM-R', 'INT-CAM-L'], perbandingan_cam='1:2 (DOCUMENTED prinsip 4-tak; arah ILLUSTRATIVE)',
+    silinder=cyls,
+    valve_train_awal=[dict(cyl=v['cyl'], jenis=v['kind'], lift_phi0=round(v['lift0'], 6), turun_phi0=round(v['travel0'], 6),
+                           rocker_delta_phi0_deg=round(v['rocker_delta0_deg'], 4)) for v in st['VT']],
+)
+json.dump(kin, open(os.path.join(OUT, 'kinematics.json'), 'w'), indent=1, ensure_ascii=False)
+
+# ------------------------------------------------------------ counts + envelope
+dg = bpy.context.evaluated_depsgraph_get()
+def tris(me): return sum(len(p.vertices) - 2 for p in me.polygons)
+scene_tris = sum(tris(o.data) for o in ob if o.type == 'MESH')
+uniq_tris = sum(tris(m) for m in bpy.data.meshes if m.users)
+lo = Vector((1e9,) * 3); hi = Vector((-1e9,) * 3)
+env_bad = []
+for o in ob:
+    for v in o.bound_box:
+        w = o.matrix_world @ Vector(v)
+        lo = Vector(map(min, lo, w)); hi = Vector(map(max, hi, w))
+        if not (-0.224 <= w.x <= 2.423 and -0.805 <= w.y <= 1.417 and -1.02 <= w.z <= 1.02):
+            env_bad.append(o.name)
+env_bad = sorted(set(env_bad))
+
+# ------------------------------------------------------------ interference
+def grp(n):
+    m = re.match(r'INT-([A-Z]+)(?:-([A-Z]))?-?(\d\d)?', n)
+    return m
+def key(n):
+    m = re.search(r'-(\d\d)(?:-|$)', n)
+    return int(m.group(1)) if m else None
+def kind(n): return n.split('-')[1]
+def allowed(a, b):
+    ka, kb = kind(a), kind(b)
+    s = {ka, kb}
+    ca, cb = key(a), key(b)
+    same = ca is not None and ca == cb
+    if same and s <= {'PISTON', 'RING', 'PIN', 'ROD'} and not (s == {'RING', 'ROD'}): return True
+    if s == {'ROD'} and same: return True                      # rod / cap / bolts
+    if 'CRANK' in s and s & {'ROD', 'GEAR', 'FLYWHEEL', 'DAMPER'}: return True
+    if s == {'FLYWHEEL'}: return True
+    if s == {'GEAR'} or s == {'GEAR', 'OILPUMP'} or s == {'OILPUMP'}: return True
+    if s == {'CAM', 'GEAR'}: return True
+    if s == {'CAM', 'TAPPET'}: return True
+    if same and s <= {'TAPPET', 'PUSHROD', 'ROCKER', 'ROCKSHAFT', 'BRIDGE', 'KATUP', 'RETAINER', 'PEGAS', 'INJ'}:
+        return True
+    return False
+
+def bvh(o):
+    me = o.evaluated_get(dg).to_mesh()
+    vs = [o.matrix_world @ v.co for v in me.vertices]
+    ps = [tuple(p.vertices) for p in me.polygons]
+    t = BVHTree.FromPolygons(vs, ps)
+    o.evaluated_get(dg).to_mesh_clear()
+    return t
+def aabb(o):
+    ws = [o.matrix_world @ Vector(v) for v in o.bound_box]
+    return Vector(map(min, *ws)), Vector(map(max, *ws))
+def ov(a, b):
+    return all(a[0][i] <= b[1][i] and b[0][i] <= a[1][i] for i in range(3))
+
+meshes = [o for o in ob if o.type == 'MESH']
+def check_all(objs, movers=None):
+    bb_ = {o.name: aabb(o) for o in objs}
+    cache = {}
+    hits = []
+    names = [o.name for o in objs]
+    for i, a in enumerate(names):
+        for b in names[i + 1:]:
+            if movers is not None and a not in movers and b not in movers: continue
+            if allowed(a, b) or not ov(bb_[a], bb_[b]): continue
+            for n in (a, b):
+                if n not in cache: cache[n] = bvh(ob[n])
+            if cache[a].overlap(cache[b]):
+                hits.append((a, b))
+    return hits
+
+static_hits = check_all(meshes)
+
+# swept check: crank angle 0..720 step 15
+base = {o.name: o.matrix_world.copy() for o in meshes}
+def pose(phi):
+    Rc = Matrix.Rotation(-phi * D2R, 4, 'X')
+    for n in ('INT-CRANK-01',):
+        ob[n].matrix_world = Rc @ base[n]
+    for c in range(1, 13):
+        u = ydir(bb(c))
+        a0 = w720(BP0[c] - bb(c)); a1 = w720(BP0[c] - phi - bb(c))
+        s0 = R * math.cos(a0 * D2R) + math.sqrt(L * L - (R * math.sin(a0 * D2R)) ** 2)
+        s1 = R * math.cos(a1 * D2R) + math.sqrt(L * L - (R * math.sin(a1 * D2R)) ** 2)
+        T = Matrix.Translation((s1 - s0) * u)
+        for n in [f'INT-PISTON-{c:02d}', f'INT-PIN-{c:02d}'] + [f'INT-RING-{c:02d}-{k}' for k in (1, 2, 3)]:
+            ob[n].matrix_world = T @ base[n]
+        b1 = (BP0[c] - phi) * D2R
+        P = Vector((cx(c), R * math.cos(b1), R * math.sin(b1)))
+        Q = Vector((cx(c), 0, 0)) + s1 * u
+        d = Q - P
+        Mr = Matrix.Translation(P) @ Matrix.Rotation(math.atan2(d.z, d.y), 4, 'X')
+        Mr0 = base[f'INT-ROD-{c:02d}']
+        for n in [f'INT-ROD-{c:02d}', f'INT-ROD-{c:02d}-CAP', f'INT-ROD-{c:02d}-BOLT1', f'INT-ROD-{c:02d}-BOLT2']:
+            ob[n].matrix_world = Mr @ Mr0.inverted() @ base[n]
+        for k, pre in (('IN', 'IN'), ('EX', 'EX')):
+            tr0 = lift(k, 0, c) * RATIO; tr1 = lift(k, phi, c) * RATIO
+            T = Matrix.Translation(-(tr1 - tr0) * u)
+            for j in (1, 2):
+                n = f'INT-KATUP-{c:02d}-{pre}{j}'
+                ob[n].matrix_world = T @ base[n]
+    ob['INT-CAM-R'].matrix_world = base['INT-CAM-R'] @ Matrix.Rotation(-phi / 2 * D2R, 4, 'X')
+    ob['INT-CAM-L'].matrix_world = base['INT-CAM-L'] @ Matrix.Rotation(-phi / 2 * D2R, 4, 'X')
+    bpy.context.view_layer.update()
+
+movers = {'INT-CRANK-01', 'INT-CAM-R', 'INT-CAM-L'}
+for c in range(1, 13):
+    movers |= {f'INT-PISTON-{c:02d}', f'INT-PIN-{c:02d}', f'INT-ROD-{c:02d}', f'INT-ROD-{c:02d}-CAP',
+               f'INT-ROD-{c:02d}-BOLT1', f'INT-ROD-{c:02d}-BOLT2'} | {f'INT-RING-{c:02d}-{k}' for k in (1, 2, 3)} | \
+              {f'INT-KATUP-{c:02d}-{p}{j}' for p in ('IN', 'EX') for j in (1, 2)}
+sweep = {}
+# min clearance piston crown vs valve faces, rings stay in liner
+min_valve_gap = 1e9; ring_out = []
+for phi in range(0, 720, 15):
+    pose(phi)
+    # exclude tappets/cam (cam lobes vs tappets are static-positioned for phi=0 only)
+    objs = [o for o in meshes if kind(o.name) not in ('TAPPET',)]
+    for h in check_all(objs, movers):
+        sweep.setdefault(f'{h[0]} x {h[1]}', []).append(phi)
+    for c in range(1, 13):
+        u = ydir(bb(c))
+        pc = ob[f'INT-PISTON-{c:02d}'].matrix_world.translation
+        crown = (pc - Vector((cx(c), 0, 0))).dot(u) + 0.130
+        for p in ('IN', 'EX'):
+            vf = (ob[f'INT-KATUP-{c:02d}-{p}1'].matrix_world.translation - Vector((cx(c), 0, 0))).dot(u)
+            min_valve_gap = min(min_valve_gap, vf - crown)
+        oil = (pc - Vector((cx(c), 0, 0))).dot(u) + 0.130 - 0.0535
+        if oil < 0.330: ring_out.append((c, phi))
+for n, M in base.items():
+    ob[n].matrix_world = M
+bpy.context.view_layer.update()
+
+# compression ratio check from piston profile (bowl volume) -------------
+hc = 0.130
+k = 0.86
+prof = [(0, hc - 0.012), (0.020, hc - 0.032 * k), (0.040, hc - 0.044 * k), (0.054, hc - 0.040 * k), (0.057, hc - 0.026 * k),
+        (0.050, hc - 0.008 * k), (0.053, hc)]
+# volume of bowl = volume between crown plane and bowl surface (shoelace revolve, Pappus)
+poly = prof + [(0, hc)]
+A = 0; Cr = 0
+for i in range(len(poly)):
+    x0, y0 = poly[i]; x1, y1 = poly[(i + 1) % len(poly)]
+    cr_ = x0 * y1 - x1 * y0
+    A += cr_; Cr += (x0 + x1) * cr_
+A /= 2; Cr /= (6 * A)
+Vbowl = abs(2 * math.pi * Cr * A)
+Vs = math.pi / 4 * 0.17 ** 2 * 0.215
+Vgap = math.pi / 4 * 0.17 ** 2 * (0.0015 + 0.001)   # piston to deck + gasket/fire deck 1 mm (ILLUSTRATIVE)
+CRc = (Vs + Vbowl + Vgap) / (Vbowl + Vgap)
+
+res = dict(objects=len(meshes), scene_triangles=scene_tris, unique_mesh_triangles=uniq_tris,
+           bbox=[list(map(lambda x: round(x, 4), lo)), list(map(lambda x: round(x, 4), hi))], envelope_violations=env_bad,
+           static_overlaps=static_hits, sweep_overlaps=sweep, min_valve_to_crown_gap_m=round(min_valve_gap, 5),
+           rings_leave_liner=ring_out, V_swept_L=round(Vs * 1000, 4), V_bowl_L=round(Vbowl * 1000, 4),
+           V_gap_L=round(Vgap * 1000, 4), CR_model=round(CRc, 2), CR_doc='14.7:1 (D03 hlm. 1)',
+           displacement_model_L=round(12 * Vs * 1000, 2))
+json.dump(res, open(os.path.join(OUT, '_checks.json'), 'w'), indent=1)
+print(json.dumps({k: v for k, v in res.items() if k not in ('sweep_overlaps',)}, indent=1)[:3000])
+print('SWEEP', len(sweep)); [print(' ', k, v[:6]) for k, v in list(sweep.items())[:30]]
+
+if not DO_RENDER:
+    sys.exit(0)
+# ------------------------------------------------------------ export
+bpy.ops.object.select_all(action='DESELECT')
+bpy.ops.export_scene.gltf(filepath=os.path.join(OUT, 'internal.glb'), export_format='GLB', export_yup=False,
+                          export_apply=True, export_extras=True)
+bpy.ops.wm.save_as_mainfile(filepath=os.path.join(OUT, 'internal.blend'))
+
+# ------------------------------------------------------------ render
+sc = bpy.context.scene
+sc.render.engine = 'CYCLES'
+sc.cycles.device = 'CPU'
+sc.cycles.samples = 24
+sc.cycles.max_bounces = 4
+try:
+    sc.cycles.use_denoising = True
+except Exception:
+    pass
+sc.render.resolution_x, sc.render.resolution_y = 1200, 900
+sc.render.film_transparent = False
+try:
+    sc.view_settings.view_transform = 'Standard'
+except Exception:
+    pass
+wd = bpy.data.worlds.new('W'); sc.world = wd
+wd.use_nodes = True
+bgn = wd.node_tree.nodes.get('Background')
+bgn.inputs['Color'].default_value = (0.85, 0.87, 0.9, 1); bgn.inputs['Strength'].default_value = 0.9
+for nm, rot, en in (('KEY', (0.9, 0.3, 0.6), 4.0), ('FILL', (-0.6, -0.4, -2.2), 1.5), ('TOP', (0.0, 0.0, 0.0), 1.5)):
+    ld = bpy.data.lights.new(nm, 'SUN'); ld.energy = en; lo_ = bpy.data.objects.new(nm, ld)
+    lo_.rotation_euler = rot; sc.collection.objects.link(lo_)
+gray = bpy.data.materials.new('NEUTRAL'); gray.diffuse_color = (0.7, 0.7, 0.7, 1)
+gray.use_nodes = True
+gb = gray.node_tree.nodes.get('Principled BSDF')
+gb.inputs['Base Color'].default_value = (0.42, 0.43, 0.45, 1); gb.inputs['Metallic'].default_value = 0.0; gb.inputs['Roughness'].default_value = 0.6
+cam_d = bpy.data.cameras.new('cam'); cam = bpy.data.objects.new('RENDER-CAM', cam_d); sc.collection.objects.link(cam); sc.camera = cam
+C = Vector((0.92, 0.12, 0.0))
+views = {
+    'depan': (Vector((1, 0, 0)), 2.2, True), 'belakang': (Vector((-1, 0, 0)), 2.2, True),
+    'kiri': (Vector((0, 0, -1)), 2.75, True), 'kanan': (Vector((0, 0, 1)), 2.75, True),
+    'atas': (Vector((0, 1, 0)), 3.15, True), 'tigaperempat': (Vector((0.9, 0.75, 1.0)).normalized(), 0, False),
+    'detail_silinder1': (Vector((0.35, 0.25, 1.0)).normalized(), 0, False),
+    'diag_depan_tanpa_liner': (Vector((1, 0, 0)), 1.9, True),
+    'diag_kanan_tanpa_liner': (Vector((0, 0, 1)), 2.6, True),
+    'diag_34_tanpa_liner': (Vector((0.9, 0.75, 1.0)).normalized(), 0, False),
+}
+ONLY = [a.split('=', 1)[1].split(',') for a in sys.argv if a.startswith('--only=')]
+ONLY = ONLY[0] if ONLY else None
+HIDE = ('INT-LINER', 'INT-DAMPER', 'INT-GEAR-F', 'INT-OILPUMP', 'INT-FLYWHEEL')
+for mode in ('neutral', 'color'):
+    bpy.context.view_layer.material_override = gray if mode == 'neutral' else None
+    for vn, (d, scale, ortho) in views.items():
+        if (vn.startswith('detail') or vn.startswith('diag')) and mode == 'neutral':
+            continue
+        if ONLY and vn not in ONLY:
+            continue
+        for o in bpy.data.objects:
+            if o.type == 'MESH':
+                o.hide_render = vn.startswith('diag') and o.name.startswith(HIDE)
+        tgt = C if vn != 'detail_silinder1' else Vector((1.53, 0.55, 0.2))
+        dist = 8.0 if ortho else (3.4 if vn in ('tigaperempat', 'diag_34_tanpa_liner') else 1.6)
+        cam.location = tgt + d * dist
+        up = Vector((0, 1, 0)) if vn != 'atas' else Vector((1, 0, 0))
+        cam.rotation_euler = (-d).to_track_quat('-Z', 'Y' if vn != 'atas' else 'X').to_euler() if False else cam.rotation_euler
+        z = d.normalized(); x = up.cross(z).normalized(); y = z.cross(x)
+        cam.matrix_world = Matrix(((x.x, y.x, z.x, cam.location.x), (x.y, y.y, z.y, cam.location.y),
+                                   (x.z, y.z, z.z, cam.location.z), (0, 0, 0, 1)))
+        cam_d.type = 'ORTHO' if ortho else 'PERSP'
+        if ortho: cam_d.ortho_scale = scale
+        else: cam_d.lens = 35 if vn in ('tigaperempat', 'diag_34_tanpa_liner') else 50
+        cam_d.clip_start, cam_d.clip_end = 0.01, 50
+        sc.render.filepath = os.path.join(OUT, 'render', f'{mode}_{vn}.png')
+        bpy.ops.render.render(write_still=True)
+print('RENDER DONE')

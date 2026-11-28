@@ -1,0 +1,123 @@
+{
+  "input_file": "/workspace/private-production/yanmar-6aym-wet-r03/model/exterior/exterior.glb",
+  "exterior_sha256": "153c7f88e907a9832d11cd05ad4f822332aae1667506cc1a902dbefa648a67ad",
+  "method": "Blender reimport and BVH overlap at 13 evenly sampled simultaneous illustrative offsets; triangle crossings are a discrete test.",
+  "passage_check": {
+    "shell_center_open_axially": true,
+    "core_tube_bore_rays_total": 91,
+    "core_tube_bore_rays_clear": 91
+  },
+  "results": [
+    {
+      "ratio": 0.0,
+      "triangle_surface_pairs_with_core": {
+        "EXT-INTAKE-02": 0,
+        "EXT-INTAKE-06": 0,
+        "EXT-INTAKE-07": 0
+      }
+    },
+    {
+      "ratio": 0.08333333333333333,
+      "triangle_surface_pairs_with_core": {
+        "EXT-INTAKE-02": 0,
+        "EXT-INTAKE-06": 0,
+        "EXT-INTAKE-07": 0
+      }
+    },
+    {
+      "ratio": 0.16666666666666666,
+      "triangle_surface_pairs_with_core": {
+        "EXT-INTAKE-02": 0,
+        "EXT-INTAKE-06": 0,
+        "EXT-INTAKE-07": 0
+      }
+    },
+    {
+      "ratio": 0.25,
+      "triangle_surface_pairs_with_core": {
+        "EXT-INTAKE-02": 0,
+        "EXT-INTAKE-06": 0,
+        "EXT-INTAKE-07": 0
+      }
+    },
+    {
+      "ratio": 0.3333333333333333,
+      "triangle_surface_pairs_with_core": {
+        "EXT-INTAKE-02": 0,
+        "EXT-INTAKE-06": 0,
+        "EXT-INTAKE-07": 0
+      }
+    },
+    {
+      "ratio": 0.4166666666666667,
+      "triangle_surface_pairs_with_core": {
+        "EXT-INTAKE-02": 0,
+        "EXT-INTAKE-06": 0,
+        "EXT-INTAKE-07": 0
+      }
+    },
+    {
+      "ratio": 0.5,
+      "triangle_surface_pairs_with_core": {
+        "EXT-INTAKE-02": 0,
+        "EXT-INTAKE-06": 0,
+        "EXT-INTAKE-07": 0
+      }
+    },
+    {
+      "ratio": 0.5833333333333334,
+      "triangle_surface_pairs_with_core": {
+        "EXT-INTAKE-02": 0,
+        "EXT-INTAKE-06": 0,
+        "EXT-INTAKE-07": 0
+      }
+    },
+    {
+      "ratio": 0.6666666666666666,
+      "triangle_surface_pairs_with_core": {
+        "EXT-INTAKE-02": 0,
+        "EXT-INTAKE-06": 0,
+        "EXT-INTAKE-07": 0
+      }
+    },
+    {
+      "ratio": 0.75,
+      "triangle_surface_pairs_with_core": {
+        "EXT-INTAKE-02": 0,
+        "EXT-INTAKE-06": 0,
+        "EXT-INTAKE-07": 0
+      }
+    },
+    {
+      "ratio": 0.8333333333333334,
+      "triangle_surface_pairs_with_core": {
+        "EXT-INTAKE-02": 0,
+        "EXT-INTAKE-06": 0,
+        "EXT-INTAKE-07": 0
+      }
+    },
+    {
+      "ratio": 0.9166666666666666,
+      "triangle_surface_pairs_with_core": {
+        "EXT-INTAKE-02": 0,
+        "EXT-INTAKE-06": 0,
+        "EXT-INTAKE-07": 0
+      }
+    },
+    {
+      "ratio": 1.0,
+      "triangle_surface_pairs_with_core": {
+        "EXT-INTAKE-02": 0,
+        "EXT-INTAKE-06": 0,
+        "EXT-INTAKE-07": 0
+      }
+    }
+  ],
+  "renderer": "Blender Cycles CPU 32 samples without denoising, 1450\u00d7850",
+  "views": [
+    "assembled",
+    "exploded",
+    "core-and-open-bore",
+    "xray-assembled"
+  ]
+}

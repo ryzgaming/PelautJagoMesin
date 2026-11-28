@@ -2,6 +2,9 @@
 
 ## Keputusan aktif
 
+- **PROD-REPO-001 · 28 November 2026 · keputusan pemilik:** hasil pemisahan Yanmar R06 harus berada di repositori, bukan hanya ZIP lokal. Pemilik mengetahui repo `ryzgaming/PelautJagoMesin` publik dan memilih tetap menyimpan paket lengkap di sana. Sumber: [produksi/README.md](../produksi/README.md); tiga folder `model/`, `ui-workspace/`, `agensi/` berada di `produksi/yanmar-6aym-wet-r06/`. Aset besar memakai Git LFS; ekspor review dan inventaris dipertahankan checksum-nya. Ini bukan persetujuan katalog. Viewer/generator tidak berubah dalam impor repo. Audit mekanis yang belum lengkap tetap terbuka.
+
+
 - **UI-001 · 24 November 2026 · pilihan pemilik:** konsep **2 — Studio Gelap** adalah standar workspace mesin untuk seluruh mesin lama dan mesin baru lintas sesi. Spesifikasi: [WORKSPACE_UI.md](WORKSPACE_UI.md); referensi: [papan konsep, kuadran kanan atas](design/workspace-concepts.png). Dibaca melalui AGENTS.md.
 - Workspace yang dimaksud adalah viewer mesin 3D, bukan halaman Alur/antrean agen.
 - Pertahankan model, data komponen, serta batas akses publik/premium saat menyeragamkan UI.

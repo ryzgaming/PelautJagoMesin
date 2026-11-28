@@ -1,0 +1,18 @@
+YANMAR 6AYM-WET — DRAF GPT r01, 28 November 2026
+
+Varian: H 555 kW pada 1840 rpm, engine-only. Dibuat dengan GPT-6.2 Sol dan toolkit produksi; 13 peran terpisah termasuk QA independen.
+Status: UNVERIFIED / needs_evidence. Belum memenuhi gerbang siap review, belum diterbitkan online, tidak masuk katalog.
+
+CARA MEMERIKSA
+Buka yanmar-6aym-wet-gpt-draft.html di browser yang mendukung WebGL. Seluruh aset viewer tertanam; tidak memerlukan server. Pemuatan GLB dan logika viewer telah diuji, tetapi visual WebGL dan gestur desktop/HP belum diuji karena relay/browser lingkungan gagal. Jika browser HP membatasi HTML lokal, gunakan komputer untuk memeriksa draf ini.
+Pilih Komponen, Eksplor keseluruhan, Sistem, Pengoperasian, atau X-ray. Tersedia 581 ID komponen mesh, 11 rakitan, lima sistem, pemisahan rakitan dan animasi ilustratif.
+File Blender dan GLB yang dapat diedit tersedia di model/exterior dan model/internal. Register sumber serta hasil QA berada di doc, foto, video, dan qa. Dokumen/foto sumber asli tidak disertakan dalam paket distribusi ini; locator dan hash tetap tercatat.
+
+HASIL DAN BATAS
+QA mengimpor ulang kedua GLB, memeriksa enam render, mencocokkan 581 ID inventaris, dan menguji 438 pose diskret pada pasangan permukaan yang tercantum di laporan. Tidak terdeteksi perpotongan pada pasangan/pose yang diuji; bukan jaminan bebas benturan kontinu atau kecocokan manufaktur.
+Dimensi fisik model 2002,68 x 1305,00 x 1541,00 mm. Panjang/lebar memenuhi target edukasi 1%. Tinggi mencakup flange exhaust; padanan bidang untuk tinggi nominal katalog 1431 mm belum terverifikasi. Jangan menganggap semua ukuran memenuhi 1%.
+Temuan terbuka: (1) tampak atas exact H dan detail OEM/antarmuka tersembunyi, (2) viewer WebGL desktop/HP, (3) timing fisik dan kinematika OEM lengkap. Tiga YouTube pengguna tidak dapat diakses; tidak digunakan sebagai bukti frame.
+Urutan urai dan animasi adalah ilustrasi pembelajaran, bukan petunjuk servis. Bagian estimasi dan ilustratif diberi status di inventaris. Model dibuat independen tanpa afiliasi pabrikan.
+
+LANJUTAN
+Lengkapi bukti yang dirinci di qa/qa.json, periksa viewer pada 1280x800 dan 390x844 melalui runtime yang diizinkan, lalu QA ulang revisi/hash yang sama atau audit ulang bila model berubah. Jangan ubah status menjadi PASS hanya karena draf dapat dibuka. Publikasi katalog tetap memerlukan keputusan pemilik terpisah.

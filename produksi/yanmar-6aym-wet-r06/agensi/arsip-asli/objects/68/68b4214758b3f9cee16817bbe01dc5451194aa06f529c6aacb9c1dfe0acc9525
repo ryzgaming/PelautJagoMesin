@@ -1,0 +1,114 @@
+{
+  "machine_model": "Yanmar 6AYM-WET",
+  "system": "seawater",
+  "status": "UNVERIFIED",
+  "applicability": "Skema edukasi 6AYM-WET H-rating 555 kW, engine-only, datum r01. D03 mengonfirmasi intercooler dan heat exchanger pada H-rating. Urutan aliran mengikuti panah dan narasi D01 pada tingkat keluarga 6AYM-WGT/WET/WST. Penerapannya pada H-rating merupakan inferensi fungsional sampai gambar piping untuk konfigurasi dan serial yang sesuai tersedia.",
+  "author": {
+    "agent_id": "/root/seawater",
+    "role": "Spesialis sistem seawater",
+    "revision": "r01"
+  },
+  "nodes": [
+    {
+      "id": "SW-INLET",
+      "name": "Seawater inlet",
+      "kind": "interface",
+      "location_hint": "Batas masuk sirkuit mesin sebelum pompa. Lokasi dan orientasi port spesifik H-rating belum terverifikasi.",
+      "status": "INFERRED",
+      "source_refs": ["D01 cetak 11 / PDF 15, Piping Diagram, Cooling water system dan legenda", "D01 cetak 159 / PDF 163, Cooling Water System, diagram"]
+    },
+    {
+      "id": "SW-PUMP",
+      "name": "Seawater pump",
+      "kind": "pump",
+      "location_hint": "Ujung flywheel, sisi operation kiri (−Z), di bawah air cooler. D01 keluarga menjelaskan pompa terpasang pada gear housing dengan penggerak gear dan rubber impeller. Datum r01 memberi estimasi posisi tanpa koordinat transversal.",
+      "status": "INFERRED",
+      "source_refs": ["D01 cetak 10 / PDF 14, Location of Components, Operation side", "D01 cetak 159 / PDF 163, Seawater pump, narasi dan ilustrasi", "P06 foto tampak belakang", "P07 foto sisi operation kiri"]
+    },
+    {
+      "id": "SW-AIR-COOLER",
+      "name": "Air cooler (intercooler), sisi air laut",
+      "kind": "heat_exchanger",
+      "location_hint": "Rakitan melintang bagian atas ujung flywheel. Bentuk rumah terlihat dari belakang. Susunan port sisi air laut dan jalur internal H-rating belum terverifikasi.",
+      "status": "DOCUMENTED",
+      "source_refs": ["D03 cetak 32–33 / PDF 17, 6AYM-WET H-rating, Specifications dan Engine only", "D01 cetak 10 / PDF 14, Location of Components, Operation side", "D01 cetak 159 / PDF 163, Seawater system dan diagram", "P06 foto tampak belakang"]
+    },
+    {
+      "id": "FW-HEAT-EXCHANGER",
+      "name": "Coolant tank dan heat exchanger, sisi air laut",
+      "kind": "heat_exchanger",
+      "location_hint": "Rakitan melintang bagian atas ujung damper. ID fisik sama dengan heat exchanger pada sistem freshwater. D01 menjelaskan air laut di dalam tube core dan coolant di luar tube core.",
+      "status": "DOCUMENTED",
+      "source_refs": ["D03 cetak 32–33 / PDF 17, 6AYM-WET H-rating, Specifications dan Engine only", "D01 cetak 10 / PDF 14, Location of Components, Operation side", "D01 cetak 162 / PDF 166, Heat exchanger (coolant cooler)", "P08 foto tiga perempat kiri-depan"]
+    },
+    {
+      "id": "SW-OUTLET",
+      "name": "Seawater outlet",
+      "kind": "interface",
+      "location_hint": "Batas keluar sirkuit mesin sesudah heat exchanger. Lokasi dan orientasi port spesifik H-rating serta jalur buang kapal belum terverifikasi.",
+      "status": "INFERRED",
+      "source_refs": ["D01 cetak 11 / PDF 15, Piping Diagram, Cooling water system dan legenda", "D01 cetak 159 / PDF 163, Seawater system dan diagram"]
+    }
+  ],
+  "edges": [
+    {
+      "from": "SW-INLET",
+      "to": "SW-PUMP",
+      "purpose": "Memasok air laut ke sisi hisap pompa.",
+      "operating_condition": "Mesin berputar dan pasokan air laut tersedia.",
+      "status": "INFERRED",
+      "source_refs": ["D01 cetak 11 / PDF 15, Piping Diagram, Cooling water system dan legenda", "D01 cetak 159 / PDF 163, Cooling Water System, diagram"]
+    },
+    {
+      "from": "SW-PUMP",
+      "to": "SW-AIR-COOLER",
+      "purpose": "Mengalirkan air laut ke air cooler untuk menyerap panas dari udara bertekanan.",
+      "operating_condition": "Pompa air laut bekerja.",
+      "status": "INFERRED",
+      "source_refs": ["D01 cetak 11 / PDF 15, Piping Diagram, Cooling water system dan legenda", "D01 cetak 159 / PDF 163, Seawater system dan diagram"]
+    },
+    {
+      "from": "SW-AIR-COOLER",
+      "to": "FW-HEAT-EXCHANGER",
+      "purpose": "Mengalirkan air laut ke tube core heat exchanger untuk menyerap panas dari coolant.",
+      "operating_condition": "Pompa air laut bekerja.",
+      "status": "INFERRED",
+      "source_refs": ["D01 cetak 11 / PDF 15, Piping Diagram, Cooling water system dan legenda", "D01 cetak 159 / PDF 163, Seawater system dan diagram", "D01 cetak 162 / PDF 166, Heat exchanger (coolant cooler)"]
+    },
+    {
+      "from": "FW-HEAT-EXCHANGER",
+      "to": "SW-OUTLET",
+      "purpose": "Membawa air laut keluar dari sirkuit mesin setelah melewati heat exchanger.",
+      "operating_condition": "Pompa air laut bekerja.",
+      "status": "INFERRED",
+      "source_refs": ["D01 cetak 11 / PDF 15, Piping Diagram, Cooling water system dan legenda", "D01 cetak 159 / PDF 163, Seawater system dan diagram"]
+    }
+  ],
+  "gaps": [
+    "D01 cetak 160 / PDF 164, Water pump (coolant), menyebut aliran dari heat exchanger dan air cooler menuju lubricating oil cooler. Diagram cetak 11 dan 159 serta narasi Seawater system cetak 159 menempatkan air cooler pada sirkuit air laut. Urutan graf mengikuti diagram dan narasi yang konsisten. Kemungkinan jalur coolant terpisah ke air cooler H-rating belum terbukti.",
+    "Rute fisik dan diameter pipa, identitas port dan sambungan, geometri tube bundle dan spesifikasi pompa untuk serial H-rating masih UNVERIFIED. Tabel performa pompa D01 pada 1900 rpm merupakan data keluarga dan tidak digunakan sebagai rating pompa H 1840 rpm.",
+    "Marine gear oil cooler dengan jalur ke dan dari air cooler pada skema D01 berada di luar cakupan engine-only. Sea chest, strainer, katup kapal, dan titik discharge kapal juga berada di luar batas graf."
+  ],
+  "sources": [
+    {
+      "id": "D01",
+      "file": "doc/D01-service.pdf",
+      "sha256": "bd68c39b57e2f84137ed990f87163cc652f8cbbb59e19d782526a089f3566160",
+      "locators": ["cetak 10 / PDF 14, Location of Components", "cetak 11 / PDF 15, Piping Diagram, diagram 057557-00EN00", "cetak 159 / PDF 163, Cooling Water System, Seawater system, diagram 057557-00EN00 dan Seawater pump", "cetak 160 / PDF 164, Water pump (coolant)", "cetak 162 / PDF 166, Heat exchanger (coolant cooler)"],
+      "scope": "Manual keluarga. Halaman diagram, narasi dan ilustrasi dibaca secara visual. Diagram yang muncul di dua halaman memiliki ID sama dan merupakan satu skema yang diulang."
+    },
+    {
+      "id": "D03",
+      "file": "doc/D03-product-guide.pdf",
+      "sha256": "effb2cb7ef35e641ee0dd394802d38e8a2f5087ce0544334cc738fb536e592eb",
+      "locators": ["cetak 32–33 / PDF 17, 6AYM-WET H-rating 555 kW, Specifications dan Engine only"],
+      "scope": "Identitas varian, intercooler, heat exchanger, dan konfigurasi engine-only. Halaman dibaca secara visual. Tidak memperlihatkan urutan hidraulik."
+    },
+    {
+      "id": "P05–P08",
+      "file": "foto/evidence-foto.json",
+      "locators": ["P05 sisi non-operation kanan (+Z)", "P06 tampak belakang dari flywheel", "P07 sisi operation kiri (−Z)", "P08 tiga perempat kiri-depan"],
+      "scope": "Keempat foto dilihat untuk orientasi dan posisi rakitan. Tanda arah mengikuti register foto terkoreksi. Foto membuktikan tampilan luar serta bagian sambungan yang terlihat dengan batas unit/serial pada register."
+    }
+  ]
+}

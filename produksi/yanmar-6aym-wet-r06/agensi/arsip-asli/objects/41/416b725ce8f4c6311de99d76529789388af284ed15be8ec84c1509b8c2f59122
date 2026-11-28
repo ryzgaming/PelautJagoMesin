@@ -1,0 +1,282 @@
+{
+  "revision": "r03",
+  "qa_agent_id": "/root/qa",
+  "verdict": "UNVERIFIED",
+  "ready_for_private_review": false,
+  "asset_sha256": {
+    "exterior": "153c7f88e907a9832d11cd05ad4f822332aae1667506cc1a902dbefa648a67ad",
+    "internal": "4b69ad9975928cfa80be62ddc7c6a1c5caa241900bd3aef299081c1e6406ae05"
+  },
+  "summary": {
+    "injectors": 6,
+    "selectable_per_injector": 17,
+    "injector_surface_pair_samples": 816,
+    "nozzle_holes_probed": 72,
+    "mechanical_pose_samples": 438,
+    "recipe_count_viewer": 54,
+    "owner_flows_gltf_mock": 3,
+    "air_cooler_rays": {
+      "all_axial": 49,
+      "clear_of_shell": 49,
+      "intersect_core": 42
+    },
+    "mesh_count": {
+      "exterior": 307,
+      "internal": 703
+    }
+  },
+  "aabb_mm": {
+    "L": 2002.677,
+    "W": 1305.0001,
+    "H_fisik": 1541.0
+  },
+  "family_coverage": {
+    "RAK-BLOCK": "PARTIAL",
+    "RAK-HEADS": "PARTIAL",
+    "RAK-OILPAN": "PARTIAL",
+    "RAK-FLYWHEEL": "PARTIAL",
+    "RAK-FRONT": "PARTIAL",
+    "RAK-ELECTRIC": "PARTIAL",
+    "RAK-INTAKE": "PARTIAL",
+    "RAK-EXHAUST": "PARTIAL",
+    "RAK-COOLING": "PARTIAL",
+    "RAK-FUEL": "PARTIAL",
+    "RAK-LUBE": "PARTIAL",
+    "INT-CRANK": "PARTIAL",
+    "INT-MAIN": "PARTIAL",
+    "INT-PISTON": "PARTIAL",
+    "INT-ROD": "PARTIAL",
+    "INT-LINER": "PARTIAL",
+    "INT-CAM": "PARTIAL",
+    "INT-VALVE": "PARTIAL",
+    "INT-FUELINJ": "PARTIAL",
+    "INT-TIMING": "PARTIAL",
+    "INT-OILPUMP": "PARTIAL"
+  },
+  "checks": {
+    "injector_evidence_and_plates": {
+      "status": "PASS",
+      "scope": "TP2 source, two annotated plates and a shared 17-function legend. Verified mechanical layout and listed physical specifications against D01 and D05. No verification of operating pressure/lift in the asset.",
+      "evidence": [
+        "model/internal/plates/injector-section-exploded.pdf",
+        "model/internal/evidence/D01-p150.png",
+        "model/internal/evidence/D05-fig79.png"
+      ]
+    },
+    "injector_fit_sampled": {
+      "status": "PASS",
+      "scope": "Six groups and 72 actual holes; bounds probes around nominated axes are not precision metrology.",
+      "evidence": [
+        "qa/r03/frozen-repaired/nested-reimport.json"
+      ]
+    },
+    "owner_flow_logic": {
+      "status": "PASS",
+      "scope": "Actual GLTFLoader with mock DOM/renderer. Legacy parent row for cooler and injector #1/#6, X-ray, cutaway, explode/reset/repack/back. Direct links #6 section and #1 exploded.",
+      "evidence": [
+        "qa/r03/frozen-repaired/owner-row-mock.log",
+        "qa/r03/frozen-repaired/owner-61-section-mock.log",
+        "qa/r03/frozen-repaired/owner-11-exploded-mock.log"
+      ]
+    },
+    "cooler_core_geometry": {
+      "status": "PASS",
+      "scope": "Clear body/core surface samples; visual tube bundle in assembled X-ray and exploded.",
+      "evidence": [
+        "qa/r03/frozen-repaired/nested-reimport.json",
+        "qa/r03/frozen-repaired/r03-xray.png",
+        "qa/r03/frozen-repaired/r03-exploded-xray.png",
+        "qa/r03/baseline-r02-xray.png"
+      ]
+    },
+    "pump_and_accessory_fit": {
+      "status": "PASS",
+      "scope": "Sampled installed casing/core and Bosch shell/inner pairs. Fit beyond tested pair surfaces remains outside the sample.",
+      "evidence": [
+        "qa/r03/frozen-repaired/nested-reimport.json",
+        "qa/r03/frozen-repaired/fuel-fit.json"
+      ]
+    },
+    "model_geometry_and_parentage": {
+      "status": "PASS",
+      "scope": "Export reimport and inventory matched. Six neutral external renders and one internal viewed. Assembly envelope retained and 438 discrete poses clear in sampled pairs.",
+      "evidence": [
+        "qa/r03/frozen-repaired/reimport.json",
+        "qa/r03/frozen-repaired/fit.json"
+      ]
+    },
+    "oem_scope": {
+      "status": "UNVERIFIED",
+      "scope": "Incomplete BOM and exact per-serial fit, detail dimensions including nominal body-height datum, and continuous physical service motion.",
+      "evidence": [
+        "qa/coverage/assembly-coverage.json",
+        "doc/cooler-specialist/BOM-Fig37.json",
+        "qa/r03/frozen-repaired/nested-reimport.json"
+      ]
+    },
+    "viewer_desktop_mobile": {
+      "status": "UNVERIFIED",
+      "scope": "Preview relay/CUA failed. Actual WebGL, gestures, device performance and viewport layout are not verified.",
+      "evidence": [
+        "qa/integration-viewer-r03.md"
+      ]
+    }
+  },
+  "bosch_cam_shell_sample": [
+    {
+      "shell": "EXT-FUEL-01",
+      "core": "EXT-FUEL-21",
+      "mesh_triangle_crossing_pairs": 0,
+      "intersecting_core_triangle_bounds_m": null,
+      "closest_core_vertex_to_shell_mm": 0.3923177719116211
+    }
+  ],
+  "remaining_fit_crossings": [],
+  "renders_visually_inspected": [
+    "qa/r03/frozen-repaired/neutral_depan.png",
+    "qa/r03/frozen-repaired/neutral_belakang.png",
+    "qa/r03/frozen-repaired/neutral_kiri.png",
+    "qa/r03/frozen-repaired/neutral_kanan.png",
+    "qa/r03/frozen-repaired/neutral_atas.png",
+    "qa/r03/frozen-repaired/neutral_tiga_perempat.png",
+    "qa/r03/frozen-repaired/neutral_internal.png"
+  ],
+  "artifacts": [
+    {
+      "path": "doc/cooler-specialist/BOM-Fig37.json",
+      "sha256": "bb33bb020403b51e27b2fd161ae1c1e6fd4147df7a647f58ca479b164662fb43"
+    },
+    {
+      "path": "model/exterior/exterior.glb",
+      "sha256": "153c7f88e907a9832d11cd05ad4f822332aae1667506cc1a902dbefa648a67ad"
+    },
+    {
+      "path": "model/exterior/inventory.json",
+      "sha256": "e849085cfd39651b12643b63fd2146d8fa1fa528ccf44587325696a6adead50e"
+    },
+    {
+      "path": "model/internal/evidence/D01-p150.png",
+      "sha256": "f0faf8390834aa044cf137672b224eb782bf16fd0c867e1da85a5a81277ed49d"
+    },
+    {
+      "path": "model/internal/evidence/D05-fig79.png",
+      "sha256": "7c66e2cdf431985b42a418cea4b98f97385378abf19c49c36065e59f4887201c"
+    },
+    {
+      "path": "model/internal/internal.glb",
+      "sha256": "4b69ad9975928cfa80be62ddc7c6a1c5caa241900bd3aef299081c1e6406ae05"
+    },
+    {
+      "path": "model/internal/inventory.json",
+      "sha256": "10f32a73d8abbe320c9b116dcf2c406b7a16fec57e635668ca1bbce37d062d97"
+    },
+    {
+      "path": "model/internal/plates/injector-section-exploded.pdf",
+      "sha256": "6d7eff485f75aad97f2360d7ae806b7345cbfe9d939765536c1f9460ebe6fe3a"
+    },
+    {
+      "path": "qa/coverage/assembly-coverage.json",
+      "sha256": "da88c7eb587f1f9f772eac6b48fa28c044c771dd1d16f1364560b58b8ee7a14e"
+    },
+    {
+      "path": "qa/integration-viewer-r03.md",
+      "sha256": "d5a4091e8ec17b1355a24356ff3960c903b9cdfa5e81a7e2a4e2d748541c8e6a"
+    },
+    {
+      "path": "qa/r03/QA.md",
+      "sha256": "94eda8729ff03b13de64111a1a0acee8c332dc46ed9ed93c928ce02b7aaa69e7"
+    },
+    {
+      "path": "qa/r03/acceptance.md",
+      "sha256": "c5d440955864b354018f52cba43d28d0e626a8862f9b8540ed4222df158a1579"
+    },
+    {
+      "path": "qa/r03/baseline-r02-xray.png",
+      "sha256": "f26da76764d5a6d6f79f818c0458e17fd42df4f38f1c3f9114355e50ff8e8305"
+    },
+    {
+      "path": "qa/r03/frozen-repaired/fit.json",
+      "sha256": "a5e2e83e58e9fe396aa12947081275f628440c046274806535f70eec9498acf9"
+    },
+    {
+      "path": "qa/r03/frozen-repaired/fuel-fit.json",
+      "sha256": "be7d6702df27ff0c13dcb6b738a217421f21821f7afc46c11ded659552632500"
+    },
+    {
+      "path": "qa/r03/frozen-repaired/nested-reimport.json",
+      "sha256": "f33998c38d228d3da21d199e9bfc7816df916090b3c3c61126cfff2c5f102c8b"
+    },
+    {
+      "path": "qa/r03/frozen-repaired/neutral_atas.png",
+      "sha256": "41572d74fb667357ba91ac8bc9dca0a074ec0f036e60fb7eb4ef647214421ec8"
+    },
+    {
+      "path": "qa/r03/frozen-repaired/neutral_belakang.png",
+      "sha256": "69f71d8ca87b795b740e42fd34a7ed3d7fe598772c62927d2f97fc9a3d355f59"
+    },
+    {
+      "path": "qa/r03/frozen-repaired/neutral_depan.png",
+      "sha256": "72f980015eb084f5048e7337a9ba4ad891b0e38cb5d0a862c7089a9c19cb04ec"
+    },
+    {
+      "path": "qa/r03/frozen-repaired/neutral_internal.png",
+      "sha256": "7f7cd11676859e401c91bbfa50ea0c07d06950980eedfa9a111383666221de4b"
+    },
+    {
+      "path": "qa/r03/frozen-repaired/neutral_kanan.png",
+      "sha256": "e882e7cac22ad0eb27f46f713ce5eb4f3f86c7c12fdb65ecf38671c66fe7d8b8"
+    },
+    {
+      "path": "qa/r03/frozen-repaired/neutral_kiri.png",
+      "sha256": "392256152d1d4d542088fe7366caee62503e5234fbbffcd9b4f067803d4bba99"
+    },
+    {
+      "path": "qa/r03/frozen-repaired/neutral_tiga_perempat.png",
+      "sha256": "91925bf0778c5cb8ab0946b0ec1434de2e43f84d8f95af83d943e8734986c291"
+    },
+    {
+      "path": "qa/r03/frozen-repaired/owner-11-exploded-mock.log",
+      "sha256": "f2432d571019dd0aee1bb3eac63332bcf2339dfa6f9e40b15af3edb910203e98"
+    },
+    {
+      "path": "qa/r03/frozen-repaired/owner-61-section-mock.log",
+      "sha256": "f2432d571019dd0aee1bb3eac63332bcf2339dfa6f9e40b15af3edb910203e98"
+    },
+    {
+      "path": "qa/r03/frozen-repaired/owner-row-mock.log",
+      "sha256": "f2432d571019dd0aee1bb3eac63332bcf2339dfa6f9e40b15af3edb910203e98"
+    },
+    {
+      "path": "qa/r03/frozen-repaired/r03-core-removed.png",
+      "sha256": "bebd473a319b5dad25f1d6e9447872940bd3e02250ad5c8ef8daec4d1ea59073"
+    },
+    {
+      "path": "qa/r03/frozen-repaired/r03-exploded-xray.png",
+      "sha256": "ab1408a1eeb33abda6157ea865303cd6ecab623be054cba05da89f21a92a85c8"
+    },
+    {
+      "path": "qa/r03/frozen-repaired/r03-render.json",
+      "sha256": "b205f52df3d6a1faaecd4939f7a15a50a54a315634581e6f8cfc9f3b88f1c670"
+    },
+    {
+      "path": "qa/r03/frozen-repaired/r03-xray.png",
+      "sha256": "e338b0f73dc1bdfc723f555f76a3ab5bcf75439f88c8be6d048681a92ea3c6b3"
+    },
+    {
+      "path": "qa/r03/frozen-repaired/reimport.json",
+      "sha256": "bfd96f2c3d5cd15dd3727895051928f3b3661d05cd8e1bc1ccccf2457d645028"
+    },
+    {
+      "path": "review/assets/data.json",
+      "sha256": "3730a98933c2933b538a36451d845ab037b4c5ff15191ded3c7bb5cce81849e8"
+    },
+    {
+      "path": "review/assets/studio.js",
+      "sha256": "1df3b273b5b3172ea9fe7c8a61172f6656f81650aeb1bf0f9abe02cac7ded0b5"
+    },
+    {
+      "path": "review/index.html",
+      "sha256": "1b0bb963f6f3d6af0a2c5f3f77b78cb5ec042d7d2326bebd33e28e28629dcc19"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "packageVersion": "r06-separated-2026-11-28",
+  "purpose": "Owner archive and UI-independent review; not catalog release",
+  "sourceRevision": "e3b73cdd9b1e947bfd163e1c585b70841ff9d356",
+  "sourceModel": "/workspace/private-production/yanmar-6aym-wet-r06",
+  "preservedModelExports": [
+    "model/assets/exterior.glb",
+    "model/assets/internal.glb",
+    "model/assets/data.json"
+  ],
+  "sourceSite": {
+    "url": "https://yanmar-6aym-workspace.violetblackbird16.chatgpt.site/gpt-r06/?view=operation",
+    "modifiedByPackaging": false
+  },
+  "cloudSkill": {
+    "source": "skill://user/6b017b00d97c8191b39d71f8451e4be9/orang-mesin-3d-presisi/",
+    "exportedTo": "agensi/skills-cloud/orang-mesin-3d-presisi",
+    "date": "2026-11-28"
+  },
+  "history": "agensi/arsip-asli/INDEKS.json",
+  "productionTools": "agensi/perangkat-produksi/MANIFEST-PAKET-AGENSI.json",
+  "references": "agensi/referensi/MANIFEST.json",
+  "modelSource": "model/tools/source-inventory.csv",
+  "verification": "agensi/validasi-pemisahan/",
+  "limitations": [
+    "Only available files collected; not a verbatim conversation export.",
+    "Cache exclusions explicitly listed in original revision manifests.",
+    "Agent briefs labelled reconstructed; actual project profiles kept separately.",
+    "UI separation does not certify OEM tolerances or remove unresolved historical QA findings."
+  ]
+}

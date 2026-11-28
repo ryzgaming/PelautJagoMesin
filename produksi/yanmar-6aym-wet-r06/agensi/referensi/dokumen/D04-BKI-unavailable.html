@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Akses Tidak Diizinkan | BKI</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            width: 100%;
+            min-height: 100%;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background:
+                radial-gradient(
+                    circle at 80% 20%,
+                    rgba(64, 170, 220, 0.15),
+                    transparent 35%
+                ),
+                linear-gradient(
+                    135deg,
+                    #ffffff 0%,
+                    #f8fbfe 55%,
+                    #eef7fb 100%
+                );
+
+            color: #26354a;
+        }
+
+        .page {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* =========================================================
+           HEADER
+        ========================================================= */
+
+        .header {
+            width: 100%;
+            padding: 28px 7%;
+            display: flex;
+            align-items: center;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .logo-box {
+            font-size: 54px;
+            line-height: 1;
+            font-weight: 900;
+            letter-spacing: -5px;
+            color: #003b71;
+        }
+
+        .logo-box .accent {
+            color: #00a9a5;
+        }
+
+        .brand-text {
+            border-left: 1px solid #d6e1eb;
+            padding-left: 18px;
+        }
+
+        .brand-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: #07376a;
+        }
+
+        .brand-subtitle {
+            font-size: 13px;
+            margin-top: 4px;
+            color: #3372a7;
+        }
+
+        /* =========================================================
+           MAIN CONTENT
+        ========================================================= */
+
+        .main {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 30px 7% 60px;
+        }
+
+        .content {
+            width: 100%;
+            max-width: 920px;
+            text-align: center;
+        }
+
+        .icon-wrapper {
+            width: 118px;
+            height: 118px;
+            border-radius: 50%;
+            margin: 0 auto 28px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: rgba(240, 65, 70, 0.08);
+            border: 1px solid rgba(240, 65, 70, 0.18);
+        }
+
+        .shield {
+            width: 68px;
+            height: 74px;
+            background: linear-gradient(145deg, #ff555d, #df2533);
+
+            clip-path: polygon(
+                50% 0,
+                91% 16%,
+                91% 55%,
+                78% 75%,
+                50% 100%,
+                22% 75%,
+                9% 55%,
+                9% 16%
+            );
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .shield-x {
+            color: white;
+            font-size: 40px;
+            line-height: 1;
+            font-weight: 300;
+        }
+
+        h1 {
+            font-size: clamp(38px, 5vw, 62px);
+            line-height: 1.08;
+            color: #07376a;
+            margin-bottom: 18px;
+            font-weight: 800;
+        }
+
+        .subtitle {
+            max-width: 760px;
+            margin: auto;
+            font-size: 21px;
+            line-height: 1.55;
+            color: #445064;
+        }
+
+        /* =========================================================
+           SUPPORT BOX
+        ========================================================= */
+
+        .support-card {
+            margin: 38px auto 28px;
+            max-width: 780px;
+
+            background: rgba(244, 248, 252, 0.92);
+            border: 1px solid #e3ebf2;
+            border-radius: 16px;
+
+            padding: 26px 30px;
+            text-align: left;
+
+            box-shadow:
+                0 12px 40px rgba(18, 56, 88, 0.06);
+        }
+
+        .info-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .info-icon {
+            width: 46px;
+            height: 46px;
+            min-width: 46px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border: 3px solid #07376a;
+            border-radius: 50%;
+
+            font-size: 28px;
+            font-family: Georgia, serif;
+            font-weight: bold;
+            color: #07376a;
+        }
+
+        .info-text {
+            font-size: 18px;
+            line-height: 1.55;
+        }
+
+        .separator {
+            height: 1px;
+            background: #dce5ed;
+            margin: 22px 0;
+        }
+
+        .support-id-row {
+            display: grid;
+            grid-template-columns: 140px 1fr auto;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .support-label {
+            font-size: 17px;
+            font-weight: 700;
+            color: #354d69;
+        }
+
+        .support-value {
+            min-height: 50px;
+            display: flex;
+            align-items: center;
+
+            background: #ffffff;
+            border: 1px solid #e2e8ef;
+            border-radius: 9px;
+
+            padding: 0 16px;
+
+            font-family: Consolas, "Courier New", monospace;
+            font-size: 17px;
+            word-break: break-all;
+
+            color: #1d2d41;
+        }
+
+        .copy-button {
+            width: 52px;
+            height: 50px;
+
+            border-radius: 9px;
+            border: 1px solid #dbe5ed;
+            background: white;
+
+            cursor: pointer;
+            color: #07376a;
+
+            font-size: 21px;
+
+            transition: 0.2s ease;
+        }
+
+        .copy-button:hover {
+            background: #eef5fb;
+            transform: translateY(-1px);
+        }
+
+        /* =========================================================
+           BUTTON
+        ========================================================= */
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+
+            min-width: 460px;
+
+            padding: 18px 30px;
+
+            border: none;
+            border-radius: 10px;
+
+            background: linear-gradient(135deg, #07376a, #0c4d8c);
+            color: white;
+
+            font-size: 18px;
+            font-weight: 700;
+
+            cursor: pointer;
+            text-decoration: none;
+
+            box-shadow:
+                0 9px 24px rgba(7, 55, 106, 0.18);
+
+            transition: 0.2s ease;
+        }
+
+        .back-button:hover {
+            transform: translateY(-2px);
+            box-shadow:
+                0 12px 26px rgba(7, 55, 106, 0.25);
+        }
+
+        .back-arrow {
+            font-size: 28px;
+            line-height: 1;
+        }
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+
+        .footer {
+            border-top: 1px solid #e0e9f0;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #f6f9fc 0%,
+                    #ffffff 55%,
+                    #f3f8fb 100%
+                );
+
+            padding: 26px 7%;
+        }
+
+        .footer-inner {
+            max-width: 1100px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+
+            gap: 50px;
+            align-items: center;
+        }
+
+        .footer-left {
+            font-size: 19px;
+            line-height: 1.35;
+            color: #07376a;
+        }
+
+        .footer-line {
+            margin-top: 12px;
+            width: 70px;
+            height: 3px;
+            background: #00aaa6;
+        }
+
+        .footer-right {
+            border-left: 1px solid #d9e2e9;
+            padding-left: 45px;
+        }
+
+        .help-title {
+            font-weight: bold;
+            color: #193653;
+            font-size: 17px;
+            margin-bottom: 6px;
+        }
+
+        .help-text {
+            color: #546274;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        /* =========================================================
+           DECORATION
+        ========================================================= */
+
+        .decoration {
+            position: fixed;
+            right: -180px;
+            top: -120px;
+
+            width: 620px;
+            height: 620px;
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(17, 138, 192, 0.12),
+                    rgba(17, 138, 192, 0.02) 60%,
+                    transparent 70%
+                );
+
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* =========================================================
+           RESPONSIVE
+        ========================================================= */
+
+        @media (max-width: 768px) {
+
+            .header {
+                padding: 22px 24px;
+            }
+
+            .logo-box {
+                font-size: 42px;
+            }
+
+            .brand-title {
+                font-size: 17px;
+            }
+
+            .main {
+                padding: 25px 20px 45px;
+            }
+
+            .subtitle {
+                font-size: 17px;
+            }
+
+            .support-card {
+                padding: 22px 20px;
+            }
+
+            .support-id-row {
+                grid-template-columns: 1fr;
+            }
+
+            .copy-button {
+                width: 100%;
+            }
+
+            .back-button {
+                width: 100%;
+                min-width: unset;
+            }
+
+            .footer-inner {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .footer-right {
+                border-left: none;
+                border-top: 1px solid #d9e2e9;
+
+                padding-left: 0;
+                padding-top: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="page">
+
+    <div class="decoration"></div>
+
+    <!-- =========================================================
+         HEADER
+    ========================================================== -->
+
+    <header class="header">
+
+        <div class="brand">
+
+            <!--
+                Kalau logo resmi BKI tersedia di F5,
+                bagian ini bisa diganti:
+
+                <img src="https://www.bki.co.id/logo2026/danantara_bki_1.png" alt="BKI">
+
+                Untuk sekarang menggunakan text-based logo
+                supaya HTML tidak tergantung file eksternal.
+            -->
+
+            <div class="logo-box">
+                <img width="90px" height="50px" src="https://www.bki.co.id/logo2026/BKI_Utama.png" alt="BKI">
+                <!-- B<span class="accent">K</span>I -->
+            </div>
+
+            <div class="brand-text">
+                <div class="brand-title">
+                    Biro Klasifikasi Indonesia
+                </div>
+
+                <div class="brand-subtitle">
+                    We Exist for the Safety Of Your Family and Mine
+                </div>
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================================================
+         MAIN
+    ========================================================== -->
+
+    <main class="main">
+
+        <section class="content">
+
+            <div class="icon-wrapper">
+                <div class="shield">
+                    <div class="shield-x">×</div>
+                </div>
+            </div>
+
+            <h1>
+                Akses Tidak Diizinkan
+            </h1>
+
+            <p class="subtitle">
+                URL yang Anda akses telah ditolak oleh sistem keamanan</br>
+                PT Biro Klasifikasi Indonesia (Persero).
+            </p>
+
+
+            <!-- =====================================================
+                 SUPPORT INFORMATION
+            ====================================================== -->
+
+            <div class="support-card">
+
+                <div class="info-row">
+
+                    <div class="info-icon">
+                        i
+                    </div>
+
+                    <div class="info-text">
+                        Jika Anda merasa akses ini seharusnya diizinkan,
+                        silakan hubungi Helpdesk TI dengan menyertakan
+                        <strong>Support ID</strong> berikut.
+                    </div>
+
+                </div>
+
+
+                <div class="separator"></div>
+
+
+                <div class="support-id-row">
+
+                    <div class="support-label">
+                        Support ID
+                    </div>
+
+                    <!--
+                        GANTI bagian di bawah dengan variable Support ID F5.
+
+                        Contoh placeholder manual:
+                        2bd99616-37c9-40xxxxxxxx
+
+                        Variable sebenarnya tergantung metode:
+                        - ASM / Advanced WAF Blocking Page
+                        - iRule
+                        - Local Traffic Response
+                    -->
+
+                    <div
+                        class="support-value"
+                        id="supportId"
+                    >
+                        1147785222295513361
+                    </div>
+
+
+                    <button
+                        class="copy-button"
+                        onclick="copySupportId()"
+                        title="Salin Support ID"
+                        type="button"
+                    >
+                        &#128203;
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- =====================================================
+                 BACK BUTTON
+            ====================================================== -->
+
+            <button
+                type="button"
+                class="back-button"
+                onclick="goBack()"
+            >
+
+                <span class="back-arrow">
+                    ←
+                </span>
+
+                Kembali ke Halaman Sebelumnya
+
+            </button>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================== -->
+
+    <footer class="footer">
+
+        <div class="footer-inner">
+
+            <div class="footer-left">
+
+                We Exist for the Safety<br>
+                Of Your Family and Mine
+
+                <div class="footer-line"></div>
+
+            </div>
+
+
+            <div class="footer-right">
+
+                <div class="help-title">
+                    Butuh Bantuan?
+                </div>
+
+                <div class="help-text">
+
+                    laporkan ke Tim Teknologi Informasi PT BKI
+
+                    <br>
+
+                    
+                    <strong><a href="http://helpdesk.bki.co.id">helpdesk.bki.co.id</a></strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+</div>
+
+
+<script>
+
+    function goBack() {
+
+        if (window.history.length > 1) {
+            window.history.back();
+        }
+        else {
+            window.location.href = "/";
+        }
+
+    }
+
+
+    function copySupportId() {
+
+        var supportId =
+            document
+                .getElementById("supportId")
+                .innerText
+                .trim();
+
+
+        if (navigator.clipboard) {
+
+            navigator.clipboard
+                .writeText(supportId)
+                .then(function () {
+
+                    alert(
+                        "Support ID berhasil disalin."
+                    );
+
+                });
+
+        }
+        else {
+
+            var temp =
+                document.createElement("textarea");
+
+            temp.value = supportId;
+
+            document.body.appendChild(temp);
+
+            temp.select();
+
+            document.execCommand("copy");
+
+            document.body.removeChild(temp);
+
+            alert(
+                "Support ID berhasil disalin."
+            );
+
+        }
+
+    }
+
+</script>
+
+</body>
+</html>

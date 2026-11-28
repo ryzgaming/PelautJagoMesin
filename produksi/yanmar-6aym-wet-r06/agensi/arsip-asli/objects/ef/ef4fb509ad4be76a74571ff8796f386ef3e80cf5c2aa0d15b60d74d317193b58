@@ -1,0 +1,35 @@
+{
+  "revision": "r03",
+  "parent_revision": "r02",
+  "state": "private_owner_draft",
+  "scope": "Expected service positions, internal geometry, individual section views and disassembly",
+  "audit_status": "UNVERIFIED",
+  "catalog_approved": false,
+  "private_site": "https://yanmar-6aym-workspace.violetblackbird16.chatgpt.site/gpt-r03/",
+  "source_commit": "a59ee59b89661a98db453eb5e8117b155adf24a6",
+  "workflow_commit": "6fee53ce76d14f3c813b7c35eb63bcccf8d6a081",
+  "qa": "qa/r03/QA.md",
+  "identity": "doc/unit-identity/evidence.json",
+  "roles": [
+    "air_cooler_specialist",
+    "coverage_auditor",
+    "boschpump",
+    "cooling_pumps",
+    "electrical_specialist",
+    "turbo_specialist",
+    "filters",
+    "mechanical_service",
+    "drive_housings",
+    "internals",
+    "exterior",
+    "photos",
+    "integrator",
+    "qa",
+    "agent_rules"
+  ],
+  "model_sha256": {
+    "exterior": "153c7f88e907a9832d11cd05ad4f822332aae1667506cc1a902dbefa648a67ad",
+    "internal": "4b69ad9975928cfa80be62ddc7c6a1c5caa241900bd3aef299081c1e6406ae05"
+  },
+  "screenshot_deep_link": "https://yanmar-6aym-workspace.violetblackbird16.chatgpt.site/gpt-r03/?part=INT-FUELINJ-61&view=section"
+}

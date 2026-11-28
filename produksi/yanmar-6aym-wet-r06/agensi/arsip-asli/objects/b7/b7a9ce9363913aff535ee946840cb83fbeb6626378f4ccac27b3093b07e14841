@@ -1,0 +1,79 @@
+{
+  "asset_sha256": "4c551e34e16228b85d08f22c4b49886154b4c0fd0e57f4d5190ebb8ea550dd21",
+  "method": "Actual exported triangle XZ projections, union of nondegenerate triangles,500 intervals across rack travel0..5mm with conjugate pinion rotation travel/17.5mm. Disjoint projections prove solid separation irrespective of Y. Lineartranslation+rotation path covered by full interval max relativetravel bound;2e-7m numerical allowance. This audits prescribed law; actual browser matrices independently tested by QA.",
+  "parameter_source": "metering_rack.py PITCH_RADIUS17.5mm and functional-motion.js matching racktravel/radius",
+  "rows": [
+    {
+      "rack": "EXT-FUEL-22",
+      "pinion": "EXT-FUEL-330",
+      "sample_count": 501,
+      "smallest_sampled_gap_m": 0.00015171265043461323,
+      "maximum_projected_intersection_m2": 0,
+      "worst_sample_travel_m": 0.00367,
+      "maximum_unsampled_relative_travel_m": 2.1100009701378106e-05,
+      "measured_max_radius_m": 0.019425016977411683,
+      "continuous_separation_lower_bound_m": 0.00013041264073323513,
+      "result": "SEPARATED"
+    },
+    {
+      "rack": "EXT-FUEL-22",
+      "pinion": "EXT-FUEL-331",
+      "sample_count": 501,
+      "smallest_sampled_gap_m": 0.00015170445701039647,
+      "maximum_projected_intersection_m2": 0,
+      "worst_sample_travel_m": 0.00197,
+      "maximum_unsampled_relative_travel_m": 2.1100011679653912e-05,
+      "measured_max_radius_m": 0.01942502043939434,
+      "continuous_separation_lower_bound_m": 0.00013040444533074256,
+      "result": "SEPARATED"
+    },
+    {
+      "rack": "EXT-FUEL-22",
+      "pinion": "EXT-FUEL-332",
+      "sample_count": 501,
+      "smallest_sampled_gap_m": 0.00015170225173909596,
+      "maximum_projected_intersection_m2": 0,
+      "worst_sample_travel_m": 0.00197,
+      "maximum_unsampled_relative_travel_m": 2.110001365792985e-05,
+      "measured_max_radius_m": 0.01942502390137724,
+      "continuous_separation_lower_bound_m": 0.0001304022380811661,
+      "result": "SEPARATED"
+    },
+    {
+      "rack": "EXT-FUEL-22",
+      "pinion": "EXT-FUEL-333",
+      "sample_count": 501,
+      "smallest_sampled_gap_m": 0.0001517007061800778,
+      "maximum_projected_intersection_m2": 0,
+      "worst_sample_travel_m": 0.00197,
+      "maximum_unsampled_relative_travel_m": 2.1100015636205812e-05,
+      "measured_max_radius_m": 0.019425027363360166,
+      "continuous_separation_lower_bound_m": 0.00013040069054387197,
+      "result": "SEPARATED"
+    },
+    {
+      "rack": "EXT-FUEL-22",
+      "pinion": "EXT-FUEL-334",
+      "sample_count": 501,
+      "smallest_sampled_gap_m": 0.00015174384650457786,
+      "maximum_projected_intersection_m2": 0,
+      "worst_sample_travel_m": 0.00038,
+      "maximum_unsampled_relative_travel_m": 2.1100017614481906e-05,
+      "measured_max_radius_m": 0.019425030825343328,
+      "continuous_separation_lower_bound_m": 0.00013044382889009594,
+      "result": "SEPARATED"
+    },
+    {
+      "rack": "EXT-FUEL-22",
+      "pinion": "EXT-FUEL-335",
+      "sample_count": 501,
+      "smallest_sampled_gap_m": 0.0001517426163660342,
+      "maximum_projected_intersection_m2": 0,
+      "worst_sample_travel_m": 0.00038,
+      "maximum_unsampled_relative_travel_m": 2.1100008071779588e-05,
+      "measured_max_radius_m": 0.019425014125614273,
+      "continuous_separation_lower_bound_m": 0.0001304426082942546,
+      "result": "SEPARATED"
+    }
+  ]
+}

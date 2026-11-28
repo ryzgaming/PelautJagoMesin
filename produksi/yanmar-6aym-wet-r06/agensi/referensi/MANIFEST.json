@@ -1,0 +1,2711 @@
+{
+  "schema": 1,
+  "collected_date": "2026-11-28",
+  "canonical_root": "/workspace/private-production/yanmar-6aym-wet-r06",
+  "mapping": {
+    "doc": "dokumen",
+    "foto": "foto",
+    "video": "video"
+  },
+  "summary": {
+    "doc": {
+      "files": 344,
+      "bytes": 140324241
+    },
+    "foto": {
+      "files": 22,
+      "bytes": 9158835
+    },
+    "video": {
+      "files": 17,
+      "bytes": 20930652
+    }
+  },
+  "total_files": 383,
+  "total_bytes": 170413728,
+  "excluded": [],
+  "files": [
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/D01-service.pdf",
+      "path": "dokumen/D01-service.pdf",
+      "bytes": 7029207,
+      "sha256": "bd68c39b57e2f84137ed990f87163cc652f8cbbb59e19d782526a089f3566160",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/D01-service.txt",
+      "path": "dokumen/D01-service.txt",
+      "bytes": 222,
+      "sha256": "0a48595eefa4a99ec5808953dd77cbc00fe2fc97d5f329ef1a5e1dd13bfe0dc2",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/D02-operation.pdf",
+      "path": "dokumen/D02-operation.pdf",
+      "bytes": 1428323,
+      "sha256": "d8ea101654d254869bbcf2590c01987c079b1b2c8a296a79e07201b7254979b1",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/D02-operation.txt",
+      "path": "dokumen/D02-operation.txt",
+      "bytes": 60,
+      "sha256": "3145aa55a01a70f7e2f8603ac9c64e90a3985b0a61048089ccfcd4405b808206",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/D03-p-17.png",
+      "path": "dokumen/D03-p-17.png",
+      "bytes": 900000,
+      "sha256": "1537e74629af6992795fd6cc68f5ec9768f6817a1365c8ff8480e7acaf6611a3",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/D03-p-18.png",
+      "path": "dokumen/D03-p-18.png",
+      "bytes": 837395,
+      "sha256": "fe71ed0b1f41f02b24c4f4f1867a19b9affe963c7d494602784b62c32ee676e4",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/D03-product-guide.pdf",
+      "path": "dokumen/D03-product-guide.pdf",
+      "bytes": 13936922,
+      "sha256": "effb2cb7ef35e641ee0dd394802d38e8a2f5087ce0544334cc738fb536e592eb",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/D03-product-guide.txt",
+      "path": "dokumen/D03-product-guide.txt",
+      "bytes": 281405,
+      "sha256": "4b040de923c9c645b5ecb13b41fdbdd703059c6c3e90b3131bfacfb15df5e947",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/D04-BKI-unavailable.html",
+      "path": "dokumen/D04-BKI-unavailable.html",
+      "bytes": 17335,
+      "sha256": "accf9b487ced0199890aceb8538a29ae4e370310607b5695ec8febccfb0b671e",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/D05-fig38.html",
+      "path": "dokumen/D05-fig38.html",
+      "bytes": 122165,
+      "sha256": "01ef6ccecd99f0cc860f71b434c2a2605cebada679ee8c5ce17650a76e474bd1",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/D05-fig38.svg",
+      "path": "dokumen/D05-fig38.svg",
+      "bytes": 68850,
+      "sha256": "e3e2a8271c6319542320b24de12ee260638178f4ef48e39133a83dd35255dfb5",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/D05-fig39.html",
+      "path": "dokumen/D05-fig39.html",
+      "bytes": 150890,
+      "sha256": "42c3d63f4bb59af91d33ec995535501ce249621b204466b6966fb23f9ecc8f3e",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/D05-fig39.svg",
+      "path": "dokumen/D05-fig39.svg",
+      "bytes": 53765,
+      "sha256": "3017172159df913c39f50bda61489260c35136f757f617f4d5747046a0da0a7c",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/D05-parts-download",
+      "path": "dokumen/D05-parts-download",
+      "bytes": 230868,
+      "sha256": "06910e661e9026ff07373860ec0f775c55fb5109ac19a756cbbc73b0e7fe4fee",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/D06-current-product.html",
+      "path": "dokumen/D06-current-product.html",
+      "bytes": 75036,
+      "sha256": "b325a7d943375f987965ebb0207f52e50cbbcf5cb44e0b291b16f5dda3bafc18",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/PROJECT_MEMORY.md",
+      "path": "dokumen/PROJECT_MEMORY.md",
+      "bytes": 4195,
+      "sha256": "2d8d6ec17a7aaa242d5dde2dd2cbc431ce724f35822a9892c9c02b8980647989",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/audio/README.md",
+      "path": "dokumen/audio/README.md",
+      "bytes": 3276,
+      "sha256": "e1ee9130a9362900a7a9439dbfbfd3d11ddae2fc1891c38244d4ae7d27ba1b97",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/audio/audio-verification.json",
+      "path": "dokumen/audio/audio-verification.json",
+      "bytes": 10390,
+      "sha256": "c36b0f7e56a1444f3f8c9272ec0855515f7a3700b6c657d72da9a751689a4698",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/audio/spectrum.json",
+      "path": "dokumen/audio/spectrum.json",
+      "bytes": 211,
+      "sha256": "d822f2aee476a02a582b94893322afc0dd29b985ce194c6dc381c9ec82fc285a",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/audio/starting-running-stopping-illustration.wav",
+      "path": "dokumen/audio/starting-running-stopping-illustration.wav",
+      "bytes": 441044,
+      "sha256": "47e7fbcea12637035e26d0a7cdb17bc1699a6975fe248964a81375db00c271db",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/audio/verify_audio.py",
+      "path": "dokumen/audio/verify_audio.py",
+      "bytes": 5188,
+      "sha256": "befe4fb2408bc19b227cd29990397540bdb36f673f636e26cc96de8be652810a",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/cooler-specialist/BOM-Fig37.json",
+      "path": "dokumen/cooler-specialist/BOM-Fig37.json",
+      "bytes": 8585,
+      "sha256": "bb33bb020403b51e27b2fd161ae1c1e6fd4147df7a647f58ca479b164662fb43",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/cooler-specialist/D01-161.png",
+      "path": "dokumen/cooler-specialist/D01-161.png",
+      "bytes": 65768,
+      "sha256": "97d6749e34ca45eb8a484913739a1afa329ec099e06242b7f6f65c3479ce6b51",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/cooler-specialist/D01-166.png",
+      "path": "dokumen/cooler-specialist/D01-166.png",
+      "bytes": 89073,
+      "sha256": "940227541f70d8bcf63eb96f5874a43547b4f1a3bd5ef7cf0c592138fb9d95dd",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/cooler-specialist/D05-37.html",
+      "path": "dokumen/cooler-specialist/D05-37.html",
+      "bytes": 195774,
+      "sha256": "30fe1287334f1df4ffaef9abec518f29e54898da4f256551d5421d94e0c15a24",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/cooler-specialist/D05-37.png",
+      "path": "dokumen/cooler-specialist/D05-37.png",
+      "bytes": 24400,
+      "sha256": "1bbc7103a052ef07848d637eb4c20b5c7df1f991c04ebb161f05b3ee861614be",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/cooler-specialist/D05-37.svg",
+      "path": "dokumen/cooler-specialist/D05-37.svg",
+      "bytes": 187834,
+      "sha256": "1d1a77ff75e3f0a526ff15694f0f4d7e11b8c66e763d478c0c2fc9ddc2ed38f8",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/cooler-specialist/D05-42.html",
+      "path": "dokumen/cooler-specialist/D05-42.html",
+      "bytes": 183373,
+      "sha256": "73ff9ff6a27b356950cdea3992125ea1c326840c83b91494234795b0e8158123",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/cooler-specialist/D05-42.json",
+      "path": "dokumen/cooler-specialist/D05-42.json",
+      "bytes": 1920,
+      "sha256": "c69f62e1c9b846a253415c811bebbe040d6f3bd021eee3366aeef2a3aa5c5516",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/cooler-specialist/D05-42.png",
+      "path": "dokumen/cooler-specialist/D05-42.png",
+      "bytes": 125477,
+      "sha256": "782b55eb01f396a7a17e8633df55f3437ded0b1f0e38443bb9aeddb402a5ea01",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/cooler-specialist/D05-42.svg",
+      "path": "dokumen/cooler-specialist/D05-42.svg",
+      "bytes": 124327,
+      "sha256": "84c36b6a90088916a3453a2054a69682ae87bcb2a2aaa112769edfe097ddd217",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/cooler-specialist/D05-57.html",
+      "path": "dokumen/cooler-specialist/D05-57.html",
+      "bytes": 377469,
+      "sha256": "5035dbf2a3d78ed4882f1b4c8b0d98e6fd0fd1f496f6802bd58b353124cfc4a1",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/cooler-specialist/D05-57.json",
+      "path": "dokumen/cooler-specialist/D05-57.json",
+      "bytes": 4224,
+      "sha256": "4ad384d57f06c64baa6ecf20360372dcd2b71030c7436d0b24ce54bf524b9884",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/cooler-specialist/D05-57.png",
+      "path": "dokumen/cooler-specialist/D05-57.png",
+      "bytes": 78820,
+      "sha256": "e944d953c4c9dae19e1f483c6be635c288a4fb2ae8171a78b44ad11b8428c49c",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/cooler-specialist/D05-57.svg",
+      "path": "dokumen/cooler-specialist/D05-57.svg",
+      "bytes": 130735,
+      "sha256": "a5b291837d025c5b6d232e6f6b7512a965f412e6305c55a4d82337687d9fc962",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/cooler-specialist/D05-index.html",
+      "path": "dokumen/cooler-specialist/D05-index.html",
+      "bytes": 278969,
+      "sha256": "850607477055c3aa8349a52572f687e5a1dcf206ada1858b6c90a3b3904bf083",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/cooler-specialist/HX-R03-validation.json",
+      "path": "dokumen/cooler-specialist/HX-R03-validation.json",
+      "bytes": 21184,
+      "sha256": "b48e6ab0ae425b5894d318f0dc44abdf98162274361e39eaa7de2886c6eda91f",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/cooling-pumps-specialist/D01-fresh.png",
+      "path": "dokumen/cooling-pumps-specialist/D01-fresh.png",
+      "bytes": 158033,
+      "sha256": "81fe5f0e3c46d8020d7572680bf80b53a5c2f80b212f8e3d7ac03bfda3434688",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/cooling-pumps-specialist/coverage.json",
+      "path": "dokumen/cooling-pumps-specialist/coverage.json",
+      "bytes": 2911,
+      "sha256": "8c5239199c7ac2083cbdf184fdad3e1c66578189c9bac0f86b7de70855c47780",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/cooling-pumps-specialist/impeler-r03.jpg",
+      "path": "dokumen/cooling-pumps-specialist/impeler-r03.jpg",
+      "bytes": 82574,
+      "sha256": "e6e9660f12bffd3008adf04b3f7393c6da7a70fadb58377442b0e09c0e456946",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/cooling-pumps-specialist/render_impellers.py",
+      "path": "dokumen/cooling-pumps-specialist/render_impellers.py",
+      "bytes": 2088,
+      "sha256": "bb796f3ec2ad3185f783b5367b3d3e7bdaed2d95703da71e4bdd1f65b49ef20f",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/drive-specialist/D05-107.svg",
+      "path": "dokumen/drive-specialist/D05-107.svg",
+      "bytes": 138332,
+      "sha256": "bea7e11436abbabe2e37b7ff6034527cf115414c9976b73e82315dbbe6054f41",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/drive-specialist/README.md",
+      "path": "dokumen/drive-specialist/README.md",
+      "bytes": 4312,
+      "sha256": "66a123bb9dec15eaf3c7ff8974f31272d54dd4b9f790709737711298b5f1862f",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/drive-specialist/water-pumps/candidate-translations.json",
+      "path": "dokumen/drive-specialist/water-pumps/candidate-translations.json",
+      "bytes": 3127,
+      "sha256": "c72bdc52621e2d29b1c180acb621692682cc1e1bd1c619f03cfb1444ed77376d",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/drive-specialist/water-pumps/canonical-mesh-check.json",
+      "path": "dokumen/drive-specialist/water-pumps/canonical-mesh-check.json",
+      "bytes": 12894,
+      "sha256": "51e25360f73bb09cef8a77673e5c00479fd5d2013674ebea1d52c44b1d6defae",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/drive-specialist/water-pumps/comparison-private.jpg",
+      "path": "dokumen/drive-specialist/water-pumps/comparison-private.jpg",
+      "bytes": 101817,
+      "sha256": "72f0d6d46385c9cf6d0450ccb5d881648d6b105718942f01ec1a7d29a824a152",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/drive-specialist/water-pumps/d03-front-registration.png",
+      "path": "dokumen/drive-specialist/water-pumps/d03-front-registration.png",
+      "bytes": 66747,
+      "sha256": "9603862fb2080fec4687cd2a11f22534a7ebbe3eff80a1e9627d9475a117afe9",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/drive-specialist/water-pumps/fig-54.png",
+      "path": "dokumen/drive-specialist/water-pumps/fig-54.png",
+      "bytes": 248979,
+      "sha256": "ebd1178cc525cb12919de640286d4e746a1e344e15e356a3f32ee98aef187c10",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/drive-specialist/water-pumps/fig-54.svg",
+      "path": "dokumen/drive-specialist/water-pumps/fig-54.svg",
+      "bytes": 122373,
+      "sha256": "97ceb951d531aa5ec3b1903923e385bee76ab57032fd4d29426042f909a0400d",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/drive-specialist/water-pumps/fig-55.png",
+      "path": "dokumen/drive-specialist/water-pumps/fig-55.png",
+      "bytes": 259059,
+      "sha256": "bdf50f2c232ab74ea2be4fc5458db61317421f0042cb062a7786382f51136bb6",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/drive-specialist/water-pumps/fig-55.svg",
+      "path": "dokumen/drive-specialist/water-pumps/fig-55.svg",
+      "bytes": 123358,
+      "sha256": "d3ddbedcd75a7d5a2a561e599c7f97484464b757c670d7aad2a2c6e6f88b4165",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/drive-specialist/water-pumps/front-mesh-example.png",
+      "path": "dokumen/drive-specialist/water-pumps/front-mesh-example.png",
+      "bytes": 543846,
+      "sha256": "0760089ad10f10605910339b2d5783d62b07b4c7b5e62c799926991697410d89",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/drive-specialist/water-pumps/installation-and-rpm.json",
+      "path": "dokumen/drive-specialist/water-pumps/installation-and-rpm.json",
+      "bytes": 3558,
+      "sha256": "473421e95b80fabceb496a5b85325f385d7bb8f3e1f5b30f97863c3493b9e585",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/drive-specialist/water-pumps/scratch-mesh-check.json",
+      "path": "dokumen/drive-specialist/water-pumps/scratch-mesh-check.json",
+      "bytes": 5795,
+      "sha256": "244f4658c8c919fd6c793477b49f6ee8eb30c1e1096ca20c48d164ff9ff4a58a",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/drive-specialist/water-pumps/shaft-stack-example.png",
+      "path": "dokumen/drive-specialist/water-pumps/shaft-stack-example.png",
+      "bytes": 526063,
+      "sha256": "6290e313f5113b43c032f8e56c1ceab9e263ba09192b3d53b65dc3802e74fadc",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/electrical-specialist/crosswalk.json",
+      "path": "dokumen/electrical-specialist/crosswalk.json",
+      "bytes": 7265,
+      "sha256": "70a44b7babe734b7c3e4bef3c1112550177f863f9db03626efb849d2de33453b",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/electrical-specialist/fig106.html",
+      "path": "dokumen/electrical-specialist/fig106.html",
+      "bytes": 294806,
+      "sha256": "950c1fb101688d53a23705717e20275af48d5493613ba4dda651ffc2b509dd91",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/electrical-specialist/fig106.png",
+      "path": "dokumen/electrical-specialist/fig106.png",
+      "bytes": 368927,
+      "sha256": "c36d71c17b10a82ffe8cdd247e231c443d3adf88d51d25a30393934b075aab9b",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/electrical-specialist/fig106.svg",
+      "path": "dokumen/electrical-specialist/fig106.svg",
+      "bytes": 372545,
+      "sha256": "e8430af24f584d28c3bf0e1f7f8b590ce49c137cbd396d695a16bf6f2d6a8b38",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/electrical-specialist/fig109.html",
+      "path": "dokumen/electrical-specialist/fig109.html",
+      "bytes": 311673,
+      "sha256": "63e4d1b98c045d708a5353b8cc9fdaf65a8a6755ea70ae60e589db038e1c9229",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/electrical-specialist/fig109.png",
+      "path": "dokumen/electrical-specialist/fig109.png",
+      "bytes": 316936,
+      "sha256": "5e725cb7eb58878009d8392d88247f8a7bbed2f315fdec51c2d0cc7d8e2b5558",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/electrical-specialist/fig109.svg",
+      "path": "dokumen/electrical-specialist/fig109.svg",
+      "bytes": 143181,
+      "sha256": "9c6efafe4d8c89fae90121c0f4170e272b9256b88152a55efa7bba9311b615b4",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/evidence-doc.json",
+      "path": "dokumen/evidence-doc.json",
+      "bytes": 32226,
+      "sha256": "e6f25bb39ccee248fdc0b7793ca27a71fb0efadec45104717c579c6892d3e77a",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/filter-specialist/D01-155.png",
+      "path": "dokumen/filter-specialist/D01-155.png",
+      "bytes": 87336,
+      "sha256": "9558da4c0b9cd94266f306a6b8ac358a567c456496fe6e16928e2231e3d60285",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/filter-specialist/D01-159.png",
+      "path": "dokumen/filter-specialist/D01-159.png",
+      "bytes": 178432,
+      "sha256": "53eee1b1c785d3048a8d5db31d6de0a15e0504000035a0f763a6269e97f02808",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/filter-specialist/D01-160.png",
+      "path": "dokumen/filter-specialist/D01-160.png",
+      "bytes": 115673,
+      "sha256": "6ef73ff1f07875310364a2a580c98204c3fb5606f878c361f4df6d90390a3c47",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/filter-specialist/crosswalk.json",
+      "path": "dokumen/filter-specialist/crosswalk.json",
+      "bytes": 2298,
+      "sha256": "c3bec4e76e6f696cbe40d6019e15491520512c5b66380028f3cfb0abdf6ab20f",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/filter-specialist/scratch-check.json",
+      "path": "dokumen/filter-specialist/scratch-check.json",
+      "bytes": 560,
+      "sha256": "6bb73f45524f06a79129793247662d0ff539b5d8e669e60b27495b62960f0c58",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/flow-reference/README.md",
+      "path": "dokumen/flow-reference/README.md",
+      "bytes": 2672,
+      "sha256": "3faa3b3b8b2849d406d9462afc8bccce428e9d72da3807bed450baac5f71d8bf",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/flow-reference/contact-00-08.jpg",
+      "path": "dokumen/flow-reference/contact-00-08.jpg",
+      "bytes": 283821,
+      "sha256": "59b85766c8f891fd34d97e98ddc5006cb216ef72b301f260dd9b2e056b168c26",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/flow-reference/contact-09-16.jpg",
+      "path": "dokumen/flow-reference/contact-09-16.jpg",
+      "bytes": 266356,
+      "sha256": "44afe30cfb5fd3d76b5ec1b4cd980be81e21b93aa490f7b02c1de51703aa6018",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/flow-reference/contact-early.jpg",
+      "path": "dokumen/flow-reference/contact-early.jpg",
+      "bytes": 95633,
+      "sha256": "00c8f5bfe5c69cfd3876da334ec3bf5ece858d0b52ca832995a35816138dc883",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/flow-reference/contact-end.jpg",
+      "path": "dokumen/flow-reference/contact-end.jpg",
+      "bytes": 94588,
+      "sha256": "0319d3ec194b7705404e7075aef94089e156178b5bb8163e3ad16bdf7923dd97",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/flow-reference/contact-motion.jpg",
+      "path": "dokumen/flow-reference/contact-motion.jpg",
+      "bytes": 226504,
+      "sha256": "6f29d978738ac1c6f85981973224fec8ea358085a697540029b8f43677f87af1",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/flow-reference/frames/00.jpg",
+      "path": "dokumen/flow-reference/frames/00.jpg",
+      "bytes": 23660,
+      "sha256": "e4d0a4171c9962d2050305ac0209663d9096198dd86b83619dccccb6c19ea8cf",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/flow-reference/frames/01.jpg",
+      "path": "dokumen/flow-reference/frames/01.jpg",
+      "bytes": 27420,
+      "sha256": "6b455763824791ce3dc95c320bdc98a35753282765532a76c10ac9add827a7a2",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/flow-reference/frames/02.jpg",
+      "path": "dokumen/flow-reference/frames/02.jpg",
+      "bytes": 26211,
+      "sha256": "edad22a4b47246f5c61f344c2cd8d15712a01bd6cd596b3d3072d034579202f8",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/flow-reference/frames/03.jpg",
+      "path": "dokumen/flow-reference/frames/03.jpg",
+      "bytes": 22542,
+      "sha256": "29ac981ec84c42f1ad9d850e823a5cc90f1589f9b0c67defd2a116dfcdf0e95b",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/flow-reference/frames/04.jpg",
+      "path": "dokumen/flow-reference/frames/04.jpg",
+      "bytes": 19450,
+      "sha256": "84c004f71e2fa02f0a1939c5cdcddc6859e83d549c2cb95fab680cb529b624e5",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/flow-reference/frames/05.jpg",
+      "path": "dokumen/flow-reference/frames/05.jpg",
+      "bytes": 25844,
+      "sha256": "189d21880f10bebf50f4777e02629790146939582bb11ed9488639bfdb2c2238",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/flow-reference/frames/06.jpg",
+      "path": "dokumen/flow-reference/frames/06.jpg",
+      "bytes": 22329,
+      "sha256": "c8f1a5a88b2e79b2fd8bc346182c4cfbe8c5eab42aabf4a6978699a5df4c1688",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/flow-reference/frames/07.jpg",
+      "path": "dokumen/flow-reference/frames/07.jpg",
+      "bytes": 20052,
+      "sha256": "54c3503a144960ae973527a3abd91c627036ccdfd317aa9e0a9fcb9c805f3509",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/flow-reference/frames/08.jpg",
+      "path": "dokumen/flow-reference/frames/08.jpg",
+      "bytes": 22137,
+      "sha256": "817127deaa7921c0b075d2be9c778584301fe2dedb2c089b69cd01489ee0d8b7",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/flow-reference/frames/09.jpg",
+      "path": "dokumen/flow-reference/frames/09.jpg",
+      "bytes": 20547,
+      "sha256": "bb5c79d168deff9d68db056b3610af3777f2a101482aa5ea27f447e3187842b0",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/flow-reference/frames/10.jpg",
+      "path": "dokumen/flow-reference/frames/10.jpg",
+      "bytes": 24513,
+      "sha256": "470df5cbc70e4a47e9282727b6a5d66dbaf5ddce9e93dbe3f9516d1e31ca6042",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/flow-reference/frames/11.jpg",
+      "path": "dokumen/flow-reference/frames/11.jpg",
+      "bytes": 23441,
+      "sha256": "45cc78a3a423ab19a86be70c68ffd16d7f4ecb6ab99119cec95f1902abea16a7",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/flow-reference/frames/12.jpg",
+      "path": "dokumen/flow-reference/frames/12.jpg",
+      "bytes": 27822,
+      "sha256": "307dd837f5fcc88538a6b7705fcc9e993d1d5345315fe0f586f3bccbd6c10a6a",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/flow-reference/frames/13.jpg",
+      "path": "dokumen/flow-reference/frames/13.jpg",
+      "bytes": 26094,
+      "sha256": "2165bccf421cf4e2ce3a233a9a3b418973508e11277a80855519169a957af6f8",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/flow-reference/frames/14.jpg",
+      "path": "dokumen/flow-reference/frames/14.jpg",
+      "bytes": 32869,
+      "sha256": "f637166e66e5cc05e8ba2e1587e169c7c093837d3e5bbe15f846b485c89ee873",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/flow-reference/frames/15.jpg",
+      "path": "dokumen/flow-reference/frames/15.jpg",
+      "bytes": 34193,
+      "sha256": "283111fe9a159676b4fb9f199a949cdb810b9d67dff1dd901af3e98ba49eb4c4",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/flow-reference/frames/16.25.jpg",
+      "path": "dokumen/flow-reference/frames/16.25.jpg",
+      "bytes": 27138,
+      "sha256": "abfca5973b2b47e29b60d3745eebd05bfb7a963a4f6262c0e0031aa56b0be87b",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/flow-reference/frames/16.50.jpg",
+      "path": "dokumen/flow-reference/frames/16.50.jpg",
+      "bytes": 23446,
+      "sha256": "77d6f855f14a4a80b542a01d45ff31714eb9d118f68cc6bf619310683aa5846f",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/flow-reference/frames/16.75.jpg",
+      "path": "dokumen/flow-reference/frames/16.75.jpg",
+      "bytes": 21904,
+      "sha256": "30796ed55b324f73c99b42119a0e7f4523a2749738c97eca2412eb89e23fb3e1",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/flow-reference/frames/16.jpg",
+      "path": "dokumen/flow-reference/frames/16.jpg",
+      "bytes": 29742,
+      "sha256": "fa3a827e17ad59d7e40ae202392f9e5a8c0c4de2f2d5b3f1b3aa071d516d39b7",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/flow-reference/frames/17.00.jpg",
+      "path": "dokumen/flow-reference/frames/17.00.jpg",
+      "bytes": 22277,
+      "sha256": "cbd956a21a6b6eedfc39f364aa3947fce5982ce00970912b1c84308cab689085",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/flow-reference/frames/2.50.jpg",
+      "path": "dokumen/flow-reference/frames/2.50.jpg",
+      "bytes": 23127,
+      "sha256": "2677a4d5aa1ed816117afd268c49dffa45ef19b19eb472e18faf3fc300863054",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/flow-reference/frames/2.75.jpg",
+      "path": "dokumen/flow-reference/frames/2.75.jpg",
+      "bytes": 23493,
+      "sha256": "4f716eac6310e2ca9f52279567b7fa18b2d64dcbe2f632812924898f4dd8dee1",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/flow-reference/frames/3.00.jpg",
+      "path": "dokumen/flow-reference/frames/3.00.jpg",
+      "bytes": 22542,
+      "sha256": "29ac981ec84c42f1ad9d850e823a5cc90f1589f9b0c67defd2a116dfcdf0e95b",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/flow-reference/frames/3.25.jpg",
+      "path": "dokumen/flow-reference/frames/3.25.jpg",
+      "bytes": 23806,
+      "sha256": "4a610b576b9ffd000a45e38f61eacefbbb307d266efef520c9d49a9a44b980cd",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/flow-reference/frames/4.50.jpg",
+      "path": "dokumen/flow-reference/frames/4.50.jpg",
+      "bytes": 22231,
+      "sha256": "f22b59db014a7fe3f5886c0a7a842c7d3c3e161cb45af420b1b426469cea1ead",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/flow-reference/frames/4.75.jpg",
+      "path": "dokumen/flow-reference/frames/4.75.jpg",
+      "bytes": 24244,
+      "sha256": "b459d1edf5bd905c61fb1269d4a0a37465bab380de72309eda78b2d0e918b3aa",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/flow-reference/frames/5.00.jpg",
+      "path": "dokumen/flow-reference/frames/5.00.jpg",
+      "bytes": 25844,
+      "sha256": "189d21880f10bebf50f4777e02629790146939582bb11ed9488639bfdb2c2238",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/flow-reference/frames/5.25.jpg",
+      "path": "dokumen/flow-reference/frames/5.25.jpg",
+      "bytes": 24920,
+      "sha256": "876d50513df8bad2fdb58bbd591e5af39f1f3556a6f97c4c449c5096c02a914e",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/flow-reference/frames/5.50.jpg",
+      "path": "dokumen/flow-reference/frames/5.50.jpg",
+      "bytes": 24683,
+      "sha256": "941b207d98db2fffa521d27b05f63fb913399e1ce9a45458ca21b05acbb32024",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/flow-reference/frames/5.75.jpg",
+      "path": "dokumen/flow-reference/frames/5.75.jpg",
+      "bytes": 23533,
+      "sha256": "68caa79a7c277443feecd2badbf033d4dcf2ff55cdf41668b9331cb519193043",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/flow-reference/frames/6.00.jpg",
+      "path": "dokumen/flow-reference/frames/6.00.jpg",
+      "bytes": 22329,
+      "sha256": "c8f1a5a88b2e79b2fd8bc346182c4cfbe8c5eab42aabf4a6978699a5df4c1688",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/flow-reference/frames/6.25.jpg",
+      "path": "dokumen/flow-reference/frames/6.25.jpg",
+      "bytes": 22981,
+      "sha256": "5676c55620c528977020b18421ac5bf57edcc5fcdc90bd93b11a63abca61cadf",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/flow-reference/pin-reference.mp4",
+      "path": "dokumen/flow-reference/pin-reference.mp4",
+      "bytes": 4283313,
+      "sha256": "af815744a6b1e2a057ea8cf0d857310a974503f0b23292ecc42dbee581c2a5f2",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/fuel-function-specialist/README.md",
+      "path": "dokumen/fuel-function-specialist/README.md",
+      "bytes": 4284,
+      "sha256": "4bc9b62e362d48eead0d23235e38a16e93c7818efd60f7cd709c0ab5e989b803",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/fuel-function-specialist/__pycache__/audit_plunger.cpython-312.pyc",
+      "path": "dokumen/fuel-function-specialist/__pycache__/audit_plunger.cpython-312.pyc",
+      "bytes": 9648,
+      "sha256": "2131abee93a822b099f18b31f8abec7ed53a8c6a6f7b966419b0a5d16ee08fa4",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/fuel-function-specialist/audit_nozzle_export.py",
+      "path": "dokumen/fuel-function-specialist/audit_nozzle_export.py",
+      "bytes": 1618,
+      "sha256": "f93487a86b33cd026300acd06f15401043a5ba286db8dbc3515d59cf9b1e5dbb",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/fuel-function-specialist/audit_plunger.py",
+      "path": "dokumen/fuel-function-specialist/audit_plunger.py",
+      "bytes": 2969,
+      "sha256": "65461605ca38124eaf881b7a445b083a2e3a4f09456b519e21eff2655885d6e9",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/fuel-function-specialist/audit_rack_export.py",
+      "path": "dokumen/fuel-function-specialist/audit_rack_export.py",
+      "bytes": 2872,
+      "sha256": "1b0ecb4f2cdc8e789e3de04e67c4bbc351a1fe14555084f447eb5cdaebe4f056",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/fuel-function-specialist/nozzle-audit.log",
+      "path": "dokumen/fuel-function-specialist/nozzle-audit.log",
+      "bytes": 35032,
+      "sha256": "538c37c790135511465119a6804addb31b5d7939ef4885f70dbdb34e0a1a27ca",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/fuel-function-specialist/nozzle-export-audit.json",
+      "path": "dokumen/fuel-function-specialist/nozzle-export-audit.json",
+      "bytes": 12604,
+      "sha256": "14d3c613e369ef8c5c81f11048f091324d39f8475396b24dece8f527508dfa86",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/fuel-function-specialist/nozzle-provenance.json",
+      "path": "dokumen/fuel-function-specialist/nozzle-provenance.json",
+      "bytes": 528,
+      "sha256": "7404d519af8277ab069ec433402287f7cf2690a09e75943aae42109b7a4a1913",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/fuel-function-specialist/plunger-after.png",
+      "path": "dokumen/fuel-function-specialist/plunger-after.png",
+      "bytes": 249752,
+      "sha256": "9d7d95083677299de25cef1a2f15855c4b3913c21d3b8793bd31b11b17e5a4be",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/fuel-function-specialist/plunger-audit.json",
+      "path": "dokumen/fuel-function-specialist/plunger-audit.json",
+      "bytes": 5658,
+      "sha256": "973fe523ccac4b480e4464f1f3436d71ffe08abe523021901b44079a6a9e02b5",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/fuel-function-specialist/plunger-audit.log",
+      "path": "dokumen/fuel-function-specialist/plunger-audit.log",
+      "bytes": 5659,
+      "sha256": "e59e03852c303bd6e727c7273ab33a95f7fc0123256ad4a53ebd1209d2a6f2bc",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/fuel-function-specialist/plunger-before.png",
+      "path": "dokumen/fuel-function-specialist/plunger-before.png",
+      "bytes": 251105,
+      "sha256": "305ca80912a3c18e5c4aa00f93da0d14ec6c555e24d7e18024c70595bfc9ebb1",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/fuel-function-specialist/plunger-comparison.png",
+      "path": "dokumen/fuel-function-specialist/plunger-comparison.png",
+      "bytes": 402868,
+      "sha256": "71e8195de89c7d9894833a9e96d4fcf56eee7e763754c3ebba90ff66b679dad7",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/fuel-function-specialist/plunger-metered.png",
+      "path": "dokumen/fuel-function-specialist/plunger-metered.png",
+      "bytes": 250126,
+      "sha256": "63faa5884ff627515da283e21be011660e14d5bf7ec0c4e36f876699d2dd8021",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/fuel-function-specialist/plunger-render.log",
+      "path": "dokumen/fuel-function-specialist/plunger-render.log",
+      "bytes": 93999,
+      "sha256": "570dcd626cac7802bad88eef77cde708de2a0af06bffa25a1219c57bafb6fab1",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/fuel-function-specialist/rack-export-audit.json",
+      "path": "dokumen/fuel-function-specialist/rack-export-audit.json",
+      "bytes": 3408,
+      "sha256": "b7a9ce9363913aff535ee946840cb83fbeb6626378f4ccac27b3093b07e14841",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/fuel-function-specialist/rack-export-audit.log",
+      "path": "dokumen/fuel-function-specialist/rack-export-audit.log",
+      "bytes": 3409,
+      "sha256": "aff7e47c33e48a81475e90794d06dfb36e3555b8766e2d91d05bb469c0b77c80",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/fuel-function-specialist/render_plunger.py",
+      "path": "dokumen/fuel-function-specialist/render_plunger.py",
+      "bytes": 2537,
+      "sha256": "30538fa51b0d642c6880337c9510ce8b7393d48206f33a1a6877394972f7b6e9",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/function-references/README.md",
+      "path": "dokumen/function-references/README.md",
+      "bytes": 11000,
+      "sha256": "6b5b1c2f5ff8439e40a950aeb00801a4b253937c23aeac758889c27a9c13f5cf",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/function-references/browser-sources.json",
+      "path": "dokumen/function-references/browser-sources.json",
+      "bytes": 4957,
+      "sha256": "e5a68b52ac894d4121320688054a14a945de944a99d30c64699810c6b3497c83",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/function-references/build_registry.py",
+      "path": "dokumen/function-references/build_registry.py",
+      "bytes": 15245,
+      "sha256": "d43bc685da604b575c14e5ec85dee9d3999d5888117e3392272b3729572437ca",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/function-references/denso-manual.pdf",
+      "path": "dokumen/function-references/denso-manual.pdf",
+      "bytes": 30406621,
+      "sha256": "fb1fca26e8c4d4197a95de5db598f4fee3389ec706ef9a52d884104e7ae5fe53",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/function-references/denso-p10.png",
+      "path": "dokumen/function-references/denso-p10.png",
+      "bytes": 92915,
+      "sha256": "37ff81c68bd537d115c907ab0b931f0aaa0094e44e16bd56a1ec809512652c7a",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/function-references/denso-p3.png",
+      "path": "dokumen/function-references/denso-p3.png",
+      "bytes": 59607,
+      "sha256": "a12e5307b3275082f6da740a8897e81c56f8b3b0ddf9d95d5b5a4a97f1e40a5d",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/function-references/denso-p43.png",
+      "path": "dokumen/function-references/denso-p43.png",
+      "bytes": 118042,
+      "sha256": "e442ce2e389ba24a9808f80eae2b9f245cc3ae8d51891869589bac4fd5d60122",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/function-references/denso-p44.png",
+      "path": "dokumen/function-references/denso-p44.png",
+      "bytes": 137432,
+      "sha256": "4b2535835036db7b0ef3de706da1d5ffeeee50df69f5a7a6eae99827339b5ed0",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/function-references/denso-p9.png",
+      "path": "dokumen/function-references/denso-p9.png",
+      "bytes": 171584,
+      "sha256": "f00952ba18deea95b960772c5882966e659a7673ad78e15904c93ee721147732",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/function-references/denso.html",
+      "path": "dokumen/function-references/denso.html",
+      "bytes": 218592,
+      "sha256": "38559858f5fbc92506f4406ef3694cb04f6768ef54360fb85639b1badd07c2b9",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/function-references/garrett-observed.jpg",
+      "path": "dokumen/function-references/garrett-observed.jpg",
+      "bytes": 46528,
+      "sha256": "f999a0ec10c08c918ed8d7663b210f8356ad78a11d50e7eaad03dba8a505a03d",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/function-references/garrett-sheet.jpg",
+      "path": "dokumen/function-references/garrett-sheet.jpg",
+      "bytes": 43150,
+      "sha256": "9e1105ffceb199f7510adf25e6de9cad9dac5ea9cca4195aea9e7746f426743d",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/function-references/garrett-t30.jpg",
+      "path": "dokumen/function-references/garrett-t30.jpg",
+      "bytes": 6904,
+      "sha256": "fafa927f0eb59812474a57318cb7fbca8d9212e3f68b71fb5ccba2da849900c5",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/function-references/garrett-t40.jpg",
+      "path": "dokumen/function-references/garrett-t40.jpg",
+      "bytes": 9524,
+      "sha256": "7ccf5bd9435eac05706c39ad2b3cefb6d71f684b6020610ddd47a370666e28eb",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/function-references/garrett-t50.jpg",
+      "path": "dokumen/function-references/garrett-t50.jpg",
+      "bytes": 7987,
+      "sha256": "93425dd9beeef9d36d3b0f8022c056147543833f2cf71263fb3fcd8c85f695b5",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/function-references/garrett-t60.jpg",
+      "path": "dokumen/function-references/garrett-t60.jpg",
+      "bytes": 8055,
+      "sha256": "0eb15b1409483a3cc097a3ee42982415c1a153245276c915a92bbfb954070937",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/function-references/garrett-t70.jpg",
+      "path": "dokumen/function-references/garrett-t70.jpg",
+      "bytes": 9676,
+      "sha256": "5fe4e8637d2ba4d2bbe87a61aa1127a875dc1c47a483e2bd258e02ed0c0cccc5",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/function-references/garrett-t80.jpg",
+      "path": "dokumen/function-references/garrett-t80.jpg",
+      "bytes": 4470,
+      "sha256": "1234a96cdcba460ee7b64675b6ac82e7d15056a74eac0676bae667176613362a",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/function-references/garrett-turbo.mp4",
+      "path": "dokumen/function-references/garrett-turbo.mp4",
+      "bytes": 22460819,
+      "sha256": "c22c24240154076b6e5efff6a94c2da43b965c784bf3e2ad7daaf033c8e3339d",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/function-references/garrett.html",
+      "path": "dokumen/function-references/garrett.html",
+      "bytes": 558724,
+      "sha256": "d772a31e885ce768d05f320b47cd9388c8ef22dbeb8ace850934fc4f3bbff1ef",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/function-references/jabsco.html",
+      "path": "dokumen/function-references/jabsco.html",
+      "bytes": 123134,
+      "sha256": "f7a101bf0b5204e26da2c739919bac4a253c15012072cf73928b0732d6750556",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/function-references/pinterest.html",
+      "path": "dokumen/function-references/pinterest.html",
+      "bytes": 1427008,
+      "sha256": "359f934b2edab95a34edd0ecb23df7bb1b1d5629ee7547f1006c7973644911cb",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/function-references/registry.json",
+      "path": "dokumen/function-references/registry.json",
+      "bytes": 19143,
+      "sha256": "39f9bcea2bf6cccb368849d615a1bc7c7f5ea4568215a9b1a611f452fcdacb6a",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/function-references/school.html",
+      "path": "dokumen/function-references/school.html",
+      "bytes": 404096,
+      "sha256": "a6c3da2c1f0c9f2342e459a114517511ecd7f92dec82f88f2f0045d33106471f",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/function-references/starter-observed.jpg",
+      "path": "dokumen/function-references/starter-observed.jpg",
+      "bytes": 190775,
+      "sha256": "23431c98283244a1f3ab378b0941464fe1b115e41dcf729f919e7a5ad62160eb",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/function-references/starter-sheet.jpg",
+      "path": "dokumen/function-references/starter-sheet.jpg",
+      "bytes": 51210,
+      "sha256": "ffbbbde4e50bdaab68e0a1e15773687e7a813cbfae2da20ef19864adad9c24ed",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/function-references/starter-t00.jpg",
+      "path": "dokumen/function-references/starter-t00.jpg",
+      "bytes": 21719,
+      "sha256": "db11e8e014a6f271bdf187e837e320f38f666249b5b2309de00c57fe8d9bdc05",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/function-references/starter-t01.jpg",
+      "path": "dokumen/function-references/starter-t01.jpg",
+      "bytes": 20341,
+      "sha256": "fab14b331a1dc2bdac1b01d7a65221d7acdceb7213f132d3c9e4f4059675d7e5",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/function-references/starter-t02.jpg",
+      "path": "dokumen/function-references/starter-t02.jpg",
+      "bytes": 18776,
+      "sha256": "f5e8a9fde1a5aff28ef1f7ad72d1d5cbeda24e07dc9eaed48362a0cd4a4e2c14",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/function-references/starter-t03.jpg",
+      "path": "dokumen/function-references/starter-t03.jpg",
+      "bytes": 19424,
+      "sha256": "243484002ab8a47059892911a52851bcef3e240cb28d5c1d83ed53aed8426d29",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/function-references/starter-t04.jpg",
+      "path": "dokumen/function-references/starter-t04.jpg",
+      "bytes": 15965,
+      "sha256": "fdedc468d860b939ba1fd5032f9ec4981ae76846568051a176ec4e23138efb4a",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/function-references/starter-t05.jpg",
+      "path": "dokumen/function-references/starter-t05.jpg",
+      "bytes": 16350,
+      "sha256": "cb0f0aa29867f563c543a199b585bd234b97a61c39cca85315580a08fc778934",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/function-references/starter-t06.jpg",
+      "path": "dokumen/function-references/starter-t06.jpg",
+      "bytes": 17875,
+      "sha256": "9d82036652a097737c67cca59b3043bbab5c305838a75f866473999f4f2d690b",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/function-references/starter-t07.jpg",
+      "path": "dokumen/function-references/starter-t07.jpg",
+      "bytes": 18591,
+      "sha256": "0865145ca68ba68993cd951279c3470a63c74d4f5879f239d3b1ba9553ff333a",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/function-references/starter-user.mp4",
+      "path": "dokumen/function-references/starter-user.mp4",
+      "bytes": 1191647,
+      "sha256": "88257f146910759c9ebcd8974bd1ca0c38da505b6beb43cc33dd31310bedd9fe",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/function-references/yanmar-D01-p115.png",
+      "path": "dokumen/function-references/yanmar-D01-p115.png",
+      "bytes": 103446,
+      "sha256": "5615550bbcaf75f9f556e35b898c2f5ef9aff0e0740a33749e48687b17b6d3fb",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/function-references/yanmar-D01-p116.png",
+      "path": "dokumen/function-references/yanmar-D01-p116.png",
+      "bytes": 139103,
+      "sha256": "3730059d681a23e36a7c8fe25e4df763b4b0a0f512132c5731d8e4e5cac4a90d",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/function-references/yanmar-D01-p145.png",
+      "path": "dokumen/function-references/yanmar-D01-p145.png",
+      "bytes": 128923,
+      "sha256": "1262594950cdd2a2b1cd91f4e7fe6392130342dd1894256b91e5ced263f5540f",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/function-references/yanmar-D01-p148.png",
+      "path": "dokumen/function-references/yanmar-D01-p148.png",
+      "bytes": 25868,
+      "sha256": "e48e111afcd8d71ad55a8f9bc0861299ca139f54d82111aa0c52a448c61339b4",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/function-references/yanmar-D01-p149.png",
+      "path": "dokumen/function-references/yanmar-D01-p149.png",
+      "bytes": 136205,
+      "sha256": "37ec9d1448c724f53d52098c38821aaca0875a42766af5d9fec1069390bf5d7d",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/function-references/yanmar-D01-p150.png",
+      "path": "dokumen/function-references/yanmar-D01-p150.png",
+      "bytes": 104219,
+      "sha256": "850cc4b1288a19803e6f9e4e64820a6248ec07791190c01a576f18792fa88f5e",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/function-references/yanmar-D01-p151.png",
+      "path": "dokumen/function-references/yanmar-D01-p151.png",
+      "bytes": 120960,
+      "sha256": "11cba30aa48ff5144ee52eec129f7aac9092958a0208def809b5826c84cf5b5b",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/function-references/yanmar-D01-p157.png",
+      "path": "dokumen/function-references/yanmar-D01-p157.png",
+      "bytes": 111625,
+      "sha256": "500132e65013f9652977d31befa01a56f9bfc8049879fa1fddaa7681421bdfbe",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/function-references/yanmar-D01-p163.png",
+      "path": "dokumen/function-references/yanmar-D01-p163.png",
+      "bytes": 122755,
+      "sha256": "53d468c211f17c771ef54c6107f7bc04fff5a61808a1cf06639109b8d65f60ad",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/function-specialist/D01-115.png",
+      "path": "dokumen/function-specialist/D01-115.png",
+      "bytes": 142236,
+      "sha256": "01d81b16097efee681e3439f8492e1e6c4b4b8c952218319777bf41c900237b3",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/function-specialist/D01-115.txt",
+      "path": "dokumen/function-specialist/D01-115.txt",
+      "bytes": 1301,
+      "sha256": "7bd9a18aaa8267530847d338e7ee44d93d35d3664196a7e5aa9b4f34db91d370",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/function-specialist/D01-116.png",
+      "path": "dokumen/function-specialist/D01-116.png",
+      "bytes": 169206,
+      "sha256": "de0378ef1a9dfd2be8bdbc497ac3853579de4a0cd60b3702fb0656d2425cd488",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/function-specialist/D01-116.txt",
+      "path": "dokumen/function-specialist/D01-116.txt",
+      "bytes": 1751,
+      "sha256": "196dd37bbd061559ac24b93372519fa130332668fe23b15eba04bc4c58eda0d4",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/function-specialist/D01-166.png",
+      "path": "dokumen/function-specialist/D01-166.png",
+      "bytes": 171451,
+      "sha256": "4dd7c7863e52462f6a66fb5b46f5e4367e6b4433f9c2f4e8b20a48f5067f4da5",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/function-specialist/D01-166.txt",
+      "path": "dokumen/function-specialist/D01-166.txt",
+      "bytes": 1663,
+      "sha256": "c5523f54098133ef167145f93b8545c09ea129e39e5c4c492465a00d7cc64457",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/function-specialist/D01-167.png",
+      "path": "dokumen/function-specialist/D01-167.png",
+      "bytes": 148080,
+      "sha256": "bf4b51ac80cdf551c1734bbfc0c6da4f1fed3df41978226f1727201463e24207",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/function-specialist/D01-167.txt",
+      "path": "dokumen/function-specialist/D01-167.txt",
+      "bytes": 1640,
+      "sha256": "f16ce4a045c7b87ab53ba4a1bdecb0e8be3072edb73fb9a16a143b3fd093434d",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/function-specialist/D01-168.png",
+      "path": "dokumen/function-specialist/D01-168.png",
+      "bytes": 139761,
+      "sha256": "27627e3d4b64714b186f5365f2e301bc36b5cb02a1ccbecc6e45c31966f6f87c",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/function-specialist/D01-168.txt",
+      "path": "dokumen/function-specialist/D01-168.txt",
+      "bytes": 1332,
+      "sha256": "0ca3efd20cee54a63cfd539d48ebc1bc2db7468c0cebf6ccde31ea55393671da",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/function-specialist/D01-169.png",
+      "path": "dokumen/function-specialist/D01-169.png",
+      "bytes": 98375,
+      "sha256": "ce5054a9380b889e1e7e82146078ec1de8ef5198bc8d4bfdf67b9832bd747236",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/function-specialist/D01-169.txt",
+      "path": "dokumen/function-specialist/D01-169.txt",
+      "bytes": 1134,
+      "sha256": "5e694ee8d2cb23d0c0960e917233fa9ad3b7f4b3815393de2e743e02407dc8e2",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/function-specialist/README.md",
+      "path": "dokumen/function-specialist/README.md",
+      "bytes": 7179,
+      "sha256": "02fe9d5b817c8e3fbfc565582937f0c23a1604104e51219db80c8416341eb273",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/housing-specialist/24.html",
+      "path": "dokumen/housing-specialist/24.html",
+      "bytes": 115979,
+      "sha256": "4b18e2644f3cb4cb25fdd260497cf12b58a011011d9e94b15023057e0fa2c2d0",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/housing-specialist/24.png",
+      "path": "dokumen/housing-specialist/24.png",
+      "bytes": 112364,
+      "sha256": "65b844d25dd58bb8ea2a1a68d8d118a8ed1851094aed1380d43bad59dba57665",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/housing-specialist/24.svg",
+      "path": "dokumen/housing-specialist/24.svg",
+      "bytes": 59769,
+      "sha256": "9a556ee2b24bb53ab46d19b1a29edbdef0a007371c8ef3c83fe42222ae5be670",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/housing-specialist/8.html",
+      "path": "dokumen/housing-specialist/8.html",
+      "bytes": 88011,
+      "sha256": "2886d32af41413ace77f51efc5d300615fe83fc0d77ca243ca3a754730105f98",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/housing-specialist/8.png",
+      "path": "dokumen/housing-specialist/8.png",
+      "bytes": 331124,
+      "sha256": "eb65f03a2f58b891458c21bcbe23b4701e9c58fbf733399c52ee9e390cf59961",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/housing-specialist/8.svg",
+      "path": "dokumen/housing-specialist/8.svg",
+      "bytes": 164190,
+      "sha256": "964722e12cca361c8922db26ad54fa9f08e7df4ee066d1db43ba46ce5b3742c9",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/housing-specialist/validasi.json",
+      "path": "dokumen/housing-specialist/validasi.json",
+      "bytes": 1799,
+      "sha256": "701922fb1fd481a0483fbe899637e2f6fd587c8a5c0002769a76c76057f41525",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/housing-specialist/verify.py",
+      "path": "dokumen/housing-specialist/verify.py",
+      "bytes": 2126,
+      "sha256": "aa47cf581c2f31c27dac0857070f071e155d18fbf93011d6a2edccc268e0d6e6",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/inspected/6aym-op-13.png",
+      "path": "dokumen/inspected/6aym-op-13.png",
+      "bytes": 76788,
+      "sha256": "a6117f466e5b832a14644be4fac6a389a4593eda772f2b13e87ff56a1e57d8df",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/inspected/6aym-op-14.png",
+      "path": "dokumen/inspected/6aym-op-14.png",
+      "bytes": 133417,
+      "sha256": "f4703ab7d39ee79d347e412709affe7fd87cf9e610038ff82e2d8840ac0539b1",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/inspected/6aym-service-013.png",
+      "path": "dokumen/inspected/6aym-service-013.png",
+      "bytes": 126235,
+      "sha256": "e4a46f1701808f0a59fc2e9dfd9c0d16c416f3475578b8e7af78f8c6f5d78d78",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/inspected/6aym-service-014.png",
+      "path": "dokumen/inspected/6aym-service-014.png",
+      "bytes": 184275,
+      "sha256": "7e1b64ee7be6d93caeb688c1337566e130a5ce1c5cd047814932c7413f42e086",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/inspected/6aym-service-015.png",
+      "path": "dokumen/inspected/6aym-service-015.png",
+      "bytes": 99656,
+      "sha256": "740303cf718b02339ca46286bb63db01145a4c5ddc636b8ffbbb068b9851ba1e",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/inspected/D01-p001.png",
+      "path": "dokumen/inspected/D01-p001.png",
+      "bytes": 90685,
+      "sha256": "1888abb6502d836113962df44573de6a13d19a0a43c08dc7726a134878e744fc",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/inspected/D01-p002.png",
+      "path": "dokumen/inspected/D01-p002.png",
+      "bytes": 120473,
+      "sha256": "c9119d60d8a20bba9dcbfea3c4c5e1762a1eebe76abd7e751861b463eecc2cc6",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/inspected/D01-p013.png",
+      "path": "dokumen/inspected/D01-p013.png",
+      "bytes": 136856,
+      "sha256": "fe91682571b4b7ec43119f82b7531d51525b54aab3b53791a32496a2bb6381cf",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/inspected/D01-p013.txt",
+      "path": "dokumen/inspected/D01-p013.txt",
+      "bytes": 1503,
+      "sha256": "c2fb03bd5e82c2c9b25ff16365a6688f28ffc1a3a577a46c4d1aa57fa932911e",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/inspected/D01-p014.png",
+      "path": "dokumen/inspected/D01-p014.png",
+      "bytes": 190740,
+      "sha256": "3dc21832500c92e37c8ea824b15ba6c6c323e4019b0f9534c2037e6daca79c15",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/inspected/D01-p014.txt",
+      "path": "dokumen/inspected/D01-p014.txt",
+      "bytes": 469,
+      "sha256": "e9f77efe896ad583101b75f7e69ebfeca3fbf6037723fa51f0176a65ae0fad9a",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/inspected/D01-p015.png",
+      "path": "dokumen/inspected/D01-p015.png",
+      "bytes": 104467,
+      "sha256": "6f69ab8ebc068c2ca5996469b7c65da8e911ae680aa1e5f40f02a73f30f26201",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/inspected/D01-p015.txt",
+      "path": "dokumen/inspected/D01-p015.txt",
+      "bytes": 603,
+      "sha256": "84444106b005498ebef7a189993f3926896db739f80cbac82c338b81285b947a",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/inspected/D01-p016.png",
+      "path": "dokumen/inspected/D01-p016.png",
+      "bytes": 42735,
+      "sha256": "7a17da6a77fd23f9bc86082b9fbf8a66a7b6e7de639613145840790b01ca7337",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/inspected/D01-p016.txt",
+      "path": "dokumen/inspected/D01-p016.txt",
+      "bytes": 244,
+      "sha256": "45cf436906a3b3ba9e10e9505f526040856d4046c2ac4d5516c06b6cedb99f21",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/inspected/D01-p037.png",
+      "path": "dokumen/inspected/D01-p037.png",
+      "bytes": 160916,
+      "sha256": "2abd18a845dd9a35a6aa8333ee165347e3bda953adf0b541ac72b7c6f49cfa84",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/inspected/D01-p038.png",
+      "path": "dokumen/inspected/D01-p038.png",
+      "bytes": 200086,
+      "sha256": "36d856b3b746117925bb055904a3edef21899b0a500b608421a7914078785719",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/inspected/D01-p039.png",
+      "path": "dokumen/inspected/D01-p039.png",
+      "bytes": 165213,
+      "sha256": "0c2e7345c392cbbc28c112bea74a1ff6412aefa22c104bd125ccaee2a2ce4050",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/inspected/D01-p060.png",
+      "path": "dokumen/inspected/D01-p060.png",
+      "bytes": 181210,
+      "sha256": "437db376a5fc3e95799d9a139c919426b8393c4e1cefc4fbf0eab5a4aa1326e3",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/inspected/D01-p060.txt",
+      "path": "dokumen/inspected/D01-p060.txt",
+      "bytes": 1201,
+      "sha256": "4b98957c0d68acd9ec40e89d7fd9e29a88e9aba92ef891fad84765be2d171d6c",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/inspected/D01-p063.png",
+      "path": "dokumen/inspected/D01-p063.png",
+      "bytes": 104103,
+      "sha256": "dc469600ce5dc415962f188ab3459ba5cefca5059941b6769f036821c9954518",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/inspected/D01-p063.txt",
+      "path": "dokumen/inspected/D01-p063.txt",
+      "bytes": 332,
+      "sha256": "feea5ea96df790fe7ea1e37f19a3a4edd511f067eb5bebf74cf38c7c16ff51fd",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/inspected/D01-p090.png",
+      "path": "dokumen/inspected/D01-p090.png",
+      "bytes": 191620,
+      "sha256": "02964f1dd14f7528de361854211c669eb15c236946e39a4d70da1d8494364259",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/inspected/D01-p090.txt",
+      "path": "dokumen/inspected/D01-p090.txt",
+      "bytes": 1303,
+      "sha256": "7faeb957eab481ce91324717ea108dbbc8214ef8934986cf756a0272450b6c0c",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/inspected/D01-p091.png",
+      "path": "dokumen/inspected/D01-p091.png",
+      "bytes": 74089,
+      "sha256": "fa8c3ebe5d376bdb3d5ffe816e4ff1c2e204a19765fd1c10e37914d2acf7f299",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/inspected/D01-p091.txt",
+      "path": "dokumen/inspected/D01-p091.txt",
+      "bytes": 968,
+      "sha256": "7ded7d51868338c6906044867c9062922faeb20b5dcc40d959047eb3c5702872",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/inspected/D01-p092.png",
+      "path": "dokumen/inspected/D01-p092.png",
+      "bytes": 138664,
+      "sha256": "64e21fa02d2339bc8bead7ce0cc37042bb8a16ea9cfdd7ad5827cb593e447ac8",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/inspected/D01-p092.txt",
+      "path": "dokumen/inspected/D01-p092.txt",
+      "bytes": 1168,
+      "sha256": "0be552dfccf2dc554632cd2ee6dbed7533d44e2b47acb58849542424cc77003a",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/inspected/D01-p093.png",
+      "path": "dokumen/inspected/D01-p093.png",
+      "bytes": 140038,
+      "sha256": "e6bf994789550e0dcfd9f3972b2212f54ae480e0e61cb5ab639ad1427a66a8ef",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/inspected/D01-p094.png",
+      "path": "dokumen/inspected/D01-p094.png",
+      "bytes": 153103,
+      "sha256": "209a48aa9f1c23e18f0af73675c388d2afe0325be3725d057c4c85e7b21b71a9",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/inspected/D01-p095.png",
+      "path": "dokumen/inspected/D01-p095.png",
+      "bytes": 97416,
+      "sha256": "b686cc6a71092bdf192ffb3d345608645aa215dc22a3390e3a683d8755060abd",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/inspected/D01-p096.png",
+      "path": "dokumen/inspected/D01-p096.png",
+      "bytes": 94747,
+      "sha256": "b80f8b66e800ceb07e76125f9eea3721e1e51fa82af2fe98756cf5abbf2689db",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/inspected/D01-p097.png",
+      "path": "dokumen/inspected/D01-p097.png",
+      "bytes": 124219,
+      "sha256": "2d315ba6fc4cad6ea3fa4f7cd50d3e0b567ac7502b77d0e7c06053f5ed9206b8",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/inspected/D01-p098.png",
+      "path": "dokumen/inspected/D01-p098.png",
+      "bytes": 140063,
+      "sha256": "0a41125a2784ae036be1a1a797b5f5b3ded8ba97d00572be6cf66da6804efa56",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/inspected/D01-p099.png",
+      "path": "dokumen/inspected/D01-p099.png",
+      "bytes": 112784,
+      "sha256": "38ba17b498246c31b2973f59bba557a956e09eb7029cc91d6e542d146b491970",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/inspected/D01-p100.png",
+      "path": "dokumen/inspected/D01-p100.png",
+      "bytes": 121875,
+      "sha256": "e45ea170030d9c8dd3b8b78be2ec3edbaf384f33d3f2f1ece22537386151cc15",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/inspected/D01-p101.png",
+      "path": "dokumen/inspected/D01-p101.png",
+      "bytes": 143760,
+      "sha256": "99661cb77382dfe68f93435a4fb8f67276b9cf759cc386cfd23e3c87f211288e",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/inspected/D01-p102.png",
+      "path": "dokumen/inspected/D01-p102.png",
+      "bytes": 164276,
+      "sha256": "0ec3f4d040c10e745a398b513f861c8bc8a38ddbdcdaaaf0d2e084c04dd29168",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/inspected/D01-p103.png",
+      "path": "dokumen/inspected/D01-p103.png",
+      "bytes": 67905,
+      "sha256": "4abb5a1c5fb4b59c822e71ccfd5884c3d367ec72fe88ad8f49044f91ec3d9b81",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/inspected/D01-p104.png",
+      "path": "dokumen/inspected/D01-p104.png",
+      "bytes": 146696,
+      "sha256": "4518d96ffb5ad153270bc5c52c570d38c2cd69cd191ad59a497a6f98529ed24b",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/inspected/D01-p105.png",
+      "path": "dokumen/inspected/D01-p105.png",
+      "bytes": 207028,
+      "sha256": "2b7976d8ea402f3fb9cae604e20d9be802b627f5e848c3bc603e4e242f2abb83",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/inspected/D01-p106.png",
+      "path": "dokumen/inspected/D01-p106.png",
+      "bytes": 172009,
+      "sha256": "fbc3ccf2522180ee4d3757eed721de03ab9e379f0483a3ef73d598c13ce363aa",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/inspected/D01-p111.png",
+      "path": "dokumen/inspected/D01-p111.png",
+      "bytes": 122762,
+      "sha256": "a18feb5e81a985d25537ae608bf65ab1d4f021167d14e31d914680e1862ca502",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/inspected/D01-p111.txt",
+      "path": "dokumen/inspected/D01-p111.txt",
+      "bytes": 1291,
+      "sha256": "868e3a1a4d861cd2497fd99621527be34a0598a8988161bf7f5e561ee73f10a2",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/inspected/D01-p112.png",
+      "path": "dokumen/inspected/D01-p112.png",
+      "bytes": 93287,
+      "sha256": "9a08845a305ae8247ecedd17e79afefc29d6b421374fa52feeb4121bc520da6c",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/inspected/D01-p112.txt",
+      "path": "dokumen/inspected/D01-p112.txt",
+      "bytes": 506,
+      "sha256": "95b6eb6c106846725210fcf07a3e6ded9d4a049ae976a0c387baa34dba3a571a",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/inspected/D01-p113.png",
+      "path": "dokumen/inspected/D01-p113.png",
+      "bytes": 192384,
+      "sha256": "11b18e404b621e9680a7c996cd34bbd1c938e894f64b9cf54f0081f7c94e18b4",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/inspected/D01-p113.txt",
+      "path": "dokumen/inspected/D01-p113.txt",
+      "bytes": 1329,
+      "sha256": "3b6c887bf5bb0fe050ea8b6825e08e82264d897dd9ef17034a0e89f83c5a3d06",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/inspected/D01-p114.png",
+      "path": "dokumen/inspected/D01-p114.png",
+      "bytes": 66780,
+      "sha256": "41b60e981b9db01ab0a15ac921df8124d0e935d0cdfb676ea51f5cbe3a87e118",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/inspected/D01-p114.txt",
+      "path": "dokumen/inspected/D01-p114.txt",
+      "bytes": 728,
+      "sha256": "7d85af726e171fc3e630938f175f01064fd5c7ae291ae33afd69dab7461fbc7a",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/inspected/D01-p163.png",
+      "path": "dokumen/inspected/D01-p163.png",
+      "bytes": 106206,
+      "sha256": "007b6581ab0bf3668152c272a53d23c23493288c7b445e0fa0fe0256ab053c9f",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/inspected/D01-p170.png",
+      "path": "dokumen/inspected/D01-p170.png",
+      "bytes": 119355,
+      "sha256": "3696542820023c6bc4695f7423302c72a18b3c5cb18f01fb9b6aec35bc1e7bd5",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/inspected/D01-p171.png",
+      "path": "dokumen/inspected/D01-p171.png",
+      "bytes": 163083,
+      "sha256": "7c8bf7556a90167f53a0ea7fe409fa3a2d948993f600379d128d9e827432c42b",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/inspected/D03-600dpi-17.png",
+      "path": "dokumen/inspected/D03-600dpi-17.png",
+      "bytes": 1654240,
+      "sha256": "41cc08182f8035af00b677db494925798fa2dceb75c4e88fcdec071a42f62f0b",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/inspected/D03-600dpi-18.png",
+      "path": "dokumen/inspected/D03-600dpi-18.png",
+      "bytes": 1516000,
+      "sha256": "fed3aeee3b8986cf369e8bbb22630d28a81a29495cccd605e15bf7082852d3cb",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/inspected/D05-fig38.png",
+      "path": "dokumen/inspected/D05-fig38.png",
+      "bytes": 17009,
+      "sha256": "6c06f1ce1b843833c316828ac0dafe723e96ca8583469e45320f111a557a0108",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/inspected/D05-fig39.png",
+      "path": "dokumen/inspected/D05-fig39.png",
+      "bytes": 13837,
+      "sha256": "0abc390ab17d2f65be962706f42dd6f3bfd95b991726a2ed5086426d6cef3260",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/pipe-fuel-gas/D05-36.svg",
+      "path": "dokumen/pipe-fuel-gas/D05-36.svg",
+      "bytes": 91752,
+      "sha256": "340eb8a33df2d922270b834c3cdc3198dc23d9e1429f844961a0900775d0797e",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/pipe-fuel-gas/README.md",
+      "path": "dokumen/pipe-fuel-gas/README.md",
+      "bytes": 2426,
+      "sha256": "39d5801c63d2c44ac650d6e4bf181bd2daa6d3f213b3ad1630e85ef6662db760",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/pipe-fuel-gas/charge-duct-audit.json",
+      "path": "dokumen/pipe-fuel-gas/charge-duct-audit.json",
+      "bytes": 10729,
+      "sha256": "54d69c251884370134a37828de7fa69d6bcedf6a9a20ccb33a5d0f3550101021",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/pipe-water-oil/fig-49.png",
+      "path": "dokumen/pipe-water-oil/fig-49.png",
+      "bytes": 127803,
+      "sha256": "fd63aecb76ee647707c2570859c5bc4524cd4fe22964b4cab752fdebbccb157c",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/pipe-water-oil/fig-49.svg",
+      "path": "dokumen/pipe-water-oil/fig-49.svg",
+      "bytes": 131645,
+      "sha256": "c8d00775c37b886def5e5c1e7ddebe913d1846641d6ac1fa6cf8912b89086179",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/pipe-water-oil/fig-50.png",
+      "path": "dokumen/pipe-water-oil/fig-50.png",
+      "bytes": 136966,
+      "sha256": "23f5686ffeb85936305d8c7268efe952e70f0c3321dd648b6ae7a61145b98a4e",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/pipe-water-oil/fig-50.svg",
+      "path": "dokumen/pipe-water-oil/fig-50.svg",
+      "bytes": 140576,
+      "sha256": "0a4c0f549abe8d9c72cd768ec2ee1f71d197eabfbd4ef632a15c836f04d470ab",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/pipe-water-oil/fig-51.png",
+      "path": "dokumen/pipe-water-oil/fig-51.png",
+      "bytes": 90792,
+      "sha256": "70f73ed843e01c68356825010634b8dbcf00429da7b3f19c443543a3234c2c42",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/pipe-water-oil/fig-51.svg",
+      "path": "dokumen/pipe-water-oil/fig-51.svg",
+      "bytes": 97496,
+      "sha256": "19bc7a9bcb9b42a55a76ec906417ebad62dc438a824102d568a30616929b9525",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/pipe-water-oil/fig-63.png",
+      "path": "dokumen/pipe-water-oil/fig-63.png",
+      "bytes": 83538,
+      "sha256": "ff357d3b4c5836d6ddc39eac9f7ca84dcdbcb8507abdc5cf31fa4af208c58804",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/pipe-water-oil/fig-63.svg",
+      "path": "dokumen/pipe-water-oil/fig-63.svg",
+      "bytes": 88209,
+      "sha256": "a0e4e361512521d1a9d46094224c73e7abda21e3bf3441187a3826667b3c5a41",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/pipe-water-oil/fig-65.png",
+      "path": "dokumen/pipe-water-oil/fig-65.png",
+      "bytes": 49593,
+      "sha256": "ef7298a4d9539f31674407aaa4f3db0fe636983cdec83661c189b04c0eca6e5f",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/pipe-water-oil/fig-65.svg",
+      "path": "dokumen/pipe-water-oil/fig-65.svg",
+      "bytes": 56768,
+      "sha256": "28003c7944a566863b72451b49399fa70f3fbd9e7422571405c85114f22bc990",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/pipe-water-oil/fig-66.png",
+      "path": "dokumen/pipe-water-oil/fig-66.png",
+      "bytes": 120789,
+      "sha256": "c948707fc24049982bd29a823560bcd0e3823aff4999f502994e44bd11b162cf",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/pipe-water-oil/fig-66.svg",
+      "path": "dokumen/pipe-water-oil/fig-66.svg",
+      "bytes": 133130,
+      "sha256": "4c553d933096a81724d94213ee30435eb09bc4720bbdb57016e6fc1ee77cd9fa",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/pipe-water-oil/scratch-fit.json",
+      "path": "dokumen/pipe-water-oil/scratch-fit.json",
+      "bytes": 4347,
+      "sha256": "8880dac0663a713f2e3418ac3e41749b9f4470eb7c44aca507a0aac571eff653",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/pipe-water-oil/shell-retention.txt",
+      "path": "dokumen/pipe-water-oil/shell-retention.txt",
+      "bytes": 694,
+      "sha256": "8ba8de131ac4efdd07c4cf0b219ba2541bdf7b95d9d9b4b4c2befd34292cf856",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/pipe-water-oil/verification.json",
+      "path": "dokumen/pipe-water-oil/verification.json",
+      "bytes": 6630,
+      "sha256": "720d90b15b61ced323f14fcf945f7d0eb835edb1432d3c0d998dfbf6cce7519d",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/pump-specialist/D01-115.png",
+      "path": "dokumen/pump-specialist/D01-115.png",
+      "bytes": 115291,
+      "sha256": "9363f04cdbf16bbd0898cd5678c589d9def4bb74edd8be0d19f5e74e34ad1136",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/pump-specialist/D01-116.png",
+      "path": "dokumen/pump-specialist/D01-116.png",
+      "bytes": 138275,
+      "sha256": "3a2ee6b4c9154c36b09845bc706a986523ef73c7cc05b58873577c581da92c7c",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/pump-specialist/D01-117.png",
+      "path": "dokumen/pump-specialist/D01-117.png",
+      "bytes": 109192,
+      "sha256": "897b1646ed918d4b9828ce225826b77bdb5a98452d6d9d18afb9663034aaf44d",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/pump-specialist/D01-118.png",
+      "path": "dokumen/pump-specialist/D01-118.png",
+      "bytes": 87745,
+      "sha256": "b7318cb198bb905c09cd8ea9bc0f742aba6ecc68cf6d18642193b30c3107199a",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/pump-specialist/D01-119.png",
+      "path": "dokumen/pump-specialist/D01-119.png",
+      "bytes": 107232,
+      "sha256": "1e5eb1ee217b5b554dea2e1d47f4ab6d135d208179c54b9ee4b903217d2a875e",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/pump-specialist/D01-120.png",
+      "path": "dokumen/pump-specialist/D01-120.png",
+      "bytes": 93838,
+      "sha256": "6328211b6fb06ca5a943584608f090663f5e9c41ebb7fc1875032b8ae3da90d7",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/pump-specialist/D01-121.png",
+      "path": "dokumen/pump-specialist/D01-121.png",
+      "bytes": 92110,
+      "sha256": "6ae35c24827d2a2319468106cbca6e386870d7480919fe179ba40322982aa08f",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/pump-specialist/D01-122.png",
+      "path": "dokumen/pump-specialist/D01-122.png",
+      "bytes": 94241,
+      "sha256": "f490221dddc3156fcd7ad280fb66716a3775c93077a1343198fa4bb1179a45c2",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/pump-specialist/D01-145.png",
+      "path": "dokumen/pump-specialist/D01-145.png",
+      "bytes": 133910,
+      "sha256": "324e0173b2742c64570fe7806690cd702dea80b251deb873ad00b5c2abeb7b34",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/pump-specialist/D01-146.png",
+      "path": "dokumen/pump-specialist/D01-146.png",
+      "bytes": 85956,
+      "sha256": "93f05c6e40ade649ccc02a964e24b05beb4f50a85e94a0d1924ece920859c48f",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/pump-specialist/D01-147.png",
+      "path": "dokumen/pump-specialist/D01-147.png",
+      "bytes": 137595,
+      "sha256": "ad827f28174c7bc3334108e96b95260ca4f2f2ed2f8efe1f4c8004b1aab7f953",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/pump-specialist/accessories.json",
+      "path": "dokumen/pump-specialist/accessories.json",
+      "bytes": 2176,
+      "sha256": "01fa97998d5a0bc9b20046e11673924a35482fc8cbae1743840a7d5d818d9b26",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/pump-specialist/findings.json",
+      "path": "dokumen/pump-specialist/findings.json",
+      "bytes": 2779,
+      "sha256": "d98957176be59ba801851ab9e406c2027cd0e48452dd28695341436d53e175d5",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/section-evidence/catalog-transcript.txt",
+      "path": "dokumen/section-evidence/catalog-transcript.txt",
+      "bytes": 172410,
+      "sha256": "dff4174e4c769cb13526bcbc86f0f22b281d89bd7f238d5f0614d0571e0f8b49",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/sources.json",
+      "path": "dokumen/sources.json",
+      "bytes": 9588,
+      "sha256": "f1e6badb2a1736b729c5130c5392d51333948303f57c13014da4cc0de0448c49",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/turbo-specialist/README.md",
+      "path": "dokumen/turbo-specialist/README.md",
+      "bytes": 1797,
+      "sha256": "f68d1f71e7c3b8d4690daa75541ec55bc838ebb4394e19ae720ffb4908e7052d",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/turbo-specialist/fig32.html",
+      "path": "dokumen/turbo-specialist/fig32.html",
+      "bytes": 211259,
+      "sha256": "85f389406da6c79b460c2abc774ba9e722a64da51b717ecf0e72efc5a5702397",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/turbo-specialist/fig32.png",
+      "path": "dokumen/turbo-specialist/fig32.png",
+      "bytes": 267908,
+      "sha256": "3bc556915cdc47db85a3279843fe30e322ba7ee289c46e48ddf4c756919bc006",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/turbo-specialist/fig32.svg",
+      "path": "dokumen/turbo-specialist/fig32.svg",
+      "bytes": 141909,
+      "sha256": "c8210a28c3cb99b9bdcaa6fbbada1fa124e911764a67441806a96ccefde703f2",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/unit-identity/AAM-22330.pdf",
+      "path": "dokumen/unit-identity/AAM-22330.pdf",
+      "bytes": 1776109,
+      "sha256": "14be2f2763ff7bc0c0cf1a6f818c51804daa1da6f35efd40a1f1097fe0bba7d1",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/unit-identity/AAM-22331.pdf",
+      "path": "dokumen/unit-identity/AAM-22331.pdf",
+      "bytes": 1811620,
+      "sha256": "af147a50a29b0fe88c83a496fe092edb2e8f8d37ccb89b59bcf6380579240650",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/unit-identity/AAM-22399.pdf",
+      "path": "dokumen/unit-identity/AAM-22399.pdf",
+      "bytes": 1774089,
+      "sha256": "8edf08ff95b847599af661b4676827afcf529794aa3f484c56662e059d6f4070",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/unit-identity/AAM-22400.pdf",
+      "path": "dokumen/unit-identity/AAM-22400.pdf",
+      "bytes": 1676202,
+      "sha256": "5118655c3a56f89a6dd58f28a98afe92f89b52f6223d8db61fef8e2142a949c8",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/unit-identity/AAM-front-box-label-8.jpg",
+      "path": "dokumen/unit-identity/AAM-front-box-label-8.jpg",
+      "bytes": 21214,
+      "sha256": "06c6ca336038bec6a5cccde69c70f7ac264828366b7ac1d445c5874e1c6529dd",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/unit-identity/AAM-front-box-label-contrast.jpg",
+      "path": "dokumen/unit-identity/AAM-front-box-label-contrast.jpg",
+      "bytes": 25386,
+      "sha256": "789b2663cb15f3898b06d0adcbd9451e4ea8c4351c8d12e2f5a2918c4c28e430",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/unit-identity/AAM-front-box-label.jpg",
+      "path": "dokumen/unit-identity/AAM-front-box-label.jpg",
+      "bytes": 19272,
+      "sha256": "d3a1f11247acaedea38b0ebf246521a5df8455b403f33513a9fbfca1d40aecc1",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/unit-identity/AAM-front-box-mark.jpg",
+      "path": "dokumen/unit-identity/AAM-front-box-mark.jpg",
+      "bytes": 16621,
+      "sha256": "0b547af78d28f9d7bc8a77f912f44f9a82c2bad2d6611ab9105855ec6d441e3d",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/unit-identity/AAM-front-pallet-mark.jpg",
+      "path": "dokumen/unit-identity/AAM-front-pallet-mark.jpg",
+      "bytes": 19977,
+      "sha256": "f7c48fb2e676793ddf6d50f82adee2b61fc750ceb6a400eb7b7c8292606112ab",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/unit-identity/P05-box.jpg",
+      "path": "dokumen/unit-identity/P05-box.jpg",
+      "bytes": 17910,
+      "sha256": "68920e3bb62143db4bfbbf88d547c197b3d37bd07a03dbff0706d7d9f1c92ba6",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/unit-identity/P05-crate.jpg",
+      "path": "dokumen/unit-identity/P05-crate.jpg",
+      "bytes": 20708,
+      "sha256": "e81c73a264c5dfe5abccdce910f9deece953f5862acc2257f58003daa5cb7a34",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/unit-identity/P05-packaging.jpg",
+      "path": "dokumen/unit-identity/P05-packaging.jpg",
+      "bytes": 80852,
+      "sha256": "786eb003d419d2072b763daabcae29ae38d18a7b15793eaf82035e7bd4140e22",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/unit-identity/P05-starter.jpg",
+      "path": "dokumen/unit-identity/P05-starter.jpg",
+      "bytes": 24492,
+      "sha256": "b6ca34b00a1fc8be22d0b67db772c563cb9bfc4bf567a8b320eb0925e61c38b3",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/unit-identity/P06-crate.jpg",
+      "path": "dokumen/unit-identity/P06-crate.jpg",
+      "bytes": 17151,
+      "sha256": "84429b51ab49a5830ee9d3d703f6a6fe4e509286250a5a4f176701677c37c634",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/unit-identity/P06-packaging.jpg",
+      "path": "dokumen/unit-identity/P06-packaging.jpg",
+      "bytes": 75809,
+      "sha256": "c07e794d844b23aacbedc95733d842a7b2d9f02a8911b179b892e41ca37d3bcd",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/unit-identity/P07-alternator.jpg",
+      "path": "dokumen/unit-identity/P07-alternator.jpg",
+      "bytes": 13109,
+      "sha256": "3ef6aebbf1b7478f95d6f4e355ea3d6a95c1f70c309d9d9a901fdf02a33975db",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/unit-identity/P07-box.jpg",
+      "path": "dokumen/unit-identity/P07-box.jpg",
+      "bytes": 37291,
+      "sha256": "4f2bf7ff3d89c22c0110c101ff8d0785e28c17e8007fb8cf402d7ca8f95667f3",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/unit-identity/P07-packaging.jpg",
+      "path": "dokumen/unit-identity/P07-packaging.jpg",
+      "bytes": 56793,
+      "sha256": "8b191aa47b74aa9ffe789a5705914f6bb0ddb8202df721d4f257c4da307c7755",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/unit-identity/P07-plate.jpg",
+      "path": "dokumen/unit-identity/P07-plate.jpg",
+      "bytes": 13848,
+      "sha256": "c28004f53ed9b32619ab0dd52ea63708e7d4e477d5836d95ba4ef3d78367153a",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/unit-identity/P08-box-mark.jpg",
+      "path": "dokumen/unit-identity/P08-box-mark.jpg",
+      "bytes": 17438,
+      "sha256": "b0041c033c710c013d541f1d06c93ae080033cb5aca6eb23878ac95655f43a90",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/unit-identity/P08-box.jpg",
+      "path": "dokumen/unit-identity/P08-box.jpg",
+      "bytes": 39942,
+      "sha256": "06c6039f8dc59f1f4b2020ae85bf0be75ba042f127f1515d33912d0886f36dad",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/unit-identity/P08-crate.jpg",
+      "path": "dokumen/unit-identity/P08-crate.jpg",
+      "bytes": 22366,
+      "sha256": "7e6ba9470445a5822e4cc8bf59b52a877466ef571eec1e59f17f4c317f9d348e",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/unit-identity/P08-plate.jpg",
+      "path": "dokumen/unit-identity/P08-plate.jpg",
+      "bytes": 13085,
+      "sha256": "c4bb47bf3a3c2eab2820fec2d46b1e57e2c48f487602e7e967a5cd9eb655805c",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/unit-identity/P17-box.jpg",
+      "path": "dokumen/unit-identity/P17-box.jpg",
+      "bytes": 22236,
+      "sha256": "02280b8f35086979bc7dfd22e77f8c0303716e84757c66492708e9140cb95c28",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/unit-identity/P17-packaging.jpg",
+      "path": "dokumen/unit-identity/P17-packaging.jpg",
+      "bytes": 76584,
+      "sha256": "488f5e456b2d4f3e93da8ab65e0189239289da84e55431f0241bb04b369928e7",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/unit-identity/P18-crate.jpg",
+      "path": "dokumen/unit-identity/P18-crate.jpg",
+      "bytes": 11645,
+      "sha256": "f7efb16e36cc51c75835cab390d83548ec63916b1d922f1ca0bb9d1ae5adcfb6",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/unit-identity/README.md",
+      "path": "dokumen/unit-identity/README.md",
+      "bytes": 5147,
+      "sha256": "a57656ebab65e7ecfd72956e280983775ea94c1b5bf2f70c7693f0bc03eb1b4b",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/unit-identity/Tradewheel.jpg",
+      "path": "dokumen/unit-identity/Tradewheel.jpg",
+      "bytes": 56801,
+      "sha256": "4fd6fe839b61862d97ceb6229a72104062b5845503ae9484833bb4504ae22892",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/unit-identity/aam-media/18286.pdf",
+      "path": "dokumen/unit-identity/aam-media/18286.pdf",
+      "bytes": 609451,
+      "sha256": "73160046b906b5d116fe154a007bf598d704785c9f2bf6ea35e640e19b681b90",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/unit-identity/aam-media/18289.jpg",
+      "path": "dokumen/unit-identity/aam-media/18289.jpg",
+      "bytes": 136997,
+      "sha256": "361f20525ffcae94f3f72178ced3192298e7a2cfee8f080bf2c1009313270e1a",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/unit-identity/aam-media/18290.jpg",
+      "path": "dokumen/unit-identity/aam-media/18290.jpg",
+      "bytes": 116845,
+      "sha256": "5f820b507996c94cbb9707521614cc76f42134067bf1cae9ef379c04ec9dc895",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/unit-identity/aam-media/18299.pdf",
+      "path": "dokumen/unit-identity/aam-media/18299.pdf",
+      "bytes": 629819,
+      "sha256": "5e336b919c38a3b0a67127dcbf2fc85266ee19376d42b79ca0407775431d1eeb",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/unit-identity/aam-media/18300.jpg",
+      "path": "dokumen/unit-identity/aam-media/18300.jpg",
+      "bytes": 149790,
+      "sha256": "be638a666024fde9b5bbb7a3ef6219590bdfd75fa6420b6e10843d0cd3ccf6a5",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/unit-identity/aam-media/18309.pdf",
+      "path": "dokumen/unit-identity/aam-media/18309.pdf",
+      "bytes": 629644,
+      "sha256": "2055bff9f6bcc12ca6eb546a522c72e89a5c719a3192ffe1e3344deb0e6d1b8f",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/unit-identity/aam-media/18320.pdf",
+      "path": "dokumen/unit-identity/aam-media/18320.pdf",
+      "bytes": 628982,
+      "sha256": "5c710c9c422b70faebe85847678b2319e9cf1b4774085f9eab82f3f1f058f7e9",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/unit-identity/aam-media/18321.jpg",
+      "path": "dokumen/unit-identity/aam-media/18321.jpg",
+      "bytes": 142672,
+      "sha256": "4a67c1edb7e0858785b0ffb2ff90e95b4baf196797a8383a3b836d1047ae3b38",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/unit-identity/aam-media/23641.pdf",
+      "path": "dokumen/unit-identity/aam-media/23641.pdf",
+      "bytes": 1638280,
+      "sha256": "a803e3819dfc9e57cd5d2bb822657c8d25e55b0095497d357124d856c088231a",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/unit-identity/aam-media/23642.jpg",
+      "path": "dokumen/unit-identity/aam-media/23642.jpg",
+      "bytes": 285294,
+      "sha256": "b2aa581ec5497f995a254118351384c3cb053dcabb29bdcf05de36b84fa29578",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/unit-identity/aam-media/23643.jpg",
+      "path": "dokumen/unit-identity/aam-media/23643.jpg",
+      "bytes": 338180,
+      "sha256": "c716a6139b48239bbaca7de355341229eab699d00a144d9e465ea196dc9afc6d",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/unit-identity/aam-media/23644.jpg",
+      "path": "dokumen/unit-identity/aam-media/23644.jpg",
+      "bytes": 264003,
+      "sha256": "4dd99cd8872af5ca0dbabf688188163beaccf6475455aa35762e9dc3b69f9431",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/unit-identity/aam-media/23645.jpg",
+      "path": "dokumen/unit-identity/aam-media/23645.jpg",
+      "bytes": 323186,
+      "sha256": "6cdd1dcf268654e935383195d0f1fc18ddda6d6266f5b6db6e47e8fbc4bc7d06",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/unit-identity/aam-media/23646.jpg",
+      "path": "dokumen/unit-identity/aam-media/23646.jpg",
+      "bytes": 335092,
+      "sha256": "fbbe8664d515d2324a5844f963b57785d1c7ae81577487a92d0e538a5cd2a2ae",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/unit-identity/aam-media/23647.jpg",
+      "path": "dokumen/unit-identity/aam-media/23647.jpg",
+      "bytes": 271387,
+      "sha256": "4c116b137fa280a004c7269c59f2da5e596dcf35ad17c4b0ed74878482e5e89e",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/unit-identity/aam-media/23648.jpg",
+      "path": "dokumen/unit-identity/aam-media/23648.jpg",
+      "bytes": 292991,
+      "sha256": "d1dbcb033df59206cb4697a16715938f9587620d40453a88e296aab2f71baca8",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/unit-identity/aam-media/23649.jpg",
+      "path": "dokumen/unit-identity/aam-media/23649.jpg",
+      "bytes": 252699,
+      "sha256": "ea51416bd3fc98b665f51750b0e2a807a303072e5b645ef3f35c9a580ab68692",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/unit-identity/aam-media/23650.jpg",
+      "path": "dokumen/unit-identity/aam-media/23650.jpg",
+      "bytes": 331841,
+      "sha256": "6afca4b49654483ca4cd36d94d1de82888577db2e53e3fb70a1f1dc0e99195a5",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/unit-identity/aam-media/23651.jpg",
+      "path": "dokumen/unit-identity/aam-media/23651.jpg",
+      "bytes": 263789,
+      "sha256": "ecc7dd834c10d0363829af266e06e8d5f19535fd4b19fce5c6b56616c5ab53cd",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/unit-identity/aam-media/23652.jpg",
+      "path": "dokumen/unit-identity/aam-media/23652.jpg",
+      "bytes": 314137,
+      "sha256": "e07e52faeea1057b8e6f6014178c52156997fecc2b4950cfe318a3b00b8d07c9",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/unit-identity/aam-media/23656.pdf",
+      "path": "dokumen/unit-identity/aam-media/23656.pdf",
+      "bytes": 1673860,
+      "sha256": "45c5cb4a1ecf0b3b9d370744c66cbcce8f81040fca23b732b819a924ecd1fc63",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/unit-identity/aam-media/23661.pdf",
+      "path": "dokumen/unit-identity/aam-media/23661.pdf",
+      "bytes": 1636359,
+      "sha256": "fb5f9f3bd98046b8ea9ab411c5d3f3a319e147b96f2c56ca4c1222ec2266d896",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/unit-identity/aam-media/23671.pdf",
+      "path": "dokumen/unit-identity/aam-media/23671.pdf",
+      "bytes": 1538603,
+      "sha256": "d5799ad778789cae37780de75a05f04867aa35930d163d54db80d3446171d741",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/unit-identity/aam-media/29500.pdf",
+      "path": "dokumen/unit-identity/aam-media/29500.pdf",
+      "bytes": 1776109,
+      "sha256": "14be2f2763ff7bc0c0cf1a6f818c51804daa1da6f35efd40a1f1097fe0bba7d1",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/unit-identity/aam-media/29504.pdf",
+      "path": "dokumen/unit-identity/aam-media/29504.pdf",
+      "bytes": 1811620,
+      "sha256": "af147a50a29b0fe88c83a496fe092edb2e8f8d37ccb89b59bcf6380579240650",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/unit-identity/aam-media/29508.pdf",
+      "path": "dokumen/unit-identity/aam-media/29508.pdf",
+      "bytes": 1774089,
+      "sha256": "8edf08ff95b847599af661b4676827afcf529794aa3f484c56662e059d6f4070",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/unit-identity/aam-media/29512.pdf",
+      "path": "dokumen/unit-identity/aam-media/29512.pdf",
+      "bytes": 1676202,
+      "sha256": "5118655c3a56f89a6dd58f28a98afe92f89b52f6223d8db61fef8e2142a949c8",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/unit-identity/aam-media/contact.jpg",
+      "path": "dokumen/unit-identity/aam-media/contact.jpg",
+      "bytes": 461132,
+      "sha256": "53e8223c38ee3f96ef5b7c341a5601f3525bdc4d903e9f54f08cf1dcf964565f",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/unit-identity/aam-media/index.json",
+      "path": "dokumen/unit-identity/aam-media/index.json",
+      "bytes": 54193,
+      "sha256": "54bf7b954c4b91557ac68a74dba55744ac5d7c3be7b913a263b7d6b1d0f701a1",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/unit-identity/evidence.json",
+      "path": "dokumen/unit-identity/evidence.json",
+      "bytes": 2527,
+      "sha256": "fd36cb672482dc06467bc2b22f5321b0e9b45644d6aa2ceb62ff2dcf1ca02b2a",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/doc/unit-identity/manual-nameplate-12.png",
+      "path": "dokumen/unit-identity/manual-nameplate-12.png",
+      "bytes": 104751,
+      "sha256": "dd568bf1a71a2338de4e77f12368ad2907b2863af2c519f6e55f0861d64c2ba5",
+      "origin_tree": "doc"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/foto/GA01.jpg",
+      "path": "foto/GA01.jpg",
+      "bytes": 95499,
+      "sha256": "9e57964bfc936df3557bed27886854a6c4c91bd083002974f6cecbf03ab60b38",
+      "origin_tree": "foto"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/foto/P01.jpg",
+      "path": "foto/P01.jpg",
+      "bytes": 52741,
+      "sha256": "c9f6f4ccee7f21d64035c66d31aa25159178f92460574eee6a362eaf8998c036",
+      "origin_tree": "foto"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/foto/P02.jpg",
+      "path": "foto/P02.jpg",
+      "bytes": 46331,
+      "sha256": "d2d68e515187efd5ef995a0e2eeed4978370496ea48be7d40ae61f328a0056eb",
+      "origin_tree": "foto"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/foto/P03.jpg",
+      "path": "foto/P03.jpg",
+      "bytes": 48254,
+      "sha256": "8a12c0b7c5a2325d8e65e39e6bb8c3a99d852fe009f22110e9468363d5f5e7df",
+      "origin_tree": "foto"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/foto/P04.jpg",
+      "path": "foto/P04.jpg",
+      "bytes": 40130,
+      "sha256": "a90922d7b1b283a6ce4b5909787653bf8d095a32105934a0cd4770105a73ba74",
+      "origin_tree": "foto"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/foto/P05.jpg",
+      "path": "foto/P05.jpg",
+      "bytes": 285294,
+      "sha256": "b2aa581ec5497f995a254118351384c3cb053dcabb29bdcf05de36b84fa29578",
+      "origin_tree": "foto"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/foto/P06.jpg",
+      "path": "foto/P06.jpg",
+      "bytes": 264003,
+      "sha256": "4dd99cd8872af5ca0dbabf688188163beaccf6475455aa35762e9dc3b69f9431",
+      "origin_tree": "foto"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/foto/P07.jpg",
+      "path": "foto/P07.jpg",
+      "bytes": 323186,
+      "sha256": "6cdd1dcf268654e935383195d0f1fc18ddda6d6266f5b6db6e47e8fbc4bc7d06",
+      "origin_tree": "foto"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/foto/P08.jpg",
+      "path": "foto/P08.jpg",
+      "bytes": 331841,
+      "sha256": "6afca4b49654483ca4cd36d94d1de82888577db2e53e3fb70a1f1dc0e99195a5",
+      "origin_tree": "foto"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/foto/P09-top-detail.jpg",
+      "path": "foto/P09-top-detail.jpg",
+      "bytes": 157073,
+      "sha256": "131236091f3ac22cfb502f5415e2bc93d774c5c4ae6621d53f84dc7881c6f8fb",
+      "origin_tree": "foto"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/foto/P09.jpg",
+      "path": "foto/P09.jpg",
+      "bytes": 2685235,
+      "sha256": "299bdab9347a8912910f8d6e389ee07f6b6ecd74a7aea5dfd710d18d9a73de06",
+      "origin_tree": "foto"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/foto/P10-oblique-detail.jpg",
+      "path": "foto/P10-oblique-detail.jpg",
+      "bytes": 312379,
+      "sha256": "51fbb24bfeb90406a2e6d531218d195477099a4db20bd736f318508286fa989d",
+      "origin_tree": "foto"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/foto/P10.jpg",
+      "path": "foto/P10.jpg",
+      "bytes": 2478493,
+      "sha256": "02aba58481a4af071a684537057d7fc8745857b4951e2ccc989d9096f9511fae",
+      "origin_tree": "foto"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/foto/P14.jpg",
+      "path": "foto/P14.jpg",
+      "bytes": 94033,
+      "sha256": "f6a62b89b100b9bf1461a5a9e6e9b8687fff5e8c2ae9c1e7ae6074f4a1a27d7d",
+      "origin_tree": "foto"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/foto/P17.jpg",
+      "path": "foto/P17.jpg",
+      "bytes": 314137,
+      "sha256": "e07e52faeea1057b8e6f6014178c52156997fecc2b4950cfe318a3b00b8d07c9",
+      "origin_tree": "foto"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/foto/P18.jpg",
+      "path": "foto/P18.jpg",
+      "bytes": 338180,
+      "sha256": "c716a6139b48239bbaca7de355341229eab699d00a144d9e465ea196dc9afc6d",
+      "origin_tree": "foto"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/foto/P19.jpg",
+      "path": "foto/P19.jpg",
+      "bytes": 163130,
+      "sha256": "4ae41ccd23a2ec6249e0020d2631360a9f045520df2cf11dad7410478719ca95",
+      "origin_tree": "foto"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/foto/P20.jpg",
+      "path": "foto/P20.jpg",
+      "bytes": 129076,
+      "sha256": "ac63e07cd50306d8d68e33db0b21e8fbbc7200d52b96c0cc31b5b54a36482094",
+      "origin_tree": "foto"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/foto/P21.jpg",
+      "path": "foto/P21.jpg",
+      "bytes": 385863,
+      "sha256": "d1a6aa58b67bb3cab0776c20f21bc1a7b58060f371e785c53100228f65b1caf9",
+      "origin_tree": "foto"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/foto/contact-sheet.jpg",
+      "path": "foto/contact-sheet.jpg",
+      "bytes": 586787,
+      "sha256": "a2413d4b9bff4a72afc092bbd46a613b23344e55a271710ee023687041de7d9a",
+      "origin_tree": "foto"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/foto/evidence-foto-top.json",
+      "path": "foto/evidence-foto-top.json",
+      "bytes": 6672,
+      "sha256": "28a2d4d7b52c1a02d60daaf6758aff03259ab2b0b3e42ab80640e47efb48fa7b",
+      "origin_tree": "foto"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/foto/evidence-foto.json",
+      "path": "foto/evidence-foto.json",
+      "bytes": 20498,
+      "sha256": "b3af869075a7f745c2ffa4398b585bc7387791496523e88a065e74cd60cc8676",
+      "origin_tree": "foto"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/video/V01.log",
+      "path": "video/V01.log",
+      "bytes": 1789,
+      "sha256": "eef84b4df7751e2b0e67fbc216d293dc17fab4aa62ae27a567bafd0664221f5f",
+      "origin_tree": "video"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/video/V02.log",
+      "path": "video/V02.log",
+      "bytes": 1789,
+      "sha256": "0ee90feb20ad15d04136a24bc0977210edab82c9cc9d21c61f354fe863462b7a",
+      "origin_tree": "video"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/video/V03.log",
+      "path": "video/V03.log",
+      "bytes": 1789,
+      "sha256": "7cf96ad5e933857a62a2676f5629962ffe52f8bb710070d46c21c2ec0933aea5",
+      "origin_tree": "video"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/video/V04.log",
+      "path": "video/V04.log",
+      "bytes": 1804,
+      "sha256": "ded75c7b38e63330d3df3f82ac9ff78e990faa7d14efe35728973b4693dc3704",
+      "origin_tree": "video"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/video/V05.log",
+      "path": "video/V05.log",
+      "bytes": 1804,
+      "sha256": "bb85fd95c2f964e34c81b3fb1c48bfa2734bb84de3c3da430c0b6531b88d69c7",
+      "origin_tree": "video"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/video/V07.html",
+      "path": "video/V07.html",
+      "bytes": 182531,
+      "sha256": "f9b8a6913c3d131fc05065b9f578dab61885230e23df5326b2ff53dbea390ffd",
+      "origin_tree": "video"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/video/V07.mp4",
+      "path": "video/V07.mp4",
+      "bytes": 20249397,
+      "sha256": "3bd78cdd0fc97ea4c17519c0f8b892ab0e5c44b40d8d123745de6769f33cb61f",
+      "origin_tree": "video"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/video/evidence-video.json",
+      "path": "video/evidence-video.json",
+      "bytes": 13667,
+      "sha256": "0be1600e03d26da1bc7c784010a0708d30723ba991845d587e5c7207a362dd12",
+      "origin_tree": "video"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/video/frames/V07-10s.jpg",
+      "path": "video/frames/V07-10s.jpg",
+      "bytes": 45742,
+      "sha256": "67fb98f1fe0b77c8d7753d8188d8afb89a38c3a349d7abd50f767f84f63900d0",
+      "origin_tree": "video"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/video/frames/V07-13s.jpg",
+      "path": "video/frames/V07-13s.jpg",
+      "bytes": 42583,
+      "sha256": "6d81f096b6b4acab0c318880d5d7f4d631db71bfbe6ba589641658f13b540a3d",
+      "origin_tree": "video"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/video/frames/V07-16s.jpg",
+      "path": "video/frames/V07-16s.jpg",
+      "bytes": 41691,
+      "sha256": "3b60c77f4ae75f9b0f4748b1ddb414b8567070eb13764af01a677f5788e16960",
+      "origin_tree": "video"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/video/frames/V07-18s.jpg",
+      "path": "video/frames/V07-18s.jpg",
+      "bytes": 52919,
+      "sha256": "45dc95aaa3f400d50edc2d22d65b46e505cc0648a8c056b61634120d323e2ed2",
+      "origin_tree": "video"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/video/frames/V07-1s.jpg",
+      "path": "video/frames/V07-1s.jpg",
+      "bytes": 53719,
+      "sha256": "6951caac8d3f3989c93a060ac7ca879316e5bfe5be90fa8d4cdbd6b943579566",
+      "origin_tree": "video"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/video/frames/V07-4s.jpg",
+      "path": "video/frames/V07-4s.jpg",
+      "bytes": 42629,
+      "sha256": "d09b0d74ed7b670567f525a3ba718a17411d8acb3759bb4d913291802c2dad26",
+      "origin_tree": "video"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/video/frames/V07-7s.jpg",
+      "path": "video/frames/V07-7s.jpg",
+      "bytes": 52956,
+      "sha256": "f2054bbf8ac53d870a6cdf1488636c6a756c3f9c7c878713479e31b8b5bb0b7a",
+      "origin_tree": "video"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/video/frames/V07-contact.jpg",
+      "path": "video/frames/V07-contact.jpg",
+      "bytes": 75880,
+      "sha256": "fbf285462b72c5cd148ff267c2ed374f867fe9fb8956e9b89469fa03f3383285",
+      "origin_tree": "video"
+    },
+    {
+      "source": "/workspace/private-production/yanmar-6aym-wet-r06/video/frames/V07-index.jpg",
+      "path": "video/frames/V07-index.jpg",
+      "bytes": 67963,
+      "sha256": "dd36120dc0983069d92bfbe7abd4d35215fea8f7866367124e5e8067f8065f6a",
+      "origin_tree": "video"
+    }
+  ],
+  "copy_verification": "SHA-256 before/after source and destination equal for every copied file"
+}

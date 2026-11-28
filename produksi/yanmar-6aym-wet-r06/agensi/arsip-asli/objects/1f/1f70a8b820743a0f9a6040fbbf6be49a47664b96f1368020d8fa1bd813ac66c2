@@ -1,0 +1,27 @@
+Traceback (most recent call last):
+  File "/workspace/private-production/yanmar-6aym-wet-r03/model/exterior/preflight-r03/model/exterior/build.py", line 914, in <module>
+    runpy.run_path(str(specialist))['build'](globals())
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "/workspace/private-production/yanmar-6aym-wet-r03/model/exterior/preflight-r03/model/exterior/specialists/electrical.py", line 54, in build
+    at,rad,tube,pipe,arc,part,end=setup(109,group,'EXT-ELECTRIC-01',(.275,-.340),
+                                  ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        'Opsi 600 W pada katalog; identitas unit terpasang, lilitan, ukuran dan celah belum terverifikasi. Alternatif 24 V–1 kW dirinci terpisah di Fig.108.')
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/private-production/yanmar-6aym-wet-r03/model/exterior/preflight-r03/model/exterior/specialists/electrical.py", line 19, in setup
+    rows={r['referenceNo']:r for r in json.loads((catalog/f'{number}.json').read_text())['positions']}
+                                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.13/pathlib/_local.py", line 548, in read_text
+    return PathBase.read_text(self, encoding, errors, newline)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/pathlib/_abc.py", line 632, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors, newline=newline) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/pathlib/_local.py", line 539, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/workspace/private-production/yanmar-6aym-wet-r03/model/exterior/preflight-r03/qa/catalog/figures/109.json'
+
+Error: script failed, file: 'preflight-r03/model/exterior/build.py', exiting.
+Blender 4.3.2
+
+Blender quit

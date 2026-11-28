@@ -1,0 +1,1689 @@
+{
+  "id": "RAK-INJECTION",
+  "nama": "Bagian dalam pompa injeksi YPE-1615",
+  "parent_rakitan": "RAK-FUEL",
+  "node_rakitan": "RAK-INJECTION",
+  "acuan": {
+    "no": 1,
+    "object_ids": [
+      "EXT-FUEL-01"
+    ]
+  },
+  "diagram": {
+    "arah_pandang": [
+      0.24,
+      0.32,
+      -0.92
+    ],
+    "atas": [
+      0,
+      1,
+      0
+    ]
+  },
+  "bagian": [
+    {
+      "no": 1,
+      "nama": "Pompa injeksi enam elemen",
+      "object_ids": [
+        "EXT-FUEL-01"
+      ],
+      "role": "shell",
+      "posisi": [],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 14 printed p. 10 / component locations, operation side",
+        "P07 / pompa injeksi pada sisi operasi",
+        "P08 / coran dan panel servis",
+        "P14 panel kiri / detail pompa dan fitting",
+        "D01 PDF 115 / cetak 111, gambar penampang 020523-00E dan kolom YPE-1615",
+        "D05 0CG10-M34300 fig.74 / pompa injeksi Yanmar 6AYM-WET"
+      ],
+      "fungsi": "Rumah berlubang dan penopang elemen pompa."
+    },
+    {
+      "no": 2,
+      "nama": "Poros nok pompa injeksi · enam nok",
+      "object_ids": [
+        "EXT-FUEL-21"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-21",
+          "arah": [
+            -1,
+            0,
+            0
+          ],
+          "jarak_m": 0.28,
+          "urutan": 2
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 115 / cetak 111, gambar penampang 020523-00E dan kolom YPE-1615",
+        "D05 0CG10-M34300 fig.74 / pompa injeksi Yanmar 6AYM-WET"
+      ],
+      "fungsi": "Nok pompa mengangkat roller tappet pada enam stasiun."
+    },
+    {
+      "no": 3,
+      "nama": "Eksentrik penggerak pompa feed",
+      "object_ids": [
+        "EXT-FUEL-240"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-240",
+          "arah": [
+            1,
+            0,
+            0
+          ],
+          "jarak_m": 0.19,
+          "urutan": 3
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 115 / cetak 111, gambar penampang 020523-00E dan kolom YPE-1615",
+        "D05 0CG10-M34300 fig.74 / pompa injeksi Yanmar 6AYM-WET"
+      ],
+      "fungsi": "Eksentrik pompa kerja ganda berputar bersama poros nok; throw rekonstruksi 2,4 mm."
+    },
+    {
+      "no": 4,
+      "nama": "Batang pengatur bergigi (control rack)",
+      "object_ids": [
+        "EXT-FUEL-22"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-22",
+          "arah": [
+            0,
+            0,
+            1
+          ],
+          "jarak_m": 0.16,
+          "urutan": 4
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 115 / cetak 111, gambar penampang 020523-00E dan kolom YPE-1615",
+        "D05 0CG10-M34300 fig.74 / pompa injeksi Yanmar 6AYM-WET"
+      ],
+      "fungsi": "Gerak memanjang rack memutar pinion untuk mengatur penyaluran."
+    },
+    {
+      "no": 5,
+      "nama": "Tappet dan spindle pompa 1",
+      "object_ids": [
+        "EXT-FUEL-23"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-23",
+          "arah": [
+            0,
+            0,
+            -1
+          ],
+          "jarak_m": 0.12,
+          "urutan": 5
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 115 / cetak 111, gambar penampang 020523-00E dan kolom YPE-1615",
+        "D05 0CG10-M34300 fig.74 / pompa injeksi Yanmar 6AYM-WET"
+      ],
+      "fungsi": "Tappet bergerak aksial mengikuti nok dan mengangkat plunger."
+    },
+    {
+      "no": 6,
+      "nama": "Roller tappet pompa 1",
+      "object_ids": [
+        "EXT-FUEL-300"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-300",
+          "arah": [
+            0,
+            0,
+            -1
+          ],
+          "jarak_m": 0.16,
+          "urutan": 6
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 115 / cetak 111, gambar penampang 020523-00E dan kolom YPE-1615",
+        "D05 0CG10-M34300 fig.74 / pompa injeksi Yanmar 6AYM-WET"
+      ],
+      "fungsi": "Roller ikut terangkat oleh nok dan berputar terhadap spindle."
+    },
+    {
+      "no": 7,
+      "nama": "Pegas balik plunger 1",
+      "object_ids": [
+        "EXT-FUEL-29"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-29",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.19,
+          "urutan": 7
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 115 / cetak 111, gambar penampang 020523-00E dan kolom YPE-1615",
+        "D05 0CG10-M34300 fig.74 / pompa injeksi Yanmar 6AYM-WET"
+      ],
+      "fungsi": "Pegas kembali terpasang antara kedua dudukan."
+    },
+    {
+      "no": 8,
+      "nama": "Dudukan bawah pegas plunger 1",
+      "object_ids": [
+        "EXT-FUEL-270"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-270",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.15,
+          "urutan": 8
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 115 / cetak 111, gambar penampang 020523-00E dan kolom YPE-1615",
+        "D05 0CG10-M34300 fig.74 / pompa injeksi Yanmar 6AYM-WET"
+      ],
+      "fungsi": "Dudukan bawah bergerak bersama plunger."
+    },
+    {
+      "no": 9,
+      "nama": "Dudukan atas pegas plunger 1",
+      "object_ids": [
+        "EXT-FUEL-276"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-276",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.23,
+          "urutan": 9
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 115 / cetak 111, gambar penampang 020523-00E dan kolom YPE-1615",
+        "D05 0CG10-M34300 fig.74 / pompa injeksi Yanmar 6AYM-WET"
+      ],
+      "fungsi": "Dudukan atas tetap pada rumah elemen."
+    },
+    {
+      "no": 10,
+      "nama": "Plunger pompa 1 · Ø16 mm",
+      "object_ids": [
+        "EXT-FUEL-35"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-35",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.3,
+          "urutan": 10
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 115 / cetak 111, gambar penampang 020523-00E dan kolom YPE-1615",
+        "D05 0CG10-M34300 fig.74 / pompa injeksi Yanmar 6AYM-WET"
+      ],
+      "fungsi": "Plunger bergerak aksial di dalam laras. Diameter dari tabel WET, alur metering masih ilustratif."
+    },
+    {
+      "no": 11,
+      "nama": "Laras dan pinion pengatur elemen 1",
+      "object_ids": [
+        "EXT-FUEL-41"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-41",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.42,
+          "urutan": 11
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 115 / cetak 111, gambar penampang 020523-00E dan kolom YPE-1615",
+        "D05 0CG10-M34300 fig.74 / pompa injeksi Yanmar 6AYM-WET"
+      ],
+      "fungsi": "Bore membimbing plunger dan port samping terhubung ruang bahan bakar. Pinion dimodelkan bersama sebagai kelompok tampilan."
+    },
+    {
+      "no": 12,
+      "nama": "Poppet delivery 1",
+      "object_ids": [
+        "EXT-FUEL-47"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-47",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.5,
+          "urutan": 12
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 115 / cetak 111, gambar penampang 020523-00E dan kolom YPE-1615",
+        "D05 0CG10-M34300 fig.74 / pompa injeksi Yanmar 6AYM-WET"
+      ],
+      "fungsi": "Poppet bergerak ketika bahan bakar bertekanan melewati katup."
+    },
+    {
+      "no": 13,
+      "nama": "Dudukan tetap delivery 1",
+      "object_ids": [
+        "EXT-FUEL-282"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-282",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.47,
+          "urutan": 13
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 115 / cetak 111, gambar penampang 020523-00E dan kolom YPE-1615",
+        "D05 0CG10-M34300 fig.74 / pompa injeksi Yanmar 6AYM-WET"
+      ],
+      "fungsi": "Dudukan tetap segaris dengan batang delivery."
+    },
+    {
+      "no": 14,
+      "nama": "Pegas delivery 1",
+      "object_ids": [
+        "EXT-FUEL-288"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-288",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.54,
+          "urutan": 14
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 115 / cetak 111, gambar penampang 020523-00E dan kolom YPE-1615",
+        "D05 0CG10-M34300 fig.74 / pompa injeksi Yanmar 6AYM-WET"
+      ],
+      "fungsi": "Pegas menekan poppet menuju dudukan."
+    },
+    {
+      "no": 15,
+      "nama": "Tappet dan spindle pompa 2",
+      "object_ids": [
+        "EXT-FUEL-24"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-24",
+          "arah": [
+            0,
+            0,
+            -1
+          ],
+          "jarak_m": 0.12,
+          "urutan": 15
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 115 / cetak 111, gambar penampang 020523-00E dan kolom YPE-1615",
+        "D05 0CG10-M34300 fig.74 / pompa injeksi Yanmar 6AYM-WET"
+      ],
+      "fungsi": "Tappet bergerak aksial mengikuti nok dan mengangkat plunger."
+    },
+    {
+      "no": 16,
+      "nama": "Roller tappet pompa 2",
+      "object_ids": [
+        "EXT-FUEL-301"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-301",
+          "arah": [
+            0,
+            0,
+            -1
+          ],
+          "jarak_m": 0.16,
+          "urutan": 16
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 115 / cetak 111, gambar penampang 020523-00E dan kolom YPE-1615",
+        "D05 0CG10-M34300 fig.74 / pompa injeksi Yanmar 6AYM-WET"
+      ],
+      "fungsi": "Roller ikut terangkat oleh nok dan berputar terhadap spindle."
+    },
+    {
+      "no": 17,
+      "nama": "Pegas balik plunger 2",
+      "object_ids": [
+        "EXT-FUEL-30"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-30",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.19,
+          "urutan": 17
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 115 / cetak 111, gambar penampang 020523-00E dan kolom YPE-1615",
+        "D05 0CG10-M34300 fig.74 / pompa injeksi Yanmar 6AYM-WET"
+      ],
+      "fungsi": "Pegas kembali terpasang antara kedua dudukan."
+    },
+    {
+      "no": 18,
+      "nama": "Dudukan bawah pegas plunger 2",
+      "object_ids": [
+        "EXT-FUEL-271"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-271",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.15,
+          "urutan": 18
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 115 / cetak 111, gambar penampang 020523-00E dan kolom YPE-1615",
+        "D05 0CG10-M34300 fig.74 / pompa injeksi Yanmar 6AYM-WET"
+      ],
+      "fungsi": "Dudukan bawah bergerak bersama plunger."
+    },
+    {
+      "no": 19,
+      "nama": "Dudukan atas pegas plunger 2",
+      "object_ids": [
+        "EXT-FUEL-277"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-277",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.23,
+          "urutan": 19
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 115 / cetak 111, gambar penampang 020523-00E dan kolom YPE-1615",
+        "D05 0CG10-M34300 fig.74 / pompa injeksi Yanmar 6AYM-WET"
+      ],
+      "fungsi": "Dudukan atas tetap pada rumah elemen."
+    },
+    {
+      "no": 20,
+      "nama": "Plunger pompa 2 · Ø16 mm",
+      "object_ids": [
+        "EXT-FUEL-36"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-36",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.3,
+          "urutan": 20
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 115 / cetak 111, gambar penampang 020523-00E dan kolom YPE-1615",
+        "D05 0CG10-M34300 fig.74 / pompa injeksi Yanmar 6AYM-WET"
+      ],
+      "fungsi": "Plunger bergerak aksial di dalam laras. Diameter dari tabel WET, alur metering masih ilustratif."
+    },
+    {
+      "no": 21,
+      "nama": "Laras dan pinion pengatur elemen 2",
+      "object_ids": [
+        "EXT-FUEL-42"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-42",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.42,
+          "urutan": 21
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 115 / cetak 111, gambar penampang 020523-00E dan kolom YPE-1615",
+        "D05 0CG10-M34300 fig.74 / pompa injeksi Yanmar 6AYM-WET"
+      ],
+      "fungsi": "Bore membimbing plunger dan port samping terhubung ruang bahan bakar. Pinion dimodelkan bersama sebagai kelompok tampilan."
+    },
+    {
+      "no": 22,
+      "nama": "Poppet delivery 2",
+      "object_ids": [
+        "EXT-FUEL-48"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-48",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.5,
+          "urutan": 22
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 115 / cetak 111, gambar penampang 020523-00E dan kolom YPE-1615",
+        "D05 0CG10-M34300 fig.74 / pompa injeksi Yanmar 6AYM-WET"
+      ],
+      "fungsi": "Poppet bergerak ketika bahan bakar bertekanan melewati katup."
+    },
+    {
+      "no": 23,
+      "nama": "Dudukan tetap delivery 2",
+      "object_ids": [
+        "EXT-FUEL-283"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-283",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.47,
+          "urutan": 23
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 115 / cetak 111, gambar penampang 020523-00E dan kolom YPE-1615",
+        "D05 0CG10-M34300 fig.74 / pompa injeksi Yanmar 6AYM-WET"
+      ],
+      "fungsi": "Dudukan tetap segaris dengan batang delivery."
+    },
+    {
+      "no": 24,
+      "nama": "Pegas delivery 2",
+      "object_ids": [
+        "EXT-FUEL-289"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-289",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.54,
+          "urutan": 24
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 115 / cetak 111, gambar penampang 020523-00E dan kolom YPE-1615",
+        "D05 0CG10-M34300 fig.74 / pompa injeksi Yanmar 6AYM-WET"
+      ],
+      "fungsi": "Pegas menekan poppet menuju dudukan."
+    },
+    {
+      "no": 25,
+      "nama": "Tappet dan spindle pompa 3",
+      "object_ids": [
+        "EXT-FUEL-25"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-25",
+          "arah": [
+            0,
+            0,
+            -1
+          ],
+          "jarak_m": 0.12,
+          "urutan": 25
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 115 / cetak 111, gambar penampang 020523-00E dan kolom YPE-1615",
+        "D05 0CG10-M34300 fig.74 / pompa injeksi Yanmar 6AYM-WET"
+      ],
+      "fungsi": "Tappet bergerak aksial mengikuti nok dan mengangkat plunger."
+    },
+    {
+      "no": 26,
+      "nama": "Roller tappet pompa 3",
+      "object_ids": [
+        "EXT-FUEL-302"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-302",
+          "arah": [
+            0,
+            0,
+            -1
+          ],
+          "jarak_m": 0.16,
+          "urutan": 26
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 115 / cetak 111, gambar penampang 020523-00E dan kolom YPE-1615",
+        "D05 0CG10-M34300 fig.74 / pompa injeksi Yanmar 6AYM-WET"
+      ],
+      "fungsi": "Roller ikut terangkat oleh nok dan berputar terhadap spindle."
+    },
+    {
+      "no": 27,
+      "nama": "Pegas balik plunger 3",
+      "object_ids": [
+        "EXT-FUEL-31"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-31",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.19,
+          "urutan": 27
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 115 / cetak 111, gambar penampang 020523-00E dan kolom YPE-1615",
+        "D05 0CG10-M34300 fig.74 / pompa injeksi Yanmar 6AYM-WET"
+      ],
+      "fungsi": "Pegas kembali terpasang antara kedua dudukan."
+    },
+    {
+      "no": 28,
+      "nama": "Dudukan bawah pegas plunger 3",
+      "object_ids": [
+        "EXT-FUEL-272"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-272",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.15,
+          "urutan": 28
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 115 / cetak 111, gambar penampang 020523-00E dan kolom YPE-1615",
+        "D05 0CG10-M34300 fig.74 / pompa injeksi Yanmar 6AYM-WET"
+      ],
+      "fungsi": "Dudukan bawah bergerak bersama plunger."
+    },
+    {
+      "no": 29,
+      "nama": "Dudukan atas pegas plunger 3",
+      "object_ids": [
+        "EXT-FUEL-278"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-278",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.23,
+          "urutan": 29
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 115 / cetak 111, gambar penampang 020523-00E dan kolom YPE-1615",
+        "D05 0CG10-M34300 fig.74 / pompa injeksi Yanmar 6AYM-WET"
+      ],
+      "fungsi": "Dudukan atas tetap pada rumah elemen."
+    },
+    {
+      "no": 30,
+      "nama": "Plunger pompa 3 · Ø16 mm",
+      "object_ids": [
+        "EXT-FUEL-37"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-37",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.3,
+          "urutan": 30
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 115 / cetak 111, gambar penampang 020523-00E dan kolom YPE-1615",
+        "D05 0CG10-M34300 fig.74 / pompa injeksi Yanmar 6AYM-WET"
+      ],
+      "fungsi": "Plunger bergerak aksial di dalam laras. Diameter dari tabel WET, alur metering masih ilustratif."
+    },
+    {
+      "no": 31,
+      "nama": "Laras dan pinion pengatur elemen 3",
+      "object_ids": [
+        "EXT-FUEL-43"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-43",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.42,
+          "urutan": 31
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 115 / cetak 111, gambar penampang 020523-00E dan kolom YPE-1615",
+        "D05 0CG10-M34300 fig.74 / pompa injeksi Yanmar 6AYM-WET"
+      ],
+      "fungsi": "Bore membimbing plunger dan port samping terhubung ruang bahan bakar. Pinion dimodelkan bersama sebagai kelompok tampilan."
+    },
+    {
+      "no": 32,
+      "nama": "Poppet delivery 3",
+      "object_ids": [
+        "EXT-FUEL-49"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-49",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.5,
+          "urutan": 32
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 115 / cetak 111, gambar penampang 020523-00E dan kolom YPE-1615",
+        "D05 0CG10-M34300 fig.74 / pompa injeksi Yanmar 6AYM-WET"
+      ],
+      "fungsi": "Poppet bergerak ketika bahan bakar bertekanan melewati katup."
+    },
+    {
+      "no": 33,
+      "nama": "Dudukan tetap delivery 3",
+      "object_ids": [
+        "EXT-FUEL-284"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-284",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.47,
+          "urutan": 33
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 115 / cetak 111, gambar penampang 020523-00E dan kolom YPE-1615",
+        "D05 0CG10-M34300 fig.74 / pompa injeksi Yanmar 6AYM-WET"
+      ],
+      "fungsi": "Dudukan tetap segaris dengan batang delivery."
+    },
+    {
+      "no": 34,
+      "nama": "Pegas delivery 3",
+      "object_ids": [
+        "EXT-FUEL-290"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-290",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.54,
+          "urutan": 34
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 115 / cetak 111, gambar penampang 020523-00E dan kolom YPE-1615",
+        "D05 0CG10-M34300 fig.74 / pompa injeksi Yanmar 6AYM-WET"
+      ],
+      "fungsi": "Pegas menekan poppet menuju dudukan."
+    },
+    {
+      "no": 35,
+      "nama": "Tappet dan spindle pompa 4",
+      "object_ids": [
+        "EXT-FUEL-26"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-26",
+          "arah": [
+            0,
+            0,
+            -1
+          ],
+          "jarak_m": 0.12,
+          "urutan": 35
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 115 / cetak 111, gambar penampang 020523-00E dan kolom YPE-1615",
+        "D05 0CG10-M34300 fig.74 / pompa injeksi Yanmar 6AYM-WET"
+      ],
+      "fungsi": "Tappet bergerak aksial mengikuti nok dan mengangkat plunger."
+    },
+    {
+      "no": 36,
+      "nama": "Roller tappet pompa 4",
+      "object_ids": [
+        "EXT-FUEL-303"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-303",
+          "arah": [
+            0,
+            0,
+            -1
+          ],
+          "jarak_m": 0.16,
+          "urutan": 36
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 115 / cetak 111, gambar penampang 020523-00E dan kolom YPE-1615",
+        "D05 0CG10-M34300 fig.74 / pompa injeksi Yanmar 6AYM-WET"
+      ],
+      "fungsi": "Roller ikut terangkat oleh nok dan berputar terhadap spindle."
+    },
+    {
+      "no": 37,
+      "nama": "Pegas balik plunger 4",
+      "object_ids": [
+        "EXT-FUEL-32"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-32",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.19,
+          "urutan": 37
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 115 / cetak 111, gambar penampang 020523-00E dan kolom YPE-1615",
+        "D05 0CG10-M34300 fig.74 / pompa injeksi Yanmar 6AYM-WET"
+      ],
+      "fungsi": "Pegas kembali terpasang antara kedua dudukan."
+    },
+    {
+      "no": 38,
+      "nama": "Dudukan bawah pegas plunger 4",
+      "object_ids": [
+        "EXT-FUEL-273"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-273",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.15,
+          "urutan": 38
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 115 / cetak 111, gambar penampang 020523-00E dan kolom YPE-1615",
+        "D05 0CG10-M34300 fig.74 / pompa injeksi Yanmar 6AYM-WET"
+      ],
+      "fungsi": "Dudukan bawah bergerak bersama plunger."
+    },
+    {
+      "no": 39,
+      "nama": "Dudukan atas pegas plunger 4",
+      "object_ids": [
+        "EXT-FUEL-279"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-279",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.23,
+          "urutan": 39
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 115 / cetak 111, gambar penampang 020523-00E dan kolom YPE-1615",
+        "D05 0CG10-M34300 fig.74 / pompa injeksi Yanmar 6AYM-WET"
+      ],
+      "fungsi": "Dudukan atas tetap pada rumah elemen."
+    },
+    {
+      "no": 40,
+      "nama": "Plunger pompa 4 · Ø16 mm",
+      "object_ids": [
+        "EXT-FUEL-38"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-38",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.3,
+          "urutan": 40
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 115 / cetak 111, gambar penampang 020523-00E dan kolom YPE-1615",
+        "D05 0CG10-M34300 fig.74 / pompa injeksi Yanmar 6AYM-WET"
+      ],
+      "fungsi": "Plunger bergerak aksial di dalam laras. Diameter dari tabel WET, alur metering masih ilustratif."
+    },
+    {
+      "no": 41,
+      "nama": "Laras dan pinion pengatur elemen 4",
+      "object_ids": [
+        "EXT-FUEL-44"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-44",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.42,
+          "urutan": 41
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 115 / cetak 111, gambar penampang 020523-00E dan kolom YPE-1615",
+        "D05 0CG10-M34300 fig.74 / pompa injeksi Yanmar 6AYM-WET"
+      ],
+      "fungsi": "Bore membimbing plunger dan port samping terhubung ruang bahan bakar. Pinion dimodelkan bersama sebagai kelompok tampilan."
+    },
+    {
+      "no": 42,
+      "nama": "Poppet delivery 4",
+      "object_ids": [
+        "EXT-FUEL-50"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-50",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.5,
+          "urutan": 42
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 115 / cetak 111, gambar penampang 020523-00E dan kolom YPE-1615",
+        "D05 0CG10-M34300 fig.74 / pompa injeksi Yanmar 6AYM-WET"
+      ],
+      "fungsi": "Poppet bergerak ketika bahan bakar bertekanan melewati katup."
+    },
+    {
+      "no": 43,
+      "nama": "Dudukan tetap delivery 4",
+      "object_ids": [
+        "EXT-FUEL-285"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-285",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.47,
+          "urutan": 43
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 115 / cetak 111, gambar penampang 020523-00E dan kolom YPE-1615",
+        "D05 0CG10-M34300 fig.74 / pompa injeksi Yanmar 6AYM-WET"
+      ],
+      "fungsi": "Dudukan tetap segaris dengan batang delivery."
+    },
+    {
+      "no": 44,
+      "nama": "Pegas delivery 4",
+      "object_ids": [
+        "EXT-FUEL-291"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-291",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.54,
+          "urutan": 44
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 115 / cetak 111, gambar penampang 020523-00E dan kolom YPE-1615",
+        "D05 0CG10-M34300 fig.74 / pompa injeksi Yanmar 6AYM-WET"
+      ],
+      "fungsi": "Pegas menekan poppet menuju dudukan."
+    },
+    {
+      "no": 45,
+      "nama": "Tappet dan spindle pompa 5",
+      "object_ids": [
+        "EXT-FUEL-27"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-27",
+          "arah": [
+            0,
+            0,
+            -1
+          ],
+          "jarak_m": 0.12,
+          "urutan": 45
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 115 / cetak 111, gambar penampang 020523-00E dan kolom YPE-1615",
+        "D05 0CG10-M34300 fig.74 / pompa injeksi Yanmar 6AYM-WET"
+      ],
+      "fungsi": "Tappet bergerak aksial mengikuti nok dan mengangkat plunger."
+    },
+    {
+      "no": 46,
+      "nama": "Roller tappet pompa 5",
+      "object_ids": [
+        "EXT-FUEL-304"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-304",
+          "arah": [
+            0,
+            0,
+            -1
+          ],
+          "jarak_m": 0.16,
+          "urutan": 46
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 115 / cetak 111, gambar penampang 020523-00E dan kolom YPE-1615",
+        "D05 0CG10-M34300 fig.74 / pompa injeksi Yanmar 6AYM-WET"
+      ],
+      "fungsi": "Roller ikut terangkat oleh nok dan berputar terhadap spindle."
+    },
+    {
+      "no": 47,
+      "nama": "Pegas balik plunger 5",
+      "object_ids": [
+        "EXT-FUEL-33"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-33",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.19,
+          "urutan": 47
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 115 / cetak 111, gambar penampang 020523-00E dan kolom YPE-1615",
+        "D05 0CG10-M34300 fig.74 / pompa injeksi Yanmar 6AYM-WET"
+      ],
+      "fungsi": "Pegas kembali terpasang antara kedua dudukan."
+    },
+    {
+      "no": 48,
+      "nama": "Dudukan bawah pegas plunger 5",
+      "object_ids": [
+        "EXT-FUEL-274"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-274",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.15,
+          "urutan": 48
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 115 / cetak 111, gambar penampang 020523-00E dan kolom YPE-1615",
+        "D05 0CG10-M34300 fig.74 / pompa injeksi Yanmar 6AYM-WET"
+      ],
+      "fungsi": "Dudukan bawah bergerak bersama plunger."
+    },
+    {
+      "no": 49,
+      "nama": "Dudukan atas pegas plunger 5",
+      "object_ids": [
+        "EXT-FUEL-280"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-280",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.23,
+          "urutan": 49
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 115 / cetak 111, gambar penampang 020523-00E dan kolom YPE-1615",
+        "D05 0CG10-M34300 fig.74 / pompa injeksi Yanmar 6AYM-WET"
+      ],
+      "fungsi": "Dudukan atas tetap pada rumah elemen."
+    },
+    {
+      "no": 50,
+      "nama": "Plunger pompa 5 · Ø16 mm",
+      "object_ids": [
+        "EXT-FUEL-39"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-39",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.3,
+          "urutan": 50
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 115 / cetak 111, gambar penampang 020523-00E dan kolom YPE-1615",
+        "D05 0CG10-M34300 fig.74 / pompa injeksi Yanmar 6AYM-WET"
+      ],
+      "fungsi": "Plunger bergerak aksial di dalam laras. Diameter dari tabel WET, alur metering masih ilustratif."
+    },
+    {
+      "no": 51,
+      "nama": "Laras dan pinion pengatur elemen 5",
+      "object_ids": [
+        "EXT-FUEL-45"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-45",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.42,
+          "urutan": 51
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 115 / cetak 111, gambar penampang 020523-00E dan kolom YPE-1615",
+        "D05 0CG10-M34300 fig.74 / pompa injeksi Yanmar 6AYM-WET"
+      ],
+      "fungsi": "Bore membimbing plunger dan port samping terhubung ruang bahan bakar. Pinion dimodelkan bersama sebagai kelompok tampilan."
+    },
+    {
+      "no": 52,
+      "nama": "Poppet delivery 5",
+      "object_ids": [
+        "EXT-FUEL-51"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-51",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.5,
+          "urutan": 52
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 115 / cetak 111, gambar penampang 020523-00E dan kolom YPE-1615",
+        "D05 0CG10-M34300 fig.74 / pompa injeksi Yanmar 6AYM-WET"
+      ],
+      "fungsi": "Poppet bergerak ketika bahan bakar bertekanan melewati katup."
+    },
+    {
+      "no": 53,
+      "nama": "Dudukan tetap delivery 5",
+      "object_ids": [
+        "EXT-FUEL-286"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-286",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.47,
+          "urutan": 53
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 115 / cetak 111, gambar penampang 020523-00E dan kolom YPE-1615",
+        "D05 0CG10-M34300 fig.74 / pompa injeksi Yanmar 6AYM-WET"
+      ],
+      "fungsi": "Dudukan tetap segaris dengan batang delivery."
+    },
+    {
+      "no": 54,
+      "nama": "Pegas delivery 5",
+      "object_ids": [
+        "EXT-FUEL-292"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-292",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.54,
+          "urutan": 54
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 115 / cetak 111, gambar penampang 020523-00E dan kolom YPE-1615",
+        "D05 0CG10-M34300 fig.74 / pompa injeksi Yanmar 6AYM-WET"
+      ],
+      "fungsi": "Pegas menekan poppet menuju dudukan."
+    },
+    {
+      "no": 55,
+      "nama": "Tappet dan spindle pompa 6",
+      "object_ids": [
+        "EXT-FUEL-28"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-28",
+          "arah": [
+            0,
+            0,
+            -1
+          ],
+          "jarak_m": 0.12,
+          "urutan": 55
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 115 / cetak 111, gambar penampang 020523-00E dan kolom YPE-1615",
+        "D05 0CG10-M34300 fig.74 / pompa injeksi Yanmar 6AYM-WET"
+      ],
+      "fungsi": "Tappet bergerak aksial mengikuti nok dan mengangkat plunger."
+    },
+    {
+      "no": 56,
+      "nama": "Roller tappet pompa 6",
+      "object_ids": [
+        "EXT-FUEL-305"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-305",
+          "arah": [
+            0,
+            0,
+            -1
+          ],
+          "jarak_m": 0.16,
+          "urutan": 56
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 115 / cetak 111, gambar penampang 020523-00E dan kolom YPE-1615",
+        "D05 0CG10-M34300 fig.74 / pompa injeksi Yanmar 6AYM-WET"
+      ],
+      "fungsi": "Roller ikut terangkat oleh nok dan berputar terhadap spindle."
+    },
+    {
+      "no": 57,
+      "nama": "Pegas balik plunger 6",
+      "object_ids": [
+        "EXT-FUEL-34"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-34",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.19,
+          "urutan": 57
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 115 / cetak 111, gambar penampang 020523-00E dan kolom YPE-1615",
+        "D05 0CG10-M34300 fig.74 / pompa injeksi Yanmar 6AYM-WET"
+      ],
+      "fungsi": "Pegas kembali terpasang antara kedua dudukan."
+    },
+    {
+      "no": 58,
+      "nama": "Dudukan bawah pegas plunger 6",
+      "object_ids": [
+        "EXT-FUEL-275"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-275",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.15,
+          "urutan": 58
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 115 / cetak 111, gambar penampang 020523-00E dan kolom YPE-1615",
+        "D05 0CG10-M34300 fig.74 / pompa injeksi Yanmar 6AYM-WET"
+      ],
+      "fungsi": "Dudukan bawah bergerak bersama plunger."
+    },
+    {
+      "no": 59,
+      "nama": "Dudukan atas pegas plunger 6",
+      "object_ids": [
+        "EXT-FUEL-281"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-281",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.23,
+          "urutan": 59
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 115 / cetak 111, gambar penampang 020523-00E dan kolom YPE-1615",
+        "D05 0CG10-M34300 fig.74 / pompa injeksi Yanmar 6AYM-WET"
+      ],
+      "fungsi": "Dudukan atas tetap pada rumah elemen."
+    },
+    {
+      "no": 60,
+      "nama": "Plunger pompa 6 · Ø16 mm",
+      "object_ids": [
+        "EXT-FUEL-40"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-40",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.3,
+          "urutan": 60
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 115 / cetak 111, gambar penampang 020523-00E dan kolom YPE-1615",
+        "D05 0CG10-M34300 fig.74 / pompa injeksi Yanmar 6AYM-WET"
+      ],
+      "fungsi": "Plunger bergerak aksial di dalam laras. Diameter dari tabel WET, alur metering masih ilustratif."
+    },
+    {
+      "no": 61,
+      "nama": "Laras dan pinion pengatur elemen 6",
+      "object_ids": [
+        "EXT-FUEL-46"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-46",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.42,
+          "urutan": 61
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 115 / cetak 111, gambar penampang 020523-00E dan kolom YPE-1615",
+        "D05 0CG10-M34300 fig.74 / pompa injeksi Yanmar 6AYM-WET"
+      ],
+      "fungsi": "Bore membimbing plunger dan port samping terhubung ruang bahan bakar. Pinion dimodelkan bersama sebagai kelompok tampilan."
+    },
+    {
+      "no": 62,
+      "nama": "Poppet delivery 6",
+      "object_ids": [
+        "EXT-FUEL-52"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-52",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.5,
+          "urutan": 62
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 115 / cetak 111, gambar penampang 020523-00E dan kolom YPE-1615",
+        "D05 0CG10-M34300 fig.74 / pompa injeksi Yanmar 6AYM-WET"
+      ],
+      "fungsi": "Poppet bergerak ketika bahan bakar bertekanan melewati katup."
+    },
+    {
+      "no": 63,
+      "nama": "Dudukan tetap delivery 6",
+      "object_ids": [
+        "EXT-FUEL-287"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-287",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.47,
+          "urutan": 63
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 115 / cetak 111, gambar penampang 020523-00E dan kolom YPE-1615",
+        "D05 0CG10-M34300 fig.74 / pompa injeksi Yanmar 6AYM-WET"
+      ],
+      "fungsi": "Dudukan tetap segaris dengan batang delivery."
+    },
+    {
+      "no": 64,
+      "nama": "Pegas delivery 6",
+      "object_ids": [
+        "EXT-FUEL-293"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-293",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.54,
+          "urutan": 64
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 115 / cetak 111, gambar penampang 020523-00E dan kolom YPE-1615",
+        "D05 0CG10-M34300 fig.74 / pompa injeksi Yanmar 6AYM-WET"
+      ],
+      "fungsi": "Pegas menekan poppet menuju dudukan."
+    }
+  ],
+  "status": "ESTIMATED",
+  "source_refs": [
+    "D01 PDF 115 / cetak 111, gambar penampang 020523-00E dan kolom YPE-1615",
+    "D05 0CG10-M34300 fig.74 / pompa injeksi Yanmar 6AYM-WET"
+  ],
+  "notes": "Potongan edukasi pompa YPE-1615. Diameter plunger 16 mm mengikuti D01. Ukuran lainnya, kontur dalam rumah dan posisi ilustrasi diestimasi. Profil cam, alur heliks, jumlah lilitan, dan setelan per nomor seri belum diverifikasi. Governor, feed pump, coupling dan boost compensator terpisah pada fig.75–78 belum dicakup oleh potongan pompa ini."
+}

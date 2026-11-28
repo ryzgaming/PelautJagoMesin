@@ -1,0 +1,553 @@
+{
+  "id": "RAK-SEAWATER-PUMP",
+  "node_rakitan": "RAK-SEAWATER-PUMP",
+  "parent_rakitan": "RAK-COOLING",
+  "nama": "Pompa air laut",
+  "status": "UNVERIFIED",
+  "source_refs": [
+    "D05 Parts Catalog 0CG10-M34300, Fig. 55, kolom A = 6AYM-WET",
+    "D01 PDF 164 cetak 160, potongan pompa coolant dan exploded pompa air laut; PDF 163 cetak 159"
+  ],
+  "acuan": {
+    "no": 1,
+    "object_ids": [
+      "EXT-COOLING-04"
+    ]
+  },
+  "diagram": {
+    "arah_pandang": [
+      -0.63,
+      0.31,
+      -0.711
+    ],
+    "atas": [
+      0,
+      1,
+      0
+    ]
+  },
+  "bagian": [
+    {
+      "no": 1,
+      "nama": "Rumah pompa air laut",
+      "object_ids": [
+        "EXT-COOLING-04"
+      ],
+      "role": "shell",
+      "status": "ESTIMATED",
+      "sumber": [
+        "D05 Parts Catalog 0CG10-M34300, Fig. 55, kolom A = 6AYM-WET, posisi 4",
+        "D01 PDF 164 cetak 160, potongan pompa coolant dan exploded pompa air laut; PDF 163 cetak 159"
+      ],
+      "posisi": [],
+      "fungsi": "Rumah pompa air laut",
+      "nomor_oem": "148634-42100",
+      "ukuran": null
+    },
+    {
+      "no": 2,
+      "nama": "Impeler karet fleksibel",
+      "object_ids": [
+        "EXT-COOLING-35"
+      ],
+      "role": "core",
+      "status": "ESTIMATED",
+      "sumber": [
+        "D05 Parts Catalog 0CG10-M34300, Fig. 55, kolom A = 6AYM-WET, posisi 2",
+        "D01 PDF 164 cetak 160, potongan pompa coolant dan exploded pompa air laut; PDF 163 cetak 159"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-35",
+          "arah": [
+            -1,
+            0,
+            0
+          ],
+          "jarak_m": 0.17,
+          "urutan": 1
+        }
+      ],
+      "fungsi": "D01 memperlihatkan sudu karet lentur pada bidang cam.",
+      "nomor_oem": "148018-42031",
+      "ukuran": null
+    },
+    {
+      "no": 3,
+      "nama": "Bidang cam tetap pompa air laut",
+      "object_ids": [
+        "EXT-COOLING-374"
+      ],
+      "role": "cam",
+      "status": "ESTIMATED",
+      "sumber": [
+        "D05 Parts Catalog 0CG10-M34300, Fig. 55, kolom A = 6AYM-WET, posisi 4",
+        "D01 PDF 164 cetak 160, potongan pompa coolant dan exploded pompa air laut; PDF 163 cetak 159"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-374",
+          "arah": [
+            -1,
+            0,
+            0
+          ],
+          "jarak_m": 0.12,
+          "urutan": 2
+        }
+      ],
+      "fungsi": "Permukaan kerja bagian dari casing, di antara dua port model. D01 PDF164 menunjukkan impeler lentur; azimut dan profil cam ini estimasi.",
+      "nomor_oem": null,
+      "ukuran": null
+    },
+    {
+      "no": 4,
+      "nama": "Poros pompa air laut",
+      "object_ids": [
+        "EXT-COOLING-36"
+      ],
+      "role": "shaft",
+      "status": "ESTIMATED",
+      "sumber": [
+        "D05 Parts Catalog 0CG10-M34300, Fig. 55, kolom A = 6AYM-WET, posisi 9",
+        "D01 PDF 164 cetak 160, potongan pompa coolant dan exploded pompa air laut; PDF 163 cetak 159"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-36",
+          "arah": [
+            1,
+            0,
+            0
+          ],
+          "jarak_m": 0.215,
+          "urutan": 3
+        }
+      ],
+      "fungsi": "Poros pompa air laut",
+      "nomor_oem": "148660-42440",
+      "ukuran": null
+    },
+    {
+      "no": 5,
+      "nama": "Ring dalam bearing 6308 posisi 1",
+      "object_ids": [
+        "EXT-COOLING-370"
+      ],
+      "role": "bearing",
+      "status": "ESTIMATED",
+      "sumber": [
+        "D05 Parts Catalog 0CG10-M34300, Fig. 55, kolom A = 6AYM-WET, posisi 16",
+        "D01 PDF 164 cetak 160, potongan pompa coolant dan exploded pompa air laut; PDF 163 cetak 159"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-370",
+          "arah": [
+            1,
+            0,
+            0
+          ],
+          "jarak_m": 0.24,
+          "urutan": 4
+        }
+      ],
+      "fungsi": "Ring dalam bearing 6308 posisi 1",
+      "nomor_oem": null,
+      "ukuran": null
+    },
+    {
+      "no": 6,
+      "nama": "Bola bearing 6308 posisi 1",
+      "object_ids": [
+        "EXT-COOLING-371"
+      ],
+      "role": "bearing",
+      "status": "ESTIMATED",
+      "sumber": [
+        "D05 Parts Catalog 0CG10-M34300, Fig. 55, kolom A = 6AYM-WET, posisi 16",
+        "D01 PDF 164 cetak 160, potongan pompa coolant dan exploded pompa air laut; PDF 163 cetak 159"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-371",
+          "arah": [
+            1,
+            0,
+            0
+          ],
+          "jarak_m": 0.28,
+          "urutan": 5
+        }
+      ],
+      "fungsi": "Bola bearing 6308 posisi 1",
+      "nomor_oem": null,
+      "ukuran": null
+    },
+    {
+      "no": 7,
+      "nama": "Ring luar bearing 6308 dekat impeler",
+      "object_ids": [
+        "EXT-COOLING-37"
+      ],
+      "role": "bearing",
+      "status": "ESTIMATED",
+      "sumber": [
+        "D05 Parts Catalog 0CG10-M34300, Fig. 55, kolom A = 6AYM-WET, posisi 16",
+        "D01 PDF 164 cetak 160, potongan pompa coolant dan exploded pompa air laut; PDF 163 cetak 159"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-37",
+          "arah": [
+            1,
+            0,
+            0
+          ],
+          "jarak_m": 0.13,
+          "urutan": 6
+        }
+      ],
+      "fungsi": "Posisi dan jumlah bola ilustratif. Nomor bantalan dan kuantitas sesuai kolom WET.",
+      "nomor_oem": "24101-063084",
+      "ukuran": null
+    },
+    {
+      "no": 8,
+      "nama": "Ring dalam bearing 6308 posisi 2",
+      "object_ids": [
+        "EXT-COOLING-372"
+      ],
+      "role": "bearing",
+      "status": "ESTIMATED",
+      "sumber": [
+        "D05 Parts Catalog 0CG10-M34300, Fig. 55, kolom A = 6AYM-WET, posisi 16",
+        "D01 PDF 164 cetak 160, potongan pompa coolant dan exploded pompa air laut; PDF 163 cetak 159"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-372",
+          "arah": [
+            1,
+            0,
+            0
+          ],
+          "jarak_m": 0.32999999999999996,
+          "urutan": 7
+        }
+      ],
+      "fungsi": "Ring dalam bearing 6308 posisi 2",
+      "nomor_oem": null,
+      "ukuran": null
+    },
+    {
+      "no": 9,
+      "nama": "Bola bearing 6308 posisi 2",
+      "object_ids": [
+        "EXT-COOLING-373"
+      ],
+      "role": "bearing",
+      "status": "ESTIMATED",
+      "sumber": [
+        "D05 Parts Catalog 0CG10-M34300, Fig. 55, kolom A = 6AYM-WET, posisi 16",
+        "D01 PDF 164 cetak 160, potongan pompa coolant dan exploded pompa air laut; PDF 163 cetak 159"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-373",
+          "arah": [
+            1,
+            0,
+            0
+          ],
+          "jarak_m": 0.37,
+          "urutan": 8
+        }
+      ],
+      "fungsi": "Bola bearing 6308 posisi 2",
+      "nomor_oem": null,
+      "ukuran": null
+    },
+    {
+      "no": 10,
+      "nama": "Ring luar bearing 6308 dekat gear",
+      "object_ids": [
+        "EXT-COOLING-38"
+      ],
+      "role": "bearing",
+      "status": "ESTIMATED",
+      "sumber": [
+        "D05 Parts Catalog 0CG10-M34300, Fig. 55, kolom A = 6AYM-WET, posisi 16",
+        "D01 PDF 164 cetak 160, potongan pompa coolant dan exploded pompa air laut; PDF 163 cetak 159"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-38",
+          "arah": [
+            1,
+            0,
+            0
+          ],
+          "jarak_m": 0.28,
+          "urutan": 9
+        }
+      ],
+      "fungsi": "Posisi dan jumlah bola ilustratif. Nomor bantalan dan kuantitas sesuai kolom WET.",
+      "nomor_oem": "24101-063084",
+      "ukuran": null
+    },
+    {
+      "no": 11,
+      "nama": "Face tetap seal mekanis air laut",
+      "object_ids": [
+        "EXT-COOLING-39"
+      ],
+      "role": "seal",
+      "status": "ESTIMATED",
+      "sumber": [
+        "D05 Parts Catalog 0CG10-M34300, Fig. 55, kolom A = 6AYM-WET, posisi 3",
+        "D01 PDF 164 cetak 160, potongan pompa coolant dan exploded pompa air laut; PDF 163 cetak 159"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-39",
+          "arah": [
+            1,
+            0,
+            0
+          ],
+          "jarak_m": 0.06,
+          "urutan": 10
+        }
+      ],
+      "fungsi": "Face tetap seal mekanis air laut",
+      "nomor_oem": "148218-42090",
+      "ukuran": null
+    },
+    {
+      "no": 12,
+      "nama": "Face, pegas dan bellows seal berputar air laut",
+      "object_ids": [
+        "EXT-COOLING-381"
+      ],
+      "role": "seal",
+      "status": "ESTIMATED",
+      "sumber": [
+        "D05 Parts Catalog 0CG10-M34300, Fig. 55, kolom A = 6AYM-WET, posisi 3",
+        "D01 PDF 164 cetak 160, potongan pompa coolant dan exploded pompa air laut; PDF 163 cetak 159"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-381",
+          "arah": [
+            1,
+            0,
+            0
+          ],
+          "jarak_m": 0.088,
+          "urutan": 11
+        }
+      ],
+      "fungsi": "Subkomponen seal mekanis. Face model duduk berhadapan dengan cincin diam; bentuk, bahan, celah film dan kebocoran tidak diukur.",
+      "nomor_oem": null,
+      "ukuran": null
+    },
+    {
+      "no": 13,
+      "nama": "Seal oli sisi penggerak",
+      "object_ids": [
+        "EXT-COOLING-40"
+      ],
+      "role": "seal",
+      "status": "ESTIMATED",
+      "sumber": [
+        "D05 Parts Catalog 0CG10-M34300, Fig. 55, kolom A = 6AYM-WET, posisi 21",
+        "D01 PDF 164 cetak 160, potongan pompa coolant dan exploded pompa air laut; PDF 163 cetak 159"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-40",
+          "arah": [
+            1,
+            0,
+            0
+          ],
+          "jarak_m": 0.09,
+          "urutan": 12
+        }
+      ],
+      "fungsi": "Seal oli sisi penggerak",
+      "nomor_oem": "24421-405508",
+      "ukuran": null
+    },
+    {
+      "no": 14,
+      "nama": "Pasak pompa air laut 10 × 26",
+      "object_ids": [
+        "EXT-COOLING-46"
+      ],
+      "role": "key",
+      "status": "ESTIMATED",
+      "sumber": [
+        "D05 Parts Catalog 0CG10-M34300, Fig. 55, kolom A = 6AYM-WET, posisi 15",
+        "D01 PDF 164 cetak 160, potongan pompa coolant dan exploded pompa air laut; PDF 163 cetak 159"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-46",
+          "arah": [
+            1,
+            0,
+            0
+          ],
+          "jarak_m": 0.22,
+          "urutan": 13
+        }
+      ],
+      "fungsi": "Pasak menyatukan roda gigi dan poros. Letak alur dan celah merupakan estimasi.",
+      "nomor_oem": "22512-100260",
+      "ukuran": null
+    },
+    {
+      "no": 15,
+      "nama": "Roda gigi penggerak pompa",
+      "object_ids": [
+        "EXT-COOLING-41"
+      ],
+      "role": "gear",
+      "status": "ESTIMATED",
+      "sumber": [
+        "D05 Parts Catalog 0CG10-M34300, Fig. 55, kolom A = 6AYM-WET, posisi 12",
+        "D01 PDF 164 cetak 160, potongan pompa coolant dan exploded pompa air laut; PDF 163 cetak 159"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-41",
+          "arah": [
+            1,
+            0,
+            0
+          ],
+          "jarak_m": 0.395,
+          "urutan": 14
+        }
+      ],
+      "fungsi": "Jumlah gigi dan engagement dimodelkan sebagai interpretasi edukasi dari rangkaian penggerak.",
+      "nomor_oem": "148660-42400",
+      "ukuran": null
+    },
+    {
+      "no": 16,
+      "nama": "Tutup servis pompa air laut",
+      "object_ids": [
+        "EXT-COOLING-42"
+      ],
+      "role": "cover",
+      "status": "ESTIMATED",
+      "sumber": [
+        "D05 Parts Catalog 0CG10-M34300, Fig. 55, kolom A = 6AYM-WET, posisi 7",
+        "D01 PDF 164 cetak 160, potongan pompa coolant dan exploded pompa air laut; PDF 163 cetak 159"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-42",
+          "arah": [
+            -1,
+            0,
+            0
+          ],
+          "jarak_m": 0.385,
+          "urutan": 15
+        }
+      ],
+      "fungsi": "Tutup servis pompa air laut",
+      "nomor_oem": "148660-42420",
+      "ukuran": null
+    },
+    {
+      "no": 17,
+      "nama": "O-ring tutup",
+      "object_ids": [
+        "EXT-COOLING-43"
+      ],
+      "role": "seal",
+      "status": "ESTIMATED",
+      "sumber": [
+        "D05 Parts Catalog 0CG10-M34300, Fig. 55, kolom A = 6AYM-WET, posisi 17–20, dudukan spesifik belum terverifikasi",
+        "D01 PDF 164 cetak 160, potongan pompa coolant dan exploded pompa air laut; PDF 163 cetak 159"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-43",
+          "arah": [
+            -1,
+            0,
+            0
+          ],
+          "jarak_m": 0.295,
+          "urutan": 16
+        }
+      ],
+      "fungsi": "O-ring tutup",
+      "nomor_oem": null,
+      "ukuran": null
+    },
+    {
+      "no": 18,
+      "nama": "Pelat aus di belakang impeler",
+      "object_ids": [
+        "EXT-COOLING-44"
+      ],
+      "role": "wear_plate",
+      "status": "ESTIMATED",
+      "sumber": [
+        "D05 Parts Catalog 0CG10-M34300, Fig. 55, kolom A = 6AYM-WET, posisi 10",
+        "D01 PDF 164 cetak 160, potongan pompa coolant dan exploded pompa air laut; PDF 163 cetak 159"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-44",
+          "arah": [
+            -1,
+            0,
+            0
+          ],
+          "jarak_m": 0.082,
+          "urutan": 17
+        }
+      ],
+      "fungsi": "Pelat aus di belakang impeler",
+      "nomor_oem": "148634-42340",
+      "ukuran": null
+    },
+    {
+      "no": 19,
+      "nama": "Rumah bantalan pompa air laut",
+      "object_ids": [
+        "EXT-COOLING-45"
+      ],
+      "role": "casing",
+      "status": "ESTIMATED",
+      "sumber": [
+        "D05 Parts Catalog 0CG10-M34300, Fig. 55, kolom A = 6AYM-WET, posisi 5",
+        "D01 PDF 164 cetak 160, potongan pompa coolant dan exploded pompa air laut; PDF 163 cetak 159"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-45",
+          "arah": [
+            1,
+            0,
+            0
+          ],
+          "jarak_m": 0.355,
+          "urutan": 18
+        }
+      ],
+      "fungsi": "Rumah bantalan pompa air laut",
+      "nomor_oem": "148660-42431",
+      "ukuran": null
+    }
+  ],
+  "notes": "Rentang serial belum dicocokkan. Dimensi, jumlah sudu, gigi dan bola serta orientasi relatif housing adalah interpretasi. Jalur penggerak dan lintasan bongkar ilustratif."
+}

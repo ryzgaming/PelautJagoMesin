@@ -1,0 +1,550 @@
+{
+  "schema_version": 1,
+  "revision": "r01",
+  "qa_agent_id": "/root/qa",
+  "roles": [
+    {
+      "role": "documents",
+      "agent_id": "/root/documents",
+      "state": "completed",
+      "revision": "r01",
+      "evidence": [
+        "doc/evidence-doc.json",
+        "doc/sources.json"
+      ]
+    },
+    {
+      "role": "photos",
+      "agent_id": "/root/photos",
+      "state": "completed",
+      "revision": "r01",
+      "evidence": [
+        "foto/evidence-foto.json",
+        "foto/evidence-foto-top.json"
+      ]
+    },
+    {
+      "role": "video",
+      "agent_id": "/root/video",
+      "state": "completed",
+      "revision": "r01",
+      "evidence": [
+        "video/evidence-video.json"
+      ]
+    },
+    {
+      "role": "dimension",
+      "agent_id": "/root/dimension",
+      "state": "completed",
+      "revision": "r01",
+      "evidence": [
+        "model/datum.json",
+        "model/dimension-report.json"
+      ]
+    },
+    {
+      "role": "fuel",
+      "agent_id": "/root/fuel",
+      "state": "completed",
+      "revision": "r01",
+      "evidence": [
+        "model/systems/fuel.json"
+      ]
+    },
+    {
+      "role": "freshwater",
+      "agent_id": "/root/freshwater",
+      "state": "completed",
+      "revision": "r01",
+      "evidence": [
+        "model/systems/freshwater.json"
+      ]
+    },
+    {
+      "role": "seawater",
+      "agent_id": "/root/seawater",
+      "state": "completed",
+      "revision": "r01",
+      "evidence": [
+        "model/systems/seawater.json"
+      ]
+    },
+    {
+      "role": "lubrication",
+      "agent_id": "/root/lubrication",
+      "state": "completed",
+      "revision": "r01",
+      "evidence": [
+        "model/systems/lubrication.json"
+      ]
+    },
+    {
+      "role": "intake-exhaust",
+      "agent_id": "/root/intake_exhaust",
+      "state": "completed",
+      "revision": "r01",
+      "evidence": [
+        "model/systems/intake-exhaust.json"
+      ]
+    },
+    {
+      "role": "exterior",
+      "agent_id": "/root/exterior",
+      "state": "completed",
+      "revision": "r01",
+      "evidence": [
+        "model/exterior/exterior.glb",
+        "model/exterior/inventory.json"
+      ]
+    },
+    {
+      "role": "internals",
+      "agent_id": "/root/internals",
+      "state": "completed",
+      "revision": "r01",
+      "evidence": [
+        "model/internal/internal.glb",
+        "model/internal/inventory.json"
+      ]
+    },
+    {
+      "role": "integrator",
+      "agent_id": "/root/integrator",
+      "state": "completed",
+      "revision": "r01",
+      "evidence": [
+        "review/index.html",
+        "qa/integration-fit.json"
+      ]
+    },
+    {
+      "role": "qa",
+      "agent_id": "/root/qa",
+      "state": "completed",
+      "revision": "r01",
+      "evidence": [
+        "qa/round2/reimport.json",
+        "qa/round2/fit.json",
+        "qa/acceptance.md"
+      ]
+    }
+  ],
+  "checks": {
+    "identity": {
+      "status": "PASS",
+      "reason": "Target edukasi H 555 kW pada 1840 rpm bertumpu D03 cetak 32–33. Model 6 segaris dengan turbo/intercooler dan heat exchanger. Gear YXH240/YXH240L serta peralatan kapal dikecualikan. GA01 tidak mencantumkan rating.",
+      "evidence": [
+        "doc/D03-p-17.png",
+        "foto/GA01.jpg",
+        "qa/round2/reimport.json"
+      ]
+    },
+    "dimensions": {
+      "status": "UNVERIFIED",
+      "reason": "AABB fisik L×W×H 2002.68×1305.00×1541.00 mm. Nominal katalog 2000×1305×1431 mm. Datum flange +989.00 mm dan sump -552.00 mm terpisah. Nominal +879 mm terhadap titik badan yang sama belum dipastikan. Kriteria dimensi ekivalen yang melampaui 1%: [].",
+      "evidence": [
+        "qa/round2/reimport.json",
+        "doc/D03-p-17.png",
+        "foto/GA01.jpg",
+        "qa/dimensions.json"
+      ]
+    },
+    "export": {
+      "status": "PASS",
+      "reason": "Blender reimport kedua GLB, 75+506 mesh dan 508631 triangle. Geometri bermasalah (mesh kosong/skala negatif/area ≤1e−12 m²): [].",
+      "evidence": [
+        "qa/round2/reimport.json"
+      ]
+    },
+    "interfaces": {
+      "status": "UNVERIFIED",
+      "reason": "Sampling mesh mengukur flywheel 12/12, housing 16/16 bukaan di PCD 542,9/679,5. Kaki mencatat 8/8 bukaan kira-kira Ø24 dan bidang −167 mm. Shaft dan liner sampel: {'INT-CRANK-08': {'block_triangle_pairs': 0, 'sump_triangle_pairs': 0}, 'INT-CRANK-09': {'block_triangle_pairs': 0, 'sump_triangle_pairs': 0}, 'INT-LINER-11': {'block_triangle_pairs': 0, 'sump_triangle_pairs': 0}, 'INT-LINER-61': {'block_triangle_pairs': 0, 'sump_triangle_pairs': 0}}. Ulir, clearance OEM, serta rincian dudukan seri belum diverifikasi.",
+      "evidence": [
+        "qa/round2/fit.json",
+        "qa/round2/reimport.json",
+        "foto/GA01.jpg"
+      ]
+    },
+    "inventory": {
+      "status": "UNVERIFIED",
+      "reason": "Pemetaan inventaris ke node dan parent aktual 581 komponen. Status per node dari inventaris eksternal {'ESTIMATED': 75}, internal {'OBSERVED': 418, 'ILLUSTRATIVE': 88}. Semua ada locator; audit kelengkapan rincian katalog OEM tetap terbuka.",
+      "evidence": [
+        "qa/round2/reimport.json",
+        "model/exterior/inventory.json",
+        "model/internal/inventory.json",
+        "doc/evidence-doc.json"
+      ]
+    },
+    "kinematics": {
+      "status": "UNVERIFIED",
+      "reason": "Fase geometris crankpin dari GLB righthanded +X adalah [0, 240, 120, 120, 240, 0], konsisten dengan arah CCW dari flywheel dan urutan dokumentasi 1–4–2–6–3–5 pada demonstrasi 4 langkah. Stroke 180 mm dari diameter throw; valve/cam timing, profil dan pengoperasian unit belum diverifikasi.",
+      "evidence": [
+        "qa/round2/reimport.json",
+        "qa/dimensions.json",
+        "model/internal/kinematics.json"
+      ]
+    },
+    "collisions": {
+      "status": "UNVERIFIED",
+      "reason": "Bidang mesh di 438 pose diskret (6 silinder × 73). Temuan pasangan dinamis per jumlah pose {}. Gap aksial min katup–titik crown tertinggi 3.560 mm pada model. Cakupan pasangan dan interval tercatat; sweep kontinu, tight fit, gear engagement dan seluruh kontak OEM belum diverifikasi.",
+      "evidence": [
+        "qa/round2/fit.json"
+      ]
+    },
+    "viewer_desktop": {
+      "status": "UNVERIFIED",
+      "reason": "Preview gagal relay dan CUA gagal inisialisasi. Uji statis/mock belum memvalidasi interaksi desktop WebGL, fallback browser, atau perbandingan Shinko.",
+      "evidence": [
+        "qa/browser-runtime.md",
+        "review/index.html",
+        "review/tools/state-check.mjs"
+      ]
+    },
+    "viewer_mobile": {
+      "status": "UNVERIFIED",
+      "reason": "Tangkapan emulasi potret/lanskap dan uji HP nyata belum tersedia. Gestur, aksesibilitas visual dan kinerja ponsel belum diverifikasi.",
+      "evidence": [
+        "qa/browser-runtime.md",
+        "review/index.html",
+        "review/tools/state-check.mjs"
+      ]
+    }
+  },
+  "views": {
+    "depan": {
+      "status": "PASS",
+      "render": "qa/round2/neutral_depan.png",
+      "reference": "foto/P09.jpg",
+      "real_reference_inspected": true,
+      "reason": "Tampak depan P09 dan proyeksi D03 cocok pada tangki transversal, muka damper dan orientasi exhaust yang terlihat. Pipa bunker/kapal menghalangi bagian bawah P09."
+    },
+    "belakang": {
+      "status": "PASS",
+      "render": "qa/round2/neutral_belakang.png",
+      "reference": "foto/P06.jpg",
+      "real_reference_inspected": true,
+      "reason": "P06 dan GA memperlihatkan kedua lingkar flywheel/housing, hub, rib casting dan tangki melintang. Foto unit gudang tidak memperlihatkan semua aksesori exhaust terpasang."
+    },
+    "kiri": {
+      "status": "PASS",
+      "render": "qa/round2/neutral_kiri.png",
+      "reference": "foto/P07.jpg",
+      "real_reference_inspected": true,
+      "reason": "Sisi operasi memperlihatkan manifold panjang, pompa injeksi, dua canister di ujung flywheel, enam tutup inspeksi serta outlet elbow. Ukuran/detil setiap pipa tetap estimasi."
+    },
+    "kanan": {
+      "status": "PASS",
+      "render": "qa/round2/neutral_kanan.png",
+      "reference": "foto/P05.jpg",
+      "real_reference_inspected": true,
+      "reason": "Siluet sisi non-operasi mengandung turbo, duct besar, dua filter menggantung dan starter mendekati flywheel. Sutra isolasi, bracket, kelistrikan dan jalur kecil belum terukur."
+    },
+    "atas": {
+      "status": "UNVERIFIED",
+      "render": "qa/round2/neutral_atas.png",
+      "reference": "foto/GA01.jpg",
+      "real_reference_inspected": false,
+      "reason": "Tampak teknik WET tanpa clutch memperlihatkan susunan enam bonnet, manifold longitudinal, turbo/exhaust di sisi kanan dan rakitan transversal dekat ujung. Foto P09/P10 memperlihatkan sebagian permukaan. Foto ortogonal H dan geometri tersembunyi belum terverifikasi."
+    },
+    "tiga_perempat": {
+      "status": "PASS",
+      "render": "qa/round2/neutral_tiga_perempat.png",
+      "reference": "foto/P08.jpg",
+      "real_reference_inspected": true,
+      "reason": "P08 cocok pada guard miring, panjang intake, sisi pompa, canister dan posisi flywheel. Perbedaan perspektif dan kerangka kayu membatasi penilaian proporsi bawah."
+    }
+  },
+  "findings": [
+    {
+      "id": "QA-YAN-01",
+      "severity": "major",
+      "state": "closed",
+      "object": "EXT-COOLING-01, EXT-COOLING-05",
+      "source": "D03 17/32–33, GA01",
+      "impact": "Panjang dan lebar di luar target edukasi pada ekspor pertama.",
+      "action": "Uji ulang hasil reimport memberi L 2002.68 mm, W 1305.00 mm. Sisa status tinggi nominal dicatat terpisah.",
+      "evidence": [
+        "qa/round2/reimport.json",
+        "qa/dimensions.json"
+      ]
+    },
+    {
+      "id": "QA-YAN-02",
+      "severity": "major",
+      "state": "closed",
+      "object": "EXT-BLOCK-14–17, EXT-EXHAUST-05",
+      "source": "D03 17/33, GA01, P08/P09",
+      "impact": "Gusset tampak terpisah dan celah sambungan bellows merusak bacaan bentuk sebelum perbaikan.",
+      "action": "Perbaikan lokal diperiksa pada render depan, samping dan 3/4.",
+      "evidence": [
+        "qa/round2/neutral_depan.png",
+        "qa/round2/neutral_tiga_perempat.png"
+      ]
+    },
+    {
+      "id": "QA-YAN-03",
+      "severity": "major",
+      "state": "closed",
+      "object": "INT-PISTON–INT-LINER, EXT-BLOCK-01–INT-CRANK-08/09",
+      "source": "D01 PDF 94, 97–99, 104–106",
+      "impact": "R01 awal menembus liner pada dua ring C1 dan crankcase di hidung/flange crank.",
+      "action": "Ekspor hasil perbaikan diperiksa ulang dengan BVH dalam poses terukur. Cakupan sampling dicatat pada pemeriksaan benturan.",
+      "evidence": [
+        "qa/round2/fit.json"
+      ]
+    },
+    {
+      "id": "QA-YAN-04",
+      "severity": "major",
+      "state": "closed",
+      "object": "EXT-FLYWHEEL-01/02, EXT-BLOCK-14–17",
+      "source": "GA01 B3-48660-4450",
+      "impact": "Hitungan bukaan menentukan pembelajaran antarmuka pemasangan.",
+      "action": "Probe rilis: 12/12 flywheel, 16/16 housing, 8/8 kaki. Toleransi dan ulir OEM tetap terbuka.",
+      "evidence": [
+        "qa/round2/fit.json",
+        "foto/GA01.jpg"
+      ]
+    },
+    {
+      "id": "QA-YAN-05",
+      "severity": "minor",
+      "state": "open",
+      "object": "Dokumentasi dan batas sumber",
+      "source": "D01/D03/GA01, foto dan video",
+      "impact": "Exact H dari atas, wall thickness, vendor fittings, OEM part list dan validasi dimensi pemasangan belum tercakup.",
+      "action": "Tambahkan foto ortogonal dengan identitas unit, parts book exact dan lembar antarmuka resolusi penuh. Video target menunggu frame drain/ports/top dengan varian terverifikasi.",
+      "evidence": [
+        "foto/GA01.jpg",
+        "foto/evidence-foto-top.json",
+        "video/evidence-video.json"
+      ]
+    },
+    {
+      "id": "QA-YAN-06",
+      "severity": "minor",
+      "state": "open",
+      "object": "Studio Gelap",
+      "source": "README & WORKSPACE_UI",
+      "impact": "Kesiapan review viewer tidak memiliki bukti WebGL desktop/HP pada runtime ini.",
+      "action": "Uji lewat relay dan CUA yang tersedia kemudian periksa viewport dan perangkat nyata dengan alur acceptance.",
+      "evidence": [
+        "qa/browser-runtime.md"
+      ]
+    },
+    {
+      "id": "QA-YAN-07",
+      "severity": "minor",
+      "state": "open",
+      "object": "Kinematika internal",
+      "source": "D01 mesin H, D05 parsial",
+      "impact": "Timing katup, relasi putaran aksesori, pin phasing dan fit fisik lengkap belum ditetapkan oleh prosedur uji unit.",
+      "action": "Pertahankan label demonstrasi. Lengkapi data timing dan cek simulasi penuh saat sumber tersedia.",
+      "evidence": [
+        "qa/round2/reimport.json",
+        "model/internal/kinematics.json"
+      ]
+    }
+  ],
+  "verdict": "UNVERIFIED",
+  "scope": "Yanmar 6AYM-WET H/555 kW @ 1840 rpm, model pembelajaran engine-only. Audit independen dua putaran reparasi, 6 proyeksi dari GLB netral dan sampel numerik dalam posed meshes. Tiap PASS hanya pada cakupan yang tertulis.",
+  "blocking_scope": "Kesiapan gerbang review privat masih ditentukan oleh hasil kategori, temuan terbuka dan checker. Model hanya untuk audit privat dalam kondisi saat ini.",
+  "artifacts": [
+    {
+      "path": "doc/D03-p-17.png",
+      "sha256": "1537e74629af6992795fd6cc68f5ec9768f6817a1365c8ff8480e7acaf6611a3"
+    },
+    {
+      "path": "doc/evidence-doc.json",
+      "sha256": "e6f25bb39ccee248fdc0b7793ca27a71fb0efadec45104717c579c6892d3e77a"
+    },
+    {
+      "path": "doc/sources.json",
+      "sha256": "f1e6badb2a1736b729c5130c5392d51333948303f57c13014da4cc0de0448c49"
+    },
+    {
+      "path": "foto/GA01.jpg",
+      "sha256": "9e57964bfc936df3557bed27886854a6c4c91bd083002974f6cecbf03ab60b38"
+    },
+    {
+      "path": "foto/P05.jpg",
+      "sha256": "b2aa581ec5497f995a254118351384c3cb053dcabb29bdcf05de36b84fa29578"
+    },
+    {
+      "path": "foto/P06.jpg",
+      "sha256": "4dd99cd8872af5ca0dbabf688188163beaccf6475455aa35762e9dc3b69f9431"
+    },
+    {
+      "path": "foto/P07.jpg",
+      "sha256": "6cdd1dcf268654e935383195d0f1fc18ddda6d6266f5b6db6e47e8fbc4bc7d06"
+    },
+    {
+      "path": "foto/P08.jpg",
+      "sha256": "6afca4b49654483ca4cd36d94d1de82888577db2e53e3fb70a1f1dc0e99195a5"
+    },
+    {
+      "path": "foto/P09.jpg",
+      "sha256": "299bdab9347a8912910f8d6e389ee07f6b6ecd74a7aea5dfd710d18d9a73de06"
+    },
+    {
+      "path": "foto/evidence-foto-top.json",
+      "sha256": "28a2d4d7b52c1a02d60daaf6758aff03259ab2b0b3e42ab80640e47efb48fa7b"
+    },
+    {
+      "path": "foto/evidence-foto.json",
+      "sha256": "b3af869075a7f745c2ffa4398b585bc7387791496523e88a065e74cd60cc8676"
+    },
+    {
+      "path": "model/datum.json",
+      "sha256": "a63304de589ea4ece2c5f62c1a7f24f9c3fa43aafbfd869bf76f598aeb42efbd"
+    },
+    {
+      "path": "model/dimension-report.json",
+      "sha256": "097972506e9fdb3cb881b976a9fe745d71abcfd813dfddc348d59bb7385deb24"
+    },
+    {
+      "path": "model/exterior/exterior.glb",
+      "sha256": "c5e9f1f826074cbebb161f5ba15ada8392744e15f9f786ff360078f095843e53"
+    },
+    {
+      "path": "model/exterior/inventory.json",
+      "sha256": "d496ab1a588461ccaf69b9ac5c060ae08fcc5b58496481d3c80c56f76b0dbf23"
+    },
+    {
+      "path": "model/internal/internal.glb",
+      "sha256": "11ea34ec436e43053f70f8e1162391669e377daebee501cba515dc218f388bf9"
+    },
+    {
+      "path": "model/internal/inventory.json",
+      "sha256": "4326bceba1ae5bc6d34639286fdf2f281208156163345643beaf76efb5565c53"
+    },
+    {
+      "path": "model/internal/kinematics.json",
+      "sha256": "6f428bc91296a6f655f9cd6a65fd9f5eb9f01ad495364605bdeb1a84406f94a4"
+    },
+    {
+      "path": "model/systems/freshwater.json",
+      "sha256": "17e3394afb4b7830788280903993c71246227e4518342f6d33b4cf3d6a98b0d4"
+    },
+    {
+      "path": "model/systems/fuel.json",
+      "sha256": "eea8c06650d01cc939d2ea7bcdbf7d4de2eb71add542e0cb0977638a8493e3c6"
+    },
+    {
+      "path": "model/systems/intake-exhaust.json",
+      "sha256": "1ff506102fa71ca99824ff8a819946771a36e85bad3989d2450f68a3f0783193"
+    },
+    {
+      "path": "model/systems/lubrication.json",
+      "sha256": "18f7a1f2083a6f194a526fd3da4a57df58621d5447f9f54710825f1110fdba91"
+    },
+    {
+      "path": "model/systems/seawater.json",
+      "sha256": "68b4214758b3f9cee16817bbe01dc5451194aa06f529c6aacb9c1dfe0acc9525"
+    },
+    {
+      "path": "qa/acceptance.md",
+      "sha256": "a377eca1b7c4347bf33e3c8520891c4669eca15741e3cb0bd5afc27c48e4b1cc"
+    },
+    {
+      "path": "qa/browser-runtime.md",
+      "sha256": "8eaa7b9d5bf3bb396e1b79e83ef9126b708a20819391667c4742e1972de11425"
+    },
+    {
+      "path": "qa/dimensions.json",
+      "sha256": "0af361e4e95c6295e78a6a9fbaeff25e6e9e726617d01477a2a8b64960d8ee69"
+    },
+    {
+      "path": "qa/fit_glb.py",
+      "sha256": "8af121d7f358de2696dc330a9517e32ea76bd8b3a6a9c7fb07dadd136fb58ae9"
+    },
+    {
+      "path": "qa/inspect_glb.py",
+      "sha256": "919dbc79832c1205769f1986d081dcda93e9b213284af43fa944a7f6da235e93"
+    },
+    {
+      "path": "qa/integration-fit.json",
+      "sha256": "f5d341bbd7549942060a8e0c641197e946f5cdbf6fd7efa3e15aee2bb9465d5e"
+    },
+    {
+      "path": "qa/round2/baseline.json",
+      "sha256": "762bfcb96d0c939a3d81778f87416d312407da0dee2bec1fc89d4c20a3dffdd1"
+    },
+    {
+      "path": "qa/round2/fit.json",
+      "sha256": "42467307a7a2bfdc9c98bf36ef269e5470ab6a909ba2613ff21b7ec65bc0b1fc"
+    },
+    {
+      "path": "qa/round2/neutral_atas.png",
+      "sha256": "c9286d78be3f14039f9eed5910c836e33037ff246cfca8d0d815567e568662a8"
+    },
+    {
+      "path": "qa/round2/neutral_baseline_v8_tiga_perempat.png",
+      "sha256": "5d63adb939e7a1a847d0c470efa23b89c28ef66e38c18de6ca09e2ab173c76a2"
+    },
+    {
+      "path": "qa/round2/neutral_belakang.png",
+      "sha256": "a6c905b75b730831fd13490127b0733271bafd2e6222b94df69c7427c8b16302"
+    },
+    {
+      "path": "qa/round2/neutral_depan.png",
+      "sha256": "2ae6b3107ffa73039916559b9b2d9f2a8ca00fa36e536c878e3276fce809dcfe"
+    },
+    {
+      "path": "qa/round2/neutral_internal.png",
+      "sha256": "f2e8efc97cf4a3035b58e0775e9e07288ddd04fa4dd0b59eae76ab90356e6d0b"
+    },
+    {
+      "path": "qa/round2/neutral_kanan.png",
+      "sha256": "db72ad89791ccd67cad60163caf63f7d30d864c61fd9d5dbc3651960406be539"
+    },
+    {
+      "path": "qa/round2/neutral_kiri.png",
+      "sha256": "fbe79e45e5602253cd4a8f7f2e6f98470403e16a95abf1f5fdebbfd426d6b95e"
+    },
+    {
+      "path": "qa/round2/neutral_tiga_perempat.png",
+      "sha256": "419f8bb155a4438cc07d4efd6ca536d0ac7795ebb6bc26c8831a8144875c023a"
+    },
+    {
+      "path": "qa/round2/reimport.json",
+      "sha256": "0ee0763131a68822bb84e65af5eba14f9b7c4f6d4201b87ab2e59d625a630e79"
+    },
+    {
+      "path": "qa/round2/render-settings.json",
+      "sha256": "ce6ab8db666e8e9d0cc3d8d1d3ff89d37e786d04711750171a214cc0ebc745f6"
+    },
+    {
+      "path": "review/assets/data.json",
+      "sha256": "bab2e414895384003527297873c05faad6c334043b7bb6c44b0744da7aa232e3"
+    },
+    {
+      "path": "review/assets/exterior.glb",
+      "sha256": "c5e9f1f826074cbebb161f5ba15ada8392744e15f9f786ff360078f095843e53"
+    },
+    {
+      "path": "review/assets/internal.glb",
+      "sha256": "11ea34ec436e43053f70f8e1162391669e377daebee501cba515dc218f388bf9"
+    },
+    {
+      "path": "review/assets/studio.css",
+      "sha256": "d5d38708b692f20fba5f80ce1745d8ada3a5e89ce43bc2331c76f416e010cbee"
+    },
+    {
+      "path": "review/assets/studio.js",
+      "sha256": "15ea760d05b15bf834ac7de277a23921b2a4b3a0f81f63611ed369b37339a973"
+    },
+    {
+      "path": "review/index.html",
+      "sha256": "0ca4bbec2dff0eba829108bf033a52a790fba9523e408723282b0b31456f34c9"
+    },
+    {
+      "path": "review/tools/state-check.mjs",
+      "sha256": "e6fa1970d385bfeecb587300fadf406647320b3fb72c260a4cac967cbe611812"
+    },
+    {
+      "path": "video/evidence-video.json",
+      "sha256": "0be1600e03d26da1bc7c784010a0708d30723ba991845d587e5c7207a362dd12"
+    }
+  ]
+}

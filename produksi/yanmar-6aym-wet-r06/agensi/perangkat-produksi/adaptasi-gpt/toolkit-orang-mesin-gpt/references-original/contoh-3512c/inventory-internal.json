@@ -1,0 +1,7476 @@
+[
+ {
+  "id": "INT-CRANK-01",
+  "nama": "Crankshaft (poros engkol) dengan 7 main journal, 6 crankpin, 12 web dan counterweight, flens belakang (sampai muka depan EXT-FLYWHEEL-01), nose depan (sampai muka belakang EXT-DAMPER-01)",
+  "rakitan": "CRANKSHAFT",
+  "jumlah": 1,
+  "status": "ESTIMATED",
+  "sumber": [
+   {
+    "id": "D02",
+    "locator": "hlm. 1 Bore x Stroke (170 x 215 mm HD)"
+   },
+   {
+    "id": "D05",
+    "locator": "SPECIFICATIONS FOR 3512C HD"
+   },
+   {
+    "id": "D06",
+    "locator": "hlm. 140026 Firing Order (Injection Sequence), 3512 awal; INFERRED untuk 3512C"
+   },
+   {
+    "id": "D06",
+    "locator": "hlm. 140026 \"60 V-12\", 3512 awal; INFERRED untuk 3512C"
+   }
+  ],
+  "alasan": "Radius engkol = stroke/2 (DOCUMENTED). Susunan 6 crankpin dengan 2 rod berdampingan dan 3 arah crankpin 120 derajat diturunkan dari firing order D06 + V60 (INFERRED). Diameter journal, web, counterweight ESTIMATED proporsional.",
+  "ukuran_utama_m": {
+   "radius_engkol": 0.1075,
+   "crankpin_d": 0.112,
+   "main_journal_d": 0.13,
+   "crankpin_panjang": 0.122,
+   "main_journal_lebar": 0.06,
+   "web_tebal": 0.044,
+   "counterweight_r": 0.175,
+   "x_range": [
+    -0.1675,
+    1.9295
+   ]
+  },
+  "catatan": "Crankpin pada beta(0 deg)= 1/2:30, 3/4:150, 5/6:270, 7/8:270, 9/10:150, 11/12:30 (beta diukur dari +Y ke +Z). Main journal x: 0.0455, 0.3155, 0.5855, 0.8555, 1.1255, 1.3955, 1.6655"
+ },
+ {
+  "id": "INT-PISTON-01",
+  "nama": "Piston silinder 1 (crown dengan piston bowl re-entrant, 3 alur ring, pin boss)",
+  "rakitan": "PISTON",
+  "jumlah": 1,
+  "status": "ESTIMATED",
+  "sumber": [
+   {
+    "id": "D02",
+    "locator": "hlm. 1 Bore x Stroke (170 x 215 mm HD)"
+   },
+   {
+    "id": "D05",
+    "locator": "SPECIFICATIONS FOR 3512C HD"
+   },
+   {
+    "id": "D05",
+    "locator": "teks \"redesigned/modified piston bowl shape\""
+   },
+   {
+    "id": "D03",
+    "locator": "hlm. 1 compression ratio 14.7:1"
+   }
+  ],
+  "alasan": "Diameter dari bore (DOCUMENTED). Bentuk bowl, tinggi kompresi 0.130, panjang skirt ILLUSTRATIVE/ESTIMATED; volume bowl disetel agar rasio kompresi ~14.7 (lihat compare.json).",
+  "ukuran_utama_m": {
+   "diameter": 0.169,
+   "celah_radial_ke_liner": 0.0005,
+   "tinggi_kompresi": 0.13,
+   "panjang_total": 0.2
+  },
+  "catatan": "Origin = pusat piston pin; sumbu lokal +Y = sumbu silinder bank R."
+ },
+ {
+  "id": "INT-RING-01-1",
+  "nama": "Top compression ring silinder 1",
+  "rakitan": "PISTON",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah dan penampang ring tidak ada di dokumen terbuka; susunan 3 ring lazim untuk diesel 4-tak.",
+  "ukuran_utama_m": {
+   "diameter_luar": 0.1694,
+   "tinggi": 0.0035
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-RING-01-2",
+  "nama": "Second compression ring silinder 1",
+  "rakitan": "PISTON",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah dan penampang ring tidak ada di dokumen terbuka; susunan 3 ring lazim untuk diesel 4-tak.",
+  "ukuran_utama_m": {
+   "diameter_luar": 0.1694,
+   "tinggi": 0.0035
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-RING-01-3",
+  "nama": "Oil control ring silinder 1",
+  "rakitan": "PISTON",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah dan penampang ring tidak ada di dokumen terbuka; susunan 3 ring lazim untuk diesel 4-tak.",
+  "ukuran_utama_m": {
+   "diameter_luar": 0.1694,
+   "tinggi": 0.0053
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-PIN-01",
+  "nama": "Piston pin silinder 1 (pena piston, berongga)",
+  "rakitan": "PISTON",
+  "jumlah": 1,
+  "status": "ESTIMATED",
+  "sumber": null,
+  "alasan": "Diameter 0.055 dan panjang 0.130 ESTIMATED proporsional terhadap bore.",
+  "ukuran_utama_m": {
+   "diameter": 0.055,
+   "panjang": 0.13
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-PISTON-02",
+  "nama": "Piston silinder 2 (crown dengan piston bowl re-entrant, 3 alur ring, pin boss)",
+  "rakitan": "PISTON",
+  "jumlah": 1,
+  "status": "ESTIMATED",
+  "sumber": [
+   {
+    "id": "D02",
+    "locator": "hlm. 1 Bore x Stroke (170 x 215 mm HD)"
+   },
+   {
+    "id": "D05",
+    "locator": "SPECIFICATIONS FOR 3512C HD"
+   },
+   {
+    "id": "D05",
+    "locator": "teks \"redesigned/modified piston bowl shape\""
+   },
+   {
+    "id": "D03",
+    "locator": "hlm. 1 compression ratio 14.7:1"
+   }
+  ],
+  "alasan": "Diameter dari bore (DOCUMENTED). Bentuk bowl, tinggi kompresi 0.130, panjang skirt ILLUSTRATIVE/ESTIMATED; volume bowl disetel agar rasio kompresi ~14.7 (lihat compare.json).",
+  "ukuran_utama_m": {
+   "diameter": 0.169,
+   "celah_radial_ke_liner": 0.0005,
+   "tinggi_kompresi": 0.13,
+   "panjang_total": 0.2
+  },
+  "catatan": "Origin = pusat piston pin; sumbu lokal +Y = sumbu silinder bank L."
+ },
+ {
+  "id": "INT-RING-02-1",
+  "nama": "Top compression ring silinder 2",
+  "rakitan": "PISTON",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah dan penampang ring tidak ada di dokumen terbuka; susunan 3 ring lazim untuk diesel 4-tak.",
+  "ukuran_utama_m": {
+   "diameter_luar": 0.1694,
+   "tinggi": 0.0035
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-RING-02-2",
+  "nama": "Second compression ring silinder 2",
+  "rakitan": "PISTON",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah dan penampang ring tidak ada di dokumen terbuka; susunan 3 ring lazim untuk diesel 4-tak.",
+  "ukuran_utama_m": {
+   "diameter_luar": 0.1694,
+   "tinggi": 0.0035
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-RING-02-3",
+  "nama": "Oil control ring silinder 2",
+  "rakitan": "PISTON",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah dan penampang ring tidak ada di dokumen terbuka; susunan 3 ring lazim untuk diesel 4-tak.",
+  "ukuran_utama_m": {
+   "diameter_luar": 0.1694,
+   "tinggi": 0.0053
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-PIN-02",
+  "nama": "Piston pin silinder 2 (pena piston, berongga)",
+  "rakitan": "PISTON",
+  "jumlah": 1,
+  "status": "ESTIMATED",
+  "sumber": null,
+  "alasan": "Diameter 0.055 dan panjang 0.130 ESTIMATED proporsional terhadap bore.",
+  "ukuran_utama_m": {
+   "diameter": 0.055,
+   "panjang": 0.13
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-PISTON-03",
+  "nama": "Piston silinder 3 (crown dengan piston bowl re-entrant, 3 alur ring, pin boss)",
+  "rakitan": "PISTON",
+  "jumlah": 1,
+  "status": "ESTIMATED",
+  "sumber": [
+   {
+    "id": "D02",
+    "locator": "hlm. 1 Bore x Stroke (170 x 215 mm HD)"
+   },
+   {
+    "id": "D05",
+    "locator": "SPECIFICATIONS FOR 3512C HD"
+   },
+   {
+    "id": "D05",
+    "locator": "teks \"redesigned/modified piston bowl shape\""
+   },
+   {
+    "id": "D03",
+    "locator": "hlm. 1 compression ratio 14.7:1"
+   }
+  ],
+  "alasan": "Diameter dari bore (DOCUMENTED). Bentuk bowl, tinggi kompresi 0.130, panjang skirt ILLUSTRATIVE/ESTIMATED; volume bowl disetel agar rasio kompresi ~14.7 (lihat compare.json).",
+  "ukuran_utama_m": {
+   "diameter": 0.169,
+   "celah_radial_ke_liner": 0.0005,
+   "tinggi_kompresi": 0.13,
+   "panjang_total": 0.2
+  },
+  "catatan": "Origin = pusat piston pin; sumbu lokal +Y = sumbu silinder bank R."
+ },
+ {
+  "id": "INT-RING-03-1",
+  "nama": "Top compression ring silinder 3",
+  "rakitan": "PISTON",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah dan penampang ring tidak ada di dokumen terbuka; susunan 3 ring lazim untuk diesel 4-tak.",
+  "ukuran_utama_m": {
+   "diameter_luar": 0.1694,
+   "tinggi": 0.0035
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-RING-03-2",
+  "nama": "Second compression ring silinder 3",
+  "rakitan": "PISTON",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah dan penampang ring tidak ada di dokumen terbuka; susunan 3 ring lazim untuk diesel 4-tak.",
+  "ukuran_utama_m": {
+   "diameter_luar": 0.1694,
+   "tinggi": 0.0035
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-RING-03-3",
+  "nama": "Oil control ring silinder 3",
+  "rakitan": "PISTON",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah dan penampang ring tidak ada di dokumen terbuka; susunan 3 ring lazim untuk diesel 4-tak.",
+  "ukuran_utama_m": {
+   "diameter_luar": 0.1694,
+   "tinggi": 0.0053
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-PIN-03",
+  "nama": "Piston pin silinder 3 (pena piston, berongga)",
+  "rakitan": "PISTON",
+  "jumlah": 1,
+  "status": "ESTIMATED",
+  "sumber": null,
+  "alasan": "Diameter 0.055 dan panjang 0.130 ESTIMATED proporsional terhadap bore.",
+  "ukuran_utama_m": {
+   "diameter": 0.055,
+   "panjang": 0.13
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-PISTON-04",
+  "nama": "Piston silinder 4 (crown dengan piston bowl re-entrant, 3 alur ring, pin boss)",
+  "rakitan": "PISTON",
+  "jumlah": 1,
+  "status": "ESTIMATED",
+  "sumber": [
+   {
+    "id": "D02",
+    "locator": "hlm. 1 Bore x Stroke (170 x 215 mm HD)"
+   },
+   {
+    "id": "D05",
+    "locator": "SPECIFICATIONS FOR 3512C HD"
+   },
+   {
+    "id": "D05",
+    "locator": "teks \"redesigned/modified piston bowl shape\""
+   },
+   {
+    "id": "D03",
+    "locator": "hlm. 1 compression ratio 14.7:1"
+   }
+  ],
+  "alasan": "Diameter dari bore (DOCUMENTED). Bentuk bowl, tinggi kompresi 0.130, panjang skirt ILLUSTRATIVE/ESTIMATED; volume bowl disetel agar rasio kompresi ~14.7 (lihat compare.json).",
+  "ukuran_utama_m": {
+   "diameter": 0.169,
+   "celah_radial_ke_liner": 0.0005,
+   "tinggi_kompresi": 0.13,
+   "panjang_total": 0.2
+  },
+  "catatan": "Origin = pusat piston pin; sumbu lokal +Y = sumbu silinder bank L."
+ },
+ {
+  "id": "INT-RING-04-1",
+  "nama": "Top compression ring silinder 4",
+  "rakitan": "PISTON",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah dan penampang ring tidak ada di dokumen terbuka; susunan 3 ring lazim untuk diesel 4-tak.",
+  "ukuran_utama_m": {
+   "diameter_luar": 0.1694,
+   "tinggi": 0.0035
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-RING-04-2",
+  "nama": "Second compression ring silinder 4",
+  "rakitan": "PISTON",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah dan penampang ring tidak ada di dokumen terbuka; susunan 3 ring lazim untuk diesel 4-tak.",
+  "ukuran_utama_m": {
+   "diameter_luar": 0.1694,
+   "tinggi": 0.0035
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-RING-04-3",
+  "nama": "Oil control ring silinder 4",
+  "rakitan": "PISTON",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah dan penampang ring tidak ada di dokumen terbuka; susunan 3 ring lazim untuk diesel 4-tak.",
+  "ukuran_utama_m": {
+   "diameter_luar": 0.1694,
+   "tinggi": 0.0053
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-PIN-04",
+  "nama": "Piston pin silinder 4 (pena piston, berongga)",
+  "rakitan": "PISTON",
+  "jumlah": 1,
+  "status": "ESTIMATED",
+  "sumber": null,
+  "alasan": "Diameter 0.055 dan panjang 0.130 ESTIMATED proporsional terhadap bore.",
+  "ukuran_utama_m": {
+   "diameter": 0.055,
+   "panjang": 0.13
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-PISTON-05",
+  "nama": "Piston silinder 5 (crown dengan piston bowl re-entrant, 3 alur ring, pin boss)",
+  "rakitan": "PISTON",
+  "jumlah": 1,
+  "status": "ESTIMATED",
+  "sumber": [
+   {
+    "id": "D02",
+    "locator": "hlm. 1 Bore x Stroke (170 x 215 mm HD)"
+   },
+   {
+    "id": "D05",
+    "locator": "SPECIFICATIONS FOR 3512C HD"
+   },
+   {
+    "id": "D05",
+    "locator": "teks \"redesigned/modified piston bowl shape\""
+   },
+   {
+    "id": "D03",
+    "locator": "hlm. 1 compression ratio 14.7:1"
+   }
+  ],
+  "alasan": "Diameter dari bore (DOCUMENTED). Bentuk bowl, tinggi kompresi 0.130, panjang skirt ILLUSTRATIVE/ESTIMATED; volume bowl disetel agar rasio kompresi ~14.7 (lihat compare.json).",
+  "ukuran_utama_m": {
+   "diameter": 0.169,
+   "celah_radial_ke_liner": 0.0005,
+   "tinggi_kompresi": 0.13,
+   "panjang_total": 0.2
+  },
+  "catatan": "Origin = pusat piston pin; sumbu lokal +Y = sumbu silinder bank R."
+ },
+ {
+  "id": "INT-RING-05-1",
+  "nama": "Top compression ring silinder 5",
+  "rakitan": "PISTON",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah dan penampang ring tidak ada di dokumen terbuka; susunan 3 ring lazim untuk diesel 4-tak.",
+  "ukuran_utama_m": {
+   "diameter_luar": 0.1694,
+   "tinggi": 0.0035
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-RING-05-2",
+  "nama": "Second compression ring silinder 5",
+  "rakitan": "PISTON",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah dan penampang ring tidak ada di dokumen terbuka; susunan 3 ring lazim untuk diesel 4-tak.",
+  "ukuran_utama_m": {
+   "diameter_luar": 0.1694,
+   "tinggi": 0.0035
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-RING-05-3",
+  "nama": "Oil control ring silinder 5",
+  "rakitan": "PISTON",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah dan penampang ring tidak ada di dokumen terbuka; susunan 3 ring lazim untuk diesel 4-tak.",
+  "ukuran_utama_m": {
+   "diameter_luar": 0.1694,
+   "tinggi": 0.0053
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-PIN-05",
+  "nama": "Piston pin silinder 5 (pena piston, berongga)",
+  "rakitan": "PISTON",
+  "jumlah": 1,
+  "status": "ESTIMATED",
+  "sumber": null,
+  "alasan": "Diameter 0.055 dan panjang 0.130 ESTIMATED proporsional terhadap bore.",
+  "ukuran_utama_m": {
+   "diameter": 0.055,
+   "panjang": 0.13
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-PISTON-06",
+  "nama": "Piston silinder 6 (crown dengan piston bowl re-entrant, 3 alur ring, pin boss)",
+  "rakitan": "PISTON",
+  "jumlah": 1,
+  "status": "ESTIMATED",
+  "sumber": [
+   {
+    "id": "D02",
+    "locator": "hlm. 1 Bore x Stroke (170 x 215 mm HD)"
+   },
+   {
+    "id": "D05",
+    "locator": "SPECIFICATIONS FOR 3512C HD"
+   },
+   {
+    "id": "D05",
+    "locator": "teks \"redesigned/modified piston bowl shape\""
+   },
+   {
+    "id": "D03",
+    "locator": "hlm. 1 compression ratio 14.7:1"
+   }
+  ],
+  "alasan": "Diameter dari bore (DOCUMENTED). Bentuk bowl, tinggi kompresi 0.130, panjang skirt ILLUSTRATIVE/ESTIMATED; volume bowl disetel agar rasio kompresi ~14.7 (lihat compare.json).",
+  "ukuran_utama_m": {
+   "diameter": 0.169,
+   "celah_radial_ke_liner": 0.0005,
+   "tinggi_kompresi": 0.13,
+   "panjang_total": 0.2
+  },
+  "catatan": "Origin = pusat piston pin; sumbu lokal +Y = sumbu silinder bank L."
+ },
+ {
+  "id": "INT-RING-06-1",
+  "nama": "Top compression ring silinder 6",
+  "rakitan": "PISTON",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah dan penampang ring tidak ada di dokumen terbuka; susunan 3 ring lazim untuk diesel 4-tak.",
+  "ukuran_utama_m": {
+   "diameter_luar": 0.1694,
+   "tinggi": 0.0035
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-RING-06-2",
+  "nama": "Second compression ring silinder 6",
+  "rakitan": "PISTON",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah dan penampang ring tidak ada di dokumen terbuka; susunan 3 ring lazim untuk diesel 4-tak.",
+  "ukuran_utama_m": {
+   "diameter_luar": 0.1694,
+   "tinggi": 0.0035
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-RING-06-3",
+  "nama": "Oil control ring silinder 6",
+  "rakitan": "PISTON",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah dan penampang ring tidak ada di dokumen terbuka; susunan 3 ring lazim untuk diesel 4-tak.",
+  "ukuran_utama_m": {
+   "diameter_luar": 0.1694,
+   "tinggi": 0.0053
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-PIN-06",
+  "nama": "Piston pin silinder 6 (pena piston, berongga)",
+  "rakitan": "PISTON",
+  "jumlah": 1,
+  "status": "ESTIMATED",
+  "sumber": null,
+  "alasan": "Diameter 0.055 dan panjang 0.130 ESTIMATED proporsional terhadap bore.",
+  "ukuran_utama_m": {
+   "diameter": 0.055,
+   "panjang": 0.13
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-PISTON-07",
+  "nama": "Piston silinder 7 (crown dengan piston bowl re-entrant, 3 alur ring, pin boss)",
+  "rakitan": "PISTON",
+  "jumlah": 1,
+  "status": "ESTIMATED",
+  "sumber": [
+   {
+    "id": "D02",
+    "locator": "hlm. 1 Bore x Stroke (170 x 215 mm HD)"
+   },
+   {
+    "id": "D05",
+    "locator": "SPECIFICATIONS FOR 3512C HD"
+   },
+   {
+    "id": "D05",
+    "locator": "teks \"redesigned/modified piston bowl shape\""
+   },
+   {
+    "id": "D03",
+    "locator": "hlm. 1 compression ratio 14.7:1"
+   }
+  ],
+  "alasan": "Diameter dari bore (DOCUMENTED). Bentuk bowl, tinggi kompresi 0.130, panjang skirt ILLUSTRATIVE/ESTIMATED; volume bowl disetel agar rasio kompresi ~14.7 (lihat compare.json).",
+  "ukuran_utama_m": {
+   "diameter": 0.169,
+   "celah_radial_ke_liner": 0.0005,
+   "tinggi_kompresi": 0.13,
+   "panjang_total": 0.2
+  },
+  "catatan": "Origin = pusat piston pin; sumbu lokal +Y = sumbu silinder bank R."
+ },
+ {
+  "id": "INT-RING-07-1",
+  "nama": "Top compression ring silinder 7",
+  "rakitan": "PISTON",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah dan penampang ring tidak ada di dokumen terbuka; susunan 3 ring lazim untuk diesel 4-tak.",
+  "ukuran_utama_m": {
+   "diameter_luar": 0.1694,
+   "tinggi": 0.0035
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-RING-07-2",
+  "nama": "Second compression ring silinder 7",
+  "rakitan": "PISTON",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah dan penampang ring tidak ada di dokumen terbuka; susunan 3 ring lazim untuk diesel 4-tak.",
+  "ukuran_utama_m": {
+   "diameter_luar": 0.1694,
+   "tinggi": 0.0035
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-RING-07-3",
+  "nama": "Oil control ring silinder 7",
+  "rakitan": "PISTON",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah dan penampang ring tidak ada di dokumen terbuka; susunan 3 ring lazim untuk diesel 4-tak.",
+  "ukuran_utama_m": {
+   "diameter_luar": 0.1694,
+   "tinggi": 0.0053
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-PIN-07",
+  "nama": "Piston pin silinder 7 (pena piston, berongga)",
+  "rakitan": "PISTON",
+  "jumlah": 1,
+  "status": "ESTIMATED",
+  "sumber": null,
+  "alasan": "Diameter 0.055 dan panjang 0.130 ESTIMATED proporsional terhadap bore.",
+  "ukuran_utama_m": {
+   "diameter": 0.055,
+   "panjang": 0.13
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-PISTON-08",
+  "nama": "Piston silinder 8 (crown dengan piston bowl re-entrant, 3 alur ring, pin boss)",
+  "rakitan": "PISTON",
+  "jumlah": 1,
+  "status": "ESTIMATED",
+  "sumber": [
+   {
+    "id": "D02",
+    "locator": "hlm. 1 Bore x Stroke (170 x 215 mm HD)"
+   },
+   {
+    "id": "D05",
+    "locator": "SPECIFICATIONS FOR 3512C HD"
+   },
+   {
+    "id": "D05",
+    "locator": "teks \"redesigned/modified piston bowl shape\""
+   },
+   {
+    "id": "D03",
+    "locator": "hlm. 1 compression ratio 14.7:1"
+   }
+  ],
+  "alasan": "Diameter dari bore (DOCUMENTED). Bentuk bowl, tinggi kompresi 0.130, panjang skirt ILLUSTRATIVE/ESTIMATED; volume bowl disetel agar rasio kompresi ~14.7 (lihat compare.json).",
+  "ukuran_utama_m": {
+   "diameter": 0.169,
+   "celah_radial_ke_liner": 0.0005,
+   "tinggi_kompresi": 0.13,
+   "panjang_total": 0.2
+  },
+  "catatan": "Origin = pusat piston pin; sumbu lokal +Y = sumbu silinder bank L."
+ },
+ {
+  "id": "INT-RING-08-1",
+  "nama": "Top compression ring silinder 8",
+  "rakitan": "PISTON",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah dan penampang ring tidak ada di dokumen terbuka; susunan 3 ring lazim untuk diesel 4-tak.",
+  "ukuran_utama_m": {
+   "diameter_luar": 0.1694,
+   "tinggi": 0.0035
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-RING-08-2",
+  "nama": "Second compression ring silinder 8",
+  "rakitan": "PISTON",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah dan penampang ring tidak ada di dokumen terbuka; susunan 3 ring lazim untuk diesel 4-tak.",
+  "ukuran_utama_m": {
+   "diameter_luar": 0.1694,
+   "tinggi": 0.0035
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-RING-08-3",
+  "nama": "Oil control ring silinder 8",
+  "rakitan": "PISTON",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah dan penampang ring tidak ada di dokumen terbuka; susunan 3 ring lazim untuk diesel 4-tak.",
+  "ukuran_utama_m": {
+   "diameter_luar": 0.1694,
+   "tinggi": 0.0053
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-PIN-08",
+  "nama": "Piston pin silinder 8 (pena piston, berongga)",
+  "rakitan": "PISTON",
+  "jumlah": 1,
+  "status": "ESTIMATED",
+  "sumber": null,
+  "alasan": "Diameter 0.055 dan panjang 0.130 ESTIMATED proporsional terhadap bore.",
+  "ukuran_utama_m": {
+   "diameter": 0.055,
+   "panjang": 0.13
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-PISTON-09",
+  "nama": "Piston silinder 9 (crown dengan piston bowl re-entrant, 3 alur ring, pin boss)",
+  "rakitan": "PISTON",
+  "jumlah": 1,
+  "status": "ESTIMATED",
+  "sumber": [
+   {
+    "id": "D02",
+    "locator": "hlm. 1 Bore x Stroke (170 x 215 mm HD)"
+   },
+   {
+    "id": "D05",
+    "locator": "SPECIFICATIONS FOR 3512C HD"
+   },
+   {
+    "id": "D05",
+    "locator": "teks \"redesigned/modified piston bowl shape\""
+   },
+   {
+    "id": "D03",
+    "locator": "hlm. 1 compression ratio 14.7:1"
+   }
+  ],
+  "alasan": "Diameter dari bore (DOCUMENTED). Bentuk bowl, tinggi kompresi 0.130, panjang skirt ILLUSTRATIVE/ESTIMATED; volume bowl disetel agar rasio kompresi ~14.7 (lihat compare.json).",
+  "ukuran_utama_m": {
+   "diameter": 0.169,
+   "celah_radial_ke_liner": 0.0005,
+   "tinggi_kompresi": 0.13,
+   "panjang_total": 0.2
+  },
+  "catatan": "Origin = pusat piston pin; sumbu lokal +Y = sumbu silinder bank R."
+ },
+ {
+  "id": "INT-RING-09-1",
+  "nama": "Top compression ring silinder 9",
+  "rakitan": "PISTON",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah dan penampang ring tidak ada di dokumen terbuka; susunan 3 ring lazim untuk diesel 4-tak.",
+  "ukuran_utama_m": {
+   "diameter_luar": 0.1694,
+   "tinggi": 0.0035
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-RING-09-2",
+  "nama": "Second compression ring silinder 9",
+  "rakitan": "PISTON",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah dan penampang ring tidak ada di dokumen terbuka; susunan 3 ring lazim untuk diesel 4-tak.",
+  "ukuran_utama_m": {
+   "diameter_luar": 0.1694,
+   "tinggi": 0.0035
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-RING-09-3",
+  "nama": "Oil control ring silinder 9",
+  "rakitan": "PISTON",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah dan penampang ring tidak ada di dokumen terbuka; susunan 3 ring lazim untuk diesel 4-tak.",
+  "ukuran_utama_m": {
+   "diameter_luar": 0.1694,
+   "tinggi": 0.0053
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-PIN-09",
+  "nama": "Piston pin silinder 9 (pena piston, berongga)",
+  "rakitan": "PISTON",
+  "jumlah": 1,
+  "status": "ESTIMATED",
+  "sumber": null,
+  "alasan": "Diameter 0.055 dan panjang 0.130 ESTIMATED proporsional terhadap bore.",
+  "ukuran_utama_m": {
+   "diameter": 0.055,
+   "panjang": 0.13
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-PISTON-10",
+  "nama": "Piston silinder 10 (crown dengan piston bowl re-entrant, 3 alur ring, pin boss)",
+  "rakitan": "PISTON",
+  "jumlah": 1,
+  "status": "ESTIMATED",
+  "sumber": [
+   {
+    "id": "D02",
+    "locator": "hlm. 1 Bore x Stroke (170 x 215 mm HD)"
+   },
+   {
+    "id": "D05",
+    "locator": "SPECIFICATIONS FOR 3512C HD"
+   },
+   {
+    "id": "D05",
+    "locator": "teks \"redesigned/modified piston bowl shape\""
+   },
+   {
+    "id": "D03",
+    "locator": "hlm. 1 compression ratio 14.7:1"
+   }
+  ],
+  "alasan": "Diameter dari bore (DOCUMENTED). Bentuk bowl, tinggi kompresi 0.130, panjang skirt ILLUSTRATIVE/ESTIMATED; volume bowl disetel agar rasio kompresi ~14.7 (lihat compare.json).",
+  "ukuran_utama_m": {
+   "diameter": 0.169,
+   "celah_radial_ke_liner": 0.0005,
+   "tinggi_kompresi": 0.13,
+   "panjang_total": 0.2
+  },
+  "catatan": "Origin = pusat piston pin; sumbu lokal +Y = sumbu silinder bank L."
+ },
+ {
+  "id": "INT-RING-10-1",
+  "nama": "Top compression ring silinder 10",
+  "rakitan": "PISTON",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah dan penampang ring tidak ada di dokumen terbuka; susunan 3 ring lazim untuk diesel 4-tak.",
+  "ukuran_utama_m": {
+   "diameter_luar": 0.1694,
+   "tinggi": 0.0035
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-RING-10-2",
+  "nama": "Second compression ring silinder 10",
+  "rakitan": "PISTON",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah dan penampang ring tidak ada di dokumen terbuka; susunan 3 ring lazim untuk diesel 4-tak.",
+  "ukuran_utama_m": {
+   "diameter_luar": 0.1694,
+   "tinggi": 0.0035
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-RING-10-3",
+  "nama": "Oil control ring silinder 10",
+  "rakitan": "PISTON",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah dan penampang ring tidak ada di dokumen terbuka; susunan 3 ring lazim untuk diesel 4-tak.",
+  "ukuran_utama_m": {
+   "diameter_luar": 0.1694,
+   "tinggi": 0.0053
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-PIN-10",
+  "nama": "Piston pin silinder 10 (pena piston, berongga)",
+  "rakitan": "PISTON",
+  "jumlah": 1,
+  "status": "ESTIMATED",
+  "sumber": null,
+  "alasan": "Diameter 0.055 dan panjang 0.130 ESTIMATED proporsional terhadap bore.",
+  "ukuran_utama_m": {
+   "diameter": 0.055,
+   "panjang": 0.13
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-PISTON-11",
+  "nama": "Piston silinder 11 (crown dengan piston bowl re-entrant, 3 alur ring, pin boss)",
+  "rakitan": "PISTON",
+  "jumlah": 1,
+  "status": "ESTIMATED",
+  "sumber": [
+   {
+    "id": "D02",
+    "locator": "hlm. 1 Bore x Stroke (170 x 215 mm HD)"
+   },
+   {
+    "id": "D05",
+    "locator": "SPECIFICATIONS FOR 3512C HD"
+   },
+   {
+    "id": "D05",
+    "locator": "teks \"redesigned/modified piston bowl shape\""
+   },
+   {
+    "id": "D03",
+    "locator": "hlm. 1 compression ratio 14.7:1"
+   }
+  ],
+  "alasan": "Diameter dari bore (DOCUMENTED). Bentuk bowl, tinggi kompresi 0.130, panjang skirt ILLUSTRATIVE/ESTIMATED; volume bowl disetel agar rasio kompresi ~14.7 (lihat compare.json).",
+  "ukuran_utama_m": {
+   "diameter": 0.169,
+   "celah_radial_ke_liner": 0.0005,
+   "tinggi_kompresi": 0.13,
+   "panjang_total": 0.2
+  },
+  "catatan": "Origin = pusat piston pin; sumbu lokal +Y = sumbu silinder bank R."
+ },
+ {
+  "id": "INT-RING-11-1",
+  "nama": "Top compression ring silinder 11",
+  "rakitan": "PISTON",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah dan penampang ring tidak ada di dokumen terbuka; susunan 3 ring lazim untuk diesel 4-tak.",
+  "ukuran_utama_m": {
+   "diameter_luar": 0.1694,
+   "tinggi": 0.0035
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-RING-11-2",
+  "nama": "Second compression ring silinder 11",
+  "rakitan": "PISTON",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah dan penampang ring tidak ada di dokumen terbuka; susunan 3 ring lazim untuk diesel 4-tak.",
+  "ukuran_utama_m": {
+   "diameter_luar": 0.1694,
+   "tinggi": 0.0035
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-RING-11-3",
+  "nama": "Oil control ring silinder 11",
+  "rakitan": "PISTON",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah dan penampang ring tidak ada di dokumen terbuka; susunan 3 ring lazim untuk diesel 4-tak.",
+  "ukuran_utama_m": {
+   "diameter_luar": 0.1694,
+   "tinggi": 0.0053
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-PIN-11",
+  "nama": "Piston pin silinder 11 (pena piston, berongga)",
+  "rakitan": "PISTON",
+  "jumlah": 1,
+  "status": "ESTIMATED",
+  "sumber": null,
+  "alasan": "Diameter 0.055 dan panjang 0.130 ESTIMATED proporsional terhadap bore.",
+  "ukuran_utama_m": {
+   "diameter": 0.055,
+   "panjang": 0.13
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-PISTON-12",
+  "nama": "Piston silinder 12 (crown dengan piston bowl re-entrant, 3 alur ring, pin boss)",
+  "rakitan": "PISTON",
+  "jumlah": 1,
+  "status": "ESTIMATED",
+  "sumber": [
+   {
+    "id": "D02",
+    "locator": "hlm. 1 Bore x Stroke (170 x 215 mm HD)"
+   },
+   {
+    "id": "D05",
+    "locator": "SPECIFICATIONS FOR 3512C HD"
+   },
+   {
+    "id": "D05",
+    "locator": "teks \"redesigned/modified piston bowl shape\""
+   },
+   {
+    "id": "D03",
+    "locator": "hlm. 1 compression ratio 14.7:1"
+   }
+  ],
+  "alasan": "Diameter dari bore (DOCUMENTED). Bentuk bowl, tinggi kompresi 0.130, panjang skirt ILLUSTRATIVE/ESTIMATED; volume bowl disetel agar rasio kompresi ~14.7 (lihat compare.json).",
+  "ukuran_utama_m": {
+   "diameter": 0.169,
+   "celah_radial_ke_liner": 0.0005,
+   "tinggi_kompresi": 0.13,
+   "panjang_total": 0.2
+  },
+  "catatan": "Origin = pusat piston pin; sumbu lokal +Y = sumbu silinder bank L."
+ },
+ {
+  "id": "INT-RING-12-1",
+  "nama": "Top compression ring silinder 12",
+  "rakitan": "PISTON",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah dan penampang ring tidak ada di dokumen terbuka; susunan 3 ring lazim untuk diesel 4-tak.",
+  "ukuran_utama_m": {
+   "diameter_luar": 0.1694,
+   "tinggi": 0.0035
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-RING-12-2",
+  "nama": "Second compression ring silinder 12",
+  "rakitan": "PISTON",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah dan penampang ring tidak ada di dokumen terbuka; susunan 3 ring lazim untuk diesel 4-tak.",
+  "ukuran_utama_m": {
+   "diameter_luar": 0.1694,
+   "tinggi": 0.0035
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-RING-12-3",
+  "nama": "Oil control ring silinder 12",
+  "rakitan": "PISTON",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah dan penampang ring tidak ada di dokumen terbuka; susunan 3 ring lazim untuk diesel 4-tak.",
+  "ukuran_utama_m": {
+   "diameter_luar": 0.1694,
+   "tinggi": 0.0053
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-PIN-12",
+  "nama": "Piston pin silinder 12 (pena piston, berongga)",
+  "rakitan": "PISTON",
+  "jumlah": 1,
+  "status": "ESTIMATED",
+  "sumber": null,
+  "alasan": "Diameter 0.055 dan panjang 0.130 ESTIMATED proporsional terhadap bore.",
+  "ukuran_utama_m": {
+   "diameter": 0.055,
+   "panjang": 0.13
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-ROD-01",
+  "nama": "Connecting rod silinder 1 (I-beam, small end dengan bushing, big end terbelah miring)",
+  "rakitan": "CONNECTING_ROD",
+  "jumlah": 1,
+  "status": "ESTIMATED",
+  "sumber": [
+   {
+    "id": "D02",
+    "locator": "hlm. 1 Bore x Stroke (170 x 215 mm HD)"
+   },
+   {
+    "id": "D05",
+    "locator": "SPECIFICATIONS FOR 3512C HD"
+   }
+  ],
+  "alasan": "Panjang pusat-ke-pusat 0.381 m ESTIMATED: deck 0.620 (atas blok exterior dari D01, ESTIMATED) - tinggi kompresi piston - radius engkol. Belahan miring 40 derajat ILLUSTRATIVE (tidak terbukti). Dua rod berdampingan per crankpin INFERRED (V12, datum bank_offset).",
+  "ukuran_utama_m": {
+   "panjang_pusat": 0.381,
+   "big_end_bore": 0.1126,
+   "small_end_bore": 0.055,
+   "lebar_big_end": 0.056
+  },
+  "catatan": "Origin = pusat big end (crankpin); +Y lokal menuju small end."
+ },
+ {
+  "id": "INT-ROD-01-CAP",
+  "nama": "Connecting rod cap silinder 1",
+  "rakitan": "CONNECTING_ROD",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Bentuk dan sudut belahan tidak ada di dokumen terbuka.",
+  "ukuran_utama_m": {
+   "radius_luar": 0.082
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-ROD-01-BOLT1",
+  "nama": "Baut connecting rod cap silinder 1 no.1",
+  "rakitan": "CONNECTING_ROD",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah dan ukuran baut tidak ada di dokumen terbuka.",
+  "ukuran_utama_m": {
+   "diameter": 0.017,
+   "panjang": 0.104
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-ROD-01-BOLT2",
+  "nama": "Baut connecting rod cap silinder 1 no.2",
+  "rakitan": "CONNECTING_ROD",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah dan ukuran baut tidak ada di dokumen terbuka.",
+  "ukuran_utama_m": {
+   "diameter": 0.017,
+   "panjang": 0.104
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-ROD-02",
+  "nama": "Connecting rod silinder 2 (I-beam, small end dengan bushing, big end terbelah miring)",
+  "rakitan": "CONNECTING_ROD",
+  "jumlah": 1,
+  "status": "ESTIMATED",
+  "sumber": [
+   {
+    "id": "D02",
+    "locator": "hlm. 1 Bore x Stroke (170 x 215 mm HD)"
+   },
+   {
+    "id": "D05",
+    "locator": "SPECIFICATIONS FOR 3512C HD"
+   }
+  ],
+  "alasan": "Panjang pusat-ke-pusat 0.381 m ESTIMATED: deck 0.620 (atas blok exterior dari D01, ESTIMATED) - tinggi kompresi piston - radius engkol. Belahan miring 40 derajat ILLUSTRATIVE (tidak terbukti). Dua rod berdampingan per crankpin INFERRED (V12, datum bank_offset).",
+  "ukuran_utama_m": {
+   "panjang_pusat": 0.381,
+   "big_end_bore": 0.1126,
+   "small_end_bore": 0.055,
+   "lebar_big_end": 0.056
+  },
+  "catatan": "Origin = pusat big end (crankpin); +Y lokal menuju small end."
+ },
+ {
+  "id": "INT-ROD-02-CAP",
+  "nama": "Connecting rod cap silinder 2",
+  "rakitan": "CONNECTING_ROD",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Bentuk dan sudut belahan tidak ada di dokumen terbuka.",
+  "ukuran_utama_m": {
+   "radius_luar": 0.082
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-ROD-02-BOLT1",
+  "nama": "Baut connecting rod cap silinder 2 no.1",
+  "rakitan": "CONNECTING_ROD",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah dan ukuran baut tidak ada di dokumen terbuka.",
+  "ukuran_utama_m": {
+   "diameter": 0.017,
+   "panjang": 0.104
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-ROD-02-BOLT2",
+  "nama": "Baut connecting rod cap silinder 2 no.2",
+  "rakitan": "CONNECTING_ROD",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah dan ukuran baut tidak ada di dokumen terbuka.",
+  "ukuran_utama_m": {
+   "diameter": 0.017,
+   "panjang": 0.104
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-ROD-03",
+  "nama": "Connecting rod silinder 3 (I-beam, small end dengan bushing, big end terbelah miring)",
+  "rakitan": "CONNECTING_ROD",
+  "jumlah": 1,
+  "status": "ESTIMATED",
+  "sumber": [
+   {
+    "id": "D02",
+    "locator": "hlm. 1 Bore x Stroke (170 x 215 mm HD)"
+   },
+   {
+    "id": "D05",
+    "locator": "SPECIFICATIONS FOR 3512C HD"
+   }
+  ],
+  "alasan": "Panjang pusat-ke-pusat 0.381 m ESTIMATED: deck 0.620 (atas blok exterior dari D01, ESTIMATED) - tinggi kompresi piston - radius engkol. Belahan miring 40 derajat ILLUSTRATIVE (tidak terbukti). Dua rod berdampingan per crankpin INFERRED (V12, datum bank_offset).",
+  "ukuran_utama_m": {
+   "panjang_pusat": 0.381,
+   "big_end_bore": 0.1126,
+   "small_end_bore": 0.055,
+   "lebar_big_end": 0.056
+  },
+  "catatan": "Origin = pusat big end (crankpin); +Y lokal menuju small end."
+ },
+ {
+  "id": "INT-ROD-03-CAP",
+  "nama": "Connecting rod cap silinder 3",
+  "rakitan": "CONNECTING_ROD",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Bentuk dan sudut belahan tidak ada di dokumen terbuka.",
+  "ukuran_utama_m": {
+   "radius_luar": 0.082
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-ROD-03-BOLT1",
+  "nama": "Baut connecting rod cap silinder 3 no.1",
+  "rakitan": "CONNECTING_ROD",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah dan ukuran baut tidak ada di dokumen terbuka.",
+  "ukuran_utama_m": {
+   "diameter": 0.017,
+   "panjang": 0.104
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-ROD-03-BOLT2",
+  "nama": "Baut connecting rod cap silinder 3 no.2",
+  "rakitan": "CONNECTING_ROD",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah dan ukuran baut tidak ada di dokumen terbuka.",
+  "ukuran_utama_m": {
+   "diameter": 0.017,
+   "panjang": 0.104
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-ROD-04",
+  "nama": "Connecting rod silinder 4 (I-beam, small end dengan bushing, big end terbelah miring)",
+  "rakitan": "CONNECTING_ROD",
+  "jumlah": 1,
+  "status": "ESTIMATED",
+  "sumber": [
+   {
+    "id": "D02",
+    "locator": "hlm. 1 Bore x Stroke (170 x 215 mm HD)"
+   },
+   {
+    "id": "D05",
+    "locator": "SPECIFICATIONS FOR 3512C HD"
+   }
+  ],
+  "alasan": "Panjang pusat-ke-pusat 0.381 m ESTIMATED: deck 0.620 (atas blok exterior dari D01, ESTIMATED) - tinggi kompresi piston - radius engkol. Belahan miring 40 derajat ILLUSTRATIVE (tidak terbukti). Dua rod berdampingan per crankpin INFERRED (V12, datum bank_offset).",
+  "ukuran_utama_m": {
+   "panjang_pusat": 0.381,
+   "big_end_bore": 0.1126,
+   "small_end_bore": 0.055,
+   "lebar_big_end": 0.056
+  },
+  "catatan": "Origin = pusat big end (crankpin); +Y lokal menuju small end."
+ },
+ {
+  "id": "INT-ROD-04-CAP",
+  "nama": "Connecting rod cap silinder 4",
+  "rakitan": "CONNECTING_ROD",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Bentuk dan sudut belahan tidak ada di dokumen terbuka.",
+  "ukuran_utama_m": {
+   "radius_luar": 0.082
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-ROD-04-BOLT1",
+  "nama": "Baut connecting rod cap silinder 4 no.1",
+  "rakitan": "CONNECTING_ROD",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah dan ukuran baut tidak ada di dokumen terbuka.",
+  "ukuran_utama_m": {
+   "diameter": 0.017,
+   "panjang": 0.104
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-ROD-04-BOLT2",
+  "nama": "Baut connecting rod cap silinder 4 no.2",
+  "rakitan": "CONNECTING_ROD",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah dan ukuran baut tidak ada di dokumen terbuka.",
+  "ukuran_utama_m": {
+   "diameter": 0.017,
+   "panjang": 0.104
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-ROD-05",
+  "nama": "Connecting rod silinder 5 (I-beam, small end dengan bushing, big end terbelah miring)",
+  "rakitan": "CONNECTING_ROD",
+  "jumlah": 1,
+  "status": "ESTIMATED",
+  "sumber": [
+   {
+    "id": "D02",
+    "locator": "hlm. 1 Bore x Stroke (170 x 215 mm HD)"
+   },
+   {
+    "id": "D05",
+    "locator": "SPECIFICATIONS FOR 3512C HD"
+   }
+  ],
+  "alasan": "Panjang pusat-ke-pusat 0.381 m ESTIMATED: deck 0.620 (atas blok exterior dari D01, ESTIMATED) - tinggi kompresi piston - radius engkol. Belahan miring 40 derajat ILLUSTRATIVE (tidak terbukti). Dua rod berdampingan per crankpin INFERRED (V12, datum bank_offset).",
+  "ukuran_utama_m": {
+   "panjang_pusat": 0.381,
+   "big_end_bore": 0.1126,
+   "small_end_bore": 0.055,
+   "lebar_big_end": 0.056
+  },
+  "catatan": "Origin = pusat big end (crankpin); +Y lokal menuju small end."
+ },
+ {
+  "id": "INT-ROD-05-CAP",
+  "nama": "Connecting rod cap silinder 5",
+  "rakitan": "CONNECTING_ROD",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Bentuk dan sudut belahan tidak ada di dokumen terbuka.",
+  "ukuran_utama_m": {
+   "radius_luar": 0.082
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-ROD-05-BOLT1",
+  "nama": "Baut connecting rod cap silinder 5 no.1",
+  "rakitan": "CONNECTING_ROD",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah dan ukuran baut tidak ada di dokumen terbuka.",
+  "ukuran_utama_m": {
+   "diameter": 0.017,
+   "panjang": 0.104
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-ROD-05-BOLT2",
+  "nama": "Baut connecting rod cap silinder 5 no.2",
+  "rakitan": "CONNECTING_ROD",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah dan ukuran baut tidak ada di dokumen terbuka.",
+  "ukuran_utama_m": {
+   "diameter": 0.017,
+   "panjang": 0.104
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-ROD-06",
+  "nama": "Connecting rod silinder 6 (I-beam, small end dengan bushing, big end terbelah miring)",
+  "rakitan": "CONNECTING_ROD",
+  "jumlah": 1,
+  "status": "ESTIMATED",
+  "sumber": [
+   {
+    "id": "D02",
+    "locator": "hlm. 1 Bore x Stroke (170 x 215 mm HD)"
+   },
+   {
+    "id": "D05",
+    "locator": "SPECIFICATIONS FOR 3512C HD"
+   }
+  ],
+  "alasan": "Panjang pusat-ke-pusat 0.381 m ESTIMATED: deck 0.620 (atas blok exterior dari D01, ESTIMATED) - tinggi kompresi piston - radius engkol. Belahan miring 40 derajat ILLUSTRATIVE (tidak terbukti). Dua rod berdampingan per crankpin INFERRED (V12, datum bank_offset).",
+  "ukuran_utama_m": {
+   "panjang_pusat": 0.381,
+   "big_end_bore": 0.1126,
+   "small_end_bore": 0.055,
+   "lebar_big_end": 0.056
+  },
+  "catatan": "Origin = pusat big end (crankpin); +Y lokal menuju small end."
+ },
+ {
+  "id": "INT-ROD-06-CAP",
+  "nama": "Connecting rod cap silinder 6",
+  "rakitan": "CONNECTING_ROD",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Bentuk dan sudut belahan tidak ada di dokumen terbuka.",
+  "ukuran_utama_m": {
+   "radius_luar": 0.082
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-ROD-06-BOLT1",
+  "nama": "Baut connecting rod cap silinder 6 no.1",
+  "rakitan": "CONNECTING_ROD",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah dan ukuran baut tidak ada di dokumen terbuka.",
+  "ukuran_utama_m": {
+   "diameter": 0.017,
+   "panjang": 0.104
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-ROD-06-BOLT2",
+  "nama": "Baut connecting rod cap silinder 6 no.2",
+  "rakitan": "CONNECTING_ROD",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah dan ukuran baut tidak ada di dokumen terbuka.",
+  "ukuran_utama_m": {
+   "diameter": 0.017,
+   "panjang": 0.104
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-ROD-07",
+  "nama": "Connecting rod silinder 7 (I-beam, small end dengan bushing, big end terbelah miring)",
+  "rakitan": "CONNECTING_ROD",
+  "jumlah": 1,
+  "status": "ESTIMATED",
+  "sumber": [
+   {
+    "id": "D02",
+    "locator": "hlm. 1 Bore x Stroke (170 x 215 mm HD)"
+   },
+   {
+    "id": "D05",
+    "locator": "SPECIFICATIONS FOR 3512C HD"
+   }
+  ],
+  "alasan": "Panjang pusat-ke-pusat 0.381 m ESTIMATED: deck 0.620 (atas blok exterior dari D01, ESTIMATED) - tinggi kompresi piston - radius engkol. Belahan miring 40 derajat ILLUSTRATIVE (tidak terbukti). Dua rod berdampingan per crankpin INFERRED (V12, datum bank_offset).",
+  "ukuran_utama_m": {
+   "panjang_pusat": 0.381,
+   "big_end_bore": 0.1126,
+   "small_end_bore": 0.055,
+   "lebar_big_end": 0.056
+  },
+  "catatan": "Origin = pusat big end (crankpin); +Y lokal menuju small end."
+ },
+ {
+  "id": "INT-ROD-07-CAP",
+  "nama": "Connecting rod cap silinder 7",
+  "rakitan": "CONNECTING_ROD",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Bentuk dan sudut belahan tidak ada di dokumen terbuka.",
+  "ukuran_utama_m": {
+   "radius_luar": 0.082
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-ROD-07-BOLT1",
+  "nama": "Baut connecting rod cap silinder 7 no.1",
+  "rakitan": "CONNECTING_ROD",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah dan ukuran baut tidak ada di dokumen terbuka.",
+  "ukuran_utama_m": {
+   "diameter": 0.017,
+   "panjang": 0.104
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-ROD-07-BOLT2",
+  "nama": "Baut connecting rod cap silinder 7 no.2",
+  "rakitan": "CONNECTING_ROD",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah dan ukuran baut tidak ada di dokumen terbuka.",
+  "ukuran_utama_m": {
+   "diameter": 0.017,
+   "panjang": 0.104
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-ROD-08",
+  "nama": "Connecting rod silinder 8 (I-beam, small end dengan bushing, big end terbelah miring)",
+  "rakitan": "CONNECTING_ROD",
+  "jumlah": 1,
+  "status": "ESTIMATED",
+  "sumber": [
+   {
+    "id": "D02",
+    "locator": "hlm. 1 Bore x Stroke (170 x 215 mm HD)"
+   },
+   {
+    "id": "D05",
+    "locator": "SPECIFICATIONS FOR 3512C HD"
+   }
+  ],
+  "alasan": "Panjang pusat-ke-pusat 0.381 m ESTIMATED: deck 0.620 (atas blok exterior dari D01, ESTIMATED) - tinggi kompresi piston - radius engkol. Belahan miring 40 derajat ILLUSTRATIVE (tidak terbukti). Dua rod berdampingan per crankpin INFERRED (V12, datum bank_offset).",
+  "ukuran_utama_m": {
+   "panjang_pusat": 0.381,
+   "big_end_bore": 0.1126,
+   "small_end_bore": 0.055,
+   "lebar_big_end": 0.056
+  },
+  "catatan": "Origin = pusat big end (crankpin); +Y lokal menuju small end."
+ },
+ {
+  "id": "INT-ROD-08-CAP",
+  "nama": "Connecting rod cap silinder 8",
+  "rakitan": "CONNECTING_ROD",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Bentuk dan sudut belahan tidak ada di dokumen terbuka.",
+  "ukuran_utama_m": {
+   "radius_luar": 0.082
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-ROD-08-BOLT1",
+  "nama": "Baut connecting rod cap silinder 8 no.1",
+  "rakitan": "CONNECTING_ROD",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah dan ukuran baut tidak ada di dokumen terbuka.",
+  "ukuran_utama_m": {
+   "diameter": 0.017,
+   "panjang": 0.104
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-ROD-08-BOLT2",
+  "nama": "Baut connecting rod cap silinder 8 no.2",
+  "rakitan": "CONNECTING_ROD",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah dan ukuran baut tidak ada di dokumen terbuka.",
+  "ukuran_utama_m": {
+   "diameter": 0.017,
+   "panjang": 0.104
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-ROD-09",
+  "nama": "Connecting rod silinder 9 (I-beam, small end dengan bushing, big end terbelah miring)",
+  "rakitan": "CONNECTING_ROD",
+  "jumlah": 1,
+  "status": "ESTIMATED",
+  "sumber": [
+   {
+    "id": "D02",
+    "locator": "hlm. 1 Bore x Stroke (170 x 215 mm HD)"
+   },
+   {
+    "id": "D05",
+    "locator": "SPECIFICATIONS FOR 3512C HD"
+   }
+  ],
+  "alasan": "Panjang pusat-ke-pusat 0.381 m ESTIMATED: deck 0.620 (atas blok exterior dari D01, ESTIMATED) - tinggi kompresi piston - radius engkol. Belahan miring 40 derajat ILLUSTRATIVE (tidak terbukti). Dua rod berdampingan per crankpin INFERRED (V12, datum bank_offset).",
+  "ukuran_utama_m": {
+   "panjang_pusat": 0.381,
+   "big_end_bore": 0.1126,
+   "small_end_bore": 0.055,
+   "lebar_big_end": 0.056
+  },
+  "catatan": "Origin = pusat big end (crankpin); +Y lokal menuju small end."
+ },
+ {
+  "id": "INT-ROD-09-CAP",
+  "nama": "Connecting rod cap silinder 9",
+  "rakitan": "CONNECTING_ROD",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Bentuk dan sudut belahan tidak ada di dokumen terbuka.",
+  "ukuran_utama_m": {
+   "radius_luar": 0.082
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-ROD-09-BOLT1",
+  "nama": "Baut connecting rod cap silinder 9 no.1",
+  "rakitan": "CONNECTING_ROD",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah dan ukuran baut tidak ada di dokumen terbuka.",
+  "ukuran_utama_m": {
+   "diameter": 0.017,
+   "panjang": 0.104
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-ROD-09-BOLT2",
+  "nama": "Baut connecting rod cap silinder 9 no.2",
+  "rakitan": "CONNECTING_ROD",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah dan ukuran baut tidak ada di dokumen terbuka.",
+  "ukuran_utama_m": {
+   "diameter": 0.017,
+   "panjang": 0.104
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-ROD-10",
+  "nama": "Connecting rod silinder 10 (I-beam, small end dengan bushing, big end terbelah miring)",
+  "rakitan": "CONNECTING_ROD",
+  "jumlah": 1,
+  "status": "ESTIMATED",
+  "sumber": [
+   {
+    "id": "D02",
+    "locator": "hlm. 1 Bore x Stroke (170 x 215 mm HD)"
+   },
+   {
+    "id": "D05",
+    "locator": "SPECIFICATIONS FOR 3512C HD"
+   }
+  ],
+  "alasan": "Panjang pusat-ke-pusat 0.381 m ESTIMATED: deck 0.620 (atas blok exterior dari D01, ESTIMATED) - tinggi kompresi piston - radius engkol. Belahan miring 40 derajat ILLUSTRATIVE (tidak terbukti). Dua rod berdampingan per crankpin INFERRED (V12, datum bank_offset).",
+  "ukuran_utama_m": {
+   "panjang_pusat": 0.381,
+   "big_end_bore": 0.1126,
+   "small_end_bore": 0.055,
+   "lebar_big_end": 0.056
+  },
+  "catatan": "Origin = pusat big end (crankpin); +Y lokal menuju small end."
+ },
+ {
+  "id": "INT-ROD-10-CAP",
+  "nama": "Connecting rod cap silinder 10",
+  "rakitan": "CONNECTING_ROD",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Bentuk dan sudut belahan tidak ada di dokumen terbuka.",
+  "ukuran_utama_m": {
+   "radius_luar": 0.082
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-ROD-10-BOLT1",
+  "nama": "Baut connecting rod cap silinder 10 no.1",
+  "rakitan": "CONNECTING_ROD",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah dan ukuran baut tidak ada di dokumen terbuka.",
+  "ukuran_utama_m": {
+   "diameter": 0.017,
+   "panjang": 0.104
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-ROD-10-BOLT2",
+  "nama": "Baut connecting rod cap silinder 10 no.2",
+  "rakitan": "CONNECTING_ROD",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah dan ukuran baut tidak ada di dokumen terbuka.",
+  "ukuran_utama_m": {
+   "diameter": 0.017,
+   "panjang": 0.104
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-ROD-11",
+  "nama": "Connecting rod silinder 11 (I-beam, small end dengan bushing, big end terbelah miring)",
+  "rakitan": "CONNECTING_ROD",
+  "jumlah": 1,
+  "status": "ESTIMATED",
+  "sumber": [
+   {
+    "id": "D02",
+    "locator": "hlm. 1 Bore x Stroke (170 x 215 mm HD)"
+   },
+   {
+    "id": "D05",
+    "locator": "SPECIFICATIONS FOR 3512C HD"
+   }
+  ],
+  "alasan": "Panjang pusat-ke-pusat 0.381 m ESTIMATED: deck 0.620 (atas blok exterior dari D01, ESTIMATED) - tinggi kompresi piston - radius engkol. Belahan miring 40 derajat ILLUSTRATIVE (tidak terbukti). Dua rod berdampingan per crankpin INFERRED (V12, datum bank_offset).",
+  "ukuran_utama_m": {
+   "panjang_pusat": 0.381,
+   "big_end_bore": 0.1126,
+   "small_end_bore": 0.055,
+   "lebar_big_end": 0.056
+  },
+  "catatan": "Origin = pusat big end (crankpin); +Y lokal menuju small end."
+ },
+ {
+  "id": "INT-ROD-11-CAP",
+  "nama": "Connecting rod cap silinder 11",
+  "rakitan": "CONNECTING_ROD",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Bentuk dan sudut belahan tidak ada di dokumen terbuka.",
+  "ukuran_utama_m": {
+   "radius_luar": 0.082
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-ROD-11-BOLT1",
+  "nama": "Baut connecting rod cap silinder 11 no.1",
+  "rakitan": "CONNECTING_ROD",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah dan ukuran baut tidak ada di dokumen terbuka.",
+  "ukuran_utama_m": {
+   "diameter": 0.017,
+   "panjang": 0.104
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-ROD-11-BOLT2",
+  "nama": "Baut connecting rod cap silinder 11 no.2",
+  "rakitan": "CONNECTING_ROD",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah dan ukuran baut tidak ada di dokumen terbuka.",
+  "ukuran_utama_m": {
+   "diameter": 0.017,
+   "panjang": 0.104
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-ROD-12",
+  "nama": "Connecting rod silinder 12 (I-beam, small end dengan bushing, big end terbelah miring)",
+  "rakitan": "CONNECTING_ROD",
+  "jumlah": 1,
+  "status": "ESTIMATED",
+  "sumber": [
+   {
+    "id": "D02",
+    "locator": "hlm. 1 Bore x Stroke (170 x 215 mm HD)"
+   },
+   {
+    "id": "D05",
+    "locator": "SPECIFICATIONS FOR 3512C HD"
+   }
+  ],
+  "alasan": "Panjang pusat-ke-pusat 0.381 m ESTIMATED: deck 0.620 (atas blok exterior dari D01, ESTIMATED) - tinggi kompresi piston - radius engkol. Belahan miring 40 derajat ILLUSTRATIVE (tidak terbukti). Dua rod berdampingan per crankpin INFERRED (V12, datum bank_offset).",
+  "ukuran_utama_m": {
+   "panjang_pusat": 0.381,
+   "big_end_bore": 0.1126,
+   "small_end_bore": 0.055,
+   "lebar_big_end": 0.056
+  },
+  "catatan": "Origin = pusat big end (crankpin); +Y lokal menuju small end."
+ },
+ {
+  "id": "INT-ROD-12-CAP",
+  "nama": "Connecting rod cap silinder 12",
+  "rakitan": "CONNECTING_ROD",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Bentuk dan sudut belahan tidak ada di dokumen terbuka.",
+  "ukuran_utama_m": {
+   "radius_luar": 0.082
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-ROD-12-BOLT1",
+  "nama": "Baut connecting rod cap silinder 12 no.1",
+  "rakitan": "CONNECTING_ROD",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah dan ukuran baut tidak ada di dokumen terbuka.",
+  "ukuran_utama_m": {
+   "diameter": 0.017,
+   "panjang": 0.104
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-ROD-12-BOLT2",
+  "nama": "Baut connecting rod cap silinder 12 no.2",
+  "rakitan": "CONNECTING_ROD",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah dan ukuran baut tidak ada di dokumen terbuka.",
+  "ukuran_utama_m": {
+   "diameter": 0.017,
+   "panjang": 0.104
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-LINER-01",
+  "nama": "Cylinder liner silinder 1 (flens atas duduk di counterbore blok, di bawah deck 0.620; pita seal)",
+  "rakitan": "CYLINDER_LINER",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": [
+   {
+    "id": "D02",
+    "locator": "hlm. 1 Bore x Stroke (170 x 215 mm HD)"
+   },
+   {
+    "id": "D05",
+    "locator": "SPECIFICATIONS FOR 3512C HD"
+   }
+  ],
+  "alasan": "Diameter dalam = bore (DOCUMENTED). Jenis basah/kering, tebal, panjang, flens tidak ada bukti; ditandai ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter_dalam": 0.17,
+   "diameter_luar": 0.194,
+   "flens_d": 0.214,
+   "a_range": [
+    0.33,
+    0.6197
+   ],
+   "flens_a_range": [
+    0.598,
+    0.6197
+   ],
+   "pita_seal_a": [
+    0.37,
+    0.378
+   ]
+  },
+  "catatan": "Origin = sumbu crank pada bidang silinder; geometri sepanjang +Y lokal (sumbu bank)."
+ },
+ {
+  "id": "INT-LINER-02",
+  "nama": "Cylinder liner silinder 2 (flens atas duduk di counterbore blok, di bawah deck 0.620; pita seal)",
+  "rakitan": "CYLINDER_LINER",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": [
+   {
+    "id": "D02",
+    "locator": "hlm. 1 Bore x Stroke (170 x 215 mm HD)"
+   },
+   {
+    "id": "D05",
+    "locator": "SPECIFICATIONS FOR 3512C HD"
+   }
+  ],
+  "alasan": "Diameter dalam = bore (DOCUMENTED). Jenis basah/kering, tebal, panjang, flens tidak ada bukti; ditandai ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter_dalam": 0.17,
+   "diameter_luar": 0.194,
+   "flens_d": 0.214,
+   "a_range": [
+    0.33,
+    0.6197
+   ],
+   "flens_a_range": [
+    0.598,
+    0.6197
+   ],
+   "pita_seal_a": [
+    0.37,
+    0.378
+   ]
+  },
+  "catatan": "Origin = sumbu crank pada bidang silinder; geometri sepanjang +Y lokal (sumbu bank)."
+ },
+ {
+  "id": "INT-LINER-03",
+  "nama": "Cylinder liner silinder 3 (flens atas duduk di counterbore blok, di bawah deck 0.620; pita seal)",
+  "rakitan": "CYLINDER_LINER",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": [
+   {
+    "id": "D02",
+    "locator": "hlm. 1 Bore x Stroke (170 x 215 mm HD)"
+   },
+   {
+    "id": "D05",
+    "locator": "SPECIFICATIONS FOR 3512C HD"
+   }
+  ],
+  "alasan": "Diameter dalam = bore (DOCUMENTED). Jenis basah/kering, tebal, panjang, flens tidak ada bukti; ditandai ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter_dalam": 0.17,
+   "diameter_luar": 0.194,
+   "flens_d": 0.214,
+   "a_range": [
+    0.33,
+    0.6197
+   ],
+   "flens_a_range": [
+    0.598,
+    0.6197
+   ],
+   "pita_seal_a": [
+    0.37,
+    0.378
+   ]
+  },
+  "catatan": "Origin = sumbu crank pada bidang silinder; geometri sepanjang +Y lokal (sumbu bank)."
+ },
+ {
+  "id": "INT-LINER-04",
+  "nama": "Cylinder liner silinder 4 (flens atas duduk di counterbore blok, di bawah deck 0.620; pita seal)",
+  "rakitan": "CYLINDER_LINER",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": [
+   {
+    "id": "D02",
+    "locator": "hlm. 1 Bore x Stroke (170 x 215 mm HD)"
+   },
+   {
+    "id": "D05",
+    "locator": "SPECIFICATIONS FOR 3512C HD"
+   }
+  ],
+  "alasan": "Diameter dalam = bore (DOCUMENTED). Jenis basah/kering, tebal, panjang, flens tidak ada bukti; ditandai ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter_dalam": 0.17,
+   "diameter_luar": 0.194,
+   "flens_d": 0.214,
+   "a_range": [
+    0.33,
+    0.6197
+   ],
+   "flens_a_range": [
+    0.598,
+    0.6197
+   ],
+   "pita_seal_a": [
+    0.37,
+    0.378
+   ]
+  },
+  "catatan": "Origin = sumbu crank pada bidang silinder; geometri sepanjang +Y lokal (sumbu bank)."
+ },
+ {
+  "id": "INT-LINER-05",
+  "nama": "Cylinder liner silinder 5 (flens atas duduk di counterbore blok, di bawah deck 0.620; pita seal)",
+  "rakitan": "CYLINDER_LINER",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": [
+   {
+    "id": "D02",
+    "locator": "hlm. 1 Bore x Stroke (170 x 215 mm HD)"
+   },
+   {
+    "id": "D05",
+    "locator": "SPECIFICATIONS FOR 3512C HD"
+   }
+  ],
+  "alasan": "Diameter dalam = bore (DOCUMENTED). Jenis basah/kering, tebal, panjang, flens tidak ada bukti; ditandai ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter_dalam": 0.17,
+   "diameter_luar": 0.194,
+   "flens_d": 0.214,
+   "a_range": [
+    0.33,
+    0.6197
+   ],
+   "flens_a_range": [
+    0.598,
+    0.6197
+   ],
+   "pita_seal_a": [
+    0.37,
+    0.378
+   ]
+  },
+  "catatan": "Origin = sumbu crank pada bidang silinder; geometri sepanjang +Y lokal (sumbu bank)."
+ },
+ {
+  "id": "INT-LINER-06",
+  "nama": "Cylinder liner silinder 6 (flens atas duduk di counterbore blok, di bawah deck 0.620; pita seal)",
+  "rakitan": "CYLINDER_LINER",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": [
+   {
+    "id": "D02",
+    "locator": "hlm. 1 Bore x Stroke (170 x 215 mm HD)"
+   },
+   {
+    "id": "D05",
+    "locator": "SPECIFICATIONS FOR 3512C HD"
+   }
+  ],
+  "alasan": "Diameter dalam = bore (DOCUMENTED). Jenis basah/kering, tebal, panjang, flens tidak ada bukti; ditandai ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter_dalam": 0.17,
+   "diameter_luar": 0.194,
+   "flens_d": 0.214,
+   "a_range": [
+    0.33,
+    0.6197
+   ],
+   "flens_a_range": [
+    0.598,
+    0.6197
+   ],
+   "pita_seal_a": [
+    0.37,
+    0.378
+   ]
+  },
+  "catatan": "Origin = sumbu crank pada bidang silinder; geometri sepanjang +Y lokal (sumbu bank)."
+ },
+ {
+  "id": "INT-LINER-07",
+  "nama": "Cylinder liner silinder 7 (flens atas duduk di counterbore blok, di bawah deck 0.620; pita seal)",
+  "rakitan": "CYLINDER_LINER",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": [
+   {
+    "id": "D02",
+    "locator": "hlm. 1 Bore x Stroke (170 x 215 mm HD)"
+   },
+   {
+    "id": "D05",
+    "locator": "SPECIFICATIONS FOR 3512C HD"
+   }
+  ],
+  "alasan": "Diameter dalam = bore (DOCUMENTED). Jenis basah/kering, tebal, panjang, flens tidak ada bukti; ditandai ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter_dalam": 0.17,
+   "diameter_luar": 0.194,
+   "flens_d": 0.214,
+   "a_range": [
+    0.33,
+    0.6197
+   ],
+   "flens_a_range": [
+    0.598,
+    0.6197
+   ],
+   "pita_seal_a": [
+    0.37,
+    0.378
+   ]
+  },
+  "catatan": "Origin = sumbu crank pada bidang silinder; geometri sepanjang +Y lokal (sumbu bank)."
+ },
+ {
+  "id": "INT-LINER-08",
+  "nama": "Cylinder liner silinder 8 (flens atas duduk di counterbore blok, di bawah deck 0.620; pita seal)",
+  "rakitan": "CYLINDER_LINER",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": [
+   {
+    "id": "D02",
+    "locator": "hlm. 1 Bore x Stroke (170 x 215 mm HD)"
+   },
+   {
+    "id": "D05",
+    "locator": "SPECIFICATIONS FOR 3512C HD"
+   }
+  ],
+  "alasan": "Diameter dalam = bore (DOCUMENTED). Jenis basah/kering, tebal, panjang, flens tidak ada bukti; ditandai ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter_dalam": 0.17,
+   "diameter_luar": 0.194,
+   "flens_d": 0.214,
+   "a_range": [
+    0.33,
+    0.6197
+   ],
+   "flens_a_range": [
+    0.598,
+    0.6197
+   ],
+   "pita_seal_a": [
+    0.37,
+    0.378
+   ]
+  },
+  "catatan": "Origin = sumbu crank pada bidang silinder; geometri sepanjang +Y lokal (sumbu bank)."
+ },
+ {
+  "id": "INT-LINER-09",
+  "nama": "Cylinder liner silinder 9 (flens atas duduk di counterbore blok, di bawah deck 0.620; pita seal)",
+  "rakitan": "CYLINDER_LINER",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": [
+   {
+    "id": "D02",
+    "locator": "hlm. 1 Bore x Stroke (170 x 215 mm HD)"
+   },
+   {
+    "id": "D05",
+    "locator": "SPECIFICATIONS FOR 3512C HD"
+   }
+  ],
+  "alasan": "Diameter dalam = bore (DOCUMENTED). Jenis basah/kering, tebal, panjang, flens tidak ada bukti; ditandai ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter_dalam": 0.17,
+   "diameter_luar": 0.194,
+   "flens_d": 0.214,
+   "a_range": [
+    0.33,
+    0.6197
+   ],
+   "flens_a_range": [
+    0.598,
+    0.6197
+   ],
+   "pita_seal_a": [
+    0.37,
+    0.378
+   ]
+  },
+  "catatan": "Origin = sumbu crank pada bidang silinder; geometri sepanjang +Y lokal (sumbu bank)."
+ },
+ {
+  "id": "INT-LINER-10",
+  "nama": "Cylinder liner silinder 10 (flens atas duduk di counterbore blok, di bawah deck 0.620; pita seal)",
+  "rakitan": "CYLINDER_LINER",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": [
+   {
+    "id": "D02",
+    "locator": "hlm. 1 Bore x Stroke (170 x 215 mm HD)"
+   },
+   {
+    "id": "D05",
+    "locator": "SPECIFICATIONS FOR 3512C HD"
+   }
+  ],
+  "alasan": "Diameter dalam = bore (DOCUMENTED). Jenis basah/kering, tebal, panjang, flens tidak ada bukti; ditandai ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter_dalam": 0.17,
+   "diameter_luar": 0.194,
+   "flens_d": 0.214,
+   "a_range": [
+    0.33,
+    0.6197
+   ],
+   "flens_a_range": [
+    0.598,
+    0.6197
+   ],
+   "pita_seal_a": [
+    0.37,
+    0.378
+   ]
+  },
+  "catatan": "Origin = sumbu crank pada bidang silinder; geometri sepanjang +Y lokal (sumbu bank)."
+ },
+ {
+  "id": "INT-LINER-11",
+  "nama": "Cylinder liner silinder 11 (flens atas duduk di counterbore blok, di bawah deck 0.620; pita seal)",
+  "rakitan": "CYLINDER_LINER",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": [
+   {
+    "id": "D02",
+    "locator": "hlm. 1 Bore x Stroke (170 x 215 mm HD)"
+   },
+   {
+    "id": "D05",
+    "locator": "SPECIFICATIONS FOR 3512C HD"
+   }
+  ],
+  "alasan": "Diameter dalam = bore (DOCUMENTED). Jenis basah/kering, tebal, panjang, flens tidak ada bukti; ditandai ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter_dalam": 0.17,
+   "diameter_luar": 0.194,
+   "flens_d": 0.214,
+   "a_range": [
+    0.33,
+    0.6197
+   ],
+   "flens_a_range": [
+    0.598,
+    0.6197
+   ],
+   "pita_seal_a": [
+    0.37,
+    0.378
+   ]
+  },
+  "catatan": "Origin = sumbu crank pada bidang silinder; geometri sepanjang +Y lokal (sumbu bank)."
+ },
+ {
+  "id": "INT-LINER-12",
+  "nama": "Cylinder liner silinder 12 (flens atas duduk di counterbore blok, di bawah deck 0.620; pita seal)",
+  "rakitan": "CYLINDER_LINER",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": [
+   {
+    "id": "D02",
+    "locator": "hlm. 1 Bore x Stroke (170 x 215 mm HD)"
+   },
+   {
+    "id": "D05",
+    "locator": "SPECIFICATIONS FOR 3512C HD"
+   }
+  ],
+  "alasan": "Diameter dalam = bore (DOCUMENTED). Jenis basah/kering, tebal, panjang, flens tidak ada bukti; ditandai ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter_dalam": 0.17,
+   "diameter_luar": 0.194,
+   "flens_d": 0.214,
+   "a_range": [
+    0.33,
+    0.6197
+   ],
+   "flens_a_range": [
+    0.598,
+    0.6197
+   ],
+   "pita_seal_a": [
+    0.37,
+    0.378
+   ]
+  },
+  "catatan": "Origin = sumbu crank pada bidang silinder; geometri sepanjang +Y lokal (sumbu bank)."
+ },
+ {
+  "id": "INT-CAM-R",
+  "nama": "Camshaft bank kanan (18 lobe: inlet, exhaust, unit injector per silinder; 7 journal)",
+  "rakitan": "CAMSHAFT",
+  "jumlah": 1,
+  "status": "INFERRED",
+  "sumber": [
+   {
+    "id": "D05",
+    "locator": "teks \"Dual camshafts\""
+   }
+  ],
+  "alasan": "Dua camshaft DOCUMENTED (D05); satu per bank di blok INFERRED. Posisi (a=0.29, t=0.155 dari sumbu bank, sisi luar; di bawah rusuk blok exterior), profil lobe, fase lobe ILLUSTRATIVE. Lobe injector INFERRED dari unit injector mekanis-elektronik (D02).",
+  "ukuran_utama_m": {
+   "base_circle_r": 0.035,
+   "lift_katup": 0.01,
+   "lift_injector": 0.008,
+   "journal_d": 0.096,
+   "x_range": [
+    -0.0145,
+    1.718
+   ]
+  },
+  "catatan": "Origin pada sumbu cam di x=0; berputar mengitari sumbu -X (searah crank, ILLUSTRATIVE) pada 1/2 putaran crank."
+ },
+ {
+  "id": "INT-GEAR-R-CAM-R",
+  "nama": "Camshaft gear bank kanan (72 gigi)",
+  "rakitan": "GEAR_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Gear train dan lokasinya (belakang) tidak terbukti; jumlah gigi dipilih agar rasio 2:1 dengan crank gear 36 gigi.",
+  "ukuran_utama_m": {
+   "diameter_pitch": 0.252,
+   "lebar": 0.0125,
+   "x_range": [
+    -0.0145,
+    -0.002
+   ]
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-CAM-L",
+  "nama": "Camshaft bank kiri (18 lobe: inlet, exhaust, unit injector per silinder; 7 journal)",
+  "rakitan": "CAMSHAFT",
+  "jumlah": 1,
+  "status": "INFERRED",
+  "sumber": [
+   {
+    "id": "D05",
+    "locator": "teks \"Dual camshafts\""
+   }
+  ],
+  "alasan": "Dua camshaft DOCUMENTED (D05); satu per bank di blok INFERRED. Posisi (a=0.29, t=0.155 dari sumbu bank, sisi luar; di bawah rusuk blok exterior), profil lobe, fase lobe ILLUSTRATIVE. Lobe injector INFERRED dari unit injector mekanis-elektronik (D02).",
+  "ukuran_utama_m": {
+   "base_circle_r": 0.035,
+   "lift_katup": 0.01,
+   "lift_injector": 0.008,
+   "journal_d": 0.096,
+   "x_range": [
+    -0.0145,
+    1.653
+   ]
+  },
+  "catatan": "Origin pada sumbu cam di x=0; berputar mengitari sumbu -X (searah crank, ILLUSTRATIVE) pada 1/2 putaran crank."
+ },
+ {
+  "id": "INT-GEAR-R-CAM-L",
+  "nama": "Camshaft gear bank kiri (72 gigi)",
+  "rakitan": "GEAR_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Gear train dan lokasinya (belakang) tidak terbukti; jumlah gigi dipilih agar rasio 2:1 dengan crank gear 36 gigi.",
+  "ukuran_utama_m": {
+   "diameter_pitch": 0.252,
+   "lebar": 0.0125,
+   "x_range": [
+    -0.0145,
+    -0.002
+   ]
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-GEAR-R-CRANK",
+  "nama": "Crankshaft gear belakang (36 gigi)",
+  "rakitan": "GEAR_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Gear train tidak terbukti di dokumen terbuka.",
+  "ukuran_utama_m": {
+   "diameter_pitch": 0.126
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-GEAR-F-CRANK",
+  "nama": "Crankshaft gear depan (36 gigi, penggerak pompa oli)",
+  "rakitan": "GEAR_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Gear train depan tidak terbukti; D03 menyebut front housing dua sisi untuk accessory drive.",
+  "ukuran_utama_m": {
+   "diameter_pitch": 0.1692
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-GEAR-R-IDLER-R",
+  "nama": "Idler gear belakang bank kanan (44 gigi)",
+  "rakitan": "GEAR_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Gear train tidak terbukti; idler ditempatkan agar crank gear dan cam gear bersinggungan di lingkaran pitch.",
+  "ukuran_utama_m": {
+   "diameter_pitch": 0.154
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-GEAR-R-IDLER-L",
+  "nama": "Idler gear belakang bank kiri (44 gigi)",
+  "rakitan": "GEAR_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Gear train tidak terbukti; idler ditempatkan agar crank gear dan cam gear bersinggungan di lingkaran pitch.",
+  "ukuran_utama_m": {
+   "diameter_pitch": 0.154
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-GEAR-F-OILPUMP",
+  "nama": "Oil pump drive gear (26 gigi)",
+  "rakitan": "OIL_PUMP",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Penggerak pompa tidak tertulis; ditempatkan bersinggungan dengan crank gear depan.",
+  "ukuran_utama_m": {
+   "diameter_pitch": 0.1222
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-OILPUMP-GEAR1",
+  "nama": "Oil pump driving gear (12 gigi, spur)",
+  "rakitan": "OIL_PUMP",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": [
+   {
+    "id": "D03",
+    "locator": "hlm. 1 Lube System \"gear-type oil pump\""
+   }
+  ],
+  "alasan": "Jenis gear pump DOCUMENTED; ukuran, jumlah gigi, posisi ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter_luar": 0.091,
+   "lebar": 0.05
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-OILPUMP-GEAR2",
+  "nama": "Oil pump driven gear (12 gigi, spur)",
+  "rakitan": "OIL_PUMP",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": [
+   {
+    "id": "D03",
+    "locator": "hlm. 1 Lube System \"gear-type oil pump\""
+   }
+  ],
+  "alasan": "Jenis gear pump DOCUMENTED; ukuran, jumlah gigi, posisi ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter_luar": 0.091,
+   "lebar": 0.05
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-OILPUMP-HSG",
+  "nama": "Oil pump housing dengan pipa hisap dan suction bell (strainer)",
+  "rakitan": "OIL_PUMP",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": [
+   {
+    "id": "D03",
+    "locator": "hlm. 1 Lube System \"gear-type oil pump\""
+   }
+  ],
+  "alasan": "Posisi pompa (depan bawah di dalam oil pan) dan bentuk tidak tertulis; pipa hisap ke Y -0.715 (di atas dasar pan -0.805).",
+  "ukuran_utama_m": {
+   "x_range": [
+    1.725,
+    1.8
+   ],
+   "y_range": [
+    -0.242,
+    -0.088
+   ]
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-ROCKSHAFT-01",
+  "nama": "Rocker shaft dan pedestal silinder 1",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Susunan valve train pushrod (cam di blok) INFERRED; bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter": 0.024,
+   "panjang": 0.13
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-TAPPET-01-IN",
+  "nama": "Roller follower (tappet) IN silinder 1",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jenis follower (roller) tidak terbukti; lazim pada cam di blok. Posisi mengikuti lobe.",
+  "ukuran_utama_m": {
+   "diameter": 0.03,
+   "panjang": 0.07,
+   "roller_d": 0.028
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-ROCKER-01-IN",
+  "nama": "Rocker arm IN silinder 1",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Rocker arm untuk katup/injector INFERRED dari cam di blok; rasio dan bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "rasio": 1.2,
+   "panjang": 0.13
+  },
+  "catatan": "Origin = pusat rocker shaft; berputar mengitari X lokal."
+ },
+ {
+  "id": "INT-PUSHROD-01-IN",
+  "nama": "Push rod IN silinder 1",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Push rod INFERRED dari camshaft di blok + katup di kepala; panjang mengikuti tata letak model.",
+  "ukuran_utama_m": {
+   "diameter": 0.013,
+   "panjang": 0.3985
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-BRIDGE-01-IN",
+  "nama": "Valve bridge IN silinder 1",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Bridge untuk 2 katup sejenis INFERRED dari 4 katup per silinder; bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "panjang": 0.092
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-KATUP-01-IN1",
+  "nama": "Katup inlet 1 silinder 1",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "INFERRED",
+  "sumber": [
+   {
+    "id": "D06",
+    "locator": "hlm. 140026 4 katup per silinder (3512 awal)"
+   }
+  ],
+  "alasan": "4 katup per silinder INFERRED dari D06; diameter kepala 0.058 dan susunan (inlet belakang, exhaust depan) ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter_kepala": 0.058,
+   "panjang": 0.169
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-RETAINER-01-IN1",
+  "nama": "Valve spring retainer dan keeper IN1 silinder 1",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter": 0.042
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-PEGAS-01-IN1",
+  "nama": "Pegas katup (valve spring) IN1 silinder 1",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah pegas per katup dan ukuran tidak terbukti.",
+  "ukuran_utama_m": {
+   "diameter_luar": 0.0386,
+   "panjang_terpasang": 0.065
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-KATUP-01-IN2",
+  "nama": "Katup inlet 2 silinder 1",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "INFERRED",
+  "sumber": [
+   {
+    "id": "D06",
+    "locator": "hlm. 140026 4 katup per silinder (3512 awal)"
+   }
+  ],
+  "alasan": "4 katup per silinder INFERRED dari D06; diameter kepala 0.058 dan susunan (inlet belakang, exhaust depan) ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter_kepala": 0.058,
+   "panjang": 0.169
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-RETAINER-01-IN2",
+  "nama": "Valve spring retainer dan keeper IN2 silinder 1",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter": 0.042
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-PEGAS-01-IN2",
+  "nama": "Pegas katup (valve spring) IN2 silinder 1",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah pegas per katup dan ukuran tidak terbukti.",
+  "ukuran_utama_m": {
+   "diameter_luar": 0.0386,
+   "panjang_terpasang": 0.065
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-TAPPET-01-INJ",
+  "nama": "Roller follower (tappet) INJ silinder 1",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jenis follower (roller) tidak terbukti; lazim pada cam di blok. Posisi mengikuti lobe.",
+  "ukuran_utama_m": {
+   "diameter": 0.03,
+   "panjang": 0.07,
+   "roller_d": 0.028
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-ROCKER-01-INJ",
+  "nama": "Rocker arm INJ silinder 1",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Rocker arm untuk katup/injector INFERRED dari cam di blok; rasio dan bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "rasio": 1.2,
+   "panjang": 0.13
+  },
+  "catatan": "Origin = pusat rocker shaft; berputar mengitari X lokal."
+ },
+ {
+  "id": "INT-PUSHROD-01-INJ",
+  "nama": "Push rod INJ silinder 1",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Push rod INFERRED dari camshaft di blok + katup di kepala; panjang mengikuti tata letak model.",
+  "ukuran_utama_m": {
+   "diameter": 0.013,
+   "panjang": 0.3984
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-INJ-01",
+  "nama": "Electronic unit injector (EUI) silinder 1",
+  "rakitan": "INJECTOR",
+  "jumlah": 1,
+  "status": "INFERRED",
+  "sumber": [
+   {
+    "id": "D02",
+    "locator": "hlm. 1 \"electronic unit injectors\""
+   },
+   {
+    "id": "D03",
+    "locator": "hlm. 1 Fuel System \"Electronically controlled unit injectors\""
+   }
+  ],
+  "alasan": "Jenis unit injector DOCUMENTED; letak di tengah kepala di antara 4 katup INFERRED; bentuk dan ukuran ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter_badan": 0.032,
+   "panjang": 0.218,
+   "ujung_nozzle_a": 0.612
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-INJ-01-SOL",
+  "nama": "Solenoid/konektor unit injector silinder 1",
+  "rakitan": "INJECTOR",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Bentuk dan letak solenoid tidak tertulis.",
+  "ukuran_utama_m": {
+   "ukuran": [
+    0.016,
+    0.034,
+    0.04
+   ]
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-INJ-01-PLUNGER",
+  "nama": "Tappet/plunger dan pegas unit injector silinder 1",
+  "rakitan": "INJECTOR",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Aktuasi injector oleh cam lewat rocker INFERRED; bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "langkah_maks": 0.0096
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-TAPPET-01-EX",
+  "nama": "Roller follower (tappet) EX silinder 1",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jenis follower (roller) tidak terbukti; lazim pada cam di blok. Posisi mengikuti lobe.",
+  "ukuran_utama_m": {
+   "diameter": 0.03,
+   "panjang": 0.07,
+   "roller_d": 0.028
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-ROCKER-01-EX",
+  "nama": "Rocker arm EX silinder 1",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Rocker arm untuk katup/injector INFERRED dari cam di blok; rasio dan bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "rasio": 1.2,
+   "panjang": 0.13
+  },
+  "catatan": "Origin = pusat rocker shaft; berputar mengitari X lokal."
+ },
+ {
+  "id": "INT-PUSHROD-01-EX",
+  "nama": "Push rod EX silinder 1",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Push rod INFERRED dari camshaft di blok + katup di kepala; panjang mengikuti tata letak model.",
+  "ukuran_utama_m": {
+   "diameter": 0.013,
+   "panjang": 0.3985
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-BRIDGE-01-EX",
+  "nama": "Valve bridge EX silinder 1",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Bridge untuk 2 katup sejenis INFERRED dari 4 katup per silinder; bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "panjang": 0.092
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-KATUP-01-EX1",
+  "nama": "Katup exhaust 1 silinder 1",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "INFERRED",
+  "sumber": [
+   {
+    "id": "D06",
+    "locator": "hlm. 140026 4 katup per silinder (3512 awal)"
+   }
+  ],
+  "alasan": "4 katup per silinder INFERRED dari D06; diameter kepala 0.058 dan susunan (inlet belakang, exhaust depan) ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter_kepala": 0.058,
+   "panjang": 0.169
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-RETAINER-01-EX1",
+  "nama": "Valve spring retainer dan keeper EX1 silinder 1",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter": 0.042
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-PEGAS-01-EX1",
+  "nama": "Pegas katup (valve spring) EX1 silinder 1",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah pegas per katup dan ukuran tidak terbukti.",
+  "ukuran_utama_m": {
+   "diameter_luar": 0.0386,
+   "panjang_terpasang": 0.065
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-KATUP-01-EX2",
+  "nama": "Katup exhaust 2 silinder 1",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "INFERRED",
+  "sumber": [
+   {
+    "id": "D06",
+    "locator": "hlm. 140026 4 katup per silinder (3512 awal)"
+   }
+  ],
+  "alasan": "4 katup per silinder INFERRED dari D06; diameter kepala 0.058 dan susunan (inlet belakang, exhaust depan) ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter_kepala": 0.058,
+   "panjang": 0.169
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-RETAINER-01-EX2",
+  "nama": "Valve spring retainer dan keeper EX2 silinder 1",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter": 0.042
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-PEGAS-01-EX2",
+  "nama": "Pegas katup (valve spring) EX2 silinder 1",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah pegas per katup dan ukuran tidak terbukti.",
+  "ukuran_utama_m": {
+   "diameter_luar": 0.0386,
+   "panjang_terpasang": 0.065
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-ROCKSHAFT-02",
+  "nama": "Rocker shaft dan pedestal silinder 2",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Susunan valve train pushrod (cam di blok) INFERRED; bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter": 0.024,
+   "panjang": 0.13
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-TAPPET-02-IN",
+  "nama": "Roller follower (tappet) IN silinder 2",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jenis follower (roller) tidak terbukti; lazim pada cam di blok. Posisi mengikuti lobe.",
+  "ukuran_utama_m": {
+   "diameter": 0.03,
+   "panjang": 0.07,
+   "roller_d": 0.028
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-ROCKER-02-IN",
+  "nama": "Rocker arm IN silinder 2",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Rocker arm untuk katup/injector INFERRED dari cam di blok; rasio dan bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "rasio": 1.2,
+   "panjang": 0.13
+  },
+  "catatan": "Origin = pusat rocker shaft; berputar mengitari X lokal."
+ },
+ {
+  "id": "INT-PUSHROD-02-IN",
+  "nama": "Push rod IN silinder 2",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Push rod INFERRED dari camshaft di blok + katup di kepala; panjang mengikuti tata letak model.",
+  "ukuran_utama_m": {
+   "diameter": 0.013,
+   "panjang": 0.3985
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-BRIDGE-02-IN",
+  "nama": "Valve bridge IN silinder 2",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Bridge untuk 2 katup sejenis INFERRED dari 4 katup per silinder; bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "panjang": 0.092
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-KATUP-02-IN1",
+  "nama": "Katup inlet 1 silinder 2",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "INFERRED",
+  "sumber": [
+   {
+    "id": "D06",
+    "locator": "hlm. 140026 4 katup per silinder (3512 awal)"
+   }
+  ],
+  "alasan": "4 katup per silinder INFERRED dari D06; diameter kepala 0.058 dan susunan (inlet belakang, exhaust depan) ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter_kepala": 0.058,
+   "panjang": 0.169
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-RETAINER-02-IN1",
+  "nama": "Valve spring retainer dan keeper IN1 silinder 2",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter": 0.042
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-PEGAS-02-IN1",
+  "nama": "Pegas katup (valve spring) IN1 silinder 2",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah pegas per katup dan ukuran tidak terbukti.",
+  "ukuran_utama_m": {
+   "diameter_luar": 0.0386,
+   "panjang_terpasang": 0.065
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-KATUP-02-IN2",
+  "nama": "Katup inlet 2 silinder 2",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "INFERRED",
+  "sumber": [
+   {
+    "id": "D06",
+    "locator": "hlm. 140026 4 katup per silinder (3512 awal)"
+   }
+  ],
+  "alasan": "4 katup per silinder INFERRED dari D06; diameter kepala 0.058 dan susunan (inlet belakang, exhaust depan) ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter_kepala": 0.058,
+   "panjang": 0.169
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-RETAINER-02-IN2",
+  "nama": "Valve spring retainer dan keeper IN2 silinder 2",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter": 0.042
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-PEGAS-02-IN2",
+  "nama": "Pegas katup (valve spring) IN2 silinder 2",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah pegas per katup dan ukuran tidak terbukti.",
+  "ukuran_utama_m": {
+   "diameter_luar": 0.0386,
+   "panjang_terpasang": 0.065
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-TAPPET-02-INJ",
+  "nama": "Roller follower (tappet) INJ silinder 2",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jenis follower (roller) tidak terbukti; lazim pada cam di blok. Posisi mengikuti lobe.",
+  "ukuran_utama_m": {
+   "diameter": 0.03,
+   "panjang": 0.07,
+   "roller_d": 0.028
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-ROCKER-02-INJ",
+  "nama": "Rocker arm INJ silinder 2",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Rocker arm untuk katup/injector INFERRED dari cam di blok; rasio dan bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "rasio": 1.2,
+   "panjang": 0.13
+  },
+  "catatan": "Origin = pusat rocker shaft; berputar mengitari X lokal."
+ },
+ {
+  "id": "INT-PUSHROD-02-INJ",
+  "nama": "Push rod INJ silinder 2",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Push rod INFERRED dari camshaft di blok + katup di kepala; panjang mengikuti tata letak model.",
+  "ukuran_utama_m": {
+   "diameter": 0.013,
+   "panjang": 0.3985
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-INJ-02",
+  "nama": "Electronic unit injector (EUI) silinder 2",
+  "rakitan": "INJECTOR",
+  "jumlah": 1,
+  "status": "INFERRED",
+  "sumber": [
+   {
+    "id": "D02",
+    "locator": "hlm. 1 \"electronic unit injectors\""
+   },
+   {
+    "id": "D03",
+    "locator": "hlm. 1 Fuel System \"Electronically controlled unit injectors\""
+   }
+  ],
+  "alasan": "Jenis unit injector DOCUMENTED; letak di tengah kepala di antara 4 katup INFERRED; bentuk dan ukuran ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter_badan": 0.032,
+   "panjang": 0.218,
+   "ujung_nozzle_a": 0.612
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-INJ-02-SOL",
+  "nama": "Solenoid/konektor unit injector silinder 2",
+  "rakitan": "INJECTOR",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Bentuk dan letak solenoid tidak tertulis.",
+  "ukuran_utama_m": {
+   "ukuran": [
+    0.016,
+    0.034,
+    0.04
+   ]
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-INJ-02-PLUNGER",
+  "nama": "Tappet/plunger dan pegas unit injector silinder 2",
+  "rakitan": "INJECTOR",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Aktuasi injector oleh cam lewat rocker INFERRED; bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "langkah_maks": 0.0096
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-TAPPET-02-EX",
+  "nama": "Roller follower (tappet) EX silinder 2",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jenis follower (roller) tidak terbukti; lazim pada cam di blok. Posisi mengikuti lobe.",
+  "ukuran_utama_m": {
+   "diameter": 0.03,
+   "panjang": 0.07,
+   "roller_d": 0.028
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-ROCKER-02-EX",
+  "nama": "Rocker arm EX silinder 2",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Rocker arm untuk katup/injector INFERRED dari cam di blok; rasio dan bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "rasio": 1.2,
+   "panjang": 0.13
+  },
+  "catatan": "Origin = pusat rocker shaft; berputar mengitari X lokal."
+ },
+ {
+  "id": "INT-PUSHROD-02-EX",
+  "nama": "Push rod EX silinder 2",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Push rod INFERRED dari camshaft di blok + katup di kepala; panjang mengikuti tata letak model.",
+  "ukuran_utama_m": {
+   "diameter": 0.013,
+   "panjang": 0.3984
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-BRIDGE-02-EX",
+  "nama": "Valve bridge EX silinder 2",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Bridge untuk 2 katup sejenis INFERRED dari 4 katup per silinder; bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "panjang": 0.092
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-KATUP-02-EX1",
+  "nama": "Katup exhaust 1 silinder 2",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "INFERRED",
+  "sumber": [
+   {
+    "id": "D06",
+    "locator": "hlm. 140026 4 katup per silinder (3512 awal)"
+   }
+  ],
+  "alasan": "4 katup per silinder INFERRED dari D06; diameter kepala 0.058 dan susunan (inlet belakang, exhaust depan) ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter_kepala": 0.058,
+   "panjang": 0.169
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-RETAINER-02-EX1",
+  "nama": "Valve spring retainer dan keeper EX1 silinder 2",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter": 0.042
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-PEGAS-02-EX1",
+  "nama": "Pegas katup (valve spring) EX1 silinder 2",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah pegas per katup dan ukuran tidak terbukti.",
+  "ukuran_utama_m": {
+   "diameter_luar": 0.0386,
+   "panjang_terpasang": 0.0576
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-KATUP-02-EX2",
+  "nama": "Katup exhaust 2 silinder 2",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "INFERRED",
+  "sumber": [
+   {
+    "id": "D06",
+    "locator": "hlm. 140026 4 katup per silinder (3512 awal)"
+   }
+  ],
+  "alasan": "4 katup per silinder INFERRED dari D06; diameter kepala 0.058 dan susunan (inlet belakang, exhaust depan) ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter_kepala": 0.058,
+   "panjang": 0.169
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-RETAINER-02-EX2",
+  "nama": "Valve spring retainer dan keeper EX2 silinder 2",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter": 0.042
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-PEGAS-02-EX2",
+  "nama": "Pegas katup (valve spring) EX2 silinder 2",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah pegas per katup dan ukuran tidak terbukti.",
+  "ukuran_utama_m": {
+   "diameter_luar": 0.0386,
+   "panjang_terpasang": 0.0576
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-ROCKSHAFT-03",
+  "nama": "Rocker shaft dan pedestal silinder 3",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Susunan valve train pushrod (cam di blok) INFERRED; bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter": 0.024,
+   "panjang": 0.13
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-TAPPET-03-IN",
+  "nama": "Roller follower (tappet) IN silinder 3",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jenis follower (roller) tidak terbukti; lazim pada cam di blok. Posisi mengikuti lobe.",
+  "ukuran_utama_m": {
+   "diameter": 0.03,
+   "panjang": 0.07,
+   "roller_d": 0.028
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-ROCKER-03-IN",
+  "nama": "Rocker arm IN silinder 3",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Rocker arm untuk katup/injector INFERRED dari cam di blok; rasio dan bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "rasio": 1.2,
+   "panjang": 0.13
+  },
+  "catatan": "Origin = pusat rocker shaft; berputar mengitari X lokal."
+ },
+ {
+  "id": "INT-PUSHROD-03-IN",
+  "nama": "Push rod IN silinder 3",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Push rod INFERRED dari camshaft di blok + katup di kepala; panjang mengikuti tata letak model.",
+  "ukuran_utama_m": {
+   "diameter": 0.013,
+   "panjang": 0.3985
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-BRIDGE-03-IN",
+  "nama": "Valve bridge IN silinder 3",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Bridge untuk 2 katup sejenis INFERRED dari 4 katup per silinder; bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "panjang": 0.092
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-KATUP-03-IN1",
+  "nama": "Katup inlet 1 silinder 3",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "INFERRED",
+  "sumber": [
+   {
+    "id": "D06",
+    "locator": "hlm. 140026 4 katup per silinder (3512 awal)"
+   }
+  ],
+  "alasan": "4 katup per silinder INFERRED dari D06; diameter kepala 0.058 dan susunan (inlet belakang, exhaust depan) ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter_kepala": 0.058,
+   "panjang": 0.169
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-RETAINER-03-IN1",
+  "nama": "Valve spring retainer dan keeper IN1 silinder 3",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter": 0.042
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-PEGAS-03-IN1",
+  "nama": "Pegas katup (valve spring) IN1 silinder 3",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah pegas per katup dan ukuran tidak terbukti.",
+  "ukuran_utama_m": {
+   "diameter_luar": 0.0386,
+   "panjang_terpasang": 0.065
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-KATUP-03-IN2",
+  "nama": "Katup inlet 2 silinder 3",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "INFERRED",
+  "sumber": [
+   {
+    "id": "D06",
+    "locator": "hlm. 140026 4 katup per silinder (3512 awal)"
+   }
+  ],
+  "alasan": "4 katup per silinder INFERRED dari D06; diameter kepala 0.058 dan susunan (inlet belakang, exhaust depan) ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter_kepala": 0.058,
+   "panjang": 0.169
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-RETAINER-03-IN2",
+  "nama": "Valve spring retainer dan keeper IN2 silinder 3",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter": 0.042
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-PEGAS-03-IN2",
+  "nama": "Pegas katup (valve spring) IN2 silinder 3",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah pegas per katup dan ukuran tidak terbukti.",
+  "ukuran_utama_m": {
+   "diameter_luar": 0.0386,
+   "panjang_terpasang": 0.065
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-TAPPET-03-INJ",
+  "nama": "Roller follower (tappet) INJ silinder 3",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jenis follower (roller) tidak terbukti; lazim pada cam di blok. Posisi mengikuti lobe.",
+  "ukuran_utama_m": {
+   "diameter": 0.03,
+   "panjang": 0.07,
+   "roller_d": 0.028
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-ROCKER-03-INJ",
+  "nama": "Rocker arm INJ silinder 3",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Rocker arm untuk katup/injector INFERRED dari cam di blok; rasio dan bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "rasio": 1.2,
+   "panjang": 0.13
+  },
+  "catatan": "Origin = pusat rocker shaft; berputar mengitari X lokal."
+ },
+ {
+  "id": "INT-PUSHROD-03-INJ",
+  "nama": "Push rod INJ silinder 3",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Push rod INFERRED dari camshaft di blok + katup di kepala; panjang mengikuti tata letak model.",
+  "ukuran_utama_m": {
+   "diameter": 0.013,
+   "panjang": 0.3985
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-INJ-03",
+  "nama": "Electronic unit injector (EUI) silinder 3",
+  "rakitan": "INJECTOR",
+  "jumlah": 1,
+  "status": "INFERRED",
+  "sumber": [
+   {
+    "id": "D02",
+    "locator": "hlm. 1 \"electronic unit injectors\""
+   },
+   {
+    "id": "D03",
+    "locator": "hlm. 1 Fuel System \"Electronically controlled unit injectors\""
+   }
+  ],
+  "alasan": "Jenis unit injector DOCUMENTED; letak di tengah kepala di antara 4 katup INFERRED; bentuk dan ukuran ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter_badan": 0.032,
+   "panjang": 0.218,
+   "ujung_nozzle_a": 0.612
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-INJ-03-SOL",
+  "nama": "Solenoid/konektor unit injector silinder 3",
+  "rakitan": "INJECTOR",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Bentuk dan letak solenoid tidak tertulis.",
+  "ukuran_utama_m": {
+   "ukuran": [
+    0.016,
+    0.034,
+    0.04
+   ]
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-INJ-03-PLUNGER",
+  "nama": "Tappet/plunger dan pegas unit injector silinder 3",
+  "rakitan": "INJECTOR",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Aktuasi injector oleh cam lewat rocker INFERRED; bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "langkah_maks": 0.0096
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-TAPPET-03-EX",
+  "nama": "Roller follower (tappet) EX silinder 3",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jenis follower (roller) tidak terbukti; lazim pada cam di blok. Posisi mengikuti lobe.",
+  "ukuran_utama_m": {
+   "diameter": 0.03,
+   "panjang": 0.07,
+   "roller_d": 0.028
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-ROCKER-03-EX",
+  "nama": "Rocker arm EX silinder 3",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Rocker arm untuk katup/injector INFERRED dari cam di blok; rasio dan bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "rasio": 1.2,
+   "panjang": 0.13
+  },
+  "catatan": "Origin = pusat rocker shaft; berputar mengitari X lokal."
+ },
+ {
+  "id": "INT-PUSHROD-03-EX",
+  "nama": "Push rod EX silinder 3",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Push rod INFERRED dari camshaft di blok + katup di kepala; panjang mengikuti tata letak model.",
+  "ukuran_utama_m": {
+   "diameter": 0.013,
+   "panjang": 0.3985
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-BRIDGE-03-EX",
+  "nama": "Valve bridge EX silinder 3",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Bridge untuk 2 katup sejenis INFERRED dari 4 katup per silinder; bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "panjang": 0.092
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-KATUP-03-EX1",
+  "nama": "Katup exhaust 1 silinder 3",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "INFERRED",
+  "sumber": [
+   {
+    "id": "D06",
+    "locator": "hlm. 140026 4 katup per silinder (3512 awal)"
+   }
+  ],
+  "alasan": "4 katup per silinder INFERRED dari D06; diameter kepala 0.058 dan susunan (inlet belakang, exhaust depan) ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter_kepala": 0.058,
+   "panjang": 0.169
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-RETAINER-03-EX1",
+  "nama": "Valve spring retainer dan keeper EX1 silinder 3",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter": 0.042
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-PEGAS-03-EX1",
+  "nama": "Pegas katup (valve spring) EX1 silinder 3",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah pegas per katup dan ukuran tidak terbukti.",
+  "ukuran_utama_m": {
+   "diameter_luar": 0.0386,
+   "panjang_terpasang": 0.0537
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-KATUP-03-EX2",
+  "nama": "Katup exhaust 2 silinder 3",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "INFERRED",
+  "sumber": [
+   {
+    "id": "D06",
+    "locator": "hlm. 140026 4 katup per silinder (3512 awal)"
+   }
+  ],
+  "alasan": "4 katup per silinder INFERRED dari D06; diameter kepala 0.058 dan susunan (inlet belakang, exhaust depan) ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter_kepala": 0.058,
+   "panjang": 0.169
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-RETAINER-03-EX2",
+  "nama": "Valve spring retainer dan keeper EX2 silinder 3",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter": 0.042
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-PEGAS-03-EX2",
+  "nama": "Pegas katup (valve spring) EX2 silinder 3",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah pegas per katup dan ukuran tidak terbukti.",
+  "ukuran_utama_m": {
+   "diameter_luar": 0.0386,
+   "panjang_terpasang": 0.0537
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-ROCKSHAFT-04",
+  "nama": "Rocker shaft dan pedestal silinder 4",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Susunan valve train pushrod (cam di blok) INFERRED; bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter": 0.024,
+   "panjang": 0.13
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-TAPPET-04-IN",
+  "nama": "Roller follower (tappet) IN silinder 4",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jenis follower (roller) tidak terbukti; lazim pada cam di blok. Posisi mengikuti lobe.",
+  "ukuran_utama_m": {
+   "diameter": 0.03,
+   "panjang": 0.07,
+   "roller_d": 0.028
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-ROCKER-04-IN",
+  "nama": "Rocker arm IN silinder 4",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Rocker arm untuk katup/injector INFERRED dari cam di blok; rasio dan bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "rasio": 1.2,
+   "panjang": 0.13
+  },
+  "catatan": "Origin = pusat rocker shaft; berputar mengitari X lokal."
+ },
+ {
+  "id": "INT-PUSHROD-04-IN",
+  "nama": "Push rod IN silinder 4",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Push rod INFERRED dari camshaft di blok + katup di kepala; panjang mengikuti tata letak model.",
+  "ukuran_utama_m": {
+   "diameter": 0.013,
+   "panjang": 0.3983
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-BRIDGE-04-IN",
+  "nama": "Valve bridge IN silinder 4",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Bridge untuk 2 katup sejenis INFERRED dari 4 katup per silinder; bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "panjang": 0.092
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-KATUP-04-IN1",
+  "nama": "Katup inlet 1 silinder 4",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "INFERRED",
+  "sumber": [
+   {
+    "id": "D06",
+    "locator": "hlm. 140026 4 katup per silinder (3512 awal)"
+   }
+  ],
+  "alasan": "4 katup per silinder INFERRED dari D06; diameter kepala 0.058 dan susunan (inlet belakang, exhaust depan) ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter_kepala": 0.058,
+   "panjang": 0.169
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-RETAINER-04-IN1",
+  "nama": "Valve spring retainer dan keeper IN1 silinder 4",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter": 0.042
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-PEGAS-04-IN1",
+  "nama": "Pegas katup (valve spring) IN1 silinder 4",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah pegas per katup dan ukuran tidak terbukti.",
+  "ukuran_utama_m": {
+   "diameter_luar": 0.0386,
+   "panjang_terpasang": 0.0606
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-KATUP-04-IN2",
+  "nama": "Katup inlet 2 silinder 4",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "INFERRED",
+  "sumber": [
+   {
+    "id": "D06",
+    "locator": "hlm. 140026 4 katup per silinder (3512 awal)"
+   }
+  ],
+  "alasan": "4 katup per silinder INFERRED dari D06; diameter kepala 0.058 dan susunan (inlet belakang, exhaust depan) ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter_kepala": 0.058,
+   "panjang": 0.169
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-RETAINER-04-IN2",
+  "nama": "Valve spring retainer dan keeper IN2 silinder 4",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter": 0.042
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-PEGAS-04-IN2",
+  "nama": "Pegas katup (valve spring) IN2 silinder 4",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah pegas per katup dan ukuran tidak terbukti.",
+  "ukuran_utama_m": {
+   "diameter_luar": 0.0386,
+   "panjang_terpasang": 0.0606
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-TAPPET-04-INJ",
+  "nama": "Roller follower (tappet) INJ silinder 4",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jenis follower (roller) tidak terbukti; lazim pada cam di blok. Posisi mengikuti lobe.",
+  "ukuran_utama_m": {
+   "diameter": 0.03,
+   "panjang": 0.07,
+   "roller_d": 0.028
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-ROCKER-04-INJ",
+  "nama": "Rocker arm INJ silinder 4",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Rocker arm untuk katup/injector INFERRED dari cam di blok; rasio dan bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "rasio": 1.2,
+   "panjang": 0.13
+  },
+  "catatan": "Origin = pusat rocker shaft; berputar mengitari X lokal."
+ },
+ {
+  "id": "INT-PUSHROD-04-INJ",
+  "nama": "Push rod INJ silinder 4",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Push rod INFERRED dari camshaft di blok + katup di kepala; panjang mengikuti tata letak model.",
+  "ukuran_utama_m": {
+   "diameter": 0.013,
+   "panjang": 0.3985
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-INJ-04",
+  "nama": "Electronic unit injector (EUI) silinder 4",
+  "rakitan": "INJECTOR",
+  "jumlah": 1,
+  "status": "INFERRED",
+  "sumber": [
+   {
+    "id": "D02",
+    "locator": "hlm. 1 \"electronic unit injectors\""
+   },
+   {
+    "id": "D03",
+    "locator": "hlm. 1 Fuel System \"Electronically controlled unit injectors\""
+   }
+  ],
+  "alasan": "Jenis unit injector DOCUMENTED; letak di tengah kepala di antara 4 katup INFERRED; bentuk dan ukuran ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter_badan": 0.032,
+   "panjang": 0.218,
+   "ujung_nozzle_a": 0.612
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-INJ-04-SOL",
+  "nama": "Solenoid/konektor unit injector silinder 4",
+  "rakitan": "INJECTOR",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Bentuk dan letak solenoid tidak tertulis.",
+  "ukuran_utama_m": {
+   "ukuran": [
+    0.016,
+    0.034,
+    0.04
+   ]
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-INJ-04-PLUNGER",
+  "nama": "Tappet/plunger dan pegas unit injector silinder 4",
+  "rakitan": "INJECTOR",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Aktuasi injector oleh cam lewat rocker INFERRED; bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "langkah_maks": 0.0096
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-TAPPET-04-EX",
+  "nama": "Roller follower (tappet) EX silinder 4",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jenis follower (roller) tidak terbukti; lazim pada cam di blok. Posisi mengikuti lobe.",
+  "ukuran_utama_m": {
+   "diameter": 0.03,
+   "panjang": 0.07,
+   "roller_d": 0.028
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-ROCKER-04-EX",
+  "nama": "Rocker arm EX silinder 4",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Rocker arm untuk katup/injector INFERRED dari cam di blok; rasio dan bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "rasio": 1.2,
+   "panjang": 0.13
+  },
+  "catatan": "Origin = pusat rocker shaft; berputar mengitari X lokal."
+ },
+ {
+  "id": "INT-PUSHROD-04-EX",
+  "nama": "Push rod EX silinder 4",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Push rod INFERRED dari camshaft di blok + katup di kepala; panjang mengikuti tata letak model.",
+  "ukuran_utama_m": {
+   "diameter": 0.013,
+   "panjang": 0.3985
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-BRIDGE-04-EX",
+  "nama": "Valve bridge EX silinder 4",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Bridge untuk 2 katup sejenis INFERRED dari 4 katup per silinder; bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "panjang": 0.092
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-KATUP-04-EX1",
+  "nama": "Katup exhaust 1 silinder 4",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "INFERRED",
+  "sumber": [
+   {
+    "id": "D06",
+    "locator": "hlm. 140026 4 katup per silinder (3512 awal)"
+   }
+  ],
+  "alasan": "4 katup per silinder INFERRED dari D06; diameter kepala 0.058 dan susunan (inlet belakang, exhaust depan) ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter_kepala": 0.058,
+   "panjang": 0.169
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-RETAINER-04-EX1",
+  "nama": "Valve spring retainer dan keeper EX1 silinder 4",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter": 0.042
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-PEGAS-04-EX1",
+  "nama": "Pegas katup (valve spring) EX1 silinder 4",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah pegas per katup dan ukuran tidak terbukti.",
+  "ukuran_utama_m": {
+   "diameter_luar": 0.0386,
+   "panjang_terpasang": 0.065
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-KATUP-04-EX2",
+  "nama": "Katup exhaust 2 silinder 4",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "INFERRED",
+  "sumber": [
+   {
+    "id": "D06",
+    "locator": "hlm. 140026 4 katup per silinder (3512 awal)"
+   }
+  ],
+  "alasan": "4 katup per silinder INFERRED dari D06; diameter kepala 0.058 dan susunan (inlet belakang, exhaust depan) ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter_kepala": 0.058,
+   "panjang": 0.169
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-RETAINER-04-EX2",
+  "nama": "Valve spring retainer dan keeper EX2 silinder 4",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter": 0.042
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-PEGAS-04-EX2",
+  "nama": "Pegas katup (valve spring) EX2 silinder 4",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah pegas per katup dan ukuran tidak terbukti.",
+  "ukuran_utama_m": {
+   "diameter_luar": 0.0386,
+   "panjang_terpasang": 0.065
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-ROCKSHAFT-05",
+  "nama": "Rocker shaft dan pedestal silinder 5",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Susunan valve train pushrod (cam di blok) INFERRED; bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter": 0.024,
+   "panjang": 0.13
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-TAPPET-05-IN",
+  "nama": "Roller follower (tappet) IN silinder 5",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jenis follower (roller) tidak terbukti; lazim pada cam di blok. Posisi mengikuti lobe.",
+  "ukuran_utama_m": {
+   "diameter": 0.03,
+   "panjang": 0.07,
+   "roller_d": 0.028
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-ROCKER-05-IN",
+  "nama": "Rocker arm IN silinder 5",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Rocker arm untuk katup/injector INFERRED dari cam di blok; rasio dan bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "rasio": 1.2,
+   "panjang": 0.13
+  },
+  "catatan": "Origin = pusat rocker shaft; berputar mengitari X lokal."
+ },
+ {
+  "id": "INT-PUSHROD-05-IN",
+  "nama": "Push rod IN silinder 5",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Push rod INFERRED dari camshaft di blok + katup di kepala; panjang mengikuti tata letak model.",
+  "ukuran_utama_m": {
+   "diameter": 0.013,
+   "panjang": 0.3985
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-BRIDGE-05-IN",
+  "nama": "Valve bridge IN silinder 5",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Bridge untuk 2 katup sejenis INFERRED dari 4 katup per silinder; bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "panjang": 0.092
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-KATUP-05-IN1",
+  "nama": "Katup inlet 1 silinder 5",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "INFERRED",
+  "sumber": [
+   {
+    "id": "D06",
+    "locator": "hlm. 140026 4 katup per silinder (3512 awal)"
+   }
+  ],
+  "alasan": "4 katup per silinder INFERRED dari D06; diameter kepala 0.058 dan susunan (inlet belakang, exhaust depan) ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter_kepala": 0.058,
+   "panjang": 0.169
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-RETAINER-05-IN1",
+  "nama": "Valve spring retainer dan keeper IN1 silinder 5",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter": 0.042
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-PEGAS-05-IN1",
+  "nama": "Pegas katup (valve spring) IN1 silinder 5",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah pegas per katup dan ukuran tidak terbukti.",
+  "ukuran_utama_m": {
+   "diameter_luar": 0.0386,
+   "panjang_terpasang": 0.0537
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-KATUP-05-IN2",
+  "nama": "Katup inlet 2 silinder 5",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "INFERRED",
+  "sumber": [
+   {
+    "id": "D06",
+    "locator": "hlm. 140026 4 katup per silinder (3512 awal)"
+   }
+  ],
+  "alasan": "4 katup per silinder INFERRED dari D06; diameter kepala 0.058 dan susunan (inlet belakang, exhaust depan) ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter_kepala": 0.058,
+   "panjang": 0.169
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-RETAINER-05-IN2",
+  "nama": "Valve spring retainer dan keeper IN2 silinder 5",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter": 0.042
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-PEGAS-05-IN2",
+  "nama": "Pegas katup (valve spring) IN2 silinder 5",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah pegas per katup dan ukuran tidak terbukti.",
+  "ukuran_utama_m": {
+   "diameter_luar": 0.0386,
+   "panjang_terpasang": 0.0537
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-TAPPET-05-INJ",
+  "nama": "Roller follower (tappet) INJ silinder 5",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jenis follower (roller) tidak terbukti; lazim pada cam di blok. Posisi mengikuti lobe.",
+  "ukuran_utama_m": {
+   "diameter": 0.03,
+   "panjang": 0.07,
+   "roller_d": 0.028
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-ROCKER-05-INJ",
+  "nama": "Rocker arm INJ silinder 5",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Rocker arm untuk katup/injector INFERRED dari cam di blok; rasio dan bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "rasio": 1.2,
+   "panjang": 0.13
+  },
+  "catatan": "Origin = pusat rocker shaft; berputar mengitari X lokal."
+ },
+ {
+  "id": "INT-PUSHROD-05-INJ",
+  "nama": "Push rod INJ silinder 5",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Push rod INFERRED dari camshaft di blok + katup di kepala; panjang mengikuti tata letak model.",
+  "ukuran_utama_m": {
+   "diameter": 0.013,
+   "panjang": 0.3985
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-INJ-05",
+  "nama": "Electronic unit injector (EUI) silinder 5",
+  "rakitan": "INJECTOR",
+  "jumlah": 1,
+  "status": "INFERRED",
+  "sumber": [
+   {
+    "id": "D02",
+    "locator": "hlm. 1 \"electronic unit injectors\""
+   },
+   {
+    "id": "D03",
+    "locator": "hlm. 1 Fuel System \"Electronically controlled unit injectors\""
+   }
+  ],
+  "alasan": "Jenis unit injector DOCUMENTED; letak di tengah kepala di antara 4 katup INFERRED; bentuk dan ukuran ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter_badan": 0.032,
+   "panjang": 0.218,
+   "ujung_nozzle_a": 0.612
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-INJ-05-SOL",
+  "nama": "Solenoid/konektor unit injector silinder 5",
+  "rakitan": "INJECTOR",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Bentuk dan letak solenoid tidak tertulis.",
+  "ukuran_utama_m": {
+   "ukuran": [
+    0.016,
+    0.034,
+    0.04
+   ]
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-INJ-05-PLUNGER",
+  "nama": "Tappet/plunger dan pegas unit injector silinder 5",
+  "rakitan": "INJECTOR",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Aktuasi injector oleh cam lewat rocker INFERRED; bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "langkah_maks": 0.0096
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-TAPPET-05-EX",
+  "nama": "Roller follower (tappet) EX silinder 5",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jenis follower (roller) tidak terbukti; lazim pada cam di blok. Posisi mengikuti lobe.",
+  "ukuran_utama_m": {
+   "diameter": 0.03,
+   "panjang": 0.07,
+   "roller_d": 0.028
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-ROCKER-05-EX",
+  "nama": "Rocker arm EX silinder 5",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Rocker arm untuk katup/injector INFERRED dari cam di blok; rasio dan bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "rasio": 1.2,
+   "panjang": 0.13
+  },
+  "catatan": "Origin = pusat rocker shaft; berputar mengitari X lokal."
+ },
+ {
+  "id": "INT-PUSHROD-05-EX",
+  "nama": "Push rod EX silinder 5",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Push rod INFERRED dari camshaft di blok + katup di kepala; panjang mengikuti tata letak model.",
+  "ukuran_utama_m": {
+   "diameter": 0.013,
+   "panjang": 0.3985
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-BRIDGE-05-EX",
+  "nama": "Valve bridge EX silinder 5",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Bridge untuk 2 katup sejenis INFERRED dari 4 katup per silinder; bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "panjang": 0.092
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-KATUP-05-EX1",
+  "nama": "Katup exhaust 1 silinder 5",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "INFERRED",
+  "sumber": [
+   {
+    "id": "D06",
+    "locator": "hlm. 140026 4 katup per silinder (3512 awal)"
+   }
+  ],
+  "alasan": "4 katup per silinder INFERRED dari D06; diameter kepala 0.058 dan susunan (inlet belakang, exhaust depan) ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter_kepala": 0.058,
+   "panjang": 0.169
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-RETAINER-05-EX1",
+  "nama": "Valve spring retainer dan keeper EX1 silinder 5",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter": 0.042
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-PEGAS-05-EX1",
+  "nama": "Pegas katup (valve spring) EX1 silinder 5",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah pegas per katup dan ukuran tidak terbukti.",
+  "ukuran_utama_m": {
+   "diameter_luar": 0.0386,
+   "panjang_terpasang": 0.065
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-KATUP-05-EX2",
+  "nama": "Katup exhaust 2 silinder 5",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "INFERRED",
+  "sumber": [
+   {
+    "id": "D06",
+    "locator": "hlm. 140026 4 katup per silinder (3512 awal)"
+   }
+  ],
+  "alasan": "4 katup per silinder INFERRED dari D06; diameter kepala 0.058 dan susunan (inlet belakang, exhaust depan) ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter_kepala": 0.058,
+   "panjang": 0.169
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-RETAINER-05-EX2",
+  "nama": "Valve spring retainer dan keeper EX2 silinder 5",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter": 0.042
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-PEGAS-05-EX2",
+  "nama": "Pegas katup (valve spring) EX2 silinder 5",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah pegas per katup dan ukuran tidak terbukti.",
+  "ukuran_utama_m": {
+   "diameter_luar": 0.0386,
+   "panjang_terpasang": 0.065
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-ROCKSHAFT-06",
+  "nama": "Rocker shaft dan pedestal silinder 6",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Susunan valve train pushrod (cam di blok) INFERRED; bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter": 0.024,
+   "panjang": 0.13
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-TAPPET-06-IN",
+  "nama": "Roller follower (tappet) IN silinder 6",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jenis follower (roller) tidak terbukti; lazim pada cam di blok. Posisi mengikuti lobe.",
+  "ukuran_utama_m": {
+   "diameter": 0.03,
+   "panjang": 0.07,
+   "roller_d": 0.028
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-ROCKER-06-IN",
+  "nama": "Rocker arm IN silinder 6",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Rocker arm untuk katup/injector INFERRED dari cam di blok; rasio dan bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "rasio": 1.2,
+   "panjang": 0.13
+  },
+  "catatan": "Origin = pusat rocker shaft; berputar mengitari X lokal."
+ },
+ {
+  "id": "INT-PUSHROD-06-IN",
+  "nama": "Push rod IN silinder 6",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Push rod INFERRED dari camshaft di blok + katup di kepala; panjang mengikuti tata letak model.",
+  "ukuran_utama_m": {
+   "diameter": 0.013,
+   "panjang": 0.3985
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-BRIDGE-06-IN",
+  "nama": "Valve bridge IN silinder 6",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Bridge untuk 2 katup sejenis INFERRED dari 4 katup per silinder; bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "panjang": 0.092
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-KATUP-06-IN1",
+  "nama": "Katup inlet 1 silinder 6",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "INFERRED",
+  "sumber": [
+   {
+    "id": "D06",
+    "locator": "hlm. 140026 4 katup per silinder (3512 awal)"
+   }
+  ],
+  "alasan": "4 katup per silinder INFERRED dari D06; diameter kepala 0.058 dan susunan (inlet belakang, exhaust depan) ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter_kepala": 0.058,
+   "panjang": 0.169
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-RETAINER-06-IN1",
+  "nama": "Valve spring retainer dan keeper IN1 silinder 6",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter": 0.042
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-PEGAS-06-IN1",
+  "nama": "Pegas katup (valve spring) IN1 silinder 6",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah pegas per katup dan ukuran tidak terbukti.",
+  "ukuran_utama_m": {
+   "diameter_luar": 0.0386,
+   "panjang_terpasang": 0.065
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-KATUP-06-IN2",
+  "nama": "Katup inlet 2 silinder 6",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "INFERRED",
+  "sumber": [
+   {
+    "id": "D06",
+    "locator": "hlm. 140026 4 katup per silinder (3512 awal)"
+   }
+  ],
+  "alasan": "4 katup per silinder INFERRED dari D06; diameter kepala 0.058 dan susunan (inlet belakang, exhaust depan) ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter_kepala": 0.058,
+   "panjang": 0.169
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-RETAINER-06-IN2",
+  "nama": "Valve spring retainer dan keeper IN2 silinder 6",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter": 0.042
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-PEGAS-06-IN2",
+  "nama": "Pegas katup (valve spring) IN2 silinder 6",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah pegas per katup dan ukuran tidak terbukti.",
+  "ukuran_utama_m": {
+   "diameter_luar": 0.0386,
+   "panjang_terpasang": 0.065
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-TAPPET-06-INJ",
+  "nama": "Roller follower (tappet) INJ silinder 6",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jenis follower (roller) tidak terbukti; lazim pada cam di blok. Posisi mengikuti lobe.",
+  "ukuran_utama_m": {
+   "diameter": 0.03,
+   "panjang": 0.07,
+   "roller_d": 0.028
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-ROCKER-06-INJ",
+  "nama": "Rocker arm INJ silinder 6",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Rocker arm untuk katup/injector INFERRED dari cam di blok; rasio dan bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "rasio": 1.2,
+   "panjang": 0.13
+  },
+  "catatan": "Origin = pusat rocker shaft; berputar mengitari X lokal."
+ },
+ {
+  "id": "INT-PUSHROD-06-INJ",
+  "nama": "Push rod INJ silinder 6",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Push rod INFERRED dari camshaft di blok + katup di kepala; panjang mengikuti tata letak model.",
+  "ukuran_utama_m": {
+   "diameter": 0.013,
+   "panjang": 0.3984
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-INJ-06",
+  "nama": "Electronic unit injector (EUI) silinder 6",
+  "rakitan": "INJECTOR",
+  "jumlah": 1,
+  "status": "INFERRED",
+  "sumber": [
+   {
+    "id": "D02",
+    "locator": "hlm. 1 \"electronic unit injectors\""
+   },
+   {
+    "id": "D03",
+    "locator": "hlm. 1 Fuel System \"Electronically controlled unit injectors\""
+   }
+  ],
+  "alasan": "Jenis unit injector DOCUMENTED; letak di tengah kepala di antara 4 katup INFERRED; bentuk dan ukuran ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter_badan": 0.032,
+   "panjang": 0.218,
+   "ujung_nozzle_a": 0.612
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-INJ-06-SOL",
+  "nama": "Solenoid/konektor unit injector silinder 6",
+  "rakitan": "INJECTOR",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Bentuk dan letak solenoid tidak tertulis.",
+  "ukuran_utama_m": {
+   "ukuran": [
+    0.016,
+    0.034,
+    0.04
+   ]
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-INJ-06-PLUNGER",
+  "nama": "Tappet/plunger dan pegas unit injector silinder 6",
+  "rakitan": "INJECTOR",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Aktuasi injector oleh cam lewat rocker INFERRED; bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "langkah_maks": 0.0096
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-TAPPET-06-EX",
+  "nama": "Roller follower (tappet) EX silinder 6",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jenis follower (roller) tidak terbukti; lazim pada cam di blok. Posisi mengikuti lobe.",
+  "ukuran_utama_m": {
+   "diameter": 0.03,
+   "panjang": 0.07,
+   "roller_d": 0.028
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-ROCKER-06-EX",
+  "nama": "Rocker arm EX silinder 6",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Rocker arm untuk katup/injector INFERRED dari cam di blok; rasio dan bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "rasio": 1.2,
+   "panjang": 0.13
+  },
+  "catatan": "Origin = pusat rocker shaft; berputar mengitari X lokal."
+ },
+ {
+  "id": "INT-PUSHROD-06-EX",
+  "nama": "Push rod EX silinder 6",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Push rod INFERRED dari camshaft di blok + katup di kepala; panjang mengikuti tata letak model.",
+  "ukuran_utama_m": {
+   "diameter": 0.013,
+   "panjang": 0.3985
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-BRIDGE-06-EX",
+  "nama": "Valve bridge EX silinder 6",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Bridge untuk 2 katup sejenis INFERRED dari 4 katup per silinder; bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "panjang": 0.092
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-KATUP-06-EX1",
+  "nama": "Katup exhaust 1 silinder 6",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "INFERRED",
+  "sumber": [
+   {
+    "id": "D06",
+    "locator": "hlm. 140026 4 katup per silinder (3512 awal)"
+   }
+  ],
+  "alasan": "4 katup per silinder INFERRED dari D06; diameter kepala 0.058 dan susunan (inlet belakang, exhaust depan) ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter_kepala": 0.058,
+   "panjang": 0.169
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-RETAINER-06-EX1",
+  "nama": "Valve spring retainer dan keeper EX1 silinder 6",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter": 0.042
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-PEGAS-06-EX1",
+  "nama": "Pegas katup (valve spring) EX1 silinder 6",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah pegas per katup dan ukuran tidak terbukti.",
+  "ukuran_utama_m": {
+   "diameter_luar": 0.0386,
+   "panjang_terpasang": 0.065
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-KATUP-06-EX2",
+  "nama": "Katup exhaust 2 silinder 6",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "INFERRED",
+  "sumber": [
+   {
+    "id": "D06",
+    "locator": "hlm. 140026 4 katup per silinder (3512 awal)"
+   }
+  ],
+  "alasan": "4 katup per silinder INFERRED dari D06; diameter kepala 0.058 dan susunan (inlet belakang, exhaust depan) ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter_kepala": 0.058,
+   "panjang": 0.169
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-RETAINER-06-EX2",
+  "nama": "Valve spring retainer dan keeper EX2 silinder 6",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter": 0.042
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-PEGAS-06-EX2",
+  "nama": "Pegas katup (valve spring) EX2 silinder 6",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah pegas per katup dan ukuran tidak terbukti.",
+  "ukuran_utama_m": {
+   "diameter_luar": 0.0386,
+   "panjang_terpasang": 0.065
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-ROCKSHAFT-07",
+  "nama": "Rocker shaft dan pedestal silinder 7",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Susunan valve train pushrod (cam di blok) INFERRED; bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter": 0.024,
+   "panjang": 0.13
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-TAPPET-07-IN",
+  "nama": "Roller follower (tappet) IN silinder 7",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jenis follower (roller) tidak terbukti; lazim pada cam di blok. Posisi mengikuti lobe.",
+  "ukuran_utama_m": {
+   "diameter": 0.03,
+   "panjang": 0.07,
+   "roller_d": 0.028
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-ROCKER-07-IN",
+  "nama": "Rocker arm IN silinder 7",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Rocker arm untuk katup/injector INFERRED dari cam di blok; rasio dan bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "rasio": 1.2,
+   "panjang": 0.13
+  },
+  "catatan": "Origin = pusat rocker shaft; berputar mengitari X lokal."
+ },
+ {
+  "id": "INT-PUSHROD-07-IN",
+  "nama": "Push rod IN silinder 7",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Push rod INFERRED dari camshaft di blok + katup di kepala; panjang mengikuti tata letak model.",
+  "ukuran_utama_m": {
+   "diameter": 0.013,
+   "panjang": 0.3985
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-BRIDGE-07-IN",
+  "nama": "Valve bridge IN silinder 7",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Bridge untuk 2 katup sejenis INFERRED dari 4 katup per silinder; bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "panjang": 0.092
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-KATUP-07-IN1",
+  "nama": "Katup inlet 1 silinder 7",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "INFERRED",
+  "sumber": [
+   {
+    "id": "D06",
+    "locator": "hlm. 140026 4 katup per silinder (3512 awal)"
+   }
+  ],
+  "alasan": "4 katup per silinder INFERRED dari D06; diameter kepala 0.058 dan susunan (inlet belakang, exhaust depan) ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter_kepala": 0.058,
+   "panjang": 0.169
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-RETAINER-07-IN1",
+  "nama": "Valve spring retainer dan keeper IN1 silinder 7",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter": 0.042
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-PEGAS-07-IN1",
+  "nama": "Pegas katup (valve spring) IN1 silinder 7",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah pegas per katup dan ukuran tidak terbukti.",
+  "ukuran_utama_m": {
+   "diameter_luar": 0.0386,
+   "panjang_terpasang": 0.065
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-KATUP-07-IN2",
+  "nama": "Katup inlet 2 silinder 7",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "INFERRED",
+  "sumber": [
+   {
+    "id": "D06",
+    "locator": "hlm. 140026 4 katup per silinder (3512 awal)"
+   }
+  ],
+  "alasan": "4 katup per silinder INFERRED dari D06; diameter kepala 0.058 dan susunan (inlet belakang, exhaust depan) ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter_kepala": 0.058,
+   "panjang": 0.169
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-RETAINER-07-IN2",
+  "nama": "Valve spring retainer dan keeper IN2 silinder 7",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter": 0.042
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-PEGAS-07-IN2",
+  "nama": "Pegas katup (valve spring) IN2 silinder 7",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah pegas per katup dan ukuran tidak terbukti.",
+  "ukuran_utama_m": {
+   "diameter_luar": 0.0386,
+   "panjang_terpasang": 0.065
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-TAPPET-07-INJ",
+  "nama": "Roller follower (tappet) INJ silinder 7",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jenis follower (roller) tidak terbukti; lazim pada cam di blok. Posisi mengikuti lobe.",
+  "ukuran_utama_m": {
+   "diameter": 0.03,
+   "panjang": 0.07,
+   "roller_d": 0.028
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-ROCKER-07-INJ",
+  "nama": "Rocker arm INJ silinder 7",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Rocker arm untuk katup/injector INFERRED dari cam di blok; rasio dan bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "rasio": 1.2,
+   "panjang": 0.13
+  },
+  "catatan": "Origin = pusat rocker shaft; berputar mengitari X lokal."
+ },
+ {
+  "id": "INT-PUSHROD-07-INJ",
+  "nama": "Push rod INJ silinder 7",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Push rod INFERRED dari camshaft di blok + katup di kepala; panjang mengikuti tata letak model.",
+  "ukuran_utama_m": {
+   "diameter": 0.013,
+   "panjang": 0.3985
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-INJ-07",
+  "nama": "Electronic unit injector (EUI) silinder 7",
+  "rakitan": "INJECTOR",
+  "jumlah": 1,
+  "status": "INFERRED",
+  "sumber": [
+   {
+    "id": "D02",
+    "locator": "hlm. 1 \"electronic unit injectors\""
+   },
+   {
+    "id": "D03",
+    "locator": "hlm. 1 Fuel System \"Electronically controlled unit injectors\""
+   }
+  ],
+  "alasan": "Jenis unit injector DOCUMENTED; letak di tengah kepala di antara 4 katup INFERRED; bentuk dan ukuran ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter_badan": 0.032,
+   "panjang": 0.218,
+   "ujung_nozzle_a": 0.612
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-INJ-07-SOL",
+  "nama": "Solenoid/konektor unit injector silinder 7",
+  "rakitan": "INJECTOR",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Bentuk dan letak solenoid tidak tertulis.",
+  "ukuran_utama_m": {
+   "ukuran": [
+    0.016,
+    0.034,
+    0.04
+   ]
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-INJ-07-PLUNGER",
+  "nama": "Tappet/plunger dan pegas unit injector silinder 7",
+  "rakitan": "INJECTOR",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Aktuasi injector oleh cam lewat rocker INFERRED; bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "langkah_maks": 0.0096
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-TAPPET-07-EX",
+  "nama": "Roller follower (tappet) EX silinder 7",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jenis follower (roller) tidak terbukti; lazim pada cam di blok. Posisi mengikuti lobe.",
+  "ukuran_utama_m": {
+   "diameter": 0.03,
+   "panjang": 0.07,
+   "roller_d": 0.028
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-ROCKER-07-EX",
+  "nama": "Rocker arm EX silinder 7",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Rocker arm untuk katup/injector INFERRED dari cam di blok; rasio dan bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "rasio": 1.2,
+   "panjang": 0.13
+  },
+  "catatan": "Origin = pusat rocker shaft; berputar mengitari X lokal."
+ },
+ {
+  "id": "INT-PUSHROD-07-EX",
+  "nama": "Push rod EX silinder 7",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Push rod INFERRED dari camshaft di blok + katup di kepala; panjang mengikuti tata letak model.",
+  "ukuran_utama_m": {
+   "diameter": 0.013,
+   "panjang": 0.3985
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-BRIDGE-07-EX",
+  "nama": "Valve bridge EX silinder 7",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Bridge untuk 2 katup sejenis INFERRED dari 4 katup per silinder; bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "panjang": 0.092
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-KATUP-07-EX1",
+  "nama": "Katup exhaust 1 silinder 7",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "INFERRED",
+  "sumber": [
+   {
+    "id": "D06",
+    "locator": "hlm. 140026 4 katup per silinder (3512 awal)"
+   }
+  ],
+  "alasan": "4 katup per silinder INFERRED dari D06; diameter kepala 0.058 dan susunan (inlet belakang, exhaust depan) ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter_kepala": 0.058,
+   "panjang": 0.169
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-RETAINER-07-EX1",
+  "nama": "Valve spring retainer dan keeper EX1 silinder 7",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter": 0.042
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-PEGAS-07-EX1",
+  "nama": "Pegas katup (valve spring) EX1 silinder 7",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah pegas per katup dan ukuran tidak terbukti.",
+  "ukuran_utama_m": {
+   "diameter_luar": 0.0386,
+   "panjang_terpasang": 0.065
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-KATUP-07-EX2",
+  "nama": "Katup exhaust 2 silinder 7",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "INFERRED",
+  "sumber": [
+   {
+    "id": "D06",
+    "locator": "hlm. 140026 4 katup per silinder (3512 awal)"
+   }
+  ],
+  "alasan": "4 katup per silinder INFERRED dari D06; diameter kepala 0.058 dan susunan (inlet belakang, exhaust depan) ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter_kepala": 0.058,
+   "panjang": 0.169
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-RETAINER-07-EX2",
+  "nama": "Valve spring retainer dan keeper EX2 silinder 7",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter": 0.042
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-PEGAS-07-EX2",
+  "nama": "Pegas katup (valve spring) EX2 silinder 7",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah pegas per katup dan ukuran tidak terbukti.",
+  "ukuran_utama_m": {
+   "diameter_luar": 0.0386,
+   "panjang_terpasang": 0.065
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-ROCKSHAFT-08",
+  "nama": "Rocker shaft dan pedestal silinder 8",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Susunan valve train pushrod (cam di blok) INFERRED; bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter": 0.024,
+   "panjang": 0.13
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-TAPPET-08-IN",
+  "nama": "Roller follower (tappet) IN silinder 8",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jenis follower (roller) tidak terbukti; lazim pada cam di blok. Posisi mengikuti lobe.",
+  "ukuran_utama_m": {
+   "diameter": 0.03,
+   "panjang": 0.07,
+   "roller_d": 0.028
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-ROCKER-08-IN",
+  "nama": "Rocker arm IN silinder 8",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Rocker arm untuk katup/injector INFERRED dari cam di blok; rasio dan bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "rasio": 1.2,
+   "panjang": 0.13
+  },
+  "catatan": "Origin = pusat rocker shaft; berputar mengitari X lokal."
+ },
+ {
+  "id": "INT-PUSHROD-08-IN",
+  "nama": "Push rod IN silinder 8",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Push rod INFERRED dari camshaft di blok + katup di kepala; panjang mengikuti tata letak model.",
+  "ukuran_utama_m": {
+   "diameter": 0.013,
+   "panjang": 0.3984
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-BRIDGE-08-IN",
+  "nama": "Valve bridge IN silinder 8",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Bridge untuk 2 katup sejenis INFERRED dari 4 katup per silinder; bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "panjang": 0.092
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-KATUP-08-IN1",
+  "nama": "Katup inlet 1 silinder 8",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "INFERRED",
+  "sumber": [
+   {
+    "id": "D06",
+    "locator": "hlm. 140026 4 katup per silinder (3512 awal)"
+   }
+  ],
+  "alasan": "4 katup per silinder INFERRED dari D06; diameter kepala 0.058 dan susunan (inlet belakang, exhaust depan) ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter_kepala": 0.058,
+   "panjang": 0.169
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-RETAINER-08-IN1",
+  "nama": "Valve spring retainer dan keeper IN1 silinder 8",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter": 0.042
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-PEGAS-08-IN1",
+  "nama": "Pegas katup (valve spring) IN1 silinder 8",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah pegas per katup dan ukuran tidak terbukti.",
+  "ukuran_utama_m": {
+   "diameter_luar": 0.0386,
+   "panjang_terpasang": 0.0576
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-KATUP-08-IN2",
+  "nama": "Katup inlet 2 silinder 8",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "INFERRED",
+  "sumber": [
+   {
+    "id": "D06",
+    "locator": "hlm. 140026 4 katup per silinder (3512 awal)"
+   }
+  ],
+  "alasan": "4 katup per silinder INFERRED dari D06; diameter kepala 0.058 dan susunan (inlet belakang, exhaust depan) ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter_kepala": 0.058,
+   "panjang": 0.169
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-RETAINER-08-IN2",
+  "nama": "Valve spring retainer dan keeper IN2 silinder 8",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter": 0.042
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-PEGAS-08-IN2",
+  "nama": "Pegas katup (valve spring) IN2 silinder 8",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah pegas per katup dan ukuran tidak terbukti.",
+  "ukuran_utama_m": {
+   "diameter_luar": 0.0386,
+   "panjang_terpasang": 0.0576
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-TAPPET-08-INJ",
+  "nama": "Roller follower (tappet) INJ silinder 8",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jenis follower (roller) tidak terbukti; lazim pada cam di blok. Posisi mengikuti lobe.",
+  "ukuran_utama_m": {
+   "diameter": 0.03,
+   "panjang": 0.07,
+   "roller_d": 0.028
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-ROCKER-08-INJ",
+  "nama": "Rocker arm INJ silinder 8",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Rocker arm untuk katup/injector INFERRED dari cam di blok; rasio dan bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "rasio": 1.2,
+   "panjang": 0.13
+  },
+  "catatan": "Origin = pusat rocker shaft; berputar mengitari X lokal."
+ },
+ {
+  "id": "INT-PUSHROD-08-INJ",
+  "nama": "Push rod INJ silinder 8",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Push rod INFERRED dari camshaft di blok + katup di kepala; panjang mengikuti tata letak model.",
+  "ukuran_utama_m": {
+   "diameter": 0.013,
+   "panjang": 0.3985
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-INJ-08",
+  "nama": "Electronic unit injector (EUI) silinder 8",
+  "rakitan": "INJECTOR",
+  "jumlah": 1,
+  "status": "INFERRED",
+  "sumber": [
+   {
+    "id": "D02",
+    "locator": "hlm. 1 \"electronic unit injectors\""
+   },
+   {
+    "id": "D03",
+    "locator": "hlm. 1 Fuel System \"Electronically controlled unit injectors\""
+   }
+  ],
+  "alasan": "Jenis unit injector DOCUMENTED; letak di tengah kepala di antara 4 katup INFERRED; bentuk dan ukuran ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter_badan": 0.032,
+   "panjang": 0.218,
+   "ujung_nozzle_a": 0.612
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-INJ-08-SOL",
+  "nama": "Solenoid/konektor unit injector silinder 8",
+  "rakitan": "INJECTOR",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Bentuk dan letak solenoid tidak tertulis.",
+  "ukuran_utama_m": {
+   "ukuran": [
+    0.016,
+    0.034,
+    0.04
+   ]
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-INJ-08-PLUNGER",
+  "nama": "Tappet/plunger dan pegas unit injector silinder 8",
+  "rakitan": "INJECTOR",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Aktuasi injector oleh cam lewat rocker INFERRED; bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "langkah_maks": 0.0096
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-TAPPET-08-EX",
+  "nama": "Roller follower (tappet) EX silinder 8",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jenis follower (roller) tidak terbukti; lazim pada cam di blok. Posisi mengikuti lobe.",
+  "ukuran_utama_m": {
+   "diameter": 0.03,
+   "panjang": 0.07,
+   "roller_d": 0.028
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-ROCKER-08-EX",
+  "nama": "Rocker arm EX silinder 8",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Rocker arm untuk katup/injector INFERRED dari cam di blok; rasio dan bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "rasio": 1.2,
+   "panjang": 0.13
+  },
+  "catatan": "Origin = pusat rocker shaft; berputar mengitari X lokal."
+ },
+ {
+  "id": "INT-PUSHROD-08-EX",
+  "nama": "Push rod EX silinder 8",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Push rod INFERRED dari camshaft di blok + katup di kepala; panjang mengikuti tata letak model.",
+  "ukuran_utama_m": {
+   "diameter": 0.013,
+   "panjang": 0.3985
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-BRIDGE-08-EX",
+  "nama": "Valve bridge EX silinder 8",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Bridge untuk 2 katup sejenis INFERRED dari 4 katup per silinder; bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "panjang": 0.092
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-KATUP-08-EX1",
+  "nama": "Katup exhaust 1 silinder 8",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "INFERRED",
+  "sumber": [
+   {
+    "id": "D06",
+    "locator": "hlm. 140026 4 katup per silinder (3512 awal)"
+   }
+  ],
+  "alasan": "4 katup per silinder INFERRED dari D06; diameter kepala 0.058 dan susunan (inlet belakang, exhaust depan) ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter_kepala": 0.058,
+   "panjang": 0.169
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-RETAINER-08-EX1",
+  "nama": "Valve spring retainer dan keeper EX1 silinder 8",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter": 0.042
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-PEGAS-08-EX1",
+  "nama": "Pegas katup (valve spring) EX1 silinder 8",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah pegas per katup dan ukuran tidak terbukti.",
+  "ukuran_utama_m": {
+   "diameter_luar": 0.0386,
+   "panjang_terpasang": 0.065
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-KATUP-08-EX2",
+  "nama": "Katup exhaust 2 silinder 8",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "INFERRED",
+  "sumber": [
+   {
+    "id": "D06",
+    "locator": "hlm. 140026 4 katup per silinder (3512 awal)"
+   }
+  ],
+  "alasan": "4 katup per silinder INFERRED dari D06; diameter kepala 0.058 dan susunan (inlet belakang, exhaust depan) ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter_kepala": 0.058,
+   "panjang": 0.169
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-RETAINER-08-EX2",
+  "nama": "Valve spring retainer dan keeper EX2 silinder 8",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter": 0.042
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-PEGAS-08-EX2",
+  "nama": "Pegas katup (valve spring) EX2 silinder 8",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah pegas per katup dan ukuran tidak terbukti.",
+  "ukuran_utama_m": {
+   "diameter_luar": 0.0386,
+   "panjang_terpasang": 0.065
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-ROCKSHAFT-09",
+  "nama": "Rocker shaft dan pedestal silinder 9",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Susunan valve train pushrod (cam di blok) INFERRED; bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter": 0.024,
+   "panjang": 0.13
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-TAPPET-09-IN",
+  "nama": "Roller follower (tappet) IN silinder 9",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jenis follower (roller) tidak terbukti; lazim pada cam di blok. Posisi mengikuti lobe.",
+  "ukuran_utama_m": {
+   "diameter": 0.03,
+   "panjang": 0.07,
+   "roller_d": 0.028
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-ROCKER-09-IN",
+  "nama": "Rocker arm IN silinder 9",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Rocker arm untuk katup/injector INFERRED dari cam di blok; rasio dan bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "rasio": 1.2,
+   "panjang": 0.13
+  },
+  "catatan": "Origin = pusat rocker shaft; berputar mengitari X lokal."
+ },
+ {
+  "id": "INT-PUSHROD-09-IN",
+  "nama": "Push rod IN silinder 9",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Push rod INFERRED dari camshaft di blok + katup di kepala; panjang mengikuti tata letak model.",
+  "ukuran_utama_m": {
+   "diameter": 0.013,
+   "panjang": 0.3985
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-BRIDGE-09-IN",
+  "nama": "Valve bridge IN silinder 9",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Bridge untuk 2 katup sejenis INFERRED dari 4 katup per silinder; bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "panjang": 0.092
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-KATUP-09-IN1",
+  "nama": "Katup inlet 1 silinder 9",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "INFERRED",
+  "sumber": [
+   {
+    "id": "D06",
+    "locator": "hlm. 140026 4 katup per silinder (3512 awal)"
+   }
+  ],
+  "alasan": "4 katup per silinder INFERRED dari D06; diameter kepala 0.058 dan susunan (inlet belakang, exhaust depan) ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter_kepala": 0.058,
+   "panjang": 0.169
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-RETAINER-09-IN1",
+  "nama": "Valve spring retainer dan keeper IN1 silinder 9",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter": 0.042
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-PEGAS-09-IN1",
+  "nama": "Pegas katup (valve spring) IN1 silinder 9",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah pegas per katup dan ukuran tidak terbukti.",
+  "ukuran_utama_m": {
+   "diameter_luar": 0.0386,
+   "panjang_terpasang": 0.065
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-KATUP-09-IN2",
+  "nama": "Katup inlet 2 silinder 9",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "INFERRED",
+  "sumber": [
+   {
+    "id": "D06",
+    "locator": "hlm. 140026 4 katup per silinder (3512 awal)"
+   }
+  ],
+  "alasan": "4 katup per silinder INFERRED dari D06; diameter kepala 0.058 dan susunan (inlet belakang, exhaust depan) ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter_kepala": 0.058,
+   "panjang": 0.169
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-RETAINER-09-IN2",
+  "nama": "Valve spring retainer dan keeper IN2 silinder 9",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter": 0.042
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-PEGAS-09-IN2",
+  "nama": "Pegas katup (valve spring) IN2 silinder 9",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah pegas per katup dan ukuran tidak terbukti.",
+  "ukuran_utama_m": {
+   "diameter_luar": 0.0386,
+   "panjang_terpasang": 0.065
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-TAPPET-09-INJ",
+  "nama": "Roller follower (tappet) INJ silinder 9",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jenis follower (roller) tidak terbukti; lazim pada cam di blok. Posisi mengikuti lobe.",
+  "ukuran_utama_m": {
+   "diameter": 0.03,
+   "panjang": 0.07,
+   "roller_d": 0.028
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-ROCKER-09-INJ",
+  "nama": "Rocker arm INJ silinder 9",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Rocker arm untuk katup/injector INFERRED dari cam di blok; rasio dan bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "rasio": 1.2,
+   "panjang": 0.13
+  },
+  "catatan": "Origin = pusat rocker shaft; berputar mengitari X lokal."
+ },
+ {
+  "id": "INT-PUSHROD-09-INJ",
+  "nama": "Push rod INJ silinder 9",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Push rod INFERRED dari camshaft di blok + katup di kepala; panjang mengikuti tata letak model.",
+  "ukuran_utama_m": {
+   "diameter": 0.013,
+   "panjang": 0.3985
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-INJ-09",
+  "nama": "Electronic unit injector (EUI) silinder 9",
+  "rakitan": "INJECTOR",
+  "jumlah": 1,
+  "status": "INFERRED",
+  "sumber": [
+   {
+    "id": "D02",
+    "locator": "hlm. 1 \"electronic unit injectors\""
+   },
+   {
+    "id": "D03",
+    "locator": "hlm. 1 Fuel System \"Electronically controlled unit injectors\""
+   }
+  ],
+  "alasan": "Jenis unit injector DOCUMENTED; letak di tengah kepala di antara 4 katup INFERRED; bentuk dan ukuran ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter_badan": 0.032,
+   "panjang": 0.218,
+   "ujung_nozzle_a": 0.612
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-INJ-09-SOL",
+  "nama": "Solenoid/konektor unit injector silinder 9",
+  "rakitan": "INJECTOR",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Bentuk dan letak solenoid tidak tertulis.",
+  "ukuran_utama_m": {
+   "ukuran": [
+    0.016,
+    0.034,
+    0.04
+   ]
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-INJ-09-PLUNGER",
+  "nama": "Tappet/plunger dan pegas unit injector silinder 9",
+  "rakitan": "INJECTOR",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Aktuasi injector oleh cam lewat rocker INFERRED; bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "langkah_maks": 0.0096
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-TAPPET-09-EX",
+  "nama": "Roller follower (tappet) EX silinder 9",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jenis follower (roller) tidak terbukti; lazim pada cam di blok. Posisi mengikuti lobe.",
+  "ukuran_utama_m": {
+   "diameter": 0.03,
+   "panjang": 0.07,
+   "roller_d": 0.028
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-ROCKER-09-EX",
+  "nama": "Rocker arm EX silinder 9",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Rocker arm untuk katup/injector INFERRED dari cam di blok; rasio dan bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "rasio": 1.2,
+   "panjang": 0.13
+  },
+  "catatan": "Origin = pusat rocker shaft; berputar mengitari X lokal."
+ },
+ {
+  "id": "INT-PUSHROD-09-EX",
+  "nama": "Push rod EX silinder 9",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Push rod INFERRED dari camshaft di blok + katup di kepala; panjang mengikuti tata letak model.",
+  "ukuran_utama_m": {
+   "diameter": 0.013,
+   "panjang": 0.3985
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-BRIDGE-09-EX",
+  "nama": "Valve bridge EX silinder 9",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Bridge untuk 2 katup sejenis INFERRED dari 4 katup per silinder; bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "panjang": 0.092
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-KATUP-09-EX1",
+  "nama": "Katup exhaust 1 silinder 9",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "INFERRED",
+  "sumber": [
+   {
+    "id": "D06",
+    "locator": "hlm. 140026 4 katup per silinder (3512 awal)"
+   }
+  ],
+  "alasan": "4 katup per silinder INFERRED dari D06; diameter kepala 0.058 dan susunan (inlet belakang, exhaust depan) ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter_kepala": 0.058,
+   "panjang": 0.169
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-RETAINER-09-EX1",
+  "nama": "Valve spring retainer dan keeper EX1 silinder 9",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter": 0.042
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-PEGAS-09-EX1",
+  "nama": "Pegas katup (valve spring) EX1 silinder 9",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah pegas per katup dan ukuran tidak terbukti.",
+  "ukuran_utama_m": {
+   "diameter_luar": 0.0386,
+   "panjang_terpasang": 0.065
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-KATUP-09-EX2",
+  "nama": "Katup exhaust 2 silinder 9",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "INFERRED",
+  "sumber": [
+   {
+    "id": "D06",
+    "locator": "hlm. 140026 4 katup per silinder (3512 awal)"
+   }
+  ],
+  "alasan": "4 katup per silinder INFERRED dari D06; diameter kepala 0.058 dan susunan (inlet belakang, exhaust depan) ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter_kepala": 0.058,
+   "panjang": 0.169
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-RETAINER-09-EX2",
+  "nama": "Valve spring retainer dan keeper EX2 silinder 9",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter": 0.042
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-PEGAS-09-EX2",
+  "nama": "Pegas katup (valve spring) EX2 silinder 9",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah pegas per katup dan ukuran tidak terbukti.",
+  "ukuran_utama_m": {
+   "diameter_luar": 0.0386,
+   "panjang_terpasang": 0.065
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-ROCKSHAFT-10",
+  "nama": "Rocker shaft dan pedestal silinder 10",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Susunan valve train pushrod (cam di blok) INFERRED; bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter": 0.024,
+   "panjang": 0.13
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-TAPPET-10-IN",
+  "nama": "Roller follower (tappet) IN silinder 10",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jenis follower (roller) tidak terbukti; lazim pada cam di blok. Posisi mengikuti lobe.",
+  "ukuran_utama_m": {
+   "diameter": 0.03,
+   "panjang": 0.07,
+   "roller_d": 0.028
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-ROCKER-10-IN",
+  "nama": "Rocker arm IN silinder 10",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Rocker arm untuk katup/injector INFERRED dari cam di blok; rasio dan bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "rasio": 1.2,
+   "panjang": 0.13
+  },
+  "catatan": "Origin = pusat rocker shaft; berputar mengitari X lokal."
+ },
+ {
+  "id": "INT-PUSHROD-10-IN",
+  "nama": "Push rod IN silinder 10",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Push rod INFERRED dari camshaft di blok + katup di kepala; panjang mengikuti tata letak model.",
+  "ukuran_utama_m": {
+   "diameter": 0.013,
+   "panjang": 0.3985
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-BRIDGE-10-IN",
+  "nama": "Valve bridge IN silinder 10",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Bridge untuk 2 katup sejenis INFERRED dari 4 katup per silinder; bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "panjang": 0.092
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-KATUP-10-IN1",
+  "nama": "Katup inlet 1 silinder 10",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "INFERRED",
+  "sumber": [
+   {
+    "id": "D06",
+    "locator": "hlm. 140026 4 katup per silinder (3512 awal)"
+   }
+  ],
+  "alasan": "4 katup per silinder INFERRED dari D06; diameter kepala 0.058 dan susunan (inlet belakang, exhaust depan) ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter_kepala": 0.058,
+   "panjang": 0.169
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-RETAINER-10-IN1",
+  "nama": "Valve spring retainer dan keeper IN1 silinder 10",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter": 0.042
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-PEGAS-10-IN1",
+  "nama": "Pegas katup (valve spring) IN1 silinder 10",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah pegas per katup dan ukuran tidak terbukti.",
+  "ukuran_utama_m": {
+   "diameter_luar": 0.0386,
+   "panjang_terpasang": 0.065
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-KATUP-10-IN2",
+  "nama": "Katup inlet 2 silinder 10",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "INFERRED",
+  "sumber": [
+   {
+    "id": "D06",
+    "locator": "hlm. 140026 4 katup per silinder (3512 awal)"
+   }
+  ],
+  "alasan": "4 katup per silinder INFERRED dari D06; diameter kepala 0.058 dan susunan (inlet belakang, exhaust depan) ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter_kepala": 0.058,
+   "panjang": 0.169
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-RETAINER-10-IN2",
+  "nama": "Valve spring retainer dan keeper IN2 silinder 10",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter": 0.042
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-PEGAS-10-IN2",
+  "nama": "Pegas katup (valve spring) IN2 silinder 10",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah pegas per katup dan ukuran tidak terbukti.",
+  "ukuran_utama_m": {
+   "diameter_luar": 0.0386,
+   "panjang_terpasang": 0.065
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-TAPPET-10-INJ",
+  "nama": "Roller follower (tappet) INJ silinder 10",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jenis follower (roller) tidak terbukti; lazim pada cam di blok. Posisi mengikuti lobe.",
+  "ukuran_utama_m": {
+   "diameter": 0.03,
+   "panjang": 0.07,
+   "roller_d": 0.028
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-ROCKER-10-INJ",
+  "nama": "Rocker arm INJ silinder 10",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Rocker arm untuk katup/injector INFERRED dari cam di blok; rasio dan bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "rasio": 1.2,
+   "panjang": 0.13
+  },
+  "catatan": "Origin = pusat rocker shaft; berputar mengitari X lokal."
+ },
+ {
+  "id": "INT-PUSHROD-10-INJ",
+  "nama": "Push rod INJ silinder 10",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Push rod INFERRED dari camshaft di blok + katup di kepala; panjang mengikuti tata letak model.",
+  "ukuran_utama_m": {
+   "diameter": 0.013,
+   "panjang": 0.3985
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-INJ-10",
+  "nama": "Electronic unit injector (EUI) silinder 10",
+  "rakitan": "INJECTOR",
+  "jumlah": 1,
+  "status": "INFERRED",
+  "sumber": [
+   {
+    "id": "D02",
+    "locator": "hlm. 1 \"electronic unit injectors\""
+   },
+   {
+    "id": "D03",
+    "locator": "hlm. 1 Fuel System \"Electronically controlled unit injectors\""
+   }
+  ],
+  "alasan": "Jenis unit injector DOCUMENTED; letak di tengah kepala di antara 4 katup INFERRED; bentuk dan ukuran ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter_badan": 0.032,
+   "panjang": 0.218,
+   "ujung_nozzle_a": 0.612
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-INJ-10-SOL",
+  "nama": "Solenoid/konektor unit injector silinder 10",
+  "rakitan": "INJECTOR",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Bentuk dan letak solenoid tidak tertulis.",
+  "ukuran_utama_m": {
+   "ukuran": [
+    0.016,
+    0.034,
+    0.04
+   ]
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-INJ-10-PLUNGER",
+  "nama": "Tappet/plunger dan pegas unit injector silinder 10",
+  "rakitan": "INJECTOR",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Aktuasi injector oleh cam lewat rocker INFERRED; bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "langkah_maks": 0.0096
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-TAPPET-10-EX",
+  "nama": "Roller follower (tappet) EX silinder 10",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jenis follower (roller) tidak terbukti; lazim pada cam di blok. Posisi mengikuti lobe.",
+  "ukuran_utama_m": {
+   "diameter": 0.03,
+   "panjang": 0.07,
+   "roller_d": 0.028
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-ROCKER-10-EX",
+  "nama": "Rocker arm EX silinder 10",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Rocker arm untuk katup/injector INFERRED dari cam di blok; rasio dan bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "rasio": 1.2,
+   "panjang": 0.13
+  },
+  "catatan": "Origin = pusat rocker shaft; berputar mengitari X lokal."
+ },
+ {
+  "id": "INT-PUSHROD-10-EX",
+  "nama": "Push rod EX silinder 10",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Push rod INFERRED dari camshaft di blok + katup di kepala; panjang mengikuti tata letak model.",
+  "ukuran_utama_m": {
+   "diameter": 0.013,
+   "panjang": 0.3983
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-BRIDGE-10-EX",
+  "nama": "Valve bridge EX silinder 10",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Bridge untuk 2 katup sejenis INFERRED dari 4 katup per silinder; bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "panjang": 0.092
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-KATUP-10-EX1",
+  "nama": "Katup exhaust 1 silinder 10",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "INFERRED",
+  "sumber": [
+   {
+    "id": "D06",
+    "locator": "hlm. 140026 4 katup per silinder (3512 awal)"
+   }
+  ],
+  "alasan": "4 katup per silinder INFERRED dari D06; diameter kepala 0.058 dan susunan (inlet belakang, exhaust depan) ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter_kepala": 0.058,
+   "panjang": 0.169
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-RETAINER-10-EX1",
+  "nama": "Valve spring retainer dan keeper EX1 silinder 10",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter": 0.042
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-PEGAS-10-EX1",
+  "nama": "Pegas katup (valve spring) EX1 silinder 10",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah pegas per katup dan ukuran tidak terbukti.",
+  "ukuran_utama_m": {
+   "diameter_luar": 0.0386,
+   "panjang_terpasang": 0.0606
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-KATUP-10-EX2",
+  "nama": "Katup exhaust 2 silinder 10",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "INFERRED",
+  "sumber": [
+   {
+    "id": "D06",
+    "locator": "hlm. 140026 4 katup per silinder (3512 awal)"
+   }
+  ],
+  "alasan": "4 katup per silinder INFERRED dari D06; diameter kepala 0.058 dan susunan (inlet belakang, exhaust depan) ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter_kepala": 0.058,
+   "panjang": 0.169
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-RETAINER-10-EX2",
+  "nama": "Valve spring retainer dan keeper EX2 silinder 10",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter": 0.042
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-PEGAS-10-EX2",
+  "nama": "Pegas katup (valve spring) EX2 silinder 10",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah pegas per katup dan ukuran tidak terbukti.",
+  "ukuran_utama_m": {
+   "diameter_luar": 0.0386,
+   "panjang_terpasang": 0.0606
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-ROCKSHAFT-11",
+  "nama": "Rocker shaft dan pedestal silinder 11",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Susunan valve train pushrod (cam di blok) INFERRED; bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter": 0.024,
+   "panjang": 0.13
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-TAPPET-11-IN",
+  "nama": "Roller follower (tappet) IN silinder 11",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jenis follower (roller) tidak terbukti; lazim pada cam di blok. Posisi mengikuti lobe.",
+  "ukuran_utama_m": {
+   "diameter": 0.03,
+   "panjang": 0.07,
+   "roller_d": 0.028
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-ROCKER-11-IN",
+  "nama": "Rocker arm IN silinder 11",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Rocker arm untuk katup/injector INFERRED dari cam di blok; rasio dan bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "rasio": 1.2,
+   "panjang": 0.13
+  },
+  "catatan": "Origin = pusat rocker shaft; berputar mengitari X lokal."
+ },
+ {
+  "id": "INT-PUSHROD-11-IN",
+  "nama": "Push rod IN silinder 11",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Push rod INFERRED dari camshaft di blok + katup di kepala; panjang mengikuti tata letak model.",
+  "ukuran_utama_m": {
+   "diameter": 0.013,
+   "panjang": 0.3984
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-BRIDGE-11-IN",
+  "nama": "Valve bridge IN silinder 11",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Bridge untuk 2 katup sejenis INFERRED dari 4 katup per silinder; bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "panjang": 0.092
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-KATUP-11-IN1",
+  "nama": "Katup inlet 1 silinder 11",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "INFERRED",
+  "sumber": [
+   {
+    "id": "D06",
+    "locator": "hlm. 140026 4 katup per silinder (3512 awal)"
+   }
+  ],
+  "alasan": "4 katup per silinder INFERRED dari D06; diameter kepala 0.058 dan susunan (inlet belakang, exhaust depan) ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter_kepala": 0.058,
+   "panjang": 0.169
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-RETAINER-11-IN1",
+  "nama": "Valve spring retainer dan keeper IN1 silinder 11",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter": 0.042
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-PEGAS-11-IN1",
+  "nama": "Pegas katup (valve spring) IN1 silinder 11",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah pegas per katup dan ukuran tidak terbukti.",
+  "ukuran_utama_m": {
+   "diameter_luar": 0.0386,
+   "panjang_terpasang": 0.0648
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-KATUP-11-IN2",
+  "nama": "Katup inlet 2 silinder 11",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "INFERRED",
+  "sumber": [
+   {
+    "id": "D06",
+    "locator": "hlm. 140026 4 katup per silinder (3512 awal)"
+   }
+  ],
+  "alasan": "4 katup per silinder INFERRED dari D06; diameter kepala 0.058 dan susunan (inlet belakang, exhaust depan) ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter_kepala": 0.058,
+   "panjang": 0.169
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-RETAINER-11-IN2",
+  "nama": "Valve spring retainer dan keeper IN2 silinder 11",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter": 0.042
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-PEGAS-11-IN2",
+  "nama": "Pegas katup (valve spring) IN2 silinder 11",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah pegas per katup dan ukuran tidak terbukti.",
+  "ukuran_utama_m": {
+   "diameter_luar": 0.0386,
+   "panjang_terpasang": 0.0648
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-TAPPET-11-INJ",
+  "nama": "Roller follower (tappet) INJ silinder 11",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jenis follower (roller) tidak terbukti; lazim pada cam di blok. Posisi mengikuti lobe.",
+  "ukuran_utama_m": {
+   "diameter": 0.03,
+   "panjang": 0.07,
+   "roller_d": 0.028
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-ROCKER-11-INJ",
+  "nama": "Rocker arm INJ silinder 11",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Rocker arm untuk katup/injector INFERRED dari cam di blok; rasio dan bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "rasio": 1.2,
+   "panjang": 0.13
+  },
+  "catatan": "Origin = pusat rocker shaft; berputar mengitari X lokal."
+ },
+ {
+  "id": "INT-PUSHROD-11-INJ",
+  "nama": "Push rod INJ silinder 11",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Push rod INFERRED dari camshaft di blok + katup di kepala; panjang mengikuti tata letak model.",
+  "ukuran_utama_m": {
+   "diameter": 0.013,
+   "panjang": 0.3985
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-INJ-11",
+  "nama": "Electronic unit injector (EUI) silinder 11",
+  "rakitan": "INJECTOR",
+  "jumlah": 1,
+  "status": "INFERRED",
+  "sumber": [
+   {
+    "id": "D02",
+    "locator": "hlm. 1 \"electronic unit injectors\""
+   },
+   {
+    "id": "D03",
+    "locator": "hlm. 1 Fuel System \"Electronically controlled unit injectors\""
+   }
+  ],
+  "alasan": "Jenis unit injector DOCUMENTED; letak di tengah kepala di antara 4 katup INFERRED; bentuk dan ukuran ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter_badan": 0.032,
+   "panjang": 0.218,
+   "ujung_nozzle_a": 0.612
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-INJ-11-SOL",
+  "nama": "Solenoid/konektor unit injector silinder 11",
+  "rakitan": "INJECTOR",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Bentuk dan letak solenoid tidak tertulis.",
+  "ukuran_utama_m": {
+   "ukuran": [
+    0.016,
+    0.034,
+    0.04
+   ]
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-INJ-11-PLUNGER",
+  "nama": "Tappet/plunger dan pegas unit injector silinder 11",
+  "rakitan": "INJECTOR",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Aktuasi injector oleh cam lewat rocker INFERRED; bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "langkah_maks": 0.0096
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-TAPPET-11-EX",
+  "nama": "Roller follower (tappet) EX silinder 11",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jenis follower (roller) tidak terbukti; lazim pada cam di blok. Posisi mengikuti lobe.",
+  "ukuran_utama_m": {
+   "diameter": 0.03,
+   "panjang": 0.07,
+   "roller_d": 0.028
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-ROCKER-11-EX",
+  "nama": "Rocker arm EX silinder 11",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Rocker arm untuk katup/injector INFERRED dari cam di blok; rasio dan bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "rasio": 1.2,
+   "panjang": 0.13
+  },
+  "catatan": "Origin = pusat rocker shaft; berputar mengitari X lokal."
+ },
+ {
+  "id": "INT-PUSHROD-11-EX",
+  "nama": "Push rod EX silinder 11",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Push rod INFERRED dari camshaft di blok + katup di kepala; panjang mengikuti tata letak model.",
+  "ukuran_utama_m": {
+   "diameter": 0.013,
+   "panjang": 0.3984
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-BRIDGE-11-EX",
+  "nama": "Valve bridge EX silinder 11",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Bridge untuk 2 katup sejenis INFERRED dari 4 katup per silinder; bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "panjang": 0.092
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-KATUP-11-EX1",
+  "nama": "Katup exhaust 1 silinder 11",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "INFERRED",
+  "sumber": [
+   {
+    "id": "D06",
+    "locator": "hlm. 140026 4 katup per silinder (3512 awal)"
+   }
+  ],
+  "alasan": "4 katup per silinder INFERRED dari D06; diameter kepala 0.058 dan susunan (inlet belakang, exhaust depan) ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter_kepala": 0.058,
+   "panjang": 0.169
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-RETAINER-11-EX1",
+  "nama": "Valve spring retainer dan keeper EX1 silinder 11",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter": 0.042
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-PEGAS-11-EX1",
+  "nama": "Pegas katup (valve spring) EX1 silinder 11",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah pegas per katup dan ukuran tidak terbukti.",
+  "ukuran_utama_m": {
+   "diameter_luar": 0.0386,
+   "panjang_terpasang": 0.0648
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-KATUP-11-EX2",
+  "nama": "Katup exhaust 2 silinder 11",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "INFERRED",
+  "sumber": [
+   {
+    "id": "D06",
+    "locator": "hlm. 140026 4 katup per silinder (3512 awal)"
+   }
+  ],
+  "alasan": "4 katup per silinder INFERRED dari D06; diameter kepala 0.058 dan susunan (inlet belakang, exhaust depan) ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter_kepala": 0.058,
+   "panjang": 0.169
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-RETAINER-11-EX2",
+  "nama": "Valve spring retainer dan keeper EX2 silinder 11",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter": 0.042
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-PEGAS-11-EX2",
+  "nama": "Pegas katup (valve spring) EX2 silinder 11",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah pegas per katup dan ukuran tidak terbukti.",
+  "ukuran_utama_m": {
+   "diameter_luar": 0.0386,
+   "panjang_terpasang": 0.0648
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-ROCKSHAFT-12",
+  "nama": "Rocker shaft dan pedestal silinder 12",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Susunan valve train pushrod (cam di blok) INFERRED; bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter": 0.024,
+   "panjang": 0.13
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-TAPPET-12-IN",
+  "nama": "Roller follower (tappet) IN silinder 12",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jenis follower (roller) tidak terbukti; lazim pada cam di blok. Posisi mengikuti lobe.",
+  "ukuran_utama_m": {
+   "diameter": 0.03,
+   "panjang": 0.07,
+   "roller_d": 0.028
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-ROCKER-12-IN",
+  "nama": "Rocker arm IN silinder 12",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Rocker arm untuk katup/injector INFERRED dari cam di blok; rasio dan bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "rasio": 1.2,
+   "panjang": 0.13
+  },
+  "catatan": "Origin = pusat rocker shaft; berputar mengitari X lokal."
+ },
+ {
+  "id": "INT-PUSHROD-12-IN",
+  "nama": "Push rod IN silinder 12",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Push rod INFERRED dari camshaft di blok + katup di kepala; panjang mengikuti tata letak model.",
+  "ukuran_utama_m": {
+   "diameter": 0.013,
+   "panjang": 0.3985
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-BRIDGE-12-IN",
+  "nama": "Valve bridge IN silinder 12",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Bridge untuk 2 katup sejenis INFERRED dari 4 katup per silinder; bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "panjang": 0.092
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-KATUP-12-IN1",
+  "nama": "Katup inlet 1 silinder 12",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "INFERRED",
+  "sumber": [
+   {
+    "id": "D06",
+    "locator": "hlm. 140026 4 katup per silinder (3512 awal)"
+   }
+  ],
+  "alasan": "4 katup per silinder INFERRED dari D06; diameter kepala 0.058 dan susunan (inlet belakang, exhaust depan) ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter_kepala": 0.058,
+   "panjang": 0.169
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-RETAINER-12-IN1",
+  "nama": "Valve spring retainer dan keeper IN1 silinder 12",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter": 0.042
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-PEGAS-12-IN1",
+  "nama": "Pegas katup (valve spring) IN1 silinder 12",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah pegas per katup dan ukuran tidak terbukti.",
+  "ukuran_utama_m": {
+   "diameter_luar": 0.0386,
+   "panjang_terpasang": 0.065
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-KATUP-12-IN2",
+  "nama": "Katup inlet 2 silinder 12",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "INFERRED",
+  "sumber": [
+   {
+    "id": "D06",
+    "locator": "hlm. 140026 4 katup per silinder (3512 awal)"
+   }
+  ],
+  "alasan": "4 katup per silinder INFERRED dari D06; diameter kepala 0.058 dan susunan (inlet belakang, exhaust depan) ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter_kepala": 0.058,
+   "panjang": 0.169
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-RETAINER-12-IN2",
+  "nama": "Valve spring retainer dan keeper IN2 silinder 12",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter": 0.042
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-PEGAS-12-IN2",
+  "nama": "Pegas katup (valve spring) IN2 silinder 12",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah pegas per katup dan ukuran tidak terbukti.",
+  "ukuran_utama_m": {
+   "diameter_luar": 0.0386,
+   "panjang_terpasang": 0.065
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-TAPPET-12-INJ",
+  "nama": "Roller follower (tappet) INJ silinder 12",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jenis follower (roller) tidak terbukti; lazim pada cam di blok. Posisi mengikuti lobe.",
+  "ukuran_utama_m": {
+   "diameter": 0.03,
+   "panjang": 0.07,
+   "roller_d": 0.028
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-ROCKER-12-INJ",
+  "nama": "Rocker arm INJ silinder 12",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Rocker arm untuk katup/injector INFERRED dari cam di blok; rasio dan bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "rasio": 1.2,
+   "panjang": 0.13
+  },
+  "catatan": "Origin = pusat rocker shaft; berputar mengitari X lokal."
+ },
+ {
+  "id": "INT-PUSHROD-12-INJ",
+  "nama": "Push rod INJ silinder 12",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Push rod INFERRED dari camshaft di blok + katup di kepala; panjang mengikuti tata letak model.",
+  "ukuran_utama_m": {
+   "diameter": 0.013,
+   "panjang": 0.3985
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-INJ-12",
+  "nama": "Electronic unit injector (EUI) silinder 12",
+  "rakitan": "INJECTOR",
+  "jumlah": 1,
+  "status": "INFERRED",
+  "sumber": [
+   {
+    "id": "D02",
+    "locator": "hlm. 1 \"electronic unit injectors\""
+   },
+   {
+    "id": "D03",
+    "locator": "hlm. 1 Fuel System \"Electronically controlled unit injectors\""
+   }
+  ],
+  "alasan": "Jenis unit injector DOCUMENTED; letak di tengah kepala di antara 4 katup INFERRED; bentuk dan ukuran ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter_badan": 0.032,
+   "panjang": 0.218,
+   "ujung_nozzle_a": 0.612
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-INJ-12-SOL",
+  "nama": "Solenoid/konektor unit injector silinder 12",
+  "rakitan": "INJECTOR",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Bentuk dan letak solenoid tidak tertulis.",
+  "ukuran_utama_m": {
+   "ukuran": [
+    0.016,
+    0.034,
+    0.04
+   ]
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-INJ-12-PLUNGER",
+  "nama": "Tappet/plunger dan pegas unit injector silinder 12",
+  "rakitan": "INJECTOR",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Aktuasi injector oleh cam lewat rocker INFERRED; bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "langkah_maks": 0.0096
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-TAPPET-12-EX",
+  "nama": "Roller follower (tappet) EX silinder 12",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jenis follower (roller) tidak terbukti; lazim pada cam di blok. Posisi mengikuti lobe.",
+  "ukuran_utama_m": {
+   "diameter": 0.03,
+   "panjang": 0.07,
+   "roller_d": 0.028
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-ROCKER-12-EX",
+  "nama": "Rocker arm EX silinder 12",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Rocker arm untuk katup/injector INFERRED dari cam di blok; rasio dan bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "rasio": 1.2,
+   "panjang": 0.13
+  },
+  "catatan": "Origin = pusat rocker shaft; berputar mengitari X lokal."
+ },
+ {
+  "id": "INT-PUSHROD-12-EX",
+  "nama": "Push rod EX silinder 12",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Push rod INFERRED dari camshaft di blok + katup di kepala; panjang mengikuti tata letak model.",
+  "ukuran_utama_m": {
+   "diameter": 0.013,
+   "panjang": 0.3985
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-BRIDGE-12-EX",
+  "nama": "Valve bridge EX silinder 12",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Bridge untuk 2 katup sejenis INFERRED dari 4 katup per silinder; bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "panjang": 0.092
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-KATUP-12-EX1",
+  "nama": "Katup exhaust 1 silinder 12",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "INFERRED",
+  "sumber": [
+   {
+    "id": "D06",
+    "locator": "hlm. 140026 4 katup per silinder (3512 awal)"
+   }
+  ],
+  "alasan": "4 katup per silinder INFERRED dari D06; diameter kepala 0.058 dan susunan (inlet belakang, exhaust depan) ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter_kepala": 0.058,
+   "panjang": 0.169
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-RETAINER-12-EX1",
+  "nama": "Valve spring retainer dan keeper EX1 silinder 12",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter": 0.042
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-PEGAS-12-EX1",
+  "nama": "Pegas katup (valve spring) EX1 silinder 12",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah pegas per katup dan ukuran tidak terbukti.",
+  "ukuran_utama_m": {
+   "diameter_luar": 0.0386,
+   "panjang_terpasang": 0.065
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-KATUP-12-EX2",
+  "nama": "Katup exhaust 2 silinder 12",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "INFERRED",
+  "sumber": [
+   {
+    "id": "D06",
+    "locator": "hlm. 140026 4 katup per silinder (3512 awal)"
+   }
+  ],
+  "alasan": "4 katup per silinder INFERRED dari D06; diameter kepala 0.058 dan susunan (inlet belakang, exhaust depan) ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter_kepala": 0.058,
+   "panjang": 0.169
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-RETAINER-12-EX2",
+  "nama": "Valve spring retainer dan keeper EX2 silinder 12",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Bentuk ILLUSTRATIVE.",
+  "ukuran_utama_m": {
+   "diameter": 0.042
+  },
+  "catatan": null
+ },
+ {
+  "id": "INT-PEGAS-12-EX2",
+  "nama": "Pegas katup (valve spring) EX2 silinder 12",
+  "rakitan": "VALVE_TRAIN",
+  "jumlah": 1,
+  "status": "ILLUSTRATIVE",
+  "sumber": null,
+  "alasan": "Jumlah pegas per katup dan ukuran tidak terbukti.",
+  "ukuran_utama_m": {
+   "diameter_luar": 0.0386,
+   "panjang_terpasang": 0.065
+  },
+  "catatan": null
+ },
+ {
+  "id": "REF-EXT-FLYWHEEL-01",
+  "nama": "Flywheel SAE No. 00 dengan ring gear 183 gigi: TIDAK dimodelkan di internal, memakai EXT-FLYWHEEL-01 (exterior)",
+  "rakitan": "FLYWHEEL",
+  "jumlah": 0,
+  "status": "DOCUMENTED",
+  "sumber": [
+   {
+    "id": "D01",
+    "locator": "hlm. 1 \"SAE No. 00 flywheel and flywheel housing (183 teeth)\""
+   }
+  ],
+  "alasan": "QA-04: satu sumber ukuran; flywheel internal lama (d 0.70 + ring gear d 0.74) dihapus agar tidak bertabrakan dengan exterior (d 0.790, x -0.237..-0.168).",
+  "ukuran_utama_m": {
+   "diameter": 0.79,
+   "x_range": [
+    -0.237,
+    -0.168
+   ]
+  },
+  "catatan": "Diputar bersama crank (rasio 1) oleh Integrator; flens belakang INT-CRANK-01 berakhir 0.5 mm di depan muka flywheel ini."
+ },
+ {
+  "id": "REF-EXT-DAMPER-01",
+  "nama": "Vibration damper: TIDAK dimodelkan di internal, memakai EXT-DAMPER-01 (exterior)",
+  "rakitan": "DAMPER",
+  "jumlah": 0,
+  "status": "DOCUMENTED",
+  "sumber": [
+   {
+    "id": "D02",
+    "locator": "hlm. 1 Standard Equipment \"vibration damper and guard\""
+   }
+  ],
+  "alasan": "QA-04: damper internal lama (d 0.61) dihapus; ukuran mengikuti exterior (d 0.498, x 1.930..2.072, ILLUSTRATIVE di exterior).",
+  "ukuran_utama_m": {
+   "diameter": 0.498,
+   "x_range": [
+    1.93,
+    2.072
+   ]
+  },
+  "catatan": "Diputar bersama crank (rasio 1); nose INT-CRANK-01 berakhir 0.5 mm di belakang muka damper ini."
+ }
+]

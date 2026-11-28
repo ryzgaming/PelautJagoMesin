@@ -1,0 +1,281 @@
+{
+  "id": "RAK-KATUP-6-2-2",
+  "nama": "Katup buang · silinder 6 · 2",
+  "content_name": "Katup buang · silinder 6 · 2",
+  "parent_rakitan": "RAK-INT-VALVE",
+  "node_rakitan": "RAK-KATUP-6-2-2",
+  "acuan": {
+    "no": 1,
+    "object_ids": [
+      "INT-VALVE-657"
+    ]
+  },
+  "bagian": [
+    {
+      "no": 1,
+      "nama": "Katup buang 6.2",
+      "role": "internal",
+      "object_ids": [
+        "INT-VALVE-657"
+      ],
+      "nomor_oem": "148620-11110",
+      "fungsi": "Membuka atau menutup port pada dudukan kepala.",
+      "status": "ESTIMATED",
+      "sumber": [
+        "D05-22 / Fig. 22 posisi 18, 6AYM-WET",
+        "D01 PDF 86–90 / cetak 82–86"
+      ],
+      "posisi": []
+    },
+    {
+      "no": 2,
+      "nama": "Pemandu batang katup",
+      "role": "shell",
+      "object_ids": [
+        "INT-VALVE-659"
+      ],
+      "nomor_oem": null,
+      "fungsi": "Menjaga gerak batang sejajar dalam kepala silinder.",
+      "status": "ESTIMATED",
+      "sumber": [
+        "D05-22 / Fig. 22 posisi 21, 29, 6AYM-WET",
+        "D01 PDF 86–90 / cetak 82–86"
+      ],
+      "posisi": [
+        {
+          "object_id": "INT-VALVE-659",
+          "arah": [
+            0.7071067811865475,
+            0.7071067811865475,
+            0.0
+          ],
+          "jarak_m": 0.042426406871192854,
+          "urutan": 2
+        }
+      ]
+    },
+    {
+      "no": 3,
+      "nama": "Alas pegas di kepala",
+      "role": "support",
+      "object_ids": [
+        "INT-VALVE-660"
+      ],
+      "nomor_oem": null,
+      "fungsi": "Permukaan tumpu pegas pada sisi kepala.",
+      "status": "ESTIMATED",
+      "sumber": [
+        "D05-22 / Fig. 22 posisi 24–27 / bentuk tumpuan pada model, 6AYM-WET",
+        "D01 PDF 86–90 / cetak 82–86"
+      ],
+      "posisi": [
+        {
+          "object_id": "INT-VALVE-660",
+          "arah": [
+            0.4244338762307196,
+            0.9054589359588685,
+            0.0
+          ],
+          "jarak_m": 0.07068238818828916,
+          "urutan": 3
+        }
+      ]
+    },
+    {
+      "no": 4,
+      "nama": "Pegas katup luar",
+      "role": "internal",
+      "object_ids": [
+        "INT-VALVE-661"
+      ],
+      "nomor_oem": null,
+      "fungsi": "Membantu menutup katup bersama pegas dalam.",
+      "status": "ESTIMATED",
+      "sumber": [
+        "D05-22 / Fig. 22 posisi 24–27, 6AYM-WET",
+        "D01 PDF 86–90 / cetak 82–86"
+      ],
+      "posisi": [
+        {
+          "object_id": "INT-VALVE-661",
+          "arah": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "jarak_m": 0.096,
+          "urutan": 4
+        }
+      ]
+    },
+    {
+      "no": 5,
+      "nama": "Seal bibir batang katup",
+      "role": "seal",
+      "object_ids": [
+        "INT-VALVE-657-SEAL"
+      ],
+      "nomor_oem": null,
+      "fungsi": "Membatasi aliran oli pada batang di bibir pemandu.",
+      "status": "ESTIMATED",
+      "sumber": [
+        "D05-22 / Fig. 22 posisi 19,20, 6AYM-WET",
+        "D01 PDF 86–90 / cetak 82–86"
+      ],
+      "posisi": [
+        {
+          "object_id": "INT-VALVE-657-SEAL",
+          "arah": [
+            -0.5438954542495688,
+            0.8391529865564774,
+            0.0
+          ],
+          "jarak_m": 0.06435060217278467,
+          "urutan": 5
+        }
+      ]
+    },
+    {
+      "no": 6,
+      "nama": "Pegas katup dalam",
+      "role": "internal",
+      "object_ids": [
+        "INT-VALVE-657-INNER"
+      ],
+      "nomor_oem": null,
+      "fungsi": "Pegas konsentris bekerja bersama pegas luar.",
+      "status": "ESTIMATED",
+      "sumber": [
+        "D05-22 / Fig. 22 posisi 24–27, 6AYM-WET",
+        "D01 PDF 86–90 / cetak 82–86"
+      ],
+      "posisi": [
+        {
+          "object_id": "INT-VALVE-657-INNER",
+          "arah": [
+            -0.3951111128427709,
+            0.9186333373594424,
+            0.0
+          ],
+          "jarak_m": 0.10123734488813899,
+          "urutan": 6
+        }
+      ]
+    },
+    {
+      "no": 7,
+      "nama": "Rotator dan dudukan atas",
+      "role": "cover",
+      "object_ids": [
+        "INT-VALVE-658"
+      ],
+      "nomor_oem": "175149-11701",
+      "fungsi": "Menahan pegas melalui cotter dan mendukung rotasi bertahap katup. Mekanisme internal rotator belum dirinci oleh katalog.",
+      "status": "ESTIMATED",
+      "sumber": [
+        "D05-22 / Fig. 22 posisi 30, 6AYM-WET",
+        "D01 PDF 86–90 / cetak 82–86"
+      ],
+      "posisi": [
+        {
+          "object_id": "INT-VALVE-658",
+          "arah": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "jarak_m": 0.158,
+          "urutan": 7
+        }
+      ]
+    },
+    {
+      "no": 8,
+      "nama": "Setengah cotter 1",
+      "role": "internal",
+      "object_ids": [
+        "INT-VALVE-657-COT1"
+      ],
+      "nomor_oem": "148633-11190",
+      "fungsi": "Mengunci rotator pada takik di batang katup bersama setengah cotter pasangannya.",
+      "status": "ESTIMATED",
+      "sumber": [
+        "D05-22 / Fig. 22 posisi 23, 6AYM-WET",
+        "D01 PDF 86–90 / cetak 82–86"
+      ],
+      "posisi": [
+        {
+          "object_id": "INT-VALVE-657-COT1",
+          "arah": [
+            -0.2323509796019317,
+            0.9726320076359932,
+            0.0
+          ],
+          "jarak_m": 0.18506485349736182,
+          "urutan": 8
+        }
+      ]
+    },
+    {
+      "no": 9,
+      "nama": "Setengah cotter 2",
+      "role": "internal",
+      "object_ids": [
+        "INT-VALVE-657-COT2"
+      ],
+      "nomor_oem": "148633-11190",
+      "fungsi": "Mengunci rotator pada takik di batang katup bersama setengah cotter pasangannya.",
+      "status": "ESTIMATED",
+      "sumber": [
+        "D05-22 / Fig. 22 posisi 23, 6AYM-WET",
+        "D01 PDF 86–90 / cetak 82–86"
+      ],
+      "posisi": [
+        {
+          "object_id": "INT-VALVE-657-COT2",
+          "arah": [
+            0.2323509796019317,
+            0.9726320076359932,
+            0.0
+          ],
+          "jarak_m": 0.18506485349736182,
+          "urutan": 9
+        }
+      ]
+    }
+  ],
+  "diagram": {
+    "arah_pandang": [
+      0.27,
+      0.15,
+      -0.95
+    ],
+    "atas": [
+      0,
+      1,
+      0
+    ]
+  },
+  "cut_axis": [
+    0,
+    1,
+    0
+  ],
+  "cut_normal": [
+    1,
+    0,
+    0
+  ],
+  "source_refs": [
+    "D05-22 / Fig. 22 posisi 18, 6AYM-WET",
+    "D01 PDF 86–90 / cetak 82–86",
+    "D05-22 / Fig. 22 posisi 21, 29, 6AYM-WET",
+    "D05-22 / Fig. 22 posisi 24–27 / bentuk tumpuan pada model, 6AYM-WET",
+    "D05-22 / Fig. 22 posisi 24–27, 6AYM-WET",
+    "D05-22 / Fig. 22 posisi 19,20, 6AYM-WET",
+    "D05-22 / Fig. 22 posisi 30, 6AYM-WET",
+    "D05-22 / Fig. 22 posisi 23, 6AYM-WET"
+  ],
+  "status": "UNVERIFIED",
+  "notes": "Profil dudukan dan radius diperkirakan untuk visualisasi. Jarak urai adalah ilustrasi hubungan rakitan."
+}

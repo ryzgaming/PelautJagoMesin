@@ -1,0 +1,228 @@
+{
+  "estimated_demo": {
+    "links": [
+      {
+        "id": "jacket",
+        "medium": "fresh_water",
+        "label": "Air tawar pendingin",
+        "length_m": 1.9019250993656294,
+        "estimated": false
+      },
+      {
+        "id": "lube",
+        "medium": "lube_oil",
+        "label": "Oli pelumas",
+        "length_m": 1.6037835357087615,
+        "estimated": false
+      },
+      {
+        "id": "exhaust",
+        "medium": "exhaust",
+        "label": "Gas buang",
+        "length_m": 0.9998982647037098,
+        "estimated": false
+      },
+      {
+        "id": "seawater",
+        "medium": "sea_water",
+        "label": "Air laut",
+        "length_m": 1.1575080140451377,
+        "estimated": true
+      }
+    ],
+    "estimated": [
+      {
+        "name": "flow:seawater:sw",
+        "opacity": 0.6,
+        "fragment": true
+      }
+    ]
+  },
+  "fire": {
+    "samples": 361,
+    "max_model_flame_radius": 0.09000000357627869,
+    "bore_radius": 0.09,
+    "phases": {
+      "c1": 0,
+      "c2": 540,
+      "c3": 180,
+      "c4": 360
+    },
+    "shapes": [
+      {
+        "name": "api:c1",
+        "type": "SphereGeometry"
+      },
+      {
+        "name": "semburan:c1",
+        "type": "ConeGeometry"
+      },
+      {
+        "name": "api:c2",
+        "type": "SphereGeometry"
+      },
+      {
+        "name": "semburan:c2",
+        "type": "ConeGeometry"
+      },
+      {
+        "name": "api:c3",
+        "type": "SphereGeometry"
+      },
+      {
+        "name": "semburan:c3",
+        "type": "ConeGeometry"
+      },
+      {
+        "name": "api:c4",
+        "type": "SphereGeometry"
+      },
+      {
+        "name": "semburan:c4",
+        "type": "ConeGeometry"
+      }
+    ],
+    "testPhaseSnapshots": [
+      [
+        {
+          "id": "c1",
+          "crank_deg": 8,
+          "angle_from_firing_tdc": 8,
+          "flame": 1,
+          "spray": 0,
+          "state": "paused"
+        },
+        {
+          "id": "c3",
+          "crank_deg": 8,
+          "angle_from_firing_tdc": -172,
+          "flame": 0,
+          "spray": 0,
+          "state": "paused"
+        },
+        {
+          "id": "c4",
+          "crank_deg": 8,
+          "angle_from_firing_tdc": -352,
+          "flame": 0,
+          "spray": 0,
+          "state": "paused"
+        },
+        {
+          "id": "c2",
+          "crank_deg": 8,
+          "angle_from_firing_tdc": 188,
+          "flame": 0.01831563888873418,
+          "spray": 0,
+          "state": "paused"
+        }
+      ],
+      [
+        {
+          "id": "c1",
+          "crank_deg": 188,
+          "angle_from_firing_tdc": 188,
+          "flame": 0.01831563888873418,
+          "spray": 0,
+          "state": "paused"
+        },
+        {
+          "id": "c3",
+          "crank_deg": 188,
+          "angle_from_firing_tdc": 8,
+          "flame": 1,
+          "spray": 0,
+          "state": "paused"
+        },
+        {
+          "id": "c4",
+          "crank_deg": 188,
+          "angle_from_firing_tdc": -172,
+          "flame": 0,
+          "spray": 0,
+          "state": "paused"
+        },
+        {
+          "id": "c2",
+          "crank_deg": 188,
+          "angle_from_firing_tdc": -352,
+          "flame": 0,
+          "spray": 0,
+          "state": "paused"
+        }
+      ],
+      [
+        {
+          "id": "c1",
+          "crank_deg": 368,
+          "angle_from_firing_tdc": -352,
+          "flame": 0,
+          "spray": 0,
+          "state": "paused"
+        },
+        {
+          "id": "c3",
+          "crank_deg": 368,
+          "angle_from_firing_tdc": 188,
+          "flame": 0.01831563888873418,
+          "spray": 0,
+          "state": "paused"
+        },
+        {
+          "id": "c4",
+          "crank_deg": 368,
+          "angle_from_firing_tdc": 8,
+          "flame": 1,
+          "spray": 0,
+          "state": "paused"
+        },
+        {
+          "id": "c2",
+          "crank_deg": 368,
+          "angle_from_firing_tdc": -172,
+          "flame": 0,
+          "spray": 0,
+          "state": "paused"
+        }
+      ],
+      [
+        {
+          "id": "c1",
+          "crank_deg": 548,
+          "angle_from_firing_tdc": -172,
+          "flame": 0,
+          "spray": 0,
+          "state": "paused"
+        },
+        {
+          "id": "c3",
+          "crank_deg": 548,
+          "angle_from_firing_tdc": -352,
+          "flame": 0,
+          "spray": 0,
+          "state": "paused"
+        },
+        {
+          "id": "c4",
+          "crank_deg": 548,
+          "angle_from_firing_tdc": 188,
+          "flame": 0.01831563888873418,
+          "spray": 0,
+          "state": "paused"
+        },
+        {
+          "id": "c2",
+          "crank_deg": 548,
+          "angle_from_firing_tdc": 8,
+          "flame": 1,
+          "spray": 0,
+          "state": "paused"
+        }
+      ]
+    ],
+    "button_pause_stable": true,
+    "button_resume_moves": true,
+    "mobile_pointlights": 0
+  },
+  "errors": []
+}

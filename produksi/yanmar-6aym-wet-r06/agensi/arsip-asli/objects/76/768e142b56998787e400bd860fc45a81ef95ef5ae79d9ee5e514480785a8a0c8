@@ -1,0 +1,281 @@
+{
+  "id": "RAK-FEEDPUMP",
+  "parent_rakitan": "RAK-FUEL",
+  "node_rakitan": "RAK-FEEDPUMP",
+  "nama": "Pompa feed kerja ganda dan pompa priming",
+  "acuan": {
+    "no": 1,
+    "object_ids": [
+      "EXT-FUEL-12"
+    ]
+  },
+  "bagian": [
+    {
+      "no": 1,
+      "nama": "Pompa feed dan priming",
+      "object_ids": [
+        "EXT-FUEL-12"
+      ],
+      "posisi": [],
+      "role": "shell",
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 145 / cetak 141, fig.016382-00E, 016383-00E dan 016384-00E",
+        "D05 0CG10-M34300 fig.75 FUEL FEED PUMP, kolom A (WET)"
+      ],
+      "fungsi": "Rumah dan sambungan luar."
+    },
+    {
+      "no": 2,
+      "nama": "Piston pompa feed kerja ganda",
+      "object_ids": [
+        "EXT-FUEL-210"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-210",
+          "arah": [
+            0,
+            0,
+            -1
+          ],
+          "jarak_m": 0.06,
+          "urutan": 2
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 145 / cetak 141, fig.016382-00E, 016383-00E dan 016384-00E",
+        "D05 0CG10-M34300 fig.75 FUEL FEED PUMP, kolom A (WET)"
+      ],
+      "fungsi": "Piston memindahkan solar di kedua sisi ruang pompa."
+    },
+    {
+      "no": 3,
+      "nama": "Roller penggerak, spindle dan dua oil seal",
+      "object_ids": [
+        "EXT-FUEL-211"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-211",
+          "arah": [
+            0,
+            0,
+            1
+          ],
+          "jarak_m": 0.055,
+          "urutan": 3
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 145 / cetak 141, fig.016382-00E, 016383-00E dan 016384-00E",
+        "D05 0CG10-M34300 fig.75 FUEL FEED PUMP, kolom A (WET)"
+      ],
+      "fungsi": "Roller dan spindle meneruskan angkatan nok. Dua seal mengisolasi ruang cam."
+    },
+    {
+      "no": 4,
+      "nama": "Pegas balik piston feed dan dudukan",
+      "object_ids": [
+        "EXT-FUEL-212"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-212",
+          "arah": [
+            0,
+            0,
+            -1
+          ],
+          "jarak_m": 0.095,
+          "urutan": 4
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 145 / cetak 141, fig.016382-00E, 016383-00E dan 016384-00E",
+        "D05 0CG10-M34300 fig.75 FUEL FEED PUMP, kolom A (WET)"
+      ],
+      "fungsi": "Pegas mengembalikan piston feed."
+    },
+    {
+      "no": 5,
+      "nama": "Katup satu arah feed 1 dan pegas",
+      "object_ids": [
+        "EXT-FUEL-213"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-213",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.04,
+          "urutan": 5
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 145 / cetak 141, fig.016382-00E, 016383-00E dan 016384-00E",
+        "D05 0CG10-M34300 fig.75 FUEL FEED PUMP, kolom A (WET)"
+      ],
+      "fungsi": "Satu dari empat katup yang mengarahkan aliran selama dua langkah."
+    },
+    {
+      "no": 6,
+      "nama": "Katup satu arah feed 2 dan pegas",
+      "object_ids": [
+        "EXT-FUEL-214"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-214",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.053,
+          "urutan": 6
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 145 / cetak 141, fig.016382-00E, 016383-00E dan 016384-00E",
+        "D05 0CG10-M34300 fig.75 FUEL FEED PUMP, kolom A (WET)"
+      ],
+      "fungsi": "Satu dari empat katup yang mengarahkan aliran selama dua langkah."
+    },
+    {
+      "no": 7,
+      "nama": "Katup satu arah feed 3 dan pegas",
+      "object_ids": [
+        "EXT-FUEL-215"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-215",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.066,
+          "urutan": 7
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 145 / cetak 141, fig.016382-00E, 016383-00E dan 016384-00E",
+        "D05 0CG10-M34300 fig.75 FUEL FEED PUMP, kolom A (WET)"
+      ],
+      "fungsi": "Satu dari empat katup yang mengarahkan aliran selama dua langkah."
+    },
+    {
+      "no": 8,
+      "nama": "Katup satu arah feed 4 dan pegas",
+      "object_ids": [
+        "EXT-FUEL-216"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-216",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.079,
+          "urutan": 8
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 145 / cetak 141, fig.016382-00E, 016383-00E dan 016384-00E",
+        "D05 0CG10-M34300 fig.75 FUEL FEED PUMP, kolom A (WET)"
+      ],
+      "fungsi": "Satu dari empat katup yang mengarahkan aliran selama dua langkah."
+    },
+    {
+      "no": 9,
+      "nama": "Piston tangan priming dan packing",
+      "object_ids": [
+        "EXT-FUEL-217"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-217",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.085,
+          "urutan": 9
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 145 / cetak 141, fig.016382-00E, 016383-00E dan 016384-00E",
+        "D05 0CG10-M34300 fig.75 FUEL FEED PUMP, kolom A (WET)"
+      ],
+      "fungsi": "Gerak tangan memindahkan piston untuk priming."
+    },
+    {
+      "no": 10,
+      "nama": "Pegas priming dan penahan",
+      "object_ids": [
+        "EXT-FUEL-218"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-218",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.108,
+          "urutan": 10
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 145 / cetak 141, fig.016382-00E, 016383-00E dan 016384-00E",
+        "D05 0CG10-M34300 fig.75 FUEL FEED PUMP, kolom A (WET)"
+      ],
+      "fungsi": "Pegas mendorong mekanisme priming kembali."
+    }
+  ],
+  "diagram": {
+    "arah_pandang": [
+      0.45,
+      0.34,
+      -0.83
+    ],
+    "atas": [
+      0,
+      1,
+      0
+    ]
+  },
+  "source_refs": [
+    "D01 PDF 145 / cetak 141, fig.016382-00E, 016383-00E dan 016384-00E",
+    "D05 0CG10-M34300 fig.75 FUEL FEED PUMP, kolom A (WET)"
+  ],
+  "notes": "Dimensi, bentuk kecil, peletakan dan posisi gerak merupakan perkiraan edukasi. Posisi terpasang mengikuti foto bodi. Rasio tuas, jalur bor, tekanan dan setelan belum terverifikasi.",
+  "status": "ESTIMATED"
+}

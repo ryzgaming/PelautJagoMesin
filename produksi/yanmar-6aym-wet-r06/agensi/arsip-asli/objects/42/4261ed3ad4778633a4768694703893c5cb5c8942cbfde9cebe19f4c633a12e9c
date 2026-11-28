@@ -1,0 +1,34 @@
+"""Create the owner workspace's traceability view without shipping third-party diagrams."""
+from pathlib import Path
+from collections import defaultdict
+import json, struct
+
+area = Path(__file__).resolve().parent
+root = area.parents[1]
+review = root/'review'
+figures = sorted((json.loads(p.read_text()) for p in (area/'figures').glob('*.json')),key=lambda f:f['figure'])
+matches = defaultdict(list)
+for layer in ['exterior','internal']:
+    store = root/'model'/layer
+    raw = (store/f'{layer}.glb').read_bytes()
+    length = struct.unpack_from('<I',raw,12)[0]
+    meshes = {n['name'] for n in json.loads(raw[20:20+length])['nodes'] if 'mesh' in n}
+    inventory = json.loads((store/'inventory.json').read_text())['components']
+    for item in inventory:
+        pn = item.get('nomor_oem') or item.get('part_number')
+        if isinstance(pn,str) and item['id'] in meshes:
+            matches[pn.strip()].append(item['id'])
+# Confirmed assembly-level crosswalks. The linked diagram can have estimated or missing rows.
+anchor_by_figure = {32:'EXT-EXHAUST-02',37:'EXT-INTAKE-02',38:'EXT-FLYWHEEL-02',
+    42:'EXT-LUBE-05',45:'EXT-LUBE-02',47:'EXT-LUBE-04',54:'EXT-COOLING-03',
+    55:'EXT-COOLING-04',57:'EXT-COOLING-01',74:'EXT-FUEL-01',75:'EXT-FUEL-12',
+    77:'EXT-FUEL-02',79:'INT-FUELINJ-61',83:'EXT-FUEL-10',106:'EXT-ELECTRIC-02',
+    109:'EXT-ELECTRIC-01'}
+for fig in figures:
+    fig['scope_anchor'] = anchor_by_figure.get(fig['figure'])
+    for part in fig['positions']:
+        part['model_ids_with_same_pn'] = matches.get(part['partNo'],[])
+out = {'scope':'Daftar posisi dari indeks katalog 6AYM-WET. Varian, opsi dan suku pengganti perlu dicocokkan dengan nomor seri. Tautan ke model memakai kecocokan nomor suku cadang dengan objek GLB. Objek tanpa nomor OEM tidak ditautkan.','figures':figures}
+(review/'assets/daftar-yanmar.json').write_text(json.dumps(out,ensure_ascii=False,separators=(',',':')))
+(review/'suku-cadang.html').write_text((area/'suku-cadang.html').read_text())
+print(len(figures),'figures',sum(len(f['positions']) for f in figures),'positions')

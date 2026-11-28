@@ -1,0 +1,255 @@
+{
+  "id": "RAK-GOVERNOR",
+  "parent_rakitan": "RAK-FUEL",
+  "node_rakitan": "RAK-GOVERNOR",
+  "nama": "Governor mekanis pompa YPE-1615",
+  "acuan": {
+    "no": 1,
+    "object_ids": [
+      "EXT-FUEL-02"
+    ]
+  },
+  "bagian": [
+    {
+      "no": 1,
+      "nama": "Governor mekanis, tuas dan pegas balik",
+      "object_ids": [
+        "EXT-FUEL-02"
+      ],
+      "posisi": [],
+      "role": "shell",
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 116 / cetak 112, Construction of the governor, fig.016450-00E",
+        "D05 0CG10-M34300 fig.77 GOVERNOR, kolom A (WET)"
+      ],
+      "fungsi": "Rumah dan sambungan luar."
+    },
+    {
+      "no": 2,
+      "nama": "Poros governor dan dudukan pemberat",
+      "object_ids": [
+        "EXT-FUEL-200"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-200",
+          "arah": [
+            -1,
+            0,
+            0
+          ],
+          "jarak_m": 0.08,
+          "urutan": 2
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 116 / cetak 112, Construction of the governor, fig.016450-00E",
+        "D05 0CG10-M34300 fig.77 GOVERNOR, kolom A (WET)"
+      ],
+      "fungsi": "Dudukan meneruskan putaran ke pemberat sentrifugal."
+    },
+    {
+      "no": 3,
+      "nama": "Pemberat sentrifugal governor 1",
+      "object_ids": [
+        "EXT-FUEL-201"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-201",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.07,
+          "urutan": 3
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 116 / cetak 112, Construction of the governor, fig.016450-00E",
+        "D05 0CG10-M34300 fig.77 GOVERNOR, kolom A (WET)"
+      ],
+      "fungsi": "Pemberat berayun melalui pin dan menekan shifter."
+    },
+    {
+      "no": 4,
+      "nama": "Pemberat sentrifugal governor 2",
+      "object_ids": [
+        "EXT-FUEL-202"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-202",
+          "arah": [
+            0,
+            -1,
+            0
+          ],
+          "jarak_m": 0.07,
+          "urutan": 4
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 116 / cetak 112, Construction of the governor, fig.016450-00E",
+        "D05 0CG10-M34300 fig.77 GOVERNOR, kolom A (WET)"
+      ],
+      "fungsi": "Pemberat berayun melalui pin dan menekan shifter."
+    },
+    {
+      "no": 5,
+      "nama": "Selongsong shifter dan bantalan dorong",
+      "object_ids": [
+        "EXT-FUEL-203"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-203",
+          "arah": [
+            1,
+            0,
+            0
+          ],
+          "jarak_m": 0.09,
+          "urutan": 5
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 116 / cetak 112, Construction of the governor, fig.016450-00E",
+        "D05 0CG10-M34300 fig.77 GOVERNOR, kolom A (WET)"
+      ],
+      "fungsi": "Selongsong menerima gaya aksial pemberat dan meneruskannya ke tuas."
+    },
+    {
+      "no": 6,
+      "nama": "Pegas pengatur governor",
+      "object_ids": [
+        "EXT-FUEL-204"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-204",
+          "arah": [
+            1,
+            0,
+            0
+          ],
+          "jarak_m": 0.16,
+          "urutan": 6
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 116 / cetak 112, Construction of the governor, fig.016450-00E",
+        "D05 0CG10-M34300 fig.77 GOVERNOR, kolom A (WET)"
+      ],
+      "fungsi": "Pegas memberi gaya lawan gerak aksial pemberat."
+    },
+    {
+      "no": 7,
+      "nama": "Dudukan bergerak pegas dan shifter",
+      "object_ids": [
+        "EXT-FUEL-206"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-206",
+          "arah": [
+            1,
+            0,
+            0
+          ],
+          "jarak_m": 0.17,
+          "urutan": 7
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 116 / cetak 112, Construction of the governor, fig.016450-00E",
+        "D05 0CG10-M34300 fig.77 GOVERNOR, kolom A (WET)"
+      ],
+      "fungsi": "Penahan bergerak dengan shifter."
+    },
+    {
+      "no": 8,
+      "nama": "Dudukan ujung tetap pegas pengatur",
+      "object_ids": [
+        "EXT-FUEL-207"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-207",
+          "arah": [
+            1,
+            0,
+            0
+          ],
+          "jarak_m": 0.19,
+          "urutan": 8
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 116 / cetak 112, Construction of the governor, fig.016450-00E",
+        "D05 0CG10-M34300 fig.77 GOVERNOR, kolom A (WET)"
+      ],
+      "fungsi": "Penahan ini tetap pada setelan pengujian idle."
+    },
+    {
+      "no": 9,
+      "nama": "Tuas governor, link dan poros pivot",
+      "object_ids": [
+        "EXT-FUEL-205"
+      ],
+      "role": "inner",
+      "posisi": [
+        {
+          "object_id": "EXT-FUEL-205",
+          "arah": [
+            0,
+            0,
+            -1
+          ],
+          "jarak_m": 0.065,
+          "urutan": 9
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D01 PDF 116 / cetak 112, Construction of the governor, fig.016450-00E",
+        "D05 0CG10-M34300 fig.77 GOVERNOR, kolom A (WET)"
+      ],
+      "fungsi": "Link menghubungkan gerak shifter ke pengendali rack secara skematis."
+    }
+  ],
+  "diagram": {
+    "arah_pandang": [
+      0.45,
+      0.34,
+      -0.83
+    ],
+    "atas": [
+      0,
+      1,
+      0
+    ]
+  },
+  "source_refs": [
+    "D01 PDF 116 / cetak 112, Construction of the governor, fig.016450-00E",
+    "D05 0CG10-M34300 fig.77 GOVERNOR, kolom A (WET)"
+  ],
+  "notes": "Dimensi, bentuk kecil, peletakan dan posisi gerak merupakan perkiraan edukasi. Posisi terpasang mengikuti foto bodi. Rasio tuas, jalur bor, tekanan dan setelan belum terverifikasi.",
+  "status": "ESTIMATED"
+}

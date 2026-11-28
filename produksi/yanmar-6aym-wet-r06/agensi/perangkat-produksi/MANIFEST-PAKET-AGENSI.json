@@ -1,0 +1,1020 @@
+{
+  "scope": "Only agensi/agen, agensi/perangkat-produksi and agensi/PANDUAN-PRODUKSI.md. Other team-owned agensi folders excluded.",
+  "source_hash_failures": [],
+  "entries": [
+    {
+      "path": "PANDUAN-PRODUKSI.md",
+      "sha256": "e182f676c131876f770afc39734d0b435f7b700467cace7b712e9cce4a8a4e3b",
+      "bytes": 8031,
+      "provenance": "packaging_document_or_reconstructed_brief"
+    },
+    {
+      "path": "perangkat-produksi/AUDIT-ARSIP.json",
+      "sha256": "c2e417e0bd12178092ff87860db6530b372cdcc0bbdeabef861d6453cbd2a69f",
+      "bytes": 285,
+      "provenance": "packaging_document_or_reconstructed_brief"
+    },
+    {
+      "path": "perangkat-produksi/AUDIT-RAHASIA.json",
+      "sha256": "3003e96fea5fe8f768feda40126bf1f3037411395d21ccbd5f82bcfeb672d0aa",
+      "bytes": 461,
+      "provenance": "packaging_document_or_reconstructed_brief"
+    },
+    {
+      "path": "perangkat-produksi/HAK-DAN-KETERBATASAN.md",
+      "sha256": "e78d1fcd4c94bb8438335b32010f933a03c68b7f7e79ec1f2626c97479af1ef1",
+      "bytes": 2041,
+      "provenance": "packaging_document_or_reconstructed_brief"
+    },
+    {
+      "path": "perangkat-produksi/HASIL-TES-PENGEMASAN.json",
+      "sha256": "33fd9c8692ac30ae374ee04c7285c712a7b7c3cbe1c5abdcf2bb0498b4341141",
+      "bytes": 2307,
+      "provenance": "packaging_document_or_reconstructed_brief"
+    },
+    {
+      "path": "perangkat-produksi/LINGKUNGAN.json",
+      "sha256": "0d4daf1775635379f228e890451aeb240a241a58c7bd88a90d3aeabb147e0e67",
+      "bytes": 853,
+      "provenance": "packaging_document_or_reconstructed_brief"
+    },
+    {
+      "path": "perangkat-produksi/MANIFEST-SUMBER.json",
+      "sha256": "16ba6ec6a29bb9916a84f3de9ffc8ed01e8d67cce9b59297a94f924868dd6c91",
+      "bytes": 60468,
+      "provenance": "packaging_document_or_reconstructed_brief"
+    },
+    {
+      "path": "perangkat-produksi/adaptasi-gpt/PROMPT-PRODUKSI-MESIN-3D-GPT.md",
+      "sha256": "ce677e50cdc0a66bbd8b6f39835a33dc9c4e243ffb3393ef45946f32a6a658c6",
+      "bytes": 13918,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/adaptasi-gpt/toolkit-orang-mesin-gpt/.codex/agents/pemodel_eksterior.toml",
+      "sha256": "a1977ee26ddab0ebb50a0f172534fec6857665136833c477193f52aadc41b22f",
+      "bytes": 1595,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/adaptasi-gpt/toolkit-orang-mesin-gpt/.codex/agents/qa_visual_viewer.toml",
+      "sha256": "cb817f60258f8fffc162886027c2099844b33195fbc8327a32170135670661d3",
+      "bytes": 1822,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/adaptasi-gpt/toolkit-orang-mesin-gpt/.codex/agents/referensi_visual.toml",
+      "sha256": "586c9ded632396beda7c7c494d086e08a8ca2f0f9b86c406117204f4fcdeff7c",
+      "bytes": 1502,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/adaptasi-gpt/toolkit-orang-mesin-gpt/.codex/agents/spesialis_blok_poros_piston.toml",
+      "sha256": "96e0546fffc96e3020094bc5e924618d20426c3b73a81c7bdadffdc27dd84ec6",
+      "bytes": 1255,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/adaptasi-gpt/toolkit-orang-mesin-gpt/.codex/agents/spesialis_injeksi_bahan_bakar.toml",
+      "sha256": "f3ab3b5804d6432452ed735312a4f7cf572055a20703dc59179336c6ae6fcc23",
+      "bytes": 1324,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/adaptasi-gpt/toolkit-orang-mesin-gpt/.codex/agents/spesialis_jalur_fluida.toml",
+      "sha256": "f36b54f08be2ad8e834cb823cc7e1bd98a8f1a27bbf5f1129d7e0feb9fd241f9",
+      "bytes": 1977,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/adaptasi-gpt/toolkit-orang-mesin-gpt/.codex/agents/spesialis_kepala_katup.toml",
+      "sha256": "8ec71e505593c9c76373054da52efd670c146ec1619c54ce4ed7b56746f4e2e5",
+      "bytes": 1256,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/adaptasi-gpt/toolkit-orang-mesin-gpt/.codex/agents/spesialis_kinematika_benturan.toml",
+      "sha256": "71c817cc516318d26bcd235a801396f6a499a4ade64a40cf13349f1781ac22d3",
+      "bytes": 1737,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/adaptasi-gpt/toolkit-orang-mesin-gpt/.codex/agents/spesialis_pelumasan_pompa.toml",
+      "sha256": "88ee83411e128bc88e70c7421cb19563d808f24ebac061c85e749a1d7f4f6fe0",
+      "bytes": 1244,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/adaptasi-gpt/toolkit-orang-mesin-gpt/.codex/agents/spesialis_pendingin_penukar_panas.toml",
+      "sha256": "0c2bc2063c2ac2406f7db4b367a78f22f9b9cd4cc22af070a97f951860c55114",
+      "bytes": 1400,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/adaptasi-gpt/toolkit-orang-mesin-gpt/.codex/agents/spesialis_pendingin_pompa_katup.toml",
+      "sha256": "99efd25fb90a5c531460b09508d39c10637bf501e0771851d543b007f10138ed",
+      "bytes": 1245,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/adaptasi-gpt/toolkit-orang-mesin-gpt/.codex/agents/spesialis_starter_pengisian.toml",
+      "sha256": "5e12e767bbe09fe2319d2d68b814028a435bb34ecee64ae491b0d45b6bb9b2ad",
+      "bytes": 1264,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/adaptasi-gpt/toolkit-orang-mesin-gpt/.codex/agents/spesialis_transmisi_timing.toml",
+      "sha256": "06d01c8a74a5c424e973250e138e4419a24088c8647086b0d42c787aae4615a2",
+      "bytes": 1314,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/adaptasi-gpt/toolkit-orang-mesin-gpt/.codex/agents/spesialis_turbo_udara_gas.toml",
+      "sha256": "d3a1f34f69d7c1048134f4bceeaec16fbc4634fd072914a6bcffb85eccdbd006",
+      "bytes": 1307,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/adaptasi-gpt/toolkit-orang-mesin-gpt/FLOW-ROUTING.md",
+      "sha256": "bb88df3802be9ac125c0332b4ee1b548c5f68c1a69f1a30b8da6862129abbbcc",
+      "bytes": 7231,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/adaptasi-gpt/toolkit-orang-mesin-gpt/MOTION-QA.md",
+      "sha256": "2774b64fde4f7151eca1ad2fd31583da10428b4ab915ecf998777027c614c5ea",
+      "bytes": 8839,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/adaptasi-gpt/toolkit-orang-mesin-gpt/PROMPT-GPT.md",
+      "sha256": "ce677e50cdc0a66bbd8b6f39835a33dc9c4e243ffb3393ef45946f32a6a658c6",
+      "bytes": 13918,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/adaptasi-gpt/toolkit-orang-mesin-gpt/PROVENANCE.json",
+      "sha256": "ae4602aaa4e8acf37c850857067caa2f275967eec60105424d0a5a312f69d60f",
+      "bytes": 394,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/adaptasi-gpt/toolkit-orang-mesin-gpt/README.md",
+      "sha256": "5a52b2686e42f3329152b7048bd30581340204b257c8b3a9a0ff4a49954ba0bb",
+      "bytes": 7615,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/adaptasi-gpt/toolkit-orang-mesin-gpt/ROLE-PROMPTS.md",
+      "sha256": "1c243b2fea37d5402b386a2ccc2c70a5316bbd61d7352f98c75a465ec6eeae57",
+      "bytes": 10659,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/adaptasi-gpt/toolkit-orang-mesin-gpt/SHA256SUMS.json",
+      "sha256": "34d29aedc625f557a948363e29b84fa56ea739b60138d9a39e952e4caf6a02f9",
+      "bytes": 7851,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/adaptasi-gpt/toolkit-orang-mesin-gpt/SPECIALISTS.md",
+      "sha256": "7f1829f9f1ba02885642f04b7615cc606a364a2a701ecbdd249c997936c6f992",
+      "bytes": 9565,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/adaptasi-gpt/toolkit-orang-mesin-gpt/assembly_scope.py",
+      "sha256": "1aa35d6c26baccae1f484f68b4d4bcddb46cc22e065f9e50875426a53a92b37c",
+      "bytes": 12448,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/adaptasi-gpt/toolkit-orang-mesin-gpt/flow_scope.py",
+      "sha256": "9f56699b6c96c9bfea2de97dde2076231c889be5e79c31fddb99fd0a342c5f35",
+      "bytes": 14427,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/adaptasi-gpt/toolkit-orang-mesin-gpt/motion_scope.py",
+      "sha256": "aa990d995559228b1c5d586f0dff4d685110f948ac798bfde26a7bbb77d35d45",
+      "bytes": 17262,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/adaptasi-gpt/toolkit-orang-mesin-gpt/probe_flow.py",
+      "sha256": "e1557679d07bc696a9a5b6b25c20081bcea1b37809c4c34dd704d1ca69d59e65",
+      "bytes": 4151,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/adaptasi-gpt/toolkit-orang-mesin-gpt/probe_motion_bounds.py",
+      "sha256": "d004cfc98d2b2f45a68f4c65fbd477d8339a47ea0aeb318650dcc290a004a9bc",
+      "bytes": 5761,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/adaptasi-gpt/toolkit-orang-mesin-gpt/references-original/NOTICE.md",
+      "sha256": "4bfa63d7abb01988cd2b3ac99979f55e596833810a4e2628d236fcf24a86ac5d",
+      "bytes": 393,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/adaptasi-gpt/toolkit-orang-mesin-gpt/references-original/PROMPT-PRODUKSI-MESIN-3D.md",
+      "sha256": "69d0edfe1c68131e66ec68b31531bde8ccd0a7397c098d401970b17830455ade",
+      "bytes": 21116,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/adaptasi-gpt/toolkit-orang-mesin-gpt/references-original/README.md",
+      "sha256": "18465e371eadce30c65884d04b4946e8bc47c3c1af5fecaa12fcf08bb26abb49",
+      "bytes": 2480,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/adaptasi-gpt/toolkit-orang-mesin-gpt/references-original/contoh-3512c/assemblies/EXT-HX.json",
+      "sha256": "1e8fda50f797d4109a3ae3ac1ace7c175665a0f4363e70778af2d7aab3e132f4",
+      "bytes": 12845,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/adaptasi-gpt/toolkit-orang-mesin-gpt/references-original/contoh-3512c/assemblies/EXT-TRB-R.json",
+      "sha256": "173ae673c7e8237cfa878d1edea92ac8c636a2d9078bd98d8cb9ed30beddf3e9",
+      "bytes": 4915,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/adaptasi-gpt/toolkit-orang-mesin-gpt/references-original/contoh-3512c/compare-exterior.json",
+      "sha256": "85abbdfbf0a20b16c71217aa6d0c926d14b782913137342b9c17feb8dc70d375",
+      "bytes": 12019,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/adaptasi-gpt/toolkit-orang-mesin-gpt/references-original/contoh-3512c/datum.json",
+      "sha256": "1bf397c7f158888286f7bd91389435fc1a4d6202d59c621cfb12b58a3ef73ac8",
+      "bytes": 28637,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/adaptasi-gpt/toolkit-orang-mesin-gpt/references-original/contoh-3512c/inventory-internal.json",
+      "sha256": "0e151548badb13fd21cea5d49f05cd07804460a5e98b1cdf81771a1b4455f59d",
+      "bytes": 191919,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/adaptasi-gpt/toolkit-orang-mesin-gpt/references-original/contoh-3512c/inventory.json",
+      "sha256": "cfdce32be73cb2c230a49570e0fb420cb6be3ab71486721be1a259d476e3f02c",
+      "bytes": 90617,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/adaptasi-gpt/toolkit-orang-mesin-gpt/references-original/contoh-3512c/kinematics.json",
+      "sha256": "14f8e5398bdcf843f5928373b0d3dd8f76e59089de15aefaeae92e859361c0a5",
+      "bytes": 17829,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/adaptasi-gpt/toolkit-orang-mesin-gpt/references-original/contoh-3512c/qa.json",
+      "sha256": "35103c39785f8f11b98f1c42d4c5d7e9603acd1bc13d16eb4156750192affd02",
+      "bytes": 23782,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/adaptasi-gpt/toolkit-orang-mesin-gpt/references-original/contoh-3512c/register-dokumen.json",
+      "sha256": "992859ec8bb96d411b244587bd584458795bca068dc9121c3a0c97bec32aeb9b",
+      "bytes": 26235,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/adaptasi-gpt/toolkit-orang-mesin-gpt/references-original/contoh-3512c/register-foto.json",
+      "sha256": "7781e0438d1507f19f5fe494fed0538783904e8a19b140b13a2a1e1c4f258a38",
+      "bytes": 36342,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/adaptasi-gpt/toolkit-orang-mesin-gpt/references-original/contoh-3512c/systems/freshwater.json",
+      "sha256": "506e1f324468dd57c47069a2875d0fd3ec990a871926d40662f1208e0ec0d79b",
+      "bytes": 19227,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/adaptasi-gpt/toolkit-orang-mesin-gpt/references-original/contoh-3512c/systems/fuel.json",
+      "sha256": "df51460e8442efe44601307dc71ae9aac33a7176266fec275659e188cbb2e6db",
+      "bytes": 9187,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/adaptasi-gpt/toolkit-orang-mesin-gpt/references-original/contoh-3512c/systems/intake-exhaust.json",
+      "sha256": "7c468275ab1550475b7c2681ace48247502c62d88f915ceff7439db5a56a9160",
+      "bytes": 9337,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/adaptasi-gpt/toolkit-orang-mesin-gpt/references-original/contoh-3512c/systems/lubrication.json",
+      "sha256": "a7982fbc42eb10ce5fd6a1fec911232f859df062b535e3af5e0e2e9640027ce9",
+      "bytes": 9065,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/adaptasi-gpt/toolkit-orang-mesin-gpt/references-original/contoh-3512c/systems/seawater.json",
+      "sha256": "c5be575542a31316af8da53df63f99027aec127352798684a42cf3992d3e58f4",
+      "bytes": 8859,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/adaptasi-gpt/toolkit-orang-mesin-gpt/references-original/skrip-exterior/build.py.reference",
+      "sha256": "29ad1d7d8ae1dff04f11758119028b628ba38ce6b9c997c89b0d970c7feba484",
+      "bytes": 69098,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/adaptasi-gpt/toolkit-orang-mesin-gpt/references-original/skrip-exterior/check_explode.py.reference",
+      "sha256": "4fef9dab56dc4a25e2c4377726711c378fec9d259ec0e78d568a2714dfca345f",
+      "bytes": 1271,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/adaptasi-gpt/toolkit-orang-mesin-gpt/references-original/skrip-exterior/overlay.py.reference",
+      "sha256": "8620150165f304c01d008cefcdf8212e7c7124fb9795001540fc39e8419872f0",
+      "bytes": 1689,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/adaptasi-gpt/toolkit-orang-mesin-gpt/references-original/skrip-exterior/render.py.reference",
+      "sha256": "cfcbf0d2b2db00ad7902ff383f337ccc550f1bc2bdb4ae13a3e24ff4c0431fff",
+      "bytes": 4206,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/adaptasi-gpt/toolkit-orang-mesin-gpt/references-original/skrip-exterior/render_explode.py.reference",
+      "sha256": "b33a9b0a2637c1cad9dc0f00562e228cf59f3bafe1ae287769308b4e30766abb",
+      "bytes": 2768,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/adaptasi-gpt/toolkit-orang-mesin-gpt/references-original/skrip-internal/build_internal.py.reference",
+      "sha256": "ecf3164d184b3be6ea5fa35344ae099e328f37c0c24faa886fa4a0b8bf560f54",
+      "bytes": 43965,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/adaptasi-gpt/toolkit-orang-mesin-gpt/references-original/skrip-internal/check_render.py.reference",
+      "sha256": "bc1179304d3cf6da8f9fbeaa0e5d2ee24f309063435e7903e95b08902dffea3f",
+      "bytes": 17564,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/adaptasi-gpt/toolkit-orang-mesin-gpt/references-original/skrip-internal/ext_clash.py.reference",
+      "sha256": "48f1112f5dd6a923d4542565bfa71a5fa7148c2c2d846472f7bbdf6a44f688ee",
+      "bytes": 7239,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/adaptasi-gpt/toolkit-orang-mesin-gpt/references-original/skrip-internal/finalize.py.reference",
+      "sha256": "9359015d1a00c9b585dcb50fadebd63fbee3740dc0e48e0738f1058484f0f08c",
+      "bytes": 8540,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/adaptasi-gpt/toolkit-orang-mesin-gpt/references-original/skrip-qa/axis.py.reference",
+      "sha256": "fec3b72739ed1949b295e37d280a56cf4289160f8f79082717c5fc1b40d5e501",
+      "bytes": 2131,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/adaptasi-gpt/toolkit-orang-mesin-gpt/references-original/skrip-qa/camx.py.reference",
+      "sha256": "100f38c233966832991074b6526d645bfae815d148aff6104969042a1a026376",
+      "bytes": 1020,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/adaptasi-gpt/toolkit-orang-mesin-gpt/references-original/skrip-qa/clash.py.reference",
+      "sha256": "bec2c558709991f14b5b512734dfbe5b34fa35968b7a23f003032c8b58f976be",
+      "bytes": 1158,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/adaptasi-gpt/toolkit-orang-mesin-gpt/references-original/skrip-qa/closeup.py.reference",
+      "sha256": "99379a1feccbd7ecedada186a85797fd1b91046966a07bbdeed834ff9ec85e81",
+      "bytes": 693,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/adaptasi-gpt/toolkit-orang-mesin-gpt/references-original/skrip-qa/liner.py.reference",
+      "sha256": "00c4894d9e4c9543a6c285fbdcfea5f48f24f3349197c294fa7d9e9193bc28ca",
+      "bytes": 877,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/adaptasi-gpt/toolkit-orang-mesin-gpt/references-original/skrip-qa/make_qa2.py.reference",
+      "sha256": "dc3304c1b6f13cb13d036cb7b59f87b0efc34ba9bd5400ac835a18b957b81c9a",
+      "bytes": 8707,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/adaptasi-gpt/toolkit-orang-mesin-gpt/references-original/skrip-qa/measure.py.reference",
+      "sha256": "fe952831af53f3ce43ff9a331426dc313558ed1f59ebf4269bdc95773079371a",
+      "bytes": 1383,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/adaptasi-gpt/toolkit-orang-mesin-gpt/references-original/skrip-qa/outside.py.reference",
+      "sha256": "9965812edc2e7db2f0e18a888c431871744cdcb0bad6ee42312a481efd6a0048",
+      "bytes": 1371,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/adaptasi-gpt/toolkit-orang-mesin-gpt/render_six.py",
+      "sha256": "68c4001c7284d99b51504ea79024aa9ac425cc3ad2ad4a0ed187d121bd7dbb09",
+      "bytes": 4215,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/adaptasi-gpt/toolkit-orang-mesin-gpt/specialists.json",
+      "sha256": "7db54280359467c86377155b82d2c52a8992a22cd2cbf69c37fb9797876eb60f",
+      "bytes": 1163,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/adaptasi-gpt/toolkit-orang-mesin-gpt/tests/blender_motion_smoke.py",
+      "sha256": "db823cf8a54e76fc6f38de39d387c04be20a042add78bd5b855443adafc648ae",
+      "bytes": 2598,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/adaptasi-gpt/toolkit-orang-mesin-gpt/tests/test_assembly_scope.py",
+      "sha256": "e1cf3b8beb7b35bcbf5fc37490574a79ac892bda9db0d7896eed9659f04717be",
+      "bytes": 7122,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/adaptasi-gpt/toolkit-orang-mesin-gpt/tests/test_flow_scope.py",
+      "sha256": "974b35e80b873ad893e09d4b43f43922fa924b9d335685f3e82666aa49138cd2",
+      "bytes": 7468,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/adaptasi-gpt/toolkit-orang-mesin-gpt/tests/test_motion_scope.py",
+      "sha256": "0e071af23baa92e9d922237a4b653e2a0db03f130a960276956b3841133b711c",
+      "bytes": 9315,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/adaptasi-gpt/toolkit-orang-mesin-gpt/tests/test_toolkit.py",
+      "sha256": "24e9e69891ecd8e866741e31d073a1b9194cc168e654bb8863a83a0afb9424ec",
+      "bytes": 5863,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/adaptasi-gpt/toolkit-orang-mesin-gpt/toolkit.py",
+      "sha256": "eada85dc1b18291cbaaaf477585a7ee458a9599b9d277562abdffb5d15eb8028",
+      "bytes": 12784,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/adaptasi-gpt/toolkit-orang-mesin-gpt.tar.gz",
+      "sha256": "9d8340754a8c19a2c16491c5e1fa6bc2967b7ca3197853d322782c500c4fe418",
+      "bytes": 193400,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/lampiran-pemilik/PAKET-AGEN-SKILL-EFEK-VISUAL.txt",
+      "sha256": "7108481485aed1b29648722d19f854843ac1424ff1451ed86bbde51f69a133aa",
+      "bytes": 18681,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/lampiran-pemilik/PROMPT-PRODUKSI-MESIN-3D.md",
+      "sha256": "69d0edfe1c68131e66ec68b31531bde8ccd0a7397c098d401970b17830455ade",
+      "bytes": 21116,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/lampiran-pemilik/toolkit-orang-mesin.tar.gz",
+      "sha256": "6728153b76d3def0d20e00a4486f5873b6d2e554280cc3dfedc57ed0c7b775d8",
+      "bytes": 131462,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/repo-snapshot/.agents/skills/animasi-aliran-mesin/SKILL.md",
+      "sha256": "80fdaec645d39df1cebd0895da72a8db3bd2223c32a7b03fc707a380c202277d",
+      "bytes": 9108,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/repo-snapshot/.agents/skills/animasi-aliran-mesin/references/gaya-efek.json",
+      "sha256": "fd652cf84eab52ee8df1b33938e5c0d4754157ffe726ce1fd825b156269c0a87",
+      "bytes": 2208,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/repo-snapshot/.agents/skills/animasi-aliran-mesin/references/palet-media.md",
+      "sha256": "67e8bd6c4f1e616ba27f395af3a497416030803dbe708bc60e2196d236948ab5",
+      "bytes": 2224,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/repo-snapshot/.agents/skills/animasi-aliran-mesin/scripts/capture_flow.py",
+      "sha256": "119eb3f8f47a7c10f17ef1a6e1804561abd9af764124809c75d5ec39a21658dd",
+      "bytes": 5580,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/repo-snapshot/.agents/skills/animasi-aliran-mesin/scripts/combustion-glow.js",
+      "sha256": "46df6bfb3200b34d411d825c069f904c37375d6106c53c8ed464b575747fc7fb",
+      "bytes": 13737,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/repo-snapshot/.agents/skills/animasi-aliran-mesin/scripts/demo.html",
+      "sha256": "7a1b44dee5a5e46d7b6612f985e01517a1841753b9279889f2a00cef51ab1327",
+      "bytes": 6241,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/repo-snapshot/.agents/skills/animasi-aliran-mesin/scripts/flow-ribbons.js",
+      "sha256": "34a74b961e2e975be8f10403274f3caa1ec7e0030e98ca36f72439ffad396f6e",
+      "bytes": 17594,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/repo-snapshot/.agents/skills/animasi-aliran-mesin/scripts/lab.html",
+      "sha256": "c5b81910feb746d90cbb2d46fbd9b8cd00beef5d0631a84e0936f4b56909ccc2",
+      "bytes": 10582,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/repo-snapshot/.agents/skills/blender-animasi-mesin/SKILL.md",
+      "sha256": "9b4a5a29ca573c18d9a97c31561f4dcfab8f83b507ce55e2941afd6afb09e7b2",
+      "bytes": 5599,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/repo-snapshot/.agents/skills/blender-animasi-mesin/scripts/crank_rig.py",
+      "sha256": "5d040e994aa24b176f85f9be0da5969957c641abdf4bf11eddf695a28916ab66",
+      "bytes": 7224,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/repo-snapshot/.agents/skills/blender-animasi-mesin/scripts/render_strip.py",
+      "sha256": "12d375da0be8004dc5568de051cb1ebbd4b20d149749aae3d4bc2e9dbfbfc54c",
+      "bytes": 7405,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/repo-snapshot/.agents/skills/lookdev-efek-mesin/SKILL.md",
+      "sha256": "16faf555b322d2f9fb2b4e51372b7f2a08dc1cf24f5fc59cc39402248824fe71",
+      "bytes": 8586,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/repo-snapshot/.agents/skills/lookdev-efek-mesin/references/rubrik-visual-cgi.md",
+      "sha256": "55407abf8a6566c3cdd8ea206e8a233fabb271fe3d5f8ca73e05902b6629398e",
+      "bytes": 2962,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/repo-snapshot/.codex/agents/pemodel_eksterior.toml",
+      "sha256": "a1977ee26ddab0ebb50a0f172534fec6857665136833c477193f52aadc41b22f",
+      "bytes": 1595,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/repo-snapshot/.codex/agents/qa_visual_viewer.toml",
+      "sha256": "bae3f2442234534bc27ca46c115cebc1d0f080ffa3ecd3ddf4796f07f128b212",
+      "bytes": 2195,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/repo-snapshot/.codex/agents/referensi_visual.toml",
+      "sha256": "586c9ded632396beda7c7c494d086e08a8ca2f0f9b86c406117204f4fcdeff7c",
+      "bytes": 1502,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/repo-snapshot/.codex/agents/spesialis_blok_poros_piston.toml",
+      "sha256": "96e0546fffc96e3020094bc5e924618d20426c3b73a81c7bdadffdc27dd84ec6",
+      "bytes": 1255,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/repo-snapshot/.codex/agents/spesialis_efek_visual.toml",
+      "sha256": "ea355ce1a992818ccbb36fe424fda7aca21882415ee4454be905f31e0ab11f1a",
+      "bytes": 3551,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/repo-snapshot/.codex/agents/spesialis_injeksi_bahan_bakar.toml",
+      "sha256": "f3ab3b5804d6432452ed735312a4f7cf572055a20703dc59179336c6ae6fcc23",
+      "bytes": 1324,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/repo-snapshot/.codex/agents/spesialis_jalur_fluida.toml",
+      "sha256": "2356fc5a3a15c7970b4f486deb15edd5973dc050e20d793cf77d77bf794ac0fc",
+      "bytes": 2187,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/repo-snapshot/.codex/agents/spesialis_kepala_katup.toml",
+      "sha256": "8ec71e505593c9c76373054da52efd670c146ec1619c54ce4ed7b56746f4e2e5",
+      "bytes": 1256,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/repo-snapshot/.codex/agents/spesialis_kinematika_benturan.toml",
+      "sha256": "71c817cc516318d26bcd235a801396f6a499a4ade64a40cf13349f1781ac22d3",
+      "bytes": 1737,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/repo-snapshot/.codex/agents/spesialis_pelumasan_pompa.toml",
+      "sha256": "88ee83411e128bc88e70c7421cb19563d808f24ebac061c85e749a1d7f4f6fe0",
+      "bytes": 1244,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/repo-snapshot/.codex/agents/spesialis_pendingin_penukar_panas.toml",
+      "sha256": "0c2bc2063c2ac2406f7db4b367a78f22f9b9cd4cc22af070a97f951860c55114",
+      "bytes": 1400,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/repo-snapshot/.codex/agents/spesialis_pendingin_pompa_katup.toml",
+      "sha256": "99efd25fb90a5c531460b09508d39c10637bf501e0771851d543b007f10138ed",
+      "bytes": 1245,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/repo-snapshot/.codex/agents/spesialis_starter_pengisian.toml",
+      "sha256": "5e12e767bbe09fe2319d2d68b814028a435bb34ecee64ae491b0d45b6bb9b2ad",
+      "bytes": 1264,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/repo-snapshot/.codex/agents/spesialis_transmisi_timing.toml",
+      "sha256": "06d01c8a74a5c424e973250e138e4419a24088c8647086b0d42c787aae4615a2",
+      "bytes": 1314,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/repo-snapshot/.codex/agents/spesialis_turbo_udara_gas.toml",
+      "sha256": "d3a1f34f69d7c1048134f4bceeaec16fbc4634fd072914a6bcffb85eccdbd006",
+      "bytes": 1307,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/repo-snapshot/.codex/config.toml",
+      "sha256": "e4729e244d0ef943c6184eb546a767d45e0dbb170f4f15c4185e99339b8af36c",
+      "bytes": 946,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/repo-snapshot/AGENTS.md",
+      "sha256": "eec194d5d42f2500f4b980ac7860aa273dc59f1a2910bdda7dae3d3ad165654f",
+      "bytes": 7419,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/repo-snapshot/GEMINI.md",
+      "sha256": "b5b4ea264a13f36e56efb90370b7c7ef4e20194c53d0a90ea98de5a41ccd64ba",
+      "bytes": 4621,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/repo-snapshot/apps/alur-workflow/worker/README.md",
+      "sha256": "bb91f60c49882ce493a9df717e12b7e1c479526780e24e06b3da6b251f02bb26",
+      "bytes": 37322,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/repo-snapshot/apps/alur-workflow/worker/hosted_worker.py",
+      "sha256": "3e3ae4d14b295f552e89437800eb919486a7fd51110a590f20d9bdb478776dbd",
+      "bytes": 20751,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/repo-snapshot/apps/alur-workflow/worker/test_hosted_worker.py",
+      "sha256": "ba4002cbaba19e1ad52bf641d74fe8ff1efecd697a77bd7e97a09eaceafec6d8",
+      "bytes": 14964,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/repo-snapshot/dist/assets/THREE-LICENSE.txt",
+      "sha256": "7dddf7c5b8fd10ee654db8857d75d104b5557889aa5a91fc4ca545ea7c07062f",
+      "bytes": 1081,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/repo-snapshot/dist/assets/three.min.js",
+      "sha256": "9274bbcec8d96168626c732b5d31c775aa8cfb7eaa0599bec0c175908a2c1ce2",
+      "bytes": 603445,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/repo-snapshot/docs/PROJECT_MEMORY.md",
+      "sha256": "9afa34c24ac000e7ad8f8167c0d5d6aa4e7e46d76470dc5c8887e84140d3070c",
+      "bytes": 10630,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/repo-snapshot/docs/WORKSPACE_UI.md",
+      "sha256": "1d3212f4bf3961dfe1670f9e2d1d185965d5dd44758b45f277a52e91f69188e3",
+      "bytes": 6575,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/repo-snapshot/package-lock.json",
+      "sha256": "ac0eb847654353a4e8555796c26b9631405ca4c415eab30ed5c23f32d36b60c6",
+      "bytes": 124604,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/repo-snapshot/package.json",
+      "sha256": "bab40813b8f97adb3e189a973010310048da8878ae88d714fbde62fb5a87da7e",
+      "bytes": 550,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/repo-snapshot/tests/combustion-glow.test.mjs",
+      "sha256": "2c6d39b6eb2f15fd9cb2e81108ae7eddf3b6ccadf2dcd6d84f04ce615583b44b",
+      "bytes": 3385,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/repo-snapshot/tests/flow-ribbons.test.mjs",
+      "sha256": "5828b93cff5bdb9d6fae539706639d9a3ff16f11b47fdb95f0f95ab42f5f54fc",
+      "bytes": 2887,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/repo-snapshot/tools/gpt-production/FLOW-ROUTING.md",
+      "sha256": "67043d229e80d426ef118b4147d1c98f71e04ca3101338e3302b5fe2c48b71b6",
+      "bytes": 7487,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/repo-snapshot/tools/gpt-production/MOTION-QA.md",
+      "sha256": "2774b64fde4f7151eca1ad2fd31583da10428b4ab915ecf998777027c614c5ea",
+      "bytes": 8839,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/repo-snapshot/tools/gpt-production/PROMPT-GPT.md",
+      "sha256": "1638c6a17046e595c17cdffbc92df5b3d3afbea2a63a8e7c3b33e0865e8c1915",
+      "bytes": 14187,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/repo-snapshot/tools/gpt-production/PROVENANCE.json",
+      "sha256": "ae4602aaa4e8acf37c850857067caa2f275967eec60105424d0a5a312f69d60f",
+      "bytes": 394,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/repo-snapshot/tools/gpt-production/README.md",
+      "sha256": "5a9239ab8630a101b4421a528495a97ef1cd01c9c5c86a2a8bde7fb352c3112c",
+      "bytes": 7869,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/repo-snapshot/tools/gpt-production/ROLE-PROMPTS.md",
+      "sha256": "1c243b2fea37d5402b386a2ccc2c70a5316bbd61d7352f98c75a465ec6eeae57",
+      "bytes": 10659,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/repo-snapshot/tools/gpt-production/SPECIALISTS.md",
+      "sha256": "7f1829f9f1ba02885642f04b7615cc606a364a2a701ecbdd249c997936c6f992",
+      "bytes": 9565,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/repo-snapshot/tools/gpt-production/assembly_scope.py",
+      "sha256": "1aa35d6c26baccae1f484f68b4d4bcddb46cc22e065f9e50875426a53a92b37c",
+      "bytes": 12448,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/repo-snapshot/tools/gpt-production/flow_scope.py",
+      "sha256": "9f56699b6c96c9bfea2de97dde2076231c889be5e79c31fddb99fd0a342c5f35",
+      "bytes": 14427,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/repo-snapshot/tools/gpt-production/motion_scope.py",
+      "sha256": "aa990d995559228b1c5d586f0dff4d685110f948ac798bfde26a7bbb77d35d45",
+      "bytes": 17262,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/repo-snapshot/tools/gpt-production/probe_flow.py",
+      "sha256": "e1557679d07bc696a9a5b6b25c20081bcea1b37809c4c34dd704d1ca69d59e65",
+      "bytes": 4151,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/repo-snapshot/tools/gpt-production/probe_motion_bounds.py",
+      "sha256": "d004cfc98d2b2f45a68f4c65fbd477d8339a47ea0aeb318650dcc290a004a9bc",
+      "bytes": 5761,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/repo-snapshot/tools/gpt-production/render_six.py",
+      "sha256": "68c4001c7284d99b51504ea79024aa9ac425cc3ad2ad4a0ed187d121bd7dbb09",
+      "bytes": 4215,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/repo-snapshot/tools/gpt-production/specialists.json",
+      "sha256": "7db54280359467c86377155b82d2c52a8992a22cd2cbf69c37fb9797876eb60f",
+      "bytes": 1163,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/repo-snapshot/tools/gpt-production/tests/blender_motion_smoke.py",
+      "sha256": "db823cf8a54e76fc6f38de39d387c04be20a042add78bd5b855443adafc648ae",
+      "bytes": 2598,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/repo-snapshot/tools/gpt-production/tests/test_assembly_scope.py",
+      "sha256": "e1cf3b8beb7b35bcbf5fc37490574a79ac892bda9db0d7896eed9659f04717be",
+      "bytes": 7122,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/repo-snapshot/tools/gpt-production/tests/test_flow_scope.py",
+      "sha256": "974b35e80b873ad893e09d4b43f43922fa924b9d335685f3e82666aa49138cd2",
+      "bytes": 7468,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/repo-snapshot/tools/gpt-production/tests/test_motion_scope.py",
+      "sha256": "0e071af23baa92e9d922237a4b653e2a0db03f130a960276956b3841133b711c",
+      "bytes": 9315,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/repo-snapshot/tools/gpt-production/tests/test_toolkit.py",
+      "sha256": "24e9e69891ecd8e866741e31d073a1b9194cc168e654bb8863a83a0afb9424ec",
+      "bytes": 5863,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "perangkat-produksi/repo-snapshot/tools/gpt-production/toolkit.py",
+      "sha256": "eada85dc1b18291cbaaaf477585a7ee458a9599b9d277562abdffb5d15eb8028",
+      "bytes": 12784,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "agen/PERAN-R06.json",
+      "sha256": "96658a60c4ab79bc8a334be453947cdf32a3d2e624a8c7308e56d390cfe91482",
+      "bytes": 3278,
+      "provenance": "packaging_document_or_reconstructed_brief"
+    },
+    {
+      "path": "agen/README.md",
+      "sha256": "d93294df8cee8f0e6fb04a3ce94642bb1af9f9ebb18a7818ef5f2ca33f1c6a43",
+      "bytes": 1168,
+      "provenance": "packaging_document_or_reconstructed_brief"
+    },
+    {
+      "path": "agen/brief-dapat-dipakai-ulang/audio-dan-starting.md",
+      "sha256": "261acd59aae75b2408277fddc4b9b3e4e25ef33c0190cd04d1815e5ae017ac82",
+      "bytes": 1833,
+      "provenance": "packaging_document_or_reconstructed_brief"
+    },
+    {
+      "path": "agen/brief-dapat-dipakai-ulang/efek-aliran-pembakaran.md",
+      "sha256": "4fbd7785a41ed7c0ff8527e3e7b9cc6db9796807cebebf5ca46bb8f7340e83ec",
+      "bytes": 1708,
+      "provenance": "packaging_document_or_reconstructed_brief"
+    },
+    {
+      "path": "agen/brief-dapat-dipakai-ulang/geometri-gerak-aliran.md",
+      "sha256": "49a89369bff68e24654e89f53f6faed2f8bc96f7ca5298e7d816c6d975aed87b",
+      "bytes": 1801,
+      "provenance": "packaging_document_or_reconstructed_brief"
+    },
+    {
+      "path": "agen/brief-dapat-dipakai-ulang/injeksi-bahan-bakar.md",
+      "sha256": "e3b0e49cde7bbaa2d50c1827745117f6548b8c4623f792e8b33baa45b0923277",
+      "bytes": 1758,
+      "provenance": "packaging_document_or_reconstructed_brief"
+    },
+    {
+      "path": "agen/brief-dapat-dipakai-ulang/integrator-runtime-ui.md",
+      "sha256": "97b7ff6d1c8a16545aa7921bb8fb916fafd14d666cfdb92f982e31d4747b760b",
+      "bytes": 1679,
+      "provenance": "packaging_document_or_reconstructed_brief"
+    },
+    {
+      "path": "agen/brief-dapat-dipakai-ulang/koordinator.md",
+      "sha256": "eff4bccdbe2c43f8ab49943da067ac87c1b489cd581f8522894ae922b33aba57",
+      "bytes": 1620,
+      "provenance": "packaging_document_or_reconstructed_brief"
+    },
+    {
+      "path": "agen/brief-dapat-dipakai-ulang/peneliti-fungsi.md",
+      "sha256": "eb3cc225247d040b15b27fd04264709ce69e49f591c66238b00dfaa1c1392ed8",
+      "bytes": 1723,
+      "provenance": "packaging_document_or_reconstructed_brief"
+    },
+    {
+      "path": "agen/brief-dapat-dipakai-ulang/qa-independen.md",
+      "sha256": "671121de67f03d0b09490d2fbab01f0ed9977184fdad1466b9295b5fea654a58",
+      "bytes": 1727,
+      "provenance": "packaging_document_or_reconstructed_brief"
+    },
+    {
+      "path": "agen/profil-asli/pemodel_eksterior.toml",
+      "sha256": "a1977ee26ddab0ebb50a0f172534fec6857665136833c477193f52aadc41b22f",
+      "bytes": 1595,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "agen/profil-asli/qa_visual_viewer.toml",
+      "sha256": "bae3f2442234534bc27ca46c115cebc1d0f080ffa3ecd3ddf4796f07f128b212",
+      "bytes": 2195,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "agen/profil-asli/referensi_visual.toml",
+      "sha256": "586c9ded632396beda7c7c494d086e08a8ca2f0f9b86c406117204f4fcdeff7c",
+      "bytes": 1502,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "agen/profil-asli/spesialis_blok_poros_piston.toml",
+      "sha256": "96e0546fffc96e3020094bc5e924618d20426c3b73a81c7bdadffdc27dd84ec6",
+      "bytes": 1255,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "agen/profil-asli/spesialis_efek_visual.toml",
+      "sha256": "ea355ce1a992818ccbb36fe424fda7aca21882415ee4454be905f31e0ab11f1a",
+      "bytes": 3551,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "agen/profil-asli/spesialis_injeksi_bahan_bakar.toml",
+      "sha256": "f3ab3b5804d6432452ed735312a4f7cf572055a20703dc59179336c6ae6fcc23",
+      "bytes": 1324,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "agen/profil-asli/spesialis_jalur_fluida.toml",
+      "sha256": "2356fc5a3a15c7970b4f486deb15edd5973dc050e20d793cf77d77bf794ac0fc",
+      "bytes": 2187,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "agen/profil-asli/spesialis_kepala_katup.toml",
+      "sha256": "8ec71e505593c9c76373054da52efd670c146ec1619c54ce4ed7b56746f4e2e5",
+      "bytes": 1256,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "agen/profil-asli/spesialis_kinematika_benturan.toml",
+      "sha256": "71c817cc516318d26bcd235a801396f6a499a4ade64a40cf13349f1781ac22d3",
+      "bytes": 1737,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "agen/profil-asli/spesialis_pelumasan_pompa.toml",
+      "sha256": "88ee83411e128bc88e70c7421cb19563d808f24ebac061c85e749a1d7f4f6fe0",
+      "bytes": 1244,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "agen/profil-asli/spesialis_pendingin_penukar_panas.toml",
+      "sha256": "0c2bc2063c2ac2406f7db4b367a78f22f9b9cd4cc22af070a97f951860c55114",
+      "bytes": 1400,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "agen/profil-asli/spesialis_pendingin_pompa_katup.toml",
+      "sha256": "99efd25fb90a5c531460b09508d39c10637bf501e0771851d543b007f10138ed",
+      "bytes": 1245,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "agen/profil-asli/spesialis_starter_pengisian.toml",
+      "sha256": "5e12e767bbe09fe2319d2d68b814028a435bb34ecee64ae491b0d45b6bb9b2ad",
+      "bytes": 1264,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "agen/profil-asli/spesialis_transmisi_timing.toml",
+      "sha256": "06d01c8a74a5c424e973250e138e4419a24088c8647086b0d42c787aae4615a2",
+      "bytes": 1314,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    },
+    {
+      "path": "agen/profil-asli/spesialis_turbo_udara_gas.toml",
+      "sha256": "d3a1f34f69d7c1048134f4bceeaec16fbc4634fd072914a6bcffb85eccdbd006",
+      "bytes": 1307,
+      "provenance": "copied_source_see_MANIFEST-SUMBER"
+    }
+  ]
+}

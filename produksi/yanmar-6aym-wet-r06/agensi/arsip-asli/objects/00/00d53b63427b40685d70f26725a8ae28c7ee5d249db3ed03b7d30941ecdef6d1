@@ -1,0 +1,564 @@
+{
+  "id": "RAK-ALTDRIVE",
+  "nama": "Poros perantara dan sabuk alternator",
+  "node_rakitan": "RAK-ALTDRIVE",
+  "parent_rakitan": "RAK-FRONT",
+  "acuan": {
+    "no": 1,
+    "object_ids": [
+      "EXT-FRONT-08"
+    ]
+  },
+  "bagian": [
+    {
+      "no": 1,
+      "nama": "Rumah bantalan poros penggerak alternator",
+      "object_ids": [
+        "EXT-FRONT-08"
+      ],
+      "nomor_oem": "148660-77220",
+      "role": "shell",
+      "status": "ESTIMATED",
+      "ukuran": null,
+      "source_refs": [
+        "D05 Fig.107 GENERATOR, V-belt, intermediate shaft, bearing case and drive gear; Fig.109 pulley / ref. 23",
+        "D01 PDF 112, front cam gear and alternator driving gear"
+      ],
+      "sumber": [
+        "D05 Fig.107 GENERATOR, V-belt, intermediate shaft, bearing case and drive gear; Fig.109 pulley / ref. 23",
+        "D01 PDF 112, front cam gear and alternator driving gear"
+      ],
+      "fungsi": "Badan tetap menopang dua bearing dan seal; gear depan menggerakkan poros di dalamnya.",
+      "posisi": []
+    },
+    {
+      "no": 2,
+      "nama": "Poros perantara penggerak alternator",
+      "object_ids": [
+        "EXT-FRONT-06"
+      ],
+      "nomor_oem": "148660-77210",
+      "role": "shaft",
+      "status": "ESTIMATED",
+      "ukuran": null,
+      "source_refs": [
+        "D05 Fig.107 GENERATOR, V-belt, intermediate shaft, bearing case and drive gear; Fig.109 pulley / ref. 22",
+        "D01 PDF 112, front cam gear and alternator driving gear"
+      ],
+      "sumber": [
+        "D05 Fig.107 GENERATOR, V-belt, intermediate shaft, bearing case and drive gear; Fig.109 pulley / ref. 22",
+        "D01 PDF 112, front cam gear and alternator driving gear"
+      ],
+      "fungsi": "Poros meneruskan putaran gear Fig.107 ref.29 ke puli Fig.107 ref.21.",
+      "posisi": [
+        {
+          "object_id": "EXT-FRONT-06",
+          "arah": [
+            1,
+            0,
+            0
+          ],
+          "jarak_m": 0.18,
+          "urutan": 2
+        }
+      ]
+    },
+    {
+      "no": 3,
+      "nama": "Puli-V penggerak sabuk alternator",
+      "object_ids": [
+        "EXT-FRONT-07"
+      ],
+      "nomor_oem": "148633-77410",
+      "role": "drive",
+      "status": "ESTIMATED",
+      "ukuran": null,
+      "source_refs": [
+        "D05 Fig.107 GENERATOR, V-belt, intermediate shaft, bearing case and drive gear; Fig.109 pulley / ref. 21",
+        "D01 PDF 112, front cam gear and alternator driving gear"
+      ],
+      "sumber": [
+        "D05 Fig.107 GENERATOR, V-belt, intermediate shaft, bearing case and drive gear; Fig.109 pulley / ref. 21",
+        "D01 PDF 112, front cam gear and alternator driving gear"
+      ],
+      "fungsi": "Alur-V memberi traksi pada satu belt yang dipilih sesuai puli alternator Fig.109.",
+      "posisi": [
+        {
+          "object_id": "EXT-FRONT-07",
+          "arah": [
+            1,
+            0,
+            0
+          ],
+          "jarak_m": 0.32,
+          "urutan": 3
+        }
+      ]
+    },
+    {
+      "no": 4,
+      "nama": "Ring luar bearing 6205 posisi 1",
+      "object_ids": [
+        "EXT-FRONT-09"
+      ],
+      "nomor_oem": "24101-062054",
+      "role": "bearing",
+      "status": "ESTIMATED",
+      "ukuran": null,
+      "source_refs": [
+        "D05 Fig.107 GENERATOR, V-belt, intermediate shaft, bearing case and drive gear; Fig.109 pulley / ref. 27",
+        "D01 PDF 112, front cam gear and alternator driving gear"
+      ],
+      "sumber": [
+        "D05 Fig.107 GENERATOR, V-belt, intermediate shaft, bearing case and drive gear; Fig.109 pulley / ref. 27",
+        "D01 PDF 112, front cam gear and alternator driving gear"
+      ],
+      "fungsi": "Ring luar dipasang tetap pada rumah bearing.",
+      "posisi": [
+        {
+          "object_id": "EXT-FRONT-09",
+          "arah": [
+            1,
+            0,
+            0
+          ],
+          "jarak_m": 0.11,
+          "urutan": 4
+        }
+      ]
+    },
+    {
+      "no": 5,
+      "nama": "Ring dalam bearing 6205 posisi 1",
+      "object_ids": [
+        "EXT-FRONT-10"
+      ],
+      "nomor_oem": "24101-062054",
+      "role": "bearing",
+      "status": "ESTIMATED",
+      "ukuran": null,
+      "source_refs": [
+        "D05 Fig.107 GENERATOR, V-belt, intermediate shaft, bearing case and drive gear; Fig.109 pulley / ref. 27",
+        "D01 PDF 112, front cam gear and alternator driving gear"
+      ],
+      "sumber": [
+        "D05 Fig.107 GENERATOR, V-belt, intermediate shaft, bearing case and drive gear; Fig.109 pulley / ref. 27",
+        "D01 PDF 112, front cam gear and alternator driving gear"
+      ],
+      "fungsi": "Ring dalam terpasang pada poros perantara dan berputar bersamanya.",
+      "posisi": [
+        {
+          "object_id": "EXT-FRONT-10",
+          "arah": [
+            1,
+            0,
+            0
+          ],
+          "jarak_m": 0.14,
+          "urutan": 5
+        }
+      ]
+    },
+    {
+      "no": 6,
+      "nama": "Elemen gelinding bearing 6205 posisi 1",
+      "object_ids": [
+        "EXT-FRONT-11"
+      ],
+      "nomor_oem": "24101-062054",
+      "role": "bearing",
+      "status": "ESTIMATED",
+      "ukuran": null,
+      "source_refs": [
+        "D05 Fig.107 GENERATOR, V-belt, intermediate shaft, bearing case and drive gear; Fig.109 pulley / ref. 27",
+        "D01 PDF 112, front cam gear and alternator driving gear"
+      ],
+      "sumber": [
+        "D05 Fig.107 GENERATOR, V-belt, intermediate shaft, bearing case and drive gear; Fig.109 pulley / ref. 27",
+        "D01 PDF 112, front cam gear and alternator driving gear"
+      ],
+      "fungsi": "Orbit set bola tanpa slip dihitung dari radius lintasan dan bola model. Putaran lokal tiap bola tidak diperagakan.",
+      "posisi": [
+        {
+          "object_id": "EXT-FRONT-11",
+          "arah": [
+            1,
+            0,
+            0
+          ],
+          "jarak_m": 0.17,
+          "urutan": 6
+        }
+      ]
+    },
+    {
+      "no": 7,
+      "nama": "Ring luar bearing 6205 posisi 2",
+      "object_ids": [
+        "EXT-FRONT-12"
+      ],
+      "nomor_oem": "24101-062054",
+      "role": "bearing",
+      "status": "ESTIMATED",
+      "ukuran": null,
+      "source_refs": [
+        "D05 Fig.107 GENERATOR, V-belt, intermediate shaft, bearing case and drive gear; Fig.109 pulley / ref. 27",
+        "D01 PDF 112, front cam gear and alternator driving gear"
+      ],
+      "sumber": [
+        "D05 Fig.107 GENERATOR, V-belt, intermediate shaft, bearing case and drive gear; Fig.109 pulley / ref. 27",
+        "D01 PDF 112, front cam gear and alternator driving gear"
+      ],
+      "fungsi": "Ring luar dipasang tetap pada rumah bearing.",
+      "posisi": [
+        {
+          "object_id": "EXT-FRONT-12",
+          "arah": [
+            1,
+            0,
+            0
+          ],
+          "jarak_m": 0.27,
+          "urutan": 7
+        }
+      ]
+    },
+    {
+      "no": 8,
+      "nama": "Ring dalam bearing 6205 posisi 2",
+      "object_ids": [
+        "EXT-FRONT-13"
+      ],
+      "nomor_oem": "24101-062054",
+      "role": "bearing",
+      "status": "ESTIMATED",
+      "ukuran": null,
+      "source_refs": [
+        "D05 Fig.107 GENERATOR, V-belt, intermediate shaft, bearing case and drive gear; Fig.109 pulley / ref. 27",
+        "D01 PDF 112, front cam gear and alternator driving gear"
+      ],
+      "sumber": [
+        "D05 Fig.107 GENERATOR, V-belt, intermediate shaft, bearing case and drive gear; Fig.109 pulley / ref. 27",
+        "D01 PDF 112, front cam gear and alternator driving gear"
+      ],
+      "fungsi": "Ring dalam terpasang pada poros perantara dan berputar bersamanya.",
+      "posisi": [
+        {
+          "object_id": "EXT-FRONT-13",
+          "arah": [
+            1,
+            0,
+            0
+          ],
+          "jarak_m": 0.30000000000000004,
+          "urutan": 8
+        }
+      ]
+    },
+    {
+      "no": 9,
+      "nama": "Elemen gelinding bearing 6205 posisi 2",
+      "object_ids": [
+        "EXT-FRONT-14"
+      ],
+      "nomor_oem": "24101-062054",
+      "role": "bearing",
+      "status": "ESTIMATED",
+      "ukuran": null,
+      "source_refs": [
+        "D05 Fig.107 GENERATOR, V-belt, intermediate shaft, bearing case and drive gear; Fig.109 pulley / ref. 27",
+        "D01 PDF 112, front cam gear and alternator driving gear"
+      ],
+      "sumber": [
+        "D05 Fig.107 GENERATOR, V-belt, intermediate shaft, bearing case and drive gear; Fig.109 pulley / ref. 27",
+        "D01 PDF 112, front cam gear and alternator driving gear"
+      ],
+      "fungsi": "Orbit set bola tanpa slip dihitung dari radius lintasan dan bola model. Putaran lokal tiap bola tidak diperagakan.",
+      "posisi": [
+        {
+          "object_id": "EXT-FRONT-14",
+          "arah": [
+            1,
+            0,
+            0
+          ],
+          "jarak_m": 0.33,
+          "urutan": 9
+        }
+      ]
+    },
+    {
+      "no": 10,
+      "nama": "Seal bibir poros perantara",
+      "object_ids": [
+        "EXT-FRONT-15"
+      ],
+      "nomor_oem": "136600-42480",
+      "role": "seal",
+      "status": "ESTIMATED",
+      "ukuran": null,
+      "source_refs": [
+        "D05 Fig.107 GENERATOR, V-belt, intermediate shaft, bearing case and drive gear; Fig.109 pulley / ref. 24",
+        "D01 PDF 112, front cam gear and alternator driving gear"
+      ],
+      "sumber": [
+        "D05 Fig.107 GENERATOR, V-belt, intermediate shaft, bearing case and drive gear; Fig.109 pulley / ref. 24",
+        "D01 PDF 112, front cam gear and alternator driving gear"
+      ],
+      "fungsi": "Bibir seal tetap di dalam case untuk menahan oli.",
+      "posisi": [
+        {
+          "object_id": "EXT-FRONT-15",
+          "arah": [
+            1,
+            0,
+            0
+          ],
+          "jarak_m": 0.22,
+          "urutan": 10
+        }
+      ]
+    },
+    {
+      "no": 11,
+      "nama": "Snap ring rumah bantalan",
+      "object_ids": [
+        "EXT-FRONT-16"
+      ],
+      "nomor_oem": "22252-000520",
+      "role": "fastener",
+      "status": "ESTIMATED",
+      "ukuran": null,
+      "source_refs": [
+        "D05 Fig.107 GENERATOR, V-belt, intermediate shaft, bearing case and drive gear; Fig.109 pulley / ref. 25",
+        "D01 PDF 112, front cam gear and alternator driving gear"
+      ],
+      "sumber": [
+        "D05 Fig.107 GENERATOR, V-belt, intermediate shaft, bearing case and drive gear; Fig.109 pulley / ref. 25",
+        "D01 PDF 112, front cam gear and alternator driving gear"
+      ],
+      "fungsi": "Menahan bearing pada case.",
+      "posisi": [
+        {
+          "object_id": "EXT-FRONT-16",
+          "arah": [
+            1,
+            0,
+            0
+          ],
+          "jarak_m": 0.23,
+          "urutan": 11
+        }
+      ]
+    },
+    {
+      "no": 12,
+      "nama": "Pasak gear/puli 1",
+      "object_ids": [
+        "EXT-FRONT-17"
+      ],
+      "nomor_oem": "22512-070140",
+      "role": "fastener",
+      "status": "ESTIMATED",
+      "ukuran": null,
+      "source_refs": [
+        "D05 Fig.107 GENERATOR, V-belt, intermediate shaft, bearing case and drive gear; Fig.109 pulley / ref. 26",
+        "D01 PDF 112, front cam gear and alternator driving gear"
+      ],
+      "sumber": [
+        "D05 Fig.107 GENERATOR, V-belt, intermediate shaft, bearing case and drive gear; Fig.109 pulley / ref. 26",
+        "D01 PDF 112, front cam gear and alternator driving gear"
+      ],
+      "fungsi": "Pasak mengunci komponen penggerak terhadap putaran relatif pada poros.",
+      "posisi": [
+        {
+          "object_id": "EXT-FRONT-17",
+          "arah": [
+            1,
+            0,
+            0
+          ],
+          "jarak_m": 0.19,
+          "urutan": 12
+        }
+      ]
+    },
+    {
+      "no": 13,
+      "nama": "Pasak gear/puli 2",
+      "object_ids": [
+        "EXT-FRONT-18"
+      ],
+      "nomor_oem": "22512-070140",
+      "role": "fastener",
+      "status": "ESTIMATED",
+      "ukuran": null,
+      "source_refs": [
+        "D05 Fig.107 GENERATOR, V-belt, intermediate shaft, bearing case and drive gear; Fig.109 pulley / ref. 26",
+        "D01 PDF 112, front cam gear and alternator driving gear"
+      ],
+      "sumber": [
+        "D05 Fig.107 GENERATOR, V-belt, intermediate shaft, bearing case and drive gear; Fig.109 pulley / ref. 26",
+        "D01 PDF 112, front cam gear and alternator driving gear"
+      ],
+      "fungsi": "Pasak mengunci komponen penggerak terhadap putaran relatif pada poros.",
+      "posisi": [
+        {
+          "object_id": "EXT-FRONT-18",
+          "arah": [
+            1,
+            0,
+            0
+          ],
+          "jarak_m": 0.33999999999999997,
+          "urutan": 13
+        }
+      ]
+    },
+    {
+      "no": 14,
+      "nama": "Mur pengunci M20 poros 1",
+      "object_ids": [
+        "EXT-FRONT-19"
+      ],
+      "nomor_oem": "26776-200002",
+      "role": "fastener",
+      "status": "ESTIMATED",
+      "ukuran": null,
+      "source_refs": [
+        "D05 Fig.107 GENERATOR, V-belt, intermediate shaft, bearing case and drive gear; Fig.109 pulley / ref. 28",
+        "D01 PDF 112, front cam gear and alternator driving gear"
+      ],
+      "sumber": [
+        "D05 Fig.107 GENERATOR, V-belt, intermediate shaft, bearing case and drive gear; Fig.109 pulley / ref. 28",
+        "D01 PDF 112, front cam gear and alternator driving gear"
+      ],
+      "fungsi": "Mur mengunci tumpukan poros secara aksial.",
+      "posisi": [
+        {
+          "object_id": "EXT-FRONT-19",
+          "arah": [
+            1,
+            0,
+            0
+          ],
+          "jarak_m": 0.2,
+          "urutan": 14
+        }
+      ]
+    },
+    {
+      "no": 15,
+      "nama": "Mur pengunci M20 poros 2",
+      "object_ids": [
+        "EXT-FRONT-20"
+      ],
+      "nomor_oem": "26776-200002",
+      "role": "fastener",
+      "status": "ESTIMATED",
+      "ukuran": null,
+      "source_refs": [
+        "D05 Fig.107 GENERATOR, V-belt, intermediate shaft, bearing case and drive gear; Fig.109 pulley / ref. 28",
+        "D01 PDF 112, front cam gear and alternator driving gear"
+      ],
+      "sumber": [
+        "D05 Fig.107 GENERATOR, V-belt, intermediate shaft, bearing case and drive gear; Fig.109 pulley / ref. 28",
+        "D01 PDF 112, front cam gear and alternator driving gear"
+      ],
+      "fungsi": "Mur mengunci tumpukan poros secara aksial.",
+      "posisi": [
+        {
+          "object_id": "EXT-FRONT-20",
+          "arah": [
+            1,
+            0,
+            0
+          ],
+          "jarak_m": 0.37,
+          "urutan": 15
+        }
+      ]
+    },
+    {
+      "no": 16,
+      "nama": "Sabuk-V A28 penggerak alternator",
+      "object_ids": [
+        "EXT-FRONT-04"
+      ],
+      "nomor_oem": "25132-002800",
+      "role": "belt",
+      "status": "ESTIMATED",
+      "ukuran": null,
+      "source_refs": [
+        "D05 Fig.107 GENERATOR, V-belt, intermediate shaft, bearing case and drive gear; Fig.109 pulley / ref. 15",
+        "D01 PDF 112, front cam gear and alternator driving gear"
+      ],
+      "sumber": [
+        "D05 Fig.107 GENERATOR, V-belt, intermediate shaft, bearing case and drive gear; Fig.109 pulley / ref. 15",
+        "D01 PDF 112, front cam gear and alternator driving gear"
+      ],
+      "fungsi": "Loop terbuka pada dua puli. Satu belt sesuai alternatif satu alur. Bentuk loop tetap saat material sabuk berjalan.",
+      "posisi": [
+        {
+          "object_id": "EXT-FRONT-04",
+          "arah": [
+            1,
+            0,
+            0
+          ],
+          "jarak_m": 0.25,
+          "urutan": 16
+        }
+      ]
+    },
+    {
+      "no": 17,
+      "nama": "Tanda perjalanan permukaan sabuk",
+      "object_ids": [
+        "EXT-FRONT-05"
+      ],
+      "nomor_oem": null,
+      "role": "witness",
+      "status": "ESTIMATED",
+      "ukuran": null,
+      "source_refs": [
+        "D05 Fig.107 GENERATOR, V-belt, intermediate shaft, bearing case and drive gear; Fig.109 pulley / ref. ilustrasi",
+        "D01 PDF 112, front cam gear and alternator driving gear"
+      ],
+      "sumber": [
+        "D05 Fig.107 GENERATOR, V-belt, intermediate shaft, bearing case and drive gear; Fig.109 pulley / ref. ilustrasi",
+        "D01 PDF 112, front cam gear and alternator driving gear"
+      ],
+      "fungsi": "Penanda edukasi bergerak mengikuti panjang loop; bukan part OEM.",
+      "posisi": [
+        {
+          "object_id": "EXT-FRONT-05",
+          "arah": [
+            1,
+            0,
+            0
+          ],
+          "jarak_m": 0.26,
+          "urutan": 17
+        }
+      ]
+    }
+  ],
+  "diagram": {
+    "arah_pandang": [
+      1,
+      0.2,
+      0.12
+    ],
+    "atas": [
+      0,
+      1,
+      0
+    ]
+  },
+  "source_refs": [
+    "D05 Fig.107 GENERATOR, V-belt, intermediate shaft, bearing case and drive gear; Fig.109 pulley"
+  ],
+  "notes": "Gear Fig.107 ref.29 adalah INT-TIMING-10. Identitas serial dan diameter pitch belum diverifikasi.",
+  "status": "ESTIMATED"
+}

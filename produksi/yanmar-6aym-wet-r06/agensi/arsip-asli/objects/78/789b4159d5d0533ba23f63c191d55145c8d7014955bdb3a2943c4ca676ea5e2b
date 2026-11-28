@@ -1,0 +1,286 @@
+{
+  "exterior_sha256": "4c446622b671039c9bad8fdfbffc959892710cc16db2f92515cf58d9b8210440",
+  "internal_sha256": "dd85bd1dfae6c699f7e69c70eb9c4c0f5209c0a5805e3e1733ad1e67b23f7f2b",
+  "missing_targets": [],
+  "duplicate_targets": 0,
+  "starter_points": 49,
+  "range_crank_deg": [
+    0,
+    2
+  ],
+  "teeth_count_flywheel": 180,
+  "starter_pinion_overlaps": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "sun_planet_and_internal_ring_overlaps": [
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ]
+  ],
+  "engaged_static_pairs": {
+    "EXT-ELECTRIC-48 / EXT-FLYWHEEL-01": 573,
+    "EXT-ELECTRIC-48 / EXT-FLYWHEEL-02": 0,
+    "EXT-ELECTRIC-48 / EXT-FLYWHEEL-20": 0,
+    "EXT-ELECTRIC-48 / EXT-ELECTRIC-49": 0,
+    "EXT-ELECTRIC-49 / EXT-FLYWHEEL-01": 262,
+    "EXT-ELECTRIC-49 / EXT-FLYWHEEL-02": 82,
+    "EXT-ELECTRIC-49 / EXT-FLYWHEEL-20": 0,
+    "EXT-ELECTRIC-45 / EXT-FLYWHEEL-01": 303,
+    "EXT-ELECTRIC-45 / EXT-FLYWHEEL-02": 0,
+    "EXT-ELECTRIC-45 / EXT-FLYWHEEL-20": 0,
+    "EXT-ELECTRIC-45 / EXT-ELECTRIC-49": 648,
+    "EXT-ELECTRIC-40 / EXT-FLYWHEEL-01": 105,
+    "EXT-ELECTRIC-40 / EXT-FLYWHEEL-02": 0,
+    "EXT-ELECTRIC-40 / EXT-FLYWHEEL-20": 0,
+    "EXT-ELECTRIC-40 / EXT-ELECTRIC-49": 0
+  },
+  "static_housing_pairs": {
+    "EXT-FRONT-04 / EXT-ELECTRIC-25": 1041,
+    "EXT-ELECTRIC-48 / EXT-FLYWHEEL-01": 482,
+    "EXT-ELECTRIC-49 / EXT-FLYWHEEL-01": 262,
+    "EXT-ELECTRIC-49 / EXT-FLYWHEEL-02": 82
+  },
+  "belt_pitch_length_m": 0.7469268521041041,
+  "method": "Blender imports both GLBs. World-space triangle BVH with 49 samples through one tooth period of the outer flywheel. Planetary contacts are evaluated in the carrier reference frame. Pair counts describe geometric intersections, not stress/leakage."
+}

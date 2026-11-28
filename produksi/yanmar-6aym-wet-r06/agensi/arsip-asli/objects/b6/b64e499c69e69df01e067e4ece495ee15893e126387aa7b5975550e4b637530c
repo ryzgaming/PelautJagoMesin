@@ -1,0 +1,454 @@
+{
+  "EXT-INTAKE-01 / EXT-INTAKE-03": {
+    "status": "UNVERIFIED",
+    "reason": "Designed airflow joint. Inspect local annular seating and lumen; counts alone do not identify the type of contact."
+  },
+  "EXT-FRONT-02 / INT-CRANK-09": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Crankshaft end and damper hub are a torque-transmitting assembly with aligned motion. Exact fit class is not documented."
+  },
+  "EXT-INTAKE-06 / EXT-INTAKE-12": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Fig.37 air-cooler closure. Retainer and elastomer compression are represented with overlapping mesh surfaces; torque and compression not validated."
+  },
+  "EXT-INTAKE-06 / EXT-INTAKE-09": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Fig.37 air-cooler closure. Retainer and elastomer compression are represented with overlapping mesh surfaces; torque and compression not validated."
+  },
+  "EXT-INTAKE-07 / EXT-INTAKE-13": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Fig.37 air-cooler closure. Retainer and elastomer compression are represented with overlapping mesh surfaces; torque and compression not validated."
+  },
+  "EXT-INTAKE-07 / EXT-INTAKE-10": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Fig.37 air-cooler closure. Retainer and elastomer compression are represented with overlapping mesh surfaces; torque and compression not validated."
+  },
+  "INT-LINER-11 / INT-LINER-12": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Cylinder sleeve O-ring sits in the machined sleeve groove. Mesh interference represents seal compression; exact amount unverified."
+  },
+  "INT-LINER-11 / INT-LINER-13": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Cylinder sleeve O-ring sits in the machined sleeve groove. Mesh interference represents seal compression; exact amount unverified."
+  },
+  "INT-LINER-11 / INT-LINER-14": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Cylinder sleeve O-ring sits in the machined sleeve groove. Mesh interference represents seal compression; exact amount unverified."
+  },
+  "INT-VALVE-103 / INT-VALVE-104": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Rocker arm and adjuster share one rigid moving parent by design."
+  },
+  "INT-VALVE-113 / INT-VALVE-114": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Rocker arm and adjuster share one rigid moving parent by design."
+  },
+  "INT-VALVE-105 / INT-VALVE-130": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Bridge bears on moving valve stem; retained seating contact. Exact lash/follower profile unverified."
+  },
+  "INT-VALVE-105 / INT-VALVE-137": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Bridge bears on moving valve stem; retained seating contact. Exact lash/follower profile unverified."
+  },
+  "INT-VALVE-115 / INT-VALVE-150": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Bridge bears on moving valve stem; retained seating contact. Exact lash/follower profile unverified."
+  },
+  "INT-VALVE-115 / INT-VALVE-157": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Bridge bears on moving valve stem; retained seating contact. Exact lash/follower profile unverified."
+  },
+  "INT-LINER-21 / INT-LINER-22": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Cylinder sleeve O-ring sits in the machined sleeve groove. Mesh interference represents seal compression; exact amount unverified."
+  },
+  "INT-LINER-21 / INT-LINER-23": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Cylinder sleeve O-ring sits in the machined sleeve groove. Mesh interference represents seal compression; exact amount unverified."
+  },
+  "INT-LINER-21 / INT-LINER-24": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Cylinder sleeve O-ring sits in the machined sleeve groove. Mesh interference represents seal compression; exact amount unverified."
+  },
+  "INT-VALVE-203 / INT-VALVE-204": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Rocker arm and adjuster share one rigid moving parent by design."
+  },
+  "INT-VALVE-213 / INT-VALVE-214": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Rocker arm and adjuster share one rigid moving parent by design."
+  },
+  "INT-VALVE-205 / INT-VALVE-230": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Bridge bears on moving valve stem; retained seating contact. Exact lash/follower profile unverified."
+  },
+  "INT-VALVE-205 / INT-VALVE-237": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Bridge bears on moving valve stem; retained seating contact. Exact lash/follower profile unverified."
+  },
+  "INT-VALVE-215 / INT-VALVE-250": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Bridge bears on moving valve stem; retained seating contact. Exact lash/follower profile unverified."
+  },
+  "INT-VALVE-215 / INT-VALVE-257": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Bridge bears on moving valve stem; retained seating contact. Exact lash/follower profile unverified."
+  },
+  "INT-LINER-31 / INT-LINER-32": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Cylinder sleeve O-ring sits in the machined sleeve groove. Mesh interference represents seal compression; exact amount unverified."
+  },
+  "INT-LINER-31 / INT-LINER-33": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Cylinder sleeve O-ring sits in the machined sleeve groove. Mesh interference represents seal compression; exact amount unverified."
+  },
+  "INT-LINER-31 / INT-LINER-34": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Cylinder sleeve O-ring sits in the machined sleeve groove. Mesh interference represents seal compression; exact amount unverified."
+  },
+  "INT-VALVE-303 / INT-VALVE-304": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Rocker arm and adjuster share one rigid moving parent by design."
+  },
+  "INT-VALVE-313 / INT-VALVE-314": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Rocker arm and adjuster share one rigid moving parent by design."
+  },
+  "INT-VALVE-305 / INT-VALVE-330": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Bridge bears on moving valve stem; retained seating contact. Exact lash/follower profile unverified."
+  },
+  "INT-VALVE-305 / INT-VALVE-337": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Bridge bears on moving valve stem; retained seating contact. Exact lash/follower profile unverified."
+  },
+  "INT-VALVE-315 / INT-VALVE-350": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Bridge bears on moving valve stem; retained seating contact. Exact lash/follower profile unverified."
+  },
+  "INT-VALVE-315 / INT-VALVE-357": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Bridge bears on moving valve stem; retained seating contact. Exact lash/follower profile unverified."
+  },
+  "INT-LINER-41 / INT-LINER-42": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Cylinder sleeve O-ring sits in the machined sleeve groove. Mesh interference represents seal compression; exact amount unverified."
+  },
+  "INT-LINER-41 / INT-LINER-43": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Cylinder sleeve O-ring sits in the machined sleeve groove. Mesh interference represents seal compression; exact amount unverified."
+  },
+  "INT-LINER-41 / INT-LINER-44": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Cylinder sleeve O-ring sits in the machined sleeve groove. Mesh interference represents seal compression; exact amount unverified."
+  },
+  "INT-VALVE-403 / INT-VALVE-404": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Rocker arm and adjuster share one rigid moving parent by design."
+  },
+  "INT-VALVE-413 / INT-VALVE-414": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Rocker arm and adjuster share one rigid moving parent by design."
+  },
+  "INT-VALVE-405 / INT-VALVE-430": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Bridge bears on moving valve stem; retained seating contact. Exact lash/follower profile unverified."
+  },
+  "INT-VALVE-405 / INT-VALVE-437": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Bridge bears on moving valve stem; retained seating contact. Exact lash/follower profile unverified."
+  },
+  "INT-VALVE-415 / INT-VALVE-450": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Bridge bears on moving valve stem; retained seating contact. Exact lash/follower profile unverified."
+  },
+  "INT-VALVE-415 / INT-VALVE-457": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Bridge bears on moving valve stem; retained seating contact. Exact lash/follower profile unverified."
+  },
+  "INT-LINER-51 / INT-LINER-52": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Cylinder sleeve O-ring sits in the machined sleeve groove. Mesh interference represents seal compression; exact amount unverified."
+  },
+  "INT-LINER-51 / INT-LINER-53": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Cylinder sleeve O-ring sits in the machined sleeve groove. Mesh interference represents seal compression; exact amount unverified."
+  },
+  "INT-LINER-51 / INT-LINER-54": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Cylinder sleeve O-ring sits in the machined sleeve groove. Mesh interference represents seal compression; exact amount unverified."
+  },
+  "INT-VALVE-503 / INT-VALVE-504": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Rocker arm and adjuster share one rigid moving parent by design."
+  },
+  "INT-VALVE-513 / INT-VALVE-514": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Rocker arm and adjuster share one rigid moving parent by design."
+  },
+  "INT-VALVE-505 / INT-VALVE-530": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Bridge bears on moving valve stem; retained seating contact. Exact lash/follower profile unverified."
+  },
+  "INT-VALVE-505 / INT-VALVE-537": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Bridge bears on moving valve stem; retained seating contact. Exact lash/follower profile unverified."
+  },
+  "INT-VALVE-515 / INT-VALVE-550": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Bridge bears on moving valve stem; retained seating contact. Exact lash/follower profile unverified."
+  },
+  "INT-VALVE-515 / INT-VALVE-557": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Bridge bears on moving valve stem; retained seating contact. Exact lash/follower profile unverified."
+  },
+  "INT-LINER-61 / INT-LINER-62": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Cylinder sleeve O-ring sits in the machined sleeve groove. Mesh interference represents seal compression; exact amount unverified."
+  },
+  "INT-LINER-61 / INT-LINER-63": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Cylinder sleeve O-ring sits in the machined sleeve groove. Mesh interference represents seal compression; exact amount unverified."
+  },
+  "INT-LINER-61 / INT-LINER-64": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Cylinder sleeve O-ring sits in the machined sleeve groove. Mesh interference represents seal compression; exact amount unverified."
+  },
+  "INT-VALVE-603 / INT-VALVE-604": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Rocker arm and adjuster share one rigid moving parent by design."
+  },
+  "INT-VALVE-613 / INT-VALVE-614": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Rocker arm and adjuster share one rigid moving parent by design."
+  },
+  "INT-VALVE-605 / INT-VALVE-630": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Bridge bears on moving valve stem; retained seating contact. Exact lash/follower profile unverified."
+  },
+  "INT-VALVE-605 / INT-VALVE-637": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Bridge bears on moving valve stem; retained seating contact. Exact lash/follower profile unverified."
+  },
+  "INT-VALVE-615 / INT-VALVE-650": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Bridge bears on moving valve stem; retained seating contact. Exact lash/follower profile unverified."
+  },
+  "INT-VALVE-615 / INT-VALVE-657": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Bridge bears on moving valve stem; retained seating contact. Exact lash/follower profile unverified."
+  },
+  "EXT-ELECTRIC-40 / EXT-ELECTRIC-43": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Armature commutator is designed to run against stationary brushes. Carbon contact is intended; load and wear not simulated."
+  },
+  "EXT-ELECTRIC-21 / EXT-ELECTRIC-27": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Alternator slip ring and excitation brushes need a sliding electrical contact; brush elasticity/wear omitted."
+  },
+  "EXT-ELECTRIC-48 / EXT-ELECTRIC-53": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Pinion sleeve and shift fork contact to transmit axial engagement thrust. OEM profile fit not inferred."
+  },
+  "EXT-COOLING-21 / EXT-COOLING-25": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Coolant shaft and drive-end radial oil-seal lip are sealing surfaces."
+  },
+  "EXT-COOLING-36 / EXT-COOLING-40": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Seawater shaft and drive-end radial oil-seal lip are sealing surfaces."
+  },
+  "EXT-EXHAUST-28 / EXT-EXHAUST-31": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Turbo flinger and piston sealing ring share radial sealing interface."
+  },
+  "EXT-COOLING-41 / EXT-COOLING-46": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Seawater drive gear and shaft key intentionally engage; r05 tooth rim is tested separately from the shaft key seat."
+  },
+  "INT-TIMING-02 / INT-TIMING-11": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "D01 PDF 111 identifies press-fit gear/bushing. Intersecting surfaces are intentional at assembled fit; pressed bush co-motion and cavity tests remain separately auditable."
+  },
+  "INT-TIMING-03 / INT-TIMING-12": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "D01 PDF 111 identifies press-fit gear/bushing. Intersecting surfaces are intentional at assembled fit; pressed bush co-motion and cavity tests remain separately auditable."
+  },
+  "EXT-FUEL-13 / EXT-FUEL-288": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Delivery spring bears on the upper delivery holder; registered axial valve movement compresses the spring."
+  },
+  "EXT-FUEL-282 / EXT-FUEL-47": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Mechanical fuel delivery check valve meets its corresponding spring-loaded seat."
+  },
+  "EXT-FUEL-23 / EXT-FUEL-300": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Roller rotates on the tappet pin; pin/bore interface persists as tappet translates."
+  },
+  "INT-CAM-18 / INT-VALVE-104": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Push rod cup actuates the rocker lash adjuster; nearest fit depends on approximate motion profiles."
+  },
+  "INT-CAM-19 / INT-VALVE-114": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Push rod cup actuates the rocker lash adjuster; nearest fit depends on approximate motion profiles."
+  },
+  "EXT-FUEL-14 / EXT-FUEL-289": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Delivery spring bears on the upper delivery holder; registered axial valve movement compresses the spring."
+  },
+  "EXT-FUEL-283 / EXT-FUEL-48": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Mechanical fuel delivery check valve meets its corresponding spring-loaded seat."
+  },
+  "EXT-FUEL-24 / EXT-FUEL-301": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Roller rotates on the tappet pin; pin/bore interface persists as tappet translates."
+  },
+  "INT-CAM-28 / INT-VALVE-204": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Push rod cup actuates the rocker lash adjuster; nearest fit depends on approximate motion profiles."
+  },
+  "INT-CAM-29 / INT-VALVE-214": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Push rod cup actuates the rocker lash adjuster; nearest fit depends on approximate motion profiles."
+  },
+  "EXT-FUEL-15 / EXT-FUEL-290": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Delivery spring bears on the upper delivery holder; registered axial valve movement compresses the spring."
+  },
+  "EXT-FUEL-284 / EXT-FUEL-49": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Mechanical fuel delivery check valve meets its corresponding spring-loaded seat."
+  },
+  "EXT-FUEL-25 / EXT-FUEL-302": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Roller rotates on the tappet pin; pin/bore interface persists as tappet translates."
+  },
+  "INT-CAM-38 / INT-VALVE-304": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Push rod cup actuates the rocker lash adjuster; nearest fit depends on approximate motion profiles."
+  },
+  "INT-CAM-39 / INT-VALVE-314": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Push rod cup actuates the rocker lash adjuster; nearest fit depends on approximate motion profiles."
+  },
+  "EXT-FUEL-16 / EXT-FUEL-291": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Delivery spring bears on the upper delivery holder; registered axial valve movement compresses the spring."
+  },
+  "EXT-FUEL-285 / EXT-FUEL-50": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Mechanical fuel delivery check valve meets its corresponding spring-loaded seat."
+  },
+  "EXT-FUEL-26 / EXT-FUEL-303": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Roller rotates on the tappet pin; pin/bore interface persists as tappet translates."
+  },
+  "INT-CAM-48 / INT-VALVE-404": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Push rod cup actuates the rocker lash adjuster; nearest fit depends on approximate motion profiles."
+  },
+  "INT-CAM-49 / INT-VALVE-414": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Push rod cup actuates the rocker lash adjuster; nearest fit depends on approximate motion profiles."
+  },
+  "EXT-FUEL-17 / EXT-FUEL-292": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Delivery spring bears on the upper delivery holder; registered axial valve movement compresses the spring."
+  },
+  "EXT-FUEL-286 / EXT-FUEL-51": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Mechanical fuel delivery check valve meets its corresponding spring-loaded seat."
+  },
+  "EXT-FUEL-27 / EXT-FUEL-304": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Roller rotates on the tappet pin; pin/bore interface persists as tappet translates."
+  },
+  "INT-CAM-58 / INT-VALVE-504": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Push rod cup actuates the rocker lash adjuster; nearest fit depends on approximate motion profiles."
+  },
+  "INT-CAM-59 / INT-VALVE-514": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Push rod cup actuates the rocker lash adjuster; nearest fit depends on approximate motion profiles."
+  },
+  "EXT-FUEL-18 / EXT-FUEL-293": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Delivery spring bears on the upper delivery holder; registered axial valve movement compresses the spring."
+  },
+  "EXT-FUEL-287 / EXT-FUEL-52": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Mechanical fuel delivery check valve meets its corresponding spring-loaded seat."
+  },
+  "EXT-FUEL-28 / EXT-FUEL-305": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Roller rotates on the tappet pin; pin/bore interface persists as tappet translates."
+  },
+  "INT-CAM-68 / INT-VALVE-604": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Push rod cup actuates the rocker lash adjuster; nearest fit depends on approximate motion profiles."
+  },
+  "INT-CAM-69 / INT-VALVE-614": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Push rod cup actuates the rocker lash adjuster; nearest fit depends on approximate motion profiles."
+  },
+  "EXT-FRONT-09 / EXT-FRONT-11": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Bearing ball meets shaft-side and casing-side races. Rolling elements use an educational, rigid geometry."
+  },
+  "EXT-FRONT-10 / EXT-FRONT-11": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Bearing ball meets shaft-side and casing-side races. Rolling elements use an educational, rigid geometry."
+  },
+  "EXT-FRONT-12 / EXT-FRONT-14": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Bearing ball meets shaft-side and casing-side races. Rolling elements use an educational, rigid geometry."
+  },
+  "EXT-FRONT-13 / EXT-FRONT-14": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Bearing ball meets shaft-side and casing-side races. Rolling elements use an educational, rigid geometry."
+  },
+  "EXT-ELECTRIC-52 / EXT-ELECTRIC-53": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Solenoid plunger drives shift lever; linkage contact is intended."
+  },
+  "EXT-FUEL-211 / EXT-FUEL-238": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Feed-pump roller turns on the tappet spindle."
+  },
+  "EXT-FUEL-201 / EXT-FUEL-203": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Governor flyweight sits on its fixed pin on carrier."
+  },
+  "EXT-FUEL-202 / EXT-FUEL-203": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Governor flyweight sits on its fixed pin on carrier."
+  },
+  "EXT-FUEL-21 / EXT-FUEL-303": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Injection pump cam drives roller No.4; exact rigid rolling profile unverified."
+  },
+  "EXT-FUEL-21 / EXT-FUEL-304": {
+    "status": "INTENTIONAL_FIT",
+    "reason": "Injection pump cam drives roller No.5; exact rigid rolling profile unverified."
+  },
+  "EXT-FUEL-12 / EXT-FUEL-210": {
+    "status": "FAIL",
+    "reason": "Fixed feed-pump barrel intrudes into the axial sweep of the working piston."
+  },
+  "EXT-FUEL-12 / EXT-FUEL-212": {
+    "status": "FAIL",
+    "reason": "Fixed feed-pump barrel intrudes into the swept envelope of the piston return coil outside its seating face."
+  },
+  "EXT-ELECTRIC-45 / EXT-ELECTRIC-46": {
+    "status": "FAIL",
+    "reason": "Solid rotating carrier flange crosses the fixed planetary ring."
+  },
+  "EXT-ELECTRIC-48 / EXT-FLYWHEEL-02": {
+    "status": "FAIL",
+    "reason": "Starter pinion body crosses the solid flywheel disk outside its intended tooth engagement with the ring."
+  }
+}

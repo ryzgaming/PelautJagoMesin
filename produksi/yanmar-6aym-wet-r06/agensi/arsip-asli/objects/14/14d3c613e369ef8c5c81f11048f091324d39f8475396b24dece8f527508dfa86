@@ -1,0 +1,584 @@
+{
+  "asset_sha256": "526ce37f126203eb288388dbd7922dd85749b19ddf8ef82ee5bfcf9d472ec8f5",
+  "method": "Blender GLB reimport, world triangle BVH rays6mm along72 nominal hole centerlines. Verifies unblocked centerlines, not full dimensional tolerance or hydraulic atomization.",
+  "passed": 72,
+  "total": 72,
+  "rows": [
+    {
+      "cylinder": 1,
+      "bank_holes": 8,
+      "angle_deg": 160,
+      "nominal_diameter_mm": 0.3,
+      "clock_deg": 0.0,
+      "centerline_open": true
+    },
+    {
+      "cylinder": 1,
+      "bank_holes": 8,
+      "angle_deg": 160,
+      "nominal_diameter_mm": 0.3,
+      "clock_deg": 45.0,
+      "centerline_open": true
+    },
+    {
+      "cylinder": 1,
+      "bank_holes": 8,
+      "angle_deg": 160,
+      "nominal_diameter_mm": 0.3,
+      "clock_deg": 90.0,
+      "centerline_open": true
+    },
+    {
+      "cylinder": 1,
+      "bank_holes": 8,
+      "angle_deg": 160,
+      "nominal_diameter_mm": 0.3,
+      "clock_deg": 135.0,
+      "centerline_open": true
+    },
+    {
+      "cylinder": 1,
+      "bank_holes": 8,
+      "angle_deg": 160,
+      "nominal_diameter_mm": 0.3,
+      "clock_deg": 180.0,
+      "centerline_open": true
+    },
+    {
+      "cylinder": 1,
+      "bank_holes": 8,
+      "angle_deg": 160,
+      "nominal_diameter_mm": 0.3,
+      "clock_deg": 225.0,
+      "centerline_open": true
+    },
+    {
+      "cylinder": 1,
+      "bank_holes": 8,
+      "angle_deg": 160,
+      "nominal_diameter_mm": 0.3,
+      "clock_deg": 270.0,
+      "centerline_open": true
+    },
+    {
+      "cylinder": 1,
+      "bank_holes": 8,
+      "angle_deg": 160,
+      "nominal_diameter_mm": 0.3,
+      "clock_deg": 315.0,
+      "centerline_open": true
+    },
+    {
+      "cylinder": 1,
+      "bank_holes": 4,
+      "angle_deg": 90,
+      "nominal_diameter_mm": 0.22,
+      "clock_deg": 22.5,
+      "centerline_open": true
+    },
+    {
+      "cylinder": 1,
+      "bank_holes": 4,
+      "angle_deg": 90,
+      "nominal_diameter_mm": 0.22,
+      "clock_deg": 112.5,
+      "centerline_open": true
+    },
+    {
+      "cylinder": 1,
+      "bank_holes": 4,
+      "angle_deg": 90,
+      "nominal_diameter_mm": 0.22,
+      "clock_deg": 202.5,
+      "centerline_open": true
+    },
+    {
+      "cylinder": 1,
+      "bank_holes": 4,
+      "angle_deg": 90,
+      "nominal_diameter_mm": 0.22,
+      "clock_deg": 292.5,
+      "centerline_open": true
+    },
+    {
+      "cylinder": 2,
+      "bank_holes": 8,
+      "angle_deg": 160,
+      "nominal_diameter_mm": 0.3,
+      "clock_deg": 0.0,
+      "centerline_open": true
+    },
+    {
+      "cylinder": 2,
+      "bank_holes": 8,
+      "angle_deg": 160,
+      "nominal_diameter_mm": 0.3,
+      "clock_deg": 45.0,
+      "centerline_open": true
+    },
+    {
+      "cylinder": 2,
+      "bank_holes": 8,
+      "angle_deg": 160,
+      "nominal_diameter_mm": 0.3,
+      "clock_deg": 90.0,
+      "centerline_open": true
+    },
+    {
+      "cylinder": 2,
+      "bank_holes": 8,
+      "angle_deg": 160,
+      "nominal_diameter_mm": 0.3,
+      "clock_deg": 135.0,
+      "centerline_open": true
+    },
+    {
+      "cylinder": 2,
+      "bank_holes": 8,
+      "angle_deg": 160,
+      "nominal_diameter_mm": 0.3,
+      "clock_deg": 180.0,
+      "centerline_open": true
+    },
+    {
+      "cylinder": 2,
+      "bank_holes": 8,
+      "angle_deg": 160,
+      "nominal_diameter_mm": 0.3,
+      "clock_deg": 225.0,
+      "centerline_open": true
+    },
+    {
+      "cylinder": 2,
+      "bank_holes": 8,
+      "angle_deg": 160,
+      "nominal_diameter_mm": 0.3,
+      "clock_deg": 270.0,
+      "centerline_open": true
+    },
+    {
+      "cylinder": 2,
+      "bank_holes": 8,
+      "angle_deg": 160,
+      "nominal_diameter_mm": 0.3,
+      "clock_deg": 315.0,
+      "centerline_open": true
+    },
+    {
+      "cylinder": 2,
+      "bank_holes": 4,
+      "angle_deg": 90,
+      "nominal_diameter_mm": 0.22,
+      "clock_deg": 22.5,
+      "centerline_open": true
+    },
+    {
+      "cylinder": 2,
+      "bank_holes": 4,
+      "angle_deg": 90,
+      "nominal_diameter_mm": 0.22,
+      "clock_deg": 112.5,
+      "centerline_open": true
+    },
+    {
+      "cylinder": 2,
+      "bank_holes": 4,
+      "angle_deg": 90,
+      "nominal_diameter_mm": 0.22,
+      "clock_deg": 202.5,
+      "centerline_open": true
+    },
+    {
+      "cylinder": 2,
+      "bank_holes": 4,
+      "angle_deg": 90,
+      "nominal_diameter_mm": 0.22,
+      "clock_deg": 292.5,
+      "centerline_open": true
+    },
+    {
+      "cylinder": 3,
+      "bank_holes": 8,
+      "angle_deg": 160,
+      "nominal_diameter_mm": 0.3,
+      "clock_deg": 0.0,
+      "centerline_open": true
+    },
+    {
+      "cylinder": 3,
+      "bank_holes": 8,
+      "angle_deg": 160,
+      "nominal_diameter_mm": 0.3,
+      "clock_deg": 45.0,
+      "centerline_open": true
+    },
+    {
+      "cylinder": 3,
+      "bank_holes": 8,
+      "angle_deg": 160,
+      "nominal_diameter_mm": 0.3,
+      "clock_deg": 90.0,
+      "centerline_open": true
+    },
+    {
+      "cylinder": 3,
+      "bank_holes": 8,
+      "angle_deg": 160,
+      "nominal_diameter_mm": 0.3,
+      "clock_deg": 135.0,
+      "centerline_open": true
+    },
+    {
+      "cylinder": 3,
+      "bank_holes": 8,
+      "angle_deg": 160,
+      "nominal_diameter_mm": 0.3,
+      "clock_deg": 180.0,
+      "centerline_open": true
+    },
+    {
+      "cylinder": 3,
+      "bank_holes": 8,
+      "angle_deg": 160,
+      "nominal_diameter_mm": 0.3,
+      "clock_deg": 225.0,
+      "centerline_open": true
+    },
+    {
+      "cylinder": 3,
+      "bank_holes": 8,
+      "angle_deg": 160,
+      "nominal_diameter_mm": 0.3,
+      "clock_deg": 270.0,
+      "centerline_open": true
+    },
+    {
+      "cylinder": 3,
+      "bank_holes": 8,
+      "angle_deg": 160,
+      "nominal_diameter_mm": 0.3,
+      "clock_deg": 315.0,
+      "centerline_open": true
+    },
+    {
+      "cylinder": 3,
+      "bank_holes": 4,
+      "angle_deg": 90,
+      "nominal_diameter_mm": 0.22,
+      "clock_deg": 22.5,
+      "centerline_open": true
+    },
+    {
+      "cylinder": 3,
+      "bank_holes": 4,
+      "angle_deg": 90,
+      "nominal_diameter_mm": 0.22,
+      "clock_deg": 112.5,
+      "centerline_open": true
+    },
+    {
+      "cylinder": 3,
+      "bank_holes": 4,
+      "angle_deg": 90,
+      "nominal_diameter_mm": 0.22,
+      "clock_deg": 202.5,
+      "centerline_open": true
+    },
+    {
+      "cylinder": 3,
+      "bank_holes": 4,
+      "angle_deg": 90,
+      "nominal_diameter_mm": 0.22,
+      "clock_deg": 292.5,
+      "centerline_open": true
+    },
+    {
+      "cylinder": 4,
+      "bank_holes": 8,
+      "angle_deg": 160,
+      "nominal_diameter_mm": 0.3,
+      "clock_deg": 0.0,
+      "centerline_open": true
+    },
+    {
+      "cylinder": 4,
+      "bank_holes": 8,
+      "angle_deg": 160,
+      "nominal_diameter_mm": 0.3,
+      "clock_deg": 45.0,
+      "centerline_open": true
+    },
+    {
+      "cylinder": 4,
+      "bank_holes": 8,
+      "angle_deg": 160,
+      "nominal_diameter_mm": 0.3,
+      "clock_deg": 90.0,
+      "centerline_open": true
+    },
+    {
+      "cylinder": 4,
+      "bank_holes": 8,
+      "angle_deg": 160,
+      "nominal_diameter_mm": 0.3,
+      "clock_deg": 135.0,
+      "centerline_open": true
+    },
+    {
+      "cylinder": 4,
+      "bank_holes": 8,
+      "angle_deg": 160,
+      "nominal_diameter_mm": 0.3,
+      "clock_deg": 180.0,
+      "centerline_open": true
+    },
+    {
+      "cylinder": 4,
+      "bank_holes": 8,
+      "angle_deg": 160,
+      "nominal_diameter_mm": 0.3,
+      "clock_deg": 225.0,
+      "centerline_open": true
+    },
+    {
+      "cylinder": 4,
+      "bank_holes": 8,
+      "angle_deg": 160,
+      "nominal_diameter_mm": 0.3,
+      "clock_deg": 270.0,
+      "centerline_open": true
+    },
+    {
+      "cylinder": 4,
+      "bank_holes": 8,
+      "angle_deg": 160,
+      "nominal_diameter_mm": 0.3,
+      "clock_deg": 315.0,
+      "centerline_open": true
+    },
+    {
+      "cylinder": 4,
+      "bank_holes": 4,
+      "angle_deg": 90,
+      "nominal_diameter_mm": 0.22,
+      "clock_deg": 22.5,
+      "centerline_open": true
+    },
+    {
+      "cylinder": 4,
+      "bank_holes": 4,
+      "angle_deg": 90,
+      "nominal_diameter_mm": 0.22,
+      "clock_deg": 112.5,
+      "centerline_open": true
+    },
+    {
+      "cylinder": 4,
+      "bank_holes": 4,
+      "angle_deg": 90,
+      "nominal_diameter_mm": 0.22,
+      "clock_deg": 202.5,
+      "centerline_open": true
+    },
+    {
+      "cylinder": 4,
+      "bank_holes": 4,
+      "angle_deg": 90,
+      "nominal_diameter_mm": 0.22,
+      "clock_deg": 292.5,
+      "centerline_open": true
+    },
+    {
+      "cylinder": 5,
+      "bank_holes": 8,
+      "angle_deg": 160,
+      "nominal_diameter_mm": 0.3,
+      "clock_deg": 0.0,
+      "centerline_open": true
+    },
+    {
+      "cylinder": 5,
+      "bank_holes": 8,
+      "angle_deg": 160,
+      "nominal_diameter_mm": 0.3,
+      "clock_deg": 45.0,
+      "centerline_open": true
+    },
+    {
+      "cylinder": 5,
+      "bank_holes": 8,
+      "angle_deg": 160,
+      "nominal_diameter_mm": 0.3,
+      "clock_deg": 90.0,
+      "centerline_open": true
+    },
+    {
+      "cylinder": 5,
+      "bank_holes": 8,
+      "angle_deg": 160,
+      "nominal_diameter_mm": 0.3,
+      "clock_deg": 135.0,
+      "centerline_open": true
+    },
+    {
+      "cylinder": 5,
+      "bank_holes": 8,
+      "angle_deg": 160,
+      "nominal_diameter_mm": 0.3,
+      "clock_deg": 180.0,
+      "centerline_open": true
+    },
+    {
+      "cylinder": 5,
+      "bank_holes": 8,
+      "angle_deg": 160,
+      "nominal_diameter_mm": 0.3,
+      "clock_deg": 225.0,
+      "centerline_open": true
+    },
+    {
+      "cylinder": 5,
+      "bank_holes": 8,
+      "angle_deg": 160,
+      "nominal_diameter_mm": 0.3,
+      "clock_deg": 270.0,
+      "centerline_open": true
+    },
+    {
+      "cylinder": 5,
+      "bank_holes": 8,
+      "angle_deg": 160,
+      "nominal_diameter_mm": 0.3,
+      "clock_deg": 315.0,
+      "centerline_open": true
+    },
+    {
+      "cylinder": 5,
+      "bank_holes": 4,
+      "angle_deg": 90,
+      "nominal_diameter_mm": 0.22,
+      "clock_deg": 22.5,
+      "centerline_open": true
+    },
+    {
+      "cylinder": 5,
+      "bank_holes": 4,
+      "angle_deg": 90,
+      "nominal_diameter_mm": 0.22,
+      "clock_deg": 112.5,
+      "centerline_open": true
+    },
+    {
+      "cylinder": 5,
+      "bank_holes": 4,
+      "angle_deg": 90,
+      "nominal_diameter_mm": 0.22,
+      "clock_deg": 202.5,
+      "centerline_open": true
+    },
+    {
+      "cylinder": 5,
+      "bank_holes": 4,
+      "angle_deg": 90,
+      "nominal_diameter_mm": 0.22,
+      "clock_deg": 292.5,
+      "centerline_open": true
+    },
+    {
+      "cylinder": 6,
+      "bank_holes": 8,
+      "angle_deg": 160,
+      "nominal_diameter_mm": 0.3,
+      "clock_deg": 0.0,
+      "centerline_open": true
+    },
+    {
+      "cylinder": 6,
+      "bank_holes": 8,
+      "angle_deg": 160,
+      "nominal_diameter_mm": 0.3,
+      "clock_deg": 45.0,
+      "centerline_open": true
+    },
+    {
+      "cylinder": 6,
+      "bank_holes": 8,
+      "angle_deg": 160,
+      "nominal_diameter_mm": 0.3,
+      "clock_deg": 90.0,
+      "centerline_open": true
+    },
+    {
+      "cylinder": 6,
+      "bank_holes": 8,
+      "angle_deg": 160,
+      "nominal_diameter_mm": 0.3,
+      "clock_deg": 135.0,
+      "centerline_open": true
+    },
+    {
+      "cylinder": 6,
+      "bank_holes": 8,
+      "angle_deg": 160,
+      "nominal_diameter_mm": 0.3,
+      "clock_deg": 180.0,
+      "centerline_open": true
+    },
+    {
+      "cylinder": 6,
+      "bank_holes": 8,
+      "angle_deg": 160,
+      "nominal_diameter_mm": 0.3,
+      "clock_deg": 225.0,
+      "centerline_open": true
+    },
+    {
+      "cylinder": 6,
+      "bank_holes": 8,
+      "angle_deg": 160,
+      "nominal_diameter_mm": 0.3,
+      "clock_deg": 270.0,
+      "centerline_open": true
+    },
+    {
+      "cylinder": 6,
+      "bank_holes": 8,
+      "angle_deg": 160,
+      "nominal_diameter_mm": 0.3,
+      "clock_deg": 315.0,
+      "centerline_open": true
+    },
+    {
+      "cylinder": 6,
+      "bank_holes": 4,
+      "angle_deg": 90,
+      "nominal_diameter_mm": 0.22,
+      "clock_deg": 22.5,
+      "centerline_open": true
+    },
+    {
+      "cylinder": 6,
+      "bank_holes": 4,
+      "angle_deg": 90,
+      "nominal_diameter_mm": 0.22,
+      "clock_deg": 112.5,
+      "centerline_open": true
+    },
+    {
+      "cylinder": 6,
+      "bank_holes": 4,
+      "angle_deg": 90,
+      "nominal_diameter_mm": 0.22,
+      "clock_deg": 202.5,
+      "centerline_open": true
+    },
+    {
+      "cylinder": 6,
+      "bank_holes": 4,
+      "angle_deg": 90,
+      "nominal_diameter_mm": 0.22,
+      "clock_deg": 292.5,
+      "centerline_open": true
+    }
+  ]
+}

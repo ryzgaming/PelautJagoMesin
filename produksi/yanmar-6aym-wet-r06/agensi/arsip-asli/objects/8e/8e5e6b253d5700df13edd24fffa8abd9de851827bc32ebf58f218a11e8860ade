@@ -1,0 +1,769 @@
+07:24:13 | INFO: Data are loaded, start creating Blender stuff
+07:24:13 | INFO: Blender create Mesh node EXT-BLOCK-01
+07:24:13 | INFO: Blender create Mesh node EXT-BLOCK-02
+07:24:13 | INFO: Blender create Mesh node EXT-BLOCK-03
+07:24:13 | INFO: Blender create Mesh node EXT-BLOCK-04
+07:24:13 | INFO: Blender create Mesh node EXT-BLOCK-05
+07:24:13 | INFO: Blender create Mesh node EXT-BLOCK-06
+07:24:13 | INFO: Blender create Mesh node EXT-BLOCK-07
+07:24:13 | INFO: Blender create Mesh node EXT-BLOCK-08
+07:24:13 | INFO: Blender create Mesh node EXT-BLOCK-09
+07:24:13 | INFO: Blender create Mesh node EXT-BLOCK-10
+07:24:13 | INFO: Blender create Mesh node EXT-BLOCK-11
+07:24:13 | INFO: Blender create Mesh node EXT-BLOCK-12
+07:24:13 | INFO: Blender create Mesh node EXT-BLOCK-13
+07:24:13 | INFO: Blender create Mesh node EXT-BLOCK-14
+07:24:13 | INFO: Blender create Mesh node EXT-BLOCK-15
+07:24:13 | INFO: Blender create Mesh node EXT-BLOCK-16
+07:24:13 | INFO: Blender create Mesh node EXT-BLOCK-17
+07:24:13 | INFO: Blender create Mesh node EXT-BLOCK-18
+07:24:13 | INFO: Blender create Mesh node EXT-HEADS-01
+07:24:14 | INFO: Blender create Mesh node EXT-HEADS-02
+07:24:14 | INFO: Blender create Mesh node EXT-HEADS-03
+07:24:14 | INFO: Blender create Mesh node EXT-HEADS-04
+07:24:14 | INFO: Blender create Mesh node EXT-HEADS-05
+07:24:14 | INFO: Blender create Mesh node EXT-HEADS-06
+07:24:14 | INFO: Blender create Mesh node EXT-HEADS-07.001
+07:24:14 | INFO: Blender create Mesh node EXT-HEADS-31
+07:24:14 | INFO: Blender create Mesh node EXT-HEADS-41
+07:24:14 | INFO: Blender create Mesh node EXT-HEADS-51
+07:24:14 | INFO: Blender create Mesh node EXT-HEADS-61
+07:24:14 | INFO: Blender create Mesh node EXT-HEADS-08.001
+07:24:14 | INFO: Blender create Mesh node EXT-HEADS-32
+07:24:14 | INFO: Blender create Mesh node EXT-HEADS-42
+07:24:14 | INFO: Blender create Mesh node EXT-HEADS-52
+07:24:14 | INFO: Blender create Mesh node EXT-HEADS-62
+07:24:14 | INFO: Blender create Mesh node EXT-HEADS-09.001
+07:24:14 | INFO: Blender create Mesh node EXT-HEADS-33
+07:24:14 | INFO: Blender create Mesh node EXT-HEADS-43
+07:24:14 | INFO: Blender create Mesh node EXT-HEADS-53
+07:24:14 | INFO: Blender create Mesh node EXT-HEADS-63
+07:24:14 | INFO: Blender create Mesh node EXT-HEADS-10.001
+07:24:14 | INFO: Blender create Mesh node EXT-HEADS-34
+07:24:14 | INFO: Blender create Mesh node EXT-HEADS-44
+07:24:14 | INFO: Blender create Mesh node EXT-HEADS-54
+07:24:14 | INFO: Blender create Mesh node EXT-HEADS-64
+07:24:14 | INFO: Blender create Mesh node EXT-HEADS-11.001
+07:24:14 | INFO: Blender create Mesh node EXT-HEADS-35
+07:24:14 | INFO: Blender create Mesh node EXT-HEADS-45
+07:24:14 | INFO: Blender create Mesh node EXT-HEADS-55
+07:24:14 | INFO: Blender create Mesh node EXT-HEADS-65
+07:24:14 | INFO: Blender create Mesh node EXT-HEADS-12.001
+07:24:14 | INFO: Blender create Mesh node EXT-HEADS-36
+07:24:14 | INFO: Blender create Mesh node EXT-HEADS-46
+07:24:14 | INFO: Blender create Mesh node EXT-HEADS-56
+07:24:14 | INFO: Blender create Mesh node EXT-HEADS-66
+07:24:14 | INFO: Blender create Mesh node EXT-OILPAN-01
+07:24:14 | INFO: Blender create Mesh node EXT-OILPAN-02
+07:24:14 | INFO: Blender create Mesh node EXT-OILPAN-20
+07:24:14 | INFO: Blender create Mesh node EXT-OILPAN-21
+07:24:14 | INFO: Blender create Mesh node EXT-FLYWHEEL-01
+07:24:14 | INFO: Blender create Mesh node EXT-FLYWHEEL-02
+07:24:14 | INFO: Blender create Mesh node EXT-FLYWHEEL-20
+07:24:14 | INFO: Blender create Mesh node EXT-FRONT-01
+07:24:14 | INFO: Blender create Mesh node EXT-FRONT-02
+07:24:14 | INFO: Blender create Mesh node EXT-FRONT-03
+07:24:14 | INFO: Blender create Mesh node EXT-ELECTRIC-03
+07:24:14 | INFO: Blender create Mesh node EXT-ELECTRIC-04
+07:24:14 | INFO: Blender create Mesh node EXT-ELECTRIC-01.001
+07:24:14 | INFO: Blender create Mesh node EXT-ELECTRIC-20
+07:24:14 | INFO: Blender create Mesh node EXT-ELECTRIC-21
+07:24:14 | INFO: Blender create Mesh node EXT-ELECTRIC-22
+07:24:14 | INFO: Blender create Mesh node EXT-ELECTRIC-23
+07:24:14 | INFO: Blender create Mesh node EXT-ELECTRIC-24
+07:24:14 | INFO: Blender create Mesh node EXT-ELECTRIC-25
+07:24:14 | INFO: Blender create Mesh node EXT-ELECTRIC-26
+07:24:14 | INFO: Blender create Mesh node EXT-ELECTRIC-27
+07:24:14 | INFO: Blender create Mesh node EXT-ELECTRIC-28
+07:24:14 | INFO: Blender create Mesh node EXT-ELECTRIC-29
+07:24:14 | INFO: Blender create Mesh node EXT-ELECTRIC-02.001
+07:24:14 | INFO: Blender create Mesh node EXT-ELECTRIC-40
+07:24:14 | INFO: Blender create Mesh node EXT-ELECTRIC-41
+07:24:14 | INFO: Blender create Mesh node EXT-ELECTRIC-42
+07:24:14 | INFO: Blender create Mesh node EXT-ELECTRIC-43
+07:24:14 | INFO: Blender create Mesh node EXT-ELECTRIC-44
+07:24:14 | INFO: Blender create Mesh node EXT-ELECTRIC-45
+07:24:14 | INFO: Blender create Mesh node EXT-ELECTRIC-46
+07:24:14 | INFO: Blender create Mesh node EXT-ELECTRIC-47
+07:24:14 | INFO: Blender create Mesh node EXT-ELECTRIC-48
+07:24:14 | INFO: Blender create Mesh node EXT-ELECTRIC-49
+07:24:14 | INFO: Blender create Mesh node EXT-ELECTRIC-50
+07:24:14 | INFO: Blender create Mesh node EXT-ELECTRIC-51
+07:24:14 | INFO: Blender create Mesh node EXT-ELECTRIC-52
+07:24:14 | INFO: Blender create Mesh node EXT-ELECTRIC-53
+07:24:14 | INFO: Blender create Mesh node EXT-INTAKE-01
+07:24:14 | INFO: Blender create Mesh node EXT-INTAKE-03
+07:24:14 | INFO: Blender create Mesh node EXT-INTAKE-04
+07:24:14 | INFO: Blender create Mesh node EXT-INTAKE-05
+07:24:14 | INFO: Blender create Mesh node EXT-INTAKE-02
+07:24:14 | INFO: Blender create Mesh node EXT-INTAKE-06
+07:24:14 | INFO: Blender create Mesh node EXT-INTAKE-07
+07:24:14 | INFO: Blender create Mesh node EXT-INTAKE-08
+07:24:14 | INFO: Blender create Mesh node EXT-INTAKE-09
+07:24:14 | INFO: Blender create Mesh node EXT-INTAKE-10
+07:24:14 | INFO: Blender create Mesh node EXT-INTAKE-11
+07:24:14 | INFO: Blender create Mesh node EXT-INTAKE-12
+07:24:14 | INFO: Blender create Mesh node EXT-INTAKE-13
+07:24:14 | INFO: Blender create Mesh node EXT-INTAKE-14
+07:24:14 | INFO: Blender create Mesh node EXT-INTAKE-15
+07:24:14 | INFO: Blender create Mesh node EXT-INTAKE-16
+07:24:14 | INFO: Blender create Mesh node EXT-COOLING-02
+07:24:14 | INFO: Blender create Mesh node EXT-COOLING-05
+07:24:14 | INFO: Blender create Mesh node EXT-COOLING-06
+07:24:14 | INFO: Blender create Mesh node EXT-COOLING-07
+07:24:14 | INFO: Blender create Mesh node EXT-COOLING-03.001
+07:24:14 | INFO: Blender create Mesh node EXT-COOLING-20
+07:24:14 | INFO: Blender create Mesh node EXT-COOLING-21
+07:24:14 | INFO: Blender create Mesh node EXT-COOLING-22
+07:24:14 | INFO: Blender create Mesh node EXT-COOLING-23
+07:24:14 | INFO: Blender create Mesh node EXT-COOLING-24
+07:24:14 | INFO: Blender create Mesh node EXT-COOLING-25
+07:24:14 | INFO: Blender create Mesh node EXT-COOLING-26
+07:24:14 | INFO: Blender create Mesh node EXT-COOLING-27
+07:24:14 | INFO: Blender create Mesh node EXT-COOLING-28
+07:24:14 | INFO: Blender create Mesh node EXT-COOLING-01.001
+07:24:14 | INFO: Blender create Mesh node EXT-COOLING-50
+07:24:14 | INFO: Blender create Mesh node EXT-COOLING-51
+07:24:14 | INFO: Blender create Mesh node EXT-COOLING-52
+07:24:14 | INFO: Blender create Mesh node EXT-COOLING-53
+07:24:14 | INFO: Blender create Mesh node EXT-COOLING-54
+07:24:14 | INFO: Blender create Mesh node EXT-COOLING-55
+07:24:14 | INFO: Blender create Mesh node EXT-COOLING-56
+07:24:14 | INFO: Blender create Mesh node EXT-COOLING-57
+07:24:14 | INFO: Blender create Mesh node EXT-COOLING-58
+07:24:14 | INFO: Blender create Mesh node EXT-COOLING-59
+07:24:14 | INFO: Blender create Mesh node EXT-COOLING-60
+07:24:14 | INFO: Blender create Mesh node EXT-COOLING-61
+07:24:14 | INFO: Blender create Mesh node EXT-COOLING-62
+07:24:14 | INFO: Blender create Mesh node EXT-COOLING-04.001
+07:24:14 | INFO: Blender create Mesh node EXT-COOLING-35
+07:24:14 | INFO: Blender create Mesh node EXT-COOLING-36
+07:24:14 | INFO: Blender create Mesh node EXT-COOLING-37
+07:24:14 | INFO: Blender create Mesh node EXT-COOLING-38
+07:24:14 | INFO: Blender create Mesh node EXT-COOLING-39
+07:24:14 | INFO: Blender create Mesh node EXT-COOLING-40
+07:24:14 | INFO: Blender create Mesh node EXT-COOLING-41
+07:24:14 | INFO: Blender create Mesh node EXT-COOLING-42
+07:24:14 | INFO: Blender create Mesh node EXT-COOLING-43
+07:24:14 | INFO: Blender create Mesh node EXT-COOLING-44
+07:24:14 | INFO: Blender create Mesh node EXT-COOLING-45
+07:24:14 | INFO: Blender create Mesh node EXT-EXHAUST-01
+07:24:14 | INFO: Blender create Mesh node EXT-EXHAUST-05
+07:24:15 | INFO: Blender create Mesh node EXT-EXHAUST-02.001
+07:24:15 | INFO: Blender create Mesh node EXT-EXHAUST-03.001
+07:24:15 | INFO: Blender create Mesh node EXT-EXHAUST-04.001
+07:24:15 | INFO: Blender create Mesh node EXT-EXHAUST-20
+07:24:15 | INFO: Blender create Mesh node EXT-EXHAUST-21
+07:24:15 | INFO: Blender create Mesh node EXT-EXHAUST-22
+07:24:15 | INFO: Blender create Mesh node EXT-EXHAUST-23
+07:24:15 | INFO: Blender create Mesh node EXT-EXHAUST-24
+07:24:15 | INFO: Blender create Mesh node EXT-EXHAUST-25
+07:24:15 | INFO: Blender create Mesh node EXT-EXHAUST-26
+07:24:15 | INFO: Blender create Mesh node EXT-EXHAUST-27
+07:24:15 | INFO: Blender create Mesh node EXT-EXHAUST-28
+07:24:15 | INFO: Blender create Mesh node EXT-EXHAUST-29
+07:24:15 | INFO: Blender create Mesh node EXT-EXHAUST-30
+07:24:15 | INFO: Blender create Mesh node EXT-EXHAUST-31
+07:24:15 | INFO: Blender create Mesh node EXT-EXHAUST-32
+07:24:15 | INFO: Blender create Mesh node EXT-EXHAUST-33
+07:24:15 | INFO: Blender create Mesh node EXT-EXHAUST-34
+07:24:15 | INFO: Blender create Mesh node EXT-EXHAUST-35
+07:24:15 | INFO: Blender create Mesh node EXT-EXHAUST-36
+07:24:15 | INFO: Blender create Mesh node EXT-EXHAUST-37
+07:24:15 | INFO: Blender create Mesh node EXT-EXHAUST-38
+07:24:15 | INFO: Blender create Mesh node EXT-EXHAUST-39
+07:24:15 | INFO: Blender create Mesh node EXT-EXHAUST-40
+07:24:15 | INFO: Blender create Mesh node EXT-EXHAUST-41
+07:24:15 | INFO: Blender create Mesh node EXT-EXHAUST-42
+07:24:15 | INFO: Blender create Mesh node EXT-EXHAUST-43
+07:24:15 | INFO: Blender create Mesh node EXT-EXHAUST-44
+07:24:15 | INFO: Blender create Mesh node EXT-EXHAUST-45
+07:24:15 | INFO: Blender create Mesh node EXT-EXHAUST-46
+07:24:15 | INFO: Blender create Mesh node EXT-EXHAUST-47
+07:24:15 | INFO: Blender create Mesh node EXT-EXHAUST-48
+07:24:15 | INFO: Blender create Mesh node EXT-EXHAUST-49
+07:24:15 | INFO: Blender create Mesh node EXT-EXHAUST-50
+07:24:15 | INFO: Blender create Mesh node EXT-EXHAUST-51
+07:24:15 | INFO: Blender create Mesh node EXT-EXHAUST-52
+07:24:15 | INFO: Blender create Mesh node EXT-EXHAUST-53
+07:24:15 | INFO: Blender create Mesh node EXT-EXHAUST-54
+07:24:15 | INFO: Blender create Mesh node EXT-EXHAUST-55
+07:24:15 | INFO: Blender create Mesh node EXT-EXHAUST-56
+07:24:15 | INFO: Blender create Mesh node EXT-EXHAUST-57
+07:24:15 | INFO: Blender create Mesh node EXT-EXHAUST-58
+07:24:15 | INFO: Blender create Mesh node EXT-EXHAUST-59
+07:24:15 | INFO: Blender create Mesh node EXT-EXHAUST-60
+07:24:15 | INFO: Blender create Mesh node EXT-EXHAUST-61
+07:24:15 | INFO: Blender create Mesh node EXT-EXHAUST-62
+07:24:15 | INFO: Blender create Mesh node EXT-EXHAUST-63
+07:24:15 | INFO: Blender create Mesh node EXT-EXHAUST-64
+07:24:15 | INFO: Blender create Mesh node EXT-EXHAUST-65
+07:24:15 | INFO: Blender create Mesh node EXT-EXHAUST-66
+07:24:15 | INFO: Blender create Mesh node EXT-EXHAUST-67
+07:24:15 | INFO: Blender create Mesh node EXT-FUEL-03
+07:24:15 | INFO: Blender create Mesh node EXT-FUEL-04
+07:24:15 | INFO: Blender create Mesh node EXT-FUEL-05
+07:24:15 | INFO: Blender create Mesh node EXT-FUEL-06
+07:24:15 | INFO: Blender create Mesh node EXT-FUEL-07
+07:24:15 | INFO: Blender create Mesh node EXT-FUEL-08
+07:24:15 | INFO: Blender create Mesh node EXT-FUEL-09
+07:24:15 | INFO: Blender create Mesh node EXT-FUEL-13
+07:24:15 | INFO: Blender create Mesh node EXT-FUEL-14
+07:24:15 | INFO: Blender create Mesh node EXT-FUEL-15
+07:24:15 | INFO: Blender create Mesh node EXT-FUEL-16
+07:24:15 | INFO: Blender create Mesh node EXT-FUEL-17
+07:24:15 | INFO: Blender create Mesh node EXT-FUEL-18
+07:24:15 | INFO: Blender create Mesh node EXT-FUEL-19
+07:24:15 | INFO: Blender create Mesh node EXT-FUEL-20
+07:24:15 | INFO: Blender create Mesh node EXT-FUEL-12
+07:24:15 | INFO: Blender create Mesh node EXT-FUEL-210
+07:24:15 | INFO: Blender create Mesh node EXT-FUEL-211
+07:24:15 | INFO: Blender create Mesh node EXT-FUEL-212
+07:24:15 | INFO: Blender create Mesh node EXT-FUEL-213
+07:24:15 | INFO: Blender create Mesh node EXT-FUEL-214
+07:24:15 | INFO: Blender create Mesh node EXT-FUEL-215
+07:24:15 | INFO: Blender create Mesh node EXT-FUEL-216
+07:24:15 | INFO: Blender create Mesh node EXT-FUEL-217
+07:24:15 | INFO: Blender create Mesh node EXT-FUEL-218
+07:24:15 | INFO: Blender create Mesh node EXT-FUEL-10.001
+07:24:15 | INFO: Blender create Mesh node EXT-FUEL-100
+07:24:15 | INFO: Blender create Mesh node EXT-FUEL-101
+07:24:15 | INFO: Blender create Mesh node EXT-FUEL-102
+07:24:15 | INFO: Blender create Mesh node EXT-FUEL-103
+07:24:15 | INFO: Blender create Mesh node EXT-FUEL-104
+07:24:15 | INFO: Blender create Mesh node EXT-FUEL-105
+07:24:15 | INFO: Blender create Mesh node EXT-FUEL-11.001
+07:24:15 | INFO: Blender create Mesh node EXT-FUEL-110
+07:24:15 | INFO: Blender create Mesh node EXT-FUEL-111
+07:24:15 | INFO: Blender create Mesh node EXT-FUEL-112
+07:24:15 | INFO: Blender create Mesh node EXT-FUEL-113
+07:24:15 | INFO: Blender create Mesh node EXT-FUEL-114
+07:24:15 | INFO: Blender create Mesh node EXT-FUEL-115
+07:24:15 | INFO: Blender create Mesh node EXT-FUEL-02
+07:24:15 | INFO: Blender create Mesh node EXT-FUEL-200
+07:24:15 | INFO: Blender create Mesh node EXT-FUEL-201
+07:24:15 | INFO: Blender create Mesh node EXT-FUEL-202
+07:24:15 | INFO: Blender create Mesh node EXT-FUEL-203
+07:24:15 | INFO: Blender create Mesh node EXT-FUEL-204
+07:24:15 | INFO: Blender create Mesh node EXT-FUEL-205
+07:24:15 | INFO: Blender create Mesh node EXT-FUEL-01
+07:24:15 | INFO: Blender create Mesh node EXT-FUEL-21
+07:24:15 | INFO: Blender create Mesh node EXT-FUEL-22
+07:24:15 | INFO: Blender create Mesh node EXT-FUEL-23
+07:24:15 | INFO: Blender create Mesh node EXT-FUEL-24
+07:24:15 | INFO: Blender create Mesh node EXT-FUEL-25
+07:24:15 | INFO: Blender create Mesh node EXT-FUEL-26
+07:24:15 | INFO: Blender create Mesh node EXT-FUEL-27
+07:24:15 | INFO: Blender create Mesh node EXT-FUEL-28
+07:24:15 | INFO: Blender create Mesh node EXT-FUEL-29
+07:24:15 | INFO: Blender create Mesh node EXT-FUEL-30
+07:24:15 | INFO: Blender create Mesh node EXT-FUEL-31
+07:24:15 | INFO: Blender create Mesh node EXT-FUEL-32
+07:24:15 | INFO: Blender create Mesh node EXT-FUEL-33
+07:24:15 | INFO: Blender create Mesh node EXT-FUEL-34
+07:24:15 | INFO: Blender create Mesh node EXT-FUEL-35
+07:24:15 | INFO: Blender create Mesh node EXT-FUEL-36
+07:24:15 | INFO: Blender create Mesh node EXT-FUEL-37
+07:24:15 | INFO: Blender create Mesh node EXT-FUEL-38
+07:24:15 | INFO: Blender create Mesh node EXT-FUEL-39
+07:24:15 | INFO: Blender create Mesh node EXT-FUEL-40
+07:24:15 | INFO: Blender create Mesh node EXT-FUEL-41
+07:24:15 | INFO: Blender create Mesh node EXT-FUEL-42
+07:24:15 | INFO: Blender create Mesh node EXT-FUEL-43
+07:24:15 | INFO: Blender create Mesh node EXT-FUEL-44
+07:24:15 | INFO: Blender create Mesh node EXT-FUEL-45
+07:24:15 | INFO: Blender create Mesh node EXT-FUEL-46
+07:24:15 | INFO: Blender create Mesh node EXT-FUEL-47
+07:24:15 | INFO: Blender create Mesh node EXT-FUEL-48
+07:24:16 | INFO: Blender create Mesh node EXT-FUEL-49
+07:24:16 | INFO: Blender create Mesh node EXT-FUEL-50
+07:24:16 | INFO: Blender create Mesh node EXT-FUEL-51
+07:24:16 | INFO: Blender create Mesh node EXT-FUEL-52
+07:24:16 | INFO: Blender create Mesh node EXT-LUBE-01
+07:24:16 | INFO: Blender create Mesh node EXT-LUBE-04.001
+07:24:16 | INFO: Blender create Mesh node EXT-LUBE-30
+07:24:16 | INFO: Blender create Mesh node EXT-LUBE-31
+07:24:16 | INFO: Blender create Mesh node EXT-LUBE-32
+07:24:16 | INFO: Blender create Mesh node EXT-LUBE-33
+07:24:16 | INFO: Blender create Mesh node EXT-LUBE-34
+07:24:16 | INFO: Blender create Mesh node EXT-LUBE-35
+07:24:16 | INFO: Blender create Mesh node EXT-LUBE-36
+07:24:16 | INFO: Blender create Mesh node EXT-LUBE-37
+07:24:16 | INFO: Blender create Mesh node EXT-LUBE-05.001
+07:24:16 | INFO: Blender create Mesh node EXT-LUBE-60
+07:24:16 | INFO: Blender create Mesh node EXT-LUBE-61
+07:24:16 | INFO: Blender create Mesh node EXT-LUBE-62
+07:24:16 | INFO: Blender create Mesh node EXT-LUBE-63
+07:24:16 | INFO: Blender create Mesh node EXT-LUBE-64
+07:24:16 | INFO: Blender create Mesh node EXT-LUBE-65
+07:24:16 | INFO: Blender create Mesh node EXT-LUBE-66
+07:24:16 | INFO: Blender create Mesh node EXT-LUBE-67
+07:24:16 | INFO: Blender create Mesh node EXT-LUBE-02.001
+07:24:16 | INFO: Blender create Mesh node EXT-LUBE-20
+07:24:16 | INFO: Blender create Mesh node EXT-LUBE-21
+07:24:16 | INFO: Blender create Mesh node EXT-LUBE-22
+07:24:16 | INFO: Blender create Mesh node EXT-LUBE-03.001
+07:24:16 | INFO: Blender create Mesh node EXT-LUBE-24
+07:24:16 | INFO: Blender create Mesh node EXT-LUBE-25
+07:24:16 | INFO: Blender create Mesh node EXT-LUBE-26
+07:24:16 | INFO: glTF import finished in 2.51s
+Blender 4.3.2
+Fra:1 Mem:106.20M (Peak 106.20M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-52
+Fra:1 Mem:108.49M (Peak 108.49M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-51
+Fra:1 Mem:108.79M (Peak 108.79M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-01
+Fra:1 Mem:110.16M (Peak 110.16M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-22
+Fra:1 Mem:110.56M (Peak 110.56M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-23
+Fra:1 Mem:110.71M (Peak 110.71M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-24
+Fra:1 Mem:110.86M (Peak 110.86M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-50
+Fra:1 Mem:111.51M (Peak 111.51M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-49
+Fra:1 Mem:111.80M (Peak 111.80M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-25
+Fra:1 Mem:111.85M (Peak 111.85M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-48
+Fra:1 Mem:112.22M (Peak 112.22M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-26
+Fra:1 Mem:112.29M (Peak 112.29M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-47
+Fra:1 Mem:112.65M (Peak 112.65M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-27
+Fra:1 Mem:112.79M (Peak 112.79M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-46
+Fra:1 Mem:113.12M (Peak 113.12M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-28
+Fra:1 Mem:113.27M (Peak 113.27M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-45
+Fra:1 Mem:113.60M (Peak 113.60M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-29
+Fra:1 Mem:113.98M (Peak 113.98M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-30
+Fra:1 Mem:114.36M (Peak 114.36M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-31
+Fra:1 Mem:114.74M (Peak 114.74M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-44
+Fra:1 Mem:115.07M (Peak 115.07M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-32
+Fra:1 Mem:115.45M (Peak 115.45M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-43
+Fra:1 Mem:115.65M (Peak 115.65M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-33
+Fra:1 Mem:116.16M (Peak 116.16M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-34
+Fra:1 Mem:116.16M (Peak 116.16M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-42
+Fra:1 Mem:116.85M (Peak 116.85M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-35
+Fra:1 Mem:116.97M (Peak 116.97M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-41
+Fra:1 Mem:117.19M (Peak 117.19M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-36
+Fra:1 Mem:117.41M (Peak 117.41M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-37
+Fra:1 Mem:117.51M (Peak 117.51M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-38
+Fra:1 Mem:117.59M (Peak 117.59M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-39
+Fra:1 Mem:117.69M (Peak 117.69M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-40
+Fra:1 Mem:117.79M (Peak 117.79M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Initializing
+Fra:1 Mem:115.81M (Peak 117.79M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Waiting for render to start
+Fra:1 Mem:115.81M (Peak 117.79M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Loading render kernels (may take a few minutes the first time)
+Fra:1 Mem:115.81M (Peak 117.79M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Scene
+Fra:1 Mem:115.81M (Peak 117.79M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Shaders
+Fra:1 Mem:115.90M (Peak 117.79M) | Time:00:00.05 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Procedurals
+Fra:1 Mem:115.90M (Peak 117.79M) | Time:00:00.05 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Background
+Fra:1 Mem:115.90M (Peak 117.79M) | Time:00:00.05 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Camera
+Fra:1 Mem:115.90M (Peak 117.79M) | Time:00:00.05 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Meshes Flags
+Fra:1 Mem:115.90M (Peak 117.79M) | Time:00:00.05 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Objects
+Fra:1 Mem:115.90M (Peak 117.79M) | Time:00:00.05 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Objects | Copying Transformations to device
+Fra:1 Mem:115.91M (Peak 117.79M) | Time:00:00.05 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Objects | Applying Static Transformations
+Fra:1 Mem:115.91M (Peak 117.79M) | Time:00:00.05 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Particle Systems
+Fra:1 Mem:115.91M (Peak 117.79M) | Time:00:00.05 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Particle Systems | Copying Particles to device
+Fra:1 Mem:115.91M (Peak 117.79M) | Time:00:00.05 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Meshes
+Fra:1 Mem:117.25M (Peak 117.79M) | Time:00:00.05 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Mesh | Computing attributes
+Fra:1 Mem:117.96M (Peak 117.96M) | Time:00:00.05 | Mem:0.02M, Peak:0.02M | Scene, ViewLayer | Updating Mesh | Copying Attributes to device
+Fra:1 Mem:117.95M (Peak 117.96M) | Time:00:00.05 | Mem:0.71M, Peak:0.71M | Scene, ViewLayer | Updating Scene BVH | Building
+Fra:1 Mem:117.95M (Peak 117.96M) | Time:00:00.05 | Mem:0.71M, Peak:0.71M | Scene, ViewLayer | Updating Scene BVH | Building BVH
+Fra:1 Mem:117.95M (Peak 117.96M) | Time:00:00.05 | Mem:3.40M, Peak:3.40M | Scene, ViewLayer | Updating Scene BVH | Building BVH 0%
+Fra:1 Mem:117.95M (Peak 117.96M) | Time:00:00.08 | Mem:6.61M, Peak:9.29M | Scene, ViewLayer | Updating Scene BVH | Copying BVH to device
+Fra:1 Mem:117.95M (Peak 117.96M) | Time:00:00.08 | Mem:6.61M, Peak:9.29M | Scene, ViewLayer | Updating Mesh | Computing normals
+Fra:1 Mem:121.49M (Peak 121.49M) | Time:00:00.08 | Mem:6.61M, Peak:9.29M | Scene, ViewLayer | Updating Mesh | Copying Mesh to device
+Fra:1 Mem:121.49M (Peak 121.49M) | Time:00:00.08 | Mem:10.14M, Peak:10.14M | Scene, ViewLayer | Updating Objects Flags
+Fra:1 Mem:121.49M (Peak 121.49M) | Time:00:00.08 | Mem:10.14M, Peak:10.14M | Scene, ViewLayer | Updating Primitive Offsets
+Fra:1 Mem:121.49M (Peak 121.49M) | Time:00:00.08 | Mem:10.14M, Peak:10.14M | Scene, ViewLayer | Updating Images
+Fra:1 Mem:121.49M (Peak 121.49M) | Time:00:00.08 | Mem:10.14M, Peak:10.14M | Scene, ViewLayer | Updating Camera Volume
+Fra:1 Mem:121.49M (Peak 121.49M) | Time:00:00.08 | Mem:10.14M, Peak:10.14M | Scene, ViewLayer | Updating Lookup Tables
+Fra:1 Mem:121.49M (Peak 121.49M) | Time:00:00.08 | Mem:10.22M, Peak:10.22M | Scene, ViewLayer | Updating Lights
+Fra:1 Mem:121.49M (Peak 121.49M) | Time:00:00.08 | Mem:10.22M, Peak:10.22M | Scene, ViewLayer | Updating Lights | Computing tree
+Fra:1 Mem:121.49M (Peak 121.49M) | Time:00:00.08 | Mem:10.23M, Peak:10.23M | Scene, ViewLayer | Updating Integrator
+Fra:1 Mem:121.49M (Peak 121.49M) | Time:00:00.08 | Mem:10.23M, Peak:10.23M | Scene, ViewLayer | Updating Film
+Fra:1 Mem:121.49M (Peak 121.49M) | Time:00:00.08 | Mem:10.14M, Peak:10.23M | Scene, ViewLayer | Updating Lookup Tables
+Fra:1 Mem:121.49M (Peak 121.49M) | Time:00:00.08 | Mem:10.23M, Peak:10.23M | Scene, ViewLayer | Updating Baking
+Fra:1 Mem:121.49M (Peak 121.49M) | Time:00:00.08 | Mem:10.23M, Peak:10.23M | Scene, ViewLayer | Updating Device | Writing constant memory
+Fra:1 Mem:121.49M (Peak 121.49M) | Time:00:00.08 | Mem:10.23M, Peak:10.23M | Scene, ViewLayer | Sample 0/16
+Fra:1 Mem:136.05M (Peak 136.05M) | Time:00:01.03 | Remaining:00:14.28 | Mem:24.76M, Peak:24.76M | Scene, ViewLayer | Sample 1/16
+Fra:1 Mem:142.51M (Peak 155.43M) | Time:00:11.48 | Mem:24.76M, Peak:24.76M | Scene, ViewLayer | Sample 16/16
+Fra:1 Mem:142.51M (Peak 155.43M) | Time:00:11.48 | Mem:24.76M, Peak:24.76M | Scene, ViewLayer | Finished
+Saved: '/workspace/private-production/yanmar-6aym-wet-r03/qa/integration-render/blender-xray-rak-injection.png'
+Time: 00:12.09 (Saving: 00:00.59)
+
+07:24:29 | INFO: Data are loaded, start creating Blender stuff
+07:24:29 | INFO: Blender create Mesh node EXT-BLOCK-01
+07:24:29 | INFO: Blender create Mesh node EXT-BLOCK-02
+07:24:29 | INFO: Blender create Mesh node EXT-BLOCK-03
+07:24:29 | INFO: Blender create Mesh node EXT-BLOCK-04
+07:24:29 | INFO: Blender create Mesh node EXT-BLOCK-05
+07:24:29 | INFO: Blender create Mesh node EXT-BLOCK-06
+07:24:29 | INFO: Blender create Mesh node EXT-BLOCK-07
+07:24:29 | INFO: Blender create Mesh node EXT-BLOCK-08
+07:24:29 | INFO: Blender create Mesh node EXT-BLOCK-09
+07:24:29 | INFO: Blender create Mesh node EXT-BLOCK-10
+07:24:29 | INFO: Blender create Mesh node EXT-BLOCK-11
+07:24:29 | INFO: Blender create Mesh node EXT-BLOCK-12
+07:24:29 | INFO: Blender create Mesh node EXT-BLOCK-13
+07:24:29 | INFO: Blender create Mesh node EXT-BLOCK-14
+07:24:29 | INFO: Blender create Mesh node EXT-BLOCK-15
+07:24:29 | INFO: Blender create Mesh node EXT-BLOCK-16
+07:24:29 | INFO: Blender create Mesh node EXT-BLOCK-17
+07:24:29 | INFO: Blender create Mesh node EXT-BLOCK-18
+07:24:29 | INFO: Blender create Mesh node EXT-HEADS-01
+07:24:29 | INFO: Blender create Mesh node EXT-HEADS-02
+07:24:29 | INFO: Blender create Mesh node EXT-HEADS-03
+07:24:29 | INFO: Blender create Mesh node EXT-HEADS-04
+07:24:29 | INFO: Blender create Mesh node EXT-HEADS-05
+07:24:29 | INFO: Blender create Mesh node EXT-HEADS-06
+07:24:29 | INFO: Blender create Mesh node EXT-HEADS-07.001
+07:24:29 | INFO: Blender create Mesh node EXT-HEADS-31
+07:24:29 | INFO: Blender create Mesh node EXT-HEADS-41
+07:24:29 | INFO: Blender create Mesh node EXT-HEADS-51
+07:24:29 | INFO: Blender create Mesh node EXT-HEADS-61
+07:24:29 | INFO: Blender create Mesh node EXT-HEADS-08.001
+07:24:29 | INFO: Blender create Mesh node EXT-HEADS-32
+07:24:29 | INFO: Blender create Mesh node EXT-HEADS-42
+07:24:29 | INFO: Blender create Mesh node EXT-HEADS-52
+07:24:29 | INFO: Blender create Mesh node EXT-HEADS-62
+07:24:29 | INFO: Blender create Mesh node EXT-HEADS-09.001
+07:24:29 | INFO: Blender create Mesh node EXT-HEADS-33
+07:24:29 | INFO: Blender create Mesh node EXT-HEADS-43
+07:24:29 | INFO: Blender create Mesh node EXT-HEADS-53
+07:24:29 | INFO: Blender create Mesh node EXT-HEADS-63
+07:24:29 | INFO: Blender create Mesh node EXT-HEADS-10.001
+07:24:29 | INFO: Blender create Mesh node EXT-HEADS-34
+07:24:29 | INFO: Blender create Mesh node EXT-HEADS-44
+07:24:29 | INFO: Blender create Mesh node EXT-HEADS-54
+07:24:29 | INFO: Blender create Mesh node EXT-HEADS-64
+07:24:29 | INFO: Blender create Mesh node EXT-HEADS-11.001
+07:24:29 | INFO: Blender create Mesh node EXT-HEADS-35
+07:24:29 | INFO: Blender create Mesh node EXT-HEADS-45
+07:24:29 | INFO: Blender create Mesh node EXT-HEADS-55
+07:24:29 | INFO: Blender create Mesh node EXT-HEADS-65
+07:24:29 | INFO: Blender create Mesh node EXT-HEADS-12.001
+07:24:29 | INFO: Blender create Mesh node EXT-HEADS-36
+07:24:29 | INFO: Blender create Mesh node EXT-HEADS-46
+07:24:29 | INFO: Blender create Mesh node EXT-HEADS-56
+07:24:29 | INFO: Blender create Mesh node EXT-HEADS-66
+07:24:29 | INFO: Blender create Mesh node EXT-OILPAN-01
+07:24:29 | INFO: Blender create Mesh node EXT-OILPAN-02
+07:24:29 | INFO: Blender create Mesh node EXT-OILPAN-20
+07:24:29 | INFO: Blender create Mesh node EXT-OILPAN-21
+07:24:29 | INFO: Blender create Mesh node EXT-FLYWHEEL-01
+07:24:29 | INFO: Blender create Mesh node EXT-FLYWHEEL-02
+07:24:29 | INFO: Blender create Mesh node EXT-FLYWHEEL-20
+07:24:29 | INFO: Blender create Mesh node EXT-FRONT-01
+07:24:29 | INFO: Blender create Mesh node EXT-FRONT-02
+07:24:29 | INFO: Blender create Mesh node EXT-FRONT-03
+07:24:29 | INFO: Blender create Mesh node EXT-ELECTRIC-03
+07:24:29 | INFO: Blender create Mesh node EXT-ELECTRIC-04
+07:24:29 | INFO: Blender create Mesh node EXT-ELECTRIC-01.001
+07:24:29 | INFO: Blender create Mesh node EXT-ELECTRIC-20
+07:24:29 | INFO: Blender create Mesh node EXT-ELECTRIC-21
+07:24:29 | INFO: Blender create Mesh node EXT-ELECTRIC-22
+07:24:29 | INFO: Blender create Mesh node EXT-ELECTRIC-23
+07:24:29 | INFO: Blender create Mesh node EXT-ELECTRIC-24
+07:24:29 | INFO: Blender create Mesh node EXT-ELECTRIC-25
+07:24:29 | INFO: Blender create Mesh node EXT-ELECTRIC-26
+07:24:29 | INFO: Blender create Mesh node EXT-ELECTRIC-27
+07:24:29 | INFO: Blender create Mesh node EXT-ELECTRIC-28
+07:24:29 | INFO: Blender create Mesh node EXT-ELECTRIC-29
+07:24:29 | INFO: Blender create Mesh node EXT-ELECTRIC-02.001
+07:24:29 | INFO: Blender create Mesh node EXT-ELECTRIC-40
+07:24:29 | INFO: Blender create Mesh node EXT-ELECTRIC-41
+07:24:29 | INFO: Blender create Mesh node EXT-ELECTRIC-42
+07:24:29 | INFO: Blender create Mesh node EXT-ELECTRIC-43
+07:24:29 | INFO: Blender create Mesh node EXT-ELECTRIC-44
+07:24:29 | INFO: Blender create Mesh node EXT-ELECTRIC-45
+07:24:29 | INFO: Blender create Mesh node EXT-ELECTRIC-46
+07:24:29 | INFO: Blender create Mesh node EXT-ELECTRIC-47
+07:24:29 | INFO: Blender create Mesh node EXT-ELECTRIC-48
+07:24:29 | INFO: Blender create Mesh node EXT-ELECTRIC-49
+07:24:29 | INFO: Blender create Mesh node EXT-ELECTRIC-50
+07:24:29 | INFO: Blender create Mesh node EXT-ELECTRIC-51
+07:24:29 | INFO: Blender create Mesh node EXT-ELECTRIC-52
+07:24:29 | INFO: Blender create Mesh node EXT-ELECTRIC-53
+07:24:29 | INFO: Blender create Mesh node EXT-INTAKE-01
+07:24:29 | INFO: Blender create Mesh node EXT-INTAKE-03
+07:24:30 | INFO: Blender create Mesh node EXT-INTAKE-04
+07:24:30 | INFO: Blender create Mesh node EXT-INTAKE-05
+07:24:30 | INFO: Blender create Mesh node EXT-INTAKE-02
+07:24:30 | INFO: Blender create Mesh node EXT-INTAKE-06
+07:24:30 | INFO: Blender create Mesh node EXT-INTAKE-07
+07:24:30 | INFO: Blender create Mesh node EXT-INTAKE-08
+07:24:30 | INFO: Blender create Mesh node EXT-INTAKE-09
+07:24:30 | INFO: Blender create Mesh node EXT-INTAKE-10
+07:24:30 | INFO: Blender create Mesh node EXT-INTAKE-11
+07:24:30 | INFO: Blender create Mesh node EXT-INTAKE-12
+07:24:30 | INFO: Blender create Mesh node EXT-INTAKE-13
+07:24:30 | INFO: Blender create Mesh node EXT-INTAKE-14
+07:24:30 | INFO: Blender create Mesh node EXT-INTAKE-15
+07:24:30 | INFO: Blender create Mesh node EXT-INTAKE-16
+07:24:30 | INFO: Blender create Mesh node EXT-COOLING-02
+07:24:30 | INFO: Blender create Mesh node EXT-COOLING-05
+07:24:30 | INFO: Blender create Mesh node EXT-COOLING-06
+07:24:30 | INFO: Blender create Mesh node EXT-COOLING-07
+07:24:30 | INFO: Blender create Mesh node EXT-COOLING-03.001
+07:24:30 | INFO: Blender create Mesh node EXT-COOLING-20
+07:24:30 | INFO: Blender create Mesh node EXT-COOLING-21
+07:24:30 | INFO: Blender create Mesh node EXT-COOLING-22
+07:24:30 | INFO: Blender create Mesh node EXT-COOLING-23
+07:24:30 | INFO: Blender create Mesh node EXT-COOLING-24
+07:24:30 | INFO: Blender create Mesh node EXT-COOLING-25
+07:24:30 | INFO: Blender create Mesh node EXT-COOLING-26
+07:24:30 | INFO: Blender create Mesh node EXT-COOLING-27
+07:24:30 | INFO: Blender create Mesh node EXT-COOLING-28
+07:24:30 | INFO: Blender create Mesh node EXT-COOLING-01.001
+07:24:30 | INFO: Blender create Mesh node EXT-COOLING-50
+07:24:30 | INFO: Blender create Mesh node EXT-COOLING-51
+07:24:30 | INFO: Blender create Mesh node EXT-COOLING-52
+07:24:30 | INFO: Blender create Mesh node EXT-COOLING-53
+07:24:30 | INFO: Blender create Mesh node EXT-COOLING-54
+07:24:30 | INFO: Blender create Mesh node EXT-COOLING-55
+07:24:30 | INFO: Blender create Mesh node EXT-COOLING-56
+07:24:30 | INFO: Blender create Mesh node EXT-COOLING-57
+07:24:30 | INFO: Blender create Mesh node EXT-COOLING-58
+07:24:30 | INFO: Blender create Mesh node EXT-COOLING-59
+07:24:30 | INFO: Blender create Mesh node EXT-COOLING-60
+07:24:30 | INFO: Blender create Mesh node EXT-COOLING-61
+07:24:30 | INFO: Blender create Mesh node EXT-COOLING-62
+07:24:30 | INFO: Blender create Mesh node EXT-COOLING-04.001
+07:24:30 | INFO: Blender create Mesh node EXT-COOLING-35
+07:24:30 | INFO: Blender create Mesh node EXT-COOLING-36
+07:24:30 | INFO: Blender create Mesh node EXT-COOLING-37
+07:24:30 | INFO: Blender create Mesh node EXT-COOLING-38
+07:24:30 | INFO: Blender create Mesh node EXT-COOLING-39
+07:24:30 | INFO: Blender create Mesh node EXT-COOLING-40
+07:24:30 | INFO: Blender create Mesh node EXT-COOLING-41
+07:24:30 | INFO: Blender create Mesh node EXT-COOLING-42
+07:24:30 | INFO: Blender create Mesh node EXT-COOLING-43
+07:24:30 | INFO: Blender create Mesh node EXT-COOLING-44
+07:24:30 | INFO: Blender create Mesh node EXT-COOLING-45
+07:24:30 | INFO: Blender create Mesh node EXT-EXHAUST-01
+07:24:30 | INFO: Blender create Mesh node EXT-EXHAUST-05
+07:24:30 | INFO: Blender create Mesh node EXT-EXHAUST-02.001
+07:24:30 | INFO: Blender create Mesh node EXT-EXHAUST-03.001
+07:24:30 | INFO: Blender create Mesh node EXT-EXHAUST-04.001
+07:24:30 | INFO: Blender create Mesh node EXT-EXHAUST-20
+07:24:30 | INFO: Blender create Mesh node EXT-EXHAUST-21
+07:24:30 | INFO: Blender create Mesh node EXT-EXHAUST-22
+07:24:30 | INFO: Blender create Mesh node EXT-EXHAUST-23
+07:24:30 | INFO: Blender create Mesh node EXT-EXHAUST-24
+07:24:30 | INFO: Blender create Mesh node EXT-EXHAUST-25
+07:24:30 | INFO: Blender create Mesh node EXT-EXHAUST-26
+07:24:30 | INFO: Blender create Mesh node EXT-EXHAUST-27
+07:24:30 | INFO: Blender create Mesh node EXT-EXHAUST-28
+07:24:30 | INFO: Blender create Mesh node EXT-EXHAUST-29
+07:24:30 | INFO: Blender create Mesh node EXT-EXHAUST-30
+07:24:30 | INFO: Blender create Mesh node EXT-EXHAUST-31
+07:24:30 | INFO: Blender create Mesh node EXT-EXHAUST-32
+07:24:30 | INFO: Blender create Mesh node EXT-EXHAUST-33
+07:24:30 | INFO: Blender create Mesh node EXT-EXHAUST-34
+07:24:30 | INFO: Blender create Mesh node EXT-EXHAUST-35
+07:24:30 | INFO: Blender create Mesh node EXT-EXHAUST-36
+07:24:30 | INFO: Blender create Mesh node EXT-EXHAUST-37
+07:24:30 | INFO: Blender create Mesh node EXT-EXHAUST-38
+07:24:30 | INFO: Blender create Mesh node EXT-EXHAUST-39
+07:24:30 | INFO: Blender create Mesh node EXT-EXHAUST-40
+07:24:30 | INFO: Blender create Mesh node EXT-EXHAUST-41
+07:24:30 | INFO: Blender create Mesh node EXT-EXHAUST-42
+07:24:30 | INFO: Blender create Mesh node EXT-EXHAUST-43
+07:24:30 | INFO: Blender create Mesh node EXT-EXHAUST-44
+07:24:30 | INFO: Blender create Mesh node EXT-EXHAUST-45
+07:24:30 | INFO: Blender create Mesh node EXT-EXHAUST-46
+07:24:30 | INFO: Blender create Mesh node EXT-EXHAUST-47
+07:24:30 | INFO: Blender create Mesh node EXT-EXHAUST-48
+07:24:30 | INFO: Blender create Mesh node EXT-EXHAUST-49
+07:24:30 | INFO: Blender create Mesh node EXT-EXHAUST-50
+07:24:30 | INFO: Blender create Mesh node EXT-EXHAUST-51
+07:24:30 | INFO: Blender create Mesh node EXT-EXHAUST-52
+07:24:30 | INFO: Blender create Mesh node EXT-EXHAUST-53
+07:24:30 | INFO: Blender create Mesh node EXT-EXHAUST-54
+07:24:30 | INFO: Blender create Mesh node EXT-EXHAUST-55
+07:24:30 | INFO: Blender create Mesh node EXT-EXHAUST-56
+07:24:30 | INFO: Blender create Mesh node EXT-EXHAUST-57
+07:24:30 | INFO: Blender create Mesh node EXT-EXHAUST-58
+07:24:30 | INFO: Blender create Mesh node EXT-EXHAUST-59
+07:24:30 | INFO: Blender create Mesh node EXT-EXHAUST-60
+07:24:30 | INFO: Blender create Mesh node EXT-EXHAUST-61
+07:24:30 | INFO: Blender create Mesh node EXT-EXHAUST-62
+07:24:30 | INFO: Blender create Mesh node EXT-EXHAUST-63
+07:24:30 | INFO: Blender create Mesh node EXT-EXHAUST-64
+07:24:30 | INFO: Blender create Mesh node EXT-EXHAUST-65
+07:24:30 | INFO: Blender create Mesh node EXT-EXHAUST-66
+07:24:30 | INFO: Blender create Mesh node EXT-EXHAUST-67
+07:24:30 | INFO: Blender create Mesh node EXT-FUEL-03
+07:24:30 | INFO: Blender create Mesh node EXT-FUEL-04
+07:24:30 | INFO: Blender create Mesh node EXT-FUEL-05
+07:24:30 | INFO: Blender create Mesh node EXT-FUEL-06
+07:24:30 | INFO: Blender create Mesh node EXT-FUEL-07
+07:24:30 | INFO: Blender create Mesh node EXT-FUEL-08
+07:24:30 | INFO: Blender create Mesh node EXT-FUEL-09
+07:24:31 | INFO: Blender create Mesh node EXT-FUEL-13
+07:24:31 | INFO: Blender create Mesh node EXT-FUEL-14
+07:24:31 | INFO: Blender create Mesh node EXT-FUEL-15
+07:24:31 | INFO: Blender create Mesh node EXT-FUEL-16
+07:24:31 | INFO: Blender create Mesh node EXT-FUEL-17
+07:24:31 | INFO: Blender create Mesh node EXT-FUEL-18
+07:24:31 | INFO: Blender create Mesh node EXT-FUEL-19
+07:24:31 | INFO: Blender create Mesh node EXT-FUEL-20
+07:24:31 | INFO: Blender create Mesh node EXT-FUEL-12
+07:24:31 | INFO: Blender create Mesh node EXT-FUEL-210
+07:24:31 | INFO: Blender create Mesh node EXT-FUEL-211
+07:24:31 | INFO: Blender create Mesh node EXT-FUEL-212
+07:24:31 | INFO: Blender create Mesh node EXT-FUEL-213
+07:24:31 | INFO: Blender create Mesh node EXT-FUEL-214
+07:24:31 | INFO: Blender create Mesh node EXT-FUEL-215
+07:24:31 | INFO: Blender create Mesh node EXT-FUEL-216
+07:24:31 | INFO: Blender create Mesh node EXT-FUEL-217
+07:24:31 | INFO: Blender create Mesh node EXT-FUEL-218
+07:24:31 | INFO: Blender create Mesh node EXT-FUEL-10.001
+07:24:31 | INFO: Blender create Mesh node EXT-FUEL-100
+07:24:31 | INFO: Blender create Mesh node EXT-FUEL-101
+07:24:31 | INFO: Blender create Mesh node EXT-FUEL-102
+07:24:31 | INFO: Blender create Mesh node EXT-FUEL-103
+07:24:31 | INFO: Blender create Mesh node EXT-FUEL-104
+07:24:31 | INFO: Blender create Mesh node EXT-FUEL-105
+07:24:31 | INFO: Blender create Mesh node EXT-FUEL-11.001
+07:24:31 | INFO: Blender create Mesh node EXT-FUEL-110
+07:24:31 | INFO: Blender create Mesh node EXT-FUEL-111
+07:24:31 | INFO: Blender create Mesh node EXT-FUEL-112
+07:24:31 | INFO: Blender create Mesh node EXT-FUEL-113
+07:24:31 | INFO: Blender create Mesh node EXT-FUEL-114
+07:24:31 | INFO: Blender create Mesh node EXT-FUEL-115
+07:24:31 | INFO: Blender create Mesh node EXT-FUEL-02
+07:24:31 | INFO: Blender create Mesh node EXT-FUEL-200
+07:24:31 | INFO: Blender create Mesh node EXT-FUEL-201
+07:24:31 | INFO: Blender create Mesh node EXT-FUEL-202
+07:24:31 | INFO: Blender create Mesh node EXT-FUEL-203
+07:24:31 | INFO: Blender create Mesh node EXT-FUEL-204
+07:24:31 | INFO: Blender create Mesh node EXT-FUEL-205
+07:24:31 | INFO: Blender create Mesh node EXT-FUEL-01
+07:24:31 | INFO: Blender create Mesh node EXT-FUEL-21
+07:24:31 | INFO: Blender create Mesh node EXT-FUEL-22
+07:24:31 | INFO: Blender create Mesh node EXT-FUEL-23
+07:24:31 | INFO: Blender create Mesh node EXT-FUEL-24
+07:24:31 | INFO: Blender create Mesh node EXT-FUEL-25
+07:24:31 | INFO: Blender create Mesh node EXT-FUEL-26
+07:24:31 | INFO: Blender create Mesh node EXT-FUEL-27
+07:24:31 | INFO: Blender create Mesh node EXT-FUEL-28
+07:24:31 | INFO: Blender create Mesh node EXT-FUEL-29
+07:24:31 | INFO: Blender create Mesh node EXT-FUEL-30
+07:24:31 | INFO: Blender create Mesh node EXT-FUEL-31
+07:24:31 | INFO: Blender create Mesh node EXT-FUEL-32
+07:24:31 | INFO: Blender create Mesh node EXT-FUEL-33
+07:24:31 | INFO: Blender create Mesh node EXT-FUEL-34
+07:24:31 | INFO: Blender create Mesh node EXT-FUEL-35
+07:24:31 | INFO: Blender create Mesh node EXT-FUEL-36
+07:24:31 | INFO: Blender create Mesh node EXT-FUEL-37
+07:24:31 | INFO: Blender create Mesh node EXT-FUEL-38
+07:24:31 | INFO: Blender create Mesh node EXT-FUEL-39
+07:24:31 | INFO: Blender create Mesh node EXT-FUEL-40
+07:24:31 | INFO: Blender create Mesh node EXT-FUEL-41
+07:24:31 | INFO: Blender create Mesh node EXT-FUEL-42
+07:24:31 | INFO: Blender create Mesh node EXT-FUEL-43
+07:24:31 | INFO: Blender create Mesh node EXT-FUEL-44
+07:24:31 | INFO: Blender create Mesh node EXT-FUEL-45
+07:24:31 | INFO: Blender create Mesh node EXT-FUEL-46
+07:24:31 | INFO: Blender create Mesh node EXT-FUEL-47
+07:24:31 | INFO: Blender create Mesh node EXT-FUEL-48
+07:24:31 | INFO: Blender create Mesh node EXT-FUEL-49
+07:24:31 | INFO: Blender create Mesh node EXT-FUEL-50
+07:24:31 | INFO: Blender create Mesh node EXT-FUEL-51
+07:24:31 | INFO: Blender create Mesh node EXT-FUEL-52
+07:24:31 | INFO: Blender create Mesh node EXT-LUBE-01
+07:24:31 | INFO: Blender create Mesh node EXT-LUBE-04.001
+07:24:31 | INFO: Blender create Mesh node EXT-LUBE-30
+07:24:31 | INFO: Blender create Mesh node EXT-LUBE-31
+07:24:31 | INFO: Blender create Mesh node EXT-LUBE-32
+07:24:31 | INFO: Blender create Mesh node EXT-LUBE-33
+07:24:31 | INFO: Blender create Mesh node EXT-LUBE-34
+07:24:31 | INFO: Blender create Mesh node EXT-LUBE-35
+07:24:31 | INFO: Blender create Mesh node EXT-LUBE-36
+07:24:31 | INFO: Blender create Mesh node EXT-LUBE-37
+07:24:31 | INFO: Blender create Mesh node EXT-LUBE-05.001
+07:24:31 | INFO: Blender create Mesh node EXT-LUBE-60
+07:24:31 | INFO: Blender create Mesh node EXT-LUBE-61
+07:24:31 | INFO: Blender create Mesh node EXT-LUBE-62
+07:24:31 | INFO: Blender create Mesh node EXT-LUBE-63
+07:24:31 | INFO: Blender create Mesh node EXT-LUBE-64
+07:24:31 | INFO: Blender create Mesh node EXT-LUBE-65
+07:24:31 | INFO: Blender create Mesh node EXT-LUBE-66
+07:24:31 | INFO: Blender create Mesh node EXT-LUBE-67
+07:24:31 | INFO: Blender create Mesh node EXT-LUBE-02.001
+07:24:31 | INFO: Blender create Mesh node EXT-LUBE-20
+07:24:31 | INFO: Blender create Mesh node EXT-LUBE-21
+07:24:31 | INFO: Blender create Mesh node EXT-LUBE-22
+07:24:31 | INFO: Blender create Mesh node EXT-LUBE-03.001
+07:24:31 | INFO: Blender create Mesh node EXT-LUBE-24
+07:24:31 | INFO: Blender create Mesh node EXT-LUBE-25
+07:24:31 | INFO: Blender create Mesh node EXT-LUBE-26
+07:24:31 | INFO: glTF import finished in 2.37s
+Fra:1 Mem:107.83M (Peak 107.83M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-52
+Fra:1 Mem:108.03M (Peak 108.03M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-01
+Fra:1 Mem:108.25M (Peak 108.25M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-51
+Fra:1 Mem:108.56M (Peak 108.56M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-21
+Fra:1 Mem:108.79M (Peak 108.79M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-50
+Fra:1 Mem:109.23M (Peak 109.23M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-49
+Fra:1 Mem:109.51M (Peak 109.51M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-48
+Fra:1 Mem:109.79M (Peak 109.79M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-22
+Fra:1 Mem:110.04M (Peak 110.04M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-47
+Fra:1 Mem:110.32M (Peak 110.32M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-46
+Fra:1 Mem:110.84M (Peak 110.84M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-23
+Fra:1 Mem:110.98M (Peak 110.98M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-45
+Fra:1 Mem:111.29M (Peak 111.29M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-44
+Fra:1 Mem:111.62M (Peak 111.62M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-43
+Fra:1 Mem:111.95M (Peak 111.95M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-42
+Fra:1 Mem:112.28M (Peak 112.28M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-41
+Fra:1 Mem:112.61M (Peak 112.61M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-40
+Fra:1 Mem:112.71M (Peak 112.71M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-39
+Fra:1 Mem:112.82M (Peak 112.82M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-25
+Fra:1 Mem:113.13M (Peak 113.13M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-26
+Fra:1 Mem:113.13M (Peak 113.13M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-27
+Fra:1 Mem:113.42M (Peak 113.42M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-28
+Fra:1 Mem:113.57M (Peak 113.57M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-29
+Fra:1 Mem:113.82M (Peak 113.82M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-30
+Fra:1 Mem:114.32M (Peak 114.32M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-31
+Fra:1 Mem:114.69M (Peak 114.69M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-32
+Fra:1 Mem:115.07M (Peak 115.07M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-33
+Fra:1 Mem:115.46M (Peak 115.46M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-38
+Fra:1 Mem:115.56M (Peak 115.56M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-37
+Fra:1 Mem:115.66M (Peak 115.66M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-36
+Fra:1 Mem:115.76M (Peak 115.76M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-35
+Fra:1 Mem:115.83M (Peak 115.83M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | EXT-FUEL-34
+Fra:1 Mem:116.19M (Peak 116.19M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Initializing
+Fra:1 Mem:114.29M (Peak 116.19M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Waiting for render to start
+Fra:1 Mem:114.29M (Peak 116.19M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Loading render kernels (may take a few minutes the first time)
+Fra:1 Mem:114.29M (Peak 116.19M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Scene
+Fra:1 Mem:114.29M (Peak 116.19M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Shaders
+Fra:1 Mem:114.38M (Peak 116.19M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Procedurals
+Fra:1 Mem:114.38M (Peak 116.19M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Background
+Fra:1 Mem:114.38M (Peak 116.19M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Camera
+Fra:1 Mem:114.38M (Peak 116.19M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Meshes Flags
+Fra:1 Mem:114.38M (Peak 116.19M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Objects
+Fra:1 Mem:114.38M (Peak 116.19M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Objects | Copying Transformations to device
+Fra:1 Mem:114.38M (Peak 116.19M) | Time:00:00.04 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Objects | Applying Static Transformations
+Fra:1 Mem:114.38M (Peak 116.19M) | Time:00:00.04 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Particle Systems
+Fra:1 Mem:114.38M (Peak 116.19M) | Time:00:00.04 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Particle Systems | Copying Particles to device
+Fra:1 Mem:114.38M (Peak 116.19M) | Time:00:00.04 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Meshes
+Fra:1 Mem:115.57M (Peak 116.19M) | Time:00:00.04 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Mesh | Computing attributes
+Fra:1 Mem:116.16M (Peak 116.19M) | Time:00:00.04 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Mesh | Copying Attributes to device
+Fra:1 Mem:116.16M (Peak 116.19M) | Time:00:00.04 | Mem:0.60M, Peak:0.60M | Scene, ViewLayer | Updating Scene BVH | Building
+Fra:1 Mem:116.16M (Peak 116.19M) | Time:00:00.04 | Mem:0.60M, Peak:0.60M | Scene, ViewLayer | Updating Scene BVH | Building BVH
+Fra:1 Mem:116.16M (Peak 116.19M) | Time:00:00.04 | Mem:2.97M, Peak:2.97M | Scene, ViewLayer | Updating Scene BVH | Building BVH 0%
+Fra:1 Mem:116.16M (Peak 116.19M) | Time:00:00.07 | Mem:5.54M, Peak:7.91M | Scene, ViewLayer | Updating Scene BVH | Copying BVH to device
+Fra:1 Mem:116.16M (Peak 116.19M) | Time:00:00.07 | Mem:5.54M, Peak:7.91M | Scene, ViewLayer | Updating Mesh | Computing normals
+Fra:1 Mem:119.20M (Peak 119.20M) | Time:00:00.07 | Mem:5.54M, Peak:7.91M | Scene, ViewLayer | Updating Mesh | Copying Mesh to device
+Fra:1 Mem:119.20M (Peak 119.20M) | Time:00:00.07 | Mem:8.58M, Peak:8.58M | Scene, ViewLayer | Updating Objects Flags
+Fra:1 Mem:119.20M (Peak 119.20M) | Time:00:00.07 | Mem:8.59M, Peak:8.59M | Scene, ViewLayer | Updating Primitive Offsets
+Fra:1 Mem:119.20M (Peak 119.20M) | Time:00:00.07 | Mem:8.59M, Peak:8.59M | Scene, ViewLayer | Updating Images
+Fra:1 Mem:119.20M (Peak 119.20M) | Time:00:00.07 | Mem:8.59M, Peak:8.59M | Scene, ViewLayer | Updating Camera Volume
+Fra:1 Mem:119.20M (Peak 119.20M) | Time:00:00.07 | Mem:8.59M, Peak:8.59M | Scene, ViewLayer | Updating Lookup Tables
+Fra:1 Mem:119.20M (Peak 119.20M) | Time:00:00.07 | Mem:8.67M, Peak:8.67M | Scene, ViewLayer | Updating Lights
+Fra:1 Mem:119.20M (Peak 119.20M) | Time:00:00.07 | Mem:8.67M, Peak:8.67M | Scene, ViewLayer | Updating Lights | Computing tree
+Fra:1 Mem:119.20M (Peak 119.20M) | Time:00:00.07 | Mem:8.67M, Peak:8.67M | Scene, ViewLayer | Updating Integrator
+Fra:1 Mem:119.20M (Peak 119.20M) | Time:00:00.07 | Mem:8.67M, Peak:8.67M | Scene, ViewLayer | Updating Film
+Fra:1 Mem:119.20M (Peak 119.20M) | Time:00:00.07 | Mem:8.59M, Peak:8.67M | Scene, ViewLayer | Updating Lookup Tables
+Fra:1 Mem:119.20M (Peak 119.20M) | Time:00:00.07 | Mem:8.67M, Peak:8.67M | Scene, ViewLayer | Updating Baking
+Fra:1 Mem:119.20M (Peak 119.20M) | Time:00:00.07 | Mem:8.67M, Peak:8.67M | Scene, ViewLayer | Updating Device | Writing constant memory
+Fra:1 Mem:119.20M (Peak 119.20M) | Time:00:00.07 | Mem:8.67M, Peak:8.67M | Scene, ViewLayer | Sample 0/16
+Fra:1 Mem:133.76M (Peak 133.76M) | Time:00:00.36 | Remaining:00:04.42 | Mem:23.20M, Peak:23.20M | Scene, ViewLayer | Sample 1/16
+Fra:1 Mem:140.22M (Peak 153.13M) | Time:00:05.17 | Mem:23.20M, Peak:23.20M | Scene, ViewLayer | Sample 16/16
+Fra:1 Mem:140.22M (Peak 153.13M) | Time:00:05.17 | Mem:23.20M, Peak:23.20M | Scene, ViewLayer | Finished
+Saved: '/workspace/private-production/yanmar-6aym-wet-r03/qa/integration-render/blender-cutaway-rak-injection.png'
+Time: 00:05.29 (Saving: 00:00.11)
+
+
+Blender quit

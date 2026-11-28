@@ -1,0 +1,910 @@
+"""Rebuild the WET H 555 kW engine-only exterior using Blender 4.3.
+
+Run blender -b --python-exit-code 1 --python build.py.
+Design coordinates are glTF metres (X front, Y up, Z right).
+"""
+import bpy
+import json
+from math import cos, sin, pi
+from pathlib import Path
+from mathutils import Vector, Matrix
+from mathutils.geometry import interpolate_bezier
+
+OUT = Path(__file__).resolve().parent
+DATUM = json.loads((OUT.parent / 'datum.json').read_text())['dimensions']
+bpy.ops.wm.read_factory_settings(use_empty=True)
+bpy.context.scene.unit_settings.system = 'METRIC'
+groups, parts = {}, []
+GA = 'GA01 B3-48660-4450 / outline, top, end and rear housing details'
+SIDE = 'D03 PDF 17 printed p. 33 / engine-only right elevation and front view'
+OP = 'D01 PDF 14 printed p. 10 / component locations, operation side'
+NONOP = 'D01 PDF 14 printed p. 10 / component locations, non-operation side'
+
+def datum(key):
+    return DATUM[key]['value']
+
+def world(p):
+    x, y, z = p
+    return Vector((x, -z, y))
+
+def appearance(name, color, metal, rough):
+    m = bpy.data.materials.new(name)
+    m.diffuse_color = (*color, 1)
+    m.use_nodes = True
+    bsdf = m.node_tree.nodes.get('Principled BSDF')
+    bsdf.inputs['Base Color'].default_value = (*color, 1)
+    bsdf.inputs['Metallic'].default_value = metal
+    bsdf.inputs['Roughness'].default_value = rough
+    return m
+
+cast = appearance('Grey graphite paint · visual estimate', (.104,.126,.139), .13,.46)
+cover = appearance('Cool grey paint · visual estimate', (.157,.182,.193), .13,.42)
+rib = appearance('Grey edge · visual estimate', (.128,.147,.157), .13,.48)
+black = appearance('Black guard finish', (.018,.022,.026), .08,.40)
+rubber = appearance('Matte hose and clamp seals', (.028,.032,.036), .0,.64)
+steel = appearance('Machined silver appearance', (.33,.37,.40), .68,.31)
+boltmat = appearance('Dark silver fasteners', (.22,.25,.26), .49,.34)
+foil = appearance('Hot-side insulation · grey foil look', (.37,.35,.31), .34,.59)
+red = appearance('Flywheel oxide red appearance', (.33,.043,.023), .08,.51)
+orange = appearance('Orange service handle appearance', (.64,.17,.014), .03,.39)
+
+def select(obj):
+    bpy.ops.object.select_all(action='DESELECT')
+    obj.select_set(True)
+    bpy.context.view_layer.objects.active = obj
+
+def shade(obj, mat, bevel=0, smooth=False):
+    obj.data.materials.append(mat)
+    if smooth:
+        for face in obj.data.polygons:
+            face.use_smooth = True
+    if bevel:
+        mod = obj.modifiers.new('Edge radius · visual', 'BEVEL')
+        mod.width = bevel
+        mod.segments = 2
+        mod.limit_method = 'ANGLE'
+        select(obj)
+        bpy.ops.object.modifier_apply(modifier=mod.name)
+        mod = obj.modifiers.new('Weighted face normals', 'WEIGHTED_NORMAL')
+        mod.keep_sharp = True
+        bpy.ops.object.modifier_apply(modifier=mod.name)
+    return obj
+
+def mesh(verts, faces, mat, bevel=0, smooth=False):
+    data = bpy.data.meshes.new('mesh')
+    data.from_pydata([world(v) for v in verts], [], faces)
+    data.update()
+    import bmesh
+    b = bmesh.new()
+    b.from_mesh(data)
+    bmesh.ops.recalc_face_normals(b, faces=b.faces)
+    b.to_mesh(data)
+    b.free()
+    obj = bpy.data.objects.new('part', data)
+    bpy.context.collection.objects.link(obj)
+    return shade(obj, mat, bevel, smooth)
+
+def box(p, size, mat=cast, bevel=.008, tilt=0):
+    bpy.ops.mesh.primitive_cube_add(size=1, location=world(p))
+    obj = bpy.context.object
+    x,y,z = size
+    obj.scale = (x,z,y)
+    bpy.ops.object.transform_apply(location=False, rotation=False, scale=True)
+    obj.rotation_euler.y = tilt
+    return shade(obj, mat, bevel, True)
+
+def cylinder(p, axis, r, length, mat=cast, sides=32, bevel=.003):
+    bpy.ops.mesh.primitive_cylinder_add(vertices=sides, radius=r, depth=length, location=world(p))
+    obj = bpy.context.object
+    obj.rotation_euler = world(axis).to_track_quat('Z','Y').to_euler()
+    return shade(obj, mat, bevel, True)
+
+def bolt(p, axis, r=.012, mat=boltmat):
+    return cylinder(p,axis,r,.012,mat,6,.0012)
+
+def vec_basis(axis):
+    a = Vector(axis).normalized()
+    b = Vector((1,0,0)) if abs(a.x)<.8 else Vector((0,1,0))
+    b = (b - b.dot(a)*a).normalized()
+    return a,b,a.cross(b)
+
+def ring(p,axis,profile,mat,segments=48):
+    """Revolve a closed section of (axial offset, radius) pairs."""
+    a,b,c = vec_basis(axis)
+    verts = [Vector(p)+offset*a+r*(b*cos(i*2*pi/segments)+c*sin(i*2*pi/segments))
+             for offset,r in profile for i in range(segments)]
+    faces = []
+    for j in range(len(profile)):
+        k = (j+1)%len(profile)
+        for i in range(segments):
+            n = (i+1)%segments
+            faces.append((j*segments+i,j*segments+n,k*segments+n,k*segments+i))
+    return mesh(verts,faces,mat,smooth=True)
+
+def annulus(p,axis,ro,ri,length,mat=steel):
+    d = length*.5
+    bevel = min(length*.2,(ro-ri)*.25,.003)
+    return ring(p,axis,[(-d,ri+bevel),(-d,ro-bevel),(-d+bevel,ro),(d-bevel,ro),
+                       (d,ro-bevel),(d,ri+bevel),(d-bevel,ri),(-d+bevel,ri)],mat)
+
+def flange(p,axis,ro,ri,depth,mat=cast,n=8):
+    objs = [annulus(p,axis,ro,ri,depth,mat)]
+    a,b,c=vec_basis(axis)
+    for i in range(n):
+        angle = 2*pi*(i+.5)/n
+        q=Vector(p)+a*(depth/2+.003)+(ro-.014)*(b*cos(angle)+c*sin(angle))
+        objs.append(bolt(q,axis,min(.013,(ro-ri)*.24)))
+    return objs
+
+def polygon_loft(rings,mat=cast,bevel=.006,closed=False):
+    count=len(rings[0])
+    faces = [] if closed else [tuple(reversed(range(count)))]
+    for row in range(len(rings) if closed else len(rings)-1):
+        nxt=(row+1)%len(rings)
+        for i in range(count):
+            j=(i+1)%count
+            faces.append((row*count+i,row*count+j,nxt*count+j,nxt*count+i))
+    if not closed:
+        faces.append(tuple(range((len(rings)-1)*count,len(rings)*count)))
+    return mesh([v for row in rings for v in row],faces,mat,bevel,True)
+
+def rect(x0,x1,z0,z1,y,c):
+    return [(x,y,z) for x,z in [(x0+c,z0),(x1-c,z0),(x1,z0+c),(x1,z1-c),
+            (x1-c,z1),(x0+c,z1),(x0,z1-c),(x0,z0+c)]]
+
+def shell(layers, mat=cast):
+    return polygon_loft([rect(*layer) for layer in layers],mat,.003,True)
+
+def prism(poly, axis, lo, hi, mat=cast, bevel=.006):
+    if axis=='x':
+        rings=[[(s,u,v) for u,v in poly] for s in (lo,hi)]
+    elif axis=='y':
+        rings=[[(u,s,v) for u,v in poly] for s in (lo,hi)]
+    else:
+        rings=[[(u,v,s) for u,v in poly] for s in (lo,hi)]
+    return polygon_loft(rings,mat,bevel)
+
+def sweep(points, radius, mat=cast, sides=16, hollow=False):
+    vectors = list(map(Vector,points))
+    smooth = []
+    for i in range(len(vectors)-1):
+        prev, p = vectors[max(0,i-1)], vectors[i]
+        q, after = vectors[i+1], vectors[min(len(vectors)-1,i+2)]
+        section = interpolate_bezier(p,p+(q-prev)/7,q-(after-p)/7,q,6)
+        smooth.extend(section[:-1])
+    smooth.append(vectors[-1])
+    rings=[]
+    normal=None
+    for i,p in enumerate(smooth):
+        way=(smooth[min(i+1,len(smooth)-1)]-smooth[max(0,i-1)]).normalized()
+        if normal is None:
+            _,normal,_=vec_basis(way)
+        normal=(normal-normal.dot(way)*way).normalized()
+        binormal=way.cross(normal)
+        t=i/(len(smooth)-1)
+        r=radius if isinstance(radius,(float,int)) else radius[0]*(1-t)+radius[1]*t
+        rings.append([p+r*(normal*cos(2*pi*j/sides)+binormal*sin(2*pi*j/sides)) for j in range(sides)])
+    if hollow:
+        inner = [[p+(v-p)*.82 for v in row] for p,row in zip(smooth,rings)]
+        rings.extend(reversed(inner))
+    return polygon_loft(rings,mat,0,hollow)
+
+def straight(p,q,r,mat=cast):
+    p,q=Vector(p),Vector(q)
+    return cylinder((p+q)*.5,q-p,r,(q-p).length,mat,12,.002)
+
+def subtract(obj,tool):
+    select(obj)
+    mod=obj.modifiers.new('Bore through casting','BOOLEAN')
+    mod.operation='DIFFERENCE'
+    mod.object=tool
+    bpy.ops.object.modifier_apply(modifier=mod.name)
+    bpy.data.objects.remove(tool,do_unlink=True)
+
+def add(group, suffix, name, shapes, sources, note='', status='ESTIMATED', origin=None, xray=False, direction=None):
+    id=f'EXT-{group}-{suffix:02d}'
+    if group not in groups:
+        empty=bpy.data.objects.new(f'RAK-{group}',None)
+        bpy.context.collection.objects.link(empty)
+        groups[group]=empty
+    if not isinstance(shapes,list):
+        shapes=[shapes]
+    bpy.ops.object.select_all(action='DESELECT')
+    for obj in shapes:
+        obj.select_set(True)
+    obj=shapes[0]
+    bpy.context.view_layer.objects.active=obj
+    if len(shapes)>1:
+        bpy.ops.object.join()
+    bpy.ops.object.transform_apply(location=False, rotation=True, scale=True)
+    if origin is None:
+        bpy.ops.object.origin_set(type='ORIGIN_GEOMETRY',center='BOUNDS')
+    else:
+        bpy.context.scene.cursor.location=world(origin)
+        bpy.ops.object.origin_set(type='ORIGIN_CURSOR')
+    obj.name=id
+    obj.data.name=id
+    obj.parent=groups[group]
+    obj['id']=id
+    obj['label']=name
+    obj['xray_shell']=xray
+    obj['evidence_status']=status
+    bpy.context.view_layer.update()
+    verts=[obj.matrix_world @ v.co for v in obj.data.vertices]
+    packed=[(v.x,v.z,-v.y) for v in verts]
+    low=[round(min(v[i] for v in packed),6) for i in range(3)]
+    high=[round(max(v[i] for v in packed),6) for i in range(3)]
+    parts.append(dict(id=id, name=name, nama=name, parent=groups[group].name, rakitan=groups[group].name,
+                   count=1, jumlah=1, status=status, source_refs=sources, sumber=sources,
+                   model_dimensions_m=[round(b-a,6) for a,b in zip(low,high)],
+                   bounds_m=[low,high], ukuran_oem=None, nomor_oem=None, xray_shell=xray,
+                   note=note or 'Bentuk/tata letak dari tampak yang dikutip. Detail ukuran model diperkirakan.',
+                   direction=direction))
+    return obj
+
+centers=datum('cylinder_center_x')
+deck=datum('deck_y')
+X=(1,0,0)
+Y=(0,1,0)
+Z=(0,0,1)
+
+# Main case. Hollow upper and lower casting surrounds separately owned internal geometry.
+crank=shell([(.014,1.335,-.278,.278,-.175,.035),(-.005,1.335,-.310,.310,-.114,.043),
+    (-.005,1.335,-.332,.332,.070,.045),(.020,1.327,-.301,.301,.210,.030),
+    (.020,1.327,-.238,.238,.218,.026),(.025,1.316,-.250,.250,.065,.030),
+    (.024,1.315,-.239,.239,-.173,.030)])
+upper=shell([(.020,1.327,-.302,.302,.204,.041),(.033,1.326,-.252,.252,.317,.035),
+    (.027,1.326,-.260,.260,.461,.028),(.016,1.333,-.264,.264,deck-.023,.024),
+    (.029,1.318,-.215,.215,deck-.019,.023),(.031,1.312,-.198,.198,.322,.020),
+    (.025,1.319,-.203,.203,.212,.027)])
+deck_geometry=polygon_loft([rect(.015,1.333,-.265,.265,deck-.023,.025),
+                           rect(.019,1.331,-.256,.256,deck,.027)],cast)
+for x in centers:
+    subtract(deck_geometry,cylinder((x,deck-.012,0),Y,.095,.10,black,48,0))
+    for dx in (-.044,.044):
+        subtract(deck_geometry,cylinder((x+dx,deck-.012,-.145),Y,.027,.10,black,24,0))
+subtract(crank,cylinder((.001,0,0),X,.102,.106,black,64,0))
+subtract(crank,cylinder((1.329,0,0),X,.055,.100,black,48,0))
+base_shapes=[crank,upper,deck_geometry]
+for s in (-1,1):
+    base_shapes += [box((.675,.229,s*.297),(1.271,.022,.036),rib,.005),
+                    box((.674,-.166,s*.286),(1.308,.025,.05),cast,.006),
+                    box((.685,.426,s*.251),(1.24,.018,.035),cover,.004)]
+    for i,x in enumerate(centers):
+        base_shapes+= [prism([(x-.077,.213),(x+.078,.213),(x+.078,.331),(x+.05,.364),
+                              (x-.054,.364),(x-.078,.327)],'z',*sorted((s*.235,s*.286)),cast),
+                       cylinder((x,.268,s*.286),Z,.022,.017,cover,16),
+                       bolt((x,.268,s*.300),Z,.011)]
+        for y in (.041,.162):
+            base_shapes.append(box((x,y,s*.314),(.182,.017,.024),rib,.004))
+add('BLOCK',1,'Coran block dan crankcase',base_shapes,[SIDE,GA,'P07 / profil dan rusuk'],xray=True)
+for s in (-1,1):
+    for i,x in enumerate(centers,1):
+        lower=[(x-.085,-.107),(x+.073,-.107),(x+.089,-.087),(x+.076,-.061),
+               (x+.066,.007),(x+.085,.044),(x+.068,.060),(x-.066,.060),
+               (x-.089,.043),(x-.074,.006),(x-.075,-.059),(x-.090,-.084)]
+        face=[(x+(u-x)*.83,-.025+(v+.025)*.86) for u,v in lower]
+        sections=[[(u,v,s*d) for u,v in poly] for poly,d in [(lower,.322),(lower,.339),(face,.355)]]
+        cap=polygon_loft(sections,cover,.004)
+        bolts=[bolt((x+dx,y,s*.356),(0,0,s),.009) for dx in (-.069,.069) for y in (-.087,.045)]
+        p=i if s==-1 else i+6
+        # The non-operation side uses lower profile cast webs where clearly seen in P17.
+        if s==1:
+            cap.location.y+=.013
+        add('BLOCK',p+1,f'Tutup inspeksi {"kiri" if s==-1 else "kanan"} {i}',[cap,*bolts],
+            ['P07 / tutup inspeksi sisi operasi' if s==-1 else 'P17 / akses sisi non-operation'],
+            xray=True,direction=(0,0,s))
+mounts=[(-.067,.130,.390,.481,.090),(1.2065,.150,.370,.472,.100)]
+for idx,(mount,s) in enumerate([(m,s) for m in mounts for s in (-1,1)],14):
+    x,length,inner,outer,bolt_pitch=mount
+    z=s*(inner+outer)*.5
+    foot=box((x,-.156,z),(length,.022,outer-inner),cast,.004)
+    for dx in (-bolt_pitch/2,bolt_pitch/2):
+        subtract(foot,cylinder((x+dx,-.156,s*.440),Y,.012,.065,black,40,0))
+    spine=prism([(-.146,s*inner),(-.145,s*outer),(-.099,s*(z*s-.022)),
+                 (.045,s*.341),(.101,s*.298)],'x',x-.025,x+.025,cast)
+    add('BLOCK',idx,'Kaki dudukan mesin',[foot,spine],[GA,'P08 / dudukan depan','P18 / dudukan belakang'],
+        'GA: delapan lubang Ø24, jarak melintang 880 mm. Penempatan gusset diperkirakan. Ulir jack bolt tidak dimodelkan.',
+        direction=(0,-1,0))
+drain_handle=[annulus((1.019,-.13,-.359),Z,.022,.014,.013,orange),cylinder((1.019,-.13,-.341),Z,.012,.032,steel)]
+add('BLOCK',18,'Pegangan servis oranye',drain_handle,['P07 / pegangan di bawah pompa'],direction=(0,0,-1))
+
+# Closed-sided heads with cavities open toward the valvetrain, plus six removable bonnets.
+for i,x in enumerate(centers,1):
+    slices=[(x-.095,x+.095,-.254,.254,deck,.019),(x-.097,x+.097,-.265,.265,.521,.018),
+            (x-.096,x+.096,-.251,.251,.599,.026),(x-.088,x+.088,-.206,.206,.629,.030),
+            (x-.082,x+.082,-.168,.168,.627,.025),(x-.082,x+.082,-.169,.169,.520,.020),
+            (x-.086,x+.086,-.175,.175,deck,.020)]
+    details=[shell(slices,cast)]
+    for s in (-1,1):
+        details += [box((x,.544,s*.252),(.169,.066,.034),cast,.012),
+                   cylinder((x,.553,s*.272),Z,.041,.020,cast,24,.005)]
+    add('HEADS',i,f'Cylinder head {i}',details,[SIDE,GA,'P10 / deret bagian atas'],
+        'Envelope luar ditafsirkan dari gambar. Rongga rocker adalah penyederhanaan untuk susunan edukasi.',
+        xray=True,direction=(0,1,0))
+    sh=[rect(x-.096,x+.096,-.204,.204,.627,.022),rect(x-.094,x+.094,-.198,.198,.650,.024),
+        rect(x-.086,x+.086,-.185,.185,.705,.032),rect(x-.064,x+.064,-.158,.158,.722,.027),
+        rect(x-.060,x+.060,-.151,.151,.705,.025),rect(x-.082,x+.082,-.177,.177,.663,.020),
+        rect(x-.086,x+.086,-.187,.187,.627,.020)]
+    details=[polygon_loft(sh,cover,.004,True)]
+    # Close roof above the rocker without filling the cavity.
+    details += [polygon_loft([rect(x-.060,x+.060,-.151,.151,.705,.024),
+                            rect(x-.064,x+.064,-.158,.158,.722,.026)],cover,.003)]
+    for s in (-1,1):
+        for offset in (-.073,.073):
+            details += [cylinder((x+offset,.654,s*.166),Y,.014,.015,rib,12),
+                        bolt((x+offset,.666,s*.166),Y,.010)]
+    add('HEADS',6+i,f'Bonnet rocker {i}',details,[GA,'P10 / deret bonnet dalam perspektif'],
+        'Geometri punggung dan ketinggian diperkirakan. Foto atas tegak lurus belum tersedia.',xray=True,direction=(0,1,0))
+
+# Deep ribbed sump with open upper rim, tapered fore-aft and across the crank centerline.
+bottom=datum('oil_pan_bottom_y')
+pan2=shell([(.084,1.272,-.171,.173,bottom,.043),(.066,1.295,-.191,.192,-.523,.042),
+            (.042,1.309,-.227,.226,-.297,.052),(.024,1.326,-.264,.264,-.193,.056),
+            (.013,1.335,-.290,.290,-.177,.055),(.019,1.328,-.290,.290,-.157,.054),
+            (.035,1.311,-.253,.253,-.156,.053),(.047,1.305,-.236,.236,-.216,.050),
+            (.071,1.287,-.182,.182,-.500,.044),(.094,1.262,-.150,.150,-.529,.038)])
+sump=[pan2,polygon_loft([rect(.091,1.264,-.160,.162,bottom,.038),
+          rect(.094,1.261,-.151,.151,-.529,.038)],cast,.002)]
+for s in (-1,1):
+    ridge=[(.163,-.523),(.187,-.520),(.207,-.479),(.243,-.276),(.270,-.194),(.251,-.191)]
+    poly=[(s*z,y) for z,y in ridge]
+    for n in range(22):
+        x=.109+n*.054
+        # Rear and front edges lean in toward the casting.
+        vec=[[(x+dx*(1.0 if y>-.4 else .66),y,z) for z,y in poly] for dx in (-.010,.010)]
+        sump.append(polygon_loft(vec,rib,.003))
+    for n in range(13):
+        sump.append(bolt((.075+n*.099,-.190,s*.269),(0,-1,0),.008))
+add('OILPAN',1,'Carter oli bergaris rusuk vertikal',sump,[SIDE,GA,'P18 / sump bawah flywheel'],xray=True,direction=(0,-1,0))
+add('OILPAN',2,'Sumbat buang oli',[cylinder((.082,-.476,0),X,.026,.028,cast),
+     bolt((.064,-.476,0),(-1,0,0),.017)],['P18 / sumbat muka belakang'],direction=(-1,0,0))
+
+# Flywheel, SAE face openings and ribbed bellhousing.
+def clean_boolean(obj):
+    import bmesh
+    mesh = bmesh.new()
+    mesh.from_mesh(obj.data)
+    bmesh.ops.remove_doubles(mesh, verts=list(mesh.verts), dist=.00018)
+    bmesh.ops.dissolve_degenerate(mesh, edges=list(mesh.edges), dist=.00012)
+    bmesh.ops.recalc_face_normals(mesh, faces=list(mesh.faces))
+    mesh.to_mesh(obj.data)
+    mesh.free()
+    obj.data.update()
+
+def drill_circle(obj, x, n, pcd, radius, depth=.035):
+    for i in range(n):
+        angle=2*pi*i/n
+        subtract(obj,cylinder((x,pcd/2*cos(angle),pcd/2*sin(angle)),X,radius,depth,black,16,0))
+    clean_boolean(obj)
+
+def drilled_annulus(x, depth, outer, inner, pcd, hole_r, count, mat):
+    # Build an annular sector around each hole and weld shared sector edges.
+    verts, faces = [], []
+    step = 2*pi/count
+    for i in range(count):
+        angle = step*i
+        phi0, phi1 = angle-step*.5, angle+step*.5
+        perimeter=[]
+        for edge, r in enumerate((outer, None, inner, None)):
+            for j in range(4):
+                t=j/4
+                if edge==0 or edge==2:
+                    phi=phi0+step*(t if edge==0 else 1-t)
+                    rr=r
+                else:
+                    phi=phi1 if edge==1 else phi0
+                    rr=outer+(inner-outer)*(t if edge==1 else 1-t)
+                perimeter.append(Vector((rr*cos(phi),rr*sin(phi))))
+        ctr=Vector((pcd*.5*cos(angle),pcd*.5*sin(angle)))
+        bore=[ctr+(v-ctr).normalized()*hole_r for v in perimeter]
+        first=len(verts)
+        for xx in (x-depth/2,x+depth/2):
+            verts += [(xx,*v) for boundary in (perimeter,bore) for v in boundary]
+        for k in range(16):
+            nxt=(k+1)%16
+            a,b=first+k,first+nxt
+            faces.extend([(a,b,b+16,a+16),(a+32,a+48,b+48,b+32),
+                         (a+16,b+16,b+48,a+48)])
+            if k<4 or 8<=k<12:
+                faces.append((a,a+32,b+32,b))
+    obj=mesh(verts,faces,mat)
+    clean_boolean(obj)
+    return obj
+
+bell=ring((0,0,0),X,[(-.135,.321),(-.135,.350),(-.131,.361),(-.104,.361),
+       (-.076,.346),(-.008,.309),(.019,.291),(.022,.263),(-.035,.276),(-.103,.315)],cast,80)
+face=drilled_annulus(-.132,.007,.359,.323,.6795,.0065,16,steel)
+drill_circle(bell,-.132,16,.6795,.0065,.045)
+housing=[bell,face]
+for deg in (21,46,71,90,109,134,159,201,225,315,339):
+    a=deg*pi/180
+    poly=[(-.101,.347),(-.070,.352),(.004,.324),(.079,.296),(.038,.282),(-.008,.305)]
+    housing.append(polygon_loft([[(x,r*cos(a+k),r*sin(a+k)) for x,r in poly] for k in (-.025,.025)],rib,.003))
+for s in (-1,1):
+    housing.append(prism([(.229,s*.155),(.333,s*.222),(.381,s*.272),(.369,s*.341),
+         (.293,s*.385),(.193,s*.299)],'x',-.063,.036,cast))
+for z in (-.247,-.121,0,.121,.247):
+    end=(-.116,.328+(1-abs(z)/.25)*.087,z)
+    housing += [straight((.008,.629,z*1.25),end,.013,rib),bolt(end,(-1,0,0),.010)]
+add('FLYWHEEL',1,'Flywheel housing SAE #0',housing,[GA,'P18 / housing, flange dan rusuk'],
+    'GA mencantumkan PCD 679.5 mm dengan 16 posisi. Lubang mesh tanpa ulir.',xray=True)
+wheel=ring((0,0,0),X,[(-.119,.072),(-.105,.091),(-.094,.203),(-.104,.237),(-.117,.259),
+       (-.118,.304),(-.109,.316),(-.074,.316),(-.052,.294),(-.049,.072)],red,80)
+bolt_face=drilled_annulus(-.119,.010,.291,.249,.5429,.0075,12,steel)
+drill_circle(wheel,-.121,12,.5429,.0075,.038)
+hub=ring((0,0,0),X,[(-.135,.014),(-.135,.055),(-.127,.075),(-.107,.076),
+     (-.069,.065),(-.049,.066),(-.049,.014)],steel,48)
+bolts=[bolt((-.132,.062*cos(i*pi/6),.062*sin(i*pi/6)),(-1,0,0),.009) for i in range(12)]
+add('FLYWHEEL',2,'Flywheel dan hub pusat',[wheel,bolt_face,hub,*bolts],
+    [GA,'P06 / roda merah dan hub'], 'GA mencantumkan PCD 542.9 mm dengan 12 posisi. 18 in adalah ukuran nominal.',
+    origin=(-.049,0,0),direction=(-1,0,0))
+
+# Front drive casing, damper, shaped guard, alternator and belt.
+front_poly=[(-.173,-.259),(-.167,.269),(-.119,.331),(.020,.323),(.133,.275),(.182,.258),
+       (.378,.283),(.419,.205),(.462,.174),(.466,-.196),(.392,-.284),(.253,-.316),(.223,-.359),
+       (.062,-.354),(-.057,-.309)]
+mainfront=prism(front_poly,'x',1.299,1.396,cast,.014)
+subtract(mainfront,cylinder((1.355,0,0),X,.093,.17,black,48,0))
+subtract(mainfront,cylinder((1.409,0,0),X,.148,.051,black,48,0))
+frame=[mainfront]
+for y,z in front_poly[1::2]:
+    frame += [cylinder((1.400,y,z),X,.020,.016,cast,16),bolt((1.413,y,z),X,.010)]
+add('FRONT',1,'Rumah gear depan',frame,[SIDE,GA,'P09 / profil housing depan'],xray=True,direction=(1,0,0))
+damper=[ring((1.365,0,0),X,[(0,.034),(0,.079),(.022,.123),(.027,.184),
+        (.036,.197),(.104,.197),(.118,.183),(.118,.098),(.092,.079),(.086,.033)],black,64),
+        annulus((1.458,0,0),X,.087,.031,.033,steel)]
+for i in range(6):
+    damper.append(bolt((1.482,.065*cos(i*pi/3),.065*sin(i*pi/3)),X,.010))
+for x in (1.416,1.427,1.438,1.449):
+    damper.append(annulus((x,0,0),X,.199,.192,.004,black))
+add('FRONT',2,'Damper dan pulley crankshaft',damper,[SIDE,'P09 / pusat penggerak'],
+    'Diameter proyeksi damper sekitar 394 mm. Profil alur dan dudukan diperkirakan.',origin=(1.365,0,0),direction=(1,0,0))
+guard_poly=[(-.157,-.201),(-.107,-.249),(.104,-.376),(.248,-.455),(.331,-.433),
+            (.355,-.371),(.318,-.324),(.074,-.091),(.014,.041),(-.071,.054),(-.188,-.036)]
+guard=[
+    polygon_loft([[(x,y,z) for y,z in poly] for x,poly in [(1.426,guard_poly),(1.507,guard_poly),
+      (1.532,[(y*.95+.008,z*.96-.005) for y,z in guard_poly])]],black,.015)]
+# Keep center and underside open where the drive face is visible.
+for i in range(5):
+    y=.080+i*.040
+    guard.append(straight((1.535,y,-.293-i*.026),(1.535,y+.027,-.227-i*.034),.007,rubber))
+add('FRONT',3,'Pelindung belt depan',guard,['P08 / pelindung hitam berusuk','P09 / penggerak bawah'],xray=True,direction=(1,0,0))
+alt=[cylinder((1.385,.275,-.340),X,.091,.130,steel),
+     cylinder((1.315,.275,-.340),X,.079,.029,black),
+     annulus((1.438,.275,-.340),X,.083,.040,.020,steel),
+     cylinder((1.470,.275,-.340),X,.053,.043,black)]
+for i in range(14):
+    a=i*2*pi/14
+    alt.append(box((1.381,.275+.088*cos(a),-.340+.088*sin(a)),(.057,.016,.016),cast,.003))
+add('ELECTRIC',1,'Alternator dan pulley',alt,[OP,'P08 / alternator di balik pelindung'],direction=(1,0,0))
+starter=[cylinder((.052,.022,.367),X,.073,.205,cast),
+    cylinder((.166,.022,.367),X,.069,.021,black),cylinder((-.039,.022,.367),X,.073,.030,steel),
+    cylinder((-.028,.091,.415),X,.036,.132,steel),cylinder((.042,.091,.415),X,.032,.016,black),
+    bolt((.053,.091,.414),X,.011)]
+add('ELECTRIC',2,'Starter listrik dan solenoid',starter,[NONOP,'P17 / starter dekat flywheel'],direction=(0,0,1))
+
+# Charge-air manifold on operation (-Z) side, with transverse rear air cooler casing.
+inlet=polygon_loft([rect(.046,1.345,-.435,-.239,.557,.043),rect(.032,1.336,-.446,-.237,.595,.034),
+    rect(.038,1.347,-.462,-.232,.679,.035),rect(.063,1.321,-.443,-.244,.746,.042),
+    rect(.107,1.269,-.388,-.253,.785,.048)],cover,.009)
+manifold=[inlet,box((.682,.652,-.458),(1.262,.016,.045),cover,.006)]
+# External cast rib grid in P07/P08: two bands with a continuous central split.
+# Each rib follows the sloped outer casting instead of lying behind its wall.
+rib_lower=[(.575,-.439),(.594,-.440),(.650,-.452),(.655,-.474),
+           (.636,-.473),(.590,-.454)]
+rib_upper=[(.652,-.455),(.670,-.448),(.738,-.431),(.764,-.411),
+           (.755,-.439),(.725,-.451),(.661,-.476)]
+for i,x in enumerate((.132,.202,.302,.402,.502,.602,.702,.802,.902,1.002,1.102,1.201,1.276)):
+    dx=.013 if i in (0,1,11,12) else .009
+    manifold.extend([prism(rib_lower,'x',x-dx,x+dx,rib,.004),
+                     prism(rib_upper,'x',x-dx,x+dx,rib,.004)])
+# Closure details differ at flywheel and dampener ends on the photographed unit.
+end_shell=[(.568,-.398),(.586,-.451),(.648,-.467),(.746,-.453),
+           (.799,-.414),(.801,-.341),(.758,-.259),(.594,-.264)]
+manifold.extend([
+    prism(end_shell,'x',.049,.111,cover,.009),
+    prism([(.580,-.437),(.633,-.466),(.680,-.456),(.742,-.427),
+           (.762,-.371),(.728,-.275),(.603,-.271)],'x',1.263,1.340,cover,.008),
+    bolt((.075,.690,-.459),(0,0,-1),.010),
+    bolt((1.291,.610,-.448),(0,0,-1),.010)
+])
+for x in centers:
+    manifold+= [sweep([(x,.539,-.249),(x,.542,-.344),(x,.578,-.371)],.037,cast),
+                bolt((x,.566,-.433),(0,0,-1),.011)]
+add('INTAKE',1,'Intake manifold panjang berusuk',manifold,[OP,GA,'P07/P08 / dua baris rusuk, seam kontinu dan tutup berbeda'],
+    'Dua kisi rib dan perbedaan tutup mengikuti sisi operasi. Skala dan bidang mesin diperkirakan.',
+    xray=True,direction=(0,0,-1))
+
+def cooler(center, length, w, h, label, sources, id, group='COOLING'):
+    x,y,z=center
+    edge=[(x-w*.48,y-h*.32),(x-w*.41,y-h*.49),(x+w*.33,y-h*.49),
+          (x+w*.49,y-h*.31),(x+w*.47,y+h*.31),(x+w*.32,y+h*.50),
+          (x-w*.33,y+h*.50),(x-w*.48,y+h*.35)]
+    reach=length/2
+    shape=prism(edge,'z',z-reach,z+reach,cover,.014)
+    forms=[shape,box((x-w*.47,y,z),(.024,.030,length*.96),rib,.004)]
+    for s in (-1,1):
+        facez=z+s*(reach+.019)
+        forms += [prism(edge,'z',*sorted((z+s*(reach-.013),facez)),cast,.009),
+              cylinder((x,y,facez+s*.011),Z,min(w,h)*.44,.034,cover,44)]
+        for n in range(8):
+            a=(n+.5)*pi/4
+            forms.append(bolt((x+w*.44*cos(a),y+h*.45*sin(a),facez+s*.018),(0,0,s),.011))
+    for i in range(9):
+        zz=z+(i-4)*length*.103
+        for s in (-1, 1):
+            forms.append(straight((x+s*w*.452,y-h*.235,zz),(x+s*w*.357,y-h*.463,zz),.010,rib))
+    for s in (-1,1):
+        forms.append(box((x+s*w*.469,y-h*.035,z),(.021,.019,length*.91),rib,.004))
+    return add(group,id,label,forms,sources,xray=True,direction=(0,1,0))
+
+cooler((-.158,.720,-.065),.706,.300,.302,'Air cooler melintang belakang',
+       [OP,GA,'P18 / housing dan tutup ujung'],2,'INTAKE')
+cooler((1.525,.719,-.067),.716,.333,.293,'Coolant tank dan heat exchanger depan',
+       [OP,GA,'P08 / cap samping dan rusuk','P09 / muka depan'],1)
+add('COOLING',2,'Leher dan tutup pengisian coolant',[
+    box((1.471,.864,-.142),(.152,.034,.118),cast,.010),
+    cylinder((1.512,.891,-.148),Y,.031,.026,cast),
+    cylinder((1.512,.905,-.148),Y,.034,.011,steel,12,.003)],[OP,'P08 / penutup bagian atas'],direction=(0,1,0))
+intake_elbows=[
+    sweep([(1.518,.763,-.439),(1.465,.681,-.469),(1.381,.671,-.414),(1.289,.667,-.388)],.061,cast,hollow=True),
+    *flange((1.369,.676,-.415),X,.074,.053,.024,cast,6)]
+add('INTAKE',3,'Siku sambungan ujung manifold',intake_elbows,['P08 / siku di muka sisi operasi',GA],direction=(0,0,-1))
+
+# Exhaust manifold, single turbine/compressor pair and open vertical outlet.
+mcore=sweep([(.085,.649,.272),(.194,.649,.304),(.529,.646,.326),
+     (.787,.649,.326),(1.162,.645,.311),(1.281,.644,.266)],(.087,.064),cast,sides=24)
+hot_manifold=[mcore,box((.685,.626,.326),(1.238,.109,.107),cast,.017)]
+for x in centers:
+    hot_manifold += [sweep([(x,.545,.251),(x,.549,.295),(x,.588,.319),(x,.615,.323)],.047,cast),
+       *flange((x,.550,.286),Z,.048,.030,.028,cast,4),
+       cylinder((x,.661,.375),Z,.028,.025,cover,20),
+       annulus((x,.661,.392),Z,.023,.014,.009,rib)]
+add('EXHAUST',1,'Manifold exhaust berjaket',hot_manifold,
+    [NONOP,'P17 / manifold dan port bundar'],xray=True,direction=(0,0,1))
+
+def volute(p, rad, thick, mat, flip=False):
+    rings=[]
+    for i in range(37):
+        t=i/36
+        angle=(-.53+t*2*pi) * (-1 if flip else 1)
+        center_radius=rad*(.52+.11*t)
+        center=Vector((p[0],p[1]+center_radius*cos(angle),p[2]+center_radius*sin(angle)))
+        tube=rad*(.21+.17*t)
+        rings.append([center+Vector((thick*cos(j*pi/8)*(0.64+.36*t),tube*sin(j*pi/8)*cos(angle),
+                                     tube*sin(j*pi/8)*sin(angle))) for j in range(16)])
+    return polygon_loft(rings,mat,0)
+
+tc=datum('turbo_housing_center_xyz')
+tx,ty,tz=tc
+hot=[volute((tx-.018,ty,tz),.169,.059,foil),
+     cylinder((tx-.024,ty,tz),X,.109,.112,foil,48,.013)]
+add('EXHAUST',2,'Volute turbine dan isolasi panas',hot,[SIDE,NONOP,'P17 / rumah turbin terisolasi'],
+    'Siluet dari tampak kanan. Geometri snail dan isolasi adalah estimasi.',direction=(0,0,1))
+compressor=[volute((tx+.183,ty+.004,tz),.155,.044,steel,True),
+     ring((tx+.186,ty+.004,tz),X,[(-.052,.053),(-.050,.095),(-.029,.109),(.045,.097),
+        (.065,.073),(.072,.067),(.072,.046),(.029,.042),(-.052,.047)],steel)]
+add('EXHAUST',3,'Volute compressor dan inlet',compressor,[NONOP,'P17 / rumah kompresor terang'],direction=(1,0,0))
+add('EXHAUST',4,'Center housing turbo',[
+    cylinder((tx+.080,ty,tz),X,.069,.107,cast),
+    cylinder((tx+.080,ty+.060,tz),Y,.020,.080,cast),
+    bolt((tx+.080,ty+.110,tz),Y,.015)],['P17 / poros terbungkus dan sambungan visual'],
+    direction=(0,0,1))
+ex,ey,ez=datum('turbo_exhaust_port_center_xyz')
+outlet=[sweep([(tx-.057,ty,tz),(.489,.695,ez),(.451,.746,ez),(.463,.806,ez),(ex,.834,ez)],
+       (.11,.109),foil,32,True),
+       annulus((ex,.828,ez),Y,.110,.086,.055,foil),
+       annulus((ex,(.840+ey)/2,ez),Y,.103,.092,ey-.840,foil)]
+for k in range(5):
+    outlet.append(annulus((ex,.849+k*.025,ez),Y,.116,.098,.017,steel if k in (0,4) else foil))
+upper_flange=annulus((ex,ey-.008,ez),Y,.160,.101,.016,steel)
+for i in range(8):
+    angle=2*pi*(i+.5)/8
+    subtract(upper_flange,cylinder((ex+.139*cos(angle),ey-.008,ez+.139*sin(angle)),Y,.007,.030,black,16,0))
+clean_boolean(upper_flange)
+outlet.append(upper_flange)
+add('EXHAUST',5,'Siku isolasi dan flange exhaust vertikal',outlet,[SIDE,GA,'P17 / isolasi dan mulut outlet'],
+    'Puncak flange mengikuti dimensi 817 + 171.5 mm GA. Diameter dalam dan pola baut model belum terverifikasi.',
+    direction=(0,1,0))
+cleaner=[ring((tx+.289,ty+.007,tz),X,[(-.031,.071),(-.031,.144),(-.022,.153),
+      (.089,.153),(.099,.145),(.099,.080),(.070,.071)],black,48),
+      annulus((tx+.268,ty+.007,tz),X,.144,.079,.014,steel),
+      annulus((tx+.391,ty+.007,tz),X,.149,.076,.021,rubber)]
+for i in range(36):
+    a=i*pi/18
+    cleaner.append(straight((tx+.277,ty+.007+.148*cos(a),tz+.148*sin(a)),
+          (tx+.388,ty+.007+.148*cos(a),tz+.148*sin(a)),.005,black))
+add('INTAKE',4,'Air cleaner turbo',cleaner,[GA,'P17 / tabung hitam setelah compressor'],direction=(1,0,0))
+add('INTAKE',5,'Duct berlengan dari sisi compressor',[
+    sweep([(.981,.687,.480),(1.031,.691,.479),(1.093,.740,.470),(1.203,.755,.401),
+           (1.334,.742,.343),(1.451,.738,.316)],(.074,.087),cast,24,True),
+    annulus((1.047,.700,.474),X,.081,.071,.018,steel),
+    annulus((1.401,.740,.329),X,.090,.071,.021,steel)],['P17 / duct hitam berbelok','GA01 / pipa sisi non-operation'],
+    'Port yang tertutup tidak mengonfirmasi urutan koneksi internal. Rute mengikuti siluet yang terlihat.',direction=(0,0,1))
+
+# Pump bodies use a radial cover and a neck composed around each port axis.
+def pump(center,r,thick,ports,face_sign=1):
+    x,y,z=center
+    direction=(0,0,face_sign)
+    body=[cylinder(center,Z,r,thick,cast,44,.013),
+          annulus((x,y,z+face_sign*thick*.48),Z,r*.96,r*.68,.026,cast),
+          cylinder((x,y,z+face_sign*(thick*.5+.018)),Z,r*.77,.024,cover,44,.004)]
+    for i in range(6):
+        a=i*pi/3+.27
+        body.append(bolt((x+r*.87*cos(a),y+r*.87*sin(a),z+face_sign*(thick*.5+.019)),direction,.010))
+    for end,pr,axis in ports:
+        body += [sweep([(x,y,z),tuple((a+b)/2 for a,b in zip(center,end)),end],pr,cast),
+                 *flange(end,axis,pr*1.40,pr*.76,.019,cast,4)]
+    return body
+
+add('COOLING',3,'Pompa air tawar',pump((1.410,.387,.293),.119,.122,[
+    ((1.430,.461,.491),.055,(0,.3,1)),((1.438,.530,.306),.051,Y)]),
+    [NONOP,GA,'P17 / pump cover di depan kanan'],direction=(0,0,1))
+add('COOLING',4,'Pompa air laut',pump((.016,.301,-.430),.111,.103,[
+    ((-.042,.438,-.474),.048,(-.3,1,0)),((-.051,.268,-.548),.045,(-.4,0,-1))],-1),
+    [OP,GA,'P18 / pompa bulat di bawah air cooler'],direction=(0,0,-1))
+add('COOLING',5,'Siku dan sambungan air laut',[
+    sweep([(.017,.305,-.486),(-.057,.381,-.530),(-.095,.459,-.573),(-.095,.537,-.579),
+      (-.095,.601,-.535),(-.095,.620,-.420)],.050,cover,24,True),
+    sweep([(-.054,.275,-.522),(-.093,.267,-.566),(-.153,.279,-.592),(-.203,.316,-.600)],
+        .047,cast,20,True),
+    *flange((-.203,.316,-.600),(-.8,.6,0),.064,.040,.017,cast,5),
+    annulus((-.095,.616,-.470),Z,.057,.050,.023,steel)],
+    ['P07 / siku belakang ke luar','P18 / sambungan berkelok',GA],direction=(0,0,-1))
+add('COOLING',6,'Selang pendingin kanan',[
+    sweep([(.189,.360,.299),(.108,.395,.416),(-.037,.421,.492),(-.130,.486,.462),
+        (-.127,.566,.354),(-.126,.610,.316)],.033,rubber,18,True),
+    sweep([(1.386,.525,.311),(1.449,.573,.343),(1.472,.644,.333),(1.488,.689,.272)],.052,cast,20,True),
+    annulus((-.131,.519,.426),(0,.7,-.7),.040,.033,.018,steel)],
+    ['P17 / sambungan sisi non-operation','P18 / selang sisi kanan atas',NONOP],direction=(0,0,1))
+add('COOLING',7,'Water rail casting dan termostat',[
+    sweep([(.137,.377,.296),(.288,.388,.336),(.682,.386,.342),(1.152,.389,.340),
+           (1.342,.409,.337),(1.437,.426,.338)],.042,cast,24),
+    box((.735,.389,.337),(1.022,.072,.079),cast,.015),
+    cylinder((1.432,.436,.376),Z,.065,.055,cast,20),
+    *flange((1.410,.490,.371),Y,.066,.039,.025,cast,5)],
+    ['P17 / rail berseksi memanjang','D01 PDF 15 / skema sirkuit'],direction=(0,0,1))
+
+# Mechanical pump. P07 and P08 show the WET H operation side. P14 corroborates
+# the pump/fittings, but its installed hoses beyond the engine remain out of scope.
+pump_refs=[OP,'P07 / pompa injeksi pada sisi operasi','P08 / coran dan panel servis',
+           'P14 panel kiri / detail pompa dan fitting']
+fitting_refs=[OP,'P07 / enam sambungan','P08 / hex union dan seat bertingkat',
+              'P14 panel kiri / deret fitting dan jalur pendek']
+injector_z=-.427
+delivery_x=[.484+.079*i for i in range(6)]
+body_profile=[
+    (.432,.111),(.486,.111),(.505,.138),(.883,.138),(.909,.106),(.992,.106),
+    (1.014,.136),(1.014,.239),(.998,.276),(1.000,.368),(.979,.397),
+    (.438,.397),(.416,.371),(.417,.274),(.406,.252),(.406,.155)
+]
+inj=[prism(body_profile,'z',-.466,-.318,cast,.014),
+     box((.713,.396,-.414),(.572,.032,.139),cover,.008),
+     box((.714,.165,-.412),(.574,.026,.140),rubber,.007)]
+foot_outline=[(.403,.160),(.476,.166),(.944,.166),(1.003,.151),(1.004,.088),
+             (.965,.088),(.949,.113),(.857,.113),(.835,.082),(.584,.082),
+             (.562,.109),(.463,.109),(.448,.089),(.407,.094)]
+inj.append(prism(foot_outline,'z',-.474,-.351,cover,.005))
+for x in (.419,.985):
+    inj.extend([box((x,.232,-.464),(.033,.180,.028),cover,.009),
+                cylinder((x,.369,-.475),Z,.017,.012,cover,20,.002),
+                bolt((x,.369,-.482),(0,0,-1),.010),
+                bolt((x,.126,-.479),(0,0,-1),.010)])
+for i,x in enumerate(delivery_x):
+    # Cast bosses anchor the external delivery fittings above the pump seam.
+    inj += [cylinder((x,.408,injector_z),Y,.025,.022,cover,24),
+            box((x,.278,-.463),(.046,.094,.018),cast,.008),
+            straight((x,.249,-.470),(x,.343,-.470),.008,cover),
+            bolt((x,.242,-.473),(0,0,-1),.008)]
+for x,r in ((.445,.027),(.524,.018),(.660,.024),(.933,.022),(.975,.019)):
+    inj.extend([cylinder((x,.206,-.470),Z,r,.025,cover,24,.003),
+                bolt((x,.206,-.485),(0,0,-1),r*.63)])
+# Small rail visible above the top row of casing plates.
+inj.append(straight((.443,.443,-.478),(.980,.443,-.478),.0055,boltmat))
+add('FUEL',1,'Pompa injeksi enam elemen',inj,pump_refs,
+    'Profil coran, kuping dudukan dan boss berdasarkan foto operasi. Ukuran dan material teknik diperkirakan.',
+    direction=(0,0,-1))
+
+link_from=(1.042,.226,-.499)
+link_to=(1.158,.306,-.488)
+gov_cam=[(1.013,.252),(1.061,.245),(1.140,.267),(1.177,.298),(1.169,.320),
+         (1.139,.318),(1.111,.298),(1.052,.285),(1.016,.284)]
+gov=[cylinder((1.048,.236,-.384),X,.097,.137,cover),
+     annulus((1.089,.236,-.384),X,.099,.075,.023,cast),
+     cylinder((1.130,.236,-.384),X,.070,.042,cover),
+     prism(gov_cam,'z',-.489,-.461,cover,.006),
+     cylinder((1.111,.283,-.501),Z,.029,.017,steel,28,.002),
+     bolt((1.111,.283,-.512),(0,0,-1),.011),
+     straight((1.114,.286,-.511),(1.092,.350,-.519),.008,steel),
+     straight((1.092,.350,-.519),(1.077,.371,-.519),.009,red),
+     straight(link_from,link_to,.004,steel)]
+for i in range(12):
+    p=Vector(link_from).lerp(Vector(link_to),(i+.5)/12)
+    gov.append(annulus(p,Vector(link_to)-Vector(link_from),.010,.006,.004,boltmat))
+add('FUEL',2,'Governor mekanis, tuas dan pegas balik',gov,pump_refs,
+    'Kontur tuas dan pegas balik terlihat dari sisi operasi. Titik pivot dan mekanisme dalam diperkirakan.',
+    direction=(1,0,0))
+
+# Type and direction of each visible bend are from the operation-side silhouettes.
+# Final turns descend behind the intake manifold. Hidden routing and fitting-to-
+# nozzle assignment beyond the heads are unverified.
+elbows=[
+    [(.460,.490,-.428),(.411,.511,-.436),(.356,.515,-.447),(.307,.522,-.446),(.264,.538,-.409),(.240,.555,-.322)],
+    [(.566,.511,-.446),(.591,.541,-.471),(.557,.552,-.480),(.507,.529,-.479),(.470,.529,-.469),(.455,.549,-.413),(.433,.559,-.330)],
+    [(.640,.510,-.427),(.627,.529,-.438),(.591,.534,-.452),(.577,.548,-.444),(.581,.566,-.415),(.591,.568,-.330)],
+    [(.721,.510,-.429),(.725,.537,-.443),(.755,.547,-.456),(.783,.552,-.449),(.787,.566,-.415),(.802,.568,-.328)],
+    [(.809,.506,-.425),(.839,.520,-.442),(.890,.529,-.452),(.927,.542,-.451),(.961,.556,-.409),(.990,.562,-.323)],
+    [(.880,.503,-.461),(.881,.521,-.492),(.901,.542,-.493),(.922,.550,-.483),(.975,.542,-.492),(1.030,.534,-.480),(1.082,.545,-.440),(1.166,.556,-.330)]
+]
+for i,(x,x0,bends) in enumerate(zip(centers,delivery_x,elbows),1):
+    route=[(x0,.479,injector_z),(x0,.494,injector_z),*bends,(x,.562,-.265)]
+    end_axis=Vector(route[-1])-Vector(route[-2])
+    add('FUEL',2+i,f'Pipa injeksi silinder {i}',[
+        sweep(route,.0055,steel,12),cylinder(route[-1],end_axis,.0105,.018,steel,6,.001)],
+        ['P07 / lengkung pipa sisi operasi','P08 / routing tampak di bawah manifold',
+         'P14 panel kiri / lengkung dan titik sambung',OP],
+        'Lengkung terlihat dibedakan per jalur. Bagian di balik manifold dan asosiasi silinder diperkirakan.',
+        direction=(0,0,-1))
+
+def canister(p,r,length,filter_color=cover):
+    x,y,z=p
+    d=length/2
+    return [ring(p,Y,[(-d,.006),(-d,r*.74),(-d+.014,r*.92),(-d+.031,r),
+               (d-.021,r),(d-.009,r*.93),(d,r*.94),(d,r*.72),
+               (d-.043,r*.77),(d-.048,.006)],filter_color),
+            annulus((x,y+d-.014,z),Y,r*1.02,r*.90,.019,cast),
+            cylinder((x,y+d+.008,z),Y,r*.69,.032,cast,24)]
+
+fuel_refs=[OP,'P07 / pasangan tabung gantung','P08 / kepala coran, selang dan sumbat',
+           'P14 panel kiri / detail modul filter ganda']
+filter_centers=[(.143,.254,-.511,.070,.324),(.307,.241,-.514,.074,.335)]
+head=[prism([(.058,.398),(.365,.385),(.395,.407),(.398,.446),
+              (.366,.466),(.228,.466),(.184,.489),(.108,.485),(.074,.463)],
+             'z',-.550,-.399,cover,.013)]
+for index,(x,y,z,r,length) in enumerate(filter_centers):
+    seam=y+length/2
+    head += [
+        ring((x,seam+.031,z),Y,[(-.032,.032),(-.032,r*.89),(-.024,r*1.04),
+              (.004,r*1.04),(.017,r*.90),(.027,r*.68),(.039,r*.54),
+              (.040,.030),(.016,.027)],cover),
+        cylinder((x,seam+.069,z+.012),Y,.027,.027,cover,24,.003),
+        bolt((x,seam+.087,z+.012),Y,.018)
+    ]
+    if index==0:
+        head += [cylinder((x+.006,seam+.046,z-.054),Z,.028,.036,cast,24,.004),
+                 bolt((x+.006,seam+.046,z-.076),(0,0,-1),.020,steel)]
+head += [cylinder((.374,.458,-.503),X,.024,.048,cover),
+         annulus((.402,.458,-.503),X,.022,.011,.020,steel),
+         sweep([(.148,.426,-.464),(.202,.425,-.450),(.260,.422,-.461),(.307,.412,-.476)],.015,cast)]
+add('FUEL',9,'Kepala dan braket filter bahan bakar ganda',head,fuel_refs,direction=(0,0,-1))
+
+for i,(x,y,z,r,length) in enumerate(filter_centers,10):
+    seam=y+length/2
+    lower=y-length/2
+    cup=[ring((x,y,z),Y,[(-length/2,.008),(-length/2,.044),(-length/2+.009,r*.82),
+             (-length/2+.028,r),(.132,r),(.145,r*.98),(length/2,r*.98),
+             (length/2,r*.83),(.139,r*.80),(-length/2+.036,r*.81),
+             (-length/2+.027,.007)],cover),
+         annulus((x,seam-.012,z),Y,r*1.026,r*.935,.021,cover),
+         cylinder((x,lower+.035,z-r+.004),Z,.019,.018,cover,24,.003),
+         bolt((x,lower+.035,z-r-.006),(0,0,-1),.013,steel),
+         cylinder((x,lower-.005,z),Y,.014,.024,steel,16,.002)]
+    add('FUEL',i,f'Canister filter bahan bakar {i-9}',cup,fuel_refs,
+        'Shaping pantat tabung, rim dan sumbat drain mengikuti foto. Posisi serial dan dimensi internal tidak tersedia.',
+        direction=(0,-1,0))
+
+add('FUEL',12,'Pompa feed dan priming',[
+    prism([(.420,.154),(.453,.144),(.510,.157),(.520,.217),(.498,.231),(.443,.225)],
+          'z',-.488,-.412,cast,.009),
+    cylinder((.480,.202,-.490),Z,.029,.031,cover,24),
+    bolt((.480,.202,-.508),(0,0,-1),.014,steel),
+    cylinder((.439,.172,-.487),Y,.022,.070,cast,22),
+    cylinder((.439,.218,-.487),Y,.018,.026,steel,12),
+    sweep([(.421,.229,-.482),(.382,.179,-.509),(.319,.163,-.556),(.255,.199,-.564),
+           (.220,.259,-.573),(.204,.348,-.575),(.203,.440,-.575)],.010,rubber,14),
+    sweep([(.642,.199,-.510),(.626,.281,-.542),(.574,.382,-.559),(.507,.435,-.551),
+           (.461,.451,-.523),(.402,.458,-.503)],.012,rubber,14)],fuel_refs,
+    'Dua selang fleksibel ditafsirkan dari lengkung tampak P08/P14. Port tertutup tidak menetapkan jalur servis.',
+    direction=(0,0,-1))
+
+for i,x in enumerate(delivery_x,1):
+    fitting=[ring((x,.447,injector_z),Y,[(-.033,.006),(-.033,.017),(-.025,.021),
+                    (-.011,.021),(-.008,.014),(.003,.015),(.010,.011),
+                    (.026,.011),(.026,.005),(-.032,.005)],steel),
+             cylinder((x,.431,injector_z),Y,.022,.015,boltmat,6,.0013),
+             cylinder((x,.468,injector_z),Y,.016,.013,steel,6,.0013),
+             annulus((x,.477,injector_z),Y,.012,.006,.005,steel)]
+    add('FUEL',12+i,f'Fitting delivery pompa {i}',fitting,fitting_refs,
+        'Fitting tersendiri dengan hex, shoulder dan leher. Ukuran ulir dan part number belum terverifikasi.',
+        direction=(0,1,0))
+
+lower_cover=[(.462,.169),(.534,.169),(.547,.160),(.884,.160),(.912,.175),(.958,.175),
+             (.972,.193),(.969,.218),(.940,.237),(.911,.231),(.873,.239),
+             (.553,.239),(.526,.228),(.493,.235),(.461,.221),(.449,.196)]
+plates=[prism(lower_cover,'z',-.482,-.464,cover,.005)]
+for x,y in ((.470,.186),(.509,.219),(.588,.184),(.722,.180),(.858,.184),(.946,.196)):
+    plates.append(bolt((x,y,-.485),(0,0,-1),.008))
+add('FUEL',19,'Pelat akses bawah pompa dan pengikat',plates,pump_refs,
+    'Garis pisah dan tutup rendah diestimasi dari foto sisi operasi. Konstruksi di balik cover belum dipastikan.',
+    direction=(0,0,-1))
+add('FUEL',20,'Pelat identifikasi pompa tanpa tulisan',[
+    box((.611,.352,-.478),(.178,.039,.010),red,.003),
+    box((.803,.352,-.478),(.188,.039,.010),red,.003),
+    *[bolt((x,.353,-.485),(0,0,-1),.0035) for x in (.533,.690,.715,.888)]],
+    pump_refs,'Dua bidang pelat merah tampak di P08/P14. Tulisan pabrikan tidak direproduksi.',
+    direction=(0,0,-1))
+
+oil_refs=[NONOP,'P17 / dua tabung oli dan filter bypass']
+add('LUBE',1,'Header oli dan dudukan filter',[
+    box((.924,.285,.393),(.364,.064,.123),cast,.017),
+    cylinder((.849,.271,.438),Y,.061,.044,cast),
+    cylinder((1.014,.271,.438),Y,.061,.044,cast),
+    bolt((.956,.293,.467),Z,.016)],oil_refs,direction=(0,0,1))
+for i,x in enumerate((.852,1.012),2):
+    add('LUBE',i,'Filter oli utama',canister((x,.116,.442),.056,.277),oil_refs,direction=(0,-1,0))
+add('LUBE',4,'Filter bypass oli',canister((.644,.099,.423),.062,.163)+[
+     cylinder((.644,-.012,.423),Y,.035,.076,cast),
+     cylinder((.644,.197,.423),Y,.051,.023,rib)],oil_refs,direction=(0,-1,0))
+add('LUBE',5,'Rumah oil cooler',[
+    sweep([(.224,.319,.319),(.318,.329,.396),(.994,.330,.398),(1.111,.333,.373)],.055,cast,24),
+    box((.595,.335,.423),(.194,.123,.043),cover,.013),
+    *[bolt((.595+dx,.335+dy,.450),Z,.009) for dx in (-.078,.078) for dy in (-.044,.044)]],
+    [NONOP,'P17 / body panjang di balik filter dan penutup'],direction=(0,0,1))
+
+# Terminations and cables are small geometry, with no OEM markings.
+add('ELECTRIC',3,'Harness starter dan alternator',[
+    sweep([(1.404,.264,-.409),(1.314,.276,-.385),(1.226,.291,-.316),
+          (1.104,.359,-.308),(.970,.390,-.288),(.765,.390,-.286)],.008,rubber,10),
+    sweep([(.062,.099,.424),(.191,.122,.401),(.244,.176,.378),(.354,.260,.370),(.517,.282,.376)],.009,rubber,10),
+    sweep([(.085,.080,.424),(.171,.037,.423),(.229,-.010,.408)],.008,red,10)],
+    ['P08 / kabel alternator','P17 / kabel rendah starter'],direction=(0,0,1))
+add('ELECTRIC',4,'Rumah sensor dan panel koneksi',[
+    box((.285,.588,.330),(.092,.138,.044),black,.007),
+    box((.290,.598,.356),(.075,.101,.012),cover,.004),
+    bolt((.264,.590,.364),Z,.005),bolt((.316,.590,.364),Z,.005),
+    sweep([(.277,.527,.347),(.277,.504,.356),(.306,.449,.369),(.363,.418,.376)],.009,rubber,10)],
+    ['P17 / panel dan kabel'], 'Pelat polos. Kalibrasi, konektor OEM dan jenis sensor belum terverifikasi.',direction=(0,0,1))
+
+# Save editable source model, selected parts list and diagram motion metadata.
+def write_json(path,data):
+    path.write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n')
+
+write_json(OUT/'inventory.json',{'machine_model':'Yanmar 6AYM-WET H 555 kW','status':'UNVERIFIED',
+    'unit':'m','coordinate_order':'X depan, Y atas, Z kanan','components':parts})
+labels={'BLOCK':'Block dan crankcase','HEADS':'Cylinder heads dan bonnet','OILPAN':'Carter oli',
+        'FLYWHEEL':'Flywheel dan housing','FRONT':'Penggerak depan','INTAKE':'Udara masuk',
+        'EXHAUST':'Turbocharger dan exhaust','COOLING':'Pendinginan','FUEL':'Injeksi bahan bakar',
+        'LUBE':'Pelumasan','ELECTRIC':'Elektrik'}
+anchors={'BLOCK':1,'HEADS':1,'OILPAN':1,'FLYWHEEL':1,'FRONT':1,'INTAKE':1,'EXHAUST':1,
+         'COOLING':1,'FUEL':1,'LUBE':1,'ELECTRIC':1}
+for group,empty in groups.items():
+    entries=[p for p in parts if p['parent']==empty.name]
+    anchor=anchors[group]
+    view=([-1,0,0] if group=='FLYWHEEL' else [1,0,0] if group=='FRONT'
+          else [0,-1,-1] if group=='OILPAN' else [.4,.7,-1 if group in ('INTAKE','FUEL','BLOCK','HEADS') else 1])
+    view=list(Vector(view).normalized())
+    sections=[]
+    for n,p in enumerate(entries,1):
+        direction=p['direction'] or (0,1,0)
+        distance=.0 if n==anchor else (.40 if group in ('HEADS','COOLING','EXHAUST') else .28)
+        order=n
+        if group in ('HEADS','FUEL'):
+            # Stagger duplicate directions so removable pieces do not stack at full extension.
+            distance+=.018*(n-1) if n!=anchor else 0
+            if group=='HEADS' and n>6:
+                distance+=.15
+                order=n-6
+        sections.append({'no':n,'nama':p['name'],'object_ids':[p['id']],
+             'posisi':[] if n==anchor else [{'object_id':p['id'],'arah':list(direction),
+                                            'jarak_m':round(distance,3),'urutan':order}],
+             'status':p['status'],'sumber':p['source_refs'],'fungsi':p['name'],
+             'nomor_oem':None,'ukuran':None})
+    write_json(OUT.parent/'assemblies'/f'{empty.name}.json',{'id':empty.name,'nama':labels[group],
+        'node_rakitan':empty.name,'acuan':{'no':anchor,'object_ids':[entries[anchor-1]['id']]},
+        'diagram':{'arah_pandang':view,'atas':[0,1,0]},'bagian':sections,
+        'notes':'Nomor posisi model. Lintasan ilustrasi, belum diperiksa untuk interferensi.'})
+bpy.context.preferences.filepaths.save_version=0
+bpy.ops.wm.save_as_mainfile(filepath=str(OUT/'exterior.blend'))
+bpy.ops.export_scene.gltf(filepath=str(OUT/'exterior.glb'),export_format='GLB',
+                         export_yup=True,export_apply=True,export_extras=True)

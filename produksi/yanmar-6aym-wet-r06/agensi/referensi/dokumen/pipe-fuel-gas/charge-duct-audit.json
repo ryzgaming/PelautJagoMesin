@@ -1,0 +1,486 @@
+{
+  "recipe": "RAK-CHARGEDUCT",
+  "children": 41,
+  "interfaces": [
+    {
+      "arclength_m": 0.301,
+      "gasket": "EXT-INTAKE-54",
+      "bore_radii_mm": [
+        33.4,
+        33.297,
+        33.4,
+        33.297,
+        33.4,
+        33.297,
+        33.4,
+        33.297,
+        33.4,
+        33.297,
+        33.4,
+        33.297,
+        33.4,
+        33.297,
+        33.4,
+        33.297
+      ],
+      "rigid_side": {
+        "pair": [
+          "EXT-INTAKE-54",
+          "EXT-INTAKE-05"
+        ],
+        "nearest_vertex_surface_mm": 0.0,
+        "triangle_pairs": 271
+      },
+      "flexible_side": {
+        "pair": [
+          "EXT-INTAKE-54",
+          "EXT-INTAKE-52"
+        ],
+        "nearest_vertex_surface_mm": 0.0,
+        "triangle_pairs": 393
+      }
+    },
+    {
+      "arclength_m": 0.377,
+      "gasket": "EXT-INTAKE-55",
+      "bore_radii_mm": [
+        33.4,
+        33.297,
+        33.4,
+        33.297,
+        33.4,
+        33.297,
+        33.4,
+        33.297,
+        33.4,
+        33.297,
+        33.4,
+        33.297,
+        33.4,
+        33.297,
+        33.4,
+        33.297
+      ],
+      "rigid_side": {
+        "pair": [
+          "EXT-INTAKE-55",
+          "EXT-INTAKE-50"
+        ],
+        "nearest_vertex_surface_mm": 0.0,
+        "triangle_pairs": 390
+      },
+      "flexible_side": {
+        "pair": [
+          "EXT-INTAKE-55",
+          "EXT-INTAKE-52"
+        ],
+        "nearest_vertex_surface_mm": 0.0,
+        "triangle_pairs": 384
+      }
+    },
+    {
+      "arclength_m": 0.477,
+      "gasket": "EXT-INTAKE-56",
+      "bore_radii_mm": [
+        33.4,
+        33.297,
+        33.4,
+        33.297,
+        33.4,
+        33.297,
+        33.4,
+        33.297,
+        33.4,
+        33.297,
+        33.4,
+        33.297,
+        33.4,
+        33.297,
+        33.4,
+        33.297
+      ],
+      "rigid_side": {
+        "pair": [
+          "EXT-INTAKE-56",
+          "EXT-INTAKE-50"
+        ],
+        "nearest_vertex_surface_mm": 0.0,
+        "triangle_pairs": 379
+      },
+      "flexible_side": {
+        "pair": [
+          "EXT-INTAKE-56",
+          "EXT-INTAKE-53"
+        ],
+        "nearest_vertex_surface_mm": 0.0,
+        "triangle_pairs": 401
+      }
+    },
+    {
+      "arclength_m": 0.553,
+      "gasket": "EXT-INTAKE-57",
+      "bore_radii_mm": [
+        33.4,
+        33.297,
+        33.4,
+        33.297,
+        33.4,
+        33.297,
+        33.4,
+        33.297,
+        33.4,
+        33.297,
+        33.4,
+        33.297,
+        33.4,
+        33.297,
+        33.4,
+        33.297
+      ],
+      "rigid_side": {
+        "pair": [
+          "EXT-INTAKE-57",
+          "EXT-INTAKE-51"
+        ],
+        "nearest_vertex_surface_mm": 0.0,
+        "triangle_pairs": 326
+      },
+      "flexible_side": {
+        "pair": [
+          "EXT-INTAKE-57",
+          "EXT-INTAKE-53"
+        ],
+        "nearest_vertex_surface_mm": 0.0,
+        "triangle_pairs": 327
+      }
+    }
+  ],
+  "fastener_pairs": [
+    {
+      "bolt": "EXT-INTAKE-58",
+      "nut": "EXT-INTAKE-74",
+      "bolt_to_cast_flange": {
+        "pair": [
+          "EXT-INTAKE-58",
+          "EXT-INTAKE-05"
+        ],
+        "nearest_vertex_surface_mm": 0.0,
+        "triangle_pairs": 92
+      },
+      "nut_to_joint_flange": {
+        "pair": [
+          "EXT-INTAKE-74",
+          "EXT-INTAKE-52"
+        ],
+        "nearest_vertex_surface_mm": 0.0,
+        "triangle_pairs": 213
+      }
+    },
+    {
+      "bolt": "EXT-INTAKE-59",
+      "nut": "EXT-INTAKE-75",
+      "bolt_to_cast_flange": {
+        "pair": [
+          "EXT-INTAKE-59",
+          "EXT-INTAKE-05"
+        ],
+        "nearest_vertex_surface_mm": 0.0,
+        "triangle_pairs": 104
+      },
+      "nut_to_joint_flange": {
+        "pair": [
+          "EXT-INTAKE-75",
+          "EXT-INTAKE-52"
+        ],
+        "nearest_vertex_surface_mm": 0.0,
+        "triangle_pairs": 133
+      }
+    },
+    {
+      "bolt": "EXT-INTAKE-60",
+      "nut": "EXT-INTAKE-76",
+      "bolt_to_cast_flange": {
+        "pair": [
+          "EXT-INTAKE-60",
+          "EXT-INTAKE-05"
+        ],
+        "nearest_vertex_surface_mm": 0.0,
+        "triangle_pairs": 27
+      },
+      "nut_to_joint_flange": {
+        "pair": [
+          "EXT-INTAKE-76",
+          "EXT-INTAKE-52"
+        ],
+        "nearest_vertex_surface_mm": 0.0,
+        "triangle_pairs": 217
+      }
+    },
+    {
+      "bolt": "EXT-INTAKE-61",
+      "nut": "EXT-INTAKE-77",
+      "bolt_to_cast_flange": {
+        "pair": [
+          "EXT-INTAKE-61",
+          "EXT-INTAKE-05"
+        ],
+        "nearest_vertex_surface_mm": 0.0,
+        "triangle_pairs": 12
+      },
+      "nut_to_joint_flange": {
+        "pair": [
+          "EXT-INTAKE-77",
+          "EXT-INTAKE-52"
+        ],
+        "nearest_vertex_surface_mm": 0.0,
+        "triangle_pairs": 212
+      }
+    },
+    {
+      "bolt": "EXT-INTAKE-62",
+      "nut": "EXT-INTAKE-78",
+      "bolt_to_cast_flange": {
+        "pair": [
+          "EXT-INTAKE-62",
+          "EXT-INTAKE-50"
+        ],
+        "nearest_vertex_surface_mm": 0.0,
+        "triangle_pairs": 0
+      },
+      "nut_to_joint_flange": {
+        "pair": [
+          "EXT-INTAKE-78",
+          "EXT-INTAKE-52"
+        ],
+        "nearest_vertex_surface_mm": 0.0,
+        "triangle_pairs": 170
+      }
+    },
+    {
+      "bolt": "EXT-INTAKE-63",
+      "nut": "EXT-INTAKE-79",
+      "bolt_to_cast_flange": {
+        "pair": [
+          "EXT-INTAKE-63",
+          "EXT-INTAKE-50"
+        ],
+        "nearest_vertex_surface_mm": 0.0,
+        "triangle_pairs": 0
+      },
+      "nut_to_joint_flange": {
+        "pair": [
+          "EXT-INTAKE-79",
+          "EXT-INTAKE-52"
+        ],
+        "nearest_vertex_surface_mm": 0.0,
+        "triangle_pairs": 16
+      }
+    },
+    {
+      "bolt": "EXT-INTAKE-64",
+      "nut": "EXT-INTAKE-80",
+      "bolt_to_cast_flange": {
+        "pair": [
+          "EXT-INTAKE-64",
+          "EXT-INTAKE-50"
+        ],
+        "nearest_vertex_surface_mm": 0.0,
+        "triangle_pairs": 0
+      },
+      "nut_to_joint_flange": {
+        "pair": [
+          "EXT-INTAKE-80",
+          "EXT-INTAKE-52"
+        ],
+        "nearest_vertex_surface_mm": 0.0,
+        "triangle_pairs": 16
+      }
+    },
+    {
+      "bolt": "EXT-INTAKE-65",
+      "nut": "EXT-INTAKE-81",
+      "bolt_to_cast_flange": {
+        "pair": [
+          "EXT-INTAKE-65",
+          "EXT-INTAKE-50"
+        ],
+        "nearest_vertex_surface_mm": 0.0,
+        "triangle_pairs": 0
+      },
+      "nut_to_joint_flange": {
+        "pair": [
+          "EXT-INTAKE-81",
+          "EXT-INTAKE-52"
+        ],
+        "nearest_vertex_surface_mm": 0.0,
+        "triangle_pairs": 51
+      }
+    },
+    {
+      "bolt": "EXT-INTAKE-66",
+      "nut": "EXT-INTAKE-82",
+      "bolt_to_cast_flange": {
+        "pair": [
+          "EXT-INTAKE-66",
+          "EXT-INTAKE-50"
+        ],
+        "nearest_vertex_surface_mm": 0.0,
+        "triangle_pairs": 12
+      },
+      "nut_to_joint_flange": {
+        "pair": [
+          "EXT-INTAKE-82",
+          "EXT-INTAKE-53"
+        ],
+        "nearest_vertex_surface_mm": 0.0,
+        "triangle_pairs": 14
+      }
+    },
+    {
+      "bolt": "EXT-INTAKE-67",
+      "nut": "EXT-INTAKE-83",
+      "bolt_to_cast_flange": {
+        "pair": [
+          "EXT-INTAKE-67",
+          "EXT-INTAKE-50"
+        ],
+        "nearest_vertex_surface_mm": 0.0,
+        "triangle_pairs": 92
+      },
+      "nut_to_joint_flange": {
+        "pair": [
+          "EXT-INTAKE-83",
+          "EXT-INTAKE-53"
+        ],
+        "nearest_vertex_surface_mm": 0.0,
+        "triangle_pairs": 8
+      }
+    },
+    {
+      "bolt": "EXT-INTAKE-68",
+      "nut": "EXT-INTAKE-84",
+      "bolt_to_cast_flange": {
+        "pair": [
+          "EXT-INTAKE-68",
+          "EXT-INTAKE-50"
+        ],
+        "nearest_vertex_surface_mm": 0.0,
+        "triangle_pairs": 23
+      },
+      "nut_to_joint_flange": {
+        "pair": [
+          "EXT-INTAKE-84",
+          "EXT-INTAKE-53"
+        ],
+        "nearest_vertex_surface_mm": 0.0,
+        "triangle_pairs": 96
+      }
+    },
+    {
+      "bolt": "EXT-INTAKE-69",
+      "nut": "EXT-INTAKE-85",
+      "bolt_to_cast_flange": {
+        "pair": [
+          "EXT-INTAKE-69",
+          "EXT-INTAKE-50"
+        ],
+        "nearest_vertex_surface_mm": 0.0,
+        "triangle_pairs": 98
+      },
+      "nut_to_joint_flange": {
+        "pair": [
+          "EXT-INTAKE-85",
+          "EXT-INTAKE-53"
+        ],
+        "nearest_vertex_surface_mm": 0.0,
+        "triangle_pairs": 19
+      }
+    },
+    {
+      "bolt": "EXT-INTAKE-70",
+      "nut": "EXT-INTAKE-86",
+      "bolt_to_cast_flange": {
+        "pair": [
+          "EXT-INTAKE-70",
+          "EXT-INTAKE-51"
+        ],
+        "nearest_vertex_surface_mm": 0.0,
+        "triangle_pairs": 99
+      },
+      "nut_to_joint_flange": {
+        "pair": [
+          "EXT-INTAKE-86",
+          "EXT-INTAKE-53"
+        ],
+        "nearest_vertex_surface_mm": 0.0,
+        "triangle_pairs": 212
+      }
+    },
+    {
+      "bolt": "EXT-INTAKE-71",
+      "nut": "EXT-INTAKE-87",
+      "bolt_to_cast_flange": {
+        "pair": [
+          "EXT-INTAKE-71",
+          "EXT-INTAKE-51"
+        ],
+        "nearest_vertex_surface_mm": 0.0,
+        "triangle_pairs": 89
+      },
+      "nut_to_joint_flange": {
+        "pair": [
+          "EXT-INTAKE-87",
+          "EXT-INTAKE-53"
+        ],
+        "nearest_vertex_surface_mm": 0.0,
+        "triangle_pairs": 212
+      }
+    },
+    {
+      "bolt": "EXT-INTAKE-72",
+      "nut": "EXT-INTAKE-88",
+      "bolt_to_cast_flange": {
+        "pair": [
+          "EXT-INTAKE-72",
+          "EXT-INTAKE-51"
+        ],
+        "nearest_vertex_surface_mm": 0.0,
+        "triangle_pairs": 87
+      },
+      "nut_to_joint_flange": {
+        "pair": [
+          "EXT-INTAKE-88",
+          "EXT-INTAKE-53"
+        ],
+        "nearest_vertex_surface_mm": 0.0,
+        "triangle_pairs": 209
+      }
+    },
+    {
+      "bolt": "EXT-INTAKE-73",
+      "nut": "EXT-INTAKE-89",
+      "bolt_to_cast_flange": {
+        "pair": [
+          "EXT-INTAKE-73",
+          "EXT-INTAKE-51"
+        ],
+        "nearest_vertex_surface_mm": 0.0,
+        "triangle_pairs": 99
+      },
+      "nut_to_joint_flange": {
+        "pair": [
+          "EXT-INTAKE-89",
+          "EXT-INTAKE-53"
+        ],
+        "nearest_vertex_surface_mm": 0.0,
+        "triangle_pairs": 211
+      }
+    }
+  ],
+  "unintended_exterior_contacts": [],
+  "method": "Blender GLB reimport, 4 independent section planes, 16 radial rays through each gasket, plus triangle overlap and bidirectional nearest-vertex-to-face distance.",
+  "assets_sha256": {
+    "exterior": "e860291eac958af9bba6566891d6462e47d1c7694921c424dc702695fb02e887",
+    "routes": "0830845dd4b9903bb19d329b8839e6c69a937821cfc4485c434fbe521d8f2225"
+  }
+}

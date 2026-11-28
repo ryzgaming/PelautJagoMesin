@@ -1,0 +1,301 @@
+{
+  "revision": "r02",
+  "qa_agent_id": "/root/qa",
+  "verdict": "UNVERIFIED",
+  "ready_for_private_review": false,
+  "scope": "6AYM-WET H engine-only, perbaikan sisi operasi, pemeriksaan reimport dan regresi mekanis dasar.",
+  "aabb_mm": {
+    "L": 2002.677,
+    "W": 1305.0001,
+    "H_fisik": 1541.0
+  },
+  "nominal_catalogue_h_mm": 1431,
+  "physical_flange_y_mm": 989,
+  "sump_y_mm": -552,
+  "assets_sha256": {
+    "exterior": "7f4eab14803a9b0ee1671b346985f31f70c6248e9a41f6d51104257118106ed5",
+    "internal": "11ea34ec436e43053f70f8e1162391669e377daebee501cba515dc218f388bf9"
+  },
+  "checks": {
+    "identity": {
+      "status": "PASS",
+      "scope": "H 555 kW 1840 rpm engine-only, 6 silinder segaris.",
+      "evidence": [
+        "qa/r02/final/reimport.json",
+        "doc/D03-p-17.png"
+      ]
+    },
+    "photo_landmarks": {
+      "status": "PASS",
+      "scope": "Visual P07/P08/P14 mendukung posisi dan relief rumah pompa, governor, baris fitting dan pasangan tabung. Detail tersembunyi tetap perkiraan.",
+      "evidence": [
+        "qa/photo-match/P07-comparison.jpg",
+        "qa/photo-match/P08-comparison.jpg",
+        "foto/P14.jpg",
+        "qa/photo-match/r02-cameras.json"
+      ]
+    },
+    "fuel_mesh": {
+      "status": "PASS",
+      "scope": "6 fitting, 6 pipa, 2 tabung. 15 pasang pipa tanpa crossing BVH dan setiap pipa masuk head model yang dimaksud.",
+      "evidence": [
+        "qa/r02/final/fuel-fit.json"
+      ]
+    },
+    "export_mapping": {
+      "status": "PASS",
+      "scope": "589 node cocok dengan parent inventaris. 545687 triangle, nol degenerasi pada ambang 1e−12 m².",
+      "evidence": [
+        "qa/r02/final/reimport.json"
+      ]
+    },
+    "sample_fit": {
+      "status": "PASS",
+      "scope": "438 pose, 6×73 per 10°. Nol crossing pada pasangan yang diuji. Probe 12/16 bukaan flywheel/housing serta 8 kaki.",
+      "evidence": [
+        "qa/r02/final/fit.json"
+      ]
+    },
+    "nominal_lw_flange": {
+      "status": "PASS",
+      "scope": "Dimensi L/W dalam 1% nominal dan datum flange +989 mm, sump −552 mm.",
+      "evidence": [
+        "qa/r02/final/reimport.json",
+        "qa/r02/final/ga-overlay.json",
+        "qa/r02/final/ga-overlay-depan.png",
+        "qa/r02/final/ga-overlay-kanan.png"
+      ]
+    },
+    "nominal_body_height": {
+      "status": "UNVERIFIED",
+      "scope": "Padanan bidang +879 untuk tinggi nominal 1431 mm belum dipastikan. AABB fisik mencakup flange.",
+      "evidence": [
+        "qa/r02/final/reimport.json",
+        "qa/r02/final/ga-overlay.json",
+        "qa/r02/final/ga-overlay-depan.png",
+        "qa/r02/final/ga-overlay-kanan.png"
+      ]
+    },
+    "oem_detail_and_photo_top": {
+      "status": "UNVERIFIED",
+      "scope": "GA tidak menyebut rating. Foto atas H ortogonal, casting rinci, rute tertutup, parts list dan toleransi belum lengkap.",
+      "evidence": [
+        "qa/r02/final/ga-overlay.json",
+        "qa/r02/final/ga-overlay-depan.png",
+        "qa/r02/final/ga-overlay-kanan.png",
+        "qa/photo-match/P07-comparison.jpg",
+        "qa/photo-match/P08-comparison.jpg",
+        "foto/P14.jpg",
+        "qa/photo-match/r02-cameras.json",
+        "foto/evidence-foto-top.json",
+        "video/evidence-video.json"
+      ]
+    },
+    "mechanics_full_scope": {
+      "status": "UNVERIFIED",
+      "scope": "Timing fisik dan fit kontinu/seluruh pasangan belum tersampel.",
+      "evidence": [
+        "qa/r02/final/fit.json",
+        "model/internal/kinematics.json"
+      ]
+    },
+    "viewer_desktop": {
+      "status": "UNVERIFIED",
+      "scope": "Mock GLTFLoader lulus. Relay dan CUA gagal, WebGL, layout dan fallback browser aktual belum diuji.",
+      "evidence": [
+        "qa/integration-viewer.md"
+      ]
+    },
+    "viewer_mobile": {
+      "status": "UNVERIFIED",
+      "scope": "Portrait/landscape browser, gestur dan performa HP nyata belum diuji.",
+      "evidence": [
+        "qa/integration-viewer.md"
+      ]
+    }
+  },
+  "findings": [
+    {
+      "id": "R02-QA-01",
+      "state": "closed",
+      "issue": "Persilangan dua pasangan pipa pada ekspor awal.",
+      "initial_triangle_pairs": [
+        62,
+        42
+      ],
+      "final_triangle_pairs": [
+        0,
+        0
+      ],
+      "evidence": [
+        "qa/r02/initial-fuel/fuel-fit.json",
+        "qa/r02/final/fuel-fit.json"
+      ]
+    },
+    {
+      "id": "R02-QA-02",
+      "state": "open",
+      "issue": "Padanan bidang tinggi nominal, exact OEM, foto atas ortogonal H, rute tertutup dan video target.",
+      "evidence": [
+        "qa/r02/final/ga-overlay.json",
+        "qa/r02/final/ga-overlay-depan.png",
+        "qa/r02/final/ga-overlay-kanan.png",
+        "qa/photo-match/P07-comparison.jpg",
+        "qa/photo-match/P08-comparison.jpg",
+        "foto/P14.jpg",
+        "qa/photo-match/r02-cameras.json"
+      ]
+    },
+    {
+      "id": "R02-QA-03",
+      "state": "open",
+      "issue": "Timing dan clearance mekanis penuh di luar 438 pose diskret.",
+      "evidence": [
+        "qa/r02/final/fit.json"
+      ]
+    },
+    {
+      "id": "R02-QA-04",
+      "state": "open",
+      "issue": "Akses browser aktual dan HP gagal pada relay/CUA.",
+      "evidence": [
+        "qa/integration-viewer.md"
+      ]
+    }
+  ],
+  "neutral_renders_visually_inspected": [
+    "qa/r02/final/neutral_depan.png",
+    "qa/r02/final/neutral_belakang.png",
+    "qa/r02/final/neutral_kiri.png",
+    "qa/r02/final/neutral_kanan.png",
+    "qa/r02/final/neutral_atas.png",
+    "qa/r02/final/neutral_tiga_perempat.png",
+    "qa/r02/final/neutral_internal.png"
+  ],
+  "artifacts": [
+    {
+      "path": "doc/D03-p-17.png",
+      "sha256": "1537e74629af6992795fd6cc68f5ec9768f6817a1365c8ff8480e7acaf6611a3"
+    },
+    {
+      "path": "foto/P14.jpg",
+      "sha256": "f6a62b89b100b9bf1461a5a9e6e9b8687fff5e8c2ae9c1e7ae6074f4a1a27d7d"
+    },
+    {
+      "path": "foto/evidence-foto-top.json",
+      "sha256": "28a2d4d7b52c1a02d60daaf6758aff03259ab2b0b3e42ab80640e47efb48fa7b"
+    },
+    {
+      "path": "model/exterior/exterior.glb",
+      "sha256": "7f4eab14803a9b0ee1671b346985f31f70c6248e9a41f6d51104257118106ed5"
+    },
+    {
+      "path": "model/internal/internal.glb",
+      "sha256": "11ea34ec436e43053f70f8e1162391669e377daebee501cba515dc218f388bf9"
+    },
+    {
+      "path": "model/internal/kinematics.json",
+      "sha256": "6f428bc91296a6f655f9cd6a65fd9f5eb9f01ad495364605bdeb1a84406f94a4"
+    },
+    {
+      "path": "qa/integration-viewer.md",
+      "sha256": "f5a56915928f897c0a2eabcc72867d01a214a1441af761d299e0b98497f1fbe5"
+    },
+    {
+      "path": "qa/photo-match/P07-comparison.jpg",
+      "sha256": "eb253fdd9548ad54257ee53b45c1aa37907005919af1a74d893b4525090fb543"
+    },
+    {
+      "path": "qa/photo-match/P08-comparison.jpg",
+      "sha256": "993cf7dbc282b2047a805c20f352f1722054b594a98148f5d7717758d0dd292e"
+    },
+    {
+      "path": "qa/photo-match/r02-cameras.json",
+      "sha256": "ac4b06f6dc315ffe49b782ede6eef5304dcca2f2a62e917277bd9cf8cae7d9d1"
+    },
+    {
+      "path": "qa/r02/QA.md",
+      "sha256": "cbead62d3e32cc5c5ea0091ea5527365b0b78f80715fce67053189f85446c2bf"
+    },
+    {
+      "path": "qa/r02/acceptance.md",
+      "sha256": "000bf5032d38b72afc7bc2fd79cc5675547b67cc0a0c7f6489022583a8fa0405"
+    },
+    {
+      "path": "qa/r02/final/fit.json",
+      "sha256": "42467307a7a2bfdc9c98bf36ef269e5470ab6a909ba2613ff21b7ec65bc0b1fc"
+    },
+    {
+      "path": "qa/r02/final/fuel-fit.json",
+      "sha256": "66d2d52983db78a2f9abbefed7a23166173ff5dc99d75c0aeab065360301cbff"
+    },
+    {
+      "path": "qa/r02/final/ga-overlay-depan.png",
+      "sha256": "c14d9be9cfb7e3597dd39d34ccd2b1cab3b20bd0d1654d89d33d9aecd2ad01a7"
+    },
+    {
+      "path": "qa/r02/final/ga-overlay-kanan.png",
+      "sha256": "f8f4371972f8943d64151a3422e49e95b42fa954168fa5e1066b3bcfbc25858c"
+    },
+    {
+      "path": "qa/r02/final/ga-overlay.json",
+      "sha256": "8fddc9b27f25b4b06e36c545d19dfca3ca7c0a956733e236d9c8641c12c2c29c"
+    },
+    {
+      "path": "qa/r02/final/neutral_atas.png",
+      "sha256": "baa859872edf9c88509bdadcf0eca3b1643547c2b09495b7a7f22f44413433d1"
+    },
+    {
+      "path": "qa/r02/final/neutral_belakang.png",
+      "sha256": "6d782a79064df3e096331ffcc9cfa62be682aa93364fe637094dd489c710a928"
+    },
+    {
+      "path": "qa/r02/final/neutral_depan.png",
+      "sha256": "83f2bb4fe5a9f8f5216ed26ec436758abd11ac23718f157015f74ebf614e7b7b"
+    },
+    {
+      "path": "qa/r02/final/neutral_internal.png",
+      "sha256": "df8597fc91efff60c20877c88792dfffdbcd7010daab8c9544397b44caf66b5c"
+    },
+    {
+      "path": "qa/r02/final/neutral_kanan.png",
+      "sha256": "ada6d3ef3601d78bc3fbdaf2aee91289dfa1c0d91f25e2ff75540b96262238fe"
+    },
+    {
+      "path": "qa/r02/final/neutral_kiri.png",
+      "sha256": "1b973d13cf9bd2fc59cbbfab3bce389051e8c1e10623ae295348735cbefe0d0e"
+    },
+    {
+      "path": "qa/r02/final/neutral_tiga_perempat.png",
+      "sha256": "3c7a00a31937074b382c49674513e9fe9e1bd78e5a541b8e6e62814f972f66f1"
+    },
+    {
+      "path": "qa/r02/final/reimport.json",
+      "sha256": "7e2cc846cc28497d862ff6400ca66c836c04a0de77f86da7c85b7c6ab35e5caf"
+    },
+    {
+      "path": "qa/r02/final/render-settings.json",
+      "sha256": "d9c0f6639f60911239bb6625d6e1caf81a7692bef6e41083c3ae5540c3e6ee29"
+    },
+    {
+      "path": "qa/r02/initial-fuel/fuel-fit.json",
+      "sha256": "7bc5ef916f0341f936101290d9ce55b79db0f58c792adbaf4e0515c9b90ccf4d"
+    },
+    {
+      "path": "review/assets/exterior.glb",
+      "sha256": "7f4eab14803a9b0ee1671b346985f31f70c6248e9a41f6d51104257118106ed5"
+    },
+    {
+      "path": "review/assets/internal.glb",
+      "sha256": "11ea34ec436e43053f70f8e1162391669e377daebee501cba515dc218f388bf9"
+    },
+    {
+      "path": "review/index.html",
+      "sha256": "ca148915b2b0d79504a737333f24d21fccfc25427eb6b77dcf9ea728db70bda6"
+    },
+    {
+      "path": "video/evidence-video.json",
+      "sha256": "0be1600e03d26da1bc7c784010a0708d30723ba991845d587e5c7207a362dd12"
+    }
+  ]
+}

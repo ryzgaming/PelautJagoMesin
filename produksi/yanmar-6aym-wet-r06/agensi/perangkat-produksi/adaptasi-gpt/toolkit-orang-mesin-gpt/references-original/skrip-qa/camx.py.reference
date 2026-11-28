@@ -1,0 +1,13 @@
+import bpy, mathutils, collections
+from mathutils.bvhtree import BVHTree
+bpy.ops.wm.open_mainfile(filepath='/tmp/claude-0/c3512/qa/scripts/combined.blend')
+O=bpy.data.objects
+def T(n):
+    o=O[n];M=o.matrix_world;vs=[M@v.co for v in o.data.vertices];return BVHTree.FromPolygons(vs,[tuple(p.vertices) for p in o.data.polygons]),vs,[tuple(p.vertices) for p in o.data.polygons]
+for a,b in [('INT-CAM-L','EXT-BLOK-01'),('INT-CAM-R','EXT-BLOK-01'),('INT-CRANK-01','EXT-BLOK-01'),('INT-CRANK-01','EXT-FWHOUSING-01'),('INT-CRANK-01','EXT-FRONTCOVER-01'),('INT-OILPUMP-HSG','EXT-OILPAN-01'),('INT-OILPUMP-HSG','EXT-BLOK-01')]:
+    ta,va,pa=T(a);tb,vb,pb=T(b)
+    xs=[]
+    for i,j in ta.overlap(tb):
+        c=sum((va[k] for k in pa[i]),mathutils.Vector())/len(pa[i]); xs.append((round(c.x,2),round(c.z,2),round(-c.y,2)))
+    X=collections.Counter(x[0] for x in xs)
+    print(a,b,'x(datum) hist',sorted(X.items())[:12],'Y range',min(x[1] for x in xs),max(x[1] for x in xs),'Z range',min(x[2] for x in xs),max(x[2] for x in xs))

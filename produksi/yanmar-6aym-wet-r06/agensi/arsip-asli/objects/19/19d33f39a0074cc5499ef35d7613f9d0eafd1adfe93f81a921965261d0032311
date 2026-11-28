@@ -1,0 +1,57 @@
+import { copyFile, readFile, readdir, writeFile } from 'node:fs/promises';
+const read = async path => JSON.parse(await readFile(new URL(path,import.meta.url),'utf8'));
+const base = '../../';
+const modelPath = base+'model/';
+const list = path => readdir(new URL(path,import.meta.url));
+const [documents,photos,videos,datum,exterior,internal,kinematics] = await Promise.all([
+  read(base+'doc/sources.json'),read(base+'foto/evidence-foto.json'),read(base+'video/evidence-video.json'),
+  read(modelPath+'datum.json'),read(modelPath+'exterior/inventory.json'),
+  read(modelPath+'internal/inventory.json'),read(modelPath+'internal/kinematics.json')
+]);
+const sources = [...documents.sources,...(photos.sources || []),...(videos.videos || [])]
+  .map(source=>({
+    id:source.id,
+    url:source.page_url || source.url || source.source_url,
+    title:source.title || source.publisher || source.variant || source.id,
+    status:source.evidence_status || source.status
+  })).filter(entry=>entry.id && /^https:\/\//i.test(entry.url));
+const assemblies = {};
+for (const file of await list(modelPath+'assemblies/')) {
+  if (!file.endsWith('.json')) continue;
+  const assembly = await read(modelPath+'assemblies/'+file);
+  if (!assembly.id || !assembly.bagian) continue;
+  assemblies[assembly.id] = {
+    view:assembly.diagram?.arah_pandang,
+    parts:assembly.bagian.flatMap(part=>part.object_ids.map(id=>{
+      const pose = part.posisi.find(item=>item.object_id === id);
+      return {id, part_number:part.nomor_oem, offset_m:pose?.arah.map(value=>value*pose.jarak_m) || [0,0,0]};
+    }))
+  };
+}
+const systemFiles = await list(modelPath+'systems/');
+const systemOrder = ['fuel','lubrication','freshwater','seawater','intake-exhaust','air-exhaust','air_exhaust'];
+const systems = [];
+for (const key of systemOrder) {
+  const filename = key+'.json';
+  if (!systemFiles.includes(filename)) continue;
+  const system = await read(modelPath+'systems/'+filename);
+  systems.push(Object.fromEntries(['system','status','applicability','nodes','edges','gaps'].map(name=>[name,system[name]])));
+}
+const fields = ['id','name','nama','assembly','parent','rakitan','status','source_refs','quantity','count','jumlah',
+  'part_number','note','notes','xray_shell','node','direction'];
+const components = [...exterior.components,...internal.components].map(component =>
+  Object.fromEntries(fields.filter(name=>name in component).map(name=>[name,component[name]])));
+const viewer = {
+  enabled:Boolean(kinematics.cylinders?.length === 6),
+  rotators:[kinematics.crank_root,'EXT-FLYWHEEL-02','EXT-FRONT-02']
+    .map(node=>({node,factor:kinematics.crank_signed_rotation_ratio})),
+  throw_m:kinematics.throw_m, rod_cc_m:kinematics.rod_center_to_center_m,
+  cylinders:kinematics.cylinders.map(({rod_root,piston_root,crankpin_phase_deg})=>
+    ({rod:rod_root,piston:piston_root,phase_deg:crankpin_phase_deg}))
+};
+const extrema = ['x','z','y'].map(axis=>datum.dimensions['physical_drawn_'+axis+'_span'].value);
+await Promise.all(['exterior','internal'].map(name=>copyFile(
+  new URL(modelPath+name+'/'+name+'.glb',import.meta.url),
+  new URL('../assets/'+name+'.glb',import.meta.url))));
+await writeFile(new URL('../assets/data.json',import.meta.url),
+  JSON.stringify({reviewApproved:false,components,sources,assemblies,systems,kinematics:{status:kinematics.status,viewer},extrema}));

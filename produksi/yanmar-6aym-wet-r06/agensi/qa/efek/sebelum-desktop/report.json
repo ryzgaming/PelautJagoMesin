@@ -1,0 +1,176 @@
+{
+  "url": "http://localhost:8766/.agents/skills/animasi-aliran-mesin/scripts/lab.html?auto=1.5&xray",
+  "viewport": "desktop",
+  "runtime": {
+    "link": "jacket",
+    "samples": [
+      {
+        "link": "jacket",
+        "medium": "fresh_water",
+        "state": "running",
+        "fraction": 0.10717816674280316,
+        "phase_m": 0.33595333333346555,
+        "world": [
+          0.5412880324329914,
+          0.27520265530114174,
+          0.2711969653701238
+        ],
+        "visible": true,
+        "time_s": 0.002
+      },
+      {
+        "link": "jacket",
+        "medium": "fresh_water",
+        "state": "running",
+        "fraction": 0.11141435040493143,
+        "phase_m": 0.3449200000001322,
+        "world": [
+          0.53650911828351,
+          0.28019867627320266,
+          0.26548722711633993
+        ],
+        "visible": true,
+        "time_s": 0.411
+      },
+      {
+        "link": "jacket",
+        "medium": "fresh_water",
+        "state": "paused",
+        "fraction": 0.11141435040493143,
+        "phase_m": 0.3449200000001322,
+        "world": [
+          0.53650911828351,
+          0.28019867627320266,
+          0.26548722711633993
+        ],
+        "visible": true,
+        "time_s": 0.566
+      },
+      {
+        "link": "jacket",
+        "medium": "fresh_water",
+        "state": "paused",
+        "fraction": 0.11141435040493143,
+        "phase_m": 0.3449200000001322,
+        "world": [
+          0.53650911828351,
+          0.28019867627320266,
+          0.26548722711633993
+        ],
+        "visible": true,
+        "time_s": 0.995
+      },
+      {
+        "link": "jacket",
+        "medium": "fresh_water",
+        "state": "resumed",
+        "fraction": 0.11141435040493143,
+        "phase_m": 0.3449200000001322,
+        "world": [
+          0.53650911828351,
+          0.28019867627320266,
+          0.26548722711633993
+        ],
+        "visible": true,
+        "time_s": 0.998
+      },
+      {
+        "link": "jacket",
+        "medium": "fresh_water",
+        "state": "resumed",
+        "fraction": 0.1159308465919456,
+        "phase_m": 0.3544800000001984,
+        "world": [
+          0.5316375855084524,
+          0.28561525281965133,
+          0.2592968539203985
+        ],
+        "visible": true,
+        "time_s": 1.407
+      }
+    ],
+    "pause_stable": true,
+    "moves_when_running": true,
+    "resume_continues": true
+  },
+  "links": [
+    {
+      "id": "jacket",
+      "medium": "fresh_water",
+      "label": "Air tawar pendingin",
+      "length_m": 2.116685059439029,
+      "estimated": false
+    },
+    {
+      "id": "lube",
+      "medium": "lube_oil",
+      "label": "Oli pelumas",
+      "length_m": 1.9066700764766682,
+      "estimated": false
+    },
+    {
+      "id": "fuel_rail",
+      "medium": "fuel",
+      "label": "Bahan bakar",
+      "length_m": 1.0305876024010234,
+      "estimated": false
+    },
+    {
+      "id": "fuel_1",
+      "medium": "fuel",
+      "label": "Bahan bakar",
+      "length_m": 0.12159867110473294,
+      "estimated": false
+    },
+    {
+      "id": "fuel_2",
+      "medium": "fuel",
+      "label": "Bahan bakar",
+      "length_m": 0.12159867110473294,
+      "estimated": false
+    },
+    {
+      "id": "fuel_3",
+      "medium": "fuel",
+      "label": "Bahan bakar",
+      "length_m": 0.12159867110473294,
+      "estimated": false
+    },
+    {
+      "id": "fuel_4",
+      "medium": "fuel",
+      "label": "Bahan bakar",
+      "length_m": 0.12159867110473294,
+      "estimated": false
+    },
+    {
+      "id": "exhaust",
+      "medium": "exhaust",
+      "label": "Gas buang",
+      "length_m": 1.2227399301732023,
+      "estimated": false
+    }
+  ],
+  "warnings": [],
+  "frames": [
+    "/workspace/efek-review/sebelum-desktop/frame-00.png",
+    "/workspace/efek-review/sebelum-desktop/frame-01.png",
+    "/workspace/efek-review/sebelum-desktop/frame-02.png",
+    "/workspace/efek-review/sebelum-desktop/frame-03.png",
+    "/workspace/efek-review/sebelum-desktop/frame-04.png",
+    "/workspace/efek-review/sebelum-desktop/frame-05.png",
+    "/workspace/efek-review/sebelum-desktop/frame-06.png",
+    "/workspace/efek-review/sebelum-desktop/frame-07.png"
+  ],
+  "motion": [
+    1.676,
+    2.04,
+    1.831,
+    1.516,
+    1.237,
+    0.917,
+    1.715
+  ],
+  "motion_ok": true,
+  "errors": []
+}

@@ -1,0 +1,13 @@
+{
+  "reference_sha256": "defc58c070a871da2068b2ddd4388ff51b340a1014dfde2226f7e47946a89121",
+  "candidate_sha256": "4d4b506f3c45a72449209d88247d2c78a39d2e48920d3b500b90c10c2b6e5ab7",
+  "same_bytes": false,
+  "same_glTF_JSON": true,
+  "mesh_count_reference": 479,
+  "mesh_count_candidate": 479,
+  "missing": [],
+  "extra": [],
+  "geometry_differences": {},
+  "same_base_triangle_geometry": true,
+  "scope": "Exact base vertex positions, duplicate counts and oriented triangles per primitive. Does not compare shading or morph-target values."
+}

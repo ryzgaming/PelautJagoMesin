@@ -1,0 +1,314 @@
+{
+  "normal": {
+    "paused": [
+      {
+        "fire": {
+          "id": "c1",
+          "crank_deg": 252.28799999982118,
+          "angle_from_firing_tdc": 252.28799999982118,
+          "flame": 0.004389138896745404,
+          "spray": 0,
+          "state": "paused"
+        },
+        "flow": {
+          "link": "jacket",
+          "medium": "fresh_water",
+          "state": "paused",
+          "fraction": 0.17424157826874503,
+          "phase_m": 0.023359999999983443,
+          "world": [
+            0.39844940643390264,
+            0.3698141741728177,
+            0.17
+          ],
+          "visible": false
+        },
+        "time": 2461.599999997765
+      },
+      {
+        "fire": {
+          "id": "c1",
+          "crank_deg": 252.28799999982118,
+          "angle_from_firing_tdc": 252.28799999982118,
+          "flame": 0.004389138896745404,
+          "spray": 0,
+          "state": "paused"
+        },
+        "flow": {
+          "link": "jacket",
+          "medium": "fresh_water",
+          "state": "paused",
+          "fraction": 0.17424157826874503,
+          "phase_m": 0.023359999999983443,
+          "world": [
+            0.39844940643390264,
+            0.3698141741728177,
+            0.17
+          ],
+          "visible": false
+        },
+        "time": 2988.199999999255
+      }
+    ],
+    "resumed": [
+      {
+        "fire": {
+          "id": "c1",
+          "crank_deg": 252.28799999982118,
+          "angle_from_firing_tdc": 252.28799999982118,
+          "flame": 0.004389138896745404,
+          "spray": 0,
+          "state": "running"
+        },
+        "flow": {
+          "link": "jacket",
+          "medium": "fresh_water",
+          "state": "running",
+          "fraction": 0.17424157826874503,
+          "phase_m": 0.023359999999983443,
+          "world": [
+            0.39844940643390264,
+            0.3698141741728177,
+            0.17
+          ],
+          "visible": false
+        },
+        "time": 2993.599999997765
+      },
+      {
+        "fire": {
+          "id": "c1",
+          "crank_deg": 363.2879999998211,
+          "angle_from_firing_tdc": -356.71200000017893,
+          "flame": 0,
+          "spray": 0,
+          "state": "running"
+        },
+        "flow": {
+          "link": "jacket",
+          "medium": "fresh_water",
+          "state": "running",
+          "fraction": 0.17909717912062692,
+          "phase_m": 0.03363777777776122,
+          "world": [
+            0.38830663126472237,
+            0.3714745984594609,
+            0.17
+          ],
+          "visible": false
+        },
+        "time": 3495.800000000745
+      },
+      {
+        "fire": {
+          "id": "c1",
+          "crank_deg": 486.4079999998211,
+          "angle_from_firing_tdc": -233.5920000001788,
+          "flame": 0,
+          "spray": 0,
+          "state": "running"
+        },
+        "flow": {
+          "link": "jacket",
+          "medium": "fresh_water",
+          "state": "running",
+          "fraction": 0.1844829590925521,
+          "phase_m": 0.045037777777761225,
+          "world": [
+            0.3770572537455614,
+            0.3733208019235816,
+            0.17
+          ],
+          "visible": false
+        },
+        "time": 4009.599999997765
+      },
+      {
+        "fire": {
+          "id": "c1",
+          "crank_deg": 606.5039999994634,
+          "angle_from_firing_tdc": -113.4960000005367,
+          "flame": 0,
+          "spray": 0,
+          "state": "running"
+        },
+        "flow": {
+          "link": "jacket",
+          "medium": "fresh_water",
+          "state": "running",
+          "fraction": 0.18973645674936174,
+          "phase_m": 0.05615777777772812,
+          "world": [
+            0.3660843120125073,
+            0.37512228044754203,
+            0.17
+          ],
+          "visible": false
+        },
+        "time": 4513.099999997765
+      }
+    ],
+    "badge": "Gerak lambat \u00b7 40 rpm tampilan",
+    "xray_pressed": "false",
+    "errors": [],
+    "pause_stable": true,
+    "fire_resume_moves": true,
+    "flow_resume_moves": true
+  },
+  "real": {
+    "paused": [
+      {
+        "fire": {
+          "id": "c1",
+          "crank_deg": 704.8800000160941,
+          "angle_from_firing_tdc": -15.119999983905927,
+          "flame": 0,
+          "spray": 0,
+          "state": "paused"
+        },
+        "flow": {
+          "link": "jacket",
+          "medium": "fresh_water",
+          "state": "paused",
+          "fraction": 0.2054928457237763,
+          "phase_m": 0.9986000000014903,
+          "world": [
+            0.3331683525306353,
+            0.380489462488376,
+            0.17
+          ],
+          "visible": false
+        },
+        "time": 2431.2000000029802
+      },
+      {
+        "fire": {
+          "id": "c1",
+          "crank_deg": 704.8800000160941,
+          "angle_from_firing_tdc": -15.119999983905927,
+          "flame": 0,
+          "spray": 0,
+          "state": "paused"
+        },
+        "flow": {
+          "link": "jacket",
+          "medium": "fresh_water",
+          "state": "paused",
+          "fraction": 0.2054928457237763,
+          "phase_m": 0.9986000000014903,
+          "world": [
+            0.3331683525306353,
+            0.380489462488376,
+            0.17
+          ],
+          "visible": false
+        },
+        "time": 2942.5
+      }
+    ],
+    "resumed": [
+      {
+        "fire": {
+          "id": "c1",
+          "crank_deg": 704.8800000160941,
+          "angle_from_firing_tdc": -15.119999983905927,
+          "flame": 0,
+          "spray": 0,
+          "state": "running"
+        },
+        "flow": {
+          "link": "jacket",
+          "medium": "fresh_water",
+          "state": "running",
+          "fraction": 0.2054928457237763,
+          "phase_m": 0.9986000000014903,
+          "world": [
+            0.3331683525306353,
+            0.380489462488376,
+            0.17
+          ],
+          "visible": false
+        },
+        "time": 2948.400000002235
+      },
+      {
+        "fire": {
+          "id": "c1",
+          "crank_deg": 141.84000004828044,
+          "angle_from_firing_tdc": 141.84000004828044,
+          "flame": 0.05108715295340111,
+          "spray": 0,
+          "state": "running"
+        },
+        "flow": {
+          "link": "jacket",
+          "medium": "fresh_water",
+          "state": "running",
+          "fraction": 0.43282945296118436,
+          "phase_m": 1.4798000000044707,
+          "world": [
+            -0.14495690063828803,
+            0.43364819600899795,
+            0.17
+          ],
+          "visible": false
+        },
+        "time": 3454.400000002235
+      },
+      {
+        "fire": {
+          "id": "c1",
+          "crank_deg": 52.92000002414079,
+          "angle_from_firing_tdc": 52.92000002414079,
+          "flame": 0.36853403055415634,
+          "spray": 0,
+          "state": "running"
+        },
+        "flow": {
+          "link": "jacket",
+          "medium": "fresh_water",
+          "state": "running",
+          "fraction": 0.6809060374564367,
+          "phase_m": 2.0049000000022352,
+          "world": [
+            -0.6201354123595278,
+            0.6820976452034987,
+            0.23992101519952844
+          ],
+          "visible": true
+        },
+        "time": 3959.60000000149
+      },
+      {
+        "fire": {
+          "id": "c1",
+          "crank_deg": 565.200000040234,
+          "angle_from_firing_tdc": -154.79999995976596,
+          "flame": 0,
+          "spray": 0,
+          "state": "running"
+        },
+        "flow": {
+          "link": "jacket",
+          "medium": "fresh_water",
+          "state": "running",
+          "fraction": 0.923785816717381,
+          "phase_m": 2.519000000003725,
+          "world": [
+            -0.2581318090702615,
+            0.9426371588074095,
+            0.1506582732332763
+          ],
+          "visible": true
+        },
+        "time": 4468.20000000298
+      }
+    ],
+    "badge": "1800 rpm",
+    "xray_pressed": "false",
+    "errors": [],
+    "pause_stable": true,
+    "fire_resume_moves": true,
+    "flow_resume_moves": true
+  }
+}

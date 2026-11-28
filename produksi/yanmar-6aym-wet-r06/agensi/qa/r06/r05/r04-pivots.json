@@ -1,0 +1,69 @@
+{
+  "documented_firing_order_matches": true,
+  "pistons": [
+    {
+      "id": "INT-PISTON-11",
+      "stroke_m": 0.18000000000000002,
+      "travel_from_TDC_at_firing_m": 0
+    },
+    {
+      "id": "INT-PISTON-21",
+      "stroke_m": 0.18000000000000002,
+      "travel_from_TDC_at_firing_m": 0.0
+    },
+    {
+      "id": "INT-PISTON-31",
+      "stroke_m": 0.18000000000000002,
+      "travel_from_TDC_at_firing_m": 0.0
+    },
+    {
+      "id": "INT-PISTON-41",
+      "stroke_m": 0.18000000000000002,
+      "travel_from_TDC_at_firing_m": 0.0
+    },
+    {
+      "id": "INT-PISTON-51",
+      "stroke_m": 0.18000000000000002,
+      "travel_from_TDC_at_firing_m": 0.0
+    },
+    {
+      "id": "INT-PISTON-61",
+      "stroke_m": 0.18000000000000002,
+      "travel_from_TDC_at_firing_m": 0
+    }
+  ],
+  "revision": "r04",
+  "phase": "running",
+  "checks": [],
+  "legacy": [
+    {
+      "id": "MOT-INT-CRANK",
+      "declared": -1,
+      "measured": -1.0
+    },
+    {
+      "id": "EXT-FLYWHEEL-02",
+      "declared": -1,
+      "measured": -1.0
+    },
+    {
+      "id": "EXT-FRONT-02",
+      "declared": -1,
+      "measured": -1.0
+    },
+    {
+      "id": "EXT-FLYWHEEL-20",
+      "declared": -1,
+      "measured": -1.0
+    },
+    {
+      "id": "MOT-INT-CAM",
+      "declared": -0.5,
+      "measured": -0.5
+    }
+  ],
+  "fixed_examples_moved": [],
+  "viewer_restoration_matrix_error": 0,
+  "pose_mesh_count": 1061,
+  "moved_mesh_count": 433
+}

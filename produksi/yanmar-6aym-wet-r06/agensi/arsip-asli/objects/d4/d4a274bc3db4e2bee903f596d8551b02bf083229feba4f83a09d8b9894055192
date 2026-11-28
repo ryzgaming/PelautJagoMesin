@@ -1,0 +1,357 @@
+{
+  "id": "RAK-HEADS",
+  "nama": "Cylinder heads dan bonnet",
+  "node_rakitan": "RAK-HEADS",
+  "acuan": {
+    "no": 1,
+    "object_ids": [
+      "EXT-HEADS-01"
+    ]
+  },
+  "diagram": {
+    "arah_pandang": [
+      0.31139957904815674,
+      0.5449492335319519,
+      -0.7784989476203918
+    ],
+    "atas": [
+      0,
+      1,
+      0
+    ]
+  },
+  "bagian": [
+    {
+      "no": 1,
+      "nama": "Cylinder head 1",
+      "object_ids": [
+        "EXT-HEADS-01"
+      ],
+      "posisi": [],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D03 PDF 17 printed p. 33 / engine-only right elevation and front view",
+        "GA01 B3-48660-4450 / outline, top, end and rear housing details",
+        "P10 / deret bagian atas"
+      ],
+      "fungsi": "Cylinder head 1",
+      "nomor_oem": null,
+      "role": null,
+      "ukuran": null
+    },
+    {
+      "no": 2,
+      "nama": "Cylinder head 2",
+      "object_ids": [
+        "EXT-HEADS-02"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-HEADS-02",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.418,
+          "urutan": 2
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D03 PDF 17 printed p. 33 / engine-only right elevation and front view",
+        "GA01 B3-48660-4450 / outline, top, end and rear housing details",
+        "P10 / deret bagian atas"
+      ],
+      "fungsi": "Cylinder head 2",
+      "nomor_oem": null,
+      "role": null,
+      "ukuran": null
+    },
+    {
+      "no": 3,
+      "nama": "Cylinder head 3",
+      "object_ids": [
+        "EXT-HEADS-03"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-HEADS-03",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.436,
+          "urutan": 3
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D03 PDF 17 printed p. 33 / engine-only right elevation and front view",
+        "GA01 B3-48660-4450 / outline, top, end and rear housing details",
+        "P10 / deret bagian atas"
+      ],
+      "fungsi": "Cylinder head 3",
+      "nomor_oem": null,
+      "role": null,
+      "ukuran": null
+    },
+    {
+      "no": 4,
+      "nama": "Cylinder head 4",
+      "object_ids": [
+        "EXT-HEADS-04"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-HEADS-04",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.454,
+          "urutan": 4
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D03 PDF 17 printed p. 33 / engine-only right elevation and front view",
+        "GA01 B3-48660-4450 / outline, top, end and rear housing details",
+        "P10 / deret bagian atas"
+      ],
+      "fungsi": "Cylinder head 4",
+      "nomor_oem": null,
+      "role": null,
+      "ukuran": null
+    },
+    {
+      "no": 5,
+      "nama": "Cylinder head 5",
+      "object_ids": [
+        "EXT-HEADS-05"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-HEADS-05",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.472,
+          "urutan": 5
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D03 PDF 17 printed p. 33 / engine-only right elevation and front view",
+        "GA01 B3-48660-4450 / outline, top, end and rear housing details",
+        "P10 / deret bagian atas"
+      ],
+      "fungsi": "Cylinder head 5",
+      "nomor_oem": null,
+      "role": null,
+      "ukuran": null
+    },
+    {
+      "no": 6,
+      "nama": "Cylinder head 6",
+      "object_ids": [
+        "EXT-HEADS-06"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-HEADS-06",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.49,
+          "urutan": 6
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D03 PDF 17 printed p. 33 / engine-only right elevation and front view",
+        "GA01 B3-48660-4450 / outline, top, end and rear housing details",
+        "P10 / deret bagian atas"
+      ],
+      "fungsi": "Cylinder head 6",
+      "nomor_oem": null,
+      "role": null,
+      "ukuran": null
+    },
+    {
+      "no": 7,
+      "nama": "Bonnet rocker silinder 1",
+      "object_ids": [
+        "EXT-HEADS-07"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-HEADS-07",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.658,
+          "urutan": 1
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D05 Parts catalog 0CG10-M34300 Fig.24 Bonnet, WET #8,9,12,13,14",
+        "P10 / housing outline; top orthogonal shape and dimensions estimated"
+      ],
+      "fungsi": "Bonnet rocker silinder 1",
+      "nomor_oem": "748960-11310",
+      "role": "shell",
+      "ukuran": null
+    },
+    {
+      "no": 8,
+      "nama": "Bonnet rocker silinder 2",
+      "object_ids": [
+        "EXT-HEADS-08"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-HEADS-08",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.676,
+          "urutan": 2
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D05 Parts catalog 0CG10-M34300 Fig.24 Bonnet, WET #8,9,12,13,14",
+        "P10 / housing outline; top orthogonal shape and dimensions estimated"
+      ],
+      "fungsi": "Bonnet rocker silinder 2",
+      "nomor_oem": "748960-11310",
+      "role": "shell",
+      "ukuran": null
+    },
+    {
+      "no": 9,
+      "nama": "Bonnet rocker silinder 3",
+      "object_ids": [
+        "EXT-HEADS-09"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-HEADS-09",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.694,
+          "urutan": 3
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D05 Parts catalog 0CG10-M34300 Fig.24 Bonnet, WET #8,9,12,13,14",
+        "P10 / housing outline; top orthogonal shape and dimensions estimated"
+      ],
+      "fungsi": "Bonnet rocker silinder 3",
+      "nomor_oem": "748960-11310",
+      "role": "shell",
+      "ukuran": null
+    },
+    {
+      "no": 10,
+      "nama": "Bonnet rocker silinder 4",
+      "object_ids": [
+        "EXT-HEADS-10"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-HEADS-10",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.712,
+          "urutan": 4
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D05 Parts catalog 0CG10-M34300 Fig.24 Bonnet, WET #8,9,12,13,14",
+        "P10 / housing outline; top orthogonal shape and dimensions estimated"
+      ],
+      "fungsi": "Bonnet rocker silinder 4",
+      "nomor_oem": "748960-11310",
+      "role": "shell",
+      "ukuran": null
+    },
+    {
+      "no": 11,
+      "nama": "Bonnet rocker silinder 5",
+      "object_ids": [
+        "EXT-HEADS-11"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-HEADS-11",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.73,
+          "urutan": 5
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D05 Parts catalog 0CG10-M34300 Fig.24 Bonnet, WET #8,9,12,13,14",
+        "P10 / housing outline; top orthogonal shape and dimensions estimated"
+      ],
+      "fungsi": "Bonnet rocker silinder 5",
+      "nomor_oem": "748960-11310",
+      "role": "shell",
+      "ukuran": null
+    },
+    {
+      "no": 12,
+      "nama": "Bonnet rocker silinder 6",
+      "object_ids": [
+        "EXT-HEADS-12"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-HEADS-12",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.748,
+          "urutan": 6
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "D05 Parts catalog 0CG10-M34300 Fig.24 Bonnet, WET #8,9,12,13,14",
+        "P10 / housing outline; top orthogonal shape and dimensions estimated"
+      ],
+      "fungsi": "Bonnet rocker silinder 6",
+      "nomor_oem": "748960-11310",
+      "role": "shell",
+      "ukuran": null
+    }
+  ],
+  "notes": "Nomor posisi model. Lintasan ilustrasi, belum diperiksa untuk interferensi."
+}

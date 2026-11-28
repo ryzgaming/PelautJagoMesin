@@ -1,0 +1,166 @@
+{
+  "machine_model": "Yanmar 6AYM-WET H 555 kW engine-only",
+  "revision": "EXT v4",
+  "glb_sha256": "c5e9f1f826074cbebb161f5ba15ada8392744e15f9f786ff360078f095843e53",
+  "status": "FAIL",
+  "review_role": "Exterior Modeler / pemeriksaan mandiri, QA independen di folder qa",
+  "render_method": "Impor ulang GLB melalui toolkit render_six.py. Blender 4.3.2, Cycles CPU 5 sampel, denoising off, 840×630. Shape tanpa tekstur foto, warna cat sebagai estimasi. Kedua set netral dan warna dibuka.",
+  "render_settings": "renders-v4/render-settings.json",
+  "dimensions": [
+    {
+      "feature": "Panjang nominal engine-only",
+      "nominal_mm": 2000,
+      "measured_mm": 2002.677,
+      "difference_pct": 0.13385,
+      "status": "PASS",
+      "source": "GA01 / rantai 520 + 1000 + 480; D03 PDF 17 printed p.32"
+    },
+    {
+      "feature": "Lebar nominal engine-only",
+      "nominal_mm": 1305,
+      "measured_mm": 1305.0,
+      "difference_pct": 0.0,
+      "status": "PASS",
+      "source": "GA01 Front view; D03 PDF 17 printed p.32"
+    },
+    {
+      "feature": "Tinggi nominal engine-only",
+      "nominal_mm": 1431,
+      "measured_mm": 1541.0,
+      "difference_pct": 7.687,
+      "status": "FAIL",
+      "source": "D03 PDF 17 printed p.32 dan p.33, GA01"
+    },
+    {
+      "feature": "Tinggi fisik termasuk flange exhaust menurut proyeksi GA",
+      "nominal_mm": 1540.0,
+      "measured_mm": 1541.0,
+      "difference_pct": 0.06494,
+      "status": "PASS",
+      "source": "GA01 / 817+171.5 di atas crank + 551.5 di bawah crank. D03 pembulatan ke 989 dan 552."
+    }
+  ],
+  "scope_note": "Panjang dan lebar lulus sasaran geometri nominal 1%. Tinggi nominal gagal karena perbedaan definisi tinggi katalog dan flange gas buang. Proyeksi fisik terpisah. Kecocokan teknik OEM dan lintasan urai belum terverifikasi.",
+  "views": [
+    {
+      "view": "depan",
+      "status": "UNVERIFIED",
+      "sources": [
+        "D03 PDF 17 printed p.33 / Front view",
+        "GA01 / front view",
+        "P09 / foto unit di kapal"
+      ],
+      "neutral": "renders-v4/neutral_depan.png",
+      "color": "renders-v4/color_depan.png",
+      "compared_features": "Pusat crank/damper, cooler melintang di atas dan offset flange gas buang tampak di posisi yang sesuai.",
+      "open_items": "Detail reses drive, rib guard, koneksi pendingin dan tampilan di balik pipa kapal belum terverifikasi.",
+      "common_camera_legacy": "before-after/legacy_neutral_depan.png",
+      "common_camera_first": "before-after/v1_neutral_depan.png",
+      "common_camera_final": "before-after/v4_neutral_depan.png"
+    },
+    {
+      "view": "belakang",
+      "status": "UNVERIFIED",
+      "sources": [
+        "GA01 / flywheel and housing details",
+        "P06/P18 / tampak hampir aksial flywheel"
+      ],
+      "neutral": "renders-v4/neutral_belakang.png",
+      "color": "renders-v4/color_belakang.png",
+      "compared_features": "Flywheel merah-oranye, muka logam dua lingkar, hub pusat berbaut, housing pendingin melintang dan siku di sisi operasi direpresentasikan. Lubang muka 12/16 diperiksa ulang pada PCD GA.",
+      "open_items": "Kontur coran dan fitting pompa belakang disederhanakan. Ulir dan detail register belum diperiksa.",
+      "common_camera_legacy": "before-after/legacy_neutral_belakang.png",
+      "common_camera_first": "before-after/v1_neutral_belakang.png",
+      "common_camera_final": "before-after/v4_neutral_belakang.png"
+    },
+    {
+      "view": "kiri",
+      "status": "UNVERIFIED",
+      "sources": [
+        "P07 / sisi operasi",
+        "P14 / pompa dan jalur injeksi",
+        "D01 PDF 14 printed p.10 / operation side"
+      ],
+      "neutral": "renders-v4/neutral_kiri.png",
+      "color": "renders-v4/color_kiri.png",
+      "compared_features": "Header intake memanjang berusuk, enam jalur injeksi, pompa pusat, dua filter dekat flywheel dan enam tutup inspeksi berada di sisi operasi.",
+      "open_items": "Face pompa dan profil governor lebih sederhana dari referensi. Jalur pendek dan fitting tertutup tidak dapat dibandingkan.",
+      "common_camera_legacy": "before-after/legacy_neutral_kiri.png",
+      "common_camera_first": "before-after/v1_neutral_kiri.png",
+      "common_camera_final": "before-after/v4_neutral_kiri.png"
+    },
+    {
+      "view": "kanan",
+      "status": "UNVERIFIED",
+      "sources": [
+        "D03 PDF 17 printed p.33 / Right side view",
+        "P05/P17 / sisi non-operation",
+        "D01 PDF 14 printed p.10 / non-operation side"
+      ],
+      "neutral": "renders-v4/neutral_kanan.png",
+      "color": "renders-v4/color_kanan.png",
+      "compared_features": "Turbo tunggal, belokan duct ke depan, starter dekat flywheel, filter oli ganda dan filter bypass mengikuti susunan referensi. Outlet yang sebelumnya bercelah kini tersambung.",
+      "open_items": "Volume isolasi turbine, geometri volute, garis gasket dan pigtail lokal masih perkiraan.",
+      "common_camera_legacy": "before-after/legacy_neutral_kanan.png",
+      "common_camera_first": "before-after/v1_neutral_kanan.png",
+      "common_camera_final": "before-after/v4_neutral_kanan.png"
+    },
+    {
+      "view": "atas",
+      "status": "UNVERIFIED",
+      "sources": [
+        "GA01 B3-48660-4450 / top orthographic",
+        "P10 / foreshortened installed top detail"
+      ],
+      "neutral": "renders-v4/neutral_atas.png",
+      "color": "renders-v4/color_atas.png",
+      "compared_features": "GA menunjukkan enam posisi bonnet, unit pendingin melintang di ujung, intake panjang dan turbo di luar sisi kanan. Model mengikuti kelompok tersebut.",
+      "open_items": "Foto tepat tegak lurus seluruh mesin belum tersedia. Sambungan tersembunyi, profil bonnet dan kedalaman cooler belum terverifikasi.",
+      "common_camera_legacy": "before-after/legacy_neutral_atas.png",
+      "common_camera_first": "before-after/v1_neutral_atas.png",
+      "common_camera_final": "before-after/v4_neutral_atas.png"
+    },
+    {
+      "view": "tiga_perempat",
+      "status": "UNVERIFIED",
+      "sources": [
+        "P08 / kiri-depan",
+        "D03 PDF 17 printed p.32 / tampak produk sisi operasi dengan gearbox untuk landmark mesin",
+        "P05/P17 / landmark sisi kanan"
+      ],
+      "neutral": "renders-v4/neutral_tiga_perempat.png",
+      "color": "renders-v4/color_tiga_perempat.png",
+      "compared_features": "Sudut kiri-depan kamera pembanding memperlihatkan coran ujung pendingin, flange berusuk, intake, injeksi, pasang filter, guard dan dudukan. Kamera renderer toolkit yang menghadap kanan memperlihatkan turbo dan casing depan.",
+      "open_items": "Gambar sisi kiri-depan memuat sudut perspektif berbeda dan peti kayu yang menutupi carter. Pembuatan ulang menyederhanakan bracket, kabel dan bentuk penampang selang.",
+      "common_camera_legacy": "before-after/legacy_neutral_tiga_perempat.png",
+      "common_camera_first": "before-after/v1_neutral_tiga_perempat.png",
+      "common_camera_final": "before-after/v4_neutral_tiga_perempat.png"
+    }
+  ],
+  "repairs": [
+    "V2 memperbaiki urutan koordinat gusset dan menyambungkan bellows pada leher exhaust. Mengoreksi ujung casing dan siku sisi operasi berdasarkan datum.",
+    "V3 membuka lubang di block pada kedua ujung crank sesuai envelope poros model internal, tanpa menggeser sumbu.",
+    "V4 membangun muka bolted annulus dengan topology lubang eksplisit dan menyelaraskan kedalaman blind 22/26 mm; bore bolt mount Ø24 pada delapan titik menyilang 880 mm."
+  ],
+  "known_gaps": [
+    "Bentuk OEM internal casting yang mengelilingi timing train dan toleransi kerja tidak tersedia; hasil interferensi detail ada di laporan integrasi.",
+    "Tampak atas dari GA, dengan konfirmasi visual parsial dari foto oblique. Foto penuh tegak lurus belum tersedia.",
+    "Kabel, jalur pendingin pendek, routing fitting di balik housing dan interface internal cooler disederhanakan.",
+    "Baut dan tutup kecil sering digabung dalam mesh komponen induk. Status dimensi per part model adalah perkiraan kecuali fitur GA yang disebut eksplisit.",
+    "Baseline lama tanpa skala ulang dan dengan transform datum kira-kira. Perbedaan konfigurasi dapat memengaruhi siluet. Aset lama untuk regresi visual privat."
+  ],
+  "visual_status": "UNVERIFIED",
+  "before_after": {
+    "render_settings": "before-after/settings.json",
+    "inspected": true,
+    "legacy_color": "before-after/legacy_color_tiga_perempat.png",
+    "final_color": "before-after/v4_color_tiga_perempat.png",
+    "changes_observed": [
+      "Outlet exhaust vertikal dan guard diagonal depan membedakan siluet final dari legacy.",
+      "Dua filter bahan bakar tergantung ke arah flywheel, menggantikan bentuk tabung melintang legacy.",
+      "Sudut dan posisi gusset selaras di v4 dibanding bagian mengambang pada v1.",
+      "Rib carter lebih dalam daripada legacy, mengikuti shape di elevasi GA."
+    ],
+    "limits": "Kamera, viewport, preset cahaya dan exposure tetap. Orientasi legacy diselaraskan dengan rotasi 180° dan translasi tanpa rescale. Validasi fisik dibatasi referensi varian dan geometri yang terlihat."
+  }
+}

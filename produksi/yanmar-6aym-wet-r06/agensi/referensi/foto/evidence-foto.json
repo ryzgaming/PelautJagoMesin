@@ -1,0 +1,463 @@
+{
+  "machine_model": "Yanmar 6AYM-WET",
+  "scope": "H/Heavy Duty 555 kW pada 1840 rpm, rekonstruksi mesin tanpa marine gear",
+  "agent": {
+    "id": "/root/photos",
+    "role": "Evidence Foto",
+    "inspection_date_utc": "2026-11-28"
+  },
+  "orientation": "Depan ujung damper, belakang ujung flywheel. Kiri dan kanan dilihat dari flywheel ke arah damper. P05 sisi non-operation kanan (+Z), P07 sisi operation kiri (−Z), ditetapkan dari letak ujung flywheel/damper pada foto.",
+  "status": "OBSERVED",
+  "sources": [
+    {
+      "id": "P01",
+      "file": "P01.jpg",
+      "page_url": "https://www.resale.info/en/yanmar-6aym-wet-marine-engine/No-164078938",
+      "image_url": "https://images.resale.de/uploads/164078938_a_22457-yanmar-6aym-wet-3-.jpg",
+      "publisher": "RESALE",
+      "license": "Izin reproduksi belum diverifikasi. Referensi privat.",
+      "variant": "Yanmar 6AYM-WET H/Heavy Duty 555 kW @ 1840 rpm (identifikasi halaman sumber)",
+      "views": [
+        "kiri"
+      ],
+      "evidence_status": "OBSERVED",
+      "observed_features": [
+        "Manifold memanjang berusuk; pompa injeksi pusat; dua tabung filter ke arah flywheel; enam tutup inspeksi sisi bawah."
+      ],
+      "uncertainty": "Tanda air dan plastik di beberapa komponen; identitas/rating dari listing unit serial 9501.",
+      "sha256": "c9f6f4ccee7f21d64035c66d31aa25159178f92460574eee6a362eaf8998c036",
+      "verified_by": "multimodal view_image"
+    },
+    {
+      "id": "P02",
+      "file": "P02.jpg",
+      "page_url": "https://www.resale.info/en/yanmar-6aym-wet-marine-engine/No-164078938",
+      "image_url": "https://images.resale.de/uploads/164078938_b_22457-yanmar-6aym-wet-4-.jpg",
+      "publisher": "RESALE",
+      "license": "Izin reproduksi belum diverifikasi. Referensi privat.",
+      "variant": "Yanmar 6AYM-WET H/Heavy Duty 555 kW @ 1840 rpm (identifikasi halaman sumber)",
+      "views": [
+        "belakang 3/4"
+      ],
+      "evidence_status": "OBSERVED",
+      "observed_features": [
+        "Flywheel merah-oranye bercincin; hub pusat berbaut; body pompa bundar dan siku besar."
+      ],
+      "uncertainty": "Tampak miring dan bawah tertutup plastik.",
+      "sha256": "d2d68e515187efd5ef995a0e2eeed4978370496ea48be7d40ae61f328a0056eb",
+      "verified_by": "multimodal view_image"
+    },
+    {
+      "id": "P03",
+      "file": "P03.jpg",
+      "page_url": "https://www.resale.info/en/yanmar-6aym-wet-marine-engine/No-164078938",
+      "image_url": "https://images.resale.de/uploads/164078938_c_22457-yanmar-6aym-wet-5-.jpg",
+      "publisher": "RESALE",
+      "license": "Izin reproduksi belum diverifikasi. Referensi privat.",
+      "variant": "Yanmar 6AYM-WET H/Heavy Duty 555 kW @ 1840 rpm (identifikasi halaman sumber)",
+      "views": [
+        "kiri"
+      ],
+      "evidence_status": "OBSERVED",
+      "observed_features": [
+        "Konfirmasi posisi rumah berusuk dan dua tabung filter."
+      ],
+      "uncertainty": "Selubung pengiriman menutup banyak detail.",
+      "sha256": "8a12c0b7c5a2325d8e65e39e6bb8c3a99d852fe009f22110e9468363d5f5e7df",
+      "verified_by": "multimodal view_image"
+    },
+    {
+      "id": "P04",
+      "file": "P04.jpg",
+      "page_url": "https://www.resale.info/en/yanmar-6aym-wet-marine-engine/No-164078938",
+      "image_url": "https://images.resale.de/uploads/164078938_d_22457-yanmar-6aym-wet-2-.jpg",
+      "publisher": "RESALE",
+      "license": "Izin reproduksi belum diverifikasi. Referensi privat.",
+      "variant": "Yanmar 6AYM-WET H/Heavy Duty 555 kW @ 1840 rpm (identifikasi halaman sumber)",
+      "views": [
+        "belakang 3/4 kanan, detail"
+      ],
+      "evidence_status": "OBSERVED",
+      "observed_features": [
+        "Flywheel parsial dan koneksi pipa gelap; starter rendah dekat flywheel; satu filter kecil dekat bagian belakang."
+      ],
+      "uncertainty": "Kamera dekat dan hanya sebagian mesin; jangan ukur posisi kedalaman.",
+      "sha256": "a90922d7b1b283a6ce4b5909787653bf8d095a32105934a0cd4770105a73ba74",
+      "verified_by": "multimodal view_image"
+    },
+    {
+      "id": "P05",
+      "file": "P05.jpg",
+      "page_url": "https://aam-equipment.nl/stock-engines-gensets/yanmar-stock/2233-yanmar-6aym-wet-555kw-1840-rpm/",
+      "image_url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-2.jpg",
+      "publisher": "AAM Equipment",
+      "license": "Izin reproduksi belum diverifikasi. Referensi privat.",
+      "variant": "Yanmar 6AYM-WET H/Heavy Duty 555 kW @ 1840 rpm (identifikasi halaman sumber)",
+      "views": [
+        "kanan"
+      ],
+      "evidence_status": "OBSERVED",
+      "observed_features": [
+        "Turbo tunggal tinggi di sekitar tengah, rumah kompresor metal terang dan sisi panas tertutup isolasi; pipa udara melengkung ke depan; starter rendah dekat flywheel; dua filter vertikal bagian tengah-depan dan tabung pendek; flange kaki dicor."
+      ],
+      "uncertainty": "Sump sebagian tersembunyi oleh pallet dan bayangan; foto perspektif.",
+      "sha256": "b2aa581ec5497f995a254118351384c3cb053dcabb29bdcf05de36b84fa29578",
+      "verified_by": "multimodal view_image"
+    },
+    {
+      "id": "P06",
+      "file": "P06.jpg",
+      "page_url": "https://aam-equipment.nl/stock-engines-gensets/yanmar-stock/2233-yanmar-6aym-wet-555kw-1840-rpm/",
+      "image_url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-4.jpg",
+      "publisher": "AAM Equipment",
+      "license": "Izin reproduksi belum diverifikasi. Referensi privat.",
+      "variant": "Yanmar 6AYM-WET H/Heavy Duty 555 kW @ 1840 rpm (identifikasi halaman sumber)",
+      "views": [
+        "belakang"
+      ],
+      "evidence_status": "OBSERVED",
+      "observed_features": [
+        "Flywheel merah-oranye dan dua lingkar konsentris bermuka metal; hub 12 baut tampak; unit housing melintang berusuk di atas flywheel; pompa bertutup bulat dan siku besar pada kiri kamera; sumbat sump bawah."
+      ],
+      "uncertainty": "Pandangan hampir lurus sedikit dari atas; kabel/ikat pengiriman tidak termasuk bagian tetap.",
+      "sha256": "4dd99cd8872af5ca0dbabf688188163beaccf6475455aa35762e9dc3b69f9431",
+      "verified_by": "multimodal view_image"
+    },
+    {
+      "id": "P07",
+      "file": "P07.jpg",
+      "page_url": "https://aam-equipment.nl/stock-engines-gensets/yanmar-stock/2233-yanmar-6aym-wet-555kw-1840-rpm/",
+      "image_url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-5.jpg",
+      "publisher": "AAM Equipment",
+      "license": "Izin reproduksi belum diverifikasi. Referensi privat.",
+      "variant": "Yanmar 6AYM-WET H/Heavy Duty 555 kW @ 1840 rpm (identifikasi halaman sumber)",
+      "views": [
+        "kiri"
+      ],
+      "evidence_status": "OBSERVED",
+      "observed_features": [
+        "Housing panjang berusuk pada sisi atas; pompa injeksi mekanis dengan enam sambungan utama pada tengah sisi; dua filter gantung di dekat ujung flywheel; enam penutup inspeksi dengan fastener; guard hitam di depan, port dan pipa siku ke belakang; tutup kecil oranye di bawah."
+      ],
+      "uncertainty": "Beberapa port tertutup plastik dan data nameplate kecil.",
+      "sha256": "6cdd1dcf268654e935383195d0f1fc18ddda6d6266f5b6db6e47e8fbc4bc7d06",
+      "verified_by": "multimodal view_image"
+    },
+    {
+      "id": "P08",
+      "file": "P08.jpg",
+      "page_url": "https://aam-equipment.nl/stock-engines-gensets/yanmar-stock/22400-yanmar-6aym-wet-555kw-1840-rpm/",
+      "image_url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-10.jpg",
+      "publisher": "AAM Equipment",
+      "license": "Izin reproduksi belum diverifikasi. Referensi privat.",
+      "variant": "Yanmar 6AYM-WET H/Heavy Duty 555 kW @ 1840 rpm (identifikasi halaman sumber)",
+      "views": [
+        "3/4 kiri-depan"
+      ],
+      "evidence_status": "OBSERVED",
+      "observed_features": [
+        "Housing melintang di ujung depan, cap samping bundar bercincin baut dan pipa siku; guard belt hitam/ribbed; injeksi pusat, dua tabung filter belakang, akses bawah berulang, kaki berflens."
+      ],
+      "uncertainty": "Gambar juga dipakai beberapa listing AAM; identitas di tingkat varian/rating, serial foto belum dipastikan.",
+      "sha256": "6afca4b49654483ca4cd36d94d1de82888577db2e53e3fb70a1f1dc0e99195a5",
+      "verified_by": "multimodal view_image"
+    },
+    {
+      "id": "P09",
+      "file": "P09.jpg",
+      "page_url": "https://www.yanmar.com/eu/news/2021/06/30/94738.html",
+      "image_url": "https://www.yanmar.com/media/news/2021/06/29100728/IMG_2350.jpg",
+      "publisher": "Yanmar Europe",
+      "license": "Izin reproduksi belum diverifikasi. Referensi privat.",
+      "variant": "Yanmar 6AYM-WET H/Heavy Duty 555 kW @ 1840 rpm (identifikasi halaman sumber)",
+      "views": [
+        "depan"
+      ],
+      "evidence_status": "OBSERVED",
+      "observed_features": [
+        "Muka depan housing pendingin melintang, pusat/reses drive di bawah, tutup atas memanjang terlihat foreshortened, turbo dan outlet exhaust ke kiri gambar."
+      ],
+      "uncertainty": "Pemasangan Pelagos III; selang hidraulik dan pompa tambahan menutupi sebagian drive/rangka.",
+      "sha256": "299bdab9347a8912910f8d6e389ee07f6b6ecd74a7aea5dfd710d18d9a73de06",
+      "verified_by": "multimodal view_image"
+    },
+    {
+      "id": "P10",
+      "file": "P10.jpg",
+      "page_url": "https://www.yanmar.com/eu/news/2021/06/30/94738.html",
+      "image_url": "https://www.yanmar.com/media/news/2021/06/29100735/IMG_2351.jpg",
+      "publisher": "Yanmar Europe",
+      "license": "Izin reproduksi belum diverifikasi. Referensi privat.",
+      "variant": "Yanmar 6AYM-WET H/Heavy Duty 555 kW @ 1840 rpm (identifikasi halaman sumber)",
+      "views": [
+        "3/4 belakang-atas"
+      ],
+      "evidence_status": "OBSERVED",
+      "observed_features": [
+        "Housing melintang belakang, pipa siku dan sambungan bawah, bagian permukaan atas tutup silinder dan turbo/exhaust pada sisi kiri mesin."
+      ],
+      "uncertainty": "Pemasangan Pelagos III; tiang dan pipa kapal menutupi sebagian mesin; bukan tampak nadir.",
+      "sha256": "02aba58481a4af071a684537057d7fc8745857b4951e2ccc989d9096f9511fae",
+      "verified_by": "multimodal view_image"
+    },
+    {
+      "id": "P14",
+      "file": "P14.jpg",
+      "page_url": "https://www.yanmar.com/global/about/ymedia/article/domestic_vessels.html",
+      "image_url": "https://www.yanmar.com/global/about/ymedia/wp-content/uploads/2020/03/img_domestic_vessels_03-1024x301.jpg",
+      "publisher": "Yanmar Y media",
+      "license": "Izin reproduksi belum diverifikasi. Referensi privat.",
+      "variant": "Yanmar 6AYM-WET H/Heavy Duty 555 kW @ 1840 rpm (identifikasi halaman sumber)",
+      "views": [
+        "kiri detail; 3/4 kiri-belakang"
+      ],
+      "evidence_status": "OBSERVED",
+      "observed_features": [
+        "Panel kiri foto memperlihatkan pompa injeksi di tengah dengan enam jalur dan dua filter tinggi; panel kanan menunjukkan area akses injeksi saat terpasang dan coupling guard."
+      ],
+      "uncertainty": "Montase resmi dua foto, 1024×301; pipa/guard eksternal instalasi Statum tidak diklaim sebagai komponen engine-only.",
+      "sha256": "f6a62b89b100b9bf1461a5a9e6e9b8687fff5e8c2ae9c1e7ae6074f4a1a27d7d",
+      "verified_by": "multimodal view_image"
+    },
+    {
+      "id": "P17",
+      "file": "P17.jpg",
+      "page_url": "https://aam-equipment.nl/stock-engines-gensets/yanmar-stock/22400-yanmar-6aym-wet-555kw-1840-rpm/",
+      "image_url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW.jpg",
+      "publisher": "AAM Equipment",
+      "license": "Izin reproduksi belum diverifikasi. Referensi privat.",
+      "variant": "Yanmar 6AYM-WET H/Heavy Duty 555 kW @ 1840 rpm (identifikasi halaman sumber)",
+      "views": [
+        "kanan"
+      ],
+      "evidence_status": "OBSERVED",
+      "observed_features": [
+        "Posisi dan bentuk turbo berisolasi; starter sisi bawah dekat flywheel; dua tabung filter vertikal dan tabung lebih kecil yang terpisah."
+      ],
+      "uncertainty": "Foto sudut pembanding P05; media galeri dapat digunakan pada beberapa listing.",
+      "sha256": "e07e52faeea1057b8e6f6014178c52156997fecc2b4950cfe318a3b00b8d07c9",
+      "verified_by": "multimodal view_image"
+    },
+    {
+      "id": "P18",
+      "file": "P18.jpg",
+      "page_url": "https://aam-equipment.nl/stock-engines-gensets/yanmar-stock/22400-yanmar-6aym-wet-555kw-1840-rpm/",
+      "image_url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-3.jpg",
+      "publisher": "AAM Equipment",
+      "license": "Izin reproduksi belum diverifikasi. Referensi privat.",
+      "variant": "Yanmar 6AYM-WET H/Heavy Duty 555 kW @ 1840 rpm (identifikasi halaman sumber)",
+      "views": [
+        "belakang"
+      ],
+      "evidence_status": "OBSERVED",
+      "observed_features": [
+        "Geometri housing pendingin dengan rusuk dan penopang segitiga, flywheel dan susunan lubang flange."
+      ],
+      "uncertainty": "Sudut hampir sama dengan P06; bukan sudut baru.",
+      "sha256": "c716a6139b48239bbaca7de355341229eab699d00a144d9e465ea196dc9afc6d",
+      "verified_by": "multimodal view_image"
+    },
+    {
+      "id": "P19",
+      "file": "P19.jpg",
+      "page_url": "https://aam-equipment.nl/stock-engines-gensets/yanmar-stock/22339-yanmar-6aym-wet-555kw-1840-rpm/",
+      "image_url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-6-1024x768.jpg",
+      "publisher": "AAM Equipment",
+      "license": "Izin reproduksi belum diverifikasi. Referensi privat.",
+      "variant": "Yanmar 6AYM-WET H/Heavy Duty 555 kW @ 1840 rpm (identifikasi halaman sumber)",
+      "views": [
+        "kiri"
+      ],
+      "evidence_status": "OBSERVED",
+      "observed_features": [
+        "Enam jalur injeksi, deret tutup inspeksi, header memanjang berusuk dan modul filter ganda."
+      ],
+      "uncertainty": "Gambar ukuran 1024×768; P07 lebih detail.",
+      "sha256": "4ae41ccd23a2ec6249e0020d2631360a9f045520df2cf11dad7410478719ca95",
+      "verified_by": "multimodal view_image"
+    },
+    {
+      "id": "P20",
+      "file": "P20.jpg",
+      "page_url": "https://aam-equipment.nl/stock-engines-gensets/yanmar-stock/22400-yanmar-6aym-wet-555kw-1840-rpm/",
+      "image_url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-11-768x1024.jpg",
+      "publisher": "AAM Equipment",
+      "license": "Izin reproduksi belum diverifikasi. Referensi privat.",
+      "variant": "Yanmar 6AYM-WET H/Heavy Duty 555 kW @ 1840 rpm (identifikasi halaman sumber)",
+      "views": [
+        "kanan"
+      ],
+      "evidence_status": "OBSERVED",
+      "observed_features": [
+        "Tampak sisi starter dan turbo, bracket kaki serta filter."
+      ],
+      "uncertainty": "Gambar ukuran 768×1024; P05 lebih detail.",
+      "sha256": "ac63e07cd50306d8d68e33db0b21e8fbbc7200d52b96c0cc31b5b54a36482094",
+      "verified_by": "multimodal view_image"
+    }
+  ],
+  "coverage": {
+    "depan": {
+      "status": "OBSERVED",
+      "sources": [
+        "P09"
+      ],
+      "limit": "Mesin terpasang dengan aksesori instalasi menutup sebagian permukaan; P08 membantu memeriksa bentuk depan."
+    },
+    "belakang": {
+      "status": "OBSERVED",
+      "sources": [
+        "P06",
+        "P18"
+      ]
+    },
+    "kiri": {
+      "status": "OBSERVED",
+      "sources": [
+        "P07",
+        "P19",
+        "P01",
+        "P14"
+      ]
+    },
+    "kanan": {
+      "status": "OBSERVED",
+      "sources": [
+        "P05",
+        "P17",
+        "P20"
+      ]
+    },
+    "atas": {
+      "status": "UNVERIFIED",
+      "sources": [
+        "P09",
+        "P10"
+      ],
+      "limit": "Permukaan atas sebagian terlihat dalam sudut miring dengan tutupan; belum ada foto langsung searah vertikal. GA01 mencakup tampak atas teknik pada 6AYM-WET engine-only, dengan rating unit foto belum tercetak pada gambar.",
+      "supporting_drawing": "GA01"
+    },
+    "3/4": {
+      "status": "OBSERVED",
+      "sources": [
+        "P08",
+        "P10",
+        "P02",
+        "P04",
+        "P14"
+      ]
+    },
+    "count_for_review_minimum": 5
+  },
+  "gaps": [
+    "Tampak atas langsung seluruh engine envelope.",
+    "Tampak damper/front lurus pada mesin telanjang dengan guard dan pompa terbuka jelas.",
+    "Foto nameplate dengan blok model/serial terbaca.",
+    "Foto bongkar, geometri internal, bawah sump, serta detail sambungan tersembunyi."
+  ],
+  "access_failures": [
+    {
+      "url": "https://www.constructionsales.com.au/items/details/yanmar-6aym-wet-marine-engine/OAG-AD-25080474/",
+      "status": 403,
+      "note": "Konfigurasi M-rating 610 kW disebut pada listing terkait, di luar cakupan."
+    },
+    {
+      "url": "https://www.ownerdriver.com.au/detail/yanmar-6aymwet-1047749",
+      "status": 202,
+      "note": "Badan respons kosong pada unduhan langsung. Listing 610 kW di luar cakupan."
+    }
+  ],
+  "excluded_other_images": [
+    "P11 (kapal)",
+    "P12 (panel kemudi)",
+    "P13, P15 dan P16 (kapal/kabin)"
+  ],
+  "supporting_drawings": [
+    {
+      "id": "GA01",
+      "file": "GA01.jpg",
+      "page_url": "https://www.scribd.com/document/786370241/YANMAR-6AYM-WET-Model",
+      "image_url": "https://imgv2-1-f.scribdassets.com/img/document/786370241/original/cb85ae3a0d/1?v=1",
+      "publisher": "Yanmar Co., Ltd. (title block); preview publik Scribd",
+      "title": "OUTLINE, B3-48660-4450, 1-31-2011",
+      "variant": "6AYM-WET engine-only sebagaimana dicetak pada tabel; rating tidak eksplisit",
+      "views": [
+        "atas (mesin)",
+        "atas (dudukan)",
+        "depan",
+        "belakang",
+        "samping",
+        "detail flywheel"
+      ],
+      "evidence_status": "OBSERVED",
+      "uncertainty": "Preview 768×543. Cukup untuk orientasi dan susunan komponen, tulisan kecil serta dimensi non-nominal perlu sumber resolusi lebih tinggi. Tampak atas mesin berada di tengah-atas, tampak atas dudukan berada di tengah-bawah. Tidak menambah hitungan sudut foto nyata.",
+      "license": "Hak cipta Yanmar. Preview publik untuk referensi privat.",
+      "sha256": "9e57964bfc936df3557bed27886854a6c4c91bd083002974f6cecbf03ab60b38",
+      "verified_by": "multimodal view_image"
+    }
+  ],
+  "contact_sheet": {
+    "file": "contact-sheet.jpg",
+    "sources": [
+      "P05",
+      "P06",
+      "P07",
+      "P08",
+      "P09",
+      "P10",
+      "P14",
+      "GA01"
+    ],
+    "sha256": "a2413d4b9bff4a72afc092bbd46a613b23344e55a271710ee023687041de7d9a",
+    "scope": "Indeks inspeksi privat, bukan aset viewer."
+  },
+  "visual_landmarks": [
+    {
+      "feature": "Sisi operation kiri (−Z)",
+      "source_ids": [
+        "P07",
+        "P08",
+        "P14"
+      ],
+      "appearance": "Intake manifold memanjang berusuk, pompa injeksi mekanis berderet, dua filter bahan bakar vertikal dekat sisi flywheel, alternator/guard depan."
+    },
+    {
+      "feature": "Sisi non-operation kanan (+Z)",
+      "source_ids": [
+        "P05",
+        "P17"
+      ],
+      "appearance": "Turbo dan heat insulation bagian atas tengah, starter rendah dekat flywheel, sepasang filter oli panjang dan bypass pendek, manifold exhaust mendingin oleh air menurut callout Yanmar."
+    },
+    {
+      "feature": "Belakang",
+      "source_ids": [
+        "P06",
+        "P18"
+      ],
+      "appearance": "Flywheel merah-oranye dengan cincin flange logam, intercooler melintang di atas, pompa air laut di kiri/operation serta pipa siku."
+    },
+    {
+      "feature": "Depan",
+      "source_ids": [
+        "P08",
+        "P09"
+      ],
+      "appearance": "Freshwater cooler dengan cap samping bundar, guard hitam dekat drive. Foto instalasi menunjukkan beberapa selang dan pompa yang menutup detail mesin."
+    },
+    {
+      "feature": "Material visual",
+      "source_ids": [
+        "P05",
+        "P06",
+        "P07",
+        "P08"
+      ],
+      "appearance": "Casing mesin dicat abu-abu gelap grafit, beberapa permukaan cor/mesin berwarna logam abu-abu, flywheel terekspos merah-oranye, selang dan guard hitam, insulasi exhaust perak terang. Kode warna cat OEM dan bahan tidak ditentukan dari foto."
+    }
+  ],
+  "nameplate_attempt": {
+    "source_id": "P09",
+    "status": "UNVERIFIED",
+    "result": "Pelat gelap dekat drive terlihat di crop posisi 1770,1840 (320×300 piksel). Selang menghalangi sebagian pelat dan cetakan pada bagian terlihat tidak dapat dibaca; jenis pelat serta model/serial belum terkonfirmasi."
+  }
+}

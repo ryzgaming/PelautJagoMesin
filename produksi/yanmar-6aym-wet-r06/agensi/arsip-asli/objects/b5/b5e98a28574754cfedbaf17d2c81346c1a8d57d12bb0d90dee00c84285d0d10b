@@ -1,0 +1,167 @@
+"""Build the public playback data from the same centreline coordinates as the model."""
+import ast
+import json
+import math
+from pathlib import Path
+
+HERE = Path(__file__).resolve().parent
+FUEL = ["D01 PDF 16, 114 / skema bahan bakar", "D05 Fig. 83–88 / filter dan pipa injeksi", "P07/P08/P14 / sisi operasi"]
+NOZZLE = ["D01 PDF 150–152 / penampang injektor mekanis TP2", "D05 Fig. 79 dan 88 / holder dan pipa injeksi"]
+AIR = ["D01 PDF 14, 163, 170–171 / lokasi, pendingin udara dan turbo", "D05 Fig. 25, 31–32, 36–37 / manifold, turbo, duct dan cooler", "P07/P17/P18 / geometri tampak"]
+GAS = ["D01 PDF 14, 170–171 / arah TD13M dan lokasi", "D05 Fig. 27, 31–33 / manifold, turbo dan siku gas", "GA01 / flange buang", "P17 / sisi kanan"]
+def rounded(xyz):
+    return [round(float(v),7) for v in xyz]
+
+def sample(knots):
+    """Sample the same cubic controls and resolution as exterior/build.py sweep()."""
+    result=[]
+    for i,(p,q) in enumerate(zip(knots,knots[1:])):
+        prev=knots[max(0,i-1)]
+        after=knots[min(len(knots)-1,i+2)]
+        for j in range(5):
+            t=j/5
+            s=1-t
+            result.append(rounded([s**3*a+3*s*s*t*(a+(b-c)/7)+3*s*t*t*(b-(d-a)/7)+t**3*b
+                for a,b,c,d in zip(p,q,prev,after)]))
+    return result+[rounded(knots[-1])]
+
+def make():
+    datum=json.loads((HERE.parent/'datum.json').read_text())['dimensions']
+    centers=datum['cylinder_center_x']['value']
+    tx,ty,tz=datum['turbo_housing_center_xyz']['value']
+    ex,ey,ez=datum['turbo_exhaust_port_center_xyz']['value']
+    # Preserve the six observed individual delivery-pipe bends from the exterior source.
+    syntax=ast.parse((HERE.parent/'exterior'/'build.py').read_text())
+    elbows=next(ast.literal_eval(n.value) for n in syntax.body if isinstance(n,ast.Assign)
+                and isinstance(n.targets[0],ast.Name) and n.targets[0].id=='elbows')
+    ports={}
+    routes=[]
+    def port(key,xyz,part,name,boundary=False):
+        ports[key]=dict(id=key,point=rounded(xyz),component_id=part,name=name,boundary=boundary)
+        return key
+    def edge(key,system,name,a,b,interior,parts,radius,kind='schematic',sampled=False,**extra):
+        coords=[ports[a]['point'],*interior,ports[b]['point']]
+        routes.append(dict(id=key,system=system,name=name,**{'from':a,'to':b},
+            points=list(map(rounded,coords)) if sampled else sample(coords),radius_m=radius,
+            kind=kind,component_ids=parts,source_refs=(NOZZLE if key.startswith(('hp-','nozzle-')) else FUEL if system=='fuel' else AIR if system=='intake' else GAS),
+            geometry_status='ESTIMATED',direction_status='DOCUMENTED',
+            **({'mesh_id':extra['mesh']} if 'mesh' in extra else {}),
+            note=extra.pop('note','Letak dan ukuran perkiraan model. Jalur dalam coran digambarkan skematis.'),**extra))
+    # Fuel feed, transfer, gallery, and six independent delivery pulses.
+    inlet=port('fuel.engine.in',(.417,.172,-.487),'EXT-FUEL-12','Batas suplai kapal',True)
+    feed=port('fuel.feed.out',(.421,.229,-.482),'EXT-FUEL-12','Keluar pompa feed')
+    filter_in=port('fuel.filter.in',(.203,.440,-.568),'EXT-FUEL-09','Masuk kepala filter')
+    filter_out=port('fuel.filter.out',(.402,.458,-.521),'EXT-FUEL-09','Keluar kepala filter')
+    pin=port('fuel.pump.in',(.506,.356,-.466),'EXT-FUEL-01','Masuk pompa injeksi')
+    edge('feed-in','fuel','Inlet kapal ke pompa feed',inlet,feed,[(.446,.173,-.468),(.446,.207,-.467)],['EXT-FUEL-12'],.008)
+    # Flexible hoses are independent exterior meshes with their own sampled centerlines.
+    hf=port('fuel.hose.feed-end',(.203,.412,-.593),'EXT-FUEL-400','Siku masuk filter')
+    hp=port('fuel.hose.pump-end',(.642,.199,-.510),'EXT-FUEL-401','Siku masuk pompa')
+    edge('feed-hose','fuel','Selang feed ke filter',feed,hf,[(.415,.198,-.539),(.395,.178,-.593),(.357,.168,-.628),(.306,.177,-.635),(.252,.228,-.627),(.218,.302,-.614),(.203,.373,-.592)],['EXT-FUEL-403'],.010,'physical',mesh='EXT-FUEL-403')
+    edge('filter-fitting','fuel','Adaptor kepala filter',hf,filter_in,[(.203,.425,-.590),(.203,.435,-.581),(.203,.440,-.573)],['EXT-FUEL-400'],.010,'physical',mesh='EXT-FUEL-400')
+    edge('filter-head','fuel','Melalui filter bahan bakar',filter_in,filter_out,[(x,y,z-.018) for x,y,z in [(.173,.426,-.529),(.148,.305,-.531),(.150,.311,-.509),(.150,.438,-.499),(.310,.450,-.499)]],['EXT-FUEL-09','EXT-FUEL-10'],.009)
+    edge('filter-pump-hose','fuel','Selang keluar filter ke pompa',filter_out,hp,[(.461,.451,-.523),(.507,.435,-.551),(.574,.382,-.559),(.626,.281,-.542)],['EXT-FUEL-404'],.012,'physical',mesh='EXT-FUEL-404')
+    edge('pump-fitting','fuel','Siku suplai pada badan pompa',hp,pin,[(.643,.178,-.504),(.625,.159,-.504),(.603,.164,-.503),(.590,.194,-.505),(.570,.250,-.505),(.548,.317,-.498),(.509,.349,-.494),(.506,.356,-.479)],['EXT-FUEL-401'],.011,'physical',mesh='EXT-FUEL-401')
+    rail=[]
+    for i,cx in enumerate(centers,1):
+        xp=.484+.079*(i-1)
+        pipe=f'EXT-FUEL-{i+2:02d}'
+        holder=f'INT-FUELINJ-{i}1'
+        event=dict(event='injection',cylinder=i)
+        rail.append(port(f'fuel.gallery.{i}',(xp,.356,-.427),'EXT-FUEL-01',f'Galeri elemen {i}'))
+        delivery=port(f'fuel.delivery.{i}',(xp,.479,-.427),f'EXT-FUEL-{12+i:02d}',f'Katup delivery {i}')
+        # Pass between the intake runners below the plenum lip, then enter the head wall.
+        entry_x=cx+(.057 if cx < xp else -.057)
+        adjusted=elbows[i-1][:-2]+[(entry_x,.539,-.412),(entry_x,.540,-.331)]
+        old=port(f'fuel.head.{i}',(entry_x,.540,-.265),f'EXT-HEADS-{i:02d}',f'Tembusan kepala {i}')
+        body=port(f'fuel.holder.{i}',(cx,.6004,-.034),holder,f'Port samping holder {i}')
+        nozzle=port(f'fuel.nozzle.{i}',(cx,.489,-.001),holder+'-14',f'Ujung nozzle {i}')
+        edge(f'pump-element-{i}','fuel',f'Elemen dan delivery {i}',rail[-1],delivery,[],['EXT-FUEL-01',f'EXT-FUEL-{12+i:02d}'],.004,**event)
+        edge(f'hp-pipe-{i}','fuel',f'Pipa tekanan tinggi {i}',delivery,old,[(xp,.494,-.427),*adjusted],[pipe],.0055,'physical',mesh=pipe,**event)
+        edge(f'hp-head-{i}','fuel',f'Sambungan kepala ke holder {i}',old,body,[(entry_x,.540,-.247),(entry_x,.557,-.209),(cx+.018,.594,-.164),(cx,.6004,-.116),(cx,.6004,-.065),(cx,.6004,-.046)],[pipe],.0055,'physical',mesh=pipe,
+             note='Titik akhir di pusat bore samping holder model. Lengkung di balik dinding kepala diperkirakan, tanpa gambar berdimensi.',**event)
+        edge(f'nozzle-bore-{i}','fuel',f'Bor eksentrik dan nozzle {i}',body,nozzle,[(cx,.6004,-.0117),(cx,.55,-.0117),(cx,.536,-.0117),(cx,.51875,-.00505),(cx,.500,-.002)],[holder,holder+'-14'],.0013,**event)
+    # Split the common low-pressure gallery at each real take-off, without six overlapping delivery paths.
+    edge('pump-gallery-in','fuel','Galeri tekanan rendah',pin,rail[2],[(.506,.356,-.445),(.580,.374,-.429)],['EXT-FUEL-01'],.007)
+    for i,j in [(2,1),(1,0),(2,3),(3,4),(4,5)]:
+        edge(f'gallery-{i+1}-{j+1}','fuel','Distribusi antar elemen pompa',rail[i],rail[j],[],['EXT-FUEL-01'],.006)
+    # TD13M scroll mouth centre and tangent come directly from the actual modeled polar section.
+    def scroll_end(x,r,angle):
+        return (tx+x,ty+r*math.cos(angle),tz+r*math.sin(angle))
+    ci=port('air.atmosphere',(tx+.4015,ty+.007,tz),'EXT-INTAKE-04','Batas udara lingkungan',True)
+    wheel=port('air.compressor.eye',(tx+.215,ty,tz),'EXT-EXHAUST-20','Mata kompresor')
+    co=port('air.compressor.mouth',scroll_end(.183,.114,.52),'EXT-EXHAUST-03','Mulut volute kompresor')
+    edge('air-cleaner','intake','Udara luar ke impeller',ci,wheel,[(.898,.687,.481),(.858,.682,.481)],['EXT-INTAKE-04','EXT-EXHAUST-03'],.041)
+    edge('compressor-scroll','intake','Impeller ke mulut kompresor',wheel,co,[(.780,.681,.513),(.770,.647,.554),(.783,.598,.499),(.783,.615,.401),(.783,.705,.384),(.783,.780,.440)],['EXT-EXHAUST-03','EXT-EXHAUST-20'],.018)
+    # Both charge-air connections are on the dry side of the rear cooler. End covers carry water.
+    hot=port('air.cooler.hot',(-.011,.735,.121),'EXT-INTAKE-02','Flensa udara panas pada casing')
+    cold=port('air.cooler.cold',(-.011,.747,-.130),'EXT-INTAKE-02','Jendela udara dingin pada casing')
+    man=port('air.manifold.in',(.063,.677,-.345),'EXT-INTAKE-01','Masuk manifold udara')
+    edge('hot-air-duct','intake','Duct kompresor ke air cooler belakang',co,hot,
+         [(.780,.805,.505),(.748,.847,.463),(.680,.881,.404),(.609,.890,.319),(.511,.862,.272),(.425,.820,.263),(.281,.777,.289),(.165,.770,.261),(.106,.751,.190),(.066,.735,.128)],
+         ['EXT-INTAKE-05',*[f'EXT-INTAKE-{n}' for n in range(50,58)]],.041,'physical',mesh='EXT-INTAKE-05',note='Kedua ujung diwakili pada sisi udara. Sudut putar housing dan lintasan duct rekonstruksi perkiraan.')
+    edge('charge-air-core','intake','Udara melintas di luar pipa bundle',hot,cold,
+         [(-.072,.735,.121),(-.115,.765,.074),(-.125,.780,.009),(-.111,.769,-.071),(-.075,.747,-.130)],['EXT-INTAKE-02'],.024)
+    edge('cold-air-elbow','intake','Siku udara dingin ke manifold',cold,man,[(.028,.747,-.130),(.047,.753,-.175),(.021,.752,-.246),(.004,.720,-.313),(.021,.679,-.345),(.040,.677,-.345)],['EXT-INTAKE-03'],.048,'physical',mesh='EXT-INTAKE-03')
+    exhaust_take=port('exhaust.manifold.takeoff',(.566,.650,.326),'EXT-EXHAUST-01','Cabang manifold ke turbin')
+    hot_mouth=port('exhaust.turbine.mouth',scroll_end(-.017,.124,-math.pi),'EXT-EXHAUST-02','Mulut volute turbin')
+    turb_out=port('exhaust.turbine.axial',(tx-.057,ty,tz),'EXT-EXHAUST-02','Port aksial turbin')
+    outlet=port('exhaust.ship',(ex,ey,ez),'EXT-EXHAUST-05','Batas flange exhaust kapal',True)
+    edge('exhaust-takeoff','exhaust','Cabang manifold ke rumah turbin',exhaust_take,hot_mouth,
+         [(.579,.621,.322),(.582,.582,.337),(.583,.559,.377),(.583,.556,.420),(.583,.556,.459)],['EXT-EXHAUST-110'],.039,'physical',mesh='EXT-EXHAUST-110')
+    edge('turbine-scroll','exhaust','Volute dan roda turbin',hot_mouth,turb_out,[(.583,.564,.530),(.583,.615,.577),(.583,.693,.582),(.583,.754,.535),(.579,.751,.476),(.559,.714,.475)],['EXT-EXHAUST-02','EXT-EXHAUST-21'],.023)
+    bend=port('exhaust.elbow.neck',(ex,.834,ez),'EXT-EXHAUST-05','Leher siku knalpot')
+    edge('exhaust-elbow','exhaust','Siku gas buang',turb_out,bend,[(.489,.695,ez),(.451,.746,ez),(.463,.806,ez)],['EXT-EXHAUST-05'],.089,'physical')
+    edge('exhaust-flange','exhaust','Gas menuju flange kapal',bend,outlet,[],['EXT-EXHAUST-05'],.090,'physical')
+    air_stations=[]; gas_stations=[]
+    for i,cx in enumerate(centers,1):
+        air_stations.append(port(f'air.plenum.{i}',(cx,.645,-.350),'EXT-INTAKE-01',f'Cabang intake {i}'))
+        gas_stations.append(port(f'exhaust.plenum.{i}',(cx,.645,.317),'EXT-EXHAUST-01',f'Cabang exhaust {i}'))
+        ai=port(f'air.head.{i}',(cx,.539,-.249),f'EXT-HEADS-{i:02d}',f'Port masuk kepala {i}')
+        eo=port(f'exhaust.head.{i}',(cx,.545,.251),f'EXT-HEADS-{i:02d}',f'Port buang kepala {i}')
+        for system,node,end,pe in [('intake',air_stations[-1],ai,'EXT-INTAKE-01'),('exhaust',eo,gas_stations[-1],'EXT-EXHAUST-01')]:
+            path=[(cx,.578,-.371),(cx,.542,-.344)] if system=='intake' else [(cx,.549,.295),(cx,.588,.319),(cx,.615,.323)]
+            edge(f'{system}-runner-{i}',system,f'Runner {system} {i}',node,end,path,[pe],.027,event=system,cylinder=i)
+        # Valve pairs open into the common combustion chamber. Kept as distinct physical phases.
+        for system,root,sg in [('intake',ai,-1),('exhaust',eo,1)]:
+            for bank,dx in [('a',-.035),('b',.035)]:
+                v=port(f'{system}.valve.{i}{bank}',(cx+dx,.492,sg*.034),f'INT-VALVE-{i*100+(30 if sg<0 else 50)+(7 if bank=="b" else 0):03d}',f'Ruang bakar, katup {system} {i}{bank}',True)
+                path=[(cx+.35*dx,.542,sg*.199),(cx+dx,.54,sg*.102),(cx+dx,.521,sg*.047)]
+                a,b=(root,v) if sg<0 else (v,root)
+                edge(f'{system}-head-{i}{bank}',system,f'Saluran kepala ke katup {i}{bank}',a,b,path if sg<0 else path[::-1],[f'EXT-HEADS-{i:02d}'],.013,event=system,cylinder=i)
+    edge('air-plenum-entry','intake','Masuk galeri intake',man,air_stations[0],[],['EXT-INTAKE-01'],.045)
+    for j in range(5):edge(f'air-plenum-{j+1}','intake','Distribusi udara manifold',air_stations[j],air_stations[j+1],[],['EXT-INTAKE-01'],.04)
+    for i,j in [(0,1),(1,None),(5,4),(4,3),(3,2),(2,None)]:
+        edge(f'exhaust-plenum-{i+1}','exhaust','Kolektor manifold buang',gas_stations[i],exhaust_take if j is None else gas_stations[j],[],['EXT-EXHAUST-01'],.040)
+    return dict(ports=list(ports.values()),routes=routes,gaps=[
+        'Katup auto-drain kondensat cooler EXT-INTAKE-14 adalah keluaran bersyarat ke lingkungan di bawah housing. Posisi buka dan debit belum diketahui; kondisi beban hangat tidak menampilkan pengosongan.',
+        'Terminal overflow dan drain pompa serta rangkaian leak-off Fig. 90 terpisah. Titik sambungan pada unit belum dipastikan; jalur ini belum dianimasikan.',
+        'Bentuk saluran kembar kepala silinder, diffuser turbo, jalur udara di antara tabung pendingin dan galeri pompa adalah skema fungsi. Lintasan dan diameter instalasi bukan ukuran OEM.',
+        'Rute udara luar baru menghubungkan volute dengan sisi udara cooler belakang. Foto sisi yang tertutup dan gambar berdimensi diperlukan untuk memastikan belokan dan orientasi aktual.'])
+
+def write(graph,path):
+    path.write_text(json.dumps(graph,ensure_ascii=False,separators=(',',':'))+'\n')
+
+def main():
+    gas=make()
+    write(gas,HERE/'fuel-gas.json')
+    docs=[gas]
+    water=HERE/'water-lube.json'
+    if water.is_file():docs.append(json.loads(water.read_text()))
+    graph=dict(schema_version=1,units='m',axes='glTF world +X front, +Y up, +Z non-operation',
+               ports=[],routes=[],gaps=[])
+    for doc in docs:
+        for group in ('ports','routes','gaps'):graph[group].extend(doc[group])
+    ports={p['id']:p for p in graph['ports']}
+    if len(ports)!=len(graph['ports']):raise ValueError('Duplicate port')
+    seen=set()
+    for edge in graph['routes']:
+        if edge['id'] in seen:raise ValueError('Duplicate route '+edge['id'])
+        seen.add(edge['id'])
+        points=edge['points']
+        if len(points)<2 or any(len(p)!=3 or not all(math.isfinite(x) for x in p) for p in points):raise ValueError(edge['id']+' invalid polyline')
+        for p,ref in [(points[0],edge['from']),(points[-1],edge['to'])]:
+            if math.dist(p,ports[ref]['point'])>1e-6:raise ValueError(edge['id']+' disconnected from '+ref)
+    write(graph,HERE/'routes.json')
+
+if __name__=='__main__':main()

@@ -1,0 +1,857 @@
+{
+  "baseline_sha256": "153c7f88e907a9832d11cd05ad4f822332aae1667506cc1a902dbefa648a67ad",
+  "current_sha256": "8049c64b4b47b27a6f7baa59247b60f5e4e8710525395c800b7610ad098fd5ff",
+  "method": "Blender BVH nearest world surface at vertices and triangle centroids, excluding each recorded port neighborhood. Volume is an oriented surface sum across overlapping component shells, not a solid Boolean volume measurement.",
+  "hosts": {
+    "EXT-HEADS-01": {
+      "r03_bbox_m": [
+        [
+          0.1120000034570694,
+          0.49000000953674316,
+          -0.28200000524520874
+        ],
+        [
+          0.3059999942779541,
+          0.6288023591041565,
+          0.28200000524520874
+        ]
+      ],
+      "r04_bbox_m": [
+        [
+          0.1120000034570694,
+          0.49000000953674316,
+          -0.28200000524520874
+        ],
+        [
+          0.3059999942779541,
+          0.6288023591041565,
+          0.28200000524520874
+        ]
+      ],
+      "r03_component_sum_signed_volume_abs_m3": 0.00647096071970487,
+      "r04_component_sum_signed_volume_abs_m3": 0.006445882695831629,
+      "r03_triangle_count": 1408,
+      "r04_triangle_count": 2588,
+      "r03_to_r04": {
+        "samples_outside_port_windows": 2455,
+        "samples_over_half_millimetre": 0,
+        "maximum_surface_difference_mm": 0.31131101422943175,
+        "max_location_gltf_m": [
+          0.3038208484649658,
+          0.490579217672348,
+          0.07712577283382416
+        ]
+      },
+      "r04_to_r03": {
+        "samples_outside_port_windows": 2563,
+        "samples_over_half_millimetre": 0,
+        "maximum_surface_difference_mm": 0.31131101422943175,
+        "max_location_gltf_m": [
+          0.3038208484649658,
+          0.490579217672348,
+          0.07712577283382416
+        ]
+      }
+    },
+    "EXT-HEADS-02": {
+      "r03_bbox_m": [
+        [
+          0.31200000643730164,
+          0.49000000953674316,
+          -0.28200000524520874
+        ],
+        [
+          0.5059999823570251,
+          0.6288023591041565,
+          0.28200000524520874
+        ]
+      ],
+      "r04_bbox_m": [
+        [
+          0.31200000643730164,
+          0.49000000953674316,
+          -0.28200000524520874
+        ],
+        [
+          0.5059999823570251,
+          0.6288023591041565,
+          0.28200000524520874
+        ]
+      ],
+      "r03_component_sum_signed_volume_abs_m3": 0.006470942711208476,
+      "r04_component_sum_signed_volume_abs_m3": 0.006445889456209603,
+      "r03_triangle_count": 1408,
+      "r04_triangle_count": 2588,
+      "r03_to_r04": {
+        "samples_outside_port_windows": 2455,
+        "samples_over_half_millimetre": 0,
+        "maximum_surface_difference_mm": 0.3113219572696835,
+        "max_location_gltf_m": [
+          0.5038208365440369,
+          0.490579217672348,
+          0.07712577283382416
+        ]
+      },
+      "r04_to_r03": {
+        "samples_outside_port_windows": 2563,
+        "samples_over_half_millimetre": 0,
+        "maximum_surface_difference_mm": 0.3113219572696835,
+        "max_location_gltf_m": [
+          0.5038208365440369,
+          0.490579217672348,
+          0.07712577283382416
+        ]
+      }
+    },
+    "EXT-HEADS-03": {
+      "r03_bbox_m": [
+        [
+          0.5120000243186951,
+          0.49000000953674316,
+          -0.28200000524520874
+        ],
+        [
+          0.7059999704360962,
+          0.6288023591041565,
+          0.28200000524520874
+        ]
+      ],
+      "r04_bbox_m": [
+        [
+          0.5120000243186951,
+          0.49000000953674316,
+          -0.28200000524520874
+        ],
+        [
+          0.7059999704360962,
+          0.6288023591041565,
+          0.28200000524520874
+        ]
+      ],
+      "r03_component_sum_signed_volume_abs_m3": 0.006470960881462751,
+      "r04_component_sum_signed_volume_abs_m3": 0.006445906478380768,
+      "r03_triangle_count": 1408,
+      "r04_triangle_count": 2588,
+      "r03_to_r04": {
+        "samples_outside_port_windows": 2455,
+        "samples_over_half_millimetre": 0,
+        "maximum_surface_difference_mm": 0.3113219572696835,
+        "max_location_gltf_m": [
+          0.5141791701316833,
+          0.490579217672348,
+          -0.07712577283382416
+        ]
+      },
+      "r04_to_r03": {
+        "samples_outside_port_windows": 2563,
+        "samples_over_half_millimetre": 0,
+        "maximum_surface_difference_mm": 0.3113219572696835,
+        "max_location_gltf_m": [
+          0.5141791701316833,
+          0.490579217672348,
+          -0.07712577283382416
+        ]
+      }
+    },
+    "EXT-HEADS-04": {
+      "r03_bbox_m": [
+        [
+          0.7120000123977661,
+          0.49000000953674316,
+          -0.28200000524520874
+        ],
+        [
+          0.906000018119812,
+          0.6288023591041565,
+          0.28200000524520874
+        ]
+      ],
+      "r04_bbox_m": [
+        [
+          0.7120000123977661,
+          0.49000000953674316,
+          -0.28200000524520874
+        ],
+        [
+          0.906000018119812,
+          0.6288023591041565,
+          0.28200000524520874
+        ]
+      ],
+      "r03_component_sum_signed_volume_abs_m3": 0.00647093739106363,
+      "r04_component_sum_signed_volume_abs_m3": 0.006441884336322371,
+      "r03_triangle_count": 1408,
+      "r04_triangle_count": 2606,
+      "r03_to_r04": {
+        "samples_outside_port_windows": 2455,
+        "samples_over_half_millimetre": 0,
+        "maximum_surface_difference_mm": 0.2484730794094503,
+        "max_location_gltf_m": [
+          0.8966158628463745,
+          0.6285663843154907,
+          0.058015428483486176
+        ]
+      },
+      "r04_to_r03": {
+        "samples_outside_port_windows": 2573,
+        "samples_over_half_millimetre": 0,
+        "maximum_surface_difference_mm": 0.2484730794094503,
+        "max_location_gltf_m": [
+          0.8966158628463745,
+          0.6285663843154907,
+          0.058015428483486176
+        ]
+      }
+    },
+    "EXT-HEADS-05": {
+      "r03_bbox_m": [
+        [
+          0.9120000004768372,
+          0.49000000953674316,
+          -0.28200000524520874
+        ],
+        [
+          1.1059999465942383,
+          0.6288023591041565,
+          0.28200000524520874
+        ]
+      ],
+      "r04_bbox_m": [
+        [
+          0.9120000004768372,
+          0.49000000953674316,
+          -0.28200000524520874
+        ],
+        [
+          1.1059999465942383,
+          0.6288023591041565,
+          0.28200000524520874
+        ]
+      ],
+      "r03_component_sum_signed_volume_abs_m3": 0.006470942377739745,
+      "r04_component_sum_signed_volume_abs_m3": 0.006441847412209578,
+      "r03_triangle_count": 1408,
+      "r04_triangle_count": 2606,
+      "r03_to_r04": {
+        "samples_outside_port_windows": 2455,
+        "samples_over_half_millimetre": 0,
+        "maximum_surface_difference_mm": 0.3113438142463565,
+        "max_location_gltf_m": [
+          0.9141792058944702,
+          0.490579217672348,
+          -0.07712577283382416
+        ]
+      },
+      "r04_to_r03": {
+        "samples_outside_port_windows": 2573,
+        "samples_over_half_millimetre": 0,
+        "maximum_surface_difference_mm": 0.3113438142463565,
+        "max_location_gltf_m": [
+          0.9141792058944702,
+          0.490579217672348,
+          -0.07712577283382416
+        ]
+      }
+    },
+    "EXT-HEADS-06": {
+      "r03_bbox_m": [
+        [
+          1.1119999885559082,
+          0.49000000953674316,
+          -0.28200000524520874
+        ],
+        [
+          1.305999994277954,
+          0.6288023591041565,
+          0.28200000524520874
+        ]
+      ],
+      "r04_bbox_m": [
+        [
+          1.1119999885559082,
+          0.49000000953674316,
+          -0.28200000524520874
+        ],
+        [
+          1.305999994277954,
+          0.6288023591041565,
+          0.28200000524520874
+        ]
+      ],
+      "r03_component_sum_signed_volume_abs_m3": 0.006470912598472259,
+      "r04_component_sum_signed_volume_abs_m3": 0.006441824792646639,
+      "r03_triangle_count": 1408,
+      "r04_triangle_count": 2606,
+      "r03_to_r04": {
+        "samples_outside_port_windows": 2455,
+        "samples_over_half_millimetre": 0,
+        "maximum_surface_difference_mm": 0.26263075415045023,
+        "max_location_gltf_m": [
+          1.2952730655670166,
+          0.4902898967266083,
+          0.052133046090602875
+        ]
+      },
+      "r04_to_r03": {
+        "samples_outside_port_windows": 2573,
+        "samples_over_half_millimetre": 0,
+        "maximum_surface_difference_mm": 0.26263075415045023,
+        "max_location_gltf_m": [
+          1.2952730655670166,
+          0.4902898967266083,
+          0.052133046090602875
+        ]
+      }
+    },
+    "EXT-INTAKE-01": {
+      "r03_bbox_m": [
+        [
+          0.03200000524520874,
+          0.5016372799873352,
+          -0.4805000126361847
+        ],
+        [
+          1.347000002861023,
+          0.8009999990463257,
+          -0.23199999332427979
+        ]
+      ],
+      "r04_bbox_m": [
+        [
+          0.03200000524520874,
+          0.5016372799873352,
+          -0.4805000126361847
+        ],
+        [
+          1.347000002861023,
+          0.8009999990463257,
+          -0.23199999332427979
+        ]
+      ],
+      "r03_component_sum_signed_volume_abs_m3": 0.06947998873930807,
+      "r04_component_sum_signed_volume_abs_m3": 0.06860100929955615,
+      "r03_triangle_count": 7610,
+      "r04_triangle_count": 8706,
+      "r03_to_r04": {
+        "samples_outside_port_windows": 11917,
+        "samples_over_half_millimetre": 3,
+        "maximum_surface_difference_mm": 0.7805346976965666,
+        "max_location_gltf_m": [
+          0.09230206906795502,
+          0.7593584060668945,
+          -0.3920292854309082
+        ]
+      },
+      "r04_to_r03": {
+        "samples_outside_port_windows": 11959,
+        "samples_over_half_millimetre": 2,
+        "maximum_surface_difference_mm": 0.7589742890559137,
+        "max_location_gltf_m": [
+          0.10730646550655365,
+          0.7705475687980652,
+          -0.3769088685512543
+        ]
+      }
+    },
+    "EXT-INTAKE-02": {
+      "r03_bbox_m": [
+        [
+          -0.3109999895095825,
+          0.5649999976158142,
+          -0.3700000047683716
+        ],
+        [
+          -0.004999995231628418,
+          0.8610000014305115,
+          0.24400001764297485
+        ]
+      ],
+      "r04_bbox_m": [
+        [
+          -0.3109999895095825,
+          0.5649999976158142,
+          -0.3700000047683716
+        ],
+        [
+          -0.004999995231628418,
+          0.8610000014305115,
+          0.24400001764297485
+        ]
+      ],
+      "r03_component_sum_signed_volume_abs_m3": 0.018667450817972674,
+      "r04_component_sum_signed_volume_abs_m3": 0.01853748548099503,
+      "r03_triangle_count": 18634,
+      "r04_triangle_count": 18844,
+      "r03_to_r04": {
+        "samples_outside_port_windows": 28661,
+        "samples_over_half_millimetre": 0,
+        "maximum_surface_difference_mm": 0.1494140160502866,
+        "max_location_gltf_m": [
+          -0.06680940836668015,
+          0.7991378307342529,
+          -0.24963784217834473
+        ]
+      },
+      "r04_to_r03": {
+        "samples_outside_port_windows": 28764,
+        "samples_over_half_millimetre": 0,
+        "maximum_surface_difference_mm": 0.12872990919277072,
+        "max_location_gltf_m": [
+          -0.0660071149468422,
+          0.7968284487724304,
+          -0.25070416927337646
+        ]
+      }
+    },
+    "EXT-FUEL-09": {
+      "r03_bbox_m": [
+        [
+          0.061107248067855835,
+          0.38554999232292175,
+          -0.5929999947547913
+        ],
+        [
+          0.41200000047683716,
+          0.5090000033378601,
+          -0.39899998903274536
+        ]
+      ],
+      "r04_bbox_m": [
+        [
+          0.061107248067855835,
+          0.38554999232292175,
+          -0.5929999947547913
+        ],
+        [
+          0.41200000047683716,
+          0.5090000033378601,
+          -0.39899998903274536
+        ]
+      ],
+      "r03_component_sum_signed_volume_abs_m3": 0.005962097988694476,
+      "r04_component_sum_signed_volume_abs_m3": 0.005962097988694476,
+      "r03_triangle_count": 4944,
+      "r04_triangle_count": 4944,
+      "r03_to_r04": {
+        "samples_outside_port_windows": 7800,
+        "samples_over_half_millimetre": 0,
+        "maximum_surface_difference_mm": 0.0014019767604622757,
+        "max_location_gltf_m": [
+          0.2597959041595459,
+          0.3907252252101898,
+          -0.40893587470054626
+        ]
+      },
+      "r04_to_r03": {
+        "samples_outside_port_windows": 7800,
+        "samples_over_half_millimetre": 0,
+        "maximum_surface_difference_mm": 0.0014019767604622757,
+        "max_location_gltf_m": [
+          0.2597959041595459,
+          0.3907252252101898,
+          -0.40893587470054626
+        ]
+      }
+    },
+    "EXT-COOLING-01": {
+      "r03_bbox_m": [
+        [
+          1.3583229780197144,
+          0.5759999752044678,
+          -0.3930000066757202
+        ],
+        [
+          1.6916769742965698,
+          0.8640000224113464,
+          0.2580000162124634
+        ]
+      ],
+      "r04_bbox_m": [
+        [
+          1.3583229780197144,
+          0.5759999752044678,
+          -0.3930000066757202
+        ],
+        [
+          1.6916769742965698,
+          0.8640000224113464,
+          0.2580000162124634
+        ]
+      ],
+      "r03_component_sum_signed_volume_abs_m3": 0.023380536846768024,
+      "r04_component_sum_signed_volume_abs_m3": 0.023314965997414557,
+      "r03_triangle_count": 1116,
+      "r04_triangle_count": 1406,
+      "r03_to_r04": {
+        "samples_outside_port_windows": 1715,
+        "samples_over_half_millimetre": 0,
+        "maximum_surface_difference_mm": 0.025155772163998336,
+        "max_location_gltf_m": [
+          1.4946054220199585,
+          0.5847340226173401,
+          0.024333328008651733
+        ]
+      },
+      "r04_to_r03": {
+        "samples_outside_port_windows": 1867,
+        "samples_over_half_millimetre": 0,
+        "maximum_surface_difference_mm": 0.016034093277994543,
+        "max_location_gltf_m": [
+          1.4075682163238525,
+          0.7511723041534424,
+          -0.11499695479869843
+        ]
+      }
+    },
+    "EXT-LUBE-05": {
+      "r03_bbox_m": [
+        [
+          0.24000000953674316,
+          0.2750000059604645,
+          0.3149999976158142
+        ],
+        [
+          1.0859999656677246,
+          0.39500001072883606,
+          0.4180000126361847
+        ]
+      ],
+      "r04_bbox_m": [
+        [
+          0.24000000953674316,
+          0.2750000059604645,
+          0.3149999976158142
+        ],
+        [
+          1.0859999656677246,
+          0.39500001072883606,
+          0.4180000126361847
+        ]
+      ],
+      "r03_component_sum_signed_volume_abs_m3": 0.002416553053384022,
+      "r04_component_sum_signed_volume_abs_m3": 0.002380407586088049,
+      "r03_triangle_count": 60,
+      "r04_triangle_count": 328,
+      "r03_to_r04": {
+        "samples_outside_port_windows": 88,
+        "samples_over_half_millimetre": 0,
+        "maximum_surface_difference_mm": 0.04786462523043156,
+        "max_location_gltf_m": [
+          0.530666708946228,
+          0.39233335852622986,
+          0.4180000424385071
+        ]
+      },
+      "r04_to_r03": {
+        "samples_outside_port_windows": 230,
+        "samples_over_half_millimetre": 0,
+        "maximum_surface_difference_mm": 0.04786462523043156,
+        "max_location_gltf_m": [
+          0.530666708946228,
+          0.39233335852622986,
+          0.4180000424385071
+        ]
+      }
+    },
+    "EXT-COOLING-51": {
+      "r03_bbox_m": [
+        [
+          1.3960000276565552,
+          0.5669999718666077,
+          -0.4580000042915344
+        ],
+        [
+          1.653999924659729,
+          0.824999988079071,
+          -0.39800000190734863
+        ]
+      ],
+      "r04_bbox_m": [
+        [
+          1.3960000276565552,
+          0.5669999718666077,
+          -0.4580000042915344
+        ],
+        [
+          1.653999924659729,
+          0.824999988079071,
+          -0.39800000190734863
+        ]
+      ],
+      "r03_component_sum_signed_volume_abs_m3": 0.0009408713181073862,
+      "r04_component_sum_signed_volume_abs_m3": 0.0009201047417946027,
+      "r03_triangle_count": 3420,
+      "r04_triangle_count": 2704,
+      "r03_to_r04": {
+        "samples_outside_port_windows": 5233,
+        "samples_over_half_millimetre": 1073,
+        "maximum_surface_difference_mm": 9.321861900389194,
+        "max_location_gltf_m": [
+          1.5255913734436035,
+          0.5823283195495605,
+          -0.40868625044822693
+        ]
+      },
+      "r04_to_r03": {
+        "samples_outside_port_windows": 3633,
+        "samples_over_half_millimetre": 0,
+        "maximum_surface_difference_mm": 0.0012605361234818702,
+        "max_location_gltf_m": [
+          1.55178964138031,
+          0.7108640074729919,
+          -0.455666720867157
+        ]
+      }
+    },
+    "EXT-COOLING-52": {
+      "r03_bbox_m": [
+        [
+          1.3960000276565552,
+          0.5669999718666077,
+          0.2630000114440918
+        ],
+        [
+          1.653999924659729,
+          0.824999988079071,
+          0.3230000138282776
+        ]
+      ],
+      "r04_bbox_m": [
+        [
+          1.3960000276565552,
+          0.5669999718666077,
+          0.2630000114440918
+        ],
+        [
+          1.653999924659729,
+          0.824999988079071,
+          0.3230000138282776
+        ]
+      ],
+      "r03_component_sum_signed_volume_abs_m3": 0.0009407406960318547,
+      "r04_component_sum_signed_volume_abs_m3": 0.0009160840616004852,
+      "r03_triangle_count": 3420,
+      "r04_triangle_count": 2376,
+      "r03_to_r04": {
+        "samples_outside_port_windows": 5233,
+        "samples_over_half_millimetre": 1603,
+        "maximum_surface_difference_mm": 9.321881458163261,
+        "max_location_gltf_m": [
+          1.5244086980819702,
+          0.5823283195495605,
+          0.2736862301826477
+        ]
+      },
+      "r04_to_r03": {
+        "samples_outside_port_windows": 3043,
+        "samples_over_half_millimetre": 0,
+        "maximum_surface_difference_mm": 0.0009176018238576944,
+        "max_location_gltf_m": [
+          1.5428552627563477,
+          0.727076530456543,
+          0.32001930475234985
+        ]
+      }
+    },
+    "EXT-LUBE-01": {
+      "r03_bbox_m": [
+        [
+          0.7420000433921814,
+          0.24899998307228088,
+          0.33149999380111694
+        ],
+        [
+          1.1060000658035278,
+          0.31700000166893005,
+          0.49900001287460327
+        ]
+      ],
+      "r04_bbox_m": [
+        [
+          0.7420000433921814,
+          0.24899998307228088,
+          0.33149999380111694
+        ],
+        [
+          1.1060000658035278,
+          0.31700000166893005,
+          0.49900001287460327
+        ]
+      ],
+      "r03_component_sum_signed_volume_abs_m3": 0.0037162064776459143,
+      "r04_component_sum_signed_volume_abs_m3": 0.0037086462142616994,
+      "r03_triangle_count": 1032,
+      "r04_triangle_count": 1164,
+      "r03_to_r04": {
+        "samples_outside_port_windows": 2014,
+        "samples_over_half_millimetre": 0,
+        "maximum_surface_difference_mm": 0.0002995096224367444,
+        "max_location_gltf_m": [
+          0.9790000319480896,
+          0.2799999713897705,
+          0.33149999380111694
+        ]
+      },
+      "r04_to_r03": {
+        "samples_outside_port_windows": 2030,
+        "samples_over_half_millimetre": 0,
+        "maximum_surface_difference_mm": 0.0005372689884097781,
+        "max_location_gltf_m": [
+          0.9734100103378296,
+          0.27383992075920105,
+          0.4545000493526459
+        ]
+      }
+    },
+    "EXT-EXHAUST-04": {
+      "r03_bbox_m": [
+        [
+          0.6180000305175781,
+          0.6019999980926514,
+          0.40299999713897705
+        ],
+        [
+          0.7390000224113464,
+          0.7580000162124634,
+          0.5590000152587891
+        ]
+      ],
+      "r04_bbox_m": [
+        [
+          0.6180000305175781,
+          0.6019999980926514,
+          0.40299999713897705
+        ],
+        [
+          0.7390000224113464,
+          0.7580000162124634,
+          0.5590000152587891
+        ]
+      ],
+      "r03_component_sum_signed_volume_abs_m3": 0.000922038260815344,
+      "r04_component_sum_signed_volume_abs_m3": 0.0009018382409446197,
+      "r03_triangle_count": 2560,
+      "r04_triangle_count": 2120,
+      "r03_to_r04": {
+        "samples_outside_port_windows": 3233,
+        "samples_over_half_millimetre": 564,
+        "maximum_surface_difference_mm": 22.41545356810093,
+        "max_location_gltf_m": [
+          0.6803646087646484,
+          0.7430000305175781,
+          0.46844297647476196
+        ]
+      },
+      "r04_to_r03": {
+        "samples_outside_port_windows": 2786,
+        "samples_over_half_millimetre": 0,
+        "maximum_surface_difference_mm": 0.001193582079395128,
+        "max_location_gltf_m": [
+          0.6939584612846375,
+          0.7039792537689209,
+          0.4814227223396301
+        ]
+      }
+    },
+    "EXT-EXHAUST-01": {
+      "r03_bbox_m": [
+        [
+          0.053611159324645996,
+          0.49788594245910645,
+          0.19085976481437683
+        ],
+        [
+          1.3105931282043457,
+          0.7359994649887085,
+          0.4042779803276062
+        ]
+      ],
+      "r04_bbox_m": [
+        [
+          0.16200000047683716,
+          0.49788594245910645,
+          0.250645250082016
+        ],
+        [
+          1.25600004196167,
+          0.6890000104904175,
+          0.38750001788139343
+        ]
+      ],
+      "r03_component_sum_signed_volume_abs_m3": 0.04127886956446397,
+      "r04_component_sum_signed_volume_abs_m3": 0.0051394458720404315,
+      "r03_triangle_count": 18968,
+      "r04_triangle_count": 4464,
+      "r03_to_r04": {
+        "samples_outside_port_windows": 30478,
+        "samples_over_half_millimetre": 21493,
+        "maximum_surface_difference_mm": 148.1822282075882,
+        "max_location_gltf_m": [
+          0.08472275733947754,
+          0.7359994649887085,
+          0.2718927562236786
+        ]
+      },
+      "r04_to_r03": {
+        "samples_outside_port_windows": 7452,
+        "samples_over_half_millimetre": 0,
+        "maximum_surface_difference_mm": 0.0004214684850012418,
+        "max_location_gltf_m": [
+          0.414995402097702,
+          0.6043612360954285,
+          0.27621859312057495
+        ]
+      }
+    },
+    "EXT-BLOCK-01": {
+      "r03_bbox_m": [
+        [
+          -0.004999995231628418,
+          -0.1784999966621399,
+          -0.3319999873638153
+        ],
+        [
+          1.3350000381469727,
+          0.49000000953674316,
+          0.3319999873638153
+        ]
+      ],
+      "r04_bbox_m": [
+        [
+          0.01602804660797119,
+          -0.1784999966621399,
+          -0.3149999976158142
+        ],
+        [
+          1.3324801921844482,
+          0.49000000953674316,
+          0.32600000500679016
+        ]
+      ],
+      "r03_component_sum_signed_volume_abs_m3": 0.1540351173446491,
+      "r04_component_sum_signed_volume_abs_m3": 0.02526340052353181,
+      "r03_triangle_count": 13818,
+      "r04_triangle_count": 8406,
+      "r03_to_r04": {
+        "samples_outside_port_windows": 24673,
+        "samples_over_half_millimetre": 9361,
+        "maximum_surface_difference_mm": 298.3129918575287,
+        "max_location_gltf_m": [
+          0.0006265640258789062,
+          0.10150884091854095,
+          0.009997747838497162
+        ]
+      },
+      "r04_to_r03": {
+        "samples_outside_port_windows": 15356,
+        "samples_over_half_millimetre": 21,
+        "maximum_surface_difference_mm": 1.155586214736104,
+        "max_location_gltf_m": [
+          0.46359214186668396,
+          0.4680910110473633,
+          0.261401504278183
+        ]
+      }
+    }
+  }
+}

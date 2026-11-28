@@ -1,0 +1,34 @@
+{
+  "model_sha256": {
+    "exterior": "b60f09f300fc80fc676a7bd88cd9eb0c19570f85cb2c15c8aae0121c60077bdc",
+    "internal": "4b69ad9975928cfa80be62ddc7c6a1c5caa241900bd3aef299081c1e6406ae05"
+  },
+  "source_sha256": {
+    "fuel-gas.json": "0b353004e47dd13e9bc56847e3551d6dc70c7ce6223c91a4f483f17125c086ba",
+    "water-lube.json": "ac7c092780dfd5b4ddc8f10a13feff83b59bf0efa58b51bc39e834dc3e42e9de",
+    "routes.json": "0830845dd4b9903bb19d329b8839e6c69a937821cfc4485c434fbe521d8f2225"
+  },
+  "physical_route_count": 29,
+  "port_count": 160,
+  "merged_route_count": 163,
+  "different_centers_or_mesh_ids": [],
+  "missing_mesh_nodes": [],
+  "component_metadata_mismatch": [],
+  "missing_component_nodes": [
+    {
+      "route": "hot-air-duct",
+      "mesh_ids": [
+        "EXT-INTAKE-50",
+        "EXT-INTAKE-51",
+        "EXT-INTAKE-52",
+        "EXT-INTAKE-53",
+        "EXT-INTAKE-54",
+        "EXT-INTAKE-55",
+        "EXT-INTAKE-56",
+        "EXT-INTAKE-57"
+      ]
+    }
+  ],
+  "endpoint_offsets_above_0_2_mm": [],
+  "method": "Exact sampled centerline equality between authoring JSON and the merged graph, plus endpoints against declared ports. Geometry fit is audited separately."
+}

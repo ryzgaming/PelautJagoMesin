@@ -1,0 +1,86 @@
+{
+  "ui": "studio",
+  "name": "desktop",
+  "initial": {
+    "state": {
+      "ready": true,
+      "phase": "off",
+      "paused": false,
+      "running": false,
+      "phaseTime": 0,
+      "rpm": 0,
+      "crankAngle": 0,
+      "starterEngagement": 0,
+      "selection": null,
+      "xray": false,
+      "mode": "operation",
+      "flow": "fuel",
+      "drive": "timing-01",
+      "audioSupported": true,
+      "muted": false
+    },
+    "canvas": {
+      "geometry": [
+        true,
+        true
+      ],
+      "triangles": 986968,
+      "gpu": "WebKit WebGL",
+      "contextLost": false,
+      "audio": {
+        "phase": "off",
+        "rpm": 0,
+        "elapsed": 0,
+        "paused": false,
+        "unlocked": false,
+        "muted": false,
+        "volume": 0.35,
+        "hidden": false,
+        "disposed": false,
+        "contextState": "uncreated",
+        "firingHz": 0,
+        "audible": false,
+        "nodes": 0,
+        "activeOneShots": 0,
+        "lastClickElapsed": null,
+        "targets": null
+      },
+      "viewport": [
+        1280,
+        800,
+        null
+      ]
+    },
+    "parts": 1184,
+    "overflow": 0,
+    "studioCanvas": true,
+    "minimalCanvas": false,
+    "foreignStudioLayout": 3
+  },
+  "error": "locator.click: Timeout 65000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#operation-toggle')\u001b[22m\n\u001b[2m    - locator resolved to <button disabled type=\"button\" aria-pressed=\"false\" id=\"operation-toggle\">Mulai</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    24 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not enabled\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n",
+  "probe": {
+    "state": {
+      "ready": true,
+      "phase": "off",
+      "paused": false,
+      "running": false,
+      "phaseTime": 0,
+      "rpm": 0,
+      "crankAngle": 0,
+      "starterEngagement": 0,
+      "selection": null,
+      "xray": false,
+      "mode": "operation",
+      "flow": "fuel",
+      "drive": "timing-01",
+      "audioSupported": true,
+      "muted": false
+    },
+    "phases": [
+      "off"
+    ],
+    "text": "\n\n  STUDIO MESIN · R06 DRAF — QA BELUM LENGKAP\n  Yanmar 6AYM-WET\n  H · 555 kW / 1.840 rpm · Mesin tanpa transmisi\n  Sumber\n\n\n  \n    \n    Cannot access 'mobile' before initializationTonton film operasi r06Bandingkan starting r05–r06\n    KomponenReset\n    Seret untuk memutar · Cubit atau gulir untuk memperbesar\n  \n  \n    ✕\n    \n  \n\n\n  Jarak urai 50%\n  \n\n\n  \n    Mulai\n    Stop\n    Pilih aliran fluida\n      \n        Bahan bakar\n        Pelumas\n        Air tawar\n        Air laut\n        Udara masuk\n        Gas buang\n        Tanpa alur\n      \n    Pilih mekanisme penggerak\n      \n    Suara aktif\n  \n  \n    Rute\n    \n      Fokus\n      Starter\n      Operasi\n    \n    \n      Fokus starter\n      Penggerak\n      Lewati\n    \n    \n      Opsi\n      \n        Potongan blok\n        Fokus ruang bakar\n        T"
+  },
+  "errors": [],
+  "bad": []
+}

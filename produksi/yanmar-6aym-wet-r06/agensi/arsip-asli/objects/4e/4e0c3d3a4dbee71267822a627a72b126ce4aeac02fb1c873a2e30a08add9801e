@@ -1,0 +1,1529 @@
+{
+  "documented_firing_order_matches": true,
+  "pistons": [
+    {
+      "id": "INT-PISTON-11",
+      "stroke_m": 0.18000000000000002,
+      "travel_from_TDC_at_firing_m": 0
+    },
+    {
+      "id": "INT-PISTON-21",
+      "stroke_m": 0.18000000000000002,
+      "travel_from_TDC_at_firing_m": 0.0
+    },
+    {
+      "id": "INT-PISTON-31",
+      "stroke_m": 0.18000000000000002,
+      "travel_from_TDC_at_firing_m": 0.0
+    },
+    {
+      "id": "INT-PISTON-41",
+      "stroke_m": 0.18000000000000002,
+      "travel_from_TDC_at_firing_m": 0.0
+    },
+    {
+      "id": "INT-PISTON-51",
+      "stroke_m": 0.18000000000000002,
+      "travel_from_TDC_at_firing_m": 0.0
+    },
+    {
+      "id": "INT-PISTON-61",
+      "stroke_m": 0.18000000000000002,
+      "travel_from_TDC_at_firing_m": 0
+    }
+  ],
+  "revision": "r05",
+  "phase": "running",
+  "checks": [
+    {
+      "group": "timing-01",
+      "target": "INT-TIMING-01",
+      "ratio": -1,
+      "measured_ratio": -1.0,
+      "ratio_error": 0.0,
+      "pivot_drift_m": 0.0,
+      "axis_endpoint_drift_m": 0.0,
+      "manual_sign_consistent": true,
+      "status": "PASS"
+    },
+    {
+      "group": "timing-02",
+      "target": "INT-TIMING-02",
+      "ratio": 1,
+      "measured_ratio": 1.0,
+      "ratio_error": 0.0,
+      "pivot_drift_m": 0.0,
+      "axis_endpoint_drift_m": 0.0,
+      "manual_sign_consistent": true,
+      "status": "PASS"
+    },
+    {
+      "group": "timing-02",
+      "target": "INT-TIMING-11",
+      "ratio": 1,
+      "measured_ratio": 1.0,
+      "ratio_error": 0.0,
+      "pivot_drift_m": 0.0,
+      "axis_endpoint_drift_m": 0.0,
+      "manual_sign_consistent": true,
+      "status": "PASS"
+    },
+    {
+      "group": "timing-03",
+      "target": "INT-TIMING-03",
+      "ratio": 1,
+      "measured_ratio": 1.0,
+      "ratio_error": 0.0,
+      "pivot_drift_m": 0.0,
+      "axis_endpoint_drift_m": 0.0,
+      "manual_sign_consistent": true,
+      "status": "PASS"
+    },
+    {
+      "group": "timing-03",
+      "target": "INT-TIMING-12",
+      "ratio": 1,
+      "measured_ratio": 1.0,
+      "ratio_error": 0.0,
+      "pivot_drift_m": 0.0,
+      "axis_endpoint_drift_m": 0.0,
+      "manual_sign_consistent": true,
+      "status": "PASS"
+    },
+    {
+      "group": "timing-04",
+      "target": "INT-TIMING-04",
+      "ratio": -0.5,
+      "measured_ratio": -0.4999999999999999,
+      "ratio_error": 9.93923337957349e-17,
+      "pivot_drift_m": 0.0,
+      "axis_endpoint_drift_m": 0.0,
+      "manual_sign_consistent": true,
+      "status": "PASS"
+    },
+    {
+      "group": "timing-05",
+      "target": "INT-TIMING-05",
+      "ratio": 0.5,
+      "measured_ratio": 0.4999999999999999,
+      "ratio_error": 9.93923337957349e-17,
+      "pivot_drift_m": 0.0,
+      "axis_endpoint_drift_m": 0.0,
+      "manual_sign_consistent": true,
+      "status": "PASS"
+    },
+    {
+      "group": "timing-05",
+      "target": "INT-TIMING-FIP-COUPLING",
+      "ratio": 0.5,
+      "measured_ratio": 0.4999999999999999,
+      "ratio_error": 9.93923337957349e-17,
+      "pivot_drift_m": 0.0,
+      "axis_endpoint_drift_m": 0.0,
+      "manual_sign_consistent": true,
+      "status": "PASS"
+    },
+    {
+      "group": "timing-05",
+      "target": "INT-TIMING-FIP-SHAFT",
+      "ratio": 0.5,
+      "measured_ratio": 0.4999999999999999,
+      "ratio_error": 9.93923337957349e-17,
+      "pivot_drift_m": 0.0,
+      "axis_endpoint_drift_m": 0.0,
+      "manual_sign_consistent": true,
+      "status": "PASS"
+    },
+    {
+      "group": "timing-07",
+      "target": "INT-TIMING-07",
+      "ratio": 1.1428571428571428,
+      "measured_ratio": 1.142857142857143,
+      "ratio_error": 1.987846675914698e-16,
+      "pivot_drift_m": 4.336808689942018e-19,
+      "axis_endpoint_drift_m": 4.336808689942018e-19,
+      "manual_sign_consistent": true,
+      "status": "PASS"
+    },
+    {
+      "group": "timing-08",
+      "target": "INT-TIMING-08",
+      "ratio": -0.5,
+      "measured_ratio": -0.4999999999999999,
+      "ratio_error": 9.93923337957349e-17,
+      "pivot_drift_m": 0.0,
+      "axis_endpoint_drift_m": 0.0,
+      "manual_sign_consistent": true,
+      "status": "PASS"
+    },
+    {
+      "group": "timing-10",
+      "target": "INT-TIMING-10",
+      "ratio": 1.5,
+      "measured_ratio": 1.5000000000000002,
+      "ratio_error": 3.975693351829396e-16,
+      "pivot_drift_m": 5.721958498152797e-17,
+      "axis_endpoint_drift_m": 5.721958498152797e-17,
+      "manual_sign_consistent": true,
+      "status": "PASS"
+    },
+    {
+      "group": "oil-pump-driver",
+      "target": "INT-OILPUMP-01",
+      "ratio": 1.1428571428571428,
+      "measured_ratio": 1.142857142857143,
+      "ratio_error": 1.987846675914698e-16,
+      "pivot_drift_m": 4.336808689942018e-19,
+      "axis_endpoint_drift_m": 4.336808689942018e-19,
+      "manual_sign_consistent": true,
+      "status": "PASS"
+    },
+    {
+      "group": "oil-pump-driver",
+      "target": "INT-OILPUMP-03",
+      "ratio": 1.1428571428571428,
+      "measured_ratio": 1.142857142857143,
+      "ratio_error": 1.987846675914698e-16,
+      "pivot_drift_m": 4.336808689942018e-19,
+      "axis_endpoint_drift_m": 4.336808689942018e-19,
+      "manual_sign_consistent": true,
+      "status": "PASS"
+    },
+    {
+      "group": "oil-pump-follower",
+      "target": "INT-OILPUMP-04",
+      "ratio": -1.1428571428571428,
+      "measured_ratio": -1.142857142857143,
+      "ratio_error": 1.987846675914698e-16,
+      "pivot_drift_m": 0.0,
+      "axis_endpoint_drift_m": 0.0,
+      "manual_sign_consistent": true,
+      "status": "PASS"
+    },
+    {
+      "group": "coolant-shaft",
+      "target": "EXT-COOLING-20",
+      "ratio": 1.3333333333333333,
+      "measured_ratio": 1.3333333333333333,
+      "ratio_error": 1.987846675914698e-16,
+      "pivot_drift_m": 0.0,
+      "axis_endpoint_drift_m": 0.0,
+      "manual_sign_consistent": true,
+      "status": "PASS"
+    },
+    {
+      "group": "coolant-shaft",
+      "target": "EXT-COOLING-21",
+      "ratio": 1.3333333333333333,
+      "measured_ratio": 1.3333333333333333,
+      "ratio_error": 1.987846675914698e-16,
+      "pivot_drift_m": 0.0,
+      "axis_endpoint_drift_m": 0.0,
+      "manual_sign_consistent": true,
+      "status": "PASS"
+    },
+    {
+      "group": "coolant-shaft",
+      "target": "EXT-COOLING-26",
+      "ratio": 1.3333333333333333,
+      "measured_ratio": 1.3333333333333333,
+      "ratio_error": 1.987846675914698e-16,
+      "pivot_drift_m": 0.0,
+      "axis_endpoint_drift_m": 0.0,
+      "manual_sign_consistent": true,
+      "status": "PASS"
+    },
+    {
+      "group": "coolant-shaft",
+      "target": "EXT-COOLING-310",
+      "ratio": 1.3333333333333333,
+      "measured_ratio": 1.3333333333333333,
+      "ratio_error": 1.987846675914698e-16,
+      "pivot_drift_m": 0.0,
+      "axis_endpoint_drift_m": 0.0,
+      "manual_sign_consistent": true,
+      "status": "PASS"
+    },
+    {
+      "group": "coolant-shaft",
+      "target": "EXT-COOLING-311",
+      "ratio": 1.3333333333333333,
+      "measured_ratio": 1.3333333333333333,
+      "ratio_error": 1.987846675914698e-16,
+      "pivot_drift_m": 0.0,
+      "axis_endpoint_drift_m": 0.0,
+      "manual_sign_consistent": true,
+      "status": "PASS"
+    },
+    {
+      "group": "coolant-shaft",
+      "target": "EXT-COOLING-312",
+      "ratio": 1.3333333333333333,
+      "measured_ratio": 1.3333333333333333,
+      "ratio_error": 1.987846675914698e-16,
+      "pivot_drift_m": 0.0,
+      "axis_endpoint_drift_m": 0.0,
+      "manual_sign_consistent": true,
+      "status": "PASS"
+    },
+    {
+      "group": "coolant-shaft",
+      "target": "EXT-COOLING-315",
+      "ratio": 1.3333333333333333,
+      "measured_ratio": 1.3333333333333333,
+      "ratio_error": 1.987846675914698e-16,
+      "pivot_drift_m": 0.0,
+      "axis_endpoint_drift_m": 0.0,
+      "manual_sign_consistent": true,
+      "status": "PASS"
+    },
+    {
+      "group": "coolant-shaft",
+      "target": "EXT-COOLING-317",
+      "ratio": 1.3333333333333333,
+      "measured_ratio": 1.3333333333333333,
+      "ratio_error": 1.987846675914698e-16,
+      "pivot_drift_m": 0.0,
+      "axis_endpoint_drift_m": 0.0,
+      "manual_sign_consistent": true,
+      "status": "PASS"
+    },
+    {
+      "group": "coolant-bearing-1",
+      "target": "EXT-COOLING-316",
+      "ratio": 0.5256704980842911,
+      "measured_ratio": 0.525670498084291,
+      "ratio_error": 9.93923337957349e-17,
+      "pivot_drift_m": 0.0,
+      "axis_endpoint_drift_m": 0.0,
+      "manual_sign_consistent": true,
+      "status": "PASS"
+    },
+    {
+      "group": "coolant-bearing-2",
+      "target": "EXT-COOLING-318",
+      "ratio": 0.5419913419913419,
+      "measured_ratio": 0.541991341991342,
+      "ratio_error": 9.93923337957349e-17,
+      "pivot_drift_m": 1.3877787807814457e-17,
+      "axis_endpoint_drift_m": 1.3877787807814457e-17,
+      "manual_sign_consistent": true,
+      "status": "PASS"
+    },
+    {
+      "group": "seawater-shaft",
+      "target": "EXT-COOLING-35",
+      "ratio": -0.8275862068965517,
+      "measured_ratio": -0.8275862068965516,
+      "ratio_error": 9.93923337957349e-17,
+      "pivot_drift_m": 0.0,
+      "axis_endpoint_drift_m": 0.0,
+      "manual_sign_consistent": true,
+      "status": "PASS"
+    },
+    {
+      "group": "seawater-shaft",
+      "target": "EXT-COOLING-36",
+      "ratio": -0.8275862068965517,
+      "measured_ratio": -0.8275862068965516,
+      "ratio_error": 9.93923337957349e-17,
+      "pivot_drift_m": 0.0,
+      "axis_endpoint_drift_m": 0.0,
+      "manual_sign_consistent": true,
+      "status": "PASS"
+    },
+    {
+      "group": "seawater-shaft",
+      "target": "EXT-COOLING-41",
+      "ratio": -0.8275862068965517,
+      "measured_ratio": -0.8275862068965516,
+      "ratio_error": 9.93923337957349e-17,
+      "pivot_drift_m": 0.0,
+      "axis_endpoint_drift_m": 0.0,
+      "manual_sign_consistent": true,
+      "status": "PASS"
+    },
+    {
+      "group": "seawater-shaft",
+      "target": "EXT-COOLING-46",
+      "ratio": -0.8275862068965517,
+      "measured_ratio": -0.8275862068965516,
+      "ratio_error": 9.93923337957349e-17,
+      "pivot_drift_m": 0.0,
+      "axis_endpoint_drift_m": 0.0,
+      "manual_sign_consistent": true,
+      "status": "PASS"
+    },
+    {
+      "group": "alternator-intermediate",
+      "target": "EXT-FRONT-06",
+      "ratio": 1.5,
+      "measured_ratio": 1.5000000000000002,
+      "ratio_error": 3.975693351829396e-16,
+      "pivot_drift_m": 5.721958498152797e-17,
+      "axis_endpoint_drift_m": 5.721958498152797e-17,
+      "manual_sign_consistent": true,
+      "status": "PASS"
+    },
+    {
+      "group": "alternator-intermediate",
+      "target": "EXT-FRONT-07",
+      "ratio": 1.5,
+      "measured_ratio": 1.5000000000000002,
+      "ratio_error": 3.975693351829396e-16,
+      "pivot_drift_m": 5.721958498152797e-17,
+      "axis_endpoint_drift_m": 5.721958498152797e-17,
+      "manual_sign_consistent": true,
+      "status": "PASS"
+    },
+    {
+      "group": "alternator-intermediate",
+      "target": "EXT-FRONT-10",
+      "ratio": 1.5,
+      "measured_ratio": 1.5000000000000002,
+      "ratio_error": 3.975693351829396e-16,
+      "pivot_drift_m": 5.721958498152797e-17,
+      "axis_endpoint_drift_m": 5.721958498152797e-17,
+      "manual_sign_consistent": true,
+      "status": "PASS"
+    },
+    {
+      "group": "alternator-intermediate",
+      "target": "EXT-FRONT-13",
+      "ratio": 1.5,
+      "measured_ratio": 1.5000000000000002,
+      "ratio_error": 3.975693351829396e-16,
+      "pivot_drift_m": 5.721958498152797e-17,
+      "axis_endpoint_drift_m": 5.721958498152797e-17,
+      "manual_sign_consistent": true,
+      "status": "PASS"
+    },
+    {
+      "group": "alternator-intermediate",
+      "target": "EXT-FRONT-17",
+      "ratio": 1.5,
+      "measured_ratio": 1.5000000000000002,
+      "ratio_error": 3.975693351829396e-16,
+      "pivot_drift_m": 5.721958498152797e-17,
+      "axis_endpoint_drift_m": 5.721958498152797e-17,
+      "manual_sign_consistent": true,
+      "status": "PASS"
+    },
+    {
+      "group": "alternator-intermediate",
+      "target": "EXT-FRONT-18",
+      "ratio": 1.5,
+      "measured_ratio": 1.5000000000000002,
+      "ratio_error": 3.975693351829396e-16,
+      "pivot_drift_m": 5.721958498152797e-17,
+      "axis_endpoint_drift_m": 5.721958498152797e-17,
+      "manual_sign_consistent": true,
+      "status": "PASS"
+    },
+    {
+      "group": "alternator-intermediate",
+      "target": "EXT-FRONT-19",
+      "ratio": 1.5,
+      "measured_ratio": 1.5000000000000002,
+      "ratio_error": 3.975693351829396e-16,
+      "pivot_drift_m": 5.721958498152797e-17,
+      "axis_endpoint_drift_m": 5.721958498152797e-17,
+      "manual_sign_consistent": true,
+      "status": "PASS"
+    },
+    {
+      "group": "alternator-intermediate",
+      "target": "EXT-FRONT-20",
+      "ratio": 1.5,
+      "measured_ratio": 1.5000000000000002,
+      "ratio_error": 3.975693351829396e-16,
+      "pivot_drift_m": 5.721958498152797e-17,
+      "axis_endpoint_drift_m": 5.721958498152797e-17,
+      "manual_sign_consistent": true,
+      "status": "PASS"
+    },
+    {
+      "group": "alternator-bearing-cages",
+      "target": "EXT-FRONT-11",
+      "ratio": 0.6213197969543147,
+      "measured_ratio": 0.6213197969543147,
+      "ratio_error": 9.93923337957349e-17,
+      "pivot_drift_m": 0.0,
+      "axis_endpoint_drift_m": 0.0,
+      "manual_sign_consistent": true,
+      "status": "PASS"
+    },
+    {
+      "group": "alternator-bearing-cages",
+      "target": "EXT-FRONT-14",
+      "ratio": 0.6213197969543147,
+      "measured_ratio": 0.6213197969543147,
+      "ratio_error": 9.93923337957349e-17,
+      "pivot_drift_m": 0.0,
+      "axis_endpoint_drift_m": 0.0,
+      "manual_sign_consistent": true,
+      "status": "PASS"
+    },
+    {
+      "group": "alternator-rotor",
+      "target": "EXT-ELECTRIC-21",
+      "ratio": 1.7830188679245285,
+      "measured_ratio": 1.7830188679245287,
+      "ratio_error": 3.975693351829396e-16,
+      "pivot_drift_m": 0.0,
+      "axis_endpoint_drift_m": 0.0,
+      "manual_sign_consistent": true,
+      "status": "PASS"
+    },
+    {
+      "group": "alternator-rotor",
+      "target": "EXT-ELECTRIC-25",
+      "ratio": 1.7830188679245285,
+      "measured_ratio": 1.7830188679245287,
+      "ratio_error": 3.975693351829396e-16,
+      "pivot_drift_m": 0.0,
+      "axis_endpoint_drift_m": 0.0,
+      "manual_sign_consistent": true,
+      "status": "PASS"
+    },
+    {
+      "group": "alternator-rotor",
+      "target": "EXT-ELECTRIC-30",
+      "ratio": 1.7830188679245285,
+      "measured_ratio": 1.7830188679245287,
+      "ratio_error": 3.975693351829396e-16,
+      "pivot_drift_m": 0.0,
+      "axis_endpoint_drift_m": 0.0,
+      "manual_sign_consistent": true,
+      "status": "PASS"
+    },
+    {
+      "group": "alternator-rotor",
+      "target": "EXT-ELECTRIC-31",
+      "ratio": 1.7830188679245285,
+      "measured_ratio": 1.7830188679245287,
+      "ratio_error": 3.975693351829396e-16,
+      "pivot_drift_m": 0.0,
+      "axis_endpoint_drift_m": 0.0,
+      "manual_sign_consistent": true,
+      "status": "PASS"
+    },
+    {
+      "group": "turbo-rotor",
+      "target": "EXT-EXHAUST-20",
+      "ratio": 4,
+      "measured_ratio": 4.000000000000002,
+      "ratio_error": 1.5902773407317584e-15,
+      "pivot_drift_m": 1.1102230246251565e-16,
+      "axis_endpoint_drift_m": 1.1102230246251565e-16,
+      "manual_sign_consistent": true,
+      "status": "PASS"
+    },
+    {
+      "group": "turbo-rotor",
+      "target": "EXT-EXHAUST-21",
+      "ratio": 4,
+      "measured_ratio": 4.000000000000002,
+      "ratio_error": 1.5902773407317584e-15,
+      "pivot_drift_m": 1.1102230246251565e-16,
+      "axis_endpoint_drift_m": 1.1102230246251565e-16,
+      "manual_sign_consistent": true,
+      "status": "PASS"
+    },
+    {
+      "group": "turbo-rotor",
+      "target": "EXT-EXHAUST-25",
+      "ratio": 4,
+      "measured_ratio": 4.000000000000002,
+      "ratio_error": 1.5902773407317584e-15,
+      "pivot_drift_m": 1.1102230246251565e-16,
+      "axis_endpoint_drift_m": 1.1102230246251565e-16,
+      "manual_sign_consistent": true,
+      "status": "PASS"
+    },
+    {
+      "group": "turbo-rotor",
+      "target": "EXT-EXHAUST-26",
+      "ratio": 4,
+      "measured_ratio": 4.000000000000002,
+      "ratio_error": 1.5902773407317584e-15,
+      "pivot_drift_m": 1.1102230246251565e-16,
+      "axis_endpoint_drift_m": 1.1102230246251565e-16,
+      "manual_sign_consistent": true,
+      "status": "PASS"
+    },
+    {
+      "group": "turbo-rotor",
+      "target": "EXT-EXHAUST-28",
+      "ratio": 4,
+      "measured_ratio": 4.000000000000002,
+      "ratio_error": 1.5902773407317584e-15,
+      "pivot_drift_m": 1.1102230246251565e-16,
+      "axis_endpoint_drift_m": 1.1102230246251565e-16,
+      "manual_sign_consistent": true,
+      "status": "PASS"
+    },
+    {
+      "group": "turbo-rotor",
+      "target": "EXT-EXHAUST-33",
+      "ratio": 4,
+      "measured_ratio": 4.000000000000002,
+      "ratio_error": 1.5902773407317584e-15,
+      "pivot_drift_m": 1.1102230246251565e-16,
+      "axis_endpoint_drift_m": 1.1102230246251565e-16,
+      "manual_sign_consistent": true,
+      "status": "PASS"
+    },
+    {
+      "group": "centrifugal-oil-rotor",
+      "target": "EXT-LUBE-32",
+      "ratio": 1.65,
+      "measured_ratio": 1.65,
+      "ratio_error": 0.0,
+      "pivot_drift_m": 5.551115123125783e-17,
+      "axis_endpoint_drift_m": 5.551115123125783e-17,
+      "manual_sign_consistent": true,
+      "status": "PASS"
+    },
+    {
+      "group": "centrifugal-oil-rotor",
+      "target": "EXT-LUBE-33",
+      "ratio": 1.65,
+      "measured_ratio": 1.65,
+      "ratio_error": 0.0,
+      "pivot_drift_m": 5.551115123125783e-17,
+      "axis_endpoint_drift_m": 5.551115123125783e-17,
+      "manual_sign_consistent": true,
+      "status": "PASS"
+    },
+    {
+      "group": "centrifugal-oil-rotor",
+      "target": "EXT-LUBE-34",
+      "ratio": 1.65,
+      "measured_ratio": 1.65,
+      "ratio_error": 0.0,
+      "pivot_drift_m": 5.551115123125783e-17,
+      "axis_endpoint_drift_m": 5.551115123125783e-17,
+      "manual_sign_consistent": true,
+      "status": "PASS"
+    },
+    {
+      "group": "centrifugal-oil-rotor",
+      "target": "EXT-LUBE-35",
+      "ratio": 1.65,
+      "measured_ratio": 1.65,
+      "ratio_error": 0.0,
+      "pivot_drift_m": 5.551115123125783e-17,
+      "axis_endpoint_drift_m": 5.551115123125783e-17,
+      "manual_sign_consistent": true,
+      "status": "PASS"
+    },
+    {
+      "group": "centrifugal-oil-rotor",
+      "target": "EXT-LUBE-36",
+      "ratio": 1.65,
+      "measured_ratio": 1.65,
+      "ratio_error": 0.0,
+      "pivot_drift_m": 5.551115123125783e-17,
+      "axis_endpoint_drift_m": 5.551115123125783e-17,
+      "manual_sign_consistent": true,
+      "status": "PASS"
+    },
+    {
+      "group": "fuel-pump-cam",
+      "target": "EXT-FUEL-21",
+      "ratio": 0.5,
+      "measured_ratio": 0.4999999999999999,
+      "ratio_error": 9.93923337957349e-17,
+      "pivot_drift_m": 0.0,
+      "axis_endpoint_drift_m": 0.0,
+      "manual_sign_consistent": true,
+      "status": "PASS"
+    },
+    {
+      "group": "fuel-pump-cam",
+      "target": "EXT-FUEL-240",
+      "ratio": 0.5,
+      "measured_ratio": 0.4999999999999999,
+      "ratio_error": 9.93923337957349e-17,
+      "pivot_drift_m": 0.0,
+      "axis_endpoint_drift_m": 0.0,
+      "manual_sign_consistent": true,
+      "status": "PASS"
+    },
+    {
+      "group": "governor-flyweights",
+      "target": "EXT-FUEL-200",
+      "ratio": 0.5,
+      "measured_ratio": 0.4999999999999999,
+      "ratio_error": 9.93923337957349e-17,
+      "pivot_drift_m": 0.0,
+      "axis_endpoint_drift_m": 0.0,
+      "manual_sign_consistent": true,
+      "status": "PASS"
+    },
+    {
+      "group": "governor-flyweights",
+      "target": "EXT-FUEL-201",
+      "ratio": 0.5,
+      "measured_ratio": 0.4999999999999999,
+      "ratio_error": 9.93923337957349e-17,
+      "pivot_drift_m": 0.0,
+      "axis_endpoint_drift_m": 0.0,
+      "manual_sign_consistent": true,
+      "status": "PASS"
+    },
+    {
+      "group": "governor-flyweights",
+      "target": "EXT-FUEL-202",
+      "ratio": 0.5,
+      "measured_ratio": 0.4999999999999999,
+      "ratio_error": 9.93923337957349e-17,
+      "pivot_drift_m": 0.0,
+      "axis_endpoint_drift_m": 0.0,
+      "manual_sign_consistent": true,
+      "status": "PASS"
+    },
+    {
+      "group": "starter-armature",
+      "target": "EXT-ELECTRIC-40",
+      "ratio": 0,
+      "measured_ratio": 0.0,
+      "ratio_error": 0.0,
+      "pivot_drift_m": 0.0,
+      "axis_endpoint_drift_m": 0.0,
+      "manual_sign_consistent": true,
+      "status": "PASS"
+    },
+    {
+      "group": "starter-carrier",
+      "target": "EXT-ELECTRIC-46",
+      "ratio": 0,
+      "measured_ratio": 0.0,
+      "ratio_error": 0.0,
+      "pivot_drift_m": 0.0,
+      "axis_endpoint_drift_m": 0.0,
+      "manual_sign_consistent": true,
+      "status": "PASS"
+    },
+    {
+      "group": "starter-carrier",
+      "target": "EXT-ELECTRIC-47",
+      "ratio": 0,
+      "measured_ratio": 0.0,
+      "ratio_error": 0.0,
+      "pivot_drift_m": 0.0,
+      "axis_endpoint_drift_m": 0.0,
+      "manual_sign_consistent": true,
+      "status": "PASS"
+    },
+    {
+      "group": "starter-pinion",
+      "target": "EXT-ELECTRIC-48",
+      "ratio": 0,
+      "measured_ratio": 0.0,
+      "ratio_error": 0.0,
+      "pivot_drift_m": 0.0,
+      "axis_endpoint_drift_m": 0.0,
+      "manual_sign_consistent": true,
+      "status": "PASS"
+    }
+  ],
+  "legacy": [
+    {
+      "id": "MOT-INT-CRANK",
+      "declared": -1,
+      "measured": -1.0
+    },
+    {
+      "id": "EXT-FLYWHEEL-02",
+      "declared": -1,
+      "measured": -1.0
+    },
+    {
+      "id": "EXT-FRONT-02",
+      "declared": -1,
+      "measured": -1.0
+    },
+    {
+      "id": "EXT-FLYWHEEL-20",
+      "declared": -1,
+      "measured": -1.0
+    },
+    {
+      "id": "MOT-INT-CAM",
+      "declared": -0.5,
+      "measured": -0.5
+    }
+  ],
+  "fixed_examples_moved": [],
+  "stationary_components_missing": [],
+  "viewer_restoration_matrix_error": 0,
+  "pose_mesh_count": 1146,
+  "moved_mesh_count": 566,
+  "poppet_motion": [
+    {
+      "id": "INT-VALVE-130",
+      "sampled_y_stroke_m": 0.008992920667580173,
+      "lateral_drift_m": 0.0
+    },
+    {
+      "id": "INT-VALVE-137",
+      "sampled_y_stroke_m": 0.008992920667580173,
+      "lateral_drift_m": 0.0
+    },
+    {
+      "id": "INT-VALVE-150",
+      "sampled_y_stroke_m": 0.008992920667580173,
+      "lateral_drift_m": 0.0
+    },
+    {
+      "id": "INT-VALVE-157",
+      "sampled_y_stroke_m": 0.008992920667580173,
+      "lateral_drift_m": 0.0
+    },
+    {
+      "id": "INT-VALVE-230",
+      "sampled_y_stroke_m": 0.008992920667580173,
+      "lateral_drift_m": 0.0
+    },
+    {
+      "id": "INT-VALVE-237",
+      "sampled_y_stroke_m": 0.008992920667580173,
+      "lateral_drift_m": 0.0
+    },
+    {
+      "id": "INT-VALVE-250",
+      "sampled_y_stroke_m": 0.008992920667580173,
+      "lateral_drift_m": 0.0
+    },
+    {
+      "id": "INT-VALVE-257",
+      "sampled_y_stroke_m": 0.008992920667580173,
+      "lateral_drift_m": 0.0
+    },
+    {
+      "id": "INT-VALVE-330",
+      "sampled_y_stroke_m": 0.008992920667580173,
+      "lateral_drift_m": 0.0
+    },
+    {
+      "id": "INT-VALVE-337",
+      "sampled_y_stroke_m": 0.008992920667580173,
+      "lateral_drift_m": 0.0
+    },
+    {
+      "id": "INT-VALVE-350",
+      "sampled_y_stroke_m": 0.008992920667580173,
+      "lateral_drift_m": 0.0
+    },
+    {
+      "id": "INT-VALVE-357",
+      "sampled_y_stroke_m": 0.008992920667580173,
+      "lateral_drift_m": 0.0
+    },
+    {
+      "id": "INT-VALVE-430",
+      "sampled_y_stroke_m": 0.008992920667580173,
+      "lateral_drift_m": 0.0
+    },
+    {
+      "id": "INT-VALVE-437",
+      "sampled_y_stroke_m": 0.008992920667580173,
+      "lateral_drift_m": 0.0
+    },
+    {
+      "id": "INT-VALVE-450",
+      "sampled_y_stroke_m": 0.008992920667580173,
+      "lateral_drift_m": 0.0
+    },
+    {
+      "id": "INT-VALVE-457",
+      "sampled_y_stroke_m": 0.008992920667580173,
+      "lateral_drift_m": 0.0
+    },
+    {
+      "id": "INT-VALVE-530",
+      "sampled_y_stroke_m": 0.008992920667580173,
+      "lateral_drift_m": 0.0
+    },
+    {
+      "id": "INT-VALVE-537",
+      "sampled_y_stroke_m": 0.008992920667580173,
+      "lateral_drift_m": 0.0
+    },
+    {
+      "id": "INT-VALVE-550",
+      "sampled_y_stroke_m": 0.008992920667580173,
+      "lateral_drift_m": 0.0
+    },
+    {
+      "id": "INT-VALVE-557",
+      "sampled_y_stroke_m": 0.008992920667580173,
+      "lateral_drift_m": 0.0
+    },
+    {
+      "id": "INT-VALVE-630",
+      "sampled_y_stroke_m": 0.008992920667580173,
+      "lateral_drift_m": 0.0
+    },
+    {
+      "id": "INT-VALVE-637",
+      "sampled_y_stroke_m": 0.008992920667580173,
+      "lateral_drift_m": 0.0
+    },
+    {
+      "id": "INT-VALVE-650",
+      "sampled_y_stroke_m": 0.008992920667580173,
+      "lateral_drift_m": 0.0
+    },
+    {
+      "id": "INT-VALVE-657",
+      "sampled_y_stroke_m": 0.008992920667580173,
+      "lateral_drift_m": 0.0
+    }
+  ],
+  "source_document_pump_speed": [
+    {
+      "id": "EXT-COOLING-26",
+      "document_crank_rpm": 1900,
+      "document_rpm": 2533,
+      "sampled_equivalent_rpm": 2533.333333333333,
+      "within_rounding_to_whole_rpm": true
+    },
+    {
+      "id": "EXT-COOLING-41",
+      "document_crank_rpm": 1900,
+      "document_rpm": 1572,
+      "sampled_equivalent_rpm": 1572.4137931034481,
+      "within_rounding_to_whole_rpm": true
+    }
+  ],
+  "non_spin_checks": [
+    {
+      "group": "alternator-belt-travel",
+      "target": "EXT-FRONT-05",
+      "kind": "belt",
+      "max_matrix_element_change": 1.9999214492244635,
+      "axis_or_anchor_error_m": null,
+      "failure": null
+    },
+    {
+      "group": "fuel-plunger-1",
+      "target": "EXT-FUEL-23",
+      "kind": "reciprocate",
+      "max_matrix_element_change": 0.01004680899999999,
+      "axis_or_anchor_error_m": 0.0,
+      "failure": null
+    },
+    {
+      "group": "fuel-plunger-1",
+      "target": "EXT-FUEL-35",
+      "kind": "reciprocate",
+      "max_matrix_element_change": 0.01004680899999999,
+      "axis_or_anchor_error_m": 0.0,
+      "failure": null
+    },
+    {
+      "group": "fuel-plunger-1",
+      "target": "EXT-FUEL-270",
+      "kind": "reciprocate",
+      "max_matrix_element_change": 0.01004680899999999,
+      "axis_or_anchor_error_m": 0.0,
+      "failure": null
+    },
+    {
+      "group": "fuel-cam-roller-1",
+      "target": "EXT-FUEL-300",
+      "kind": "reciprocate",
+      "max_matrix_element_change": 2,
+      "axis_or_anchor_error_m": 1.6653345369377348e-16,
+      "failure": null
+    },
+    {
+      "group": "fuel-plunger-spring-1",
+      "target": "EXT-FUEL-29",
+      "kind": "spring",
+      "max_matrix_element_change": 0.264389710526316,
+      "axis_or_anchor_error_m": 0.0,
+      "failure": null
+    },
+    {
+      "group": "delivery-valve-1",
+      "target": "EXT-FUEL-47",
+      "kind": "reciprocate",
+      "max_matrix_element_change": 0.0007603880000000007,
+      "axis_or_anchor_error_m": 0.0,
+      "failure": null
+    },
+    {
+      "group": "delivery-valve-spring-1",
+      "target": "EXT-FUEL-288",
+      "kind": "spring",
+      "max_matrix_element_change": 0.08448755555555554,
+      "axis_or_anchor_error_m": 0.0,
+      "failure": null
+    },
+    {
+      "group": "nozzle-needle-1",
+      "target": "INT-FUELINJ-11-13",
+      "kind": "reciprocate",
+      "max_matrix_element_change": 0.00023762100000002118,
+      "axis_or_anchor_error_m": 0.0,
+      "failure": null
+    },
+    {
+      "group": "nozzle-needle-1",
+      "target": "INT-FUELINJ-11-09",
+      "kind": "reciprocate",
+      "max_matrix_element_change": 0.00023762100000002118,
+      "axis_or_anchor_error_m": 0.0,
+      "failure": null
+    },
+    {
+      "group": "nozzle-spring-1",
+      "target": "INT-FUELINJ-11-08",
+      "kind": "spring",
+      "max_matrix_element_change": 0.004176115992970075,
+      "axis_or_anchor_error_m": 0.0,
+      "failure": null
+    },
+    {
+      "group": "fuel-plunger-2",
+      "target": "EXT-FUEL-24",
+      "kind": "reciprocate",
+      "max_matrix_element_change": 0.010000000000000009,
+      "axis_or_anchor_error_m": 0.0,
+      "failure": null
+    },
+    {
+      "group": "fuel-plunger-2",
+      "target": "EXT-FUEL-36",
+      "kind": "reciprocate",
+      "max_matrix_element_change": 0.010000000000000009,
+      "axis_or_anchor_error_m": 0.0,
+      "failure": null
+    },
+    {
+      "group": "fuel-plunger-2",
+      "target": "EXT-FUEL-271",
+      "kind": "reciprocate",
+      "max_matrix_element_change": 0.010000000000000009,
+      "axis_or_anchor_error_m": 0.0,
+      "failure": null
+    },
+    {
+      "group": "fuel-cam-roller-2",
+      "target": "EXT-FUEL-301",
+      "kind": "reciprocate",
+      "max_matrix_element_change": 2,
+      "axis_or_anchor_error_m": 1.6653345369377348e-16,
+      "failure": null
+    },
+    {
+      "group": "fuel-plunger-spring-2",
+      "target": "EXT-FUEL-30",
+      "kind": "spring",
+      "max_matrix_element_change": 0.20833333333333337,
+      "axis_or_anchor_error_m": 5.551115123125783e-17,
+      "failure": null
+    },
+    {
+      "group": "delivery-valve-2",
+      "target": "EXT-FUEL-48",
+      "kind": "reciprocate",
+      "max_matrix_element_change": 0.0007603880000000007,
+      "axis_or_anchor_error_m": 0.0,
+      "failure": null
+    },
+    {
+      "group": "delivery-valve-spring-2",
+      "target": "EXT-FUEL-289",
+      "kind": "spring",
+      "max_matrix_element_change": 0.08448755555555554,
+      "axis_or_anchor_error_m": 0.0,
+      "failure": null
+    },
+    {
+      "group": "nozzle-needle-2",
+      "target": "INT-FUELINJ-21-13",
+      "kind": "reciprocate",
+      "max_matrix_element_change": 0.00023762100000002118,
+      "axis_or_anchor_error_m": 0.0,
+      "failure": null
+    },
+    {
+      "group": "nozzle-needle-2",
+      "target": "INT-FUELINJ-21-09",
+      "kind": "reciprocate",
+      "max_matrix_element_change": 0.00023762100000002118,
+      "axis_or_anchor_error_m": 0.0,
+      "failure": null
+    },
+    {
+      "group": "nozzle-spring-2",
+      "target": "INT-FUELINJ-21-08",
+      "kind": "spring",
+      "max_matrix_element_change": 0.004176115992970075,
+      "axis_or_anchor_error_m": 0.0,
+      "failure": null
+    },
+    {
+      "group": "fuel-plunger-3",
+      "target": "EXT-FUEL-25",
+      "kind": "reciprocate",
+      "max_matrix_element_change": 0.010000000000000009,
+      "axis_or_anchor_error_m": 0.0,
+      "failure": null
+    },
+    {
+      "group": "fuel-plunger-3",
+      "target": "EXT-FUEL-37",
+      "kind": "reciprocate",
+      "max_matrix_element_change": 0.010000000000000009,
+      "axis_or_anchor_error_m": 0.0,
+      "failure": null
+    },
+    {
+      "group": "fuel-plunger-3",
+      "target": "EXT-FUEL-272",
+      "kind": "reciprocate",
+      "max_matrix_element_change": 0.010000000000000009,
+      "axis_or_anchor_error_m": 0.0,
+      "failure": null
+    },
+    {
+      "group": "fuel-cam-roller-3",
+      "target": "EXT-FUEL-302",
+      "kind": "reciprocate",
+      "max_matrix_element_change": 2,
+      "axis_or_anchor_error_m": 1.6653345369377348e-16,
+      "failure": null
+    },
+    {
+      "group": "fuel-plunger-spring-3",
+      "target": "EXT-FUEL-31",
+      "kind": "spring",
+      "max_matrix_element_change": 0.20833333333333337,
+      "axis_or_anchor_error_m": 5.551115123125783e-17,
+      "failure": null
+    },
+    {
+      "group": "delivery-valve-3",
+      "target": "EXT-FUEL-49",
+      "kind": "reciprocate",
+      "max_matrix_element_change": 0.0007603880000000007,
+      "axis_or_anchor_error_m": 0.0,
+      "failure": null
+    },
+    {
+      "group": "delivery-valve-spring-3",
+      "target": "EXT-FUEL-290",
+      "kind": "spring",
+      "max_matrix_element_change": 0.08448755555555554,
+      "axis_or_anchor_error_m": 0.0,
+      "failure": null
+    },
+    {
+      "group": "nozzle-needle-3",
+      "target": "INT-FUELINJ-31-13",
+      "kind": "reciprocate",
+      "max_matrix_element_change": 0.00023762100000002118,
+      "axis_or_anchor_error_m": 0.0,
+      "failure": null
+    },
+    {
+      "group": "nozzle-needle-3",
+      "target": "INT-FUELINJ-31-09",
+      "kind": "reciprocate",
+      "max_matrix_element_change": 0.00023762100000002118,
+      "axis_or_anchor_error_m": 0.0,
+      "failure": null
+    },
+    {
+      "group": "nozzle-spring-3",
+      "target": "INT-FUELINJ-31-08",
+      "kind": "spring",
+      "max_matrix_element_change": 0.004176115992970075,
+      "axis_or_anchor_error_m": 0.0,
+      "failure": null
+    },
+    {
+      "group": "fuel-plunger-4",
+      "target": "EXT-FUEL-26",
+      "kind": "reciprocate",
+      "max_matrix_element_change": 0.007885319000000002,
+      "axis_or_anchor_error_m": 0.0,
+      "failure": null
+    },
+    {
+      "group": "fuel-plunger-4",
+      "target": "EXT-FUEL-38",
+      "kind": "reciprocate",
+      "max_matrix_element_change": 0.007885319000000002,
+      "axis_or_anchor_error_m": 0.0,
+      "failure": null
+    },
+    {
+      "group": "fuel-plunger-4",
+      "target": "EXT-FUEL-273",
+      "kind": "reciprocate",
+      "max_matrix_element_change": 0.007885319000000002,
+      "axis_or_anchor_error_m": 0.0,
+      "failure": null
+    },
+    {
+      "group": "fuel-cam-roller-4",
+      "target": "EXT-FUEL-303",
+      "kind": "reciprocate",
+      "max_matrix_element_change": 2,
+      "axis_or_anchor_error_m": 1.6653345369377348e-16,
+      "failure": null
+    },
+    {
+      "group": "fuel-plunger-spring-4",
+      "target": "EXT-FUEL-32",
+      "kind": "spring",
+      "max_matrix_element_change": 0.17184840662595813,
+      "axis_or_anchor_error_m": 0.0,
+      "failure": null
+    },
+    {
+      "group": "delivery-valve-4",
+      "target": "EXT-FUEL-50",
+      "kind": "reciprocate",
+      "max_matrix_element_change": 0.0007603880000000007,
+      "axis_or_anchor_error_m": 0.0,
+      "failure": null
+    },
+    {
+      "group": "delivery-valve-spring-4",
+      "target": "EXT-FUEL-291",
+      "kind": "spring",
+      "max_matrix_element_change": 0.08448755555555554,
+      "axis_or_anchor_error_m": 0.0,
+      "failure": null
+    },
+    {
+      "group": "nozzle-needle-4",
+      "target": "INT-FUELINJ-41-13",
+      "kind": "reciprocate",
+      "max_matrix_element_change": 0.00023762100000002118,
+      "axis_or_anchor_error_m": 0.0,
+      "failure": null
+    },
+    {
+      "group": "nozzle-needle-4",
+      "target": "INT-FUELINJ-41-09",
+      "kind": "reciprocate",
+      "max_matrix_element_change": 0.00023762100000002118,
+      "axis_or_anchor_error_m": 0.0,
+      "failure": null
+    },
+    {
+      "group": "nozzle-spring-4",
+      "target": "INT-FUELINJ-41-08",
+      "kind": "spring",
+      "max_matrix_element_change": 0.004176115992970075,
+      "axis_or_anchor_error_m": 0.0,
+      "failure": null
+    },
+    {
+      "group": "fuel-plunger-5",
+      "target": "EXT-FUEL-27",
+      "kind": "reciprocate",
+      "max_matrix_element_change": 0.007885319000000002,
+      "axis_or_anchor_error_m": 0.0,
+      "failure": null
+    },
+    {
+      "group": "fuel-plunger-5",
+      "target": "EXT-FUEL-39",
+      "kind": "reciprocate",
+      "max_matrix_element_change": 0.007885319000000002,
+      "axis_or_anchor_error_m": 0.0,
+      "failure": null
+    },
+    {
+      "group": "fuel-plunger-5",
+      "target": "EXT-FUEL-274",
+      "kind": "reciprocate",
+      "max_matrix_element_change": 0.007885319000000002,
+      "axis_or_anchor_error_m": 0.0,
+      "failure": null
+    },
+    {
+      "group": "fuel-cam-roller-5",
+      "target": "EXT-FUEL-304",
+      "kind": "reciprocate",
+      "max_matrix_element_change": 2,
+      "axis_or_anchor_error_m": 1.6653345369377348e-16,
+      "failure": null
+    },
+    {
+      "group": "fuel-plunger-spring-5",
+      "target": "EXT-FUEL-33",
+      "kind": "spring",
+      "max_matrix_element_change": 0.17184840662595813,
+      "axis_or_anchor_error_m": 0.0,
+      "failure": null
+    },
+    {
+      "group": "delivery-valve-5",
+      "target": "EXT-FUEL-51",
+      "kind": "reciprocate",
+      "max_matrix_element_change": 0.0007603880000000007,
+      "axis_or_anchor_error_m": 0.0,
+      "failure": null
+    },
+    {
+      "group": "delivery-valve-spring-5",
+      "target": "EXT-FUEL-292",
+      "kind": "spring",
+      "max_matrix_element_change": 0.08448755555555554,
+      "axis_or_anchor_error_m": 0.0,
+      "failure": null
+    },
+    {
+      "group": "nozzle-needle-5",
+      "target": "INT-FUELINJ-51-13",
+      "kind": "reciprocate",
+      "max_matrix_element_change": 0.00023762100000002118,
+      "axis_or_anchor_error_m": 0.0,
+      "failure": null
+    },
+    {
+      "group": "nozzle-needle-5",
+      "target": "INT-FUELINJ-51-09",
+      "kind": "reciprocate",
+      "max_matrix_element_change": 0.00023762100000002118,
+      "axis_or_anchor_error_m": 0.0,
+      "failure": null
+    },
+    {
+      "group": "nozzle-spring-5",
+      "target": "INT-FUELINJ-51-08",
+      "kind": "spring",
+      "max_matrix_element_change": 0.004176115992970075,
+      "axis_or_anchor_error_m": 0.0,
+      "failure": null
+    },
+    {
+      "group": "fuel-plunger-6",
+      "target": "EXT-FUEL-28",
+      "kind": "reciprocate",
+      "max_matrix_element_change": 0.010000000000000009,
+      "axis_or_anchor_error_m": 0.0,
+      "failure": null
+    },
+    {
+      "group": "fuel-plunger-6",
+      "target": "EXT-FUEL-40",
+      "kind": "reciprocate",
+      "max_matrix_element_change": 0.010000000000000009,
+      "axis_or_anchor_error_m": 0.0,
+      "failure": null
+    },
+    {
+      "group": "fuel-plunger-6",
+      "target": "EXT-FUEL-275",
+      "kind": "reciprocate",
+      "max_matrix_element_change": 0.010000000000000009,
+      "axis_or_anchor_error_m": 0.0,
+      "failure": null
+    },
+    {
+      "group": "fuel-cam-roller-6",
+      "target": "EXT-FUEL-305",
+      "kind": "reciprocate",
+      "max_matrix_element_change": 2,
+      "axis_or_anchor_error_m": 1.6653345369377348e-16,
+      "failure": null
+    },
+    {
+      "group": "fuel-plunger-spring-6",
+      "target": "EXT-FUEL-34",
+      "kind": "spring",
+      "max_matrix_element_change": 0.20833333333333337,
+      "axis_or_anchor_error_m": 5.551115123125783e-17,
+      "failure": null
+    },
+    {
+      "group": "delivery-valve-6",
+      "target": "EXT-FUEL-52",
+      "kind": "reciprocate",
+      "max_matrix_element_change": 0.0007603880000000007,
+      "axis_or_anchor_error_m": 0.0,
+      "failure": null
+    },
+    {
+      "group": "delivery-valve-spring-6",
+      "target": "EXT-FUEL-293",
+      "kind": "spring",
+      "max_matrix_element_change": 0.08448755555555554,
+      "axis_or_anchor_error_m": 0.0,
+      "failure": null
+    },
+    {
+      "group": "nozzle-needle-6",
+      "target": "INT-FUELINJ-61-13",
+      "kind": "reciprocate",
+      "max_matrix_element_change": 0.00023762100000002118,
+      "axis_or_anchor_error_m": 0.0,
+      "failure": null
+    },
+    {
+      "group": "nozzle-needle-6",
+      "target": "INT-FUELINJ-61-09",
+      "kind": "reciprocate",
+      "max_matrix_element_change": 0.00023762100000002118,
+      "axis_or_anchor_error_m": 0.0,
+      "failure": null
+    },
+    {
+      "group": "nozzle-spring-6",
+      "target": "INT-FUELINJ-61-08",
+      "kind": "spring",
+      "max_matrix_element_change": 0.004176115992970075,
+      "axis_or_anchor_error_m": 0.0,
+      "failure": null
+    },
+    {
+      "group": "feed-piston",
+      "target": "EXT-FUEL-210",
+      "kind": "reciprocate",
+      "max_matrix_element_change": 0.0048000000000000265,
+      "axis_or_anchor_error_m": 0.0,
+      "failure": null
+    },
+    {
+      "group": "feed-piston",
+      "target": "EXT-FUEL-211",
+      "kind": "reciprocate",
+      "max_matrix_element_change": 0.0048000000000000265,
+      "axis_or_anchor_error_m": 0.0,
+      "failure": null
+    },
+    {
+      "group": "feed-roller",
+      "target": "EXT-FUEL-238",
+      "kind": "reciprocate",
+      "max_matrix_element_change": 1.9999939076577908,
+      "axis_or_anchor_error_m": 1.6653345369377348e-16,
+      "failure": null
+    },
+    {
+      "group": "feed-return-spring",
+      "target": "EXT-FUEL-212",
+      "kind": "spring",
+      "max_matrix_element_change": 0.22857142857142898,
+      "axis_or_anchor_error_m": 0.0,
+      "failure": null
+    },
+    {
+      "group": "feed-check-1",
+      "target": "EXT-FUEL-213",
+      "kind": "reciprocate",
+      "max_matrix_element_change": 0.0007000000000000062,
+      "axis_or_anchor_error_m": 0.0,
+      "failure": null
+    },
+    {
+      "group": "feed-check-spring-1",
+      "target": "EXT-FUEL-234",
+      "kind": "spring",
+      "max_matrix_element_change": 0.06999999999999995,
+      "axis_or_anchor_error_m": 0.0,
+      "failure": null
+    },
+    {
+      "group": "feed-check-2",
+      "target": "EXT-FUEL-214",
+      "kind": "reciprocate",
+      "max_matrix_element_change": 0.0007000000000000062,
+      "axis_or_anchor_error_m": 0.0,
+      "failure": null
+    },
+    {
+      "group": "feed-check-spring-2",
+      "target": "EXT-FUEL-235",
+      "kind": "spring",
+      "max_matrix_element_change": 0.06999999999999995,
+      "axis_or_anchor_error_m": 0.0,
+      "failure": null
+    },
+    {
+      "group": "feed-check-3",
+      "target": "EXT-FUEL-215",
+      "kind": "reciprocate",
+      "max_matrix_element_change": 0.0007000000000000062,
+      "axis_or_anchor_error_m": 0.0,
+      "failure": null
+    },
+    {
+      "group": "feed-check-spring-3",
+      "target": "EXT-FUEL-236",
+      "kind": "spring",
+      "max_matrix_element_change": 0.06999999999999995,
+      "axis_or_anchor_error_m": 0.0,
+      "failure": null
+    },
+    {
+      "group": "feed-check-4",
+      "target": "EXT-FUEL-216",
+      "kind": "reciprocate",
+      "max_matrix_element_change": 0.0007000000000000062,
+      "axis_or_anchor_error_m": 0.0,
+      "failure": null
+    },
+    {
+      "group": "feed-check-spring-4",
+      "target": "EXT-FUEL-237",
+      "kind": "spring",
+      "max_matrix_element_change": 0.06999999999999995,
+      "axis_or_anchor_error_m": 0.0,
+      "failure": null
+    },
+    {
+      "group": "starter-planet-1",
+      "target": "EXT-ELECTRIC-54",
+      "kind": "orbit",
+      "max_matrix_element_change": 0,
+      "axis_or_anchor_error_m": null,
+      "failure": null
+    },
+    {
+      "group": "starter-planet-2",
+      "target": "EXT-ELECTRIC-55",
+      "kind": "orbit",
+      "max_matrix_element_change": 0,
+      "axis_or_anchor_error_m": null,
+      "failure": null
+    },
+    {
+      "group": "starter-planet-3",
+      "target": "EXT-ELECTRIC-56",
+      "kind": "orbit",
+      "max_matrix_element_change": 0,
+      "axis_or_anchor_error_m": null,
+      "failure": null
+    },
+    {
+      "group": "starter-solenoid",
+      "target": "EXT-ELECTRIC-52",
+      "kind": "reciprocate",
+      "max_matrix_element_change": 0,
+      "axis_or_anchor_error_m": 0.0,
+      "failure": null
+    },
+    {
+      "group": "starter-lever",
+      "target": "EXT-ELECTRIC-53",
+      "kind": "rock",
+      "max_matrix_element_change": 0,
+      "axis_or_anchor_error_m": 0.0,
+      "failure": null
+    }
+  ],
+  "motion_failures": []
+}

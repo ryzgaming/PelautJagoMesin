@@ -1,0 +1,562 @@
+{
+  "id": "RAK-INJECTOR-4",
+  "nama": "Injektor mekanis TP2 · Silinder 4",
+  "parent_rakitan": "RAK-INT-FUELINJ",
+  "node_rakitan": "RAK-INJECTOR-4",
+  "acuan": {
+    "no": 1,
+    "object_ids": [
+      "INT-FUELINJ-41"
+    ]
+  },
+  "diagram": {
+    "arah_pandang": [
+      0.19,
+      0.27,
+      -0.94
+    ],
+    "atas": [
+      0,
+      1,
+      0
+    ]
+  },
+  "cut_axis": [
+    0,
+    1,
+    0
+  ],
+  "cut_normal": [
+    1,
+    0,
+    0
+  ],
+  "bagian": [
+    {
+      "no": 1,
+      "nama": "Rumah injektor (nozzle holder)",
+      "role": "shell",
+      "object_ids": [
+        "INT-FUELINJ-41"
+      ],
+      "nomor_oem": null,
+      "fungsi": "Menopang bagian internal dan menyalurkan bahan bakar dari sambungan samping ke nozzle.",
+      "status": "OBSERVED",
+      "sumber": [
+        "D05 katalog 6AYM-WET, Fig. 79 Fuel Injection Valve ref 1",
+        "D01 PDF 150–152 / cetak 146–148, Fuel Injector, gambar 016377-00EN01, 014971-00E dan 016375-00EN01"
+      ],
+      "source_refs": [
+        "D05 katalog 6AYM-WET, Fig. 79 Fuel Injection Valve ref 1",
+        "D01 PDF 150–152 / cetak 146–148, Fuel Injector, gambar 016377-00EN01, 014971-00E dan 016375-00EN01"
+      ],
+      "posisi": []
+    },
+    {
+      "no": 2,
+      "nama": "Cap nut (tutup setelan)",
+      "role": "shell",
+      "object_ids": [
+        "INT-FUELINJ-42"
+      ],
+      "nomor_oem": "139684-53450",
+      "fungsi": "Melindungi adjuster dan menutup bagian atas rumah setelah penyetelan. Pada r02 ID ini berlabel “Injector union hex”; identifikasinya dikoreksi sesuai D05 Fig. 79 ref. 19. Sambungan pipa tekanan tinggi berada di sisi rumah.",
+      "status": "OBSERVED",
+      "sumber": [
+        "D05 katalog 6AYM-WET, Fig. 79 Fuel Injection Valve ref 19",
+        "D01 PDF 150–152 / cetak 146–148, Fuel Injector, gambar 016377-00EN01, 014971-00E dan 016375-00EN01"
+      ],
+      "source_refs": [
+        "D05 katalog 6AYM-WET, Fig. 79 Fuel Injection Valve ref 19",
+        "D01 PDF 150–152 / cetak 146–148, Fuel Injector, gambar 016377-00EN01, 014971-00E dan 016375-00EN01"
+      ],
+      "posisi": [
+        {
+          "object_id": "INT-FUELINJ-42",
+          "arah": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "jarak_m": 0.115,
+          "urutan": 2
+        }
+      ]
+    },
+    {
+      "no": 3,
+      "nama": "Adjusting bolt",
+      "role": "inner",
+      "object_ids": [
+        "INT-FUELINJ-41-03"
+      ],
+      "nomor_oem": "148620-53160",
+      "fungsi": "Memberikan preload ke pegas melalui retainer. Preload menentukan tekanan pembukaan jarum.",
+      "status": "OBSERVED",
+      "sumber": [
+        "D05 katalog 6AYM-WET, Fig. 79 Fuel Injection Valve ref 13",
+        "D01 PDF 150–152 / cetak 146–148, Fuel Injector, gambar 016377-00EN01, 014971-00E dan 016375-00EN01"
+      ],
+      "source_refs": [
+        "D05 katalog 6AYM-WET, Fig. 79 Fuel Injection Valve ref 13",
+        "D01 PDF 150–152 / cetak 146–148, Fuel Injector, gambar 016377-00EN01, 014971-00E dan 016375-00EN01"
+      ],
+      "posisi": [
+        {
+          "object_id": "INT-FUELINJ-41-03",
+          "arah": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "jarak_m": 0.053,
+          "urutan": 3
+        }
+      ]
+    },
+    {
+      "no": 4,
+      "nama": "Locknut adjuster",
+      "role": "inner",
+      "object_ids": [
+        "INT-FUELINJ-41-04"
+      ],
+      "nomor_oem": "139684-53170",
+      "fungsi": "Mengunci posisi adjusting bolt setelah penyetelan.",
+      "status": "OBSERVED",
+      "sumber": [
+        "D05 katalog 6AYM-WET, Fig. 79 Fuel Injection Valve ref 14",
+        "D01 PDF 150–152 / cetak 146–148, Fuel Injector, gambar 016377-00EN01, 014971-00E dan 016375-00EN01"
+      ],
+      "source_refs": [
+        "D05 katalog 6AYM-WET, Fig. 79 Fuel Injection Valve ref 14",
+        "D01 PDF 150–152 / cetak 146–148, Fuel Injector, gambar 016377-00EN01, 014971-00E dan 016375-00EN01"
+      ],
+      "posisi": [
+        {
+          "object_id": "INT-FUELINJ-41-04",
+          "arah": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "jarak_m": 0.099,
+          "urutan": 4
+        }
+      ]
+    },
+    {
+      "no": 5,
+      "nama": "Gasket atas 12 × 1 mm",
+      "role": "seal",
+      "object_ids": [
+        "INT-FUELINJ-41-05"
+      ],
+      "nomor_oem": "23414-120000",
+      "fungsi": "Merapatkan bidang antara cap nut dan locknut.",
+      "status": "OBSERVED",
+      "sumber": [
+        "D05 katalog 6AYM-WET, Fig. 79 Fuel Injection Valve ref 20",
+        "D01 PDF 150–152 / cetak 146–148, Fuel Injector, gambar 016377-00EN01, 014971-00E dan 016375-00EN01"
+      ],
+      "source_refs": [
+        "D05 katalog 6AYM-WET, Fig. 79 Fuel Injection Valve ref 20",
+        "D01 PDF 150–152 / cetak 146–148, Fuel Injector, gambar 016377-00EN01, 014971-00E dan 016375-00EN01"
+      ],
+      "posisi": [
+        {
+          "object_id": "INT-FUELINJ-41-05",
+          "arah": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "jarak_m": 0.108,
+          "urutan": 5
+        }
+      ]
+    },
+    {
+      "no": 6,
+      "nama": "Gasket bawah 12 × 1 mm",
+      "role": "seal",
+      "object_ids": [
+        "INT-FUELINJ-41-06"
+      ],
+      "nomor_oem": "23414-120000",
+      "fungsi": "Merapatkan bidang locknut pada sisi atas rumah.",
+      "status": "OBSERVED",
+      "sumber": [
+        "D05 katalog 6AYM-WET, Fig. 79 Fuel Injection Valve ref 20",
+        "D01 PDF 150–152 / cetak 146–148, Fuel Injector, gambar 016377-00EN01, 014971-00E dan 016375-00EN01"
+      ],
+      "source_refs": [
+        "D05 katalog 6AYM-WET, Fig. 79 Fuel Injection Valve ref 20",
+        "D01 PDF 150–152 / cetak 146–148, Fuel Injector, gambar 016377-00EN01, 014971-00E dan 016375-00EN01"
+      ],
+      "posisi": [
+        {
+          "object_id": "INT-FUELINJ-41-06",
+          "arah": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "jarak_m": 0.08700000000000001,
+          "urutan": 6
+        }
+      ]
+    },
+    {
+      "no": 7,
+      "nama": "Retainer atas pegas",
+      "role": "inner",
+      "object_ids": [
+        "INT-FUELINJ-41-07"
+      ],
+      "nomor_oem": "126616-53300",
+      "fungsi": "Meneruskan gaya adjuster ke ujung atas pegas dan memusatkannya.",
+      "status": "OBSERVED",
+      "sumber": [
+        "D05 katalog 6AYM-WET, Fig. 79 Fuel Injection Valve ref 17",
+        "D01 PDF 150–152 / cetak 146–148, Fuel Injector, gambar 016377-00EN01, 014971-00E dan 016375-00EN01"
+      ],
+      "source_refs": [
+        "D05 katalog 6AYM-WET, Fig. 79 Fuel Injection Valve ref 17",
+        "D01 PDF 150–152 / cetak 146–148, Fuel Injector, gambar 016377-00EN01, 014971-00E dan 016375-00EN01"
+      ],
+      "posisi": [
+        {
+          "object_id": "INT-FUELINJ-41-07",
+          "arah": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "jarak_m": 0.082,
+          "urutan": 7
+        }
+      ]
+    },
+    {
+      "no": 8,
+      "nama": "Pegas nozzle",
+      "role": "inner",
+      "object_ids": [
+        "INT-FUELINJ-41-08"
+      ],
+      "nomor_oem": "126616-53120",
+      "fungsi": "Menahan jarum pada dudukannya dan menutupnya kembali setelah injeksi.",
+      "status": "OBSERVED",
+      "sumber": [
+        "D05 katalog 6AYM-WET, Fig. 79 Fuel Injection Valve ref 11",
+        "D01 PDF 150–152 / cetak 146–148, Fuel Injector, gambar 016377-00EN01, 014971-00E dan 016375-00EN01"
+      ],
+      "source_refs": [
+        "D05 katalog 6AYM-WET, Fig. 79 Fuel Injection Valve ref 11",
+        "D01 PDF 150–152 / cetak 146–148, Fuel Injector, gambar 016377-00EN01, 014971-00E dan 016375-00EN01"
+      ],
+      "posisi": [
+        {
+          "object_id": "INT-FUELINJ-41-08",
+          "arah": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "jarak_m": 0.11800000000000001,
+          "urutan": 8
+        }
+      ]
+    },
+    {
+      "no": 9,
+      "nama": "Spring holder bawah",
+      "role": "inner",
+      "object_ids": [
+        "INT-FUELINJ-41-09"
+      ],
+      "nomor_oem": "126616-53130",
+      "fungsi": "Mendudukkan pegas dan meneruskan gayanya ke pangkal jarum.",
+      "status": "OBSERVED",
+      "sumber": [
+        "D05 katalog 6AYM-WET, Fig. 79 Fuel Injection Valve ref 12",
+        "D01 PDF 150–152 / cetak 146–148, Fuel Injector, gambar 016377-00EN01, 014971-00E dan 016375-00EN01"
+      ],
+      "source_refs": [
+        "D05 katalog 6AYM-WET, Fig. 79 Fuel Injection Valve ref 12",
+        "D01 PDF 150–152 / cetak 146–148, Fuel Injector, gambar 016377-00EN01, 014971-00E dan 016375-00EN01"
+      ],
+      "posisi": [
+        {
+          "object_id": "INT-FUELINJ-41-09",
+          "arah": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "jarak_m": 0.125,
+          "urutan": 9
+        }
+      ]
+    },
+    {
+      "no": 10,
+      "nama": "Spacer pembatas langkah jarum",
+      "role": "inner",
+      "object_ids": [
+        "INT-FUELINJ-41-10"
+      ],
+      "nomor_oem": "148620-53240",
+      "fungsi": "Memposisikan nozzle terhadap holder dan menyediakan batas angkat jarum.",
+      "status": "OBSERVED",
+      "sumber": [
+        "D05 katalog 6AYM-WET, Fig. 79 Fuel Injection Valve ref 16",
+        "D01 PDF 150–152 / cetak 146–148, Fuel Injector, gambar 016377-00EN01, 014971-00E dan 016375-00EN01"
+      ],
+      "source_refs": [
+        "D05 katalog 6AYM-WET, Fig. 79 Fuel Injection Valve ref 16",
+        "D01 PDF 150–152 / cetak 146–148, Fuel Injector, gambar 016377-00EN01, 014971-00E dan 016375-00EN01"
+      ],
+      "posisi": [
+        {
+          "object_id": "INT-FUELINJ-41-10",
+          "arah": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "jarak_m": 0.132,
+          "urutan": 10
+        }
+      ]
+    },
+    {
+      "no": 11,
+      "nama": "Dowel penyelaras atas",
+      "role": "inner",
+      "object_ids": [
+        "INT-FUELINJ-41-11"
+      ],
+      "nomor_oem": "103200-53210",
+      "fungsi": "Sepasang dowel menjaga posisi dan arah muka spacer terhadap holder.",
+      "status": "OBSERVED",
+      "sumber": [
+        "D05 katalog 6AYM-WET, Fig. 79 Fuel Injection Valve ref 15",
+        "D01 PDF 150–152 / cetak 146–148, Fuel Injector, gambar 016377-00EN01, 014971-00E dan 016375-00EN01"
+      ],
+      "source_refs": [
+        "D05 katalog 6AYM-WET, Fig. 79 Fuel Injection Valve ref 15",
+        "D01 PDF 150–152 / cetak 146–148, Fuel Injector, gambar 016377-00EN01, 014971-00E dan 016375-00EN01"
+      ],
+      "posisi": [
+        {
+          "object_id": "INT-FUELINJ-41-11",
+          "arah": [
+            0.27769358519304144,
+            -0.9606697001272786,
+            0.0
+          ],
+          "jarak_m": 0.13324038426843415,
+          "urutan": 11
+        }
+      ]
+    },
+    {
+      "no": 12,
+      "nama": "Dowel penyelaras bawah",
+      "role": "inner",
+      "object_ids": [
+        "INT-FUELINJ-41-12"
+      ],
+      "nomor_oem": "103200-53210",
+      "fungsi": "Sepasang dowel menjaga posisi dan arah nozzle serta bore pengaliran terhadap spacer.",
+      "status": "OBSERVED",
+      "sumber": [
+        "D05 katalog 6AYM-WET, Fig. 79 Fuel Injection Valve ref 15",
+        "D01 PDF 150–152 / cetak 146–148, Fuel Injector, gambar 016377-00EN01, 014971-00E dan 016375-00EN01"
+      ],
+      "source_refs": [
+        "D05 katalog 6AYM-WET, Fig. 79 Fuel Injection Valve ref 15",
+        "D01 PDF 150–152 / cetak 146–148, Fuel Injector, gambar 016377-00EN01, 014971-00E dan 016375-00EN01"
+      ],
+      "posisi": [
+        {
+          "object_id": "INT-FUELINJ-41-12",
+          "arah": [
+            0.24886078369838055,
+            -0.9685392662855894,
+            0.0
+          ],
+          "jarak_m": 0.14867750334196497,
+          "urutan": 12
+        }
+      ]
+    },
+    {
+      "no": 13,
+      "nama": "Jarum nozzle (nozzle valve)",
+      "role": "inner",
+      "object_ids": [
+        "INT-FUELINJ-41-13"
+      ],
+      "nomor_oem": null,
+      "fungsi": "Tekanan bahan bakar mengangkat jarum dari dudukannya. Pegas menutupnya kembali saat tekanan turun.",
+      "status": "OBSERVED",
+      "sumber": [
+        "D05 katalog 6AYM-WET, Fig. 79 Fuel Injection Valve ref 3",
+        "D01 PDF 150–152 / cetak 146–148, Fuel Injector, gambar 016377-00EN01, 014971-00E dan 016375-00EN01"
+      ],
+      "source_refs": [
+        "D05 katalog 6AYM-WET, Fig. 79 Fuel Injection Valve ref 3",
+        "D01 PDF 150–152 / cetak 146–148, Fuel Injector, gambar 016377-00EN01, 014971-00E dan 016375-00EN01"
+      ],
+      "posisi": [
+        {
+          "object_id": "INT-FUELINJ-41-13",
+          "arah": [
+            0.07580464880656622,
+            -0.9971226881479095,
+            0.0
+          ],
+          "jarak_m": 0.1714934401077779,
+          "urutan": 13
+        }
+      ]
+    },
+    {
+      "no": 14,
+      "nama": "Nozzle body berongga",
+      "role": "shell",
+      "object_ids": [
+        "INT-FUELINJ-41-14"
+      ],
+      "nomor_oem": null,
+      "fungsi": "Memandu jarum, memuat ruang bahan bakar, dan menyemprotkan bahan bakar lewat lubang pada ujung nozzle.",
+      "status": "OBSERVED",
+      "sumber": [
+        "D05 katalog 6AYM-WET, Fig. 79 Fuel Injection Valve ref 3",
+        "D01 PDF 150–152 / cetak 146–148, Fuel Injector, gambar 016377-00EN01, 014971-00E dan 016375-00EN01"
+      ],
+      "source_refs": [
+        "D05 katalog 6AYM-WET, Fig. 79 Fuel Injection Valve ref 3",
+        "D01 PDF 150–152 / cetak 146–148, Fuel Injector, gambar 016377-00EN01, 014971-00E dan 016375-00EN01"
+      ],
+      "posisi": [
+        {
+          "object_id": "INT-FUELINJ-41-14",
+          "arah": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "jarak_m": 0.21,
+          "urutan": 14
+        }
+      ]
+    },
+    {
+      "no": 15,
+      "nama": "Nozzle nut (retaining nut)",
+      "role": "shell",
+      "object_ids": [
+        "INT-FUELINJ-41-15"
+      ],
+      "nomor_oem": "148620-53080",
+      "fungsi": "Mengikat pasangan nozzle dan spacer ke rumah injektor dengan ulir.",
+      "status": "OBSERVED",
+      "sumber": [
+        "D05 katalog 6AYM-WET, Fig. 79 Fuel Injection Valve ref 9",
+        "D01 PDF 150–152 / cetak 146–148, Fuel Injector, gambar 016377-00EN01, 014971-00E dan 016375-00EN01"
+      ],
+      "source_refs": [
+        "D05 katalog 6AYM-WET, Fig. 79 Fuel Injection Valve ref 9",
+        "D01 PDF 150–152 / cetak 146–148, Fuel Injector, gambar 016377-00EN01, 014971-00E dan 016375-00EN01"
+      ],
+      "posisi": [
+        {
+          "object_id": "INT-FUELINJ-41-15",
+          "arah": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "jarak_m": 0.273,
+          "urutan": 15
+        }
+      ]
+    },
+    {
+      "no": 16,
+      "nama": "O-ring rumah atas 1AP42.0",
+      "role": "seal",
+      "object_ids": [
+        "INT-FUELINJ-41-16"
+      ],
+      "nomor_oem": "24311-000420",
+      "fungsi": "Merapatkan bagian luar holder pada dudukan injector sleeve.",
+      "status": "OBSERVED",
+      "sumber": [
+        "D05 katalog 6AYM-WET, Fig. 79 Fuel Injection Valve ref 21",
+        "D01 PDF 150–152 / cetak 146–148, Fuel Injector, gambar 016377-00EN01, 014971-00E dan 016375-00EN01"
+      ],
+      "source_refs": [
+        "D05 katalog 6AYM-WET, Fig. 79 Fuel Injection Valve ref 21",
+        "D01 PDF 150–152 / cetak 146–148, Fuel Injector, gambar 016377-00EN01, 014971-00E dan 016375-00EN01"
+      ],
+      "posisi": [
+        {
+          "object_id": "INT-FUELINJ-41-16",
+          "arah": [
+            -0.9572114272986092,
+            -0.28938950127632374,
+            0.0
+          ],
+          "jarak_m": 0.04492215489043241,
+          "urutan": 16
+        }
+      ]
+    },
+    {
+      "no": 17,
+      "nama": "O-ring rumah bawah",
+      "role": "seal",
+      "object_ids": [
+        "INT-FUELINJ-41-17"
+      ],
+      "nomor_oem": "152623-53360",
+      "fungsi": "Merapatkan bagian luar holder pada dudukan bawah di cylinder head.",
+      "status": "OBSERVED",
+      "sumber": [
+        "D05 katalog 6AYM-WET, Fig. 79 Fuel Injection Valve ref 18",
+        "D01 PDF 150–152 / cetak 146–148, Fuel Injector, gambar 016377-00EN01, 014971-00E dan 016375-00EN01"
+      ],
+      "source_refs": [
+        "D05 katalog 6AYM-WET, Fig. 79 Fuel Injection Valve ref 18",
+        "D01 PDF 150–152 / cetak 146–148, Fuel Injector, gambar 016377-00EN01, 014971-00E dan 016375-00EN01"
+      ],
+      "posisi": [
+        {
+          "object_id": "INT-FUELINJ-41-17",
+          "arah": [
+            -0.8111763787473859,
+            -0.5848015753760223,
+            0.0
+          ],
+          "jarak_m": 0.05300943312279429,
+          "urutan": 17
+        }
+      ]
+    }
+  ],
+  "source_refs": [
+    "D01 PDF 150–152 / cetak 146–148, Fuel Injector, gambar 016377-00EN01, 014971-00E dan 016375-00EN01",
+    "D05 katalog 6AYM-WET, Fig. 79 Fuel Injection Valve"
+  ],
+  "status": "UNVERIFIED",
+  "notes": "Identitas dan susunan mengikuti D01 dan D05. Ukuran rumah, panjang, detail ulir, orientasi port dan sambungan ke pipa diperagakan. Nomor subkomponen mengikuti unit WET Fig. 79. Kecocokan nomor seri dan dimensi selubung aktual belum terverifikasi.",
+  "unit_injector_pn": "748691-53102",
+  "section_asset": "injector-section.webp",
+  "exploded_asset": "injector-exploded.webp",
+  "plate_asset": "injector-section-exploded.pdf"
+}

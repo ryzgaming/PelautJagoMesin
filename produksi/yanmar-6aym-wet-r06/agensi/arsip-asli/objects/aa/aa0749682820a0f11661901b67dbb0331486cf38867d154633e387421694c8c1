@@ -1,0 +1,413 @@
+{
+  "id": "RAK-FW-COOLER",
+  "node_rakitan": "RAK-FW-COOLER",
+  "parent_rakitan": "RAK-COOLING",
+  "nama": "Penukar panas coolant depan",
+  "status": "UNVERIFIED",
+  "source_refs": [
+    "D05 Parts Catalogue WET / Fig. 57",
+    "D01 PDF 166 cetak 162 & PDF 168 cetak 164"
+  ],
+  "acuan": {
+    "no": 1,
+    "object_ids": [
+      "EXT-COOLING-01"
+    ]
+  },
+  "diagram": {
+    "arah_pandang": [
+      0.46,
+      0.32,
+      0.827
+    ],
+    "atas": [
+      0,
+      1,
+      0
+    ]
+  },
+  "bagian": [
+    {
+      "no": 1,
+      "nama": "Coran penukar panas air tawar",
+      "object_ids": [
+        "EXT-COOLING-01"
+      ],
+      "posisi": [],
+      "sumber": [
+        "D05 Parts Catalogue WET / Fig. 57 / pos. (1)",
+        "D01 PDF 166 cetak 162 & PDF 168 cetak 164"
+      ],
+      "nomor_oem": null,
+      "ukuran": null,
+      "role": "shell",
+      "status": "ESTIMATED",
+      "fungsi": "Ruang coolant mengelilingi core pipa. Casting merupakan bagian rakitan katalog 748660-44801."
+    },
+    {
+      "no": 2,
+      "nama": "Core tubular air tawar",
+      "object_ids": [
+        "EXT-COOLING-50"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-50",
+          "arah": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "jarak_m": 0.819999998604379,
+          "urutan": 1
+        }
+      ],
+      "sumber": [
+        "D05 Parts Catalogue WET / Fig. 57 / pos. 14",
+        "D01 PDF 166 cetak 162 & PDF 168 cetak 164"
+      ],
+      "nomor_oem": "148633-44211",
+      "ukuran": null,
+      "role": "core",
+      "status": "ESTIMATED",
+      "fungsi": "Air laut mengalir di dalam pipa, coolant di luar pipa. Pipa dibuat berongga. Pola, jumlah pipa dan penyangga merupakan perkiraan."
+    },
+    {
+      "no": 3,
+      "nama": "Tutup ujung penukar panas 23",
+      "object_ids": [
+        "EXT-COOLING-51"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-51",
+          "arah": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "jarak_m": 0.34000000704737265,
+          "urutan": 2
+        }
+      ],
+      "sumber": [
+        "D05 Parts Catalogue WET / Fig. 57 / pos. 23",
+        "D01 PDF 166 cetak 162 & PDF 168 cetak 164"
+      ],
+      "nomor_oem": "148660-44321",
+      "ukuran": null,
+      "role": "cover",
+      "status": "ESTIMATED",
+      "fungsi": "Tutup manifold air laut, profil dan orientasi sambungan diestimasi dari gambar."
+    },
+    {
+      "no": 4,
+      "nama": "O-ring tutup 23",
+      "object_ids": [
+        "EXT-COOLING-53"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-53",
+          "arah": [
+            0.0,
+            0.0,
+            -0.9999999403953552
+          ],
+          "jarak_m": 0.20999999459300717,
+          "urutan": 3
+        }
+      ],
+      "sumber": [
+        "D05 Parts Catalogue WET / Fig. 57 / pos. 28",
+        "D01 PDF 166 cetak 162 & PDF 168 cetak 164"
+      ],
+      "nomor_oem": "24321-002300",
+      "ukuran": null,
+      "role": "seal",
+      "status": "ESTIMATED",
+      "fungsi": "Seal antara tutup dan body."
+    },
+    {
+      "no": 5,
+      "nama": "Tutup ujung penukar panas 22",
+      "object_ids": [
+        "EXT-COOLING-52"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-52",
+          "arah": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "jarak_m": 1.049999925068444,
+          "urutan": 4
+        }
+      ],
+      "sumber": [
+        "D05 Parts Catalogue WET / Fig. 57 / pos. 22",
+        "D01 PDF 166 cetak 162 & PDF 168 cetak 164"
+      ],
+      "nomor_oem": "148633-44310",
+      "ukuran": null,
+      "role": "cover",
+      "status": "ESTIMATED",
+      "fungsi": "Tutup manifold air laut, profil dan orientasi sambungan diestimasi dari gambar."
+    },
+    {
+      "no": 6,
+      "nama": "O-ring tutup 22",
+      "object_ids": [
+        "EXT-COOLING-54"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-54",
+          "arah": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "jarak_m": 0.9399999981738152,
+          "urutan": 5
+        }
+      ],
+      "sumber": [
+        "D05 Parts Catalogue WET / Fig. 57 / pos. 28",
+        "D01 PDF 166 cetak 162 & PDF 168 cetak 164"
+      ],
+      "nomor_oem": "24321-002300",
+      "ukuran": null,
+      "role": "seal",
+      "status": "ESTIMATED",
+      "fungsi": "Seal antara tutup dan body."
+    },
+    {
+      "no": 7,
+      "nama": "Termostat 71 °C · 1",
+      "object_ids": [
+        "EXT-COOLING-55"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-55",
+          "arah": [
+            -0.5440033078193665,
+            0.7950817346572876,
+            -0.26815178990364075
+          ],
+          "jarak_m": 0.23896913142658352,
+          "urutan": 6
+        }
+      ],
+      "sumber": [
+        "D05 Parts Catalogue WET / Fig. 57 / pos. 58",
+        "D01 PDF 166 cetak 162 & PDF 168 cetak 164"
+      ],
+      "nomor_oem": "148616-48200",
+      "ukuran": null,
+      "role": "thermostat",
+      "status": "ESTIMATED",
+      "fungsi": "Tipe A/B pembuka 71/76,5 °C, tiga unit per tipe. Susunan lokal dan profil elemen ilustratif."
+    },
+    {
+      "no": 8,
+      "nama": "Termostat 71 °C · 2",
+      "object_ids": [
+        "EXT-COOLING-56"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-56",
+          "arah": [
+            -0.560634434223175,
+            0.8193888664245605,
+            -0.11954452842473984
+          ],
+          "jarak_m": 0.23188013677923128,
+          "urutan": 7
+        }
+      ],
+      "sumber": [
+        "D05 Parts Catalogue WET / Fig. 57 / pos. 58",
+        "D01 PDF 166 cetak 162 & PDF 168 cetak 164"
+      ],
+      "nomor_oem": "148616-48200",
+      "ukuran": null,
+      "role": "thermostat",
+      "status": "ESTIMATED",
+      "fungsi": "Tipe A/B pembuka 71/76,5 °C, tiga unit per tipe. Susunan lokal dan profil elemen ilustratif."
+    },
+    {
+      "no": 9,
+      "nama": "Termostat 71 °C · 3",
+      "object_ids": [
+        "EXT-COOLING-57"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-57",
+          "arah": [
+            -0.5642866492271423,
+            0.8247267007827759,
+            0.037503357976675034
+          ],
+          "jarak_m": 0.23037935881409785,
+          "urutan": 8
+        }
+      ],
+      "sumber": [
+        "D05 Parts Catalogue WET / Fig. 57 / pos. 58",
+        "D01 PDF 166 cetak 162 & PDF 168 cetak 164"
+      ],
+      "nomor_oem": "148616-48200",
+      "ukuran": null,
+      "role": "thermostat",
+      "status": "ESTIMATED",
+      "fungsi": "Tipe A/B pembuka 71/76,5 °C, tiga unit per tipe. Susunan lokal dan profil elemen ilustratif."
+    },
+    {
+      "no": 10,
+      "nama": "Termostat 76.5 °C · 1",
+      "object_ids": [
+        "EXT-COOLING-58"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-58",
+          "arah": [
+            0.5440033078193665,
+            0.7950817346572876,
+            -0.26815178990364075
+          ],
+          "jarak_m": 0.23896913142658352,
+          "urutan": 9
+        }
+      ],
+      "sumber": [
+        "D05 Parts Catalogue WET / Fig. 57 / pos. 59",
+        "D01 PDF 166 cetak 162 & PDF 168 cetak 164"
+      ],
+      "nomor_oem": "126634-48180",
+      "ukuran": null,
+      "role": "thermostat",
+      "status": "ESTIMATED",
+      "fungsi": "Tipe A/B pembuka 71/76,5 °C, tiga unit per tipe. Susunan lokal dan profil elemen ilustratif."
+    },
+    {
+      "no": 11,
+      "nama": "Termostat 76.5 °C · 2",
+      "object_ids": [
+        "EXT-COOLING-59"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-59",
+          "arah": [
+            0.560634434223175,
+            0.8193888664245605,
+            -0.11954452842473984
+          ],
+          "jarak_m": 0.23188013677923128,
+          "urutan": 10
+        }
+      ],
+      "sumber": [
+        "D05 Parts Catalogue WET / Fig. 57 / pos. 59",
+        "D01 PDF 166 cetak 162 & PDF 168 cetak 164"
+      ],
+      "nomor_oem": "126634-48180",
+      "ukuran": null,
+      "role": "thermostat",
+      "status": "ESTIMATED",
+      "fungsi": "Tipe A/B pembuka 71/76,5 °C, tiga unit per tipe. Susunan lokal dan profil elemen ilustratif."
+    },
+    {
+      "no": 12,
+      "nama": "Termostat 76.5 °C · 3",
+      "object_ids": [
+        "EXT-COOLING-60"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-60",
+          "arah": [
+            0.5642866492271423,
+            0.8247267007827759,
+            0.037503357976675034
+          ],
+          "jarak_m": 0.23037935881409785,
+          "urutan": 11
+        }
+      ],
+      "sumber": [
+        "D05 Parts Catalogue WET / Fig. 57 / pos. 59",
+        "D01 PDF 166 cetak 162 & PDF 168 cetak 164"
+      ],
+      "nomor_oem": "126634-48180",
+      "ukuran": null,
+      "role": "thermostat",
+      "status": "ESTIMATED",
+      "fungsi": "Tipe A/B pembuka 71/76,5 °C, tiga unit per tipe. Susunan lokal dan profil elemen ilustratif."
+    },
+    {
+      "no": 13,
+      "nama": "Tutup ruang termostat",
+      "object_ids": [
+        "EXT-COOLING-61"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-61",
+          "arah": [
+            0.0,
+            0.9999999403953552,
+            0.0
+          ],
+          "jarak_m": 0.41999998918601433,
+          "urutan": 12
+        }
+      ],
+      "sumber": [
+        "D05 Parts Catalogue WET / Fig. 57 / pos. 33",
+        "D01 PDF 166 cetak 162 & PDF 168 cetak 164"
+      ],
+      "nomor_oem": "148660-44351",
+      "ukuran": null,
+      "role": "cover",
+      "status": "ESTIMATED",
+      "fungsi": "Menutup keenam termostat melalui gasket terpisah."
+    },
+    {
+      "no": 14,
+      "nama": "Gasket ruang termostat",
+      "object_ids": [
+        "EXT-COOLING-62"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-COOLING-62",
+          "arah": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "jarak_m": 0.31499999928095984,
+          "urutan": 13
+        }
+      ],
+      "sumber": [
+        "D05 Parts Catalogue WET / Fig. 57 / pos. 34",
+        "D01 PDF 166 cetak 162 & PDF 168 cetak 164"
+      ],
+      "nomor_oem": "148660-44360",
+      "ukuran": null,
+      "role": "seal",
+      "status": "ESTIMATED",
+      "fungsi": "Gasket dengan enam bukaan pada posisi termostat."
+    }
+  ],
+  "notes": "Skema bentuk berdasar gambar parts book. Dimensi, jumlah elemen geometri inti dan posisi port diperkirakan. Penetapan nomor seri belum tersedia."
+}

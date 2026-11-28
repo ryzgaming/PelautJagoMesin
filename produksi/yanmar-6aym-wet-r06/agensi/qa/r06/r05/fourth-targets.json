@@ -1,0 +1,78 @@
+{
+  "assets_sha256": {
+    "exterior": "1107fb8c7d90c389dd8e2e3d6f3c605d835474732a812481e8273c3fe2bd51a9",
+    "internal": "dd85bd1dfae6c699f7e69c70eb9c4c0f5209c0a5805e3e1733ad1e67b23f7f2b"
+  },
+  "mesh_count": 1144,
+  "aabb_candidate_pairs": 8,
+  "surface_crossing_pair_count": 1,
+  "method": "Assembled Blender GLB reimport, world AABB broad phase, triangle BVH overlap. Surface crossings include intended threads, interference fits and overlaps within an educational assembly. Solid penetration and motion are distinct checks.",
+  "pairs": [
+    {
+      "a": "EXT-FLYWHEEL-01",
+      "b": "EXT-ELECTRIC-40",
+      "surface_pairs": 124,
+      "glTF_crossing_face_bounds_m": [
+        [
+          [
+            0.032999999821186066,
+            -0.007748469710350037,
+            0.28452572226524353
+          ],
+          [
+            0.03750000521540642,
+            0.007748469710350037,
+            0.3130754828453064
+          ]
+        ],
+        [
+          [
+            0.025199998170137405,
+            -0.008612621575593948,
+            0.29555201530456543
+          ],
+          [
+            0.07259999960660934,
+            0.008606079034507275,
+            0.3133895993232727
+          ]
+        ]
+      ]
+    },
+    {
+      "a": "EXT-BLOCK-15",
+      "b": "EXT-ELECTRIC-48",
+      "surface_pairs": 0
+    },
+    {
+      "a": "EXT-FLYWHEEL-01",
+      "b": "EXT-FLYWHEEL-20",
+      "surface_pairs": 0
+    },
+    {
+      "a": "EXT-BLOCK-15",
+      "b": "EXT-FLYWHEEL-20",
+      "surface_pairs": 0
+    },
+    {
+      "a": "EXT-BLOCK-14",
+      "b": "EXT-FLYWHEEL-20",
+      "surface_pairs": 0
+    },
+    {
+      "a": "EXT-FLYWHEEL-01",
+      "b": "INT-TIMING-04",
+      "surface_pairs": 0
+    },
+    {
+      "a": "EXT-INTAKE-04",
+      "b": "EXT-EXHAUST-01",
+      "surface_pairs": 0
+    },
+    {
+      "a": "EXT-COOLING-41",
+      "b": "EXT-FUEL-09",
+      "surface_pairs": 0
+    }
+  ]
+}

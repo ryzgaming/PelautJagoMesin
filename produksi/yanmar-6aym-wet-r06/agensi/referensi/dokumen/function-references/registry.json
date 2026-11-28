@@ -1,0 +1,447 @@
+{
+  "schema": 1,
+  "revision": "r06",
+  "agent": "/root/referensi_fungsi",
+  "date": "2026-11-28",
+  "scope": "12 functional groups; not a claim that every mesh is validated",
+  "sources": [
+    {
+      "id": "USER-START",
+      "title": "Contoh starter dari pemilik",
+      "url": "https://pin.it/1xWNBjn2J",
+      "publisher": null,
+      "access": "sampled_frames_viewed",
+      "scope": "Pinion masuk/keluar ring gear; flywheel berputar; casing starter tetap",
+      "variant": "Analogi mekanisme; bukan identifikasi varian Yanmar",
+      "video_file": "starter-user.mp4",
+      "duration_s": 7.2,
+      "frames_seconds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "evidence": "starter-observed.jpg",
+      "limitations": "Kompilasi split-screen animasi+bench. Pembuat, mesin, gigi, rasio, ukuran dan timing real tidak teridentifikasi. Bukan bukti geometri OEM.",
+      "inspected_at": "2026-11-28",
+      "sha256": "88257f146910759c9ebcd8974bd1ca0c38da505b6beb43cc33dd31310bedd9fe"
+    },
+    {
+      "id": "DENSO-MAN",
+      "title": "Starters & Alternators Technical Manual, edition 2 October 2016",
+      "url": "https://assets.denso-am.eu/production/attachments/Starter-Alternator-Manual-English.pdf",
+      "publisher": "DENSO Europe",
+      "access": "pdf_pages_viewed",
+      "scope": "Engagement/disengagement starter dan rotor/stator alternator",
+      "variant": "Analogi mekanisme; bukan identifikasi varian Yanmar",
+      "file": "denso-manual.pdf",
+      "pages_viewed": [
+        10,
+        43
+      ],
+      "evidence": [
+        "denso-p10.png",
+        "denso-p43.png"
+      ],
+      "limitations": "Desain generik beberapa tipe; bukan starter exact 6AYM.",
+      "inspected_at": "2026-11-28",
+      "sha256": "fb1fca26e8c4d4197a95de5db598f4fee3389ec706ef9a52d884104e7ae5fe53"
+    },
+    {
+      "id": "DENSO-VID",
+      "title": "Discover DENSO Starters & Alternators",
+      "url": "https://www.youtube.com/watch?v=3nhbKIToMB4",
+      "publisher": "DENSO Aftermarket Europe",
+      "access": "metadata_only",
+      "scope": "Kandidat video OEM starter/alternator",
+      "variant": "Analogi mekanisme; bukan identifikasi varian Yanmar",
+      "primary_page": "https://www.denso-am.eu/news/new-denso-starter-and-alternator-youtube-video",
+      "published": "2025-03-07",
+      "limitations": "Video produk OEM; frame tidak dilihat. Mekanisme memakai DENSO-MAN, bukan klaim menonton video.",
+      "inspected_at": "2026-11-28"
+    },
+    {
+      "id": "GARRETT-VID",
+      "title": "How a Turbocharger Works",
+      "url": "https://www.garrettmotion.com/news/video-center/video/how-a-turbocharger-works/",
+      "publisher": "Garrett Motion",
+      "access": "sampled_frames_viewed",
+      "scope": "Turbine, poros bersama, compressor, charge air cooler dan aliran masuk/buang",
+      "variant": "Analogi mekanisme; bukan identifikasi varian Yanmar",
+      "video_file": "garrett-turbo.mp4",
+      "duration_s": 112.619002,
+      "frames_seconds": [
+        30,
+        40,
+        50,
+        60,
+        70,
+        80
+      ],
+      "evidence": "garrett-observed.jpg",
+      "limitations": "Animasi automotive generik. 280000RPM pada40s bukan RPM Yanmar dan tidak boleh ditransfer.",
+      "inspected_at": "2026-11-28",
+      "sha256": "c22c24240154076b6e5efff6a94c2da43b965c784bf3e2ad7daaf033c8e3339d"
+    },
+    {
+      "id": "GARRETT-DOC",
+      "title": "Turbocharger knowledge base",
+      "url": "https://www.garrettmotion.com/turbo-replacement/turbo-diagnosis/knowledge-base/",
+      "publisher": "Garrett Motion",
+      "access": "web_text",
+      "scope": "Exhaust drives turbine; solid shaft connects compressor",
+      "variant": "Analogi mekanisme; bukan identifikasi varian Yanmar",
+      "limitations": "Tidak memvalidasi speed/lag/unit Yanmar.",
+      "inspected_at": "2026-11-28"
+    },
+    {
+      "id": "JABSCO-VID",
+      "title": "How a Jabsco Flexible Impeller Pump Works",
+      "url": "https://www.youtube.com/watch?v=ECv1VwW6RTo",
+      "publisher": "Jabsco Flojet Rule",
+      "access": "metadata_only",
+      "scope": "Demonstrasi OEM clear end-cover untuk lenturan vane",
+      "variant": "Analogi mekanisme; bukan identifikasi varian Yanmar",
+      "published": "2013-11-22",
+      "primary_page": "https://www.xylem.com/fr-fr/support/video-library/jabsco---how-does-an-impeller-pump-work/",
+      "limitations": "Deskripsi mengonfirmasi demonstrasi aktual; video gagal fetch, tanpa timestamp pengamatan.",
+      "inspected_at": "2026-11-28"
+    },
+    {
+      "id": "JABSCO-DOC",
+      "title": "Engine Cooling Flexible Impeller Pumps — Principle of Operation",
+      "url": "https://www.xylem.com/siteassets/brand/jabsco/resources/manual/user-guide---engine-cooling-flexible-impeller-pumps.pdf",
+      "publisher": "Xylem/Jabsco",
+      "access": "indexed_primary_text",
+      "scope": "Volume sel meningkat sisi isap, mengecil oleh eccentric cam sisi discharge",
+      "variant": "Analogi mekanisme; bukan identifikasi varian Yanmar",
+      "limitations": "Unduhan langsung403; paragraf operasi terbaca via websearch. Bukan ukuran pompa Yanmar.",
+      "inspected_at": "2026-11-28"
+    },
+    {
+      "id": "GRUNDFOS-VID",
+      "title": "The Fundamentals of Centrifugal Pumps - Part 1",
+      "url": "https://www.youtube.com/watch?v=_bVukK4ZD0I",
+      "publisher": "Grundfos",
+      "access": "metadata_only",
+      "scope": "Prinsip pompa sentrifugal",
+      "variant": "Analogi mekanisme; bukan identifikasi varian Yanmar",
+      "limitations": "Tidak ditonton; analogi fungsi, bukan geometri/jumlah sudu/rasio pompa Yanmar.",
+      "inspected_at": "2026-11-28"
+    },
+    {
+      "id": "GRUNDFOS-DOC",
+      "title": "Centrifugal pump theory",
+      "url": "https://www.grundfos.com/content/dam/global/page-assets/learn/ecademy/pdfs/us-course-102L-module-3-centrifugal-pump-theory.pdf",
+      "publisher": "Grundfos Holding A/S",
+      "access": "indexed_primary_text",
+      "scope": "Konversi energi putar menjadi kecepatan dan tekanan",
+      "variant": "Analogi mekanisme; bukan identifikasi varian Yanmar",
+      "limitations": "Peta head-flow Yanmar tidak tersedia.",
+      "inspected_at": "2026-11-28"
+    },
+    {
+      "id": "PUMP-VID",
+      "title": "The Governor Operation in a Mechanical In-Line Fuel Injection Pump / CLIP",
+      "url": "https://www.youtube.com/watch?v=gQpCCeq9HIQ",
+      "publisher": "Mr Lopez",
+      "access": "metadata_only",
+      "scope": "Kandidat pendidikan governor pompa inline",
+      "variant": "Analogi mekanisme; bukan identifikasi varian Yanmar",
+      "published": "2022-06-15",
+      "limitations": "Non-OEM, frame tidak dilihat. Referensi implementasi tetap YM-SERVICE PDF115–116.",
+      "inspected_at": "2026-11-28"
+    },
+    {
+      "id": "INJECTOR-VID",
+      "title": "Video on working of diesel fuel Injector and how nozzle spray (judul tautan kurikulum)",
+      "url": "https://www.youtube.com/watch?v=P5-yxENaLDU",
+      "publisher": null,
+      "access": "curriculum_link_only",
+      "scope": "Kandidat inspeksi mekanisme injektor",
+      "variant": "Analogi mekanisme; bukan identifikasi varian Yanmar",
+      "primary_page": "https://repository.rec.gov.bt/tvet-overview/automobile-xi/",
+      "limitations": "Judul asli/channel/frame belum terverifikasi; tidak dijadikan bukti teknis. Tolak transfer piezo/commonrail ke injector mekanis Yanmar.",
+      "inspected_at": "2026-11-28"
+    },
+    {
+      "id": "FOURSTROKE-VID",
+      "title": "How Four Stroke Engines Work (How It Works - 4 Stroke)",
+      "url": "https://www.youtube.com/watch?v=nx9Fos8ZQbc",
+      "publisher": "saVRee",
+      "access": "indexed_metadata",
+      "scope": "Kandidat analogi empat langkah",
+      "variant": "Analogi mekanisme; bukan identifikasi varian Yanmar",
+      "limitations": "Frame belum dilihat; fase/urutan Yanmar memakai manualexisting.",
+      "inspected_at": "2026-11-28"
+    },
+    {
+      "id": "OILGEAR-VID",
+      "title": "Bosch Rexroth: External gear pump - CKD - Conversion of a Basic Pump to a Primary Pump",
+      "url": "https://www.youtube.com/watch?v=0wykeiH4KwI",
+      "publisher": "Bosch Rexroth (judul terindeks; channel belum diperiksa)",
+      "access": "metadata_only",
+      "scope": "Kandidat struktur gearpump",
+      "variant": "Analogi mekanisme; bukan identifikasi varian Yanmar",
+      "limitations": "Video assembly bukan bukti debit/putaran Yanmar. Rasio harus YM-SERVICE PDF157.",
+      "inspected_at": "2026-11-28"
+    },
+    {
+      "id": "OILFILTER-VID",
+      "title": "MANN-FILTER Oil Filters",
+      "url": "https://www.youtube.com/watch?v=AajTItBn148",
+      "publisher": "MANN-FILTER (brand dalam judul; channel belum diperiksa)",
+      "access": "metadata_only",
+      "scope": "Kandidat filter oli",
+      "variant": "Analogi mekanisme; bukan identifikasi varian Yanmar",
+      "limitations": "Tidak ditonton, bypass pressure/flowdirection Yanmar ditentukan diagrammanual.",
+      "inspected_at": "2026-11-28"
+    },
+    {
+      "id": "OILFILTER-DOC",
+      "title": "Engine oil filters",
+      "url": "https://www.mann-filter.com/in-en/parts/oil-filter.html",
+      "publisher": "MANN-FILTER",
+      "access": "indexed_primary_text",
+      "scope": "Filter/non-return function",
+      "variant": "Analogi mekanisme; bukan identifikasi varian Yanmar",
+      "limitations": "Jenis elemen dan valve berbeda antarproduk.",
+      "inspected_at": "2026-11-28"
+    },
+    {
+      "id": "COOLER-VID",
+      "title": "How Does a Shell and Tube Heat Exchanger Work? | 3D Animation",
+      "url": "https://www.youtube.com/watch?v=OyQ3SaU4KKU",
+      "publisher": "saVRee",
+      "access": "metadata_only",
+      "scope": "Kandidat aliran terpisah shell/tube dan heat transfer",
+      "variant": "Analogi mekanisme; bukan identifikasi varian Yanmar",
+      "published": "2019-07-26",
+      "limitations": "Frame belum dilihat. Bukan OEM Yanmar; jumlah tube dan pass tidak dipindah.",
+      "inspected_at": "2026-11-28"
+    },
+    {
+      "id": "COOLER-DOC",
+      "title": "Shell-and-tube heat exchanger",
+      "url": "https://www.alfalaval.com/products/heat-transfer/tubular-heat-exchangers/shell-and-tube-heat-exchanger/",
+      "publisher": "Alfa Laval",
+      "access": "indexed_primary_text",
+      "scope": "Baffle, tube dan permukaan perpindahan panas",
+      "variant": "Analogi mekanisme; bukan identifikasi varian Yanmar",
+      "limitations": "Tidak menetapkan konfigurasi cooler 6AYM.",
+      "inspected_at": "2026-11-28"
+    },
+    {
+      "id": "YM-SERVICE",
+      "title": "Service Manual 6AYM-WGT / 6AYM-WET / 6AYM-WST, 0B6AY-EN0010",
+      "url": "https://dealer.yanmar.com.au/bulletins/SERVICE/6AYM-W_Service_manual.pdf",
+      "publisher": "YANMAR",
+      "access": "pdf_pages_viewed",
+      "scope": "Pompa injeksi/governor/feedpump/pompaoli/rute pendingin Yanmar",
+      "variant": "6AYM-WGT/WET/WST; pilih kolom WET",
+      "file": "../D01-service.pdf",
+      "pages_viewed": [
+        115,
+        116,
+        145,
+        148,
+        149,
+        150,
+        151,
+        157,
+        163
+      ],
+      "printed_pages": [
+        111,
+        112,
+        141,
+        144,
+        145,
+        146,
+        147,
+        153,
+        159
+      ],
+      "evidence": [
+        "yanmar-D01-p115.png",
+        "yanmar-D01-p116.png",
+        "yanmar-D01-p145.png",
+        "yanmar-D01-p148.png",
+        "yanmar-D01-p149.png",
+        "yanmar-D01-p150.png",
+        "yanmar-D01-p151.png",
+        "yanmar-D01-p157.png",
+        "yanmar-D01-p163.png"
+      ],
+      "limitations": "Kolom WET dipilih. Gambar keluarga tidak menetapkan serial/clearance/cam law lengkap.",
+      "inspected_at": "2026-11-28",
+      "sha256": "bd68c39b57e2f84137ed990f87163cc652f8cbbb59e19d782526a089f3566160"
+    },
+    {
+      "id": "YM-OPERATION",
+      "title": "Operation Manual 6AYM-WGT / WET / WST",
+      "url": "https://www.yanmar.com/media/global/com/product/marinecommercial/propulsionEngine-HighSpeed/operationmanual/6AYM-WST_WET_WGT_OPM_0A6AY-G00401.pdf",
+      "publisher": "YANMAR",
+      "access": "existing_project_source",
+      "scope": "Manual operasi primer yang sudah ada",
+      "variant": "6AYM-WGT/WET/WST; pilih kolom WET",
+      "file": "../D02-operation.pdf",
+      "limitations": "Tidak dibuka ulang pada tugas referensi ini; tidak mengklaim inspeksi baru.",
+      "inspected_at": "2026-11-28",
+      "sha256": "d8ea101654d254869bbcf2590c01987c079b1b2c8a296a79e07201b7254979b1"
+    }
+  ],
+  "functional_groups": [
+    {
+      "id": "starter",
+      "source_ids": [
+        "USER-START",
+        "DENSO-MAN",
+        "DENSO-VID"
+      ],
+      "search_keywords": "starter solenoid pinion pre-engaged overrunning clutch",
+      "behavior": "Engage axial; drive flywheel saat cranking; tarik pinion saat engine catches. Housing/stator tetap.",
+      "limits": "Langkah26mm,10gigi,rasio18/72 existingmodel masih rekonstruksi."
+    },
+    {
+      "id": "crank_piston_rod_cam_valves",
+      "source_ids": [
+        "FOURSTROKE-VID",
+        "YM-SERVICE"
+      ],
+      "search_keywords": "four stroke diesel crankshaft connecting rod cam valve rocker working",
+      "behavior": "Crank memutar cam; piston translasi dan rod berayun; valve via cam/pushrod/rocker; spring kompresi mengikuti valve.",
+      "limits": "Timing ideal/clearance masih ikuti register lama sampai sumber exact dibuktikan."
+    },
+    {
+      "id": "injection_pump",
+      "source_ids": [
+        "PUMP-VID",
+        "YM-SERVICE"
+      ],
+      "search_keywords": "inline injection pump cam plunger barrel delivery valve working",
+      "behavior": "Cam mendorong tappet/plunger; spring return; delivery valve conditional. Urutan1-4-2-6-3-5; interval60deg pada pump.",
+      "limits": "D01 PDF115: WET YPE1615; PDF149 FID 16 ±0.5° BTDC adalah timing pompa, bukan otomatis awal spray atau nyala. Jangan gunakan rotary VE/common rail."
+    },
+    {
+      "id": "governor_stop",
+      "source_ids": [
+        "PUMP-VID",
+        "YM-SERVICE"
+      ],
+      "search_keywords": "mechanical inline injection pump governor weights rack starting stopping",
+      "behavior": "Start weights closed dan rack maksimum; idle weights membuka; Stop rack ke posisi fuel cutoff terlepas gaya governor.",
+      "limits": "D01PDF116 fungsi terdokumentasi; transienttime/lift model tetap illustrative."
+    },
+    {
+      "id": "injector",
+      "source_ids": [
+        "INJECTOR-VID",
+        "YM-SERVICE"
+      ],
+      "search_keywords": "mechanical diesel injector nozzle needle spring working",
+      "behavior": "Body tetap; nozzle WET TP2: needle lift 0.5 ±0.01 mm, opening 31 ±0.5 MPa; spring menutup. Delapan hole 0.30 mm dan empat hole 0.22 mm, sudut spray 160°/90° (D01 PDF150–151).",
+      "limits": "Video belum terverifikasi; manual PDF150–151 diperiksa langsung. Jangan menyisipkan piezo. Azimuth dan hydraulic delay belum diketahui."
+    },
+    {
+      "id": "feed_pump",
+      "source_ids": [
+        "YM-SERVICE"
+      ],
+      "search_keywords": "diesel fuel feed pump double action piston four check valves cam",
+      "behavior": "Piston double acting digerakkan cam; empat checkvalve berganti menurut chamber pressure; manual priming tidak berputar saat engine run.",
+      "limits": "D01PDF145 menyatakan four checkvalves; pressurelimit dapat membatasi piston. Modelgerakperiodik bukan physicalpressure solver."
+    },
+    {
+      "id": "oil_pump_relief",
+      "source_ids": [
+        "YM-SERVICE",
+        "OILGEAR-VID"
+      ],
+      "search_keywords": "external gear lubricating oil pump relief valve working",
+      "behavior": "Gear pumping membawa oli melalui cooler/filter→gallery→bearing/rocker/piston/turbo/injectionpump→sump. Relief conditional, bukan openclose tiapputaran.",
+      "limits": "KONFLIK r05 ratio32/28 vs manual1689rpm@1900. Piping diberi tindakan koreksi; sumber tabel PDF157."
+    },
+    {
+      "id": "coolant_pump",
+      "source_ids": [
+        "YM-SERVICE",
+        "GRUNDFOS-VID",
+        "GRUNDFOS-DOC"
+      ],
+      "search_keywords": "centrifugal jacket cooling water pump impeller working",
+      "behavior": "Impeller/shaft putar dalam casing tetap; coolantpump→oilcooler→jacket/head→exhaustmanifold→thermostat→tank/HX→pump.",
+      "limits": "Rasio/arah dari registerYanmar; aliran bukan CFD."
+    },
+    {
+      "id": "seawater_pump",
+      "source_ids": [
+        "YM-SERVICE",
+        "JABSCO-VID",
+        "JABSCO-DOC"
+      ],
+      "search_keywords": "flexible impeller seawater pump vane eccentric cam working",
+      "behavior": "Rotor bergerak dan vane lentur terhadap cam tetap; seawaterpump→aircooler→heat exchanger→sea.",
+      "limits": "D01PDF163 shaft1572@crank1900. Deformation approximate tidak boleh disebut material simulation."
+    },
+    {
+      "id": "alternator_belt",
+      "source_ids": [
+        "DENSO-MAN",
+        "DENSO-VID"
+      ],
+      "search_keywords": "alternator rotor stator belt pulley working",
+      "behavior": "Pulley/belt/rotor bergerak; stator, rectifier dan casing tetap. Rotor berputar di stator; keluaran lewat penyearah.",
+      "limits": "Rasio puliYanmar dari existingreconstruction, jangan genericcar ratio."
+    },
+    {
+      "id": "turbo_aircooler",
+      "source_ids": [
+        "GARRETT-VID",
+        "GARRETT-DOC",
+        "YM-SERVICE"
+      ],
+      "search_keywords": "turbocharger turbine compressor shaft intercooler working",
+      "behavior": "Exhaust memutar turbine+compressor commonshaft; udara menujuaircooler laluengine; casingdiam.",
+      "limits": "RPM dan spoollag ilustratif; 280000rpmGarrett dilarang dipindah."
+    },
+    {
+      "id": "filters_coolers",
+      "source_ids": [
+        "OILFILTER-VID",
+        "OILFILTER-DOC",
+        "COOLER-VID",
+        "COOLER-DOC",
+        "YM-SERVICE"
+      ],
+      "search_keywords": "oil filter shell tube heat exchanger fluid function",
+      "behavior": "Filtermedia/tubes/baffles tetap; tampilkanaliran dua mediumterpisah dan perpindahanpanas secaraindikatif. Centrifugal bypassfilter rotor berbeda dari mainpaperfilter.",
+      "limits": "Jangan menggerakkan seluruh filter/cooler agar terlihat bekerja. Tekanan/suhu angka belum solver."
+    }
+  ],
+  "critical_findings": [
+    {
+      "id": "FN-OIL-RATIO",
+      "status": "ACTION_SENT_TO_PIPING",
+      "source": "YM-SERVICE PDF157/printed153",
+      "documented": {
+        "engine_rpm": 1900,
+        "oil_pump_rpm": 1689,
+        "ratio": 0.8889473684210526
+      },
+      "conflict": "r05 README +/-32/28 implies2171rpm, inconsistent with table",
+      "action": "Inspect actual geartrain and correct motion ratio; cannot infer toothcount solely from rounded RPM."
+    },
+    {
+      "id": "FN-GOVERNOR",
+      "status": "ACTION_SENT_TO_PIPING",
+      "source": "YM-SERVICE PDF116/printed112",
+      "action": "Need start/idle/stop rack and weights conditional behavior, not merely shaft spin."
+    }
+  ],
+  "media_policy": "Downloaded source media retained in private evidence directory only; browser UI links original URLs. No OEM/user video copied into public assets."
+}

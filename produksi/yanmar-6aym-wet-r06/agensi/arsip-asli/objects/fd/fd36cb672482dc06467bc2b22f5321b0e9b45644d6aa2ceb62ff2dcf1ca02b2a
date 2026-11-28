@@ -1,0 +1,72 @@
+{
+  "agent": "/root/photos",
+  "units": [
+    {
+      "unit": "AAM P05–P08",
+      "variant": "6AYM-WET H 555 kW @ 1840 rpm",
+      "engine_no_probable": "9502",
+      "nameplate_engine_no": null,
+      "serial_status": "INFERRED",
+      "kind": "mark on packaging plus partly readable labelled spare parts carton",
+      "electric_starter_spec": "24 V 7.0 kW",
+      "starter_return": null,
+      "alternator_output_W": null,
+      "arrangement": null
+    },
+    {
+      "unit": "RESALE P01–P04",
+      "variant": "6AYM-WET 555 kW @ 1840 rpm (H by OEM table)",
+      "engine_no_reported": "9501",
+      "nameplate_engine_no": null,
+      "serial_status": "DOCUMENTED_BY_SELLER",
+      "url": "https://www.resale.info/en/yanmar-6aym-wet-marine-engine/No-164078938",
+      "starter_return": null,
+      "alternator_output_W": null,
+      "arrangement": null
+    }
+  ],
+  "media": [
+    {
+      "id": 23642,
+      "photo_id": "P05",
+      "file": "aam-media/23642.jpg",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-2.jpg",
+      "sha256": "b2aa581ec5497f995a254118351384c3cb053dcabb29bdcf05de36b84fa29578"
+    },
+    {
+      "id": 23644,
+      "photo_id": "P06",
+      "file": "aam-media/23644.jpg",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-4.jpg",
+      "sha256": "4dd99cd8872af5ca0dbabf688188163beaccf6475455aa35762e9dc3b69f9431"
+    },
+    {
+      "id": 23645,
+      "photo_id": "P07",
+      "file": "aam-media/23645.jpg",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-5.jpg",
+      "sha256": "6cdd1dcf268654e935383195d0f1fc18ddda6d6266f5b6db6e47e8fbc4bc7d06"
+    },
+    {
+      "id": 23650,
+      "photo_id": "P08",
+      "file": "aam-media/23650.jpg",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-10.jpg",
+      "sha256": "6afca4b49654483ca4cd36d94d1de82888577db2e53e3fb70a1f1dc0e99195a5"
+    },
+    {
+      "id": 23648,
+      "photo_id": null,
+      "file": "aam-media/23648.jpg",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-8.jpg",
+      "sha256": "d1dbcb033df59206cb4697a16715938f9587620d40453a88e296aab2f71baca8"
+    },
+    {
+      "id": 23649,
+      "photo_id": null,
+      "file": "aam-media/23649.jpg",
+      "url": "https://aam-equipment.nl/wp-content/uploads/2024/06/YANMAR-6AYM-WET-555kW-9.jpg",
+      "sha256": "ea51416bd3fc98b665f51750b0e2a807a303072e5b645ef3f35c9a580ab68692"
+    }
+  ]
+}

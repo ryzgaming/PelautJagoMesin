@@ -1,0 +1,48 @@
+{
+  "renderer": "Cycles CPU, 5 samples, denoising off",
+  "resolution": [
+    660,
+    495
+  ],
+  "orthographic_scale_m": 2.85,
+  "camera_center_blender_xyz_m": [
+    0.69,
+    0,
+    0.218
+  ],
+  "view_directions_blender": {
+    "depan": [
+      1,
+      0,
+      0
+    ],
+    "belakang": [
+      -1,
+      0,
+      0
+    ],
+    "kiri": [
+      0,
+      1,
+      0
+    ],
+    "kanan": [
+      0,
+      -1,
+      0
+    ],
+    "atas": [
+      0,
+      0,
+      1
+    ],
+    "tiga_perempat": [
+      1,
+      1.55,
+      0.52
+    ]
+  },
+  "baseline_alignment": "Legacy root transformed by Rz(180\u00b0), translation (+.85,0,\u2212.52) in Blender metres. Datum is approximate.",
+  "baseline_local_file": "/workspace/private-production/yanmar-site-source/dist/assets/yanmar-6aym-v8.glb",
+  "notes": "Kamera, frame, lighting dan material tetap. Referensi 3/4 kiri-depan menyesuaikan P08. Baseline v8 adalah aset produktif lama, bukan bukti."
+}

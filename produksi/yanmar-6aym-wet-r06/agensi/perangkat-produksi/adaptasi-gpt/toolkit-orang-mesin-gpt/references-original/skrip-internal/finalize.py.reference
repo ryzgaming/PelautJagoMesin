@@ -1,0 +1,76 @@
+import json, hashlib, os, collections, sys
+AMAX = float(sys.argv[1]) if len(sys.argv) > 1 else None
+OUT = '/tmp/claude-0/c3512/model/internal'
+inv = json.load(open(os.path.join(OUT, '_inv_raw.json')))
+chk = json.load(open(os.path.join(OUT, '_checks.json')))
+kin = json.load(open(os.path.join(OUT, 'kinematics.json')))
+EC = json.load(open(os.path.join(OUT, '_ext_clash.json')))
+kin['rumus']['rod'] = ('INT-ROD-NN: origin di P (pada rod_x), hanya rotasi X: rotation_x = atan2(Qz-Pz, Qy-Py), Q = pin piston. '
+                       'INT-ROD-NN-CAP/BOLT1/BOLT2: transformasi relatif tetap terhadap rod, M(phi) = M_rod(phi) @ inverse(M_rod(0)) @ M_awal (atau jadikan child rod)')
+kin['rumus']['piston'] += '. Pada phi=0 model statis = posisi ini.'
+json.dump(kin, open(os.path.join(OUT, 'kinematics.json'), 'w'), indent=1, ensure_ascii=False)
+for r in inv:
+    if not r.get('sumber'):
+        r['sumber'] = None
+    if r['sumber'] is None and not r.get('alasan'):
+        raise SystemExit('missing reason ' + r['id'])
+inv.append(dict(id='REF-EXT-FLYWHEEL-01', nama='Flywheel SAE No. 00 dengan ring gear 183 gigi: TIDAK dimodelkan di internal, memakai EXT-FLYWHEEL-01 (exterior)', rakitan='FLYWHEEL', jumlah=0,
+                status='DOCUMENTED', sumber=[{'id': 'D01', 'locator': 'hlm. 1 "SAE No. 00 flywheel and flywheel housing (183 teeth)"'}], alasan='QA-04: satu sumber ukuran; flywheel internal lama (d 0.70 + ring gear d 0.74) dihapus agar tidak bertabrakan dengan exterior (d 0.790, x -0.237..-0.168).',
+                ukuran_utama_m=dict(diameter=0.790, x_range=[-0.237, -0.168]), catatan='Diputar bersama crank (rasio 1) oleh Integrator; flens belakang INT-CRANK-01 berakhir 0.5 mm di depan muka flywheel ini.'))
+inv.append(dict(id='REF-EXT-DAMPER-01', nama='Vibration damper: TIDAK dimodelkan di internal, memakai EXT-DAMPER-01 (exterior)', rakitan='DAMPER', jumlah=0,
+                status='DOCUMENTED', sumber=[{'id': 'D02', 'locator': 'hlm. 1 Standard Equipment "vibration damper and guard"'}], alasan='QA-04: damper internal lama (d 0.61) dihapus; ukuran mengikuti exterior (d 0.498, x 1.930..2.072, ILLUSTRATIVE di exterior).',
+                ukuran_utama_m=dict(diameter=0.498, x_range=[1.930, 2.072]), catatan='Diputar bersama crank (rasio 1); nose INT-CRANK-01 berakhir 0.5 mm di belakang muka damper ini.'))
+json.dump(inv, open(os.path.join(OUT, 'inventory.json'), 'w'), indent=1, ensure_ascii=False)
+
+cnt = collections.Counter((r['rakitan'], r['status']) for r in inv)
+by_status = collections.Counter(r['status'] for r in inv)
+sha = hashlib.sha256(open(os.path.join(OUT, 'internal.glb'), 'rb').read()).hexdigest()
+GAP = ('Referensi visual internal 3512C (foto/video overhaul) tidak tersedia: video overhaul diblokir, dokumen resmi '
+       'terbuka hanya memuat spesifikasi dan gambar luar. Tidak ada pembanding visual untuk sudut ini.')
+views = ['depan', 'belakang', 'kiri', 'kanan', 'atas', 'tigaperempat']
+note = {
+    'depan': 'Tampak +X: susunan V 60 derajat simetris terhadap Z=0, camshaft di sisi luar tiap bank (a 0.29, t 0.155, di bawah rusuk blok exterior); damper dan flywheel tidak ada di internal (pakai EXT-DAMPER-01 / EXT-FLYWHEEL-01). Render diag_depan_tanpa_liner: silinder 1 (kanan) di TDC, silinder 2 (kiri) 60 derajat setelah TDC.',
+    'belakang': 'Tampak -X: flens belakang crank (flywheel memakai EXT-FLYWHEEL-01), crank gear 36, 2 idler 44, 2 cam gear 72 gigi (rasio 2:1, modul 3.5 mm) di gear train belakang (ILLUSTRATIVE).',
+    'kiri': 'Tampak -Z: 6 silinder bank kiri bergeser -0.065 m (placeholder ILLUSTRATIVE, exterior kini juga 0.065) terhadap bank kanan; camshaft kiri, pompa oli depan bawah; liner dengan flens di bawah deck 0.620.',
+    'kanan': 'Tampak +Z: 6 silinder bank kanan pada x datum 1.563..0.213 (pitch 0.270), 6 crankpin dengan 2 rod berdampingan, 7 main journal.',
+    'atas': 'Tampak +Y: 12 silinder, 4 katup + 1 injector per silinder; bank kanan lebih depan dari bank kiri (silinder 1 depan kanan).',
+    'tigaperempat': 'Tampak 3/4 depan-kanan-atas: tinggi piston berbeda sesuai fase engkol; render diag_34_tanpa_liner tanpa liner.',
+}
+cmp_ = dict(
+    status_referensi='TIDAK ADA REFERENSI VISUAL INTERNAL',
+    sudut=[dict(sudut=v, render=[f'render/neutral_{v}.png', f'render/color_{v}.png'], referensi=None, gap=GAP, pengamatan=note[v]) for v in views],
+    render_tambahan=['render/color_detail_silinder1.png', 'render/color_diag_depan_tanpa_liner.png',
+                     'render/color_diag_kanan_tanpa_liner.png', 'render/color_diag_34_tanpa_liner.png'],
+    pembanding_mekanis=dict(
+        displacement=dict(model_L=chk['displacement_model_L'], dokumen='58.6 L (D02 hlm. 1)', hasil='cocok'),
+        rasio_kompresi=dict(model=chk['CR_model'], dokumen=chk['CR_doc'], catatan='volume bowl disetel (BOWL_K 0.86); celah piston-deck 1.5 mm + 1 mm gasket ILLUSTRATIVE', hasil='cocok dalam 0.3%'),
+        volume=dict(V_langkah_L=chk['V_swept_L'], V_bowl_L=chk['V_bowl_L'], V_celah_L=chk['V_gap_L']),
+        fase_crankpin=dict(nilai={str(c['silinder']): c['beta_crankpin_0_deg'] for c in kin['silinder']},
+                           hasil='setiap pasangan (1,2),(3,4),...,(11,12) memakai crankpin yang sama; 3 arah crankpin 30/150/270 derajat (120 derajat), simetris cermin depan-belakang; konsisten dengan firing order D06 dan interval 60 derajat'),
+        langkah_piston=dict(stroke_model_m=round(2 * kin['radius_engkol'], 4), dokumen='215 mm (D02)', hasil='cocok'),
+        ruang_gerak=dict(
+            metode='uji tumpang tindih BVH semua pasangan objek (statis, phi=0) dan sapuan phi 0..705 derajat langkah 15 (crank, 12 piston+ring+pin, 12 rod+cap+baut, katup bergerak, 2 camshaft) terhadap semua objek lain; kontak yang memang disengaja (pin-rod, rod-crankpin, tappet-lobe, gigi bersinggungan, rakitan katup satu silinder) dikecualikan',
+            tumpang_tindih_statis=chk['static_overlaps'], tumpang_tindih_sapuan=chk['sweep_overlaps'],
+            celah_min_katup_ke_crown_m=chk['min_valve_to_crown_gap_m'],
+            ring_keluar_liner=chk['rings_leave_liner'],
+            catatan='Celah katup-crown minimum 2.3 mm terjadi saat overlap TDC (lift kecil). Tappet tidak ikut disapu (posisinya statis untuk phi=0). Gigi gear tidak diselaraskan fasenya (ILLUSTRATIVE).'),
+        kecocokan_exterior=dict(
+            deck_m=0.620, sumber='atas blok / dasar kepala exterior (EXT-BLOK-01, EXT-KEPALA-*), diukur Exterior dari D01; diteruskan Integrator',
+            piston_crown_TDC_a_m=0.6185, celah_crown_ke_deck_m=0.0015,
+            liner_a_m=[0.330, 0.620], fire_deck_katup_a_m=0.621,
+            valve_train_injector_a_maks_m=AMAX, batas_atas_tutup_katup_a_m=0.940,
+            rentang_t_di_atas_kepala_m=[-0.046, 0.1364], tutup_katup_t_m=[-0.067, 0.138],
+            rentang_t_dalam_kepala_m=[-0.064, 0.1354], kepala_t_m=[-0.156, 0.156],
+            liner_flens_a_m=[0.598, 0.6197], liner_puncak_a_m=0.6197,
+            flywheel_damper='memakai EXT-FLYWHEEL-01 dan EXT-DAMPER-01; internal hanya flens crank (sampai x -0.1675) dan nose (sampai x 1.9295)',
+            uji_tumpang_tindih_exterior=dict(metode='BVH internal vs exterior.blend (mesh exterior ditriangulasi ear-clip), statis phi=0 dan sapuan phi 30..690 langkah 30 untuk crank, cam, crank gear, piston, ring, pin, rod, cap, baut',
+                                             jumlah_pasangan_kontak=EC['jumlah_pasangan'], ringkas_per_kelas=EC['ringkas'],
+                                             perlu_ditinjau=[dict(internal=r['internal'], exterior=r['exterior'], segitiga=r['segitiga'], frac_muka_normal_X=r.get('frac_muka_normal_X')) for r in EC['perlu_ditinjau']],
+                                             sapuan_perlu_ditinjau=EC['sapuan_perlu_ditinjau']),
+            catatan='a = jarak sepanjang sumbu bank dari sumbu crank, t = arah luar tegak lurus sumbu bank. Push rod, katup, injector dan liner melintasi bidang batas blok/kepala/tutup exterior (kontak permukaan yang disengaja karena exterior berupa cangkang pejal). Bank kiri internal tetap mundur 0.065 (exterior akan menyesuaikan).'),
+        selubung=dict(bbox_m=chk['bbox'], batas='X -0.224..2.423, Y -0.805..1.417, Z +-1.02', pelanggaran=chk['envelope_violations']),
+    ),
+)
+json.dump(cmp_, open(os.path.join(OUT, 'compare.json'), 'w'), indent=1, ensure_ascii=False)
+print(json.dumps(dict(sha256=sha, objects=chk['objects'], scene_tris=chk['scene_triangles'], unique_tris=chk['unique_mesh_triangles'],
+                      by_status=by_status, rakitan=collections.Counter(r['rakitan'] for r in inv)), indent=1))

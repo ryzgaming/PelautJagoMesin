@@ -1,0 +1,156 @@
+{
+  "id": "RAK-BONNET-3",
+  "nama": "Bonnet rocker silinder 3",
+  "node_rakitan": "RAK-BONNET-3",
+  "parent_rakitan": "RAK-HEADS",
+  "acuan": {
+    "no": 1,
+    "object_ids": [
+      "EXT-HEADS-09"
+    ]
+  },
+  "diagram": {
+    "arah_pandang": [
+      0.45,
+      0.53,
+      -0.72
+    ],
+    "atas": [
+      0,
+      1,
+      0
+    ]
+  },
+  "bagian": [
+    {
+      "no": 1,
+      "nama": "Bonnet rocker silinder 3",
+      "object_ids": [
+        "EXT-HEADS-09"
+      ],
+      "role": "shell",
+      "fungsi": "Menutup mekanisme rocker di atas kepala silinder.",
+      "posisi": [],
+      "sumber": [
+        "D05 Parts catalog 0CG10-M34300 Fig.24 Bonnet, WET #8,9,12,13,14",
+        "P10 / housing outline; top orthogonal shape and dimensions estimated"
+      ],
+      "status": "ESTIMATED",
+      "nomor_oem": null
+    },
+    {
+      "no": 2,
+      "nama": "Gasket keliling bonnet",
+      "object_ids": [
+        "EXT-HEADS-33"
+      ],
+      "role": "seal",
+      "fungsi": "Menyekat bibir bonnet pada housing rocker; bentuk disesuaikan dengan footprint model.",
+      "posisi": [
+        {
+          "object_id": "EXT-HEADS-33",
+          "arah": [
+            0,
+            -1,
+            0
+          ],
+          "jarak_m": 0.047,
+          "urutan": 2
+        }
+      ],
+      "sumber": [
+        "D05 Parts catalog 0CG10-M34300 Fig.24 Bonnet, WET #8,9,12,13,14",
+        "P10 / housing outline; top orthogonal shape and dimensions estimated"
+      ],
+      "status": "ESTIMATED",
+      "nomor_oem": "148628-11330"
+    },
+    {
+      "no": 3,
+      "nama": "Washer seal baut bonnet",
+      "object_ids": [
+        "EXT-HEADS-43"
+      ],
+      "role": "seal",
+      "fungsi": "Menyekat lubang baut pada permukaan tutup.",
+      "posisi": [
+        {
+          "object_id": "EXT-HEADS-43",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.04,
+          "urutan": 3
+        }
+      ],
+      "sumber": [
+        "D05 Parts catalog 0CG10-M34300 Fig.24 Bonnet, WET #8,9,12,13,14",
+        "P10 / housing outline; top orthogonal shape and dimensions estimated"
+      ],
+      "status": "ESTIMATED",
+      "nomor_oem": "22190-160001"
+    },
+    {
+      "no": 4,
+      "nama": "Baut pusat bonnet",
+      "object_ids": [
+        "EXT-HEADS-53"
+      ],
+      "role": "fastener",
+      "fungsi": "Menahan bonnet dan menekan washer seal. Bentuk kepala serta panjang terpasang merupakan estimasi.",
+      "posisi": [
+        {
+          "object_id": "EXT-HEADS-53",
+          "arah": [
+            0,
+            1,
+            0
+          ],
+          "jarak_m": 0.08,
+          "urutan": 4
+        }
+      ],
+      "sumber": [
+        "D05 Parts catalog 0CG10-M34300 Fig.24 Bonnet, WET #8,9,12,13,14",
+        "P10 / housing outline; top orthogonal shape and dimensions estimated"
+      ],
+      "status": "ESTIMATED",
+      "nomor_oem": "148620-11441"
+    },
+    {
+      "no": 5,
+      "nama": "Cincin penahan baut",
+      "object_ids": [
+        "EXT-HEADS-63"
+      ],
+      "role": "inner",
+      "fungsi": "Mempertahankan baut pada bonnet saat dibuka; bentuk alur diperkirakan.",
+      "posisi": [
+        {
+          "object_id": "EXT-HEADS-63",
+          "arah": [
+            0,
+            -1,
+            0
+          ],
+          "jarak_m": 0.07,
+          "urutan": 5
+        }
+      ],
+      "sumber": [
+        "D05 Parts catalog 0CG10-M34300 Fig.24 Bonnet, WET #8,9,12,13,14",
+        "P10 / housing outline; top orthogonal shape and dimensions estimated"
+      ],
+      "status": "ESTIMATED",
+      "nomor_oem": "22242-000160"
+    }
+  ],
+  "source_refs": [
+    "D05 Parts catalog 0CG10-M34300 Fig.24 Bonnet, WET #8,9,12,13,14",
+    "P10 / housing outline; top orthogonal shape and dimensions estimated"
+  ],
+  "status": "UNVERIFIED",
+  "notes": "Cakupan bonnet Fig.24 #8,9,12–14. Housing rocker bawah, gasket serta pengikatnya merupakan rakitan lain dan belum direkonsiliasi."
+}

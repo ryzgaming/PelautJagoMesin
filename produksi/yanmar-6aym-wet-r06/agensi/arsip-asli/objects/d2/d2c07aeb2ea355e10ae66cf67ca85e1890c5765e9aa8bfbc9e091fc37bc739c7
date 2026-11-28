@@ -1,0 +1,74 @@
+{
+  "id": "RAK-FLYWHEEL",
+  "nama": "Flywheel dan housing",
+  "node_rakitan": "RAK-FLYWHEEL",
+  "acuan": {
+    "no": 1,
+    "object_ids": [
+      "EXT-FLYWHEEL-01"
+    ]
+  },
+  "diagram": {
+    "arah_pandang": [
+      -1.0,
+      0.0,
+      0.0
+    ],
+    "atas": [
+      0,
+      1,
+      0
+    ]
+  },
+  "bagian": [
+    {
+      "no": 1,
+      "nama": "Flywheel housing SAE #0",
+      "object_ids": [
+        "EXT-FLYWHEEL-01"
+      ],
+      "posisi": [],
+      "status": "ESTIMATED",
+      "sumber": [
+        "GA01 B3-48660-4450 / outline, top, end and rear housing details",
+        "P18 / housing, flange dan rusuk"
+      ],
+      "fungsi": "Flywheel housing SAE #0",
+      "nomor_oem": null,
+      "role": null,
+      "ukuran": null
+    },
+    {
+      "no": 2,
+      "nama": "Cakram flywheel dan hub",
+      "object_ids": [
+        "EXT-FLYWHEEL-02"
+      ],
+      "posisi": [
+        {
+          "object_id": "EXT-FLYWHEEL-02",
+          "arah": [
+            -1,
+            0,
+            0
+          ],
+          "jarak_m": 0.28,
+          "urutan": 2
+        }
+      ],
+      "status": "ESTIMATED",
+      "sumber": [
+        "GA01 B3-48660-4450 / outline, top, end and rear housing details",
+        "P06 / roda merah dan hub",
+        "D05 Parts catalog 0CG10-M34300 Fig.38 Crankshaft & flywheel WET #6, #8, #9",
+        "D01 service PDF 113 / printed 109: flywheel Ø632, ring pitch Ø630, 180 teeth",
+        "GA01 B3-48660-4450: SAE attachment face and flywheel PCD"
+      ],
+      "fungsi": "Cakram flywheel dan hub",
+      "nomor_oem": null,
+      "role": "shell",
+      "ukuran": null
+    }
+  ],
+  "notes": "Nomor posisi model. Lintasan ilustrasi, belum diperiksa untuk interferensi."
+}

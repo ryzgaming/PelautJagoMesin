@@ -1,0 +1,888 @@
+{
+ "catatan": "Sudut engkol phi (derajat) = 0 saat silinder 1 di TDC pembakaran; model statis disusun pada phi=0. Putaran CCW dilihat dari flywheel (D02/D05 DOCUMENTED) = rotasi positif mengitari sumbu -X (tangan kanan). beta diukur pada bidang YZ dari +Y ke +Z; beta_crankpin(phi) = beta_crankpin_0 - phi.",
+ "satuan": "m, derajat",
+ "radius_engkol": 0.1075,
+ "radius_engkol_status": "DOCUMENTED (stroke 215 mm / 2, D02 hlm. 1)",
+ "panjang_rod": 0.381,
+ "panjang_rod_status": "ESTIMATED (deck 0.620 (atas blok exterior, ESTIMATED dari D01) - tinggi kompresi piston 0.130 - radius engkol 0.1075 - celah 0.0015)",
+ "sudut_V_deg": 60,
+ "sudut_V_status": "INFERRED (D06)",
+ "firing_order": [
+  1,
+  12,
+  9,
+  4,
+  5,
+  8,
+  11,
+  2,
+  3,
+  10,
+  7,
+  6
+ ],
+ "firing_order_status": "INFERRED (D06, 3512 awal, CCW)",
+ "interval_pembakaran_deg": 60,
+ "rumus": {
+  "crank": "objek INT-CRANK-01, INT-GEAR-R-CRANK, INT-GEAR-F-CRANK serta node EXTERIOR EXT-FLYWHEEL-01 (termasuk ring gear 183 gigi) dan EXT-DAMPER-01 (flywheel dan damper tidak dimodelkan di internal): rotation_x = -phi (rad), pusat sumbu X",
+  "crankpin": "P = (crankpin_x, r*cos(beta), r*sin(beta)), beta = beta_crankpin_0 - phi",
+  "alpha": "alpha = beta - beta_bank (beta_bank = +30 kanan, -30 kiri)",
+  "piston": "s = r*cos(alpha) + sqrt(L^2 - (r*sin(alpha))^2); pin = (x_silinder,0,0) + s*sumbu; objek piston/pin/ring hanya bertranslasi sepanjang sumbu: posisi = posisi_awal + (s - s0)*sumbu. Pada phi=0 model statis = posisi ini.",
+  "rod": "INT-ROD-NN: origin di P (pada rod_x), hanya rotasi X: rotation_x = atan2(Qz-Pz, Qy-Py), Q = pin piston. INT-ROD-NN-CAP/BOLT1/BOLT2: transformasi relatif tetap terhadap rod, M(phi) = M_rod(phi) @ inverse(M_rod(0)) @ M_awal (atau jadikan child rod)",
+  "cam": "INT-CAM-R/L dan INT-GEAR-R-CAM-R/L: rotation_x = -phi/2 relatif ke posisi awal (rasio 1:2, arah searah crank ILLUSTRATIVE)",
+  "idler": "INT-GEAR-R-IDLER-R/L: rotation_x = +phi*36/44 (berlawanan arah crank)",
+  "pompa_oli": "INT-GEAR-F-OILPUMP dan INT-OILPUMP-GEAR1: rotation_x = +phi*36/26; INT-OILPUMP-GEAR2: rotation_x = -phi*36/26",
+  "lift_lobe": "lift = h*cos^2(90*d/hd) bila |d|<hd, d = phi - puncak (dibungkus ke -360..360); h IN/EX 0.010, INJ 0.008; hd IN/EX 120, INJ 60 (semua ILLUSTRATIVE)",
+  "valve_train": "tappet dan ujung bawah push rod naik sepanjang sumbu bank sebesar lift; rocker berputar mengitari X lokal delta = -s*lift/0.055 rad (s=+1 kanan, -1 kiri); bridge, katup, retainer turun sepanjang -sumbu sebesar lift*1.200 (rasio rocker 0.066/0.055); pegas memendek sama; plunger injector turun lift*1.200. Nilai lift dan delta pada phi=0 ada di valve_train_awal."
+ },
+ "rasio_putaran": {
+  "INT-CRANK-01": 1.0,
+  "INT-CAM-R": 0.5,
+  "INT-CAM-L": 0.5,
+  "INT-GEAR-R-IDLER-R": -0.8181818181818182,
+  "INT-GEAR-R-IDLER-L": -0.8181818181818182,
+  "INT-GEAR-F-OILPUMP": -1.3846153846153846,
+  "INT-OILPUMP-GEAR1": -1.3846153846153846,
+  "INT-OILPUMP-GEAR2": 1.3846153846153846,
+  "EXT-FLYWHEEL-01 (exterior)": 1.0,
+  "EXT-DAMPER-01 (exterior)": 1.0
+ },
+ "crankshaft": "INT-CRANK-01",
+ "camshaft": [
+  "INT-CAM-R",
+  "INT-CAM-L"
+ ],
+ "perbandingan_cam": "1:2 (DOCUMENTED prinsip 4-tak; arah ILLUSTRATIVE)",
+ "silinder": [
+  {
+   "silinder": 1,
+   "piston": "INT-PISTON-01",
+   "rod": "INT-ROD-01",
+   "ikut_piston": [
+    "INT-PIN-01",
+    "INT-RING-01-1",
+    "INT-RING-01-2",
+    "INT-RING-01-3"
+   ],
+   "ikut_rod": [
+    "INT-ROD-01-CAP",
+    "INT-ROD-01-BOLT1",
+    "INT-ROD-01-BOLT2"
+   ],
+   "bank": "kanan (+Z)",
+   "sumbu": [
+    0.0,
+    0.866025,
+    0.5
+   ],
+   "x_silinder": 1.563,
+   "x_silinder_status": "ESTIMATED (datum)",
+   "pin_TDC": [
+    1.563,
+    0.42305,
+    0.24425
+   ],
+   "fase_engkol_TDC_pembakaran_deg": 0.0,
+   "beta_crankpin_0_deg": 30.0,
+   "crankpin_x": 1.5305,
+   "rod_x": 1.563,
+   "katup": {
+    "IN": [
+     "INT-KATUP-01-IN1",
+     "INT-KATUP-01-IN2"
+    ],
+    "EX": [
+     "INT-KATUP-01-EX1",
+     "INT-KATUP-01-EX2"
+    ]
+   },
+   "puncak_lobe_deg_engkol": {
+    "IN": 470.0,
+    "EX": 250.0,
+    "INJ": 5.0
+   }
+  },
+  {
+   "silinder": 2,
+   "piston": "INT-PISTON-02",
+   "rod": "INT-ROD-02",
+   "ikut_piston": [
+    "INT-PIN-02",
+    "INT-RING-02-1",
+    "INT-RING-02-2",
+    "INT-RING-02-3"
+   ],
+   "ikut_rod": [
+    "INT-ROD-02-CAP",
+    "INT-ROD-02-BOLT1",
+    "INT-ROD-02-BOLT2"
+   ],
+   "bank": "kiri (-Z)",
+   "sumbu": [
+    0.0,
+    0.866025,
+    -0.5
+   ],
+   "x_silinder": 1.498,
+   "x_silinder_status": "ILLUSTRATIVE (x ganjil - 0.065 placeholder)",
+   "pin_TDC": [
+    1.498,
+    0.42305,
+    -0.24425
+   ],
+   "fase_engkol_TDC_pembakaran_deg": 420.0,
+   "beta_crankpin_0_deg": 30.0,
+   "crankpin_x": 1.5305,
+   "rod_x": 1.498,
+   "katup": {
+    "IN": [
+     "INT-KATUP-02-IN1",
+     "INT-KATUP-02-IN2"
+    ],
+    "EX": [
+     "INT-KATUP-02-EX1",
+     "INT-KATUP-02-EX2"
+    ]
+   },
+   "puncak_lobe_deg_engkol": {
+    "IN": 170.0,
+    "EX": 670.0,
+    "INJ": 425.0
+   }
+  },
+  {
+   "silinder": 3,
+   "piston": "INT-PISTON-03",
+   "rod": "INT-ROD-03",
+   "ikut_piston": [
+    "INT-PIN-03",
+    "INT-RING-03-1",
+    "INT-RING-03-2",
+    "INT-RING-03-3"
+   ],
+   "ikut_rod": [
+    "INT-ROD-03-CAP",
+    "INT-ROD-03-BOLT1",
+    "INT-ROD-03-BOLT2"
+   ],
+   "bank": "kanan (+Z)",
+   "sumbu": [
+    0.0,
+    0.866025,
+    0.5
+   ],
+   "x_silinder": 1.293,
+   "x_silinder_status": "ESTIMATED (datum)",
+   "pin_TDC": [
+    1.293,
+    0.42305,
+    0.24425
+   ],
+   "fase_engkol_TDC_pembakaran_deg": 480.0,
+   "beta_crankpin_0_deg": 150.0,
+   "crankpin_x": 1.2605,
+   "rod_x": 1.293,
+   "katup": {
+    "IN": [
+     "INT-KATUP-03-IN1",
+     "INT-KATUP-03-IN2"
+    ],
+    "EX": [
+     "INT-KATUP-03-EX1",
+     "INT-KATUP-03-EX2"
+    ]
+   },
+   "puncak_lobe_deg_engkol": {
+    "IN": 230.0,
+    "EX": 10.0,
+    "INJ": 485.0
+   }
+  },
+  {
+   "silinder": 4,
+   "piston": "INT-PISTON-04",
+   "rod": "INT-ROD-04",
+   "ikut_piston": [
+    "INT-PIN-04",
+    "INT-RING-04-1",
+    "INT-RING-04-2",
+    "INT-RING-04-3"
+   ],
+   "ikut_rod": [
+    "INT-ROD-04-CAP",
+    "INT-ROD-04-BOLT1",
+    "INT-ROD-04-BOLT2"
+   ],
+   "bank": "kiri (-Z)",
+   "sumbu": [
+    0.0,
+    0.866025,
+    -0.5
+   ],
+   "x_silinder": 1.228,
+   "x_silinder_status": "ILLUSTRATIVE (x ganjil - 0.065 placeholder)",
+   "pin_TDC": [
+    1.228,
+    0.42305,
+    -0.24425
+   ],
+   "fase_engkol_TDC_pembakaran_deg": 180.0,
+   "beta_crankpin_0_deg": 150.0,
+   "crankpin_x": 1.2605,
+   "rod_x": 1.228,
+   "katup": {
+    "IN": [
+     "INT-KATUP-04-IN1",
+     "INT-KATUP-04-IN2"
+    ],
+    "EX": [
+     "INT-KATUP-04-EX1",
+     "INT-KATUP-04-EX2"
+    ]
+   },
+   "puncak_lobe_deg_engkol": {
+    "IN": 650.0,
+    "EX": 430.0,
+    "INJ": 185.0
+   }
+  },
+  {
+   "silinder": 5,
+   "piston": "INT-PISTON-05",
+   "rod": "INT-ROD-05",
+   "ikut_piston": [
+    "INT-PIN-05",
+    "INT-RING-05-1",
+    "INT-RING-05-2",
+    "INT-RING-05-3"
+   ],
+   "ikut_rod": [
+    "INT-ROD-05-CAP",
+    "INT-ROD-05-BOLT1",
+    "INT-ROD-05-BOLT2"
+   ],
+   "bank": "kanan (+Z)",
+   "sumbu": [
+    0.0,
+    0.866025,
+    0.5
+   ],
+   "x_silinder": 1.023,
+   "x_silinder_status": "ESTIMATED (datum)",
+   "pin_TDC": [
+    1.023,
+    0.42305,
+    0.24425
+   ],
+   "fase_engkol_TDC_pembakaran_deg": 240.0,
+   "beta_crankpin_0_deg": 270.0,
+   "crankpin_x": 0.9905,
+   "rod_x": 1.023,
+   "katup": {
+    "IN": [
+     "INT-KATUP-05-IN1",
+     "INT-KATUP-05-IN2"
+    ],
+    "EX": [
+     "INT-KATUP-05-EX1",
+     "INT-KATUP-05-EX2"
+    ]
+   },
+   "puncak_lobe_deg_engkol": {
+    "IN": 710.0,
+    "EX": 490.0,
+    "INJ": 245.0
+   }
+  },
+  {
+   "silinder": 6,
+   "piston": "INT-PISTON-06",
+   "rod": "INT-ROD-06",
+   "ikut_piston": [
+    "INT-PIN-06",
+    "INT-RING-06-1",
+    "INT-RING-06-2",
+    "INT-RING-06-3"
+   ],
+   "ikut_rod": [
+    "INT-ROD-06-CAP",
+    "INT-ROD-06-BOLT1",
+    "INT-ROD-06-BOLT2"
+   ],
+   "bank": "kiri (-Z)",
+   "sumbu": [
+    0.0,
+    0.866025,
+    -0.5
+   ],
+   "x_silinder": 0.958,
+   "x_silinder_status": "ILLUSTRATIVE (x ganjil - 0.065 placeholder)",
+   "pin_TDC": [
+    0.958,
+    0.42305,
+    -0.24425
+   ],
+   "fase_engkol_TDC_pembakaran_deg": 660.0,
+   "beta_crankpin_0_deg": 270.0,
+   "crankpin_x": 0.9905,
+   "rod_x": 0.958,
+   "katup": {
+    "IN": [
+     "INT-KATUP-06-IN1",
+     "INT-KATUP-06-IN2"
+    ],
+    "EX": [
+     "INT-KATUP-06-EX1",
+     "INT-KATUP-06-EX2"
+    ]
+   },
+   "puncak_lobe_deg_engkol": {
+    "IN": 410.0,
+    "EX": 190.0,
+    "INJ": 665.0
+   }
+  },
+  {
+   "silinder": 7,
+   "piston": "INT-PISTON-07",
+   "rod": "INT-ROD-07",
+   "ikut_piston": [
+    "INT-PIN-07",
+    "INT-RING-07-1",
+    "INT-RING-07-2",
+    "INT-RING-07-3"
+   ],
+   "ikut_rod": [
+    "INT-ROD-07-CAP",
+    "INT-ROD-07-BOLT1",
+    "INT-ROD-07-BOLT2"
+   ],
+   "bank": "kanan (+Z)",
+   "sumbu": [
+    0.0,
+    0.866025,
+    0.5
+   ],
+   "x_silinder": 0.753,
+   "x_silinder_status": "ESTIMATED (datum)",
+   "pin_TDC": [
+    0.753,
+    0.42305,
+    0.24425
+   ],
+   "fase_engkol_TDC_pembakaran_deg": 600.0,
+   "beta_crankpin_0_deg": 270.0,
+   "crankpin_x": 0.7205,
+   "rod_x": 0.753,
+   "katup": {
+    "IN": [
+     "INT-KATUP-07-IN1",
+     "INT-KATUP-07-IN2"
+    ],
+    "EX": [
+     "INT-KATUP-07-EX1",
+     "INT-KATUP-07-EX2"
+    ]
+   },
+   "puncak_lobe_deg_engkol": {
+    "IN": 350.0,
+    "EX": 130.0,
+    "INJ": 605.0
+   }
+  },
+  {
+   "silinder": 8,
+   "piston": "INT-PISTON-08",
+   "rod": "INT-ROD-08",
+   "ikut_piston": [
+    "INT-PIN-08",
+    "INT-RING-08-1",
+    "INT-RING-08-2",
+    "INT-RING-08-3"
+   ],
+   "ikut_rod": [
+    "INT-ROD-08-CAP",
+    "INT-ROD-08-BOLT1",
+    "INT-ROD-08-BOLT2"
+   ],
+   "bank": "kiri (-Z)",
+   "sumbu": [
+    0.0,
+    0.866025,
+    -0.5
+   ],
+   "x_silinder": 0.688,
+   "x_silinder_status": "ILLUSTRATIVE (x ganjil - 0.065 placeholder)",
+   "pin_TDC": [
+    0.688,
+    0.42305,
+    -0.24425
+   ],
+   "fase_engkol_TDC_pembakaran_deg": 300.0,
+   "beta_crankpin_0_deg": 270.0,
+   "crankpin_x": 0.7205,
+   "rod_x": 0.688,
+   "katup": {
+    "IN": [
+     "INT-KATUP-08-IN1",
+     "INT-KATUP-08-IN2"
+    ],
+    "EX": [
+     "INT-KATUP-08-EX1",
+     "INT-KATUP-08-EX2"
+    ]
+   },
+   "puncak_lobe_deg_engkol": {
+    "IN": 50.0,
+    "EX": 550.0,
+    "INJ": 305.0
+   }
+  },
+  {
+   "silinder": 9,
+   "piston": "INT-PISTON-09",
+   "rod": "INT-ROD-09",
+   "ikut_piston": [
+    "INT-PIN-09",
+    "INT-RING-09-1",
+    "INT-RING-09-2",
+    "INT-RING-09-3"
+   ],
+   "ikut_rod": [
+    "INT-ROD-09-CAP",
+    "INT-ROD-09-BOLT1",
+    "INT-ROD-09-BOLT2"
+   ],
+   "bank": "kanan (+Z)",
+   "sumbu": [
+    0.0,
+    0.866025,
+    0.5
+   ],
+   "x_silinder": 0.483,
+   "x_silinder_status": "ESTIMATED (datum)",
+   "pin_TDC": [
+    0.483,
+    0.42305,
+    0.24425
+   ],
+   "fase_engkol_TDC_pembakaran_deg": 120.0,
+   "beta_crankpin_0_deg": 150.0,
+   "crankpin_x": 0.4505,
+   "rod_x": 0.483,
+   "katup": {
+    "IN": [
+     "INT-KATUP-09-IN1",
+     "INT-KATUP-09-IN2"
+    ],
+    "EX": [
+     "INT-KATUP-09-EX1",
+     "INT-KATUP-09-EX2"
+    ]
+   },
+   "puncak_lobe_deg_engkol": {
+    "IN": 590.0,
+    "EX": 370.0,
+    "INJ": 125.0
+   }
+  },
+  {
+   "silinder": 10,
+   "piston": "INT-PISTON-10",
+   "rod": "INT-ROD-10",
+   "ikut_piston": [
+    "INT-PIN-10",
+    "INT-RING-10-1",
+    "INT-RING-10-2",
+    "INT-RING-10-3"
+   ],
+   "ikut_rod": [
+    "INT-ROD-10-CAP",
+    "INT-ROD-10-BOLT1",
+    "INT-ROD-10-BOLT2"
+   ],
+   "bank": "kiri (-Z)",
+   "sumbu": [
+    0.0,
+    0.866025,
+    -0.5
+   ],
+   "x_silinder": 0.418,
+   "x_silinder_status": "ILLUSTRATIVE (x ganjil - 0.065 placeholder)",
+   "pin_TDC": [
+    0.418,
+    0.42305,
+    -0.24425
+   ],
+   "fase_engkol_TDC_pembakaran_deg": 540.0,
+   "beta_crankpin_0_deg": 150.0,
+   "crankpin_x": 0.4505,
+   "rod_x": 0.418,
+   "katup": {
+    "IN": [
+     "INT-KATUP-10-IN1",
+     "INT-KATUP-10-IN2"
+    ],
+    "EX": [
+     "INT-KATUP-10-EX1",
+     "INT-KATUP-10-EX2"
+    ]
+   },
+   "puncak_lobe_deg_engkol": {
+    "IN": 290.0,
+    "EX": 70.0,
+    "INJ": 545.0
+   }
+  },
+  {
+   "silinder": 11,
+   "piston": "INT-PISTON-11",
+   "rod": "INT-ROD-11",
+   "ikut_piston": [
+    "INT-PIN-11",
+    "INT-RING-11-1",
+    "INT-RING-11-2",
+    "INT-RING-11-3"
+   ],
+   "ikut_rod": [
+    "INT-ROD-11-CAP",
+    "INT-ROD-11-BOLT1",
+    "INT-ROD-11-BOLT2"
+   ],
+   "bank": "kanan (+Z)",
+   "sumbu": [
+    0.0,
+    0.866025,
+    0.5
+   ],
+   "x_silinder": 0.213,
+   "x_silinder_status": "ESTIMATED (datum)",
+   "pin_TDC": [
+    0.213,
+    0.42305,
+    0.24425
+   ],
+   "fase_engkol_TDC_pembakaran_deg": 360.0,
+   "beta_crankpin_0_deg": 30.0,
+   "crankpin_x": 0.1805,
+   "rod_x": 0.213,
+   "katup": {
+    "IN": [
+     "INT-KATUP-11-IN1",
+     "INT-KATUP-11-IN2"
+    ],
+    "EX": [
+     "INT-KATUP-11-EX1",
+     "INT-KATUP-11-EX2"
+    ]
+   },
+   "puncak_lobe_deg_engkol": {
+    "IN": 110.0,
+    "EX": 610.0,
+    "INJ": 365.0
+   }
+  },
+  {
+   "silinder": 12,
+   "piston": "INT-PISTON-12",
+   "rod": "INT-ROD-12",
+   "ikut_piston": [
+    "INT-PIN-12",
+    "INT-RING-12-1",
+    "INT-RING-12-2",
+    "INT-RING-12-3"
+   ],
+   "ikut_rod": [
+    "INT-ROD-12-CAP",
+    "INT-ROD-12-BOLT1",
+    "INT-ROD-12-BOLT2"
+   ],
+   "bank": "kiri (-Z)",
+   "sumbu": [
+    0.0,
+    0.866025,
+    -0.5
+   ],
+   "x_silinder": 0.148,
+   "x_silinder_status": "ILLUSTRATIVE (x ganjil - 0.065 placeholder)",
+   "pin_TDC": [
+    0.148,
+    0.42305,
+    -0.24425
+   ],
+   "fase_engkol_TDC_pembakaran_deg": 60.0,
+   "beta_crankpin_0_deg": 30.0,
+   "crankpin_x": 0.1805,
+   "rod_x": 0.148,
+   "katup": {
+    "IN": [
+     "INT-KATUP-12-IN1",
+     "INT-KATUP-12-IN2"
+    ],
+    "EX": [
+     "INT-KATUP-12-EX1",
+     "INT-KATUP-12-EX2"
+    ]
+   },
+   "puncak_lobe_deg_engkol": {
+    "IN": 530.0,
+    "EX": 310.0,
+    "INJ": 65.0
+   }
+  }
+ ],
+ "valve_train_awal": [
+  {
+   "cyl": 1,
+   "jenis": "IN",
+   "lift_phi0": 0.0,
+   "turun_phi0": 0.0,
+   "rocker_delta_phi0_deg": -0.0
+  },
+  {
+   "cyl": 1,
+   "jenis": "INJ",
+   "lift_phi0": 0.007864,
+   "turun_phi0": 0.009608,
+   "rocker_delta_phi0_deg": -8.1919
+  },
+  {
+   "cyl": 1,
+   "jenis": "EX",
+   "lift_phi0": 0.0,
+   "turun_phi0": 0.0,
+   "rocker_delta_phi0_deg": -0.0
+  },
+  {
+   "cyl": 2,
+   "jenis": "IN",
+   "lift_phi0": 0.0,
+   "turun_phi0": 0.0,
+   "rocker_delta_phi0_deg": 0.0
+  },
+  {
+   "cyl": 2,
+   "jenis": "INJ",
+   "lift_phi0": 0.0,
+   "turun_phi0": 0.0,
+   "rocker_delta_phi0_deg": 0.0
+  },
+  {
+   "cyl": 2,
+   "jenis": "EX",
+   "lift_phi0": 0.006294,
+   "turun_phi0": 0.007373,
+   "rocker_delta_phi0_deg": 6.5568
+  },
+  {
+   "cyl": 3,
+   "jenis": "IN",
+   "lift_phi0": 0.0,
+   "turun_phi0": 0.0,
+   "rocker_delta_phi0_deg": -0.0
+  },
+  {
+   "cyl": 3,
+   "jenis": "INJ",
+   "lift_phi0": 0.0,
+   "turun_phi0": 0.0,
+   "rocker_delta_phi0_deg": -0.0
+  },
+  {
+   "cyl": 3,
+   "jenis": "EX",
+   "lift_phi0": 0.00983,
+   "turun_phi0": 0.011335,
+   "rocker_delta_phi0_deg": -10.2399
+  },
+  {
+   "cyl": 4,
+   "jenis": "IN",
+   "lift_phi0": 0.003706,
+   "turun_phi0": 0.004387,
+   "rocker_delta_phi0_deg": 3.8606
+  },
+  {
+   "cyl": 4,
+   "jenis": "INJ",
+   "lift_phi0": 0.0,
+   "turun_phi0": 0.0,
+   "rocker_delta_phi0_deg": 0.0
+  },
+  {
+   "cyl": 4,
+   "jenis": "EX",
+   "lift_phi0": 0.0,
+   "turun_phi0": 0.0,
+   "rocker_delta_phi0_deg": 0.0
+  },
+  {
+   "cyl": 5,
+   "jenis": "IN",
+   "lift_phi0": 0.00983,
+   "turun_phi0": 0.011335,
+   "rocker_delta_phi0_deg": -10.2399
+  },
+  {
+   "cyl": 5,
+   "jenis": "INJ",
+   "lift_phi0": 0.0,
+   "turun_phi0": 0.0,
+   "rocker_delta_phi0_deg": -0.0
+  },
+  {
+   "cyl": 5,
+   "jenis": "EX",
+   "lift_phi0": 0.0,
+   "turun_phi0": 0.0,
+   "rocker_delta_phi0_deg": -0.0
+  },
+  {
+   "cyl": 6,
+   "jenis": "IN",
+   "lift_phi0": 0.0,
+   "turun_phi0": 0.0,
+   "rocker_delta_phi0_deg": 0.0
+  },
+  {
+   "cyl": 6,
+   "jenis": "INJ",
+   "lift_phi0": 0.000136,
+   "turun_phi0": 0.000164,
+   "rocker_delta_phi0_deg": 0.142
+  },
+  {
+   "cyl": 6,
+   "jenis": "EX",
+   "lift_phi0": 0.0,
+   "turun_phi0": 0.0,
+   "rocker_delta_phi0_deg": 0.0
+  },
+  {
+   "cyl": 7,
+   "jenis": "IN",
+   "lift_phi0": 0.0,
+   "turun_phi0": 0.0,
+   "rocker_delta_phi0_deg": -0.0
+  },
+  {
+   "cyl": 7,
+   "jenis": "INJ",
+   "lift_phi0": 0.0,
+   "turun_phi0": 0.0,
+   "rocker_delta_phi0_deg": -0.0
+  },
+  {
+   "cyl": 7,
+   "jenis": "EX",
+   "lift_phi0": 0.0,
+   "turun_phi0": 0.0,
+   "rocker_delta_phi0_deg": -0.0
+  },
+  {
+   "cyl": 8,
+   "jenis": "IN",
+   "lift_phi0": 0.006294,
+   "turun_phi0": 0.007373,
+   "rocker_delta_phi0_deg": 6.5568
+  },
+  {
+   "cyl": 8,
+   "jenis": "INJ",
+   "lift_phi0": 0.0,
+   "turun_phi0": 0.0,
+   "rocker_delta_phi0_deg": 0.0
+  },
+  {
+   "cyl": 8,
+   "jenis": "EX",
+   "lift_phi0": 0.0,
+   "turun_phi0": 0.0,
+   "rocker_delta_phi0_deg": 0.0
+  },
+  {
+   "cyl": 9,
+   "jenis": "IN",
+   "lift_phi0": 0.0,
+   "turun_phi0": 0.0,
+   "rocker_delta_phi0_deg": -0.0
+  },
+  {
+   "cyl": 9,
+   "jenis": "INJ",
+   "lift_phi0": 0.0,
+   "turun_phi0": 0.0,
+   "rocker_delta_phi0_deg": -0.0
+  },
+  {
+   "cyl": 9,
+   "jenis": "EX",
+   "lift_phi0": 0.0,
+   "turun_phi0": 0.0,
+   "rocker_delta_phi0_deg": -0.0
+  },
+  {
+   "cyl": 10,
+   "jenis": "IN",
+   "lift_phi0": 0.0,
+   "turun_phi0": 0.0,
+   "rocker_delta_phi0_deg": 0.0
+  },
+  {
+   "cyl": 10,
+   "jenis": "INJ",
+   "lift_phi0": 0.0,
+   "turun_phi0": 0.0,
+   "rocker_delta_phi0_deg": 0.0
+  },
+  {
+   "cyl": 10,
+   "jenis": "EX",
+   "lift_phi0": 0.003706,
+   "turun_phi0": 0.004387,
+   "rocker_delta_phi0_deg": 3.8606
+  },
+  {
+   "cyl": 11,
+   "jenis": "IN",
+   "lift_phi0": 0.00017,
+   "turun_phi0": 0.000204,
+   "rocker_delta_phi0_deg": -0.1775
+  },
+  {
+   "cyl": 11,
+   "jenis": "INJ",
+   "lift_phi0": 0.0,
+   "turun_phi0": 0.0,
+   "rocker_delta_phi0_deg": -0.0
+  },
+  {
+   "cyl": 11,
+   "jenis": "EX",
+   "lift_phi0": 0.00017,
+   "turun_phi0": 0.000204,
+   "rocker_delta_phi0_deg": -0.1775
+  },
+  {
+   "cyl": 12,
+   "jenis": "IN",
+   "lift_phi0": 0.0,
+   "turun_phi0": 0.0,
+   "rocker_delta_phi0_deg": 0.0
+  },
+  {
+   "cyl": 12,
+   "jenis": "INJ",
+   "lift_phi0": 0.0,
+   "turun_phi0": 0.0,
+   "rocker_delta_phi0_deg": 0.0
+  },
+  {
+   "cyl": 12,
+   "jenis": "EX",
+   "lift_phi0": 0.0,
+   "turun_phi0": 0.0,
+   "rocker_delta_phi0_deg": 0.0
+  }
+ ]
+}

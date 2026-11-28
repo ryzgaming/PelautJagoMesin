@@ -1,0 +1,45 @@
+{
+  "revision": "r06",
+  "parent_revision": "r05",
+  "state": "available_for_owner_inspection",
+  "catalog_approved": false,
+  "catalog_record_written": false,
+  "requested": [
+    "richer flow and combustion",
+    "functional component lifecycle",
+    "starter engagement and disengagement",
+    "procedural engine sound",
+    "reference videos by subsystem"
+  ],
+  "parent_report": "qa/r06/parent-r05-progress.json",
+  "overall_qa": "UNVERIFIED",
+  "private_site": {
+    "status": "succeeded",
+    "commit": "e3b73cdd9b1e947bfd163e1c585b70841ff9d356",
+    "version_id": "appgprj_6b016e003e3c81919e93366a5a80b6d8~appgver_cede89a268d481918e7c18a2e0b6a32b",
+    "deployment_id": "appgdep_6b0acb723ef48191bad4741274b0bd16",
+    "workspace": "https://yanmar-6aym-workspace.violetblackbird16.chatgpt.site/gpt-r06/?view=operation",
+    "comparison": "https://yanmar-6aym-workspace.violetblackbird16.chatgpt.site/gpt-r06/perbandingan.html",
+    "access": "owner-only"
+  },
+  "notes": [
+    "Runtime bytes deployed exactly match final independent QA.",
+    "Geometry OEM precision, prior 696 unclassified r05 pairs and real-device audio/performance remain unverified.",
+    "Sound is synthesized; optical and thermal behavior are educational illustrations."
+  ],
+  "qa_report": "qa/r06/QA.md",
+  "assets_sha256": {
+    "exterior.glb": "defc58c070a871da2068b2ddd4388ff51b340a1014dfde2226f7e47946a89121",
+    "internal.glb": "526ce37f126203eb288388dbd7922dd85749b19ddf8ef82ee5bfcf9d472ec8f5",
+    "data.json": "329566981da8e0c2ba9d1096cd69c1d29fcce9acc71c1621d20016785fd6adad",
+    "studio.js": "febbfbcf65e8afef1539c1cafb8da88a20ea9f9bd0f278ab44ed904fbe7f9943",
+    "functional-motion.js": "0933f4bb115d46188055bbcac7444f011bf4a6becb51ad55027ec12053bf040a",
+    "engine-audio.js": "a2a0036e0f27f753db3549fba5e255f2b548d4cad15239ebfa923ae551407a9d",
+    "flow-ribbons.js": "34a74b961e2e975be8f10403274f3caa1ec7e0030e98ca36f72439ffad396f6e",
+    "combustion-glow.js": "46df6bfb3200b34d411d825c069f904c37375d6106c53c8ed464b575747fc7fb"
+  },
+  "functional_review": "PASS within documented tested scope",
+  "inventory_meshes": 1184,
+  "groups": 122,
+  "routes": 164
+}

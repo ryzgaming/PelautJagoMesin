@@ -1,0 +1,289 @@
+{
+  "scope": "Study of two exact 6AYM-WET catalog configurations; installation on the photographed engine has not been verified. Position & envelope derived from previously audited model/photo. Geometry & moving relationships are pedagogical reconstructions. No dimensional tolerance or serial applicability claimed.",
+  "sources": {
+    "105": {
+      "figure": 105,
+      "title": "starting motorearth type",
+      "source": "https://yanmarshop.com/en-GB/catalog/all/servicebom/yanmardata-1312195/yanmar-marine-marine-main-engine-medium-ay-series-6aym-wet-fig-105-starting-motorearth-type",
+      "source_sha256": "aeb4039f00de708e5152f1105d6008bdd121f6c3d90b7cbbcbcb3075b32fb951"
+    },
+    "106": {
+      "figure": 106,
+      "title": "starting motorerath float typ",
+      "source": "https://yanmarshop.com/en-GB/catalog/all/servicebom/yanmardata-1312207/yanmar-marine-marine-main-engine-medium-ay-series-6aym-wet-fig-106-starting-motorerath-float-typ",
+      "source_sha256": "db834fff25adb4c78b81e9e479170487bf13ad6597a1415444e871fc2013306b"
+    },
+    "107": {
+      "figure": 107,
+      "title": "generator",
+      "source": "https://yanmarshop.com/en-GB/catalog/all/servicebom/yanmardata-1312246/yanmar-marine-marine-main-engine-medium-ay-series-6aym-wet-fig-107-generator",
+      "source_sha256": "67757011657c7ec535420dbbe6845f35f741371964a316740b4412835f64850b"
+    },
+    "108": {
+      "figure": 108,
+      "title": "generator component part1kw",
+      "source": "https://yanmarshop.com/en-GB/catalog/all/servicebom/yanmardata-1312288/yanmar-marine-marine-main-engine-medium-ay-series-6aym-wet-fig-108-generator-component-part1kw",
+      "source_sha256": "53b5c36980ca9f733d84f09fa950459c56879908581ef3371b05de6b7641af3e"
+    },
+    "109": {
+      "figure": 109,
+      "title": "generator component part600w",
+      "source": "https://yanmarshop.com/en-GB/catalog/all/servicebom/yanmardata-1312325/yanmar-marine-marine-main-engine-medium-ay-series-6aym-wet-fig-109-generator-component-part600w",
+      "source_sha256": "b12e164881ef07223e79d2844d29b569491af751eaa9981180b9bbf720ebb1f0"
+    }
+  },
+  "model_rows": {
+    "109": {
+      "1": "EXT-ELECTRIC-01 (outer reference only), entire RAK-ALTERNATOR",
+      "4": "EXT-ELECTRIC-01",
+      "2": "EXT-ELECTRIC-20",
+      "23": "EXT-ELECTRIC-21",
+      "24": "EXT-ELECTRIC-22",
+      "28": "EXT-ELECTRIC-23",
+      "27": "EXT-ELECTRIC-24",
+      "36": "EXT-ELECTRIC-25",
+      "5": "EXT-ELECTRIC-26",
+      "21": "EXT-ELECTRIC-27",
+      "20": "EXT-ELECTRIC-28",
+      "37": "EXT-ELECTRIC-29"
+    },
+    "106": {
+      "1": "entire RAK-STARTER",
+      "2": "EXT-ELECTRIC-02",
+      "9": "EXT-ELECTRIC-40",
+      "4": "EXT-ELECTRIC-41",
+      "10": "EXT-ELECTRIC-42",
+      "6": "EXT-ELECTRIC-43",
+      "3": "EXT-ELECTRIC-44",
+      "13": "EXT-ELECTRIC-45",
+      "14": "EXT-ELECTRIC-46",
+      "16": "EXT-ELECTRIC-47",
+      "21": "EXT-ELECTRIC-48",
+      "25": "EXT-ELECTRIC-49",
+      "28": "EXT-ELECTRIC-50, 51, 52 (schematic interior of a purchased switch)",
+      "20": "EXT-ELECTRIC-53"
+    }
+  },
+  "unresolved": {
+    "alternator": "600 W Fig.109 chosen for an explicit documented option. 1 kW Fig.108 has a distinct breakdown. Exact winding turns/pole count, tooth geometry, regulator circuit and supplier geometry not known.",
+    "starter": "Earth-float Fig.106 shown, earth-return Fig.105 differs. Serial, tooth counts, preloads, switch winding detail, wiring and armature windings are not verified."
+  },
+  "without_individual_geometry": {
+    "106": [
+      {
+        "callout": "5",
+        "name": "SPRING, BRUSH"
+      },
+      {
+        "callout": "7",
+        "name": "EYE BUSHING"
+      },
+      {
+        "callout": "8",
+        "name": "EYE BUSHING"
+      },
+      {
+        "callout": "11",
+        "name": "COVER"
+      },
+      {
+        "callout": "12",
+        "name": "PACKING"
+      },
+      {
+        "callout": "15",
+        "name": "SHIM WASHER"
+      },
+      {
+        "callout": "17",
+        "name": "STEEL BALL"
+      },
+      {
+        "callout": "18",
+        "name": "BRACKET ASSY, CENTER"
+      },
+      {
+        "callout": "19",
+        "name": "ROD"
+      },
+      {
+        "callout": "22",
+        "name": "DUST SEAL"
+      },
+      {
+        "callout": "23",
+        "name": "STOPPER, PINION"
+      },
+      {
+        "callout": "24",
+        "name": "HOOK"
+      },
+      {
+        "callout": "26",
+        "name": "NEEDLE BEARING"
+      },
+      {
+        "callout": "27",
+        "name": "O-RING"
+      },
+      {
+        "callout": "29",
+        "name": "TERMINAL ASSY"
+      },
+      {
+        "callout": "30",
+        "name": "10-32UNF-2A"
+      },
+      {
+        "callout": "31",
+        "name": "1/2-13UNC"
+      },
+      {
+        "callout": "32",
+        "name": "WIRE"
+      },
+      {
+        "callout": "33",
+        "name": "WIRE"
+      },
+      {
+        "callout": "34",
+        "name": "WASHER, SPRING 14"
+      },
+      {
+        "callout": "35",
+        "name": "BOLT, M6X 12 PLATED"
+      },
+      {
+        "callout": "36",
+        "name": "BOLT, M14X 35"
+      },
+      {
+        "callout": "37",
+        "name": "CAP,TERMINAL RUBBER"
+      },
+      {
+        "callout": "38",
+        "name": "RELAY, STARTER"
+      }
+    ],
+    "109": [
+      {
+        "callout": "3",
+        "name": "BRACKET ASSY,REAR"
+      },
+      {
+        "callout": "6",
+        "name": "SINK, HEAT -"
+      },
+      {
+        "callout": "6A",
+        "name": "SINK ASSY, HEAT +/-"
+      },
+      {
+        "callout": "7",
+        "name": "CIRCUIT"
+      },
+      {
+        "callout": "8",
+        "name": "CONDENSER ASSY"
+      },
+      {
+        "callout": "9",
+        "name": "HOLDER"
+      },
+      {
+        "callout": "10",
+        "name": "BOLT"
+      },
+      {
+        "callout": "11",
+        "name": "SUPPORT"
+      },
+      {
+        "callout": "12",
+        "name": "BOLT"
+      },
+      {
+        "callout": "13",
+        "name": "SUPPORT"
+      },
+      {
+        "callout": "14",
+        "name": "INSULATOR"
+      },
+      {
+        "callout": "15",
+        "name": "BOLT"
+      },
+      {
+        "callout": "16",
+        "name": "INSULATOR"
+      },
+      {
+        "callout": "17",
+        "name": "BUSH, IF"
+      },
+      {
+        "callout": "18",
+        "name": "IF BUSHING"
+      },
+      {
+        "callout": "19",
+        "name": "WASHER"
+      },
+      {
+        "callout": "22",
+        "name": "SPRING, BRUSH"
+      },
+      {
+        "callout": "25",
+        "name": "COVER"
+      },
+      {
+        "callout": "26",
+        "name": "BRACKET"
+      },
+      {
+        "callout": "29",
+        "name": "COVER, BEARING"
+      },
+      {
+        "callout": "30",
+        "name": "COVER"
+      },
+      {
+        "callout": "31",
+        "name": "COVER"
+      },
+      {
+        "callout": "32",
+        "name": "FELT"
+      },
+      {
+        "callout": "33",
+        "name": "BOLT"
+      },
+      {
+        "callout": "34",
+        "name": "KEY"
+      },
+      {
+        "callout": "35",
+        "name": "NUT"
+      },
+      {
+        "callout": "38",
+        "name": "COVER"
+      },
+      {
+        "callout": "39",
+        "name": "CAP"
+      },
+      {
+        "callout": "40",
+        "name": "BOLT"
+      }
+    ]
+  }
+}

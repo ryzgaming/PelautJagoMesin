@@ -1,0 +1,526 @@
+import assert from 'node:assert/strict';
+import { createHash } from 'node:crypto';
+import {mkdir,readFile,writeFile} from 'node:fs/promises';
+import vm from 'node:vm';
+
+const assets = new URL('../assets/',import.meta.url);
+const file = async path => readFile(new URL(path,assets));
+const entries = new Map();
+const offline = process.argv.includes('--offline');
+const missingModel = process.argv.includes('--missing-model');
+const noWebGL = process.argv.includes('--no-webgl');
+const link = process.argv.find(arg=>/^--(?:part|link)=/.test(arg))?.split('=').slice(1).join('=');
+const linkView = process.argv.find(arg=>arg.startsWith('--view='))?.slice(7);
+const managedFrames = new Map();
+const resizeObservers = [];
+class Node {
+  constructor(name) {
+    this.tagName = name;
+    this.children = [];
+    this.attributes = {};
+    this.handlers = {};
+    this.classList = { toggle() {} };
+    this.style = {};
+    this.clientWidth = 1050;
+    this.clientHeight = 650;
+  }
+  set id(value) { entries.set(value,this); }
+  addEventListener(name,handler) { this.handlers[name]=handler; }
+  dispatch(name) { this.handlers[name]?.({}); }
+  click() { if (!this.disabled) this.dispatch('click'); }
+  setAttribute(key,value) { this.attributes[key]=value; }
+  getAttribute(key) { return this.attributes[key]; }
+  append(...items) { this.children.push(...items); for (const item of items) item.parent=this; }
+  prepend(...items) { this.children.unshift(...items); for (const item of items) item.parent=this; }
+  replaceChildren(...items) { this.children=[]; this.append(...items); }
+  remove() { this.parent.children=this.parent.children.filter(child=>child!==this); }
+}
+for (const id of ['stage','panel','panel-body','panel-title','parts','xray','spread','spread-value',
+  'spread-box','canvas','inspect-contents','loading','reset','close','sources','review-status']) new Node(id).id=id;
+entries.get('spread').value='50';
+const modes = ['overview','systems','operation'].map(mode=>{
+  const button = new Node('button');
+  button.dataset={mode};
+  button.setAttribute("aria-pressed","false");
+  return button;
+});
+const document = {
+  getElementById:id=>entries.get(id),
+  createElement:tag=>new Node(tag),
+  createTextNode:text=>Object.assign(new Node('#text'),{textContent:text}),
+  createElementNS:(_,tag)=>new Node(tag),
+  querySelectorAll:()=>modes,
+  body:new Node('body')
+};
+let nextFrame=0;
+const sandbox=vm.createContext({
+  console,TextDecoder,Blob,URL,URLSearchParams,document,atob,
+  location:{protocol:offline?'file:':'https:',search:link?'?part='+encodeURIComponent(link)+(linkView?'&view='+encodeURIComponent(linkView):''):''},
+  fetch:async ()=>{
+    assert.equal(offline,false,'Standalone requested a remote asset');
+    return {ok:true,json:async()=>JSON.parse(await file('data.json'))};
+  },
+  ResizeObserver:class { constructor(handler){resizeObservers.push(handler)} observe(){} },
+  requestAnimationFrame:(handler)=>{managedFrames.set(++nextFrame,handler); return nextFrame},
+  cancelAnimationFrame:(id)=>managedFrames.delete(id),
+  addEventListener(){}
+});
+sandbox.window=sandbox;
+const run=body=>vm.runInContext(body,sandbox);
+let scripts;
+if (offline) {
+  const html = await readFile(new URL('../yanmar-6aym-wet-gpt-r03-draft.html',import.meta.url),'utf8');
+  assert.ok(html.includes('R03 DRAF — QA BELUM LENGKAP'));
+  assert.ok(!/<(?:script|link)[^>]+(?:src|href)="assets\//.test(html));
+  for (const [,id,contents] of html.matchAll(/<script type="[^"]+" id="(embedded-[^"]+)">([\s\S]*?)<\/script>/g)) {
+    const element = new Node('script');
+    element.id=id;
+    element.textContent=contents;
+    const asset = id.replace('embedded-','');
+    if (asset === 'data') {
+      assert.deepEqual(JSON.parse(contents),JSON.parse(await file('data.json')));
+    } else if (asset === 'injector-plates') {
+      const local = {'section':'injector-section.webp','exploded':'injector-exploded.webp','pdf':'injector-section-exploded.pdf'};
+      for (const [key,encoded] of Object.entries(JSON.parse(contents))) {
+        assert.deepEqual(Buffer.from(encoded.split(',')[1],'base64'),await file('injector-plates/'+local[key]));
+      }
+    } else {
+      const digest = bytes=>createHash('sha256').update(bytes).digest('hex');
+      assert.equal(digest(Buffer.from(contents,'base64')),digest(await file(asset+'.glb')));
+    }
+  }
+  scripts=Array.from(html.matchAll(/<script>\s*([\s\S]*?)<\/script>/g),match=>match[1]);
+} else scripts=await Promise.all(['three-bundle.js','assembly-diagram.js','studio.js'].map(path=>file(path).then(raw=>raw.toString())));
+assert.equal(scripts.length,3);
+run(scripts[0]);
+const T=sandbox.THREE;
+const parse=T.GLTFLoader.prototype.parse;
+T.GLTFLoader.prototype.loadAsync=async function (path) {
+  assert.equal(offline,false,'Standalone requested a GLB URL');
+  if (missingModel && path.endsWith('internal.glb')) throw new Error('Simulated GLB failure');
+  const raw=await file(path.split('/').at(-1));
+  const bytes=raw.buffer.slice(raw.byteOffset,raw.byteOffset+raw.byteLength);
+  return new Promise((resolve,reject)=>parse.call(this,bytes,'',resolve,reject));
+};
+T.WebGLRenderer=class {
+  constructor(){
+    if (noWebGL) throw new Error('Simulated WebGL failure');
+    this.domElement=new Node('canvas');
+  }
+  setPixelRatio(){}
+  setSize(){}
+  setAnimationLoop(loop){this.loop=loop}
+  render(){}
+};
+T.OrbitControls=class {
+  constructor(camera){this.target=new T.Vector3();this.camera=camera}
+  update(){this.camera.lookAt(this.target);this.camera.updateMatrixWorld(true)}
+};
+run(scripts[1]);
+await run(scripts[2].replace(/start\(\);\s*$/,'start()'));
+if (missingModel || noWebGL) {
+  assert.ok(entries.get('loading').textContent.includes(missingModel?'Sebagian aset':'Simulated WebGL'));
+  entries.get('parts').click();
+  assert.equal(entries.get('panel-title').textContent,'Komponen');
+  assert.ok(entries.get('panel-body').children.length > 0);
+  modes[1].click();
+  assert.equal(entries.get('panel-body').children[0].children.length,5);
+  console.log('PASS: Inventory and systems remain accessible during simulated '+(missingModel?'GLB loading':'WebGL setup')+' failure.');
+  process.exit(0);
+}
+assert.equal(run('roots.every(Boolean)'),true);
+assert.equal(entries.get('loading').hidden,true);
+if (link) {
+  const key = JSON.stringify(link);
+  const validView = ['section','exploded'].includes(linkView);
+  const known = run(`entries.has(${key})`);
+  const scoped = run(`${linkView === 'exploded' ? 'scopeInspectable' : 'scopeReady'}(scopeFor(entries.get(${key})))`);
+  drawFrames();
+  assert.equal(run('state.selected'),known?link:null);
+  assert.equal(run('state.mode'),known ? (scoped && validView ? 'assembly' : 'component') : 'home');
+  if (scoped && validView) {
+    assert.equal(run('state.cutaway'),linkView==='section');
+    assert.equal(run('state.assemblySpread'),linkView==='exploded');
+    assert.ok(run('renderer.localClippingEnabled'));
+    if (/^INT-FUELINJ-[16]1$/.test(link)) {
+      const parts = [link,link+'-08',link+'-13'];
+      assert.ok(run(`(() => {
+        scene.updateMatrixWorld(true);
+        return ${JSON.stringify(parts)}.every(id=>{
+          const object = entries.get(id)?.object;
+          if (!object?.visible) return false;
+          const box = new T.Box3().setFromObject(object);
+          for (const x of [box.min.x,box.max.x]) for (const y of [box.min.y,box.max.y])
+            for (const z of [box.min.z,box.max.z]) {
+              const p = new T.Vector3(x,y,z).project(camera);
+              if (Math.abs(p.x)>1 || Math.abs(p.y)>1 || Math.abs(p.z)>1) return false;
+            }
+          return true;
+        });
+      })()`),'Injector body, nozzle spring and needle must be in the linked-view camera frustum');
+    }
+  }
+  entries.get('reset').click();
+}
+assert.equal(run('state.mode'),'home');
+assert.equal(run('data.revision'),'r03');
+assert.equal(run('data.reviewApproved'),false);
+assert.ok(run('camera.position.x-controls.target.x>0 && camera.position.z-controls.target.z<0'));
+assert.ok(run('(camera.position.x-controls.target.x)/Math.abs(camera.position.z-controls.target.z)<.35'));
+assert.equal(modes[0].getAttribute('aria-pressed'),'false');
+assert.equal(run("groups.get('RAK-FLYWHEEL').object.position.x"),0);
+function drawFrames() {
+  const frames = Array.from(managedFrames);
+  managedFrames.clear();
+  for (const [,frame] of frames) frame();
+}
+for (const [width,height] of [[1050,650],[390,780],[780,390]]) {
+  const host = entries.get('canvas');
+  host.clientWidth=width;
+  host.clientHeight=height;
+  for (const resize of resizeObservers) resize();
+  drawFrames();
+  assert.equal(run('camera.aspect'),width/height);
+  assert.ok(run('camera.position.length()')>0);
+  assert.ok(run(`
+    (() => {
+      scene.updateMatrixWorld(true);
+      const exterior = new T.Box3().setFromObject(roots[0]);
+      for (const x of [exterior.min.x,exterior.max.x]) for (const y of [exterior.min.y,exterior.max.y])
+        for (const z of [exterior.min.z,exterior.max.z]) {
+          const projected = new T.Vector3(x,y,z).project(camera);
+          if (Math.abs(projected.x) > 1 || Math.abs(projected.y) > 1) return false;
+        }
+      return true;
+    })()
+  `),'Exterior bounding box is clipped at '+width+'×'+height);
+}
+modes[0].click();
+assert.equal(entries.get('spread-box').hidden,false);
+assert.equal(run("groups.get('RAK-FLYWHEEL').object.position.x"),-.215);
+entries.get('spread').value='100';
+entries.get('spread').dispatch('input');
+assert.equal(run("groups.get('RAK-FLYWHEEL').object.position.x"),-.43);
+entries.get('xray').click();
+assert.equal(run('state.xray'),true);
+assert.equal(run('[...shellMaterials.values()].every(({transparent})=>transparent.transparent)'),true);
+modes[1].click();
+assert.equal(run("groups.get('RAK-FLYWHEEL').object.position.x"),0);
+assert.equal(run('state.xray'),true);
+assert.equal(entries.get('panel-body').children[0].children.length,5);
+modes[2].click();
+assert.equal(run('Boolean(kinematicParts())'),true);
+entries.get('panel-body').children[1].click();
+assert.equal(run('state.running'),true);
+const atRest=run("motion.cylinders[0].piston.position.y");
+const hasRingGear = run("entries.has('EXT-FLYWHEEL-20')");
+const ringRest = hasRingGear ? run(`JSON.stringify(entries.get('EXT-FLYWHEEL-20').object.quaternion.toArray())`) : null;
+run('renderer.loop(100); renderer.loop(150)');
+if (hasRingGear) assert.ok(run(`(() => {
+  const flywheel = motion.rotators.find(entry=>entry.node==='EXT-FLYWHEEL-02');
+  const gear = motion.rotators.find(entry=>entry.node==='EXT-FLYWHEEL-20');
+  const turned = node=>node.object.quaternion.clone().multiply(node.base.clone().invert());
+  return turned(flywheel).angleTo(turned(gear))<1e-6 &&
+    gear.object.quaternion.angleTo(gear.base)>0.01;
+})()`),'Ring gear orientation must track the flywheel');
+
+assert.ok(run("motion.cylinders[0].piston.position.y")<atRest);
+entries.get('xray').click();
+assert.equal(run('state.running'),true);
+assert.equal(run('state.xray'),false);
+entries.get('parts').click();
+assert.equal(run('state.running'),false);
+if (hasRingGear) assert.equal(
+  run(`JSON.stringify(entries.get('EXT-FLYWHEEL-20').object.quaternion.toArray())`),ringRest);
+const partFilter = entries.get('part-filter');
+partFilter.value = 'EXT-FUEL';
+partFilter.dispatch('input');
+assert.equal(run('state.filter'),'EXT-FUEL');
+const nameResults = entries.get('panel-body').children[1];
+assert.ok(nameResults.children.some(group=>group.children[0].textContent.startsWith('Bahan bakar')));
+const fuelComponents = [3,4,5,6,7,8,13,14,15,16,17,18].map(n=>'EXT-FUEL-'+String(n).padStart(2,'0'));
+for (const component of fuelComponents) {
+  entries.get('parts').click();
+  const input = entries.get('part-filter');
+  input.value = component;
+  input.dispatch('input');
+  const list = entries.get('panel-body').children[1].children[0].children[1];
+  assert.equal(list.children.length,1);
+  list.children[0].click();
+  assert.equal(run('state.selected'),component);
+  assert.equal(entries.get('panel-title').textContent,run(`componentName(entries.get('${component}'))`));
+  assert.ok(entries.get('panel-body').children[0].textContent.includes('ESTIMATED'));
+  assert.ok(entries.get('panel-body').children.some(child=>child.tagName==='ul' && child.children.some(item=>
+    item.children.some(link=>link.href?.startsWith('https://')))));
+}
+assert.ok(run(`data.assemblies['RAK-FUEL'].parts.length>=20`));
+run("openDiagram(entries.get('EXT-FUEL-18'))");
+drawFrames();
+assert.ok(run('state.assemblyParts.size')>=20);
+for (const component of fuelComponents) {
+  assert.ok(run(`state.assemblyParts.has('${component}') && state.assemblyControls.has('${component}')`));
+}
+let diagramRows = entries.get('panel-body').children.at(-1).children[0].children.find(child=>child.tagName==='ol').children;
+assert.ok(diagramRows.length>=20);
+diagramRows.find(row=>row.children[0].getAttribute('data-part-id')==='EXT-FUEL-13').children[0].click();
+assert.equal(run('state.selected'),'EXT-FUEL-13');
+assert.ok(entries.get('assembly-detail').children[1].textContent.includes('EXT-FUEL-13'));
+entries.get('close').click();
+assert.equal(run('state.selected'),'EXT-FUEL-18');
+run("select('INT-PISTON-11'); state.isolated=true; applyPose()");
+assert.equal(run("entries.get('INT-PISTON-11').object.visible"),true);
+assert.equal(run("entries.get('INT-PISTON-12').object.visible"),false);
+assert.equal(run("entries.get('EXT-FLYWHEEL-02').object.visible"),false);
+
+run("select('EXT-FLYWHEEL-02')");
+assert.equal(entries.get('panel-title').textContent,run("componentName(entries.get('EXT-FLYWHEEL-02'))"));
+run("openDiagram(entries.get('EXT-FLYWHEEL-02'))");
+drawFrames();
+assert.equal(run('state.mode'),'assembly');
+assert.ok(run('state.assemblyParts.size')>=2);
+assert.equal(run("groups.get('RAK-FRONT').object.visible"),false);
+const toggle = entries.get('panel-body').children[0].children[0].children.find(
+  child=>child.textContent==='Rapatkan rakitan');
+assert.equal(toggle.textContent,'Rapatkan rakitan');
+toggle.click();
+assert.equal(toggle.textContent,'Uraikan rakitan');
+entries.get('close').click();
+assert.equal(run('state.mode'),'component');
+assert.equal(run('state.selected'),'EXT-FLYWHEEL-02');
+assert.equal(run("groups.get('RAK-FRONT').object.visible"),true);
+entries.get('reset').click();
+assert.equal(run('state.mode'),'home');
+assert.equal(run('state.selected'),null);
+assert.equal(entries.get('panel').hidden,true);
+assert.equal(entries.get('spread').value,50);
+const actionsByName = (root,text) => {
+  if (root.tagName === 'button' && root.textContent === text) return root;
+  for (const child of root.children) {
+    const candidate = actionsByName(child,text);
+    if (candidate) return candidate;
+  }
+};
+const testedScopes = [];
+const poses = [];
+const availableScopes = JSON.parse(run(`JSON.stringify(Object.entries(data.assemblies).filter(([id,recipe])=>recipe.parent))`));
+for (const [scopeId,recipe] of availableScopes) {
+  const anchor = recipe.anchor;
+  const hasContents = run(`scopeReady(scopesById.get('${scopeId}'))`);
+  const core = recipe.parts.find(({role})=>/core|internal|interior|inner|mechanism|element|inti/.test(String(role).toLowerCase()))?.id ||
+    recipe.parts.find(part=>part.id!==anchor)?.id;
+  assert.ok(core,scopeId+' no separate modeled part');
+  const expectedMembers = run(`new Set(assemblyRows('${scopeId}',entries.get('${anchor}'))
+    .flatMap(part=>rowsInScope(part,'${scopeId}')).map(part=>part.id)).size`);
+  entries.get('parts').click();
+  const search = entries.get('part-filter');
+  search.value = anchor;
+  search.dispatch('input');
+  const entryButton = entries.get('panel-body').children[1].children[0].children[1].children[0];
+  entryButton.click();
+  assert.equal(run('state.selected'),anchor);
+  const parentAction = actionsByName(entries.get('panel-body'),'Eksplor rakitan');
+  if (parentAction) {
+    parentAction.click();
+    drawFrames();
+    assert.equal(run('state.assemblyGroup'),recipe.parent);
+    assert.ok(run(`state.assemblyParts.has('${core}')`));
+    assert.equal(entries.get('inspect-contents').hidden,false);
+    entries.get('xray').click();
+    assert.equal(run('state.xray'),true);
+    assert.ok(run(`Array.from(shellMaterials.values()).length>0`));
+    assert.ok(run(`Array.from(shellMaterials).some(([mesh,value])=>
+      scopeFor(value.entry)?.id==='${scopeId}' && mesh.material===value.${hasContents ? 'transparent' : 'solid'})`),
+      scopeId+' parent assembly uses the declared shell treatment');
+    entries.get('inspect-contents').click();
+  } else {
+    const title = run(`scopeLabel(scopeFor(entries.get('${anchor}')))`);
+    const contentsAction = actionsByName(entries.get('panel-body'),title);
+    assert.ok(contentsAction,scopeId+' lacks a direct contents action');
+    contentsAction.click();
+  }
+  drawFrames();
+  assert.equal(run('state.assemblyGroup'),scopeId);
+  assert.equal(run('state.assemblyParts.size'),expectedMembers);
+  assert.equal(run('state.assemblySpread'),!hasContents);
+  assert.equal(run('state.xray'),Boolean(parentAction || hasContents));
+  assert.ok(run(`groups.get('${recipe.parent}').object.visible`),'Nested group ancestor hidden');
+  if (recipe.parent !== 'RAK-FLYWHEEL') assert.equal(run("groups.get('RAK-FLYWHEEL').object.visible"),false);
+  assert.equal(run("groups.get('RAK-INT-CRANK').object.visible"),false);
+  assert.ok(run(`(() => {
+    const opaque = [];
+    entries.get('${core}').object.traverseVisible(mesh=>{
+      if (mesh.isMesh) opaque.push(mesh.material.transparent === false && mesh.material.opacity === 1);
+    });
+    const casing = Array.from(shellMaterials).filter(([,value])=>scopeFor(value.entry)?.id==='${scopeId}');
+    return opaque.length>0 && opaque.every(Boolean) && casing.length>0 &&
+      casing.every(([mesh,material])=>mesh.visible && mesh.material === material.${hasContents ? 'transparent' : 'solid'});
+  })()`),scopeId+' shell/core materials');
+  const hit = run(`(() => {
+    scene.updateMatrixWorld(true);
+    let selected;
+    entries.get('${core}').object.traverseVisible(mesh=>{
+      if (!mesh.isMesh || selected) return;
+      const a = mesh.geometry.getAttribute('position');
+      const ix = mesh.geometry.index;
+      const n = Math.floor((ix?.count || a.count)/3);
+      const sample = Math.max(1,Math.floor(n/160));
+      for (let index=0;index<n && !selected;index+=sample) {
+        const first = index*3;
+        const target = new T.Vector3();
+        for (let offset=0;offset<3;offset++)
+          target.add(new T.Vector3().fromBufferAttribute(a,ix ? ix.getX(first+offset) : first+offset));
+        target.divideScalar(3).applyMatrix4(mesh.matrixWorld);
+        const direction = target.sub(camera.position).normalize();
+        const hit = visibleIntersection(new T.Raycaster(camera.position,direction));
+        if (hit?.object.userData.component === '${core}') selected = hit.object.userData.component;
+      }
+    });
+    return selected;
+  })()`);
+  if (hasContents) assert.equal(hit,core,scopeId+' core must receive a direct camera ray with X-ray active');
+  if (hasContents && process.argv.includes('--camera-evidence')) {
+    const pose = JSON.parse(run(`JSON.stringify((() => {
+      const visible = new Set();
+      const seeThrough = new Set();
+      for (const root of roots) root?.traverseVisible(mesh=>{
+        if (!mesh.isMesh || !mesh.userData.component) return;
+        const id = mesh.userData.component;
+        visible.add(id);
+        const shell = shellMaterials.get(mesh);
+        if (shell?.transparent === mesh.material) seeThrough.add(id);
+      });
+      return {
+        position:camera.position.toArray(),target:controls.target.toArray(),fov:camera.fov,
+        aspect:camera.aspect,visible:[...visible],shells:[...seeThrough]
+      };
+    })())`));
+    poses.push({scope:scopeId,kind:'xray',core,pickedRay:hit || null,...pose});
+  }
+  if (hasContents) {
+    const cut = entries.get('cutaway');
+    assert.ok(cut && cut.textContent === 'Potongan rumah',scopeId+' missing cutaway action');
+    cut.click();
+    assert.equal(cut.getAttribute('aria-pressed'),'true');
+    assert.ok(run(`Array.from(shellMaterials).filter(([,value])=>scopeFor(value.entry)?.id==='${scopeId}')
+      .every(([mesh,{sliced}])=>mesh.material===sliced && !mesh.material.transparent &&
+        mesh.material.clippingPlanes?.length===1 && Math.abs(clipPlane.normal.length()-1)<1e-6)`));
+    assert.ok(run(`(() => {
+      const bounds = new T.Box3().setFromObject(scopeCutObject(scopesById.get('${scopeId}')));
+      const a = bounds.getCenter(new T.Vector3()).addScaledVector(clipPlane.normal,.01);
+      const b = bounds.getCenter(new T.Vector3()).addScaledVector(clipPlane.normal,-.01);
+      return clipPlane.distanceToPoint(a)>0 && clipPlane.distanceToPoint(b)<0;
+    })()`));
+    if (process.argv.includes('--camera-evidence')) {
+      const plane = JSON.parse(run(`JSON.stringify({normal:clipPlane.normal.toArray(),constant:clipPlane.constant})`));
+      poses.push({...poses.at(-1),kind:'cutaway',plane});
+    }
+    cut.click();
+    assert.equal(cut.getAttribute('aria-pressed'),'false');
+  } else {
+    assert.equal(actionsByName(entries.get('panel-body'),'Potongan rumah'),undefined);
+    actionsByName(entries.get('panel-body'),'Rapatkan rakitan').click();
+  }
+  const detail = entries.get('assembly-detail');
+  if (recipe.parent === 'RAK-INT-FUELINJ') {
+    assert.ok(detail.children.some(child=>offline ? child.tagName==='details' &&
+      child.children[0]?.textContent==='Diagram injektor berlabel' :
+      child.href==='./assets/injector-plates/injector-legend.html'));
+    const findLink = search => search.href?.includes('fig-79-fuel-injection-valve') ||
+      search.children.some(findLink);
+    assert.ok(findLink(detail),scopeId+' exact figure 79 source URL');
+  }
+  const contentRows = entries.get('panel-body').children.at(-1).children[0].children.find(child=>child.tagName==='ol').children;
+  const selectedPart = recipe.parts.findIndex(({id})=>id===core);
+  contentRows[selectedPart].children[0].click();
+  assert.equal(run('state.selected'),core);
+  const authoredFunction = run(`partFunction(entries.get('${core}'),data.assemblies['${scopeId}'])`);
+  if (authoredFunction) assert.ok(entries.get('assembly-detail').children.some(child=>
+    child.textContent===authoredFunction),scopeId+' selected part function');
+  assert.equal(entries.get('inspect-contents').hidden,true);
+  const expand = actionsByName(entries.get('panel-body'),'Uraikan rakitan');
+  assert.ok(expand && !expand.hidden);
+  expand.click();
+  assert.equal(run('state.assemblySpread'),true);
+  const stageNode = entries.get('stage');
+  const host = entries.get('canvas');
+  for (const [width,height] of [[360,335],[690,236],[780,390]]) {
+    Object.assign(stageNode,{clientWidth:width,clientHeight:height});
+    Object.assign(host,{clientWidth:width,clientHeight:height});
+    for (const resize of resizeObservers) resize();
+    drawFrames();
+    assert.ok(run(`(() => {
+      scene.updateMatrixWorld(true);
+      const envelope = new T.Box3();
+      for (const root of roots) root?.traverseVisible(mesh=>{
+        if (mesh.isMesh) envelope.union(mesh.geometry.boundingBox.clone().applyMatrix4(mesh.matrixWorld));
+      });
+      for (const x of [envelope.min.x,envelope.max.x]) for (const y of [envelope.min.y,envelope.max.y])
+        for (const z of [envelope.min.z,envelope.max.z]) {
+          const p = new T.Vector3(x,y,z).project(camera);
+          if (Math.max(Math.abs(p.x),Math.abs(p.y),Math.abs(p.z)) > 1) return false;
+        }
+      return true;
+    })()`),scopeId+' exploded view clipped at '+width+'×'+height);
+    const layer = stageNode.children.find(child=>child.className==='assembly-callouts');
+    for (const marker of layer.children.filter(child=>child.tagName==='button' && !child.hidden)) {
+      const [,x,y] = marker.style.transform.match(/translate\(([-.0-9]+)px,([-.0-9]+)px\)/);
+      assert.ok(Number(x)>=22 && Number(x)<=width-22 && Number(y)>=70 && Number(y)<=height-52,
+        'Marker must remain inside tap-safe limits: '+scopeId);
+    }
+  }
+
+  if (!run('state.xray')) entries.get('xray').click();
+  entries.get('xray').click();
+  assert.equal(run('state.xray'),false);
+  assert.equal(run('state.assemblySpread'),true);
+  entries.get('xray').click();
+  actionsByName(entries.get('panel-body'),'Kembali').click();
+  assert.equal(run('state.selected'),anchor);
+  assert.equal(run('state.xray'),true);
+  if (parentAction) {
+    assert.equal(run('state.assemblyGroup'),recipe.parent);
+    assert.equal(run('state.assemblySpread'),true);
+    actionsByName(entries.get('panel-body'),'Kembali').click();
+  }
+  assert.equal(run('state.mode'),'component');
+  assert.equal(run('state.selected'),anchor);
+  entries.get('reset').click();
+  testedScopes.push(scopeId);
+}
+if (process.argv.includes('--require-scopes')) {
+  for (const id of ['RAK-AIRCOOLER','RAK-INJECTION','RAK-INJECTOR-1','RAK-INJECTOR-6']) assert.ok(testedScopes.includes(id),id+' not exercised');
+}
+run("select('EXT-INTAKE-01')");
+entries.get('xray').click();
+assert.equal(run('state.xray'),true);
+assert.ok(run(`Array.from(shellMaterials).some(([mesh,{entry,solid}])=>
+  entry.id==='EXT-INTAKE-01' && mesh.material===solid)`),'Unsupported manifold must remain solid');
+assert.ok(entries.get('panel-body').children.some(child=>child.textContent?.includes('Isi rakitan belum tersedia')));
+const related = (function findDetails(root) {
+  if (root.tagName==='details' && root.children[0]?.textContent==='Mekanisme terkait') return root;
+  for (const child of root.children) {
+    const match = findDetails(child);
+    if (match) return match;
+  }
+});
+run("select('EXT-BLOCK-01')");
+assert.ok(related(entries.get('panel-body')));
+actionsByName(entries.get('panel-body'),'Piston dan ring').click();
+assert.equal(run('state.assemblyGroup'),'RAK-INT-PISTON');
+assert.ok(run("state.selected.startsWith('INT-PISTON-')"));
+actionsByName(entries.get('panel-body'),'Kembali').click();
+assert.equal(run('state.selected'),'EXT-BLOCK-01');
+if (poses.length) {
+  const evidence = new URL('../../qa/integration-render/',import.meta.url);
+  await mkdir(evidence,{recursive:true});
+  await writeFile(new URL('viewer-poses.json',evidence),JSON.stringify({
+    diagnosis:'Poses exported by viewer logic with Three r128 and a renderer stub. Blender uses these poses for a separate static geometry check.',
+    exterior_sha256:createHash('sha256').update(await file('exterior.glb')).digest('hex'),
+    internal_sha256:createHash('sha256').update(await file('internal.glb')).digest('hex'), poses
+  },null,2)+'\n');
+}
+entries.get('sources').click();
+assert.equal(entries.get('panel-body').children.some(child=>child.href==='./suku-cadang.html'),!offline);
+console.log('Nested GLB scopes exercised: '+(testedScopes.join(', ') || 'none in current export'));
+
+console.log('PASS: '+(offline?'Offline embedded':'Separate-file')+' GLTFs and mock DOM. State, animation, diagram and camera aspect exercised. Browser layout, gestures and WebGL rendering not tested.');

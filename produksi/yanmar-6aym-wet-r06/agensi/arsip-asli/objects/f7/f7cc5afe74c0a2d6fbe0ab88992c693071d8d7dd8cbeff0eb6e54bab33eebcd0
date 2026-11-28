@@ -1,0 +1,1106 @@
+import assert from 'node:assert/strict';
+import { createHash } from 'node:crypto';
+import {mkdir,readFile,writeFile} from 'node:fs/promises';
+import vm from 'node:vm';
+
+const assets = new URL('../assets/',import.meta.url);
+const file = async path => readFile(new URL(path,assets));
+const entries = new Map();
+const offline = process.argv.includes('--offline');
+const missingModel = process.argv.includes('--missing-model');
+const noWebGL = process.argv.includes('--no-webgl');
+const link = process.argv.find(arg=>/^--(?:part|link)=/.test(arg))?.split('=').slice(1).join('=');
+const linkView = process.argv.find(arg=>arg.startsWith('--view='))?.slice(7);
+const driveLink=process.argv.find(arg=>arg.startsWith('--drive='))?.slice(8);
+const managedFrames = new Map();
+const resizeObservers = [];
+class Node {
+  constructor(name) {
+    this.tagName = name;
+    this.children = [];
+    this.attributes = {};
+    this.handlers = {};
+    this.classList = { toggle() {} };
+    this.style = {setProperty(key,value) { this[key]=value; } };
+    this.clientWidth = 1050;
+    this.clientHeight = 650;
+  }
+  set id(value) { entries.set(value,this); }
+  addEventListener(name,handler) { this.handlers[name]=handler; }
+  dispatch(name) { this.handlers[name]?.({}); }
+  click() { if (!this.disabled) this.dispatch('click'); }
+  setAttribute(key,value) { this.attributes[key]=value; }
+  getAttribute(key) { return this.attributes[key]; }
+  append(...items) { this.children.push(...items); for (const item of items) item.parent=this; }
+  prepend(...items) { this.children.unshift(...items); for (const item of items) item.parent=this; }
+  replaceChildren(...items) { this.children=[]; this.append(...items); }
+  remove() { this.parent.children=this.parent.children.filter(child=>child!==this); }
+}
+for (const id of ['stage','panel','panel-body','panel-title','parts','xray','spread','spread-value',
+  'spread-box','canvas','inspect-contents','loading','reset','close','sources','review-status','operation-controls','operation-toggle','operation-options','operation-stop','audio-toggle','audio-field','audio-volume','operation-reset','operation-info','operation-status','flow-select','flow-key','operation-tour','tour-next','flow-cut','chamber-focus','flow-field','drive-field','drive-select','drive-controls','tour-controls',
+  'starter-entry','drive-entry','drive-focus','drive-back','drive-starter']) new Node(id).id=id;
+entries.get('spread').value='50';
+entries.get('audio-volume').value='35';
+const modes = ['overview','systems','operation'].map(mode=>{
+  const button = new Node('button');
+  button.dataset={mode};
+  button.setAttribute("aria-pressed","false");
+  return button;
+});
+const document = {
+  addEventListener() {},
+  getElementById:id=>entries.get(id),
+  createElement:tag=>new Node(tag),
+  createTextNode:text=>Object.assign(new Node('#text'),{textContent:text}),
+  createElementNS:(_,tag)=>new Node(tag),
+  querySelectorAll:()=>modes,
+  body:new Node('body')
+};
+let nextFrame=0;
+const sandbox=vm.createContext({
+  console,TextDecoder,Blob,URL,URLSearchParams,document,atob,
+  location:{protocol:offline?'file:':'https:',search:link?'?part='+encodeURIComponent(link)+(linkView?'&view='+encodeURIComponent(linkView):''):(linkView?'?view='+encodeURIComponent(linkView)+(driveLink?'&drive='+encodeURIComponent(driveLink):''):'')},
+  matchMedia:()=>({matches:process.argv.includes('--reduced-motion')}),
+  fetch:async ()=>{
+    assert.equal(offline,false,'Standalone requested a remote asset');
+    return {ok:true,json:async()=>JSON.parse(await file('data.json'))};
+  },
+  ResizeObserver:class { constructor(handler){resizeObservers.push(handler)} observe(){} },
+  requestAnimationFrame:(handler)=>{managedFrames.set(++nextFrame,handler); return nextFrame},
+  cancelAnimationFrame:(id)=>managedFrames.delete(id),
+  addEventListener(){}
+});
+sandbox.window=sandbox;
+const run=body=>vm.runInContext(body,sandbox);
+let scripts;
+if (offline) {
+  const html = await readFile(new URL('../yanmar-6aym-wet-gpt-r06-draft.html',import.meta.url),'utf8');
+  assert.ok(html.includes('R06 DRAF — QA BELUM LENGKAP'));
+  assert.ok(!/<(?:script|link)[^>]+(?:src|href)="assets\//.test(html));
+  for (const [,id,contents] of html.matchAll(/<script type="[^"]+" id="(embedded-[^"]+)">([\s\S]*?)<\/script>/g)) {
+    const element = new Node('script');
+    element.id=id;
+    element.textContent=contents;
+    const asset = id.replace('embedded-','');
+    if (asset === 'data') {
+      assert.deepEqual(JSON.parse(contents),JSON.parse(await file('data.json')));
+    } else if (asset === 'injector-plates') {
+      const local = {'section':'injector-section.webp','exploded':'injector-exploded.webp','pdf':'injector-section-exploded.pdf'};
+      for (const [key,encoded] of Object.entries(JSON.parse(contents))) {
+        assert.deepEqual(Buffer.from(encoded.split(',')[1],'base64'),await file('injector-plates/'+local[key]));
+      }
+    } else {
+      const digest = bytes=>createHash('sha256').update(bytes).digest('hex');
+      assert.equal(digest(Buffer.from(contents,'base64')),digest(await file(asset+'.glb')));
+    }
+  }
+  scripts=Array.from(html.matchAll(/<script>\s*([\s\S]*?)<\/script>/g),match=>match[1]);
+} else scripts=await Promise.all(['three-bundle.js','assembly-diagram.js','flow-ribbons.js','combustion-glow.js','engine-audio.js','functional-motion.js','studio.js'].map(path=>file(path).then(raw=>raw.toString())));
+assert.equal(scripts.length,7);
+run(scripts[0]);
+const T=sandbox.THREE;
+const parse=T.GLTFLoader.prototype.parse;
+T.GLTFLoader.prototype.loadAsync=async function (path) {
+  assert.equal(offline,false,'Standalone requested a GLB URL');
+  if (missingModel && path.endsWith('internal.glb')) throw new Error('Simulated GLB failure');
+  const raw=await file(path.split('/').at(-1));
+  const bytes=raw.buffer.slice(raw.byteOffset,raw.byteOffset+raw.byteLength);
+  return new Promise((resolve,reject)=>parse.call(this,bytes,'',resolve,reject));
+};
+T.WebGLRenderer=class {
+  constructor(){
+    if (noWebGL) throw new Error('Simulated WebGL failure');
+    this.domElement=new Node('canvas');
+  }
+  setPixelRatio(){}
+  setSize(){}
+  setAnimationLoop(loop){this.loop=loop}
+  render(){}
+};
+T.OrbitControls=class {
+  constructor(camera){this.target=new T.Vector3();this.camera=camera}
+  update(){this.camera.lookAt(this.target);this.camera.updateMatrixWorld(true)}
+};
+for (const script of scripts.slice(1,-1)) run(script);
+await run(scripts.at(-1).replace(/start\(\);\s*$/,'start()'));
+if (missingModel || noWebGL) {
+  assert.ok(entries.get('loading').textContent.includes(missingModel?'Sebagian aset':'Simulated WebGL'));
+  if (noWebGL && !offline && run('Boolean(data.film)')) {
+    assert.ok(entries.get('loading').children.some(child=>child.href===run('data.film') &&
+      child.textContent.includes('r06')),'Updated film link must survive WebGL failure in the hosted page');
+  }
+  if (noWebGL && process.argv.includes('--require-film')) assert.ok(run('Boolean(data.film)'));
+  entries.get('parts').click();
+  assert.equal(entries.get('panel-title').textContent,'Komponen');
+  assert.ok(entries.get('panel-body').children.length > 0);
+  modes[1].click();
+  assert.equal(entries.get('panel-body').children[0].children.length,5);
+  console.log('PASS: Inventory and systems remain accessible during simulated '+(missingModel?'GLB loading':'WebGL setup')+' failure.');
+  process.exit(0);
+}
+assert.equal(run('roots.every(Boolean)'),true);
+assert.equal(entries.get('loading').hidden,true);
+if (link) {
+  const target = run(`data.aliases?.[${JSON.stringify(link)}]`) || link;
+  const key = JSON.stringify(target);
+  const validView = ['section','exploded'].includes(linkView);
+  const known = run(`entries.has(${key})`);
+  if (process.argv.includes('--require-cooling-alias')) {
+    const expected={'EXT-COOLING-07':'EXT-COOLING-302','INT-TIMING-09':'EXT-COOLING-26','INT-TIMING-06':'EXT-COOLING-41'};
+    if (expected[link]) assert.equal(target,expected[link]);
+  }
+  if (link==='EXT-INTAKE-05' && process.argv.includes('--require-chargeduct')) {
+    assert.equal(run(`scopeFor(entries.get(${key}))?.id`),'RAK-CHARGEDUCT');
+    assert.ok(run(`scopeFor(entries.get(${key})).parts.length>=41`),'Fig.36 part selector incomplete');
+  }
+  const scoped = run(`${linkView === 'exploded' ? 'scopeInspectable' : 'scopeReady'}(scopeFor(entries.get(${key})))`);
+  drawFrames();
+  assert.equal(run('state.selected'),known?target:null);
+  assert.equal(run('state.mode'),known ? (scoped && validView ? 'assembly' : 'component') : 'home');
+  if (scoped && validView) {
+    assert.equal(run('state.cutaway'),linkView==='section');
+    assert.equal(run('state.assemblySpread'),linkView==='exploded');
+    assert.ok(run('renderer.localClippingEnabled'));
+    if (/^INT-FUELINJ-[16]1$/.test(link)) {
+      const parts = [link,link+'-08',link+'-13'];
+      assert.ok(run(`(() => {
+        scene.updateMatrixWorld(true);
+        return ${JSON.stringify(parts)}.every(id=>{
+          const object = entries.get(id)?.object;
+          if (!object?.visible) return false;
+          const box = new T.Box3().setFromObject(object);
+          for (const x of [box.min.x,box.max.x]) for (const y of [box.min.y,box.max.y])
+            for (const z of [box.min.z,box.max.z]) {
+              const p = new T.Vector3(x,y,z).project(camera);
+              if (Math.abs(p.x)>1 || Math.abs(p.y)>1 || Math.abs(p.z)>1) return false;
+            }
+          return true;
+        });
+      })()`),'Injector body, nozzle spring and needle must be in the linked-view camera frustum');
+    }
+  }
+  entries.get('reset').click();
+}
+if (!link && ['operation','tour','drives'].includes(linkView)) {
+  assert.equal(run('state.mode'),linkView==='drives'?'drives':'operation');
+  assert.equal(entries.get('panel').hidden,true);
+  assert.equal(entries.get('operation-controls').hidden,false);
+  assert.equal(run('Boolean(state.tour)'),linkView==='tour');
+  assert.equal(run('state.running'),false);
+  if (driveLink) assert.equal(run('state.driveId'),driveLink);
+  if (linkView==='drives' && run('driveViews.has(state.driveId)')) {
+    const canvas=entries.get('canvas');
+    Object.assign(canvas,{clientWidth:360,clientHeight:420});
+    for (const resize of resizeObservers) resize();
+    drawFrames();
+    assert.ok(run(`(() => {
+      const view=driveViews.get(state.driveId);
+      if (controls.target.distanceTo(view.pivot)>.65) return false;
+      const box=new T.Box3();
+      for (const part of view.parts) box.expandByObject(part.object);
+      for (const x of [box.min.x,box.max.x]) for (const y of [box.min.y,box.max.y])
+        for (const z of [box.min.z,box.max.z]) {
+          const p=new T.Vector3(x,y,z).project(camera);
+          if (Math.max(Math.abs(p.x),Math.abs(p.y),Math.abs(p.z))>1) return false;
+        }
+      return camera.aspect===360/420;
+    })()`),'Direct drive focus must contain the selected mechanism at the mocked portrait size');
+    Object.assign(canvas,{clientWidth:1050,clientHeight:650});
+    for (const resize of resizeObservers) resize();
+  }
+  entries.get('reset').click();
+}
+assert.equal(run('state.mode'),'home');
+assert.equal(run('data.revision'),'r06');
+assert.equal(run('data.reviewApproved'),false);
+assert.ok(run('camera.position.x-controls.target.x>0 && camera.position.z-controls.target.z<0'));
+assert.ok(run('(camera.position.x-controls.target.x)/Math.abs(camera.position.z-controls.target.z)<.35'));
+assert.equal(modes[0].getAttribute('aria-pressed'),'false');
+assert.equal(run("groups.get('RAK-FLYWHEEL').object.position.x"),0);
+function drawFrames() {
+  const frames = Array.from(managedFrames);
+  managedFrames.clear();
+  for (const [,frame] of frames) frame();
+}
+for (const [width,height] of [[1050,650],[390,780],[780,390]]) {
+  const host = entries.get('canvas');
+  host.clientWidth=width;
+  host.clientHeight=height;
+  for (const resize of resizeObservers) resize();
+  drawFrames();
+  assert.equal(run('camera.aspect'),width/height);
+  assert.ok(run('camera.position.length()')>0);
+  assert.ok(run(`
+    (() => {
+      scene.updateMatrixWorld(true);
+      const exterior = new T.Box3().setFromObject(roots[0]);
+      for (const x of [exterior.min.x,exterior.max.x]) for (const y of [exterior.min.y,exterior.max.y])
+        for (const z of [exterior.min.z,exterior.max.z]) {
+          const projected = new T.Vector3(x,y,z).project(camera);
+          if (Math.abs(projected.x) > 1 || Math.abs(projected.y) > 1) return false;
+        }
+      return true;
+    })()
+  `),'Exterior bounding box is clipped at '+width+'×'+height);
+}
+modes[0].click();
+assert.equal(entries.get('spread-box').hidden,false);
+assert.equal(run("groups.get('RAK-FLYWHEEL').object.position.x"),-.215);
+entries.get('spread').value='100';
+entries.get('spread').dispatch('input');
+assert.equal(run("groups.get('RAK-FLYWHEEL').object.position.x"),-.43);
+entries.get('xray').click();
+assert.equal(run('state.xray'),true);
+assert.equal(run('[...shellMaterials.values()].every(({transparent})=>transparent.transparent)'),true);
+modes[1].click();
+assert.equal(run("groups.get('RAK-FLYWHEEL').object.position.x"),0);
+assert.equal(run('state.xray'),true);
+assert.equal(entries.get('panel-body').children[0].children.length,5);
+modes[2].click();
+assert.equal(run('Boolean(kinematicParts())'),true);
+assert.equal(entries.get('operation-controls').hidden,false);
+assert.equal(entries.get('panel').hidden,true);
+entries.get('operation-toggle').click();
+assert.equal(run('state.running'),true);
+const atRest=run("motion.cylinders[0].piston.position.y");
+const hasRingGear = run("entries.has('EXT-FLYWHEEL-20')");
+const ringRest = hasRingGear ? run(`JSON.stringify(entries.get('EXT-FLYWHEEL-20').object.quaternion.toArray())`) : null;
+run('renderer.loop(100); renderer.loop(150)');
+assert.equal(run('state.angle'),0);
+assert.ok(run('state.starterEngagement>0 && state.starterEngagement<1'));
+run('advanceSimulation(.6)');
+if (hasRingGear) assert.ok(run(`(() => {
+  const flywheel = motion.rotators.find(entry=>entry.node==='EXT-FLYWHEEL-02');
+  const gear = motion.rotators.find(entry=>entry.node==='EXT-FLYWHEEL-20');
+  const turned = node=>node.object.quaternion.clone().multiply(node.base.clone().invert());
+  return turned(flywheel).angleTo(turned(gear))<1e-6 &&
+    gear.object.quaternion.angleTo(gear.base)>0.01;
+})()`),'Ring gear orientation must track the flywheel');
+
+assert.ok(run("motion.cylinders[0].piston.position.y")<atRest);
+entries.get('xray').click();
+assert.equal(run('state.running'),true);
+assert.equal(run('state.xray'),false);
+entries.get('parts').click();
+assert.equal(run('state.running'),false);
+if (hasRingGear) assert.equal(
+  run(`JSON.stringify(entries.get('EXT-FLYWHEEL-20').object.quaternion.toArray())`),ringRest);
+const partFilter = entries.get('part-filter');
+partFilter.value = 'EXT-FUEL';
+partFilter.dispatch('input');
+assert.equal(run('state.filter'),'EXT-FUEL');
+const nameResults = entries.get('panel-body').children[1];
+assert.ok(nameResults.children.some(group=>group.children[0].textContent.startsWith('Bahan bakar')));
+const fuelComponents = [3,4,5,6,7,8,13,14,15,16,17,18].map(n=>'EXT-FUEL-'+String(n).padStart(2,'0'));
+for (const component of fuelComponents) {
+  entries.get('parts').click();
+  const input = entries.get('part-filter');
+  input.value = component;
+  input.dispatch('input');
+  const list = entries.get('panel-body').children[1].children[0].children[1];
+  assert.equal(list.children.length,1);
+  list.children[0].click();
+  assert.equal(run('state.selected'),component);
+  assert.equal(entries.get('panel-title').textContent,run(`componentName(entries.get('${component}'))`));
+  assert.ok(entries.get('panel-body').children[0].textContent.includes('ESTIMATED'));
+  assert.ok(entries.get('panel-body').children.some(child=>child.tagName==='ul' && child.children.some(item=>
+    item.children.some(link=>link.href?.startsWith('https://')))));
+}
+assert.ok(run(`data.assemblies['RAK-FUEL'].parts.length>=20`));
+run("openDiagram(entries.get('EXT-FUEL-18'))");
+drawFrames();
+assert.ok(run('state.assemblyParts.size')>=20);
+for (const component of fuelComponents) {
+  assert.ok(run(`state.assemblyParts.has('${component}') && state.assemblyControls.has('${component}')`));
+}
+let diagramRows = entries.get('panel-body').children.at(-1).children[0].children.find(child=>child.tagName==='ol').children;
+assert.ok(diagramRows.length>=20);
+diagramRows.find(row=>row.children[0].getAttribute('data-part-id')==='EXT-FUEL-13').children[0].click();
+assert.equal(run('state.selected'),'EXT-FUEL-13');
+assert.ok(entries.get('assembly-detail').children[1].textContent.includes('EXT-FUEL-13'));
+entries.get('close').click();
+assert.equal(run('state.selected'),'EXT-FUEL-18');
+run("select('INT-PISTON-11'); state.isolated=true; applyPose()");
+assert.equal(run("entries.get('INT-PISTON-11').object.visible"),true);
+assert.equal(run("entries.get('INT-PISTON-12').object.visible"),false);
+assert.equal(run("entries.get('EXT-FLYWHEEL-02').object.visible"),false);
+
+run("select('EXT-FLYWHEEL-02')");
+assert.equal(entries.get('panel-title').textContent,run("componentName(entries.get('EXT-FLYWHEEL-02'))"));
+run("openDiagram(entries.get('EXT-FLYWHEEL-02'))");
+drawFrames();
+assert.equal(run('state.mode'),'assembly');
+assert.ok(run('state.assemblyParts.size')>=2);
+assert.equal(run("groups.get('RAK-FRONT').object.visible"),false);
+const toggle = entries.get('panel-body').children[0].children[0].children.find(
+  child=>child.textContent==='Rapatkan rakitan');
+assert.equal(toggle.textContent,'Rapatkan rakitan');
+toggle.click();
+assert.equal(toggle.textContent,'Uraikan rakitan');
+entries.get('close').click();
+assert.equal(run('state.mode'),'component');
+assert.equal(run('state.selected'),'EXT-FLYWHEEL-02');
+assert.equal(run("groups.get('RAK-FRONT').object.visible"),true);
+entries.get('reset').click();
+assert.equal(run('state.mode'),'home');
+assert.equal(run('state.selected'),null);
+assert.equal(entries.get('panel').hidden,true);
+assert.equal(entries.get('spread').value,50);
+const actionsByName = (root,text) => {
+  if (root.tagName === 'button' && root.textContent === text) return root;
+  for (const child of root.children) {
+    const candidate = actionsByName(child,text);
+    if (candidate) return candidate;
+  }
+};
+const testedScopes = [];
+const poses = [];
+const availableScopes = JSON.parse(run(`JSON.stringify(Object.entries(data.assemblies).filter(([id,recipe])=>recipe.parent))`));
+for (const [scopeId,recipe] of availableScopes) {
+  const anchor = recipe.anchor;
+  const hasContents = run(`scopeReady(scopesById.get('${scopeId}'))`);
+  const hasShell = run(`scopedMembers(scopesById.get('${scopeId}')).some(part=>part.xray_shell)`);
+  const core = recipe.parts.find(({role})=>/core|internal|interior|inner|mechanism|element|inti/.test(String(role).toLowerCase()))?.id ||
+    recipe.parts.find(part=>part.id!==anchor)?.id;
+  assert.ok(core,scopeId+' no separate modeled part');
+  const expectedMembers = run(`new Set(assemblyRows('${scopeId}',entries.get('${anchor}'))
+    .flatMap(part=>rowsInScope(part,'${scopeId}')).map(part=>part.id)).size`);
+  entries.get('parts').click();
+  const search = entries.get('part-filter');
+  search.value = anchor;
+  search.dispatch('input');
+  const entryButton = entries.get('panel-body').children[1].children[0].children[1].children[0];
+  entryButton.click();
+  assert.equal(run('state.selected'),anchor);
+  const parentAction = actionsByName(entries.get('panel-body'),'Eksplor rakitan');
+  if (parentAction) {
+    parentAction.click();
+    drawFrames();
+    assert.equal(run('state.assemblyGroup'),recipe.parent);
+    assert.ok(run(`state.assemblyParts.has('${core}')`));
+    assert.equal(entries.get('inspect-contents').hidden,false);
+    entries.get('xray').click();
+    assert.equal(run('state.xray'),true);
+    assert.ok(run(`Array.from(shellMaterials.values()).length>0`));
+    if (hasShell) assert.ok(run(`Array.from(shellMaterials).some(([mesh,value])=>
+      scopeFor(value.entry)?.id==='${scopeId}' && mesh.material===value.${hasContents ? 'transparent' : 'solid'})`),
+      scopeId+' parent assembly uses the declared shell treatment');
+    entries.get('inspect-contents').click();
+  } else {
+    const title = run(`scopeLabel(scopeFor(entries.get('${anchor}')))`);
+    const contentsAction = actionsByName(entries.get('panel-body'),title);
+    assert.ok(contentsAction,scopeId+' lacks a direct contents action');
+    contentsAction.click();
+  }
+  drawFrames();
+  assert.equal(run('state.assemblyGroup'),scopeId);
+  assert.equal(run('state.assemblyParts.size'),expectedMembers);
+  assert.equal(run('state.assemblySpread'),!hasContents);
+  assert.equal(run('state.xray'),Boolean(parentAction || hasContents));
+  assert.ok(run(`groups.get('${recipe.parent}').object.visible`),'Nested group ancestor hidden');
+  if (recipe.parent !== 'RAK-FLYWHEEL') assert.equal(run("groups.get('RAK-FLYWHEEL').object.visible"),false);
+  assert.equal(run("groups.get('RAK-INT-CRANK').object.visible"),false);
+  assert.ok(run(`(() => {
+    const opaque = [];
+    entries.get('${core}').object.traverseVisible(mesh=>{
+      if (mesh.isMesh) opaque.push(mesh.material.transparent === false && mesh.material.opacity === 1);
+    });
+    const casing = Array.from(shellMaterials).filter(([,value])=>scopeFor(value.entry)?.id==='${scopeId}');
+    return opaque.length>0 && opaque.every(Boolean) && (casing.length>0)===${hasShell} &&
+      casing.every(([mesh,material])=>mesh.visible && mesh.material === material.${hasContents ? 'transparent' : 'solid'});
+  })()`),scopeId+' shell/core materials');
+  const hit = run(`(() => {
+    scene.updateMatrixWorld(true);
+    let selected;
+    entries.get('${core}').object.traverseVisible(mesh=>{
+      if (!mesh.isMesh || selected) return;
+      const a = mesh.geometry.getAttribute('position');
+      const ix = mesh.geometry.index;
+      const n = Math.floor((ix?.count || a.count)/3);
+      const sample = Math.max(1,Math.floor(n/160));
+      for (let index=0;index<n && !selected;index+=sample) {
+        const first = index*3;
+        const target = new T.Vector3();
+        for (let offset=0;offset<3;offset++)
+          target.add(new T.Vector3().fromBufferAttribute(a,ix ? ix.getX(first+offset) : first+offset));
+        target.divideScalar(3).applyMatrix4(mesh.matrixWorld);
+        const direction = target.sub(camera.position).normalize();
+        const hit = visibleIntersection(new T.Raycaster(camera.position,direction));
+        if (hit?.object.userData.component === '${core}') selected = hit.object.userData.component;
+      }
+    });
+    return selected;
+  })()`);
+  if (hasContents) assert.equal(hit,core,scopeId+' core must receive a direct camera ray with X-ray active');
+  if (hasContents && process.argv.includes('--camera-evidence')) {
+    const pose = JSON.parse(run(`JSON.stringify((() => {
+      const visible = new Set();
+      const seeThrough = new Set();
+      for (const root of roots) root?.traverseVisible(mesh=>{
+        if (!mesh.isMesh || !mesh.userData.component) return;
+        const id = mesh.userData.component;
+        visible.add(id);
+        const shell = shellMaterials.get(mesh);
+        if (shell?.transparent === mesh.material) seeThrough.add(id);
+      });
+      return {
+        position:camera.position.toArray(),target:controls.target.toArray(),fov:camera.fov,
+        aspect:camera.aspect,visible:[...visible],shells:[...seeThrough]
+      };
+    })())`));
+    poses.push({scope:scopeId,kind:'xray',core,pickedRay:hit || null,...pose});
+  }
+  if (hasContents) {
+    const cut = entries.get('cutaway');
+    assert.ok(cut && cut.textContent === 'Potongan rumah',scopeId+' missing cutaway action');
+    cut.click();
+    assert.equal(cut.getAttribute('aria-pressed'),'true');
+    assert.ok(run(`Array.from(shellMaterials).filter(([,value])=>scopeFor(value.entry)?.id==='${scopeId}')
+      .every(([mesh,{sliced}])=>mesh.material===sliced && !mesh.material.transparent &&
+        mesh.material.clippingPlanes?.length===1 && Math.abs(clipPlane.normal.length()-1)<1e-6)`));
+    assert.ok(run(`(() => {
+      const bounds = new T.Box3().setFromObject(scopeCutObject(scopesById.get('${scopeId}')));
+      const a = bounds.getCenter(new T.Vector3()).addScaledVector(clipPlane.normal,.01);
+      const b = bounds.getCenter(new T.Vector3()).addScaledVector(clipPlane.normal,-.01);
+      return clipPlane.distanceToPoint(a)>0 && clipPlane.distanceToPoint(b)<0;
+    })()`));
+    if (process.argv.includes('--camera-evidence')) {
+      const plane = JSON.parse(run(`JSON.stringify({normal:clipPlane.normal.toArray(),constant:clipPlane.constant})`));
+      poses.push({...poses.at(-1),kind:'cutaway',plane});
+    }
+    cut.click();
+    assert.equal(cut.getAttribute('aria-pressed'),'false');
+  } else {
+    assert.equal(actionsByName(entries.get('panel-body'),'Potongan rumah'),undefined);
+    actionsByName(entries.get('panel-body'),'Rapatkan rakitan').click();
+  }
+  const detail = entries.get('assembly-detail');
+  if (recipe.parent === 'RAK-INT-FUELINJ') {
+    assert.ok(detail.children.some(child=>offline ? child.tagName==='details' &&
+      child.children[0]?.textContent==='Diagram injektor berlabel' :
+      child.href==='./assets/injector-plates/injector-legend.html'));
+    const findLink = search => search.href?.includes('fig-79-fuel-injection-valve') ||
+      search.children.some(findLink);
+    assert.ok(findLink(detail),scopeId+' exact figure 79 source URL');
+  }
+  const contentRows = entries.get('panel-body').children.at(-1).children[0].children.find(child=>child.tagName==='ol').children;
+  const selectedPart = recipe.parts.findIndex(({id})=>id===core);
+  contentRows[selectedPart].children[0].click();
+  assert.equal(run('state.selected'),core);
+  const authoredFunction = run(`partFunction(entries.get('${core}'),data.assemblies['${scopeId}'])`);
+  if (authoredFunction) assert.ok(entries.get('assembly-detail').children.some(child=>
+    child.textContent===authoredFunction),scopeId+' selected part function');
+  assert.equal(entries.get('inspect-contents').hidden,true);
+  const expand = actionsByName(entries.get('panel-body'),'Uraikan rakitan');
+  assert.ok(expand && !expand.hidden);
+  expand.click();
+  assert.equal(run('state.assemblySpread'),true);
+  const stageNode = entries.get('stage');
+  const host = entries.get('canvas');
+  for (const [width,height] of [[360,335],[690,236],[780,390]]) {
+    Object.assign(stageNode,{clientWidth:width,clientHeight:height});
+    Object.assign(host,{clientWidth:width,clientHeight:height});
+    for (const resize of resizeObservers) resize();
+    drawFrames();
+    assert.ok(run(`(() => {
+      scene.updateMatrixWorld(true);
+      const envelope = new T.Box3();
+      for (const root of roots) root?.traverseVisible(mesh=>{
+        if (mesh.isMesh) envelope.union(mesh.geometry.boundingBox.clone().applyMatrix4(mesh.matrixWorld));
+      });
+      for (const x of [envelope.min.x,envelope.max.x]) for (const y of [envelope.min.y,envelope.max.y])
+        for (const z of [envelope.min.z,envelope.max.z]) {
+          const p = new T.Vector3(x,y,z).project(camera);
+          if (Math.max(Math.abs(p.x),Math.abs(p.y),Math.abs(p.z)) > 1) return false;
+        }
+      return true;
+    })()`),scopeId+' exploded view clipped at '+width+'×'+height);
+    const layer = stageNode.children.find(child=>child.className==='assembly-callouts');
+    for (const marker of layer.children.filter(child=>child.tagName==='button' && !child.hidden)) {
+      const [,x,y] = marker.style.transform.match(/translate\(([-.0-9]+)px,([-.0-9]+)px\)/);
+      assert.ok(Number(x)>=22 && Number(x)<=width-22 && Number(y)>=70 && Number(y)<=height-52,
+        'Marker must remain inside tap-safe limits: '+scopeId);
+    }
+  }
+
+  const assemblyPositions=()=>run(`JSON.stringify([...state.assemblyParts].flatMap(id=>{
+    const positions=[];
+    entries.get(id).object.traverse(mesh=>{if (mesh.isMesh) positions.push(mesh.position.toArray());});
+    return positions;
+  }))`);
+  const explodedPositions=assemblyPositions();
+  if (!run('state.xray')) entries.get('xray').click();
+  entries.get('xray').click();
+  assert.equal(run('state.xray'),false);
+  assert.equal(run('state.assemblySpread'),true);
+  entries.get('xray').click();
+  assert.equal(assemblyPositions(),explodedPositions,'X-ray must preserve actual exploded mesh positions');
+  actionsByName(entries.get('panel-body'),'Kembali').click();
+  assert.equal(run('state.selected'),anchor);
+  assert.equal(run('state.xray'),true);
+  if (parentAction) {
+    assert.equal(run('state.assemblyGroup'),recipe.parent);
+    assert.equal(run('state.assemblySpread'),true);
+    actionsByName(entries.get('panel-body'),'Kembali').click();
+  }
+  assert.equal(run('state.mode'),'component');
+  assert.equal(run('state.selected'),anchor);
+  entries.get('reset').click();
+  testedScopes.push(scopeId);
+}
+if (process.argv.includes('--require-scopes')) {
+  for (const id of ['RAK-AIRCOOLER','RAK-INJECTION','RAK-INJECTOR-1','RAK-INJECTOR-6']) assert.ok(testedScopes.includes(id),id+' not exercised');
+}
+run("select('EXT-INTAKE-01')");
+entries.get('xray').click();
+assert.equal(run('state.xray'),true);
+assert.ok(run(`Array.from(shellMaterials).some(([mesh,{entry,solid}])=>
+  entry.id==='EXT-INTAKE-01' && mesh.material===solid)`),'Unsupported manifold must remain solid');
+assert.ok(entries.get('panel-body').children.some(child=>child.textContent?.includes('Isi rakitan belum tersedia')));
+const related = (function findDetails(root) {
+  if (root.tagName==='details' && root.children[0]?.textContent==='Mekanisme terkait') return root;
+  for (const child of root.children) {
+    const match = findDetails(child);
+    if (match) return match;
+  }
+});
+run("select('EXT-BLOCK-01')");
+assert.ok(related(entries.get('panel-body')));
+actionsByName(entries.get('panel-body'),'Piston dan ring').click();
+assert.equal(run('state.assemblyGroup'),'RAK-INT-PISTON');
+assert.ok(run("state.selected.startsWith('INT-PISTON-')"));
+actionsByName(entries.get('panel-body'),'Kembali').click();
+assert.equal(run('state.selected'),'EXT-BLOCK-01');
+if (poses.length) {
+  const evidence = new URL('../../qa/integration-render/',import.meta.url);
+  await mkdir(evidence,{recursive:true});
+  await writeFile(new URL('viewer-poses.json',evidence),JSON.stringify({
+    diagnosis:'Poses exported by viewer logic with Three r128 and a renderer stub. Blender uses these poses for a separate static geometry check.',
+    exterior_sha256:createHash('sha256').update(await file('exterior.glb')).digest('hex'),
+    internal_sha256:createHash('sha256').update(await file('internal.glb')).digest('hex'), poses
+  },null,2)+'\n');
+}
+// The dock remains visible when the full engine view uses no side panel.
+entries.get('reset').click();
+modes[2].click();
+const selectFlow = entries.get('flow-select');
+const startToggle = entries.get('operation-toggle');
+assert.equal(entries.get('panel').hidden,true);
+assert.equal(entries.get('operation-controls').hidden,false);
+selectFlow.value='fuel';
+selectFlow.dispatch('change');
+assert.equal(run('state.flow'),'fuel');
+assert.ok(run("Array.from(flowViews.values()).some(item=>item.group.visible && item.route.kind==='physical' && item.group.children[0].material.depthTest)"));
+assert.ok(run("Array.from(flowViews.values()).filter(item=>item.route.kind==='schematic').every(item=>!item.group.visible)"));
+entries.get('flow-cut').click();
+assert.equal(run('state.flowCut'),true);
+entries.get('chamber-focus').click();
+assert.equal(run('state.combustionFocus'),true);
+assert.ok(run(`camera.position.y>controls.target.y && camera.position.z<controls.target.z &&
+  !groups.get('RAK-INTAKE').object.visible && groups.get('RAK-INT-PISTON').object.visible &&
+  !flowGroup.visible && chamberFire.group.children.every(part=>!part.material || part.material.depthTest)`));
+assert.ok(run("Array.from(shellMaterials).some(([mesh,m])=>m.entry.id==='INT-LINER-21' && mesh.material===m.chamberSlice)"));
+assert.ok(run("Array.from(shellMaterials).some(([mesh,m])=>m.entry.id==='INT-PISTON-21' && mesh.material===m.sliced)"));
+entries.get('chamber-focus').click();
+assert.equal(run('state.combustionFocus'),false);
+assert.ok(run("Array.from(shellMaterials).some(([mesh,value])=>value.entry.id==='EXT-BLOCK-01' && mesh.material===value.sliced)"));
+assert.ok(run("Array.from(flowViews.values()).some(item=>item.group.visible && item.route.kind==='schematic' && item.group.children[0].material.isLineDashedMaterial)"));
+assert.ok(run(`(() => {
+  const paths=[...flowViews.values()].filter(item=>item.route.event==='injection' && item.route.cylinder===1);
+  return paths.some(left=>paths.some(right=>left.route.to===right.route.from &&
+    Math.abs(left.eventInterval[1]-right.eventInterval[0])<1e-9));
+})()`),'Injection pulse must transfer through a matching shared port');
+startToggle.click();
+run('renderer.loop(200);renderer.loop(250); advanceSimulation(.65)');
+if (process.argv.includes('--flow-evidence')) {
+  const directory = new URL('../../qa/flow-render/',import.meta.url);
+  await mkdir(directory,{recursive:true});
+  run(`
+    state.simTime=2.55;
+    state.angle=state.simTime*.85;
+    applyPose();
+    frame();
+  `);
+  const capture = system=>JSON.parse(run(`JSON.stringify((() => {
+    pickFlow('${system}');
+    applyPose();
+    scene.updateMatrixWorld(true);
+    const materials={};
+    for (const [mesh,{entry,solid,sliced}] of shellMaterials)
+      if (mesh.material!==solid) materials[entry.id]=mesh.material===sliced?'cut':'ghost';
+    for (const [id,parts] of flowPipes) if (parts.some(({mesh,ghost})=>mesh.material===ghost)) materials[id]='ghost';
+    return {
+      capture:'Three r128 state with renderer stub, for separate Blender diagnosis',
+      system:state.flow,angle:state.angle,seconds:state.simTime,
+      position:camera.position.toArray(),target:controls.target.toArray(),fov:camera.fov,
+      aspect:camera.aspect,materials,clip:{normal:clipPlane.normal.toArray(),constant:clipPlane.constant},
+      visible:[...entries.values()].filter(entry=>entry.object?.visible).map(entry=>entry.id),
+      routes:[...flowViews.values()].filter(item=>item.group.visible).map(item=>({
+        id:item.route.id,kind:item.route.kind,color:fluid[item.route.system].color,
+        directional:flowDirectionKnown(item.route),
+        points:(item.moved || item.points).map(point=>point.clone().applyMatrix4(item.group.matrixWorld).toArray()),
+        beads:item.particles.filter(bead=>bead.visible).map(bead=>bead.getWorldPosition(new T.Vector3()).toArray())
+      }))
+    };
+  })())`));
+  const viewport=entries.get('canvas');
+  for (const [name,context,width,height] of [['fuel','fuel',780,390],['lubrication','lubrication',780,390],
+    ['lubrication-portrait','lubrication',390,565]]) {
+    Object.assign(viewport,{clientWidth:width,clientHeight:height});
+    for (const resize of resizeObservers) resize();
+    run('frame()');
+    const shot = capture(context);
+    shot.exterior_sha256=createHash('sha256').update(await file('exterior.glb')).digest('hex');
+    shot.internal_sha256=createHash('sha256').update(await file('internal.glb')).digest('hex');
+    await writeFile(new URL(name+'.json',directory),JSON.stringify(shot,null,2)+'\n');
+  }
+  Object.assign(viewport,{clientWidth:780,clientHeight:390});
+  for (const resize of resizeObservers) resize();
+  run("pickFlow('fuel'); applyPose()");
+}
+const beadPosition = run(`(() => {
+  const sample=Array.from(flowViews.values()).find(item=>item.group.visible && !item.route.event && item.particles.length);
+  return JSON.stringify(sample.particles[0].position.toArray());
+})()`);
+run('renderer.loop(300)');
+assert.notEqual(run(`(() => {
+  const sample=Array.from(flowViews.values()).find(item=>item.group.visible && !item.route.event && item.particles.length);
+  return JSON.stringify(sample.particles[0].position.toArray());
+})()`),beadPosition);
+startToggle.click();
+const frozen = run('state.angle+state.simTime');
+run('renderer.loop(350)');
+assert.equal(run('state.angle+state.simTime'),frozen);
+entries.get('operation-reset').click();
+assert.equal(run('state.angle+state.simTime'),0);
+assert.ok(run("Array.from(flowViews.values()).filter(item=>item.group.visible).every(item=>item.particles.every(bead=>!bead.visible))"));
+const motionRequired=process.argv.includes('--require-moving-oil');
+if (motionRequired) assert.ok(run(`flowViews.get('LO-crankpin-1') && flowViews.get('LO-rod-drain-1')`));
+if (run(`flowViews.get('LO-crankpin-1') && flowViews.get('LO-rod-drain-1')`)) {
+  assert.ok(run(`(() => {
+    pickFlow('lubrication');
+    state.angle=Math.PI/2;
+    state.simTime=1;
+    applyPose();
+    const oil=flowViews.get('LO-crankpin-1');
+    const drain=flowViews.get('LO-rod-drain-1');
+    if (!oil.group.visible || !drain.group.visible || Math.abs(oil.group.rotation.x+state.angle)>1e-8) return false;
+    const first=drain.points[0],last=drain.points.at(-1);
+    const expected=new T.Vector3(first.x,first.z,-first.y);
+    return drain.moved[0].distanceTo(expected)<1e-8 && drain.moved.at(-1).distanceTo(last)<1e-8;
+  })()`),'Oil branch must follow crank and its drain must terminate on stationary sump');
+  entries.get('operation-reset').click();
+}
+
+if (process.argv.includes('--require-flow')) {
+  for (const key of ['fuel','lubrication','freshwater','seawater','intake','exhaust']) {
+    selectFlow.value=key;
+    selectFlow.dispatch('change');
+    assert.equal(run('state.flow'),key);
+    assert.ok(run(`Array.from(flowViews.values()).filter(item=>item.group.visible).length>0`),key);
+    assert.ok(run(`Array.from(flowViews.values()).filter(item=>item.group.visible).every(item=>item.route.system==='${key}')`));
+  }
+}
+modes[1].click();
+assert.equal(run('state.mode'),'systems');
+assert.equal(entries.get('operation-controls').hidden,false);
+modes[2].click();
+entries.get('operation-tour').click();
+assert.ok(run('Boolean(state.tour) && state.xray'));
+assert.equal(run('state.running'),!process.argv.includes('--reduced-motion'));
+if (!run('state.running')) startToggle.click();
+const next = entries.get('tour-next');
+next.click();
+assert.equal(run('state.flow'),'intake');
+next.click();
+assert.equal(run('state.flow'),'lubrication');
+next.click();
+run('advancePowertrain(2.7); updateFlowAppearance()');
+assert.equal(run('combustionGroup.visible'),true);
+assert.ok(run(`(() => {
+  state.simTime=1;
+  const order=[1,4,2,6,3,5];
+  for (const [step,id] of order.entries()) {
+    state.angle=(step*120+8)*Math.PI/180;
+    updateFlowParticles();
+    tickFlowEffects(0);
+    const active=chamberFire ? order.filter(cylinder=>chamberFire.probe(cylinder).flame>.15) :
+      combustionGroup.children.filter(bead=>bead.visible).map(bead=>bead.userData.cylinder);
+    if (active.length!==1 || active[0]!==id) return false;
+  }
+  return true;
+})()`),'Combustion learning cues must follow the documented six-cylinder order');
+run('advanceSimulation(.02)');
+next.click();
+const beforeExplode = run('state.simTime');
+run('advanceSimulation(.5)');
+assert.equal(run('state.simTime'),beforeExplode);
+assert.equal(run('flowGroup.visible'),false);
+assert.ok(run('state.tourSpread>0'));
+next.click();
+assert.equal(run('flowGroup.visible'),false);
+next.click();
+assert.equal(run('state.tour'),null);
+assert.equal(run('state.tourSpread'),0);
+assert.equal(run('state.running'),false);
+const drivesRequired=process.argv.includes('--require-drives');
+const driveCount=run('driveViews.size');
+if (drivesRequired) assert.ok(driveCount>0,'No moving drives bound from GLB');
+if (driveCount>0) {
+  entries.get('reset').click();
+  modes[2].click();
+  assert.equal(entries.get('drive-entry').hidden,false);
+  entries.get('drive-entry').click();
+  drawFrames();
+  assert.equal(run('state.mode'),'drives');
+  assert.equal(entries.get('panel').hidden,true);
+  assert.equal(entries.get('operation-controls').hidden,false);
+  assert.equal(entries.get('drive-field').hidden,false);
+  assert.equal(entries.get('flow-field').hidden,true);
+  assert.equal(entries.get('drive-select').children.flatMap(group=>group.children).length,driveCount);
+  entries.get('operation-info').click();
+  assert.equal(entries.get('panel-title').textContent,'Mekanisme penggerak');
+  if (run('Boolean(data.driveAudit)')) {
+    assert.equal(entries.get('panel-body').children.some(child=>child.href===run('data.driveAudit')),!offline);
+  }
+  entries.get('close').click();
+  assert.equal(entries.get('panel').hidden,true);
+  if (drivesRequired) assert.ok(run('driveViews.size===data.drivetrain.groups.length'));
+  const selector=entries.get('drive-select');
+  selector.value=run("Array.from(driveViews.values()).find(view=>view.covers.size)?.spec.id || state.driveId");
+  selector.dispatch('change');
+  assert.equal(run('state.driveId'),selector.value);
+  const covers=run('driveViews.get(state.driveId).covers.size');
+  if (covers) {
+    assert.ok(run(`Array.from(shellMaterials).some(([mesh,value])=>
+      driveViews.get(state.driveId).covers.has(value.entry.id) && mesh.material===value.transparent)`));
+    entries.get('xray').click();
+    assert.ok(run(`Array.from(shellMaterials).filter(([,value])=>driveViews.get(state.driveId).covers.has(value.entry.id))
+      .every(([mesh,value])=>mesh.material===value.solid)`));
+    entries.get('xray').click();
+  }
+  entries.get('operation-reset').click();
+  const rest=run(`JSON.stringify([...driveViews.values()].flatMap(view=>view.parts.map(part=>{
+    part.object.updateMatrix();
+    return [part.id,part.object.matrix.toArray()];
+  })))`);
+  const states=() => run(`JSON.stringify([...driveViews.values()].flatMap(view=>view.parts.map(part=>{
+    part.object.updateMatrix();
+    return [part.id,part.object.matrix.toArray()];
+  })))`);
+  const fixed=run(`JSON.stringify((data.drivetrain.stationary || []).flatMap(item=>
+    typeof item==='string'?[item]:item.targets || [item.id]).map(id=>{
+      const mesh=objectForDrive(id);
+      if (!mesh) return [id,null];
+      mesh.updateWorldMatrix(true,false);
+      return [id,mesh.matrixWorld.toArray()];
+    }))`);
+  const toggle=entries.get('operation-toggle');
+  toggle.click();
+  run('renderer.loop(600);renderer.loop(650);renderer.loop(700); advanceSimulation(3.1)');
+  const rotating=states();
+  assert.notEqual(rotating,rest);
+  assert.equal(run(`JSON.stringify((data.drivetrain.stationary || []).flatMap(item=>
+    typeof item==='string'?[item]:item.targets || [item.id]).map(id=>{
+      const mesh=objectForDrive(id);
+      if (!mesh) return [id,null];
+      mesh.updateWorldMatrix(true,false);
+      return [id,mesh.matrixWorld.toArray()];
+    }))`),fixed,'Stationary assembly shells moved');
+  assert.ok(run(`(() => {
+    scene.updateMatrixWorld(true);
+    let checked=0;
+    for (const view of driveViews.values()) {
+      const {spec,axis,pivot,parts}=view;
+      if (spec.kind!=='spin') continue;
+      const command=mechanics?.sample(spec);
+      const a=(command?.clock ?? state.driveAngles[spec.mode])*(spec.ratio || 0);
+      if (!a && !command?.angle) continue;
+      const axisRotation=(center,direction,rotation)=>new T.Matrix4().makeTranslation(...center)
+        .multiply(new T.Matrix4().makeRotationAxis(direction,rotation))
+        .multiply(new T.Matrix4().makeTranslation(...center.map(v=>-v)));
+      const secondary=spec.actuation==='governor-weight';
+      const pivotOp=axisRotation(pivot.toArray(),axis,a+(secondary ? 0 : command?.angle || 0));
+      if (secondary) pivotOp.multiply(axisRotation(spec.secondary_pivot_m,new T.Vector3(...spec.secondary_axis).normalize(),command.angle));
+      if (spec.mode==='starting' && spec.mode_offset_m) {
+        const slide=axis.clone().multiplyScalar(command.engagement*spec.mode_offset_m);
+        pivotOp.premultiply(new T.Matrix4().makeTranslation(...slide.toArray()));
+      }
+      const tolerance=2e-5;
+      for (const part of parts) {
+        const expect=pivotOp.clone().multiply(part.parent).multiply(part.rest);
+        if (expect.toArray().some((x,i)=>Math.abs(x-part.object.matrixWorld.elements[i])>tolerance)) return false;
+        checked++;
+      }
+    }
+    return checked>0;
+  })()`),'Each rotating GLB mesh must follow its signed world axis and pivot exactly once');
+  assert.ok(run(`(() => {
+    scene.updateMatrixWorld(true);
+    for (const view of driveViews.values()) {
+      const {spec,axis,parts,belt}=view;
+      if (!['belt','reciprocate','rock','spring','orbit'].includes(spec.kind)) continue;
+      const command=mechanics?.sample(spec);
+      const clock=command?.clock ?? state.driveAngles[spec.mode];
+      if (!clock || spec.mode==='starting') continue;
+      const restWorld=part=>part.parent.clone().multiply(part.rest);
+      if (spec.kind==='belt') {
+        const target=belt.polyline.getPoint(((clock*spec.travel_m_per_rad/belt.length)%1+1)%1);
+        const delta=target.sub(belt.start);
+        for (const part of parts) {
+          const base=new T.Vector3().setFromMatrixPosition(restWorld(part));
+          if (base.distanceTo(belt.start)<1e-4 &&
+            base.add(delta).distanceTo(part.object.getWorldPosition(new T.Vector3()))>2e-5) return false;
+        }
+        continue;
+      }
+      if (spec.kind==='reciprocate' && spec.profile?.samples) for (const part of parts) {
+        const stroke=motionProfile(spec,clock)*(command?.scaleStroke ?? 1)+(command?.travel || 0);
+        const expect=new T.Matrix4().makeTranslation(axis.x*stroke,axis.y*stroke,axis.z*stroke);
+        if (spec.spin_ratio) expect
+          .multiply(new T.Matrix4().makeTranslation(view.pivot.x,view.pivot.y,view.pivot.z))
+          .multiply(new T.Matrix4().makeRotationAxis(new T.Vector3(...(spec.spin_axis || [1,0,0])).normalize(),clock*spec.spin_ratio))
+          .multiply(new T.Matrix4().makeTranslation(-view.pivot.x,-view.pivot.y,-view.pivot.z));
+        if (command?.angle) expect
+          .multiply(new T.Matrix4().makeTranslation(...view.pivot.toArray()))
+          .multiply(new T.Matrix4().makeRotationAxis(axis,command.angle))
+          .multiply(new T.Matrix4().makeTranslation(...view.pivot.toArray().map(v=>-v)));
+        expect.multiply(restWorld(part));
+        if (expect.toArray().some((x,i)=>Math.abs(x-part.object.matrixWorld.elements[i])>2e-5)) return false;
+      }
+    }
+    return true;
+  })()`),'Belt and sampled reciprocation must follow their authored paths');
+  toggle.click();
+  run('renderer.loop(750);renderer.loop(800)');
+  assert.equal(states(),rotating,'Paused gear pose drifted');
+  entries.get('operation-reset').click();
+  assert.equal(states(),rest,'Reset must restore exact local matrices');
+  if (!entries.get('drive-starter').hidden) {
+    entries.get('drive-starter').click();
+    assert.equal(run('state.driveId'),'starter-pinion');
+    assert.equal(run('state.enginePhase'),'off');
+    assert.ok(run("camera.position.z>controls.target.z && shellCanReveal(entries.get('EXT-FLYWHEEL-01')) && !shellCanReveal(entries.get('EXT-FLYWHEEL-20'))"));
+    const pinionTravel=()=>run(`(() => {
+      const {parts,axis}=driveViews.get('starter-pinion');
+      const {object,parent,rest}=parts[0];
+      object.updateWorldMatrix(true,false);
+      return new T.Vector3().setFromMatrixPosition(object.matrixWorld)
+        .sub(new T.Vector3().setFromMatrixPosition(parent.clone().multiply(rest))).dot(axis);
+    })()`);
+    const home=pinionTravel();
+    toggle.click();
+    run('advanceSimulation(.17)');
+    assert.equal(run('state.enginePhase'),'engaging');
+    assert.equal(run('state.angle'),0);
+    assert.ok(Math.abs(pinionTravel()-home)>.005);
+    toggle.click();
+    const frozen=states();
+    run('renderer.loop(850);renderer.loop(900)');
+    assert.equal(states(),frozen);
+    toggle.click();
+    run('advanceSimulation(.45)');
+    assert.equal(run('state.enginePhase'),'cranking');
+    assert.ok(run('state.angle>0 && state.starterEngagement===1'));
+    assert.ok(Math.abs(pinionTravel()-run("driveViews.get('starter-pinion').spec.mode_offset_m"))<1e-5);
+    assert.ok(run('Math.abs(state.driveAngles.both-state.driveAngles.starting)<1e-9'));
+    run('advanceSimulation(1.28)');
+    assert.equal(run('state.enginePhase'),'firing');
+    run('advanceSimulation(1.1)');
+    assert.equal(run('state.enginePhase'),'running');
+    assert.ok(Math.abs(pinionTravel()-home)<1e-5);
+    const starterClock=run('state.driveAngles.starting');
+    run('advanceSimulation(.15)');
+    assert.equal(run('state.driveAngles.starting'),starterClock);
+    entries.get('operation-stop').click();
+    assert.equal(run('state.enginePhase'),'stopping');
+    run('advanceSimulation(1.1)');
+    assert.equal(run('state.enginePhase'),'off');
+    assert.equal(run('state.rpm'),0);
+    assert.equal(run('state.running'),false);
+    toggle.click();
+    assert.ok(run('Math.abs(Math.sin((state.driveAngles.both-state.driveAngles.starting)*90))<1e-9'));
+    run('advanceSimulation(.5)');
+    assert.ok(run('Math.abs(Math.sin((state.driveAngles.both-state.driveAngles.starting)*90))<1e-9'));
+  }
+  entries.get('operation-reset').click();
+  assert.ok(run(`(() => {
+    const view=[...driveViews.values()].find(item=>item.spec.kind==='spin' &&
+      item.spec.mode!=='starting' && Math.abs(item.spec.ratio*2-Math.round(item.spec.ratio*2))>1e-6);
+    if (!view) return true;
+    const mode=view.spec.mode;
+    state.enginePhase='running';
+    state.driveAngles.both=state.driveAngles.running=4*Math.PI-.01;
+    mechanics?.tick({phase:'running',dt:0,crankRadians:state.driveAngles.both,rpm:650,engagement:0});
+    state.angle=state.driveAngles.both;
+    applyDrivetrain();
+    const q=view.parts[0].object.quaternion.clone();
+    const prev=state.driveAngles[mode];
+    advanceSimulation(.05);
+    const dist=q.angleTo(view.parts[0].object.quaternion);
+    return Math.abs(dist-.05*crankRadiansPerSecond*Math.abs(view.spec.ratio))<1e-5 &&
+      state.driveAngles[mode]>prev && state.angle<.1;
+  })()`),'Non-integer drive ratio must remain continuous as combustion phase wraps');
+  entries.get('drive-back').click();
+  assert.equal(run('state.mode'),'operation');
+  toggle.click();
+  const previous=states();
+  run('renderer.loop(1100);renderer.loop(1150); advanceSimulation(.5)');
+  assert.notEqual(states(),previous,'Normal operation must animate the same drive scene');
+  run("select('EXT-FLYWHEEL-02')");
+  assert.equal(run('state.mode'),'component');
+  assert.equal(states(),rest,'Opening component detail must park running drives before assembly mode');
+  entries.get('reset').click();
+  modes[2].click();
+  entries.get('operation-tour').click();
+  assert.equal(run('state.tour.index'),0);
+  if (!run('state.running')) toggle.click();
+  run('advanceSimulation(.54)');
+  assert.notEqual(states(),rest,'Tour must use the same drive transforms');
+  const beforeExplode=states();
+  for (let stage=0;stage<4;stage++) entries.get('tour-next').click();
+  assert.equal(run('tourStages[state.tour.index].operate'),undefined);
+  const beforeClock=run('state.driveAngles.both');
+  run('advanceSimulation(.14)');
+  assert.equal(run('state.driveAngles.both'),beforeClock);
+  assert.equal(states(),beforeExplode,'Tour may move groups to explode but their relative drive phases must stay fixed');
+  entries.get('reset').click();
+  assert.equal(states(),rest,'Return from tour must restore rest pose');
+  if (process.argv.includes('--require-valve-phase')) {
+    assert.ok(run(`(() => {
+      const valves=motion.cylindersValves;
+      return valves.length>0 && valves.some(({spec})=>spec.initial_lift_m>0) &&
+        valves.every(({spec,valve,valveY,tappet,tappetY,rocker,rockerRest,springs})=>Number.isFinite(spec.initial_lift_m) &&
+          Math.abs(valve.position.y-valveY)<1e-10 && Math.abs(tappet.position.y-tappetY)<1e-10 &&
+          rocker.quaternion.equals(rockerRest) && springs.every(({object,y})=>Math.abs(object.scale.y-y)<1e-10));
+    })()`),'Cam rest must match the exported pre-phased valve geometry after reset');
+  }
+  console.log('Drivetrain groups exercised: '+driveCount);
+}
+if (process.argv.includes('--require-functional-registry')) {
+  assert.ok(run(`(() => {
+    const {components,profiles}=data.functionRegistry;
+    return Object.keys(components).length===entries.size && [...entries.keys()].every(id=>{
+      const {profile}=components[id] || {};
+      const behavior=profiles[profile];
+      return behavior?.off && behavior.starting && behavior.running && behavior.stopping;
+    });
+  })()`),'Every selectable part needs sourced lifecycle coverage or an explicit limitation');
+}
+assert.ok(run(`(() => {
+  if (!routeRibbons || !chamberFire) return false;
+  const list=routeRibbons.links();
+  if (!list.length || routeRibbons.warnings.length) return false;
+  return list.every(({id, length_m})=>{
+    const item=flowViews.get(id);
+    const mesh=routeRibbons.group.children.find(child=>child.userData.flow.link===id);
+    return item && Math.abs(length_m-item.length)<1e-6 &&
+      mesh.material.depthTest===(item.route.kind==='physical') && !item.route.motion && !item.route.event;
+  });
+})()`),'Shader routes must preserve exact sampled model geometry and physical depth convention');
+assert.ok(run(`(() => {
+  const nozzle=flowViews.get('nozzle-bore-1');
+  const [before,until]=injectionWindow('delivery');
+  const [opens]=injectionWindow('nozzle');
+  return nozzle && Math.abs(nozzle.eventInterval[0]-(opens-before)/(until-before))<1e-8;
+})()`),'Route pulse and spray must share the nozzle opening phase');
+if (run('Number.isFinite(thermostatOpens)')) {
+  modes[2].click();
+  run("pickFlow('freshwater')");
+  entries.get('operation-toggle').click();
+  run('advancePowertrain(3.25)');
+  const conditioned=()=>run(`(() => {
+    const warm=coolantIsWarm();
+    const route=id=>routeIsActive(flowViews.get(id).route,warm);
+    return route('FW-pump') && route('FW-cold-bypass')!==warm && route('FW-cooler-shell')===warm;
+  })()`);
+  assert.equal(run('coolantIsWarm()'),false);
+  assert.ok(conditioned());
+  run('advancePowertrain(89)');
+  assert.equal(run('coolantIsWarm()'),true);
+  assert.ok(conditioned());
+  entries.get('operation-reset').click();
+}
+if (run("driveViews.has('cap-pressure') && driveViews.has('cap-return')")) {
+  run("changeMode('drives'); selectDrive('cap-pressure'); showDriveDetails()");
+  assert.ok(run(`(() => {
+    const pressure=driveViews.get('cap-pressure').spec,returnValve=driveViews.get('cap-return').spec;
+    mechanics.setCapTest(120);
+    const p=mechanics.sample(pressure).travel;
+    const closedOnPressure=Math.abs(mechanics.sample(returnValve).travel-p)<1e-9;
+    mechanics.setCapTest(-4);
+    const r=mechanics.sample(returnValve).travel;
+    const closedOnVacuum=mechanics.sample(pressure).travel===0;
+    changeMode('operation');
+    return p!==0 && r!==0 && closedOnPressure && closedOnVacuum && mechanics.inspect().capPressure===null;
+  })()`),'Cap demo must move only the commanded valve and return to normal on exit');
+}
+if (run("driveViews.get('seawater-shaft')?.spec.actuation==='seawater_vanes' && objectForDrive('EXT-COOLING-35')?.morphTargetInfluences?.length>=10")) {
+  modes[2].click();
+  const weights=()=>run("JSON.stringify(objectForDrive('EXT-COOLING-35').morphTargetInfluences)");
+  const rest=weights();
+  entries.get('operation-toggle').click();
+  run('advanceSimulation(2.15)');
+  assert.notEqual(weights(),rest);
+  entries.get('operation-toggle').click();
+  const paused=weights();
+  run('renderer.loop(1510); renderer.loop(1600)');
+  assert.equal(weights(),paused);
+  entries.get('operation-reset').click();
+  assert.equal(weights(),rest);
+}
+entries.get('sources').click();
+assert.equal(entries.get('panel-body').children.some(child=>child.href==='./suku-cadang.html'),!offline);
+if (process.argv.includes('--require-comparison')) assert.ok(run('Boolean(data.comparison)'));
+if (process.argv.includes('--require-motion-audit')) assert.ok(run('Boolean(data.driveAudit)'));
+if (run('Boolean(data.driveAudit)')) {
+  assert.equal(entries.get('panel-body').children.some(child=>child.href===run('data.driveAudit')),!offline);
+}
+if (run('Boolean(data.comparison)')) {
+  assert.equal(entries.get('panel-body').children.some(child=>child.href===run('data.comparison')),!offline);
+}
+
+if (process.argv.includes('--chamber-probe')) {
+  const samples=JSON.parse(run(`JSON.stringify((() => {
+    changeMode('operation');
+    state.flowCut=true;
+    state.xray=true;
+    state.combustionFocus=true;
+    state.enginePhase='firing';
+    state.simTime=1;
+    const box=[];
+    for (const phase of [14,32]) {
+      state.angle=(240+phase)*Math.PI/180;
+      applyPose();
+      tickFlowEffects(0);
+      scene.updateMatrixWorld(true);
+      const flame=chamberFire.group.children.find(part=>part.name==='api:2');
+      const piston=objectForDrive('INT-PISTON-21');
+      const head=objectForDrive('EXT-HEADS-02');
+      const nozzle=objectForDrive('INT-FUELINJ-21-14');
+      const x=flame.position.x, y=flame.position.y;
+      const sample=(object,point,dy)=>new T.Raycaster(point,new T.Vector3(0,dy,0))
+        .intersectObject(object,true)[0]?.point.y ?? null;
+      box.push({
+        phase_deg:phase, flame_center_m:flame.position.toArray(), center_rays:[.009,.020,.035].map(dx=>({
+          radius_m:dx,
+          bowl_y_m:sample(piston,new T.Vector3(x+dx,y,0),-1),
+          head_y_m:sample(head,new T.Vector3(x+dx,y,0),1)
+        })), injector_tip_y_m:sample(nozzle,new T.Vector3(x+.0015,y,0),1),
+        flame_half_y_m:flame.scale.y*flame.geometry.parameters.radius,
+        visible:flame.visible, depth_test:flame.material.depthTest
+      });
+    }
+    return box;
+  })())`));
+  await writeFile(new URL('../../qa/r06/viewer-chamber-sampling.json',import.meta.url),JSON.stringify(samples,null,2)+'\n');
+  for(const sample of samples) {
+    assert.ok(sample.visible && sample.depth_test && sample.injector_tip_y_m>sample.flame_center_m[1]);
+    assert.ok(sample.center_rays.every(ray=>Number.isFinite(ray.bowl_y_m) && ray.bowl_y_m<sample.flame_center_m[1]));
+  }
+
+}
+
+console.log('Nested GLB scopes exercised: '+(testedScopes.join(', ') || 'none in current export'));
+
+console.log('PASS: '+(offline?'Offline embedded':'Separate-file')+' GLTFs and mock DOM. State, animation, diagram and camera aspect exercised. Browser layout, gestures and WebGL rendering not tested.');

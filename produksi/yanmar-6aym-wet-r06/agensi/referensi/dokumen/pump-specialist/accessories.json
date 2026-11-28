@@ -1,0 +1,77 @@
+{
+  "RAK-GOVERNOR": {
+    "source_refs": [
+      "D01 PDF 116 / cetak 112, Construction of the governor, fig.016450-00E",
+      "D05 0CG10-M34300 fig.77 GOVERNOR, kolom A (WET)"
+    ],
+    "proxy": "EXT-FUEL-02",
+    "mesh_count": 7,
+    "role_mapped": {
+      "Governor mekanis, tuas dan pegas balik": [
+        "EXT-FUEL-02"
+      ],
+      "Poros governor dan dudukan pemberat": [
+        "EXT-FUEL-200"
+      ],
+      "Pemberat sentrifugal governor 1": [
+        "EXT-FUEL-201"
+      ],
+      "Pemberat sentrifugal governor 2": [
+        "EXT-FUEL-202"
+      ],
+      "Selongsong shifter dan bantalan dorong": [
+        "EXT-FUEL-203"
+      ],
+      "Pegas pengatur dan dudukannya": [
+        "EXT-FUEL-204"
+      ],
+      "Tuas governor, link dan poros pivot": [
+        "EXT-FUEL-205"
+      ]
+    },
+    "source_status": "Internal existence and function documented. Shape and fits estimated.",
+    "checks": "Scratch GLB mesh hierarchy and parent recipe anchors matched."
+  },
+  "RAK-FEEDPUMP": {
+    "source_refs": [
+      "D01 PDF 145 / cetak 141, fig.016382-00E, 016383-00E dan 016384-00E",
+      "D05 0CG10-M34300 fig.75 FUEL FEED PUMP, kolom A (WET)"
+    ],
+    "proxy": "EXT-FUEL-12",
+    "mesh_count": 10,
+    "role_mapped": {
+      "Pompa feed dan priming": [
+        "EXT-FUEL-12"
+      ],
+      "Piston pompa feed kerja ganda": [
+        "EXT-FUEL-210"
+      ],
+      "Roller penggerak, spindle dan dua oil seal": [
+        "EXT-FUEL-211"
+      ],
+      "Pegas balik piston feed dan dudukan": [
+        "EXT-FUEL-212"
+      ],
+      "Katup satu arah feed 1 dan pegas": [
+        "EXT-FUEL-213"
+      ],
+      "Katup satu arah feed 2 dan pegas": [
+        "EXT-FUEL-214"
+      ],
+      "Katup satu arah feed 3 dan pegas": [
+        "EXT-FUEL-215"
+      ],
+      "Katup satu arah feed 4 dan pegas": [
+        "EXT-FUEL-216"
+      ],
+      "Piston tangan priming dan packing": [
+        "EXT-FUEL-217"
+      ],
+      "Pegas priming dan penahan": [
+        "EXT-FUEL-218"
+      ]
+    },
+    "source_status": "Internal existence and function documented. Shape and fits estimated.",
+    "checks": "Scratch GLB mesh hierarchy and parent recipe anchors matched."
+  }
+}

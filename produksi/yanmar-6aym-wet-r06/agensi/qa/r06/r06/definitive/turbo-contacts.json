@@ -1,0 +1,81 @@
+{
+  "assets": {
+    "exterior.glb": "defc58c070a871da2068b2ddd4388ff51b340a1014dfde2226f7e47946a89121",
+    "internal.glb": "526ce37f126203eb288388dbd7922dd85749b19ddf8ef82ee5bfcf9d472ec8f5"
+  },
+  "runtime": {
+    "exterior.glb": "defc58c070a871da2068b2ddd4388ff51b340a1014dfde2226f7e47946a89121",
+    "internal.glb": "526ce37f126203eb288388dbd7922dd85749b19ddf8ef82ee5bfcf9d472ec8f5",
+    "studio.js": "cdf7ff2873d46d172bb1a04bca941f138df5f5330f332a23baa058b4ae577f96",
+    "data.json": "329566981da8e0c2ba9d1096cd69c1d29fcce9acc71c1621d20016785fd6adad",
+    "functional-motion.js": "0933f4bb115d46188055bbcac7444f011bf4a6becb51ad55027ec12053bf040a"
+  },
+  "interval": "two 720\u00b0 turns at 4\u00b0, fine starter first 24\u00b0 at 0.25\u00b0, interpolated warm and spin-down poses",
+  "samples": 535,
+  "missing_ids": [],
+  "pairs": [
+    {
+      "family": "flinger stationary seal",
+      "parts": [
+        "EXT-EXHAUST-28",
+        "EXT-EXHAUST-30"
+      ],
+      "kind": "hard",
+      "tested": 535,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    },
+    {
+      "family": "flinger stationary seal",
+      "parts": [
+        "EXT-EXHAUST-28",
+        "EXT-EXHAUST-31"
+      ],
+      "kind": "hard",
+      "tested": 535,
+      "intersect_count": 0,
+      "worst_triangles": 0,
+      "first": null
+    }
+  ],
+  "oil_measured_signed_ratio_to_crank": -0.8888888888888887,
+  "thermostats": [
+    {
+      "id": "EXT-COOLING-330",
+      "zero_shift_below_71C": 0,
+      "largest_sampled_stroke_mm": 8.000000000000007,
+      "peak_tempc": 86.39529007117173
+    },
+    {
+      "id": "EXT-COOLING-331",
+      "zero_shift_below_71C": 0,
+      "largest_sampled_stroke_mm": 8.000000000000007,
+      "peak_tempc": 86.39529007117173
+    },
+    {
+      "id": "EXT-COOLING-332",
+      "zero_shift_below_71C": 0,
+      "largest_sampled_stroke_mm": 8.000000000000007,
+      "peak_tempc": 86.39529007117173
+    },
+    {
+      "id": "EXT-COOLING-333",
+      "zero_shift_below_71C": 0,
+      "largest_sampled_stroke_mm": 5.863875597731383,
+      "peak_tempc": 86.39529007117173
+    },
+    {
+      "id": "EXT-COOLING-334",
+      "zero_shift_below_71C": 0,
+      "largest_sampled_stroke_mm": 5.863875597731383,
+      "peak_tempc": 86.39529007117173
+    },
+    {
+      "id": "EXT-COOLING-335",
+      "zero_shift_below_71C": 0,
+      "largest_sampled_stroke_mm": 5.863875597731383,
+      "peak_tempc": 86.39529007117173
+    }
+  ]
+}

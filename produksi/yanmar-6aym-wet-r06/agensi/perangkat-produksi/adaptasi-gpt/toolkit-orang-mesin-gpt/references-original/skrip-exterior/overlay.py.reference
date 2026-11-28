@@ -1,0 +1,34 @@
+# Tumpang-susun garis gambar resmi D01 (merah) di atas render ortografik (skala dan datum sama).
+import sys, os
+from PIL import Image, ImageOps, ImageChops
+import numpy as np
+OUT = "/tmp/claude-0/c3512/model/exterior/render"
+tag = sys.argv[1] if len(sys.argv) > 1 else ""
+S = 0.003107
+d01 = Image.open("/tmp/claude-0/c3512/doc/dim/d01_draw.png").convert("L")
+def overlay(render_name, crop, px0, py0, cen_u, cen_v, m, out):
+    r = Image.open(os.path.join(OUT, render_name)).convert("RGB")
+    c = d01.crop(crop)
+    k = S / m
+    c = c.resize((int(c.width * k), int(c.height * k)), Image.LANCZOS)
+    a = np.asarray(c).astype(float)
+    mask = (a < 140)
+    rr = np.asarray(r).copy()
+    # px datum asal (px0,py0) di gambar D01 -> (cen_u, cen_v) di render
+    ou = int(round(cen_u - (px0 - crop[0]) * k)); ov = int(round(cen_v - (py0 - crop[1]) * k))
+    H, W = mask.shape
+    for y in range(H):
+        yy = y + ov
+        if yy < 0 or yy >= rr.shape[0]: continue
+        xs = np.nonzero(mask[y])[0]
+        xx = xs + ou
+        ok = (xx >= 0) & (xx < rr.shape[1])
+        rr[yy, xx[ok]] = (230, 20, 20)
+    Image.fromarray(rr).save(os.path.join(OUT, out))
+# kanan: render pusat = datum (X 0.85, Y 0.30), m = 3.6/1200; titik datum X=0,Y=0 di D01 px (387,610)
+m = 3.6 / 1200
+overlay(f"{tag}neutral_kanan.png", (0, 0, 1240, 1000), 387, 610, 600 + (0 - 0.85) / m, 450 + 0.30 / m, m, f"{tag}overlay_kanan_D01.png")
+# depan: pusat = (Z 0, Y 0.30), m = 3.2/1200; titik datum Z=0,Y=0 di D01 px (1749.5,610); kiri gambar = +Z (sama orientasi)
+m = 3.2 / 1200
+overlay(f"{tag}neutral_depan.png", (1350, 0, 2150, 1000), 1749.5, 610, 600, 450 + 0.30 / m, m, f"{tag}overlay_depan_D01.png")
+print("ok")

@@ -1,0 +1,39 @@
+{
+  "revision": "r04",
+  "parent_revision": "r03",
+  "state": "available_for_owner_inspection",
+  "catalog_approved": false,
+  "private_site": {
+    "commit": "5421b9a11b0edf0f97396c21e68a4991a765d39f",
+    "version_id": "appgprj_6b016e003e3c81919e93366a5a80b6d8~appgver_2b96153f5a688191a26f86f51750127c",
+    "deployment_id": "appgdep_6b0a8fa1d8848191a85e346a1acb6137",
+    "workspace": "https://yanmar-6aym-workspace.violetblackbird16.chatgpt.site/gpt-r04/",
+    "access": "owner-only"
+  },
+  "assets_sha256": {
+    "exterior.glb": "e860291eac958af9bba6566891d6462e47d1c7694921c424dc702695fb02e887",
+    "internal.glb": "4b69ad9975928cfa80be62ddc7c6a1c5caa241900bd3aef299081c1e6406ae05",
+    "data.json": "81f198249c45697439725462bfae82c5d42262b8965106cfc2470c7fa1e32ee5",
+    "film/yanmar-6aym-r04.mp4": "47d023f797ebe23caca4406f94e285142816a83f3f18eb392d2c3816df3005fb",
+    "perbandingan-injektor.jpg": "66cd122fb27363c8b24441f41722f6aa6a983867ba39c7bbe2e875a281fb625b"
+  },
+  "qa_document": "qa/r04/QA.md",
+  "unverified": [
+    "Full OEM hidden geometry, dimensional tolerances and serial-specific arrangements",
+    "Real phone WebGL gestures and performance"
+  ],
+  "specialist_profiles": [
+    "spesialis_jalur_fluida"
+  ],
+  "production_guidance_pull_requests": [
+    35,
+    36
+  ],
+  "catalog_record_written": false,
+  "model_counts": {
+    "parts": 1061,
+    "nested": 55,
+    "routes": 163,
+    "ports": 160
+  }
+}

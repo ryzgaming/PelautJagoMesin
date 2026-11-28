@@ -34,6 +34,8 @@ Skill repo ada di `.agents/skills/` (Codex memuatnya otomatis saat dibuka dari r
 - **`blender-animasi-mesin`** — poros engkol, batang, piston, katup dan kamera tur di Blender. Rig kinematika `scripts/crank_rig.py`, strip frame `scripts/render_strip.py`. Angka gerak mengikuti register [MOTION-QA](tools/gpt-production/MOTION-QA.md).
 - **Blender MCP** — server `blender` di `.codex/config.toml` (`uvx mcp-for-blender`, mode aman, telemetri mati). Butuh Blender terbuka dengan add-on "MCP for Blender". Tool `look` menampilkan strip frame animasi; pakai untuk melihat hasil sebelum menyerahkan. Tanpa Blender GUI, pakai skrip headless di skill.
 
+Agen perakit mesin tetap dilarang mendesain efek sendiri, sedangkan profil `spesialis_efek_visual` dan skill [`lookdev-efek-mesin`](.agents/skills/lookdev-efek-mesin/SKILL.md) digunakan khusus saat pemilik meminta pemolesan pustaka efek bersama di branch `gemini/efek-*`, mengikuti semua aturan [`GEMINI.md`](GEMINI.md).
+
 Animasi tidak boleh diserahkan sebelum lembar frame (web) atau strip frame (Blender) dibuka dan dinilai. Rute aliran tetap berasal dari FLOW-ROUTING, bukan digambar demi estetika.
 
 Pada produksi dan revisi model mesin, koordinator juga [menugaskan spesialis tiap rakitan](tools/gpt-production/SPECIALISTS.md) sebelum memodelkan. Gunakan daftar dari `specialist-briefs`, teruskan subkomponen yang diharapkan kepada modeler, dan periksa komponen tersembunyi hingga dapat dipilih melalui viewer.

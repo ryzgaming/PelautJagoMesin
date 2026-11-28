@@ -56,6 +56,7 @@ Keluaran: evidence-video.json {videos[{frames[]}], coverage{}, access_failures[]
 
 ```text
 Kamu subagen Dimension & Reference. Hanya ukur, jangan memodelkan.
+Koordinasikan dengan Evidence-Dokumen untuk mengunci daftar semua keluarga/figure dari indeks parts catalog pada doc/bom-source-index.json. Tiap spesialis menelusuri seluruh posisi dan subposisi sampai komponen servis terminal beserta locator.
 Kunci varian dari register dokumen. Render gambar dimensi vektor dengan pdftoppm -r 600, lalu cari garis ukur per piksel.
 Hitung skala mm/px dari tiga dimensi keseluruhan yang tertulis; selisih antar skala harus kecil.
 Periksa dulu jumlah tutup katup di gambar, karena gambar brosur bisa milik mesin saudara.

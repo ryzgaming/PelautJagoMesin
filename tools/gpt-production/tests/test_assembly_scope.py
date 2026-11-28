@@ -43,7 +43,13 @@ class AssemblyScopeTests(unittest.TestCase):
         self.plan['assemblies'] = [{'id': 'ASM', 'domain': 'pendingin_penukar_panas', 'owner_agent_id': 'cooler-agent',
                                     'parts': [part, dict(part, name='Core', id='expected-core', layer='inner',
                                                          feature='heat_transfer_element', covers=['expected-shell'])]}]
-        self.verified = {scope.PLAN, scope.INSPECTION, 'doc/sources.json', 'qa/viewer.png'}
+        ref = {'path': 'doc/sources.json', 'locator': 'Fixture catalog'}
+        self.bom = {'revision': 'r01', 'verified_by': 'qa', 'scope_status': 'complete', 'toc_ref': ref,
+                    'toc_family_ids': ['Fig-A'], 'families': {'Fig-A': {'applicability': 'active', 'source_ref': ref, 'line_ids': ['1', '2']}}}
+        for i, part in enumerate(self.plan['assemblies'][0]['parts'], 1):
+            part.update(bom_lines=[{'family': 'Fig-A', 'id': str(i)}],
+                        terminal={'kind': 'physical_service_part', 'reason': 'Fixture service leaf', 'source_ref': ref})
+        self.verified = {scope.PLAN, scope.INSPECTION, scope.BOM, 'doc/sources.json', 'qa/viewer.png'}
         (self.root / 'qa/viewer.png').write_bytes(b'synthetic evidence')
         self.inspection = {'revision': 'r01', 'qa_agent_id': 'qa', 'model_sha256': {}, 'parts': {
             'expected-shell': {'status': 'modeled', 'reason': 'Fixture', 'mesh_ids': ['EXT-SHELL']},
@@ -62,6 +68,7 @@ class AssemblyScopeTests(unittest.TestCase):
         toolkit.write_json(folder / 'inventory.json', {'components': [{'id': i} for i in ids]})
 
     def inspect(self):
+        toolkit.write_json(self.root / scope.BOM, self.bom)
         toolkit.write_json(self.root / scope.PLAN, self.plan)
         self.inspection['plan_sha256'] = scope.digest(self.root / scope.PLAN)
         toolkit.write_json(self.root / scope.INSPECTION, self.inspection)
@@ -99,6 +106,17 @@ class AssemblyScopeTests(unittest.TestCase):
         task = next(row for row in scope.dispatch(self.root) if row['domain'] == 'separation_bowl')
         self.assertEqual(task['title'], 'Bowl separator')
         self.assertIsNone(task['profile'])
+
+    def test_entire_omitted_family_and_missing_terminal_reason_block_claim(self):
+        self.bom['families']['Fig-B'] = dict(self.bom['families']['Fig-A'], line_ids=['12'])
+        self.bom['toc_family_ids'].extend(['Fig-B', 'Fig-C'])
+        core = self.plan['assemblies'][0]['parts'][1]
+        core['parent_id'] = 'expected-shell'
+        core['terminal'] = {'kind': 'supplied_as_assembly', 'reason': 'just assumed'}
+        errors = self.inspect()[0]
+        self.assertTrue(any('table of contents' in e for e in errors), errors)
+        self.assertTrue(any('Fig-B/12' in e for e in errors), errors)
+        self.assertTrue(any('terminal' in e for e in errors), errors)
 
     def test_stale_models_and_self_qa_block_review(self):
         self.inspection['model_sha256']['internal'] = hashlib.sha256(b'old GLB').hexdigest()

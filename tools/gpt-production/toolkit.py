@@ -38,6 +38,8 @@ def initialize(root, brand, model, ai_model):
             'dimension_target_percent': 1, 'dimension_target_kind': 'educational_nominal_not_manufacturing'}
     write_json(root / 'job.json', spec)
     write_json(root / assembly_scope.PLAN, assembly_scope.new_plan(spec['revision']))
+    write_json(root / assembly_scope.BOM, {'revision': spec['revision'], 'verified_by': None,
+               'scope_status': 'unverified', 'toc_ref': {}, 'toc_family_ids': [], 'families': {}})
     write_json(root / 'model/datum.json', {'unit': 'm', 'status': 'UNVERIFIED', 'axes': None,
                                           'origin': None, 'dimensions': {}, 'source_refs': []})
     write_json(root / 'doc/sources.json', {'sources': [], 'conflicts': [], 'gaps': []})

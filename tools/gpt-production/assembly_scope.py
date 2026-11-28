@@ -7,6 +7,7 @@ import struct
 REGISTRY = Path(__file__).with_name('specialists.json')
 PLAN = 'model/assembly-plan.json'
 INSPECTION = 'qa/assembly-inspection.json'
+BOM = 'doc/bom-source-index.json'
 
 
 def load(path):
@@ -65,6 +66,68 @@ def mesh_ids(path):
                     identifiers.add(identifier)
                 break
     return identifiers
+
+
+def inspect_bom(root, revision, verified, qa_id, plan, expected):
+    """Cover every indexed OEM family/line and trace each branch to a service leaf."""
+    if BOM not in verified:
+        return ['Missing bound OEM family and line index: ' + BOM]
+    doc = load(root / BOM)
+    errors = []
+    def bound(ref):
+        return isinstance(ref, dict) and ref.get('path') in verified and bool(ref.get('locator'))
+    if (doc.get('revision') != revision or doc.get('verified_by') != qa_id
+            or doc.get('scope_status') != 'complete' or not bound(doc.get('toc_ref'))):
+        errors.append('Full variant catalog index is incomplete or not independently checked')
+    families = doc['families']
+    if not families or not isinstance(families, dict):
+        return errors + ['Empty catalog index']
+    index_ids = doc.get('toc_family_ids', [])
+    if not index_ids or len(index_ids) != len(set(index_ids)) or set(index_ids) != set(families):
+        errors.append('Catalog table of contents and specialist family coverage disagree')
+    rows = set()
+    for family, group in families.items():
+        if not bound(group.get('source_ref')):
+            errors.append('Missing catalog section locator: ' + family)
+        state = group.get('applicability')
+        if state == 'not_applicable' and group.get('reason'):
+            continue
+        if state != 'active' or not group.get('line_ids'):
+            errors.append('Unresolved or empty catalog family: ' + family)
+            continue
+        if len(set(group['line_ids'])) != len(group['line_ids']):
+            errors.append('Duplicate catalog line in ' + family)
+        for line in group['line_ids']:
+            rows.add((family, line))
+    mapped = set()
+    for key, part in expected.items():
+        for line in part.get('bom_lines', []):
+            mapped.add((line['family'], line['id']))
+    for line in sorted(rows - mapped):
+        errors.append('Unrepresented OEM family/line: ' + '/'.join(line))
+    for line in sorted(mapped - rows):
+        errors.append('Expected part references an unindexed OEM line: ' + '/'.join(line))
+    # A fastener repeated across assemblies can legitimately share a catalog line.
+    for assembly in plan['assemblies']:
+        parts = {p['id']: p for p in assembly['parts']}
+        parents = {p.get('parent_id') for p in parts.values()}
+        for key, part in parts.items():
+            if not part.get('bom_lines') and not bound(part.get('additional_service_ref')):
+                errors.append('Expected part needs BOM line or supplementary service locator: ' + key)
+            chain = {key}
+            parent = part.get('parent_id')
+            while parent is not None:
+                if parent in chain or parent not in parts:
+                    errors.append('Assembly BOM cycle or unknown parent at ' + key)
+                    break
+                chain.add(parent)
+                parent = parts[parent].get('parent_id')
+            if key not in parents:
+                terminal = part.get('terminal', {})
+                if (terminal.get('kind') not in ('physical_service_part', 'supplied_as_assembly')
+                        or not terminal.get('reason') or not bound(terminal.get('source_ref'))):
+                    errors.append('Service leaf lacks sourced terminal reason: ' + key)
+    return errors
 
 
 def inspect(root, revision, verified, qa_id):
@@ -139,6 +202,7 @@ def inspect(root, revision, verified, qa_id):
                 errors.append('Active domain without accountable assembly: ' + key)
     if not expected:
         errors.append('Empty expected parts list')
+    errors.extend(inspect_bom(root, revision, verified, qa_id, plan, expected))
     checks = report['parts']
     if checks.keys() != expected.keys():
         errors.append('Assembly inspection must account for every expected part exactly')

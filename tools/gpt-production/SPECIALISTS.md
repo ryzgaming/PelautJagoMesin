@@ -47,3 +47,20 @@ QA membuat `qa/assembly-inspection.json` berisi `revision`, `qa_agent_id`, `plan
 - `not_applicable` jika konfigurasi membuktikan bagian tidak berlaku; jelaskan varian dan locator.
 
 `check-review` menggunakan kontrak tambahan ini untuk pekerjaan baru (job schema 2) dan order lama yang memilih menambahkan rencana. Untuk migrasi manual order lama buat rencana memakai struktur di atas, pertahankan histori dan tandai bila rencana dibuat sesudah modeling. Order schema 1 tanpa rencana tetap dapat dilanjutkan menurut kontrak lama. Hash, pencocokan ID dan keputusan domain adalah pemeriksaan struktural. Pengetahuan teknik, kebenaran isi gambar, bentuk nyata dan klik viewer diperiksa independen. Status QA yang terbuka tetap terlihat pada draf privat.
+
+## Telusuri seluruh BOM sampai komponen servis terakhir
+
+Agen dokumen membuka indeks katalog varian yang tepat, lalu merekam seluruh keluarga/figure dalam `doc/bom-source-index.json`, termasuk yang dikecualikan serta alasan penerapannya. Untuk tiap figure aktif salin seluruh nomor posisi dari tabel suku cadang, termasuk baris bertingkat, subfigure, seal, spacer, washer, pin dan baut yang memang didaftar. Beri ID baris lokal unik saat nomor posisi dipakai ulang. Catat ID figure dari daftar isi sebagai daftar terpisah `toc_family_ids` sebelum spesialis mentranskrip tabel figure. QA independen memeriksa ulang indeks/halaman tiap figure terhadap sumber asli, lalu mengisi `verified_by` dan `scope_status`. Bila katalog tidak lengkap, terpotong atau applicability belum jelas, status tetap `unverified`. Jangan menyebut cakupan seluruh mesin lengkap hanya karena semua bagian pada contoh rakitan sudah diperiksa.
+
+```json
+{
+  "revision": "r01", "verified_by": "ID_QA_AKTUAL", "scope_status": "unverified",
+  "toc_ref": {"path": "doc/sources.json", "locator": "Indeks lengkap varian dan revisi katalog"},
+  "toc_family_ids": ["FIG-EXAMPLE"],
+  "families": {
+    "FIG-EXAMPLE": {"applicability": "active", "source_ref": {"path": "doc/sources.json", "locator": "Halaman tabel figure"}, "line_ids": ["1", "2a"]}
+  }
+}
+```
+
+Pada setiap part rencana, isi `parent_id` (null pada tingkat teratas), `bom_lines` contoh `[{"family":"FIG-EXAMPLE","id":"2a"}]`. ID harapan dan hubungan induk-anak menelusuri semua tingkat, termasuk subassembly. Bagian tambahan yang terbukti dari sumber servis lain dapat memakai `additional_service_ref` dengan path bukti dan locator. Tiap daun wajib memiliki `terminal: {kind, reason, source_ref}`. Gunakan `physical_service_part` untuk part fisik terakhir dan `supplied_as_assembly` hanya bila sumber menyatakan unit dijual atau diservis utuh; tetap masukkan bagian dalam yang diketahui dari potongan/parts book lain. Dokumen yang tidak tersedia belum membuktikan bahwa suatu unit merupakan daun. Bila rujukan terminal belum tersedia, pertahankan baris itu sebagai gap dan catat `missing`, `partial` atau `unverified`. Ketika tabel OEM menjelaskan satu part bernomor dipasang beberapa kali, rekonsiliasi jumlah/posisi pemasangan di inventaris bersama spesialis. Koordinator/QA membuka indeks sumber dan memeriksa jumlah baris serta kuantitas. Checker hanya dapat membandingkan daftar yang dimasukkan terhadap manifest dan mencari referensi yang putus; kebenaran transkripsi bergantung pada pemeriksaan sumber.

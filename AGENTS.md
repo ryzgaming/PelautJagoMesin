@@ -13,6 +13,8 @@ Situs ini menampilkan satu simulator gratis (Shinko GJ Simulator) dan tiga katal
 
 ## Prioritas model 3D
 
+Untuk produksi dengan GPT/Codex, baca [prompt produksi GPT](tools/gpt-production/PROMPT-GPT.md) dan [toolkit](tools/gpt-production/README.md). Panduan ini mengadopsi lampiran pemilik 28 November 2026; contoh Caterpillar dan hasil QA historis tidak menjadi bukti untuk mesin baru.
+
 1. Pakai rekaman POV atau vlog mesin nyata untuk bentuk yang terlihat, serta foto, gambar potongan, dimensi, dan dokumen pabrikan untuk ukuran dan varian tepat. Jangan gunakan animasi 3D sebagai acuan bentuk. Daftar awal dan tingkat kecocokannya ada di `dist/referensi.html`.
 2. Cocokkan skala, siluet, proporsi, volume utama, posisi poros, rumah, pipa, dan sambungan dari tampak depan, samping, atas, dan perspektif sebelum memperhalus detail.
 3. Periksa model dengan material netral. Benahi bentuk dan hubungan komponen terlebih dahulu, lalu tambahkan detail geometri, material, tekstur, dan cahaya.

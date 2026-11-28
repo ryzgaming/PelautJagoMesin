@@ -300,6 +300,12 @@ def prepare(root, packet):
     shared["previous_sessions"] = [{k: r[k] for k in ("id", "status", "updated_at") if k in r}
                                    for r in history["previous_sessions"]]
     shared.update(sections)
+    if claim.get("worker") == "codex" or str(claim.get("ai_model") or "").startswith("gpt-"):
+        guide_root = Path(__file__).resolve().parents[3] / "tools/gpt-production"
+        guide = {name: (guide_root / name).read_text() for name in ("PROMPT-GPT.md", "ROLE-PROMPTS.md", "README.md")}
+        save(dest / "production-guide.json", guide)
+        guide_hash = hashlib.sha256((dest / "production-guide.json").read_bytes()).hexdigest()
+        shared["production_guide"] = {"file": "production-guide.json", "sha256": guide_hash}
     save(dest / "context.json", shared)
     for role in ROLES:
         context = {"role": role, "machine": {k: claim[k] for k in ("id", "brand", "model", "machine_key")},
@@ -311,6 +317,8 @@ def prepare(root, packet):
             context["revision_task"] = revision
         if production_options:
             context["production_options"] = production_options
+        if "production_guide" in shared:
+            context["production_guide"] = dict(shared["production_guide"], file="../../production-guide.json")
         if brief:
             context["flow_brief"] = dict(shared["flow_brief"], file="../../flow-brief.json")
         save(dest / "roles" / role / "context.json", context)

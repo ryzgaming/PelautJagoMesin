@@ -7,7 +7,8 @@ import subprocess
 import sys
 from pathlib import Path
 
-MODEL=Path(__file__).resolve().parents[1]
+PRODUCTION=Path(__file__).resolve().parents[1]
+ROOT=PRODUCTION.parents[1]
 VERIFY=["verify_driven_gears.py", "check_function_geometry.py", "verify_turbo_oil_drills.py"]
 
 
@@ -20,7 +21,7 @@ def main():
     stage=args.build_directory.expanduser().resolve()
     project=stage/"project"
     report=stage/"result.json"
-    if stage.is_relative_to(MODEL) or not report.is_file() or json.loads(report.read_text()).get("status")!="passed":
+    if any(stage.is_relative_to(ROOT / name) for name in ("model", "agensi", "ui-workspace", "runtime")) or not report.is_file() or json.loads(report.read_text()).get("status")!="passed":
         parser.error("Expected a successful, isolated build directory")
     blender=shutil.which(args.blender)
     if not blender:
@@ -29,7 +30,7 @@ def main():
     output.mkdir(parents=True, exist_ok=True)
     for name in VERIFY:
         script=output/name
-        shutil.copyfile(MODEL/"source/qa/r06"/name, script)
+        shutil.copyfile(PRODUCTION/"source/qa/r06"/name, script)
         args_blender=[blender,"--background","--factory-startup","--threads",str(args.threads),
                       "--python-exit-code","1","--python",str(script)]
         if name=="verify_driven_gears.py":

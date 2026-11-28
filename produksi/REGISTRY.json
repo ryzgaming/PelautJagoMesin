@@ -12,7 +12,11 @@
       "workspace": "produksi/yanmar-6aym-wet-r06/ui-workspace",
       "agencyArchive": "produksi/yanmar-6aym-wet-r06/agensi",
       "manifest": "produksi/yanmar-6aym-wet-r06/model/manifest.json",
-      "masterSourceAvailable": true
+      "masterSourceAvailable": true,
+      "runtime": "produksi/yanmar-6aym-wet-r06/runtime",
+      "productionSource": "produksi/yanmar-6aym-wet-r06/agensi/produksi",
+      "layoutRevision": "r06-layout-v2",
+      "runtimeManifest": "produksi/yanmar-6aym-wet-r06/runtime/manifest.json"
     },
     {
       "id": "shinko-gj-sim",

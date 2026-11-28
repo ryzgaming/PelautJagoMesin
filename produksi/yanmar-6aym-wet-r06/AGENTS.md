@@ -1,18 +1,15 @@
-# Aturan kerja paket Yanmar R06 terpisah
+# Batas kerja paket Yanmar R06
 
-## Batas pekerjaan
+Baca README paket sebelum menyunting. Aturan pengelompokan pemilik berlaku pada folder aktif:
 
-- Untuk tugas mengganti UI, kerjakan `ui-workspace/`. Pakai API yang didokumentasikan di `model/runtime/README.md`. Jangan menyalin mekanisme mesin, geometri, register fungsi atau efek ke UI baru.
-- `model/` menyimpan bentuk, data, generator dan perilaku mesin. Ubah bagian ini hanya untuk tugas yang memang meminta perubahan model atau mekanisme. Buat keluaran generator di folder staging baru; jangan menimpa ekspor yang direview.
-- `agensi/` menyimpan bukti produksi. Pertahankan arsip asli dan hasil audit terdahulu. Temuan baru memperoleh laporan/revisi sendiri.
-- Saat diperlukan, gunakan spesialis dengan tugas dan batas file yang jelas; pemilik telah mengizinkan pembentukan agen spesialis. Profil tersimpan bukan bukti agen sudah dijalankan.
+- `model/`: GLB, master Blender, JSON inventaris/katalog/manifest dan dokumentasi model saja. Tidak boleh menaruh HTML, CSS, JavaScript, generator Python, efek, audio, screenshot QA atau panel di sini.
+- `runtime/`: API pemuatan/render 3D, mekanisme, lifecycle, efek dan audio. Boleh menerima wadah kanvas eksplisit; tidak boleh bergantung pada selector tombol/panel atau mengimpor UI.
+- `ui-workspace/`: HTML/CSS, kontrol, panel dan diagram presentasi; memakai API runtime dan membaca model melalui manifest. Tidak membuat geometri, menggandakan mekanisme, menyimpan master, BOM, PDF sumber atau laporan QA.
+- `agensi/produksi/`: generator/input pembuat dan alat build/audit. Master hasil yang direview ada di `model/masters`.
+- `agensi/referensi/`: sumber teknik/visual; `agensi/qa/`: hasil pemeriksaan/rekaman; `agensi/agen` dan snapshot skill/toolkit: bukti pembuatnya.
+- `agensi/arsip-asli` dan `agensi/arsip-paket`: sejarah. Pertahankan isi dan checksum, jangan memperbarui temuan lama seolah berasal dari revisi baru.
+- `tools/` dan `tests/`: operasional paket dan verifikasi.
 
-## Pemeriksaan perubahan UI
+Untuk perubahan UI, kerjakan UI dan kontrak yang relevan; jangan mengubah aset model. Untuk perubahan mekanisme, gunakan runtime. Untuk perubahan bentuk, gunakan master/generator dengan keluaran staging baru. Catat perubahan kontrak jika membutuhkan lebih dari satu lapisan.
 
-1. Baca README paket dan kontrak runtime.
-2. Jalankan `python tools/verify.py` sebelum dan sesudah perubahan.
-3. Jalankan `node tests/model-api.mjs` dan pemeriksaan browser yang sesuai perubahan.
-4. Periksa desktop dan viewport HP; sebutkan jika hanya emulasi.
-5. Pastikan 1.184 ID komponen, gerak, starter, aliran dan suara tetap memakai inti model yang sama. Jangan mengganti checksum baseline untuk menyembunyikan perubahan.
-
-Buat ringkasan apa yang berubah, hasil pemeriksaan dan batasnya. Model ini masih draf review privat. Jangan masukkan ke katalog tanpa instruksi pemilik. Kecocokan hash dan kelulusan UI tidak menyatakan akurasi OEM atau menutup temuan QA mekanis historis.
+Sebelum dan sesudah perubahan jalankan verifier model serta pengujian yang sesuai. Dari akar repo, `npm run check:repo` juga memeriksa batas folder. `python tools/verify.py --all` memakai manifest layout terbaru dan akan menandai perubahan file apa pun; jangan mengganti baseline untuk menyembunyikan perubahan yang tidak diminta. Paket tetap draf review; keputusan katalog milik pemilik.

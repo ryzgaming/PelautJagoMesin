@@ -8,7 +8,7 @@ async function readJSON(url) {
 
 export function createEngineSession({
   host,
-  manifestURL=new URL('../manifest.json',import.meta.url),
+  manifestURL=new URL('../model/manifest.json',import.meta.url),
   manifest:providedManifest,
   deps={three:globalThis.THREE, motion:globalThis.FunctionalMotion, audio:globalThis.OrangMesinAudio,
     flow:globalThis.OrangMesinFlow, fire:globalThis.OrangMesinFire},

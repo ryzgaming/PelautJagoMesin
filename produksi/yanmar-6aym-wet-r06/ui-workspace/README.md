@@ -14,8 +14,8 @@ HTTP untuk membaca manifest dan model.
   antarmuka pengganti. Halaman mengimpor sesi model sendiri dan memakai
   perintah publik yang sama.
 - `presentation.js` mengatur tautan perbandingan, rekaman browser dan
-  laporan. `assets/` di sini berisi bahan presentasi antarmuka.
-- Scene, algoritme, manifest dan kedua GLB berada di `../model/`.
-  Lihat [kontrak runtime](../model/runtime/README.md) saat membuat
+  laporan. Bahan QA dan diagram referensi berada di `../agensi/`. Folder `assets/` UI hanya menyimpan gaya Studio dan kode antarmuka diagram.
+- Runtime dan algoritme simulasi berada di `../runtime/`. Inventaris, daftar suku cadang, manifest model, dan kedua GLB berada di `../model/`.
+  Lihat [kontrak runtime](../runtime/README.md) saat membuat
   antarmuka baru. Aset model dapat diverifikasi kembali dari akar
   paket dengan `node tests/model-api.mjs`.

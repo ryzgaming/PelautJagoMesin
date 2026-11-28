@@ -21,7 +21,7 @@ Website, aplikasi Alur, alat produksi, agen/skill, serta model mesin disimpan me
 ```text
 apps/alur-workflow/   Aplikasi Alur; src/features dikelompokkan menurut fitur
 agensi/              Indeks agen dan skill aktif, tanpa menyalin konfigurasinya
-produksi/            Paket model per mesin/revisi: model, ui-workspace, agensi
+produksi/            Paket per mesin/revisi: model, runtime, ui-workspace, agensi
 .agents/skills/      Skill kanonis yang dibaca alat
 .codex/agents/       Profil agen Codex; konfigurasi di .codex/config.toml
 .claude/skills/      Symlink ke skill kanonis
@@ -52,4 +52,4 @@ Build menghasilkan `dist/alur/` dan mempertahankan URL `/alur/`. `dist/`, `funct
 
 ## Batas perubahan
 
-Ubah tampilan Yanmar di `produksi/yanmar-6aym-wet-r06/ui-workspace/`; model dan mekanisme berada di folder `model/` yang sejajar. `agensi/` di dalam paket mesin adalah arsip bukti versi tersebut, sedangkan [agensi akar repo](agensi/README.md) menunjuk alat aktif untuk pekerjaan berikutnya. Ikuti [AGENTS.md](AGENTS.md) sebelum mengubah sumber.
+Ubah tampilan Yanmar di `produksi/yanmar-6aym-wet-r06/ui-workspace/`; model/datanya berada di folder `model/` dan kode mekanisme di `runtime/` yang sejajar. `agensi/` di dalam paket mesin adalah arsip bukti versi tersebut, sedangkan [agensi akar repo](agensi/README.md) menunjuk alat aktif untuk pekerjaan berikutnya. Ikuti [AGENTS.md](AGENTS.md) sebelum mengubah sumber.

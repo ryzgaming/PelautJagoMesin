@@ -2,6 +2,10 @@
 
 Untuk memulai mesin baru atau mengadopsi proyek dengan AI lain, baca [instruksi adopsi AI](agensi/ADOPSI-AI.md). Terapkan pemetaan jenis mesin, kelengkapan komponen dan gerbang QA-nya sebelum memakai contoh Yanmar sebagai acuan.
 
+## Batas folder model dan workspace
+
+Keputusan pemilik 29 November 2026: folder model hanya memuat model/data; UI harus terpisah. Paket aktif menggunakan `model/` (GLB/Blend/JSON), `runtime/` (pemuat/render, mekanisme, efek/audio), `ui-workspace/` (HTML/CSS/kontrol), serta `agensi/produksi`, `agensi/referensi`, dan `agensi/qa` sesuai fungsinya. Jangan memasukkan kode UI/runtime/generator ke folder model atau menyimpan model/BOM/laporan QA di UI. Arsip lama tetap utuh; perubahan tata letak aktif harus memiliki peta migrasi, checksum dan pengujian pemuatan.
+
 ## Peta kerja repo
 
 Baca [peta repo](docs/REPOSITORY.md), [agensi aktif](agensi/README.md) dan [daftar model](produksi/REGISTRY.json). Sumber Alur dikelompokkan di `apps/alur-workflow/src/features/`; panduan toolkit ada di `tools/gpt-production/docs/`. Skill/agen tetap pada lokasi autodiscovery `.agents/`, `.codex/`, `.claude/`. Paket per mesin memisahkan model, UI dan arsip agensi. Jangan memperbarui arsip historis ketika mengedit konfigurasi aktif. Setelah memindahkan berkas, jalankan `npm run check:repo` dan tes yang terdampak.

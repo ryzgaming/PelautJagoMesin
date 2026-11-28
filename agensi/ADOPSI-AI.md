@@ -28,7 +28,7 @@ Semua komponen harus melakukan fungsi yang benar dalam kondisi yang relevan;
 komponen diam harus tetap diam. Internal, gerak, aliran, starter dan suara
 berlaku sesuai sistem yang memang ada pada mesin ini.
 
-Pisahkan model / ui-workspace / agensi. Simpan sumber pembuat, master, data,
+Pisahkan model / runtime / ui-workspace / agensi. Simpan sumber pembuat, master, data,
 referensi, keputusan, versi alat, checksum dan bukti QA. Bekerja sampai hasil
 terverifikasi atau ada hambatan bukti/alat yang spesifik. Jangan mengisi gap
 dengan bentuk rekaan yang dipresentasikan sebagai OEM, jangan meluluskan QA
@@ -52,7 +52,7 @@ Baca dalam urutan berikut, lalu buka modul yang relevan—jangan berhenti pada d
 3. [Prompt produksi GPT](../tools/gpt-production/PROMPT-GPT.md), [toolkit](../tools/gpt-production/README.md), [peran](../tools/gpt-production/docs/ROLE-PROMPTS.md), [spesialis rakitan](../tools/gpt-production/docs/SPECIALISTS.md), [fluida](../tools/gpt-production/docs/FLOW-ROUTING.md), dan [gerak/benturan](../tools/gpt-production/docs/MOTION-QA.md).
 4. Skill aktif yang sesuai di `.agents/skills/`; profil di `.codex/agents/` dan alias Claude di `.claude/skills/` adalah lokasi kanonis. Baca isinya jika runtime tidak melakukan penemuan otomatis.
 5. Skill `orang-mesin-3d-presisi` bila tersedia. Jika tidak, baca [ekspor mandirinya](../produksi/yanmar-6aym-wet-r06/agensi/skills-cloud/orang-mesin-3d-presisi/assets/portable-SKILL.md) sebagai snapshot panduan yang disertakan, bukan bukti skill sudah terpasang.
-6. [Sumber/build Yanmar](../produksi/yanmar-6aym-wet-r06/model/source/README.md), [kontrak runtime](../produksi/yanmar-6aym-wet-r06/model/runtime/README.md), [contoh UI pengganti](../produksi/yanmar-6aym-wet-r06/ui-workspace/minimal.js), dan [QA pemisahan](../produksi/yanmar-6aym-wet-r06/agensi/validasi-pemisahan/LAPORAN.md) sebagai contoh arsitektur dan bukti.
+6. [Sumber/build Yanmar](../produksi/yanmar-6aym-wet-r06/agensi/produksi/source/README.md), [kontrak runtime](../produksi/yanmar-6aym-wet-r06/runtime/README.md), [contoh UI pengganti](../produksi/yanmar-6aym-wet-r06/ui-workspace/minimal.js), dan [QA pemisahan](../produksi/yanmar-6aym-wet-r06/agensi/validasi-pemisahan/LAPORAN.md) sebagai contoh arsitektur dan bukti.
 
 Catat commit, branch, perubahan lokal yang sudah ada, versi Python/Blender/viewer, ketersediaan subagen, pembacaan PDF, akses sumber, kemampuan melihat gambar/render, browser dan lokasi hasil. Pastikan GLB/Blend/PDF yang dibutuhkan adalah berkas nyata setelah Git LFS diambil, bukan pointer teks. Uji satu render kecil serta ekspor/impor sederhana sebelum produksi besar.
 
@@ -112,14 +112,16 @@ Paket akhir mesin baru mengikuti batas berikut; nama subfolder dapat mengikuti k
 
 ```text
 produksi/<mesin-varian-revisi>/
-  model/          master, generator, input, GLB, inventaris, rute,
-                  mekanisme, runtime, efek/audio, API dan manifest
+  model/          GLB, master Blender, data/inventaris dan manifest model
+  runtime/        pemuat/render 3D, mekanisme, efek/audio, API dan konfigurasinya
   ui-workspace/   HTML/CSS, panel, kontrol, label dan aset presentasi
-  agensi/         snapshot alat/prompt/profil yang dipakai, referensi,
+  agensi/         generator/input/build, snapshot alat/prompt/profil, referensi,
                   keputusan, laporan agen, QA dan riwayat revisi
 ```
 
 Folder kerja awal toolkit dapat tetap memakai `doc/`, `model/`, `qa/`, `review/` sesuai kontraknya. Pengemasan akhir tidak boleh merusak path atau hash yang diaudit; lakukan pemetaan, verifier dan audit ulang yang relevan sesudah pemisahan. Jangan memodifikasi arsip Yanmar untuk menyimpan mesin baru.
+
+Batas folder bersifat wajib: `model/` tidak berisi HTML/CSS/JavaScript atau generator; UI tidak berisi GLB/Blend/BOM/PDF atau laporan QA. Kode operasi berada di `runtime/`, generator di `agensi/produksi/`, sumber di `agensi/referensi/`, dan bukti pemeriksaan di `agensi/qa/`. Arsip historis mempertahankan susunan aslinya sebagai bukti.
 
 UI memanggil API runtime, tidak menyimpan ulang fisika atau konstanta mesin dalam tombol/panel. Jangan menyalin `engine-session.js` Yanmar beserta ID, kamera, fase dan parameter khususnya lalu mengganti judul saja. Ekstrak/pakai bagian yang dapat digunakan ulang dan buat konfigurasi/adaptor khusus mesin target. Jika menyatakan UI dapat diganti, buktikan dengan UI kedua yang memakai aset dan mekanisme sama serta menghasilkan pose yang sama pada waktu simulasi sama.
 

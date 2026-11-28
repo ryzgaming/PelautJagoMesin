@@ -13,9 +13,10 @@ import tempfile
 import time
 from pathlib import Path
 
-MODEL = Path(__file__).resolve().parents[1]
-SOURCE = MODEL / "source"
-ROOT = MODEL.parent
+PRODUCTION = Path(__file__).resolve().parents[1]
+SOURCE = PRODUCTION / "source"
+ROOT = PRODUCTION.parents[1]
+MODEL = ROOT / "model"
 LAYERS = ("internal", "exterior")
 
 
@@ -46,8 +47,8 @@ def main():
         parser.error("--threads must be positive")
     if args.output:
         stage = args.output.expanduser().resolve()
-        if any(stage.is_relative_to(ROOT / x) for x in ("model", "ui-workspace", "agensi")):
-            parser.error("Choose a new build folder outside model, ui-workspace and agensi")
+        if any(stage.is_relative_to(ROOT / x) for x in ("model", "ui-workspace", "runtime", "agensi")):
+            parser.error("Choose a new build folder outside model, ui-workspace, runtime and agensi")
         stage.mkdir(parents=True, exist_ok=False)
     else:
         stage = Path(tempfile.mkdtemp(prefix="yanmar-r06-build-"))
@@ -95,7 +96,7 @@ def main():
     if args.target in ("all", "metadata"):
         run("motion", [sys.executable, str(model / "motion/build_motion.py")])
         run("functions", [sys.executable, str(model / "motion/build_functions.py")])
-    reference = json.loads((MODEL / "tools/reference.json").read_text())
+    reference = json.loads((PRODUCTION / "tools/reference.json").read_text())
     nodes = set()
     for layer in LAYERS:
         asset = model / layer / (layer+".glb")

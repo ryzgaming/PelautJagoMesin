@@ -2,6 +2,9 @@
 
 ## Keputusan aktif
 
+- **FOLDER-BOUNDARY-001 · 29 November 2026 · penegasan pemilik:** model hanya model/data, UI di folder sendiri, kelompok lain juga terpisah. Paket Yanmar layout-v2 memisahkan runtime dari model; generator/tools ke `agensi/produksi`, master ke `model/masters`, data katalog ke model, dan bukti/media ke referensi/QA. Geometri/inventaris/master tetap sama; manifest layout baru tidak mengganti bukti layout-v1 yang diarsipkan. Instruksi AI berikutnya mengikuti batas baru ini.
+
+
 - **ADOPSI-AI-001 · 28 November 2026 · permintaan pemilik:** sediakan instruksi lintas AI/jenis mesin untuk menerapkan seluruh proses produksi. [Pintu masuk](../agensi/ADOPSI-AI.md) menggabungkan rujukan aktif, spesialis nyata, kelengkapan internal/BOM, jalur, gerak/audio, QA independen dan pemisahan model/UI/agensi. Contoh Yanmar tidak menjadi data teknik atau kelulusan untuk mesin lain. Instruksi tidak otomatis menjalankan agen atau menerbitkan order baru.
 
 

@@ -32,7 +32,7 @@ function show(figures){
  }
  document.querySelector('#count').textContent=total+' posisi katalog dalam '+groups+' gambar';
 }
-fetch('assets/daftar-yanmar.json').then(r=>{if(!r.ok)throw Error();return r.json()}).then(data=>{
+fetch('../model/assets/daftar-yanmar.json').then(r=>{if(!r.ok)throw Error();return r.json()}).then(data=>{
  document.querySelector('#scope').textContent=data.scope;
  for(const f of data.figures){const o=el('option',f.figure+' · '+f.title);o.value=f.figure;figureSelect.append(o)}
  figureSelect.value=new URLSearchParams(location.search).get('fig')||'';search.addEventListener('input',()=>show(data.figures));figureSelect.addEventListener('change',()=>show(data.figures));show(data.figures);

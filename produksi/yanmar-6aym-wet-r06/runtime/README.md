@@ -1,6 +1,6 @@
 # Kontrak runtime Yanmar r06
 
-Paket memakai aset model terkunci yang tercantum di [manifest](../manifest.json).
+Paket memakai aset model terkunci yang tercantum di [manifest](../model/manifest.json).
 Kedua GLB dan inventaris JSON sama byte demi byte dengan draf r06. Semua
 1.184 ID komponen dipertahankan. Runtime membaca aset relatif terhadap
 manifest. Metadata inventaris disalin ke sesi sebelum handle Three.js
@@ -21,12 +21,12 @@ dalam memori sesi.
 
 ## Contoh integrasi
 
-Host berisi pustaka lokal yang tercantum dalam `manifest.runtime.vendor`.
+Host berisi pustaka lokal yang tercantum dalam [manifest runtime](manifest.json).
 Muat lima skrip tersebut sebelum impor berikut. Lihat
-[panel ringkas](../../ui-workspace/minimal.html) untuk contoh yang berjalan.
+[panel ringkas](../ui-workspace/minimal.html) untuk contoh yang berjalan.
 
 ```js
-import {createEngineSession} from '../model/runtime/engine-session.js';
+import {createEngineSession} from '../runtime/engine-session.js';
 
 const model = createEngineSession({host: document.querySelector('#viewer')});
 model.subscribe(({type, state}) => {
@@ -71,4 +71,4 @@ memakai perintah publik dan berdiri tanpa jembatan tersebut.
 
 Jalankan `node tests/model-api.mjs` dari akar paket untuk menguji checksum,
 ID dan siklus start/stop murni. Uji browser opsional ada di
-[tests/browser.mjs](../../tests/browser.mjs).
+[tests/browser.mjs](../tests/browser.mjs).

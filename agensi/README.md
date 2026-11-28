@@ -54,7 +54,7 @@ Koordinator menyiapkan job, sumber dan pembagian rakitan. Peneliti menyiapkan bu
 
 Perangkat aktif dipakai untuk order baru. Hasil per mesin berada di `produksi/<mesin>/`: model, UI workspace dan arsip agensi revisi tersebut. **`produksi/*/agensi` adalah sejarah produksi beku**, bukan sumber aktif yang harus disinkronkan setiap kali profil atau toolkit berubah. Jangan mengganti prompt, hash, lokasi historis atau hasil QA di dalam arsip. Peningkatan aktif berlaku pada produksi berikutnya; perubahan model memerlukan revisi dan QA baru. Lihat [indeks produksi](../produksi/README.md).
 
-Untuk paket model yang sudah dipisahkan, agen UI hanya mengubah UI dan memakai kontrak runtime. Agen model menangani geometri/data; perubahan gerak, efek atau audio ditugaskan ke modul runtime terkait. Catat perubahan kontrak dan audit independen. Keputusan katalog tetap milik pemilik.
+Untuk paket model yang sudah dipisahkan, agen UI hanya mengubah UI dan memakai kontrak runtime. Agen model menangani geometri/data di `model/`; perubahan gerak, efek atau audio ditugaskan ke `runtime/` tersendiri, dan generator berada di `agensi/produksi/`. Catat perubahan kontrak dan audit independen. Keputusan katalog tetap milik pemilik.
 
 ## Pemeriksaan setelah perubahan agensi
 

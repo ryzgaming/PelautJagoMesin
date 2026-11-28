@@ -1,4 +1,4 @@
-# Aset produksi besar berada di Git LFS; lingkup hanya folder produksi ini.
+# Aset produksi besar memakai Git LFS; path mengikuti layout aktif.
 *.glb filter=lfs diff=lfs merge=lfs -text
 *.blend filter=lfs diff=lfs merge=lfs -text
 "yanmar-6aym-wet-r06/MANIFEST-PAKET.json" filter=lfs diff=lfs merge=lfs -text
@@ -418,7 +418,11 @@
 "yanmar-6aym-wet-r06/agensi/arsip-asli/objects/fe/fe71ed0b1f41f02b24c4f4f1867a19b9affe963c7d494602784b62c32ee676e4" filter=lfs diff=lfs merge=lfs -text
 "yanmar-6aym-wet-r06/agensi/arsip-asli/objects/fe/fed3aeee3b8986cf369e8bbb22630d28a81a29495cccd605e15bf7082852d3cb" filter=lfs diff=lfs merge=lfs -text
 "yanmar-6aym-wet-r06/agensi/arsip-asli/objects/ff/ff90a60ad3cf393782c5145523ff90f192baba1ab443aad6c9462d2b50dba04e" filter=lfs diff=lfs merge=lfs -text
+"yanmar-6aym-wet-r06/agensi/arsip-paket/r06-layout-v1/MANIFEST-PAKET.json" filter=lfs diff=lfs merge=lfs -text
 "yanmar-6aym-wet-r06/agensi/perangkat-produksi/repo-snapshot/dist/assets/three.min.js" filter=lfs diff=lfs merge=lfs -text
+"yanmar-6aym-wet-r06/agensi/produksi/source/doc/D01-service.pdf" filter=lfs diff=lfs merge=lfs -text
+"yanmar-6aym-wet-r06/agensi/produksi/source/model/exterior/inventory.json" filter=lfs diff=lfs merge=lfs -text
+"yanmar-6aym-wet-r06/agensi/produksi/source/model/internal/inventory.json" filter=lfs diff=lfs merge=lfs -text
 "yanmar-6aym-wet-r06/agensi/qa/efek/baseline/dist/assets/three.min.js" filter=lfs diff=lfs merge=lfs -text
 "yanmar-6aym-wet-r06/agensi/qa/efek/bukti-review-efek-PR41.zip" filter=lfs diff=lfs merge=lfs -text
 "yanmar-6aym-wet-r06/agensi/qa/r06/flow-render/blender-candidate.log" filter=lfs diff=lfs merge=lfs -text
@@ -636,6 +640,10 @@
 "yanmar-6aym-wet-r06/agensi/qa/r06/round2/neutral_kanan.png" filter=lfs diff=lfs merge=lfs -text
 "yanmar-6aym-wet-r06/agensi/qa/r06/round2/neutral_kiri.png" filter=lfs diff=lfs merge=lfs -text
 "yanmar-6aym-wet-r06/agensi/qa/r06/round2/neutral_tiga_perempat.png" filter=lfs diff=lfs merge=lfs -text
+"yanmar-6aym-wet-r06/agensi/qa/viewer-r06/pembakaran-hp.png" filter=lfs diff=lfs merge=lfs -text
+"yanmar-6aym-wet-r06/agensi/qa/viewer-r06/pembakaran.png" filter=lfs diff=lfs merge=lfs -text
+"yanmar-6aym-wet-r06/agensi/qa/viewer-r06/perbandingan-desktop.png" filter=lfs diff=lfs merge=lfs -text
+"yanmar-6aym-wet-r06/agensi/qa/viewer-r06/perbandingan-hp.png" filter=lfs diff=lfs merge=lfs -text
 "yanmar-6aym-wet-r06/agensi/referensi/dokumen/D01-service.pdf" filter=lfs diff=lfs merge=lfs -text
 "yanmar-6aym-wet-r06/agensi/referensi/dokumen/D02-operation.pdf" filter=lfs diff=lfs merge=lfs -text
 "yanmar-6aym-wet-r06/agensi/referensi/dokumen/D03-p-17.png" filter=lfs diff=lfs merge=lfs -text
@@ -675,13 +683,6 @@
 "yanmar-6aym-wet-r06/model/assets/data.json" filter=lfs diff=lfs merge=lfs -text
 "yanmar-6aym-wet-r06/model/assets/exterior.glb" filter=lfs diff=lfs merge=lfs -text
 "yanmar-6aym-wet-r06/model/assets/internal.glb" filter=lfs diff=lfs merge=lfs -text
-"yanmar-6aym-wet-r06/model/runtime/vendor/three-bundle.js" filter=lfs diff=lfs merge=lfs -text
-"yanmar-6aym-wet-r06/model/source/doc/D01-service.pdf" filter=lfs diff=lfs merge=lfs -text
-"yanmar-6aym-wet-r06/model/source/model/exterior/exterior.blend" filter=lfs diff=lfs merge=lfs -text
-"yanmar-6aym-wet-r06/model/source/model/exterior/inventory.json" filter=lfs diff=lfs merge=lfs -text
-"yanmar-6aym-wet-r06/model/source/model/internal/internal.blend" filter=lfs diff=lfs merge=lfs -text
-"yanmar-6aym-wet-r06/model/source/model/internal/inventory.json" filter=lfs diff=lfs merge=lfs -text
-"yanmar-6aym-wet-r06/ui-workspace/assets/review-r06/pembakaran-hp.png" filter=lfs diff=lfs merge=lfs -text
-"yanmar-6aym-wet-r06/ui-workspace/assets/review-r06/pembakaran.png" filter=lfs diff=lfs merge=lfs -text
-"yanmar-6aym-wet-r06/ui-workspace/assets/review-r06/perbandingan-desktop.png" filter=lfs diff=lfs merge=lfs -text
-"yanmar-6aym-wet-r06/ui-workspace/assets/review-r06/perbandingan-hp.png" filter=lfs diff=lfs merge=lfs -text
+"yanmar-6aym-wet-r06/model/masters/exterior.blend" filter=lfs diff=lfs merge=lfs -text
+"yanmar-6aym-wet-r06/model/masters/internal.blend" filter=lfs diff=lfs merge=lfs -text
+"yanmar-6aym-wet-r06/runtime/vendor/three-bundle.js" filter=lfs diff=lfs merge=lfs -text

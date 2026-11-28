@@ -26,3 +26,6 @@ PACKAGE_URL=http://127.0.0.1:8766/ npm run test:browser
 `CHROMIUM_EXECUTABLE` bisa menunjuk binari Chromium yang sudah terpasang. Uji dalam paket dijalankan dengan Node 24.22.3, Playwright 1.62.1, Chromium 156.0.8078.79 dan software renderer SwiftShader. Uji dapat lebih lambat pada komputer tanpa GPU. Tidak ada API AI atau kredensial yang diperlukan.
 
 Audit independen dan bukti empat kombinasi UI/viewport berada di `agensi/validasi-pemisahan`. Skrip pengujian pose deterministik menyuntikkan observer melalui intersepsi response hanya pada sesi QA; observer tidak ditulis ke runtime yang digunakan pemilik. Dua UI dibandingkan pada clock simulasi yang sama. Artefak kegagalan kandidat lama diberi label historis dan dipisahkan dari laporan akhir.
+
+
+Pemisahan folder ketat layout-v2 memiliki bukti baru di `agensi/qa/struktur-folder-v2/`. Laporan `agensi/validasi-pemisahan/` adalah bukti layout-v1 dan tidak ditulis ulang. API model membaca `model/manifest.json`; modul runtime membaca `runtime/manifest.json`.

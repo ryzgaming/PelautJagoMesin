@@ -14,13 +14,15 @@ Penataan 28 November 2026 memisahkan sumber aplikasi, alat aktif, hasil model da
 ## Model dan agensi
 
 - [Daftar model](../produksi/REGISTRY.json) membedakan paket lengkap Yanmar, simulator Shinko, halaman katalog premium, dan pratinjau historis branch main. Tidak semua halaman katalog mempunyai master model di branch ini.
-- `produksi/<mesin-revisi>/model/`: master, GLB, data, generator, runtime dan mekanisme.
+- `produksi/<mesin-revisi>/model/`: master Blender, GLB, data dan manifest saja.
+- `produksi/<mesin-revisi>/runtime/`: kode gerak, pemuat/render 3D, efek, audio dan API.
+- `produksi/<mesin-revisi>/agensi/produksi/`: generator, input pembuat dan alat build/audit.
 - `produksi/<mesin-revisi>/ui-workspace/`: antarmuka pengganti yang menggunakan API model.
 - `produksi/<mesin-revisi>/agensi/`: bukti alat, referensi, QA dan riwayat pada revisi tersebut; dipertahankan agar dapat diaudit.
 - [Agensi akar repo](../agensi/README.md): indeks alat aktif untuk pekerjaan berikutnya. Profil di `.codex/agents`, skill di `.agents/skills`, dan alias Claude di `.claude/skills`. Lokasi khusus ini dipertahankan agar penemuan otomatis tetap berfungsi.
 - `tools/gpt-production/`: entry point Python, prompt utama, input spesialis, `docs/` untuk panduan, dan `tests/` untuk kontrak produksi. Worker memuat panduan dari lokasi yang sama.
 
-Sumber aktif tidak diduplikasi untuk membuat folder terlihat seragam. Arsip lama tidak diperbarui bersamaan dengan profil aktif. Paket Yanmar tetap persis sesuai manifest saat impor repo; indeks baru berada di luarnya.
+Sumber aktif tidak diduplikasi untuk membuat folder terlihat seragam. Arsip lama tidak diperbarui bersamaan dengan profil aktif. Geometri, inventaris dan master Yanmar tetap sesuai checksum yang direview. Layout-v2 memisahkan model, runtime, UI dan produksi; manifest layout-v1 disimpan sebagai sejarah, sementara manifest paket aktif mencatat lokasi terkini.
 
 ## Tes, dokumen dan operasi
 

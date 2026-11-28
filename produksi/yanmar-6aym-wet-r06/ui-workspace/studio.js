@@ -1,4 +1,4 @@
-import {createEngineSession} from '../model/runtime/engine-session.js';
+import {createEngineSession} from '../runtime/engine-session.js';
 import {presentation} from './presentation.js';
 
 const $=id=>document.getElementById(id);
@@ -226,7 +226,7 @@ function appendInjectorPlates(parent, entry) {
   const inline = $('embedded-injector-plates');
   if (!inline) {
     const link = element('a','Diagram injektor berlabel');
-    link.href = './assets/injector-plates/injector-legend.html';
+    link.href = '../agensi/referensi/viewer/injector-plates/injector-legend.html';
     parent.append(link);
     return;
   }

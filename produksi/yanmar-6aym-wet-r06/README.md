@@ -1,69 +1,57 @@
-# Paket terpisah Yanmar 6AYM-WET — R06
+# Yanmar 6AYM-WET R06 — folder berdasarkan tanggung jawab
 
-Paket kerja ini memisahkan **MODEL**, **UI WORKSPACE**, dan **AGENSI PRODUKSI**. Dua GLB dan inventaris yang sudah direview pemilik dipertahankan persis; perubahan UI tidak memerlukan ekspor ulang model. Paket ini tetap bahan review privat dan belum disetujui masuk katalog.
+Geometri mesin tetap R06. Susunan paket diperbarui pada 29 November 2026 agar model, tampilan, kode operasi dan bahan pembuatnya benar-benar berada di folder terpisah. Model ini masih bahan review; belum disetujui masuk katalog.
 
-## Tiga bagian
-
-| Folder | Isi dan tanggung jawab |
+| Folder | Isi yang diperbolehkan |
 |---|---|
-| `model/` | GLB eksterior/internal, inventaris 1.184 mesh, master Blender, generator, parameter/78 resep rakitan/164 jalur, inti gerak dan lifecycle, efek aliran/pembakaran, audio sintetis, manifest/API dan alat build. |
-| `ui-workspace/` | HTML, CSS, kontrol, label, panel, daftar komponen, diagram dan gambar presentasi. Studio lengkap dan contoh UI ringkas memakai inti/model yang sama. |
-| `agensi/` | Profil dan brief agen, instruksi proyek/skill/prompt, toolkit dan worker, lampiran asli, manual/foto/video yang tersedia, catatan riset, QA, hasil uji pemisahan dan arsip produksi asli r01–r06. |
+| [`model/`](model/) | **Data/model saja:** GLB, master Blender, inventaris/katalog JSON dan manifest model. Tidak ada HTML, CSS, JavaScript atau skrip pembuat. |
+| [`runtime/`](runtime/README.md) | Kode mesin saat dijalankan: pemuat/render 3D, mekanisme, lifecycle, aliran, pembakaran, suara dan API. Tidak mencari tombol/panel milik UI. |
+| [`ui-workspace/`](ui-workspace/README.md) | HTML/CSS, panel, tombol, kontrol, label dan diagram antarmuka. Tidak menyimpan GLB, master, BOM, generator atau laporan QA. |
+| [`agensi/produksi/`](agensi/produksi/source/README.md) | Generator, input pembuat, alat build/audit dan prosedur produksi ulang. |
+| [`agensi/agen/`](agensi/agen/README.md) | Profil/brief agen produksi; alat dan skill yang dipakai tersedia di subfolder agensi terkait. |
+| [`agensi/referensi/`](agensi/referensi/README.md) | Manual, katalog sumber, foto/frame/video dan bahan rujukan. Bahan yang ditampilkan viewer ada di `referensi/viewer/`. |
+| [`agensi/qa/`](agensi/qa/) | Bukti pemeriksaan, gambar pembanding, rekaman dan contoh audio QA. Media yang dibuka UI ada di `qa/viewer-r06/`. |
+| [`agensi/arsip-asli/`](agensi/arsip-asli/README.md) | Riwayat produksi R01–R06 yang dipertahankan persis; bukan sumber aktif yang ikut ditulis ulang. |
+| `tests/`, `tools/` | Pengujian paket, server lokal dan pemeriksa checksum; bukan kode model. |
 
-`tools/` berisi pembuka server dan pemeriksa checksum. `tests/` berisi pemeriksaan kontrak/model. `MANIFEST-PAKET.json` memetakan setiap berkas dalam paket ke checksum, selain manifest itu sendiri.
+Aturan pengelompokan berlaku untuk folder aktif. Arsip historis mempertahankan struktur dan nama berkas pada waktu dibuat. Manifest paket sebelum pemisahan ketat disimpan di `agensi/arsip-paket/r06-layout-v1/`; versi Git lama juga tetap tersedia. [Peta perubahan folder](agensi/arsip-paket/r06-layout-v2.json) menghubungkan lokasi lama dengan yang baru.
 
-## Membuka model dan dua UI
+## Menjalankan dua UI
 
-Ekstrak paket, buka terminal di folder ini, lalu jalankan dengan Python 3.11+:
+Dari folder paket ini, gunakan Python 3.11+:
 
 ```sh
 python tools/serve.py
 ```
 
-Buka `http://localhost:8766/ui-workspace/index.html` untuk Studio, atau `http://localhost:8766/ui-workspace/minimal.html` untuk UI ringkas. File JavaScript/GLB memerlukan server HTTP, sehingga HTML tidak dibuka langsung dengan klik ganda. Browser modern dengan WebGL diperlukan. Viewer memiliki dependensi lokal dan tidak memerlukan API key atau akun AI.
+Buka `http://localhost:8766/ui-workspace/` untuk Studio atau `http://localhost:8766/ui-workspace/minimal.html` untuk UI ringkas. Kedua UI memuat model dan runtime yang sama. Browser perlu WebGL; file harus disajikan lewat HTTP, bukan klik ganda HTML.
 
-Untuk review di HP pada jaringan lokal yang sama:
+Untuk HP dalam jaringan yang sama, gunakan `python tools/serve.py --bind 0.0.0.0` lalu buka alamat IP komputer dan port 8766 dari HP. Viewer tidak memerlukan API key AI. Jika ingin hosting, sertakan `model/assets/`, `model/manifest.json`, `runtime/`, `ui-workspace/`, `agensi/referensi/viewer/` dan `agensi/qa/viewer-r06/` sesuai rujukan UI; master, generator dan arsip besar tidak diperlukan oleh viewer. Keberhasilan emulasi HP tidak membuktikan pengujian perangkat fisik.
 
-```sh
-python tools/serve.py --bind 0.0.0.0
-```
+## Mengganti UI
 
-Buka alamat IP komputer dengan port 8766 dari HP, misalnya `http://192.168.1.10:8766/ui-workspace/`. IP hanya contoh; gunakan IP komputer sendiri. Server ini untuk review lokal. Untuk hosting, publikasikan **hanya** `model/assets`, `model/runtime`, `model/manifest.json`, dan `ui-workspace`; arsip agensi/manual/master tidak diperlukan oleh viewer.
-
-## Mengganti UI tanpa mengubah model
-
-Mulai dari `ui-workspace/minimal.html`, `minimal.css` dan `minimal.js`. Gunakan API `model/runtime/engine-session.js` dan `model/manifest.json` untuk memuat model, memberi perintah, memilih komponen dan menerima status. Dokumentasi API berada di `model/runtime/README.md`. Ubah tampilan/kontrol di folder UI. Identitas komponen, koordinat, mekanisme, efek dan audio tetap ditangani inti model. UI tidak menjadi masukan generator geometri.
-
-Sebelum dan sesudah mengubah UI, jalankan:
+Mulai dari `ui-workspace/minimal.html`, CSS dan JavaScript-nya. Gunakan [API runtime](runtime/README.md); jangan memindahkan geometri atau mekanisme ke panel UI. `model/manifest.json` hanya mendeskripsikan model. Konfigurasi pemuatan kode ada di `runtime/manifest.json`.
 
 ```sh
 python tools/verify.py
 node tests/model-api.mjs
 ```
 
-Pemeriksaan pertama membandingkan dua GLB dan inventaris dengan checksum baseline. Uji kedua memeriksa kontrak berkas, 1.184 ID unik dan urutan kerja starter. Untuk memastikan seluruh paket awal tidak berubah, jalankan `python tools/verify.py --all`; perubahan UI yang disengaja akan membuat audit seluruh paket mendeteksi perbedaan, sedangkan audit model tetap dapat lulus.
+Perintah pertama memeriksa aset sesuai checksum model; kedua memeriksa lifecycle/API. `python tools/verify.py --all` memeriksa seluruh paket terhadap manifest layout terbaru. Perubahan UI yang disengaja akan terdeteksi oleh audit seluruh paket, sedangkan aset model tetap dapat diverifikasi sendiri. Jangan mengganti checksum untuk menutupi perubahan model.
 
-Perubahan fitur mekanis harus melalui revisi model dan QA baru. Jangan mengganti checksum baseline hanya agar tes lolos. Pertahankan `model/` dan `ui-workspace/` sebagai folder bersaudara saat dipindahkan; keduanya bekerja menggunakan path relatif.
+## Mengedit atau membuat ulang model
 
-## Produksi ulang dan arsip
-
-Panduan sumber: [model/source/README.md](model/source/README.md). Blender 4.3.2 dipakai pada uji build dari folder kosong; binari Blender/Python/browser tidak dibundel. Kedua master Blender mandiri tanpa file tertaut eksternal. Generator menghasilkan salinan baru tanpa menimpa ekspor review.
+Buka `model/masters/exterior.blend` dan `model/masters/internal.blend` untuk master yang dapat diedit. Skrip pembuat, parameter dan masukan ada di **agensi/produksi**, sehingga folder model bersih dari program pembuat dan UI. Ikuti [panduan sumber](agensi/produksi/source/README.md).
 
 ```sh
-python model/tools/build.py --target all --output hasil-build-01
-python model/tools/audit.py hasil-build-01
+python agensi/produksi/tools/build.py --target all --output hasil-build-01
+python agensi/produksi/tools/audit.py hasil-build-01
 ```
 
-Panduan agen: [agensi/PANDUAN-PRODUKSI.md](agensi/PANDUAN-PRODUKSI.md). Arsip revisi: [agensi/arsip-asli/README.md](agensi/arsip-asli/README.md). Semua berkas produksi yang masih tersedia pada enam folder sumber tersimpan sebagai objek SHA, dengan pemetaan nama asli dan pengecualian cache tercatat. Untuk memulihkan struktur asli:
+Blender 4.3.2 digunakan pada pengujian sumber. Build membuat folder keluaran baru dan tidak menimpa model review. Ekspor ulang dapat berbeda secara biner karena urutan indeks/normal; perbandingan permukaan dan laporan generator diperlukan sebelum mengganti ekspor review.
 
-```sh
-python agensi/arsip-asli/pulihkan.py r06 --tujuan pulihan-r06
-```
+## Bukti dan batas
 
-## Status dan batas kelengkapan
+Dua GLB, inventaris asli dan master Blender mempertahankan byte yang direview. Perubahan ini mengubah tata letak/pemuatan, bukan detail geometri atau status akurasi. Seluruh referensi yang tersedia, profil/brief, snapshot skill, toolkit dan riwayat tetap disertakan. Brief rekonstruksi bukan transkrip percakapan lengkap; profil tidak berarti agen berjalan otomatis.
 
-Paket menghimpun bahan yang tersedia dalam workspace ini; bukan seluruh internet atau rekaman percakapan yang tidak tersimpan. Ada profil agen asli dan brief peran yang direkonstruksi, ditandai terpisah. Profil tidak berarti agen aktif otomatis; jalankan melalui orchestrator yang sesuai. Kredensial, API key, dependency cache, sesi browser dan instruksi internal penyedia AI tidak dibundel. Snapshot toolkit adalah bagian produksi yang relevan, bukan salinan seluruh platform website.
-
-Rujukan pihak ketiga disertakan untuk telaah privat sesuai asal yang tercatat; keberadaannya bukan pemberian hak untuk menjual ulang manual/foto/video. Lihat `agensi/referensi/THIRD-PARTY-NOTICES.md`. Video hanya mencakup bahan/frame/metadata yang memang tersedia, bukan klaim semua video telah diunduh atau ditonton penuh.
-
-QA pemisahan tidak mengubah batas QA mekanis: nomor seri/arrangement, akurasi OEM menyeluruh, pasangan permukaan historis yang belum diklasifikasi, dan uji di HP fisik masih memerlukan verifikasi. Uji layar HP adalah emulasi browser. Uji build eksterior menghasilkan permukaan yang sama tetapi sebagian normal/urutan indeks ekspor berbeda; ekspor yang direview tetap dipertahankan byte demi byte. Efek dan suara merupakan peragaan, bukan hasil pengukuran audio/CFD mesin nyata.
+Nomor seri/arrangement, akurasi OEM menyeluruh, temuan benturan historis yang belum diklasifikasikan dan perangkat HP fisik tetap memerlukan verifikasi. Efek/audio adalah peragaan. Hak referensi pihak ketiga mengikuti [catatan sumber](agensi/referensi/THIRD-PARTY-NOTICES.md); penyimpanan di repo bukan pemberian hak penjualan ulang.

@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "modelManifest": "../model/manifest.json",
+  "apiVersion": 1,
+  "session": "engine-session.js",
+  "powertrain": "powertrain.js",
+  "vendor": [
+    "vendor/three-bundle.js",
+    "vendor/flow-ribbons.js",
+    "vendor/combustion-glow.js",
+    "vendor/engine-audio.js",
+    "vendor/functional-motion.js"
+  ]
+}

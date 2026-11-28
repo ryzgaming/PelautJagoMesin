@@ -1,4 +1,4 @@
-import {createEngineSession} from '../model/runtime/engine-session.js';
+import {createEngineSession} from '../runtime/engine-session.js';
 
 const view=document.querySelector('#engine-view');
 const status=document.querySelector('#status');

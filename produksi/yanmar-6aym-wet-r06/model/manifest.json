@@ -7,12 +7,14 @@
   "assets": {
     "exterior": "assets/exterior.glb",
     "internal": "assets/internal.glb",
-    "inventory": "assets/data.json"
+    "inventory": "assets/data.json",
+    "catalog": "assets/daftar-yanmar.json"
   },
   "integrity": {
     "assets/exterior.glb": "defc58c070a871da2068b2ddd4388ff51b340a1014dfde2226f7e47946a89121",
     "assets/internal.glb": "526ce37f126203eb288388dbd7922dd85749b19ddf8ef82ee5bfcf9d472ec8f5",
-    "assets/data.json": "329566981da8e0c2ba9d1096cd69c1d29fcce9acc71c1621d20016785fd6adad"
+    "assets/data.json": "329566981da8e0c2ba9d1096cd69c1d29fcce9acc71c1621d20016785fd6adad",
+    "assets/daftar-yanmar.json": "a55d212b4db741fb41575359cf9a081191f6ea34a820c3d72cecc3ecf79a3d01"
   },
   "componentCount": 1184,
   "approval": {
@@ -21,17 +23,5 @@
     "oemAccuracy": "UNVERIFIED",
     "physicalPhoneTest": "UNVERIFIED"
   },
-  "sourceRevision": "e3b73cdd9b1e947bfd163e1c585b70841ff9d356",
-  "runtime": {
-    "apiVersion": 1,
-    "session": "runtime/engine-session.js",
-    "powertrain": "runtime/powertrain.js",
-    "vendor": [
-      "runtime/vendor/three-bundle.js",
-      "runtime/vendor/flow-ribbons.js",
-      "runtime/vendor/combustion-glow.js",
-      "runtime/vendor/engine-audio.js",
-      "runtime/vendor/functional-motion.js"
-    ]
-  }
+  "sourceRevision": "e3b73cdd9b1e947bfd163e1c585b70841ff9d356"
 }

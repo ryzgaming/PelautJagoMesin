@@ -1,84 +1,84 @@
 original_r06_path,classification,delivery_path_or_archive_section,bytes,sha256
-model/assemblies/INT-CAM.json,generated_registry_or_recipe,model/source/model/assemblies/INT-CAM.json,1754,ca09fd79e8caa21311bbe3ed7a273f512cfe4be93c871e3b9abe1dc0762a0549
-model/assemblies/INT-CRANK.json,generated_registry_or_recipe,model/source/model/assemblies/INT-CRANK.json,1134,852cf066997169a17815beaedac81fa4644e53171c54d5d84139d64e445501fc
-model/assemblies/INT-FUELINJ.json,generated_registry_or_recipe,model/source/model/assemblies/INT-FUELINJ.json,3280,acd2260833bf5035a7c7cf596d4ce198e14b05dd60791aa26296453d0a3a9b8a
-model/assemblies/INT-LINER.json,generated_registry_or_recipe,model/source/model/assemblies/INT-LINER.json,906,267a8dcda18d57f1a80be9badee235b1f12d695ba2142748117da4e67139bfb9
-model/assemblies/INT-MAIN.json,generated_registry_or_recipe,model/source/model/assemblies/INT-MAIN.json,1265,0fab4884aecbab60a1086f39e418f8075e3afa1497b38d84b0f9363851c8993d
-model/assemblies/INT-OILPUMP.json,generated_registry_or_recipe,model/source/model/assemblies/INT-OILPUMP.json,644,69a61f381637ca6fddbb973138c42dcd3e9ec69dd370a88428ac5603a833b208
-model/assemblies/INT-PISTON.json,generated_registry_or_recipe,model/source/model/assemblies/INT-PISTON.json,1838,79134471b4bc2a089892b9f07f6d6840a30cd5f30b67d2a8d694991f77de3479
-model/assemblies/INT-ROD.json,generated_registry_or_recipe,model/source/model/assemblies/INT-ROD.json,2349,db794f4d4d085339664e25d6b8bcded07362640b646ceec471c6bd8bb00cbd85
-model/assemblies/INT-TIMING.json,generated_registry_or_recipe,model/source/model/assemblies/INT-TIMING.json,688,7134a5e22e1a57751ee4f2bd7225f32f39e73b900471c51f6341134cc55ce9ea
-model/assemblies/INT-VALVE.json,generated_registry_or_recipe,model/source/model/assemblies/INT-VALVE.json,1708,b5f3635df9faba8d45d1bf185dd32de11f759a7aaf3fe9a2fb8216774ce9c6ee
-model/assemblies/RAK-AIRCOOLER.json,generated_registry_or_recipe,model/source/model/assemblies/RAK-AIRCOOLER.json,10015,1124a667008a8043f08de6b549c7c1a60215e6a6525be3dd7b42443a2e9f4628
-model/assemblies/RAK-ALTDRIVE.json,generated_registry_or_recipe,model/source/model/assemblies/RAK-ALTDRIVE.json,16850,00d53b63427b40685d70f26725a8ae28c7ee5d249db3ed03b7d30941ecdef6d1
-model/assemblies/RAK-ALTERNATOR.json,generated_registry_or_recipe,model/source/model/assemblies/RAK-ALTERNATOR.json,10834,a6ac571ba85fdb3f45145c89e7910d213a1d72364d50bde39fc7ccceca7635f9
-model/assemblies/RAK-BLOCK.json,generated_registry_or_recipe,model/source/model/assemblies/RAK-BLOCK.json,10506,4400541f3869f59aa4d60a32c6e283252cf7bfb05e311cc8eefd63234480d131
-model/assemblies/RAK-BONNET-1.json,generated_registry_or_recipe,model/source/model/assemblies/RAK-BONNET-1.json,3946,cac57bfcfb8cc3dc2cb5b37a09ef44f2afce66cb54618d16b5eebc94207ba74e
-model/assemblies/RAK-BONNET-2.json,generated_registry_or_recipe,model/source/model/assemblies/RAK-BONNET-2.json,3946,94190652fa8c1b809a3729bca854c6898a946e82eab2056fd587f6458cc903d6
-model/assemblies/RAK-BONNET-3.json,generated_registry_or_recipe,model/source/model/assemblies/RAK-BONNET-3.json,3946,ae28b1ec4f7e83832010c45ae03ba0132fdd7698486c2f190c8ffe72dc606c91
-model/assemblies/RAK-BONNET-4.json,generated_registry_or_recipe,model/source/model/assemblies/RAK-BONNET-4.json,3946,b477723fb7825c3bdcf7c2faf9676d3a3522350f683f5359ce094ab38c598316
-model/assemblies/RAK-BONNET-5.json,generated_registry_or_recipe,model/source/model/assemblies/RAK-BONNET-5.json,3946,b762649e3759025d95d7cb0f88b9955f76e76102d2d8153dc44e2ac2da901cae
-model/assemblies/RAK-BONNET-6.json,generated_registry_or_recipe,model/source/model/assemblies/RAK-BONNET-6.json,3946,38cb60f43271b104197d5bc3175bff4876e72da10f1e541cd5a1d06e808eb5b2
-model/assemblies/RAK-BYPASS-ROTOR.json,generated_registry_or_recipe,model/source/model/assemblies/RAK-BYPASS-ROTOR.json,8306,bfc056f5fb4e60fb21a50e1c09a6cf00b9c7b5afc99652aff0a40bdc1c163e9d
-model/assemblies/RAK-CHARGEDUCT.json,generated_registry_or_recipe,model/source/model/assemblies/RAK-CHARGEDUCT.json,41272,74079c71ec3f75b257d56ff804318b7ffd237123a02c8d6557a9c21e739120f6
-model/assemblies/RAK-COOLANT-CAP.json,generated_registry_or_recipe,model/source/model/assemblies/RAK-COOLANT-CAP.json,3262,4c34dadd65bb35fa85c67a9c4def7dacb3e72f0b0957c10fa50ae3d618dab89a
-model/assemblies/RAK-COOLANT-PUMP.json,generated_registry_or_recipe,model/source/model/assemblies/RAK-COOLANT-PUMP.json,21641,c50cffe732dc52925548e6267ca6aae698a16f448790beffd1559516cc7af383
-model/assemblies/RAK-COOLING.json,generated_registry_or_recipe,model/source/model/assemblies/RAK-COOLING.json,7395,d5633f655a542773fdfa1d232dc44f17d0662f28a8f905a5e6a88457380cbe01
-model/assemblies/RAK-ELECTRIC.json,generated_registry_or_recipe,model/source/model/assemblies/RAK-ELECTRIC.json,2624,ff6648dde60626d595fe3fe7d2b657227fb5dbfaa5f8a0279939c940f155edff
-model/assemblies/RAK-EXHAUST.json,generated_registry_or_recipe,model/source/model/assemblies/RAK-EXHAUST.json,2995,b279d22b7c491dfc512fc66ed53b20382218b590632c08d086f5893188c067d3
-model/assemblies/RAK-FEEDPUMP.json,generated_registry_or_recipe,model/source/model/assemblies/RAK-FEEDPUMP.json,13696,ca4e3eb636c7804c88dba7616b5c0ad41f2708679a0ee50561f5269b0855a6dc
-model/assemblies/RAK-FLYWHEEL-DISK.json,generated_registry_or_recipe,model/source/model/assemblies/RAK-FLYWHEEL-DISK.json,2316,8a5f1a1d108af440697c6a6ffaa72678b5604e68512b0699fea75a1e95cfed75
-model/assemblies/RAK-FLYWHEEL.json,generated_registry_or_recipe,model/source/model/assemblies/RAK-FLYWHEEL.json,1704,d2c07aeb2ea355e10ae66cf67ca85e1890c5765e9aa8bfbc9e091fc37bc739c7
-model/assemblies/RAK-FRONT.json,generated_registry_or_recipe,model/source/model/assemblies/RAK-FRONT.json,2879,b05907b42331f9d3df2cdb9461f61a6be53caf895e2484db1305e020c3aac71e
-model/assemblies/RAK-FUEL-FILTER-1.json,generated_registry_or_recipe,model/source/model/assemblies/RAK-FUEL-FILTER-1.json,6472,94a320beab743e97b0411771635a1fe4ccb232a9b0b65981c192dbfe856d2ca2
-model/assemblies/RAK-FUEL-FILTER-2.json,generated_registry_or_recipe,model/source/model/assemblies/RAK-FUEL-FILTER-2.json,6472,4225f6e0db41605346a377251dd57bd52c7e18a8fbc6e48205324504e904354e
-model/assemblies/RAK-FUEL.json,generated_registry_or_recipe,model/source/model/assemblies/RAK-FUEL.json,17631,1bd76997c013c6cf5b881a6ad3606816708b20186f3ada5d4ec4de923c5b6920
-model/assemblies/RAK-FW-COOLER.json,generated_registry_or_recipe,model/source/model/assemblies/RAK-FW-COOLER.json,19751,a3f71b47f764bf9f98472e6d69d13af2e7dc791624e5f3cc919bd3e6c14b9eb5
-model/assemblies/RAK-GOVERNOR.json,generated_registry_or_recipe,model/source/model/assemblies/RAK-GOVERNOR.json,6224,ab0f528c28412204127352c62d71c8bcef9c96cc9c8b1c00303e6ec2329623ed
-model/assemblies/RAK-HEADS.json,generated_registry_or_recipe,model/source/model/assemblies/RAK-HEADS.json,8332,d4a274bc3db4e2bee903f596d8551b02bf083229feba4f83a09d8b9894055192
-model/assemblies/RAK-INJECTION.json,generated_registry_or_recipe,model/source/model/assemblies/RAK-INJECTION.json,46521,eb4eaca7d17ec659e599e8f12a6d29bc451447393c5c4100c7726d7dca5befdf
-model/assemblies/RAK-INJECTOR-1.json,generated_registry_or_recipe,model/source/model/assemblies/RAK-INJECTOR-1.json,17426,5a4d76abaa4805ac4c4fd3a6087d15c46bdb9cc9769adfffa61fca7cbb4c9883
-model/assemblies/RAK-INJECTOR-2.json,generated_registry_or_recipe,model/source/model/assemblies/RAK-INJECTOR-2.json,17426,ab7f16adf83f3c974be3aac3a3e428eb1875d7957c7c57cb886a2a75cd550294
-model/assemblies/RAK-INJECTOR-3.json,generated_registry_or_recipe,model/source/model/assemblies/RAK-INJECTOR-3.json,17426,9ecd47810b3d5107356d8abc41cd87df9dc9c5d79bb2caa5b0f15ee0da646453
-model/assemblies/RAK-INJECTOR-4.json,generated_registry_or_recipe,model/source/model/assemblies/RAK-INJECTOR-4.json,17426,ddbbba4f524fc80a559c0681e4ce9d5fff19c33b632cfd06bbcd4791b89756d2
-model/assemblies/RAK-INJECTOR-5.json,generated_registry_or_recipe,model/source/model/assemblies/RAK-INJECTOR-5.json,17426,7fc378446a1a6f4db280e3c159b565eb9bfa06a92c7a0bb4f7f4be7e8d9159e9
-model/assemblies/RAK-INJECTOR-6.json,generated_registry_or_recipe,model/source/model/assemblies/RAK-INJECTOR-6.json,17426,d0a962337cc169e4391ab6eee8857c0ca50c0c0dbce360f807770b1eed221d58
-model/assemblies/RAK-INTAKE.json,generated_registry_or_recipe,model/source/model/assemblies/RAK-INTAKE.json,3681,703177827700d1117fb0087d27a40a886324bc35a87273fea768ea0aef525c68
-model/assemblies/RAK-KATUP-1-1-1.json,generated_registry_or_recipe,model/source/model/assemblies/RAK-KATUP-1-1-1.json,6819,186de219555390af7cb442b438fdbaf02f799cb0d846c1cb7ea4330acb463c19
-model/assemblies/RAK-KATUP-1-1-2.json,generated_registry_or_recipe,model/source/model/assemblies/RAK-KATUP-1-1-2.json,6819,20e6a8b610c3b8898acec87b01e389e3eba46a9a1a1288fdf64e6f34dd0ad4cc
-model/assemblies/RAK-KATUP-1-2-1.json,generated_registry_or_recipe,model/source/model/assemblies/RAK-KATUP-1-2-1.json,6815,b55f8c293487d869546bf10c9232c0bc88cae943f5d30a1d722256f47eb71ddf
-model/assemblies/RAK-KATUP-1-2-2.json,generated_registry_or_recipe,model/source/model/assemblies/RAK-KATUP-1-2-2.json,6815,413e79ce4c3c5ed9b389de8fae1d1c92c90f007e9768b91811ec7e66644b7f04
-model/assemblies/RAK-KATUP-2-1-1.json,generated_registry_or_recipe,model/source/model/assemblies/RAK-KATUP-2-1-1.json,6819,a4a8a54f5f7bbb096f4b57932ed77aa97317d7c70c45e9368068bdb11a0d497c
-model/assemblies/RAK-KATUP-2-1-2.json,generated_registry_or_recipe,model/source/model/assemblies/RAK-KATUP-2-1-2.json,6819,1f78c94d1ff9d9f6983ac6a7e318d1da278e181ba08c338cafd5f3275f5691a2
-model/assemblies/RAK-KATUP-2-2-1.json,generated_registry_or_recipe,model/source/model/assemblies/RAK-KATUP-2-2-1.json,6815,3fa1bc0bae584bb8b38a8386e28e48acb3319fe2946be8359d028ba1772aa23e
-model/assemblies/RAK-KATUP-2-2-2.json,generated_registry_or_recipe,model/source/model/assemblies/RAK-KATUP-2-2-2.json,6815,2a78568d9a034174bdb791ac6ea45225da9050e7d636afcd56bcd648e65b88f6
-model/assemblies/RAK-KATUP-3-1-1.json,generated_registry_or_recipe,model/source/model/assemblies/RAK-KATUP-3-1-1.json,6819,45eb2502cd05645e676f6789c560c6757f4d2173e6b5e488cf6f01419761ca8a
-model/assemblies/RAK-KATUP-3-1-2.json,generated_registry_or_recipe,model/source/model/assemblies/RAK-KATUP-3-1-2.json,6819,08021557947736297fd800916227ae1ad001cba9418dc4163e0f14357e3dbffb
-model/assemblies/RAK-KATUP-3-2-1.json,generated_registry_or_recipe,model/source/model/assemblies/RAK-KATUP-3-2-1.json,6815,f010625c19e1b7d7ddadd2ac58c790a4bb5bf7ae9cd82eabd8ae763d2fc5ff90
-model/assemblies/RAK-KATUP-3-2-2.json,generated_registry_or_recipe,model/source/model/assemblies/RAK-KATUP-3-2-2.json,6815,ecf20ffde584b20e0a5c5bcdf9d70c5b7492e4b48159c83609b1b7f0713b18d4
-model/assemblies/RAK-KATUP-4-1-1.json,generated_registry_or_recipe,model/source/model/assemblies/RAK-KATUP-4-1-1.json,6819,0c13cbbcb6d3fd5895c83d244f5486f3fed711e098a57555adf41bfa6a46c2b0
-model/assemblies/RAK-KATUP-4-1-2.json,generated_registry_or_recipe,model/source/model/assemblies/RAK-KATUP-4-1-2.json,6819,8c4c8f7d2917c050ba70dd6ced81b4e76b4916305696d4bae0b11c28f8605891
-model/assemblies/RAK-KATUP-4-2-1.json,generated_registry_or_recipe,model/source/model/assemblies/RAK-KATUP-4-2-1.json,6815,a3070c63036a1606032d7a9043b84da852c40ee84f85140c46d40e33c2761f35
-model/assemblies/RAK-KATUP-4-2-2.json,generated_registry_or_recipe,model/source/model/assemblies/RAK-KATUP-4-2-2.json,6815,539555bd3ebc0dcc6a9ea0a70427ffc325923fe0de2c7fa087f0b2ebc5fd33db
-model/assemblies/RAK-KATUP-5-1-1.json,generated_registry_or_recipe,model/source/model/assemblies/RAK-KATUP-5-1-1.json,6819,2739ab3b592f2e4899295c3b2f5eb2a21b2e5e4adc4ba59cc0daa1efac430829
-model/assemblies/RAK-KATUP-5-1-2.json,generated_registry_or_recipe,model/source/model/assemblies/RAK-KATUP-5-1-2.json,6819,87cd01eb34c926864d0c78f977ff8348cbaa45477d206911d662c258f5e9b1b1
-model/assemblies/RAK-KATUP-5-2-1.json,generated_registry_or_recipe,model/source/model/assemblies/RAK-KATUP-5-2-1.json,6815,fddcff903ef7d104e77c03077a1da3a3602b17f7762290db8a7c0f0e29b518e2
-model/assemblies/RAK-KATUP-5-2-2.json,generated_registry_or_recipe,model/source/model/assemblies/RAK-KATUP-5-2-2.json,6815,0e5f97a7a8489afbb42678b911f509060f365b8f4c4acb744a9a87d70e8b1be4
-model/assemblies/RAK-KATUP-6-1-1.json,generated_registry_or_recipe,model/source/model/assemblies/RAK-KATUP-6-1-1.json,6819,6009ae1725eb6383e27701a74ccc21d4cec35ce3ca82fbf6c935934cd64c8a12
-model/assemblies/RAK-KATUP-6-1-2.json,generated_registry_or_recipe,model/source/model/assemblies/RAK-KATUP-6-1-2.json,6819,50968dd89e853687ac1562e2e9a9eb78067c50ad173ef88c59b2dbb96cb06175
-model/assemblies/RAK-KATUP-6-2-1.json,generated_registry_or_recipe,model/source/model/assemblies/RAK-KATUP-6-2-1.json,6815,290f8ed75b36503a8fe9000c542dd9a8e33b4ba7338dc540b13002b588678ce0
-model/assemblies/RAK-KATUP-6-2-2.json,generated_registry_or_recipe,model/source/model/assemblies/RAK-KATUP-6-2-2.json,6815,898988c91651cc2c186028a3880ff1e0ddd483c24e173fec3c1e570fd97c189b
-model/assemblies/RAK-LUBE.json,generated_registry_or_recipe,model/source/model/assemblies/RAK-LUBE.json,6225,f68ac2d43bf369b0078b1fb571db8dd4d6194ef665216ce320b4957274969173
-model/assemblies/RAK-OIL-COOLER.json,generated_registry_or_recipe,model/source/model/assemblies/RAK-OIL-COOLER.json,6804,2149f4cad3ddfd344e47750f3bfc5a45f1db1475331e9f95cc98af25c4a0a21e
-model/assemblies/RAK-OIL-FILTER-1.json,generated_registry_or_recipe,model/source/model/assemblies/RAK-OIL-FILTER-1.json,4036,751741dd91cd3a1250a5a3b4a4cc7cdacdf212825d3683d699a07e7f76a64bf2
-model/assemblies/RAK-OIL-FILTER-2.json,generated_registry_or_recipe,model/source/model/assemblies/RAK-OIL-FILTER-2.json,4036,b13d0c2bac302e0848502c3f3550a167500c913b9945e6b1ae4e7babe71562de
-model/assemblies/RAK-OILPAN.json,generated_registry_or_recipe,model/source/model/assemblies/RAK-OILPAN.json,1115,d864a1d90f7e7beaaf87b25b0953490820c985e99e673cbb5a9dbea57bd4ee2f
-model/assemblies/RAK-SEAWATER-PUMP.json,generated_registry_or_recipe,model/source/model/assemblies/RAK-SEAWATER-PUMP.json,14554,82d77a932d0c98d7402d8dea194e9fc85683e97b0817cb5c6b95086102f87b6b
-model/assemblies/RAK-STARTER.json,generated_registry_or_recipe,model/source/model/assemblies/RAK-STARTER.json,14340,ffd23b68a3138263cc68e4553fc77490de34b2123d7e56dc01df1c4283bb07ed
-model/assemblies/RAK-SUMP-SERVICE.json,generated_registry_or_recipe,model/source/model/assemblies/RAK-SUMP-SERVICE.json,3481,d8ce30875ff772cdf4f0aee421befc1b7ecc8079229177fefacedacb6e36d1ed
-model/assemblies/RAK-TURBO.json,generated_registry_or_recipe,model/source/model/assemblies/RAK-TURBO.json,37681,4bd9930cb9db88a5e6d3ca44f22d9ff7f88e5ae3bcb2f651cdb53c6c1975ee8e
-model/datum.json,source_data,model/source/model/datum.json,39054,a63304de589ea4ece2c5f62c1a7f24f9c3fa43aafbfd869bf76f598aeb42efbd
-model/dimension-report.json,source_data,model/source/model/dimension-report.json,8554,097972506e9fdb3cb881b976a9fe745d71abcfd813dfddc348d59bb7385deb24
+model/assemblies/INT-CAM.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/INT-CAM.json,1754,ca09fd79e8caa21311bbe3ed7a273f512cfe4be93c871e3b9abe1dc0762a0549
+model/assemblies/INT-CRANK.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/INT-CRANK.json,1134,852cf066997169a17815beaedac81fa4644e53171c54d5d84139d64e445501fc
+model/assemblies/INT-FUELINJ.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/INT-FUELINJ.json,3280,acd2260833bf5035a7c7cf596d4ce198e14b05dd60791aa26296453d0a3a9b8a
+model/assemblies/INT-LINER.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/INT-LINER.json,906,267a8dcda18d57f1a80be9badee235b1f12d695ba2142748117da4e67139bfb9
+model/assemblies/INT-MAIN.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/INT-MAIN.json,1265,0fab4884aecbab60a1086f39e418f8075e3afa1497b38d84b0f9363851c8993d
+model/assemblies/INT-OILPUMP.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/INT-OILPUMP.json,644,69a61f381637ca6fddbb973138c42dcd3e9ec69dd370a88428ac5603a833b208
+model/assemblies/INT-PISTON.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/INT-PISTON.json,1838,79134471b4bc2a089892b9f07f6d6840a30cd5f30b67d2a8d694991f77de3479
+model/assemblies/INT-ROD.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/INT-ROD.json,2349,db794f4d4d085339664e25d6b8bcded07362640b646ceec471c6bd8bb00cbd85
+model/assemblies/INT-TIMING.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/INT-TIMING.json,688,7134a5e22e1a57751ee4f2bd7225f32f39e73b900471c51f6341134cc55ce9ea
+model/assemblies/INT-VALVE.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/INT-VALVE.json,1708,b5f3635df9faba8d45d1bf185dd32de11f759a7aaf3fe9a2fb8216774ce9c6ee
+model/assemblies/RAK-AIRCOOLER.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-AIRCOOLER.json,10015,1124a667008a8043f08de6b549c7c1a60215e6a6525be3dd7b42443a2e9f4628
+model/assemblies/RAK-ALTDRIVE.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-ALTDRIVE.json,16850,00d53b63427b40685d70f26725a8ae28c7ee5d249db3ed03b7d30941ecdef6d1
+model/assemblies/RAK-ALTERNATOR.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-ALTERNATOR.json,10834,a6ac571ba85fdb3f45145c89e7910d213a1d72364d50bde39fc7ccceca7635f9
+model/assemblies/RAK-BLOCK.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-BLOCK.json,10506,4400541f3869f59aa4d60a32c6e283252cf7bfb05e311cc8eefd63234480d131
+model/assemblies/RAK-BONNET-1.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-BONNET-1.json,3946,cac57bfcfb8cc3dc2cb5b37a09ef44f2afce66cb54618d16b5eebc94207ba74e
+model/assemblies/RAK-BONNET-2.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-BONNET-2.json,3946,94190652fa8c1b809a3729bca854c6898a946e82eab2056fd587f6458cc903d6
+model/assemblies/RAK-BONNET-3.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-BONNET-3.json,3946,ae28b1ec4f7e83832010c45ae03ba0132fdd7698486c2f190c8ffe72dc606c91
+model/assemblies/RAK-BONNET-4.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-BONNET-4.json,3946,b477723fb7825c3bdcf7c2faf9676d3a3522350f683f5359ce094ab38c598316
+model/assemblies/RAK-BONNET-5.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-BONNET-5.json,3946,b762649e3759025d95d7cb0f88b9955f76e76102d2d8153dc44e2ac2da901cae
+model/assemblies/RAK-BONNET-6.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-BONNET-6.json,3946,38cb60f43271b104197d5bc3175bff4876e72da10f1e541cd5a1d06e808eb5b2
+model/assemblies/RAK-BYPASS-ROTOR.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-BYPASS-ROTOR.json,8306,bfc056f5fb4e60fb21a50e1c09a6cf00b9c7b5afc99652aff0a40bdc1c163e9d
+model/assemblies/RAK-CHARGEDUCT.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-CHARGEDUCT.json,41272,74079c71ec3f75b257d56ff804318b7ffd237123a02c8d6557a9c21e739120f6
+model/assemblies/RAK-COOLANT-CAP.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-COOLANT-CAP.json,3262,4c34dadd65bb35fa85c67a9c4def7dacb3e72f0b0957c10fa50ae3d618dab89a
+model/assemblies/RAK-COOLANT-PUMP.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-COOLANT-PUMP.json,21641,c50cffe732dc52925548e6267ca6aae698a16f448790beffd1559516cc7af383
+model/assemblies/RAK-COOLING.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-COOLING.json,7395,d5633f655a542773fdfa1d232dc44f17d0662f28a8f905a5e6a88457380cbe01
+model/assemblies/RAK-ELECTRIC.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-ELECTRIC.json,2624,ff6648dde60626d595fe3fe7d2b657227fb5dbfaa5f8a0279939c940f155edff
+model/assemblies/RAK-EXHAUST.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-EXHAUST.json,2995,b279d22b7c491dfc512fc66ed53b20382218b590632c08d086f5893188c067d3
+model/assemblies/RAK-FEEDPUMP.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-FEEDPUMP.json,13696,ca4e3eb636c7804c88dba7616b5c0ad41f2708679a0ee50561f5269b0855a6dc
+model/assemblies/RAK-FLYWHEEL-DISK.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-FLYWHEEL-DISK.json,2316,8a5f1a1d108af440697c6a6ffaa72678b5604e68512b0699fea75a1e95cfed75
+model/assemblies/RAK-FLYWHEEL.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-FLYWHEEL.json,1704,d2c07aeb2ea355e10ae66cf67ca85e1890c5765e9aa8bfbc9e091fc37bc739c7
+model/assemblies/RAK-FRONT.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-FRONT.json,2879,b05907b42331f9d3df2cdb9461f61a6be53caf895e2484db1305e020c3aac71e
+model/assemblies/RAK-FUEL-FILTER-1.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-FUEL-FILTER-1.json,6472,94a320beab743e97b0411771635a1fe4ccb232a9b0b65981c192dbfe856d2ca2
+model/assemblies/RAK-FUEL-FILTER-2.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-FUEL-FILTER-2.json,6472,4225f6e0db41605346a377251dd57bd52c7e18a8fbc6e48205324504e904354e
+model/assemblies/RAK-FUEL.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-FUEL.json,17631,1bd76997c013c6cf5b881a6ad3606816708b20186f3ada5d4ec4de923c5b6920
+model/assemblies/RAK-FW-COOLER.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-FW-COOLER.json,19751,a3f71b47f764bf9f98472e6d69d13af2e7dc791624e5f3cc919bd3e6c14b9eb5
+model/assemblies/RAK-GOVERNOR.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-GOVERNOR.json,6224,ab0f528c28412204127352c62d71c8bcef9c96cc9c8b1c00303e6ec2329623ed
+model/assemblies/RAK-HEADS.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-HEADS.json,8332,d4a274bc3db4e2bee903f596d8551b02bf083229feba4f83a09d8b9894055192
+model/assemblies/RAK-INJECTION.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-INJECTION.json,46521,eb4eaca7d17ec659e599e8f12a6d29bc451447393c5c4100c7726d7dca5befdf
+model/assemblies/RAK-INJECTOR-1.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-INJECTOR-1.json,17426,5a4d76abaa4805ac4c4fd3a6087d15c46bdb9cc9769adfffa61fca7cbb4c9883
+model/assemblies/RAK-INJECTOR-2.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-INJECTOR-2.json,17426,ab7f16adf83f3c974be3aac3a3e428eb1875d7957c7c57cb886a2a75cd550294
+model/assemblies/RAK-INJECTOR-3.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-INJECTOR-3.json,17426,9ecd47810b3d5107356d8abc41cd87df9dc9c5d79bb2caa5b0f15ee0da646453
+model/assemblies/RAK-INJECTOR-4.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-INJECTOR-4.json,17426,ddbbba4f524fc80a559c0681e4ce9d5fff19c33b632cfd06bbcd4791b89756d2
+model/assemblies/RAK-INJECTOR-5.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-INJECTOR-5.json,17426,7fc378446a1a6f4db280e3c159b565eb9bfa06a92c7a0bb4f7f4be7e8d9159e9
+model/assemblies/RAK-INJECTOR-6.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-INJECTOR-6.json,17426,d0a962337cc169e4391ab6eee8857c0ca50c0c0dbce360f807770b1eed221d58
+model/assemblies/RAK-INTAKE.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-INTAKE.json,3681,703177827700d1117fb0087d27a40a886324bc35a87273fea768ea0aef525c68
+model/assemblies/RAK-KATUP-1-1-1.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-KATUP-1-1-1.json,6819,186de219555390af7cb442b438fdbaf02f799cb0d846c1cb7ea4330acb463c19
+model/assemblies/RAK-KATUP-1-1-2.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-KATUP-1-1-2.json,6819,20e6a8b610c3b8898acec87b01e389e3eba46a9a1a1288fdf64e6f34dd0ad4cc
+model/assemblies/RAK-KATUP-1-2-1.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-KATUP-1-2-1.json,6815,b55f8c293487d869546bf10c9232c0bc88cae943f5d30a1d722256f47eb71ddf
+model/assemblies/RAK-KATUP-1-2-2.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-KATUP-1-2-2.json,6815,413e79ce4c3c5ed9b389de8fae1d1c92c90f007e9768b91811ec7e66644b7f04
+model/assemblies/RAK-KATUP-2-1-1.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-KATUP-2-1-1.json,6819,a4a8a54f5f7bbb096f4b57932ed77aa97317d7c70c45e9368068bdb11a0d497c
+model/assemblies/RAK-KATUP-2-1-2.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-KATUP-2-1-2.json,6819,1f78c94d1ff9d9f6983ac6a7e318d1da278e181ba08c338cafd5f3275f5691a2
+model/assemblies/RAK-KATUP-2-2-1.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-KATUP-2-2-1.json,6815,3fa1bc0bae584bb8b38a8386e28e48acb3319fe2946be8359d028ba1772aa23e
+model/assemblies/RAK-KATUP-2-2-2.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-KATUP-2-2-2.json,6815,2a78568d9a034174bdb791ac6ea45225da9050e7d636afcd56bcd648e65b88f6
+model/assemblies/RAK-KATUP-3-1-1.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-KATUP-3-1-1.json,6819,45eb2502cd05645e676f6789c560c6757f4d2173e6b5e488cf6f01419761ca8a
+model/assemblies/RAK-KATUP-3-1-2.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-KATUP-3-1-2.json,6819,08021557947736297fd800916227ae1ad001cba9418dc4163e0f14357e3dbffb
+model/assemblies/RAK-KATUP-3-2-1.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-KATUP-3-2-1.json,6815,f010625c19e1b7d7ddadd2ac58c790a4bb5bf7ae9cd82eabd8ae763d2fc5ff90
+model/assemblies/RAK-KATUP-3-2-2.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-KATUP-3-2-2.json,6815,ecf20ffde584b20e0a5c5bcdf9d70c5b7492e4b48159c83609b1b7f0713b18d4
+model/assemblies/RAK-KATUP-4-1-1.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-KATUP-4-1-1.json,6819,0c13cbbcb6d3fd5895c83d244f5486f3fed711e098a57555adf41bfa6a46c2b0
+model/assemblies/RAK-KATUP-4-1-2.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-KATUP-4-1-2.json,6819,8c4c8f7d2917c050ba70dd6ced81b4e76b4916305696d4bae0b11c28f8605891
+model/assemblies/RAK-KATUP-4-2-1.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-KATUP-4-2-1.json,6815,a3070c63036a1606032d7a9043b84da852c40ee84f85140c46d40e33c2761f35
+model/assemblies/RAK-KATUP-4-2-2.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-KATUP-4-2-2.json,6815,539555bd3ebc0dcc6a9ea0a70427ffc325923fe0de2c7fa087f0b2ebc5fd33db
+model/assemblies/RAK-KATUP-5-1-1.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-KATUP-5-1-1.json,6819,2739ab3b592f2e4899295c3b2f5eb2a21b2e5e4adc4ba59cc0daa1efac430829
+model/assemblies/RAK-KATUP-5-1-2.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-KATUP-5-1-2.json,6819,87cd01eb34c926864d0c78f977ff8348cbaa45477d206911d662c258f5e9b1b1
+model/assemblies/RAK-KATUP-5-2-1.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-KATUP-5-2-1.json,6815,fddcff903ef7d104e77c03077a1da3a3602b17f7762290db8a7c0f0e29b518e2
+model/assemblies/RAK-KATUP-5-2-2.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-KATUP-5-2-2.json,6815,0e5f97a7a8489afbb42678b911f509060f365b8f4c4acb744a9a87d70e8b1be4
+model/assemblies/RAK-KATUP-6-1-1.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-KATUP-6-1-1.json,6819,6009ae1725eb6383e27701a74ccc21d4cec35ce3ca82fbf6c935934cd64c8a12
+model/assemblies/RAK-KATUP-6-1-2.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-KATUP-6-1-2.json,6819,50968dd89e853687ac1562e2e9a9eb78067c50ad173ef88c59b2dbb96cb06175
+model/assemblies/RAK-KATUP-6-2-1.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-KATUP-6-2-1.json,6815,290f8ed75b36503a8fe9000c542dd9a8e33b4ba7338dc540b13002b588678ce0
+model/assemblies/RAK-KATUP-6-2-2.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-KATUP-6-2-2.json,6815,898988c91651cc2c186028a3880ff1e0ddd483c24e173fec3c1e570fd97c189b
+model/assemblies/RAK-LUBE.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-LUBE.json,6225,f68ac2d43bf369b0078b1fb571db8dd4d6194ef665216ce320b4957274969173
+model/assemblies/RAK-OIL-COOLER.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-OIL-COOLER.json,6804,2149f4cad3ddfd344e47750f3bfc5a45f1db1475331e9f95cc98af25c4a0a21e
+model/assemblies/RAK-OIL-FILTER-1.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-OIL-FILTER-1.json,4036,751741dd91cd3a1250a5a3b4a4cc7cdacdf212825d3683d699a07e7f76a64bf2
+model/assemblies/RAK-OIL-FILTER-2.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-OIL-FILTER-2.json,4036,b13d0c2bac302e0848502c3f3550a167500c913b9945e6b1ae4e7babe71562de
+model/assemblies/RAK-OILPAN.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-OILPAN.json,1115,d864a1d90f7e7beaaf87b25b0953490820c985e99e673cbb5a9dbea57bd4ee2f
+model/assemblies/RAK-SEAWATER-PUMP.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-SEAWATER-PUMP.json,14554,82d77a932d0c98d7402d8dea194e9fc85683e97b0817cb5c6b95086102f87b6b
+model/assemblies/RAK-STARTER.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-STARTER.json,14340,ffd23b68a3138263cc68e4553fc77490de34b2123d7e56dc01df1c4283bb07ed
+model/assemblies/RAK-SUMP-SERVICE.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-SUMP-SERVICE.json,3481,d8ce30875ff772cdf4f0aee421befc1b7ecc8079229177fefacedacb6e36d1ed
+model/assemblies/RAK-TURBO.json,generated_registry_or_recipe,agensi/produksi/source/model/assemblies/RAK-TURBO.json,37681,4bd9930cb9db88a5e6d3ca44f22d9ff7f88e5ae3bcb2f651cdb53c6c1975ee8e
+model/datum.json,source_data,agensi/produksi/source/model/datum.json,39054,a63304de589ea4ece2c5f62c1a7f24f9c3fa43aafbfd869bf76f598aeb42efbd
+model/dimension-report.json,source_data,agensi/produksi/source/model/dimension-report.json,8554,097972506e9fdb3cb881b976a9fe745d71abcfd813dfddc348d59bb7385deb24
 model/exterior/__pycache__/build.cpython-312.pyc,original_cache,agensi/arsip-asli/ (R06),97627,3362a81724ed0095e3b87a7e24486f189dd40c74801ceab6ae219d340b76c86a
 model/exterior/__pycache__/charge_duct.cpython-312.pyc,original_cache,agensi/arsip-asli/ (R06),15266,78274e5d16eb9de184f21d99f91610789fd1251d4d37096477127e2bd52ef0a4
 model/exterior/__pycache__/check_export.cpython-312.pyc,original_cache,agensi/arsip-asli/ (R06),4595,3f3712492a7651ff05f96c9f1f2e8e7d39f8a120a3e663260c8df25536668357
@@ -165,7 +165,7 @@ model/exterior/build-r05-first.log,historical_qa_or_checkpoint,agensi/arsip-asli
 model/exterior/build-r05-second.log,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),38942,899029c315762a85419d6d719b3faad5fb1ee4902b5ec48b5c3aff907fb2ed79
 model/exterior/build-r05-third.log,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),40461,4afdaf2c150f03c2c384af406c75c640bd8a24a044e0e076acbe652e032ea73c
 model/exterior/build.log,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),7176,bda95c98f6f14acb8163f4f80a40ceee8af099ba2b1cf94675f0ea50e4b69432
-model/exterior/build.py,generator,model/source/model/exterior/build.py,59268,b643c583b87b792329306de90f6cb89fffe16a249e2659ad79ce71d9fcfe6827
+model/exterior/build.py,generator,agensi/produksi/source/model/exterior/build.py,59268,b643c583b87b792329306de90f6cb89fffe16a249e2659ad79ce71d9fcfe6827
 model/exterior/candidate-r03/build-r03-final.log,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),28554,c451b69c1eb1038e6034a561014944cbf1844bf837794ea52759e48103cbb80c
 model/exterior/candidate-r03/compare-r02.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),6510,1ce2ff344eb3a001addb956d5fdb85b6909920522a04e6c5bd74a268abdcfea7
 model/exterior/candidate-r03/export-check-r03.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),508,d58127232683c10de3b53fb8eda731e9f212696a3c0638dbabaa5640737552dc
@@ -226,7 +226,7 @@ model/exterior/candidate-r04/render.log,historical_qa_or_checkpoint,agensi/arsip
 model/exterior/candidate-r04/source-sync-evidence.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),1185,4765c41376d134dcb08ad68d1f810d393632669bce191ff2541b1c43d5491fb3
 model/exterior/candidate-r04/source-sync-r04.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),842,49925f0f8dad147ad44187ba0d2437a12eaf356f4a2a54998242d340bccc2fc5
 model/exterior/candidate-r04/working-hashes-r04.txt,evidence_or_historical_render,agensi/arsip-asli/ (R06),327,8b147a6489a0a2bd49101dca25fd54c75f1451abf2c4b169d48df67a4409a543
-model/exterior/charge_duct.py,generator,model/source/model/exterior/charge_duct.py,8659,851abce1e86fb2e11918cbf898eb7a7817ca1860c368f09d01e6717710ef8a41
+model/exterior/charge_duct.py,generator,agensi/produksi/source/model/exterior/charge_duct.py,8659,851abce1e86fb2e11918cbf898eb7a7817ca1860c368f09d01e6717710ef8a41
 model/exterior/check_export.py,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),2216,a3d2225704ffeb42f5568b6cc3e1640febb34f1f916b639139b4b2d06a5fe48a
 model/exterior/check_r03_interface_fit.py,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),1339,f793061cf73ffbee343b41139cc250a8e7e2ee14344541705bb69387a9f4ba70
 model/exterior/check_r03_recipes.py,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),1389,534ed61aea80747e2256863bc8e985ec130e60d1c1afb9760025f83031d3550c
@@ -284,7 +284,7 @@ model/exterior/export-check-r05-first.json,historical_qa_or_checkpoint,agensi/ar
 model/exterior/export-check-r05-second.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),555,e5256cc53cbf3376318d22a7129bdfec167fe7055e71fd0a33012182aef1e984
 model/exterior/export-check-r05-third.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),576,71440654361a1a41185e155c8ef0021a6a0a413be1eeb6578cbe037c25d03b4f
 model/exterior/export-check.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),481,220486be6df97756acba07c00d0c294e991fab21ddd6ea5c2e19ac360328b52f
-model/exterior/exterior.blend,editable_master,model/source/model/exterior/exterior.blend,49638528,348d31ac5de8b16352421f643291410b86d59e9634988d0a5ca6d2dfdfb12157
+model/exterior/exterior.blend,editable_master,model/masters/exterior.blend,49638528,348d31ac5de8b16352421f643291410b86d59e9634988d0a5ca6d2dfdfb12157
 model/exterior/exterior.glb,review_export,model/assets/exterior.glb,22506508,defc58c070a871da2068b2ddd4388ff51b340a1014dfde2226f7e47946a89121
 model/exterior/fit-r02.log,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),4727,f0f19c10bfbc1be61d10fde753ec89931a5c7056cd7851d35f417c327ba40d95
 model/exterior/fuel-fit.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),12730,66d2d52983db78a2f9abbefed7a23166173ff5dc99d75c0aeab065360301cbff
@@ -301,10 +301,10 @@ model/exterior/host-surfaces-r04-candidate.log,historical_qa_or_checkpoint,agens
 model/exterior/host-surfaces-r04.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),25163,f2ed28edbaf53875e936545fe56cd37e39476ff81fe72bc22793fa875a1a26ad
 model/exterior/host-surfaces-r04.log,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),37519,cf8160426dd11280283724151cf8d34ee412fb7e39d66df46fbfa5c01510f7cb
 model/exterior/interface-r03-fit.log,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),17415,768e359a7e85a5776a013a2034c78c4af7704a73cfd9224be4d71fd62b37a9d4
-model/exterior/inventory.json,generated_registry_or_recipe,model/source/model/exterior/inventory.json,598324,a20540d3cc4ba4c4c697cfbc1326e61307663fbb961cc22284ed4f4d3cc8e961
+model/exterior/inventory.json,generated_registry_or_recipe,agensi/produksi/source/model/exterior/inventory.json,598324,a20540d3cc4ba4c4c697cfbc1326e61307663fbb961cc22284ed4f4d3cc8e961
 model/exterior/nested-r03-export-check.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),2755,5e90a91dd8b882efd9990ee9bee7dfcca4574982acb3c75bcb2b6e06438413c4
 model/exterior/nested-r04-export-check.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),2870,b302ebaeb95b02c69a277d1a6af83949b637fb2b629930b5f56134fd1eb3ebb2
-model/exterior/piping_ports.py,generator,model/source/model/exterior/piping_ports.py,2998,01069b0c9762a1040eb93222a42e53964e74848e7934db65e902a92cc273751c
+model/exterior/piping_ports.py,generator,agensi/produksi/source/model/exterior/piping_ports.py,2998,01069b0c9762a1040eb93222a42e53964e74848e7934db65e902a92cc273751c
 model/exterior/pre-bosch-repair/build-r03-final.log,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),28555,bc58761d9dcff12f03805260a7baf18ee821843c1e166c000d31e30044299cda
 model/exterior/pre-bosch-repair/compare.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),5231,1f3828f3b329497c08de8b4d5344b1b4fd52d2ee6c12ca09577265617efd32a7
 model/exterior/pre-bosch-repair/export-check-r03.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),481,d89ed6a037f848d7d035256a4e079c2ac09e391140e4c539733992b284e094c9
@@ -578,20 +578,20 @@ model/exterior/specialists/__pycache__/piping.cpython-312.pyc,original_cache,age
 model/exterior/specialists/__pycache__/pump_accessories.cpython-312.pyc,original_cache,agensi/arsip-asli/ (R06),16401,4b4c1c32abea5b92e1805ccc9d5f09bc2339bcd7009932fa74bd6f67146d86e2
 model/exterior/specialists/__pycache__/turbo.cpython-312.pyc,original_cache,agensi/arsip-asli/ (R06),22187,e1e8a526c02f1d2b2110e2e104fcb207a85a937e7549c45af9b1dd72bdeb2220
 model/exterior/specialists/__pycache__/water_lube_routes.cpython-312.pyc,original_cache,agensi/arsip-asli/ (R06),13181,d257cc354dbe6d6fb3ec2240353f9bc326e70f3c8cbbb7c3848ac645cdcaa0fd
-model/exterior/specialists/air_cooler.py,generator,model/source/model/exterior/specialists/air_cooler.py,12069,a910d0be19832913ffb5e62108df6511270fddd3cf572f8ff1e69fa33512b28f
-model/exterior/specialists/coolant_cap.py,generator,model/source/model/exterior/specialists/coolant_cap.py,2636,0d270d2dd80cc85baa68c507d4ac8fe76a35b0de3eaca044a1a7e2e4377bbda6
-model/exterior/specialists/cooling_pumps.py,generator,model/source/model/exterior/specialists/cooling_pumps.py,14145,b60603acb7da6f88cd0b2853d9387d1a3d77a9a51bd2b0a9ad6f2197a2d27c54
-model/exterior/specialists/drive_belt.py,generator,model/source/model/exterior/specialists/drive_belt.py,6408,479602e0fb7f6afb121db66c1136a0e8c8e79e1441217c775645535801f2c5d1
-model/exterior/specialists/electrical.py,generator,model/source/model/exterior/specialists/electrical.py,15679,eec01446ff00c87011a091e6ad03ea271f110066587e14eadcfbdab6eea7e6ca
-model/exterior/specialists/filters.py,generator,model/source/model/exterior/specialists/filters.py,11243,67109e9169551947e39fbfa41eea183265b386fd158b0346d79cc237647cc258
-model/exterior/specialists/freshwater_drive.py,generator,model/source/model/exterior/specialists/freshwater_drive.py,9671,f7747ecfc7048daea762c141861b87cca41c735fcb8b7fb6cf3c6c87eb4c3d98
-model/exterior/specialists/heat_exchangers.py,generator,model/source/model/exterior/specialists/heat_exchangers.py,12262,323dc40dcdac706ca75974cf750e58786e36f734544a631e609a9fdf792b7031
-model/exterior/specialists/housing_service.py,generator,model/source/model/exterior/specialists/housing_service.py,12228,2f17d91cd51f1898d65a9e664a3199fe14d707adcff7f1da9e5373aca10b0c45
-model/exterior/specialists/injection.py,generator,model/source/model/exterior/specialists/injection.py,12931,14da63c732291047833bcd2bb9162cd01bf6ec35bef306bd30ef2606b1e0ed4b
-model/exterior/specialists/piping.py,generator,model/source/model/exterior/specialists/piping.py,4404,f1ced9bb78d0dcb5ffbb530be22065ce6c9f5ab725cac8c8ed375d5f210f40b2
-model/exterior/specialists/pump_accessories.py,generator,model/source/model/exterior/specialists/pump_accessories.py,11871,194694c8ff554ac7cdf67f5b302fc8efe85227330c7f48942a8de16cc9ab7fb6
-model/exterior/specialists/turbo.py,generator,model/source/model/exterior/specialists/turbo.py,16017,429d28fcd1c18b905b7d8e8ed2ab4ff5f4e262e6a4aaf1cf40bb123df49ffe2a
-model/exterior/specialists/water_lube_routes.py,generator,model/source/model/exterior/specialists/water_lube_routes.py,7239,5e91065f3e287fabaf1049e4dd0c1f3c10aa81e25a3cd8ede8b2dfdd4d329e92
+model/exterior/specialists/air_cooler.py,generator,agensi/produksi/source/model/exterior/specialists/air_cooler.py,12069,a910d0be19832913ffb5e62108df6511270fddd3cf572f8ff1e69fa33512b28f
+model/exterior/specialists/coolant_cap.py,generator,agensi/produksi/source/model/exterior/specialists/coolant_cap.py,2636,0d270d2dd80cc85baa68c507d4ac8fe76a35b0de3eaca044a1a7e2e4377bbda6
+model/exterior/specialists/cooling_pumps.py,generator,agensi/produksi/source/model/exterior/specialists/cooling_pumps.py,14145,b60603acb7da6f88cd0b2853d9387d1a3d77a9a51bd2b0a9ad6f2197a2d27c54
+model/exterior/specialists/drive_belt.py,generator,agensi/produksi/source/model/exterior/specialists/drive_belt.py,6408,479602e0fb7f6afb121db66c1136a0e8c8e79e1441217c775645535801f2c5d1
+model/exterior/specialists/electrical.py,generator,agensi/produksi/source/model/exterior/specialists/electrical.py,15679,eec01446ff00c87011a091e6ad03ea271f110066587e14eadcfbdab6eea7e6ca
+model/exterior/specialists/filters.py,generator,agensi/produksi/source/model/exterior/specialists/filters.py,11243,67109e9169551947e39fbfa41eea183265b386fd158b0346d79cc237647cc258
+model/exterior/specialists/freshwater_drive.py,generator,agensi/produksi/source/model/exterior/specialists/freshwater_drive.py,9671,f7747ecfc7048daea762c141861b87cca41c735fcb8b7fb6cf3c6c87eb4c3d98
+model/exterior/specialists/heat_exchangers.py,generator,agensi/produksi/source/model/exterior/specialists/heat_exchangers.py,12262,323dc40dcdac706ca75974cf750e58786e36f734544a631e609a9fdf792b7031
+model/exterior/specialists/housing_service.py,generator,agensi/produksi/source/model/exterior/specialists/housing_service.py,12228,2f17d91cd51f1898d65a9e664a3199fe14d707adcff7f1da9e5373aca10b0c45
+model/exterior/specialists/injection.py,generator,agensi/produksi/source/model/exterior/specialists/injection.py,12931,14da63c732291047833bcd2bb9162cd01bf6ec35bef306bd30ef2606b1e0ed4b
+model/exterior/specialists/piping.py,generator,agensi/produksi/source/model/exterior/specialists/piping.py,4404,f1ced9bb78d0dcb5ffbb530be22065ce6c9f5ab725cac8c8ed375d5f210f40b2
+model/exterior/specialists/pump_accessories.py,generator,agensi/produksi/source/model/exterior/specialists/pump_accessories.py,11871,194694c8ff554ac7cdf67f5b302fc8efe85227330c7f48942a8de16cc9ab7fb6
+model/exterior/specialists/turbo.py,generator,agensi/produksi/source/model/exterior/specialists/turbo.py,16017,429d28fcd1c18b905b7d8e8ed2ab4ff5f4e262e6a4aaf1cf40bb123df49ffe2a
+model/exterior/specialists/water_lube_routes.py,generator,agensi/produksi/source/model/exterior/specialists/water_lube_routes.py,7239,5e91065f3e287fabaf1049e4dd0c1f3c10aa81e25a3cd8ede8b2dfdd4d329e92
 model/exterior/v1/exterior.glb,historical_geometry,agensi/arsip-asli/ (R06),5834964,f95c61439c3de33bf2ad062c7558ba289e064077469c75393d7c619191a4a27c
 model/exterior/v1/inventory.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),79287,421c5bc0132df6749a510542f92724253630fea8f1385564f518fbab65c74e66
 model/exterior/v2/exterior.glb,historical_geometry,agensi/arsip-asli/ (R06),5924644,6ff4affc32e5b7a94feba33d86cf3c853d4bf35b046a6ae9131ba8923fd81a5b
@@ -603,14 +603,14 @@ model/flow/__pycache__/audit_charge_duct.cpython-312.pyc,original_cache,agensi/a
 model/flow/__pycache__/build_routes.cpython-312.pyc,original_cache,agensi/arsip-asli/ (R06),22664,f0a95048b3eff3df0ff6ca025cf1e0be65543321826c3afd22dad31d13268863
 model/flow/__pycache__/make_water_lube.cpython-312.pyc,original_cache,agensi/arsip-asli/ (R06),25490,04cee9827abcafb41fdd417f743460947c2f2f65c0499b31f5f2416ccd64bccb
 model/flow/__pycache__/source_coverage.cpython-312.pyc,original_cache,agensi/arsip-asli/ (R06),7809,63b094520fe14e3d11751290947e92447eabbafa7d6d4dd4cc05ff450e3646e7
-model/flow/audit_charge_duct.py,qa_script,model/source/model/flow/audit_charge_duct.py,3450,a8a0e9e6352cb187a6179a39e0f05b2acb4e678317b53ee13d9a873c7699a7d5
-model/flow/build_routes.py,generator,model/source/model/flow/build_routes.py,14562,b5e98a28574754cfedbaf17d2c81346c1a8d57d12bb0d90dee00c84285d0d10b
-model/flow/fuel-gas.json,generated_registry_or_recipe,model/source/model/flow/fuel-gas.json,118587,4f2eb40d7aee62152500bad5e141a770ea5affa2a763d1f23ab79c30518fab3b
-model/flow/make_water_lube.py,generator,model/source/model/flow/make_water_lube.py,19717,9ed80b991c9056c56e856401ee89f985e678dc3e77ad460cc898410112fde339
-model/flow/routes.json,generated_registry_or_recipe,model/source/model/flow/routes.json,245043,3a4d0f381a823bf85e1798b94d1d7c730e6523231cfeefdfe63e96869f7a162c
-model/flow/source-coverage.json,generated_registry_or_recipe,model/source/model/flow/source-coverage.json,39826,72951ff69d2c3b66602f13eb401bc791269a14466205db08ef5a6767166ea773
-model/flow/source_coverage.py,generator,model/source/model/flow/source_coverage.py,5078,59345bd39502af2cc4c8c824d1de71eaecaeab5baec691db916f4630cee323ba
-model/flow/water-lube.json,generated_registry_or_recipe,model/source/model/flow/water-lube.json,274783,6e122b4ee4896fe12c368aaccc42e4a4ba5f866c0aa25dfd787f1297af71f892
+model/flow/audit_charge_duct.py,qa_script,agensi/produksi/source/model/flow/audit_charge_duct.py,3450,a8a0e9e6352cb187a6179a39e0f05b2acb4e678317b53ee13d9a873c7699a7d5
+model/flow/build_routes.py,generator,agensi/produksi/source/model/flow/build_routes.py,14562,b5e98a28574754cfedbaf17d2c81346c1a8d57d12bb0d90dee00c84285d0d10b
+model/flow/fuel-gas.json,generated_registry_or_recipe,agensi/produksi/source/model/flow/fuel-gas.json,118587,4f2eb40d7aee62152500bad5e141a770ea5affa2a763d1f23ab79c30518fab3b
+model/flow/make_water_lube.py,generator,agensi/produksi/source/model/flow/make_water_lube.py,19717,9ed80b991c9056c56e856401ee89f985e678dc3e77ad460cc898410112fde339
+model/flow/routes.json,generated_registry_or_recipe,agensi/produksi/source/model/flow/routes.json,245043,3a4d0f381a823bf85e1798b94d1d7c730e6523231cfeefdfe63e96869f7a162c
+model/flow/source-coverage.json,generated_registry_or_recipe,agensi/produksi/source/model/flow/source-coverage.json,39826,72951ff69d2c3b66602f13eb401bc791269a14466205db08ef5a6767166ea773
+model/flow/source_coverage.py,generator,agensi/produksi/source/model/flow/source_coverage.py,5078,59345bd39502af2cc4c8c824d1de71eaecaeab5baec691db916f4630cee323ba
+model/flow/water-lube.json,generated_registry_or_recipe,agensi/produksi/source/model/flow/water-lube.json,274783,6e122b4ee4896fe12c368aaccc42e4a4ba5f866c0aa25dfd787f1297af71f892
 model/internal/__pycache__/gear_train.cpython-312.pyc,original_cache,agensi/arsip-asli/ (R06),11191,30bbe124ba40af76de8024b6d12d10765e05b4e7b2311d17e0b8510ade034ef7
 model/internal/__pycache__/gear_train.cpython-313.pyc,original_cache,agensi/arsip-asli/ (R06),11558,c760ba0ba67d4b3966224aac9993b4b7fa371a4a137b2f0647ff8f43ec0bf396
 model/internal/__pycache__/injector.cpython-313.pyc,original_cache,agensi/arsip-asli/ (R06),24729,2af2dce242caa1c6b7e175bf51d3253e51978fadfaf9d35bff2c1aa5bd9c5c3c
@@ -622,22 +622,22 @@ model/internal/audit_injector.py,historical_qa_or_checkpoint,agensi/arsip-asli/ 
 model/internal/audit_internal.py,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),5893,ea76b8ee2ee8fd9dd363915eb945fafc62c85e20dfb686d5533083ec1f1792ea
 model/internal/build-r03.log,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),924966,e04029db368fe6bf98300dc6f87fc789540c87f50d8e6f3e27181c17e27b0e9a
 model/internal/build.log,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),877846,91218d957b49009963da2c572077c689aac27ec256469c97a7c5f81dbc769698
-model/internal/build_internal.py,generator,model/source/model/internal/build_internal.py,33445,f947b2fd5825def8c2e31223c705ba77497abe352f77eb1856a4afd789595ec6
+model/internal/build_internal.py,generator,agensi/produksi/source/model/internal/build_internal.py,33445,f947b2fd5825def8c2e31223c705ba77497abe352f77eb1856a4afd789595ec6
 model/internal/compare.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),2484,71cac85c480cab3bae113fe7388fc9ac6697e8e5a247a9532d02ae36f54bfb4d
-model/internal/evidence/D01-p150.png,document_or_catalog_evidence,model/source/model/internal/evidence/D01-p150.png,217561,f0faf8390834aa044cf137672b224eb782bf16fd0c867e1da85a5a81277ed49d
-model/internal/evidence/D01-p151.png,document_or_catalog_evidence,model/source/model/internal/evidence/D01-p151.png,246510,792c7f1fa249dce6a314652a7cf7696969b9d6a4ec1d37aead1fef678a9fdcf3
-model/internal/evidence/D01-p152.png,document_or_catalog_evidence,model/source/model/internal/evidence/D01-p152.png,178686,9f18968932c5ccc6c5aeff1ef907c06aef17cd7aec1e26e60ab94bdf516af8a5
-model/internal/evidence/D05-fig79.html,document_or_catalog_evidence,model/source/model/internal/evidence/D05-fig79.html,129756,3570c97cb662c0984ab8e3267468e1a400d309fe9fee272328fc6fbac025795a
-model/internal/evidence/D05-fig79.png,document_or_catalog_evidence,model/source/model/internal/evidence/D05-fig79.png,153825,7c66e2cdf431985b42a418cea4b98f97385378abf19c49c36065e59f4887201c
-model/internal/evidence/D05-fig79.svg,document_or_catalog_evidence,model/source/model/internal/evidence/D05-fig79.svg,54899,872f3f11047b544c3720c99a6f7b16f485121bed1160bcb1afa45e57678acfc7
-model/internal/evidence/injector-source-register.json,document_or_catalog_evidence,model/source/model/internal/evidence/injector-source-register.json,3158,698f9e11228e52dc8de8f0d931a99c59b446ce6d518d2949b81dbf87952c7dce
-model/internal/gear_train.py,generator,model/source/model/internal/gear_train.py,6982,fb939d79fdbf48c41b1c87038c214210732a8c60ec096fd2f25a5f22119e3180
+model/internal/evidence/D01-p150.png,document_or_catalog_evidence,agensi/produksi/source/model/internal/evidence/D01-p150.png,217561,f0faf8390834aa044cf137672b224eb782bf16fd0c867e1da85a5a81277ed49d
+model/internal/evidence/D01-p151.png,document_or_catalog_evidence,agensi/produksi/source/model/internal/evidence/D01-p151.png,246510,792c7f1fa249dce6a314652a7cf7696969b9d6a4ec1d37aead1fef678a9fdcf3
+model/internal/evidence/D01-p152.png,document_or_catalog_evidence,agensi/produksi/source/model/internal/evidence/D01-p152.png,178686,9f18968932c5ccc6c5aeff1ef907c06aef17cd7aec1e26e60ab94bdf516af8a5
+model/internal/evidence/D05-fig79.html,document_or_catalog_evidence,agensi/produksi/source/model/internal/evidence/D05-fig79.html,129756,3570c97cb662c0984ab8e3267468e1a400d309fe9fee272328fc6fbac025795a
+model/internal/evidence/D05-fig79.png,document_or_catalog_evidence,agensi/produksi/source/model/internal/evidence/D05-fig79.png,153825,7c66e2cdf431985b42a418cea4b98f97385378abf19c49c36065e59f4887201c
+model/internal/evidence/D05-fig79.svg,document_or_catalog_evidence,agensi/produksi/source/model/internal/evidence/D05-fig79.svg,54899,872f3f11047b544c3720c99a6f7b16f485121bed1160bcb1afa45e57678acfc7
+model/internal/evidence/injector-source-register.json,document_or_catalog_evidence,agensi/produksi/source/model/internal/evidence/injector-source-register.json,3158,698f9e11228e52dc8de8f0d931a99c59b446ce6d518d2949b81dbf87952c7dce
+model/internal/gear_train.py,generator,agensi/produksi/source/model/internal/gear_train.py,6982,fb939d79fdbf48c41b1c87038c214210732a8c60ec096fd2f25a5f22119e3180
 model/internal/injector-audit.json,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),2482,36b52ea263fdcccc78694bc0e36509e01ceded2bb56e1f383d8fca2c3673d2a3
-model/internal/injector.py,generator,model/source/model/internal/injector.py,15682,841c39bac42ad2860e8b786b45197a00fe19380770e6a31c4dd0286b8ab4ac00
-model/internal/internal.blend,editable_master,model/source/model/internal/internal.blend,20856272,2dd18541aade76c03c06d9a41ca1aa7c853ff5115a6e89b1b5f4d44dde381e58
+model/internal/injector.py,generator,agensi/produksi/source/model/internal/injector.py,15682,841c39bac42ad2860e8b786b45197a00fe19380770e6a31c4dd0286b8ab4ac00
+model/internal/internal.blend,editable_master,model/masters/internal.blend,20856272,2dd18541aade76c03c06d9a41ca1aa7c853ff5115a6e89b1b5f4d44dde381e58
 model/internal/internal.glb,review_export,model/assets/internal.glb,12702176,526ce37f126203eb288388dbd7922dd85749b19ddf8ef82ee5bfcf9d472ec8f5
-model/internal/inventory.json,generated_registry_or_recipe,model/source/model/internal/inventory.json,709002,f547f40e2de5adbd02db1a6f17ef9ae0c22c3126a8dda12ba2f96ae699d3a1dc
-model/internal/kinematics.json,generated_registry_or_recipe,model/source/model/internal/kinematics.json,28094,804d2767e5e330acfb9bda72ee06db0b394b5211f9255f682662ed07a9c40c6d
+model/internal/inventory.json,generated_registry_or_recipe,agensi/produksi/source/model/internal/inventory.json,709002,f547f40e2de5adbd02db1a6f17ef9ae0c22c3126a8dda12ba2f96ae699d3a1dc
+model/internal/kinematics.json,generated_registry_or_recipe,agensi/produksi/source/model/internal/kinematics.json,28094,804d2767e5e330acfb9bda72ee06db0b394b5211f9255f682662ed07a9c40c6d
 model/internal/make_injector_plates.py,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),10500,1264f4ae2555eb20c95a7d19fce4c37d0f0e6da6fb5e10526fcfe743ec839c12
 model/internal/mechanical-evidence/audit.log,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),34845,0c7c52be035e8bb28b158d37220feb4d8f20f0b6f9b357cffba1328e5352d6e7
 model/internal/mechanical-evidence/audit.py,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),1851,618a8799caff1c3431daafdc2593a0b37172230b26f763c6e7121841580ef21e
@@ -671,7 +671,7 @@ model/internal/mechanical-evidence/render.log,historical_qa_or_checkpoint,agensi
 model/internal/mechanical-evidence/render.py,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),2159,09708ca5e9506fcd481f72695354484a7843ebc4948465c5dc69c754552c226a
 model/internal/mechanical-evidence/valve-exploded.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),357576,0ea775ddb0a97ad785b7aeaeddc9b5e75fb2e41c84057c648efd1581321fa93a
 model/internal/mechanical-evidence/valve-installed.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),409101,bf9d9a73844a1a38e924d72279b1412edfa3ae7ca2659571d1691c240541028c
-model/internal/mechanical_service.py,generator,model/source/model/internal/mechanical_service.py,6717,ef447c94cd73ab74fbafe4b0e8340de517f267bb208a3a940c69cd49dd07b7ca
+model/internal/mechanical_service.py,generator,agensi/produksi/source/model/internal/mechanical_service.py,6717,ef447c94cd73ab74fbafe4b0e8340de517f267bb208a3a940c69cd49dd07b7ca
 model/internal/plates/injector-exploded.png,evidence_or_historical_render,agensi/arsip-asli/ (R06),184039,f0ffe1e0d3bbf63a9299e279afe5f98c9b12c3ce9b1df1c01edcc4b2890f6ec6
 model/internal/plates/injector-exploded.webp,historical_qa_or_checkpoint,agensi/arsip-asli/ (R06),74246,9b427bfce328d45c457e298393f8bc4b0153c2f4413e4e0b2f7961798d32029d
 model/internal/plates/injector-legend.html,evidence_or_historical_render,agensi/arsip-asli/ (R06),4010,af1126956a4a827f46f497dac3062ac69db0e304fcd5e8472e80f89307760625
@@ -709,28 +709,28 @@ model/motion/__pycache__/pump_cam.cpython-312.pyc,original_cache,agensi/arsip-as
 model/motion/__pycache__/starter.cpython-312.pyc,original_cache,agensi/arsip-asli/ (R06),3354,6c1221d1772a86dc5977a833e2b1a46deeccf6f69309a15a5761685bfa263492
 model/motion/__pycache__/starter.cpython-313.pyc,original_cache,agensi/arsip-asli/ (R06),3380,1d29ac2afac6050f1c4da3ce389c1b5d2c4610c9fed5064db414661741352f67
 model/motion/__pycache__/water_drive_spec.cpython-312.pyc,original_cache,agensi/arsip-asli/ (R06),1855,d12e258422e10c4ce0d512ab31f7f2de397655f7b568c4b67bb1b7aae8ec4b36
-model/motion/audit_drives.py,qa_script,model/source/model/motion/audit_drives.py,4584,1e54de8f287468cf8e0d362586e7f369909ec03bb87946a29047d072712bd68c
-model/motion/audit_enclosures.py,qa_script,model/source/model/motion/audit_enclosures.py,3883,756cb3e796e052fe02003fdcadcb8939494465355943049a3c31d6efa7263543
-model/motion/audit_starter_flanks.py,qa_script,model/source/model/motion/audit_starter_flanks.py,3364,4c3fcc35c0374ded72cd9f102bf42772601115217ded105f4fa172cd87a20f35
-model/motion/belt.py,generator,model/source/model/motion/belt.py,752,7f9334598546730506e5f779326ac18600a321935524b16f2493703f6279ed0e
-model/motion/build_functions.py,generator,model/source/model/motion/build_functions.py,18243,41f7b586996aef8aa0dd88357e7312e69ec82afb0afa40e5e65f0b4569176fa6
-model/motion/build_motion.py,generator,model/source/model/motion/build_motion.py,17443,c085f3249844ce77e3e1c240597ea60b7d33ab5cb53a8276c45c68dfda6aaa5c
-model/motion/check_drive_release.py,qa_script,model/source/model/motion/check_drive_release.py,4004,6084006924d1471a6e58eae1bbda0b7996989bb9bb4feb51cf3e98c49c8a8d01
-model/motion/drivetrain.json,generated_registry_or_recipe,model/source/model/motion/drivetrain.json,264060,fe9876234785c485a51920094a1427eaa6261568aa376df3ebae47ff2d2012a0
-model/motion/freshwater_pump.py,generator,model/source/model/motion/freshwater_pump.py,2151,09798742e9878814879e2ab02c07186bcbfa2bc8c1434d44bc9968f432311d64
-model/motion/function_groups.py,generator,model/source/model/motion/function_groups.py,7357,3dad86ab986a8fefa86f3a849bc9e1a48ffd006e64d87a17515b77c8d136ff6e
-model/motion/functional-motion.js,motion_behavior_source,model/source/model/motion/functional-motion.js,6104,0933f4bb115d46188055bbcac7444f011bf4a6becb51ad55027ec12053bf040a
-model/motion/functions.json,generated_registry_or_recipe,model/source/model/motion/functions.json,181609,9e39aff996dbfef13301aa52ff91f83ed575c07bdaa5f6b40bc55f79d6603f6b
-model/motion/make_pinion_profile.py,optional_authoring,model/source/model/motion/make_pinion_profile.py,1519,059e29c687142dfd81849d3cf2275bcadb0cb64b800837351624ea35926c78ef
-model/motion/metering_rack.py,generator,model/source/model/motion/metering_rack.py,1235,c8565c22525e94c17edc299eec0891711dee7e1a319b792a27d3350bb4d1f431
-model/motion/pinion-profile.json,source_data,model/source/model/motion/pinion-profile.json,1168,55bd1a121c63ccbe5c1317149fadfbf56a5d069ba1c434a0d50e7e7c74288332
-model/motion/pump_cam.py,generator,model/source/model/motion/pump_cam.py,1010,00755e8717191d5caaa92882e56954c9967a926ac3b328731273488667b2bfe2
-model/motion/seawater_vanes.py,generator,model/source/model/motion/seawater_vanes.py,1968,3ba65b1540499326dc34a38b60cdb4ff48964b25af318407d5a4a9b897ed11db
-model/motion/shaft-inventory.json,generated_registry_or_recipe,model/source/model/motion/shaft-inventory.json,268939,39a734aa0639e13105623d6fc7f7b2c4fd7bddb3c57deeb32a31e352ae0845b0
-model/motion/starter.py,generator,model/source/model/motion/starter.py,1923,f3b249a7fba05c0b682477da37b1137cde3b71834ca84dcc91c062dd91b7e94f
-model/motion/water_drive_spec.py,generator,model/source/model/motion/water_drive_spec.py,1434,b83e7c00467b054ed7c3b25d541a0f471b7e70a4798c9c532995fb936e2b03d6
-model/systems/freshwater.json,source_data,model/source/model/systems/freshwater.json,10757,17e3394afb4b7830788280903993c71246227e4518342f6d33b4cf3d6a98b0d4
-model/systems/fuel.json,source_data,model/source/model/systems/fuel.json,13489,eea8c06650d01cc939d2ea7bcdbf7d4de2eb71add542e0cb0977638a8493e3c6
-model/systems/intake-exhaust.json,source_data,model/source/model/systems/intake-exhaust.json,21291,1ff506102fa71ca99824ff8a819946771a36e85bad3989d2450f68a3f0783193
-model/systems/lubrication.json,source_data,model/source/model/systems/lubrication.json,27323,18f7a1f2083a6f194a526fd3da4a57df58621d5447f9f54710825f1110fdba91
-model/systems/seawater.json,source_data,model/source/model/systems/seawater.json,7401,68b4214758b3f9cee16817bbe01dc5451194aa06f529c6aacb9c1dfe0acc9525
+model/motion/audit_drives.py,qa_script,agensi/produksi/source/model/motion/audit_drives.py,4584,1e54de8f287468cf8e0d362586e7f369909ec03bb87946a29047d072712bd68c
+model/motion/audit_enclosures.py,qa_script,agensi/produksi/source/model/motion/audit_enclosures.py,3883,756cb3e796e052fe02003fdcadcb8939494465355943049a3c31d6efa7263543
+model/motion/audit_starter_flanks.py,qa_script,agensi/produksi/source/model/motion/audit_starter_flanks.py,3364,4c3fcc35c0374ded72cd9f102bf42772601115217ded105f4fa172cd87a20f35
+model/motion/belt.py,generator,agensi/produksi/source/model/motion/belt.py,752,7f9334598546730506e5f779326ac18600a321935524b16f2493703f6279ed0e
+model/motion/build_functions.py,generator,agensi/produksi/source/model/motion/build_functions.py,18243,41f7b586996aef8aa0dd88357e7312e69ec82afb0afa40e5e65f0b4569176fa6
+model/motion/build_motion.py,generator,agensi/produksi/source/model/motion/build_motion.py,17443,c085f3249844ce77e3e1c240597ea60b7d33ab5cb53a8276c45c68dfda6aaa5c
+model/motion/check_drive_release.py,qa_script,agensi/produksi/source/model/motion/check_drive_release.py,4004,6084006924d1471a6e58eae1bbda0b7996989bb9bb4feb51cf3e98c49c8a8d01
+model/motion/drivetrain.json,generated_registry_or_recipe,agensi/produksi/source/model/motion/drivetrain.json,264060,fe9876234785c485a51920094a1427eaa6261568aa376df3ebae47ff2d2012a0
+model/motion/freshwater_pump.py,generator,agensi/produksi/source/model/motion/freshwater_pump.py,2151,09798742e9878814879e2ab02c07186bcbfa2bc8c1434d44bc9968f432311d64
+model/motion/function_groups.py,generator,agensi/produksi/source/model/motion/function_groups.py,7357,3dad86ab986a8fefa86f3a849bc9e1a48ffd006e64d87a17515b77c8d136ff6e
+model/motion/functional-motion.js,motion_behavior_source,agensi/produksi/source/model/motion/functional-motion.js,6104,0933f4bb115d46188055bbcac7444f011bf4a6becb51ad55027ec12053bf040a
+model/motion/functions.json,generated_registry_or_recipe,agensi/produksi/source/model/motion/functions.json,181609,9e39aff996dbfef13301aa52ff91f83ed575c07bdaa5f6b40bc55f79d6603f6b
+model/motion/make_pinion_profile.py,optional_authoring,agensi/produksi/source/model/motion/make_pinion_profile.py,1519,059e29c687142dfd81849d3cf2275bcadb0cb64b800837351624ea35926c78ef
+model/motion/metering_rack.py,generator,agensi/produksi/source/model/motion/metering_rack.py,1235,c8565c22525e94c17edc299eec0891711dee7e1a319b792a27d3350bb4d1f431
+model/motion/pinion-profile.json,source_data,agensi/produksi/source/model/motion/pinion-profile.json,1168,55bd1a121c63ccbe5c1317149fadfbf56a5d069ba1c434a0d50e7e7c74288332
+model/motion/pump_cam.py,generator,agensi/produksi/source/model/motion/pump_cam.py,1010,00755e8717191d5caaa92882e56954c9967a926ac3b328731273488667b2bfe2
+model/motion/seawater_vanes.py,generator,agensi/produksi/source/model/motion/seawater_vanes.py,1968,3ba65b1540499326dc34a38b60cdb4ff48964b25af318407d5a4a9b897ed11db
+model/motion/shaft-inventory.json,generated_registry_or_recipe,agensi/produksi/source/model/motion/shaft-inventory.json,268939,39a734aa0639e13105623d6fc7f7b2c4fd7bddb3c57deeb32a31e352ae0845b0
+model/motion/starter.py,generator,agensi/produksi/source/model/motion/starter.py,1923,f3b249a7fba05c0b682477da37b1137cde3b71834ca84dcc91c062dd91b7e94f
+model/motion/water_drive_spec.py,generator,agensi/produksi/source/model/motion/water_drive_spec.py,1434,b83e7c00467b054ed7c3b25d541a0f471b7e70a4798c9c532995fb936e2b03d6
+model/systems/freshwater.json,source_data,agensi/produksi/source/model/systems/freshwater.json,10757,17e3394afb4b7830788280903993c71246227e4518342f6d33b4cf3d6a98b0d4
+model/systems/fuel.json,source_data,agensi/produksi/source/model/systems/fuel.json,13489,eea8c06650d01cc939d2ea7bcdbf7d4de2eb71add542e0cb0977638a8493e3c6
+model/systems/intake-exhaust.json,source_data,agensi/produksi/source/model/systems/intake-exhaust.json,21291,1ff506102fa71ca99824ff8a819946771a36e85bad3989d2450f68a3f0783193
+model/systems/lubrication.json,source_data,agensi/produksi/source/model/systems/lubrication.json,27323,18f7a1f2083a6f194a526fd3da4a57df58621d5447f9f54710825f1110fdba91
+model/systems/seawater.json,source_data,agensi/produksi/source/model/systems/seawater.json,7401,68b4214758b3f9cee16817bbe01dc5451194aa06f529c6aacb9c1dfe0acc9525

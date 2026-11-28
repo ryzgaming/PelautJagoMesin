@@ -1,0 +1,39 @@
+{
+  "mappings": 202,
+  "same_bytes": 194,
+  "updated_content_paths": [
+    [
+      "model/runtime/engine-session.js",
+      "runtime/engine-session.js"
+    ],
+    [
+      "model/runtime/README.md",
+      "runtime/README.md"
+    ],
+    [
+      "model/source/README.md",
+      "agensi/produksi/source/README.md"
+    ],
+    [
+      "model/tools/DEPENDENSI.md",
+      "agensi/produksi/tools/DEPENDENSI.md"
+    ],
+    [
+      "model/tools/audit.py",
+      "agensi/produksi/tools/audit.py"
+    ],
+    [
+      "model/tools/build.py",
+      "agensi/produksi/tools/build.py"
+    ],
+    [
+      "model/tools/original-model-index.csv",
+      "agensi/produksi/tools/original-model-index.csv"
+    ],
+    [
+      "model/tools/source-inventory.csv",
+      "agensi/produksi/tools/source-inventory.csv"
+    ]
+  ],
+  "prior_manifest_identical": true
+}

@@ -20,12 +20,16 @@
   "history": "agensi/arsip-asli/INDEKS.json",
   "productionTools": "agensi/perangkat-produksi/MANIFEST-PAKET-AGENSI.json",
   "references": "agensi/referensi/MANIFEST.json",
-  "modelSource": "model/tools/source-inventory.csv",
-  "verification": "agensi/validasi-pemisahan/",
+  "modelSource": "agensi/produksi/tools/source-inventory.csv",
+  "verification": "agensi/qa/struktur-folder-v2/",
   "limitations": [
     "Only available files collected; not a verbatim conversation export.",
     "Cache exclusions explicitly listed in original revision manifests.",
     "Agent briefs labelled reconstructed; actual project profiles kept separately.",
     "UI separation does not certify OEM tolerances or remove unresolved historical QA findings."
-  ]
+  ],
+  "layoutRevision": "r06-layout-v2",
+  "layoutDate": "2026-11-29",
+  "previousPackageCommit": "cdb1e2f",
+  "layoutMigration": "agensi/arsip-paket/r06-layout-v2.json"
 }

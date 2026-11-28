@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
 import { readFile } from 'node:fs/promises';
-import { createPowertrain } from '../model/runtime/powertrain.js';
+import { createPowertrain } from '../runtime/powertrain.js';
 
 const model=new URL('../model/',import.meta.url);
 const manifest=JSON.parse(await readFile(new URL('manifest.json',model),'utf8'));
@@ -12,8 +12,13 @@ for (const [path,sha] of Object.entries(manifest.integrity)) {
 const inventory=JSON.parse(await readFile(new URL(manifest.assets.inventory,model),'utf8'));
 assert.equal(inventory.components.length,manifest.componentCount);
 assert.equal(new Set(inventory.components.map(part=>part.id)).size,manifest.componentCount);
-for (const path of [manifest.runtime.session,manifest.runtime.powertrain,...manifest.runtime.vendor]) {
-  await readFile(new URL(path,model));
+const runtime=new URL('../runtime/',import.meta.url);
+const runtimeManifest=JSON.parse(await readFile(new URL('manifest.json',runtime),'utf8'));
+assert.equal(new URL(runtimeManifest.modelManifest,runtime).href,new URL('manifest.json',model).href);
+assert.equal(runtimeManifest.apiVersion,1);
+assert.equal('runtime' in manifest,false);
+for (const path of [runtimeManifest.session,runtimeManifest.powertrain,...runtimeManifest.vendor]) {
+  await readFile(new URL(path,runtime));
 }
 
 const samples=[];

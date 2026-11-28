@@ -303,6 +303,9 @@ def prepare(root, packet):
     if claim.get("worker") == "codex" or str(claim.get("ai_model") or "").startswith("gpt-"):
         guide_root = Path(__file__).resolve().parents[3] / "tools/gpt-production"
         guide = {name: (guide_root / name).read_text() for name in ("PROMPT-GPT.md", "ROLE-PROMPTS.md", "README.md")}
+        for profile in ("referensi_visual", "pemodel_eksterior", "qa_visual_viewer"):
+            relative = f".codex/agents/{profile}.toml"
+            guide[relative] = (guide_root.parents[1] / relative).read_text()
         save(dest / "production-guide.json", guide)
         guide_hash = hashlib.sha256((dest / "production-guide.json").read_bytes()).hexdigest()
         shared["production_guide"] = {"file": "production-guide.json", "sha256": guide_hash}

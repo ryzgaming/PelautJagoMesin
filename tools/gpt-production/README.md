@@ -4,6 +4,8 @@ Adaptasi prompt dan toolkit yang dilampirkan pemilik pada 28 November 2026. Mula
 
 Untuk paket unduhan mandiri, buka folder `toolkit-orang-mesin-gpt` dan jalankan `python3 toolkit.py preflight`; hilangkan awalan `tools/gpt-production/` pada command di bawah. Integrasi antrean membutuhkan checkout repository yang memuat `hosted_worker.py`; paket mandiri tidak membuat koneksi/automasi sendiri.
 
+Profil agen Codex ada di `.codex/agents/` pada root repository dan root paket unduhan mandiri. Buka Codex dari root tersebut agar profil tersedia di tingkat proyek. Untuk memakai paket di proyek lain, salin ketiga file TOML ke `.codex/agents/` proyek tujuan. Nama, pemetaan peran, dan cara menjalankan pada runtime yang menerima prompt teks tersedia di [instruksi peran](ROLE-PROMPTS.md#agen-proyek-untuk-kemiripan-dan-viewer).
+
 ## Jalankan dari root repository
 
 ```bash

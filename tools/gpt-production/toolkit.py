@@ -9,6 +9,7 @@ import shutil
 import sys
 
 import assembly_scope
+import flow_scope
 
 ROLES = ('documents', 'photos', 'video', 'dimension', 'fuel', 'lubrication',
          'intake-exhaust', 'freshwater', 'seawater', 'exterior', 'internals', 'integrator', 'qa')
@@ -33,10 +34,11 @@ def initialize(root, brand, model, ai_model):
     for folder in ('doc', 'foto', 'video', 'model/exterior', 'model/internal', 'model/systems',
                    'model/assemblies', 'qa', 'review'):
         (root / folder).mkdir(parents=True, exist_ok=True)
-    spec = {'schema_version': 2, 'brand': brand, 'model': model, 'ai_model': ai_model,
+    spec = {'schema_version': 3, 'brand': brand, 'model': model, 'ai_model': ai_model,
             'revision': 'r01', 'purpose': 'educational', 'catalog_approval': None,
             'dimension_target_percent': 1, 'dimension_target_kind': 'educational_nominal_not_manufacturing'}
     write_json(root / 'job.json', spec)
+    write_json(root / flow_scope.PLAN, flow_scope.new_plan(spec['revision']))
     write_json(root / assembly_scope.PLAN, assembly_scope.new_plan(spec['revision']))
     write_json(root / assembly_scope.BOM, {'revision': spec['revision'], 'verified_by': None,
                'scope_status': 'unverified', 'toc_ref': {}, 'toc_family_ids': [], 'families': {}})
@@ -150,6 +152,13 @@ def check_review(root):
             statuses.extend(coverage_statuses)
         except (OSError, ValueError, TypeError, KeyError, AttributeError, IndexError) as exc:
             errors.append(f'Invalid assembly evidence: {exc}')
+    if job.get('schema_version', 1) >= 3 or (root / flow_scope.PLAN).exists():
+        try:
+            flow_errors, flow_statuses = flow_scope.inspect(root, job['revision'], verified, qa_id)
+            errors.extend(flow_errors)
+            statuses.extend(flow_statuses)
+        except (OSError, ValueError, TypeError, KeyError, AttributeError, IndexError) as exc:
+            errors.append(f'Invalid operating flow evidence: {exc}')
     if 'FAIL' in statuses or any(isinstance(f, dict) and f.get('severity') in ('critical', 'major') for f in open_findings):
         verdict = 'FAIL'
     elif errors or open_findings or any(s not in ('PASS', 'N/A') for s in statuses):
@@ -180,6 +189,8 @@ def main():
             result = initialize(args.workspace, args.brand, args.model, args.ai_model)
         elif args.command == 'specialist-briefs':
             result = list(assembly_scope.dispatch(args.workspace))
+            if (args.workspace / flow_scope.PLAN).exists():
+                result.extend(flow_scope.task(args.workspace))
         elif args.command == 'preflight':
             result = preflight()
         else:

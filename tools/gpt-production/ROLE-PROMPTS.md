@@ -10,6 +10,8 @@ Untuk produksi atau revisi bentuk, tugaskan A2 kepada `referensi_visual`, A6 kep
 
 Codex membaca profil dari `.codex/agents/` pada proyek. Bila alat delegasi hanya menerima instruksi teks, baca TOML peran yang bersangkutan, sertakan `developer_instructions` dalam penugasan subagen nyata beserta instruksi A2, A6 atau A9 di bawah. Pada worker, teks TOML tersedia dalam `production-guide.json` dengan kunci `.codex/agents/<nama>.toml`. Pertahankan ID peran, ketentuan model pesanan, dan pemisahan QA dari pembuat.
 
+Untuk perpipaan, lorong cor dan animasi fluida, aktifkan agen lintas rakitan `spesialis_jalur_fluida` sesuai [petunjuk registrasi dan uji rute](FLOW-ROUTING.md).
+
 Pada produksi dan revisi model mesin, koordinator juga [menugaskan spesialis tiap rakitan](SPECIALISTS.md) sebelum memodelkan. Gunakan daftar dari `specialist-briefs`, teruskan subkomponen yang diharapkan kepada modeler, dan periksa komponen tersembunyi hingga dapat dipilih melalui viewer.
 
 ### A1. Evidence dokumen

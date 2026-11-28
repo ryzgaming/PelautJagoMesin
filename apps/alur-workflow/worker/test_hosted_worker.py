@@ -88,7 +88,7 @@ class HostedWorkerTests(unittest.TestCase):
         self.assertIn("QA", data["PROMPT-GPT.md"])
         specialists = json.loads(data["specialists.json"])
         self.assertIn("pendingin_penukar_panas", specialists)
-        for profile in ["referensi_visual", "pemodel_eksterior", "qa_visual_viewer", "spesialis_jalur_fluida",
+        for profile in ["referensi_visual", "pemodel_eksterior", "qa_visual_viewer", "spesialis_jalur_fluida", "spesialis_kinematika_benturan",
                         *(row["profile"] for row in specialists.values())]:
             self.assertIn("developer_instructions", data[f".codex/agents/{profile}.toml"])
         self.assertNotIn("not-for-workers", guide.read_text())

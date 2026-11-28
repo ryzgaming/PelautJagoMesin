@@ -22,6 +22,8 @@ Untuk produksi dengan GPT/Codex, baca [prompt produksi GPT](tools/gpt-production
 5. Bandingkan hasil pada desktop dan ponsel. Periksa juga pemilihan komponen, mode bongkar, dan akses katalog saat WebGL atau pustaka 3D gagal.
 6. **Wajib multi-agen (keputusan pemilik):** setiap pembuatan mesin dikerjakan oleh subagen nyata per peran. Riset dokumen, foto, dan video berjalan paralel. Exterior dan Internal Modeler terpisah. QA independen yang tidak ikut membuat model memeriksa render enam sudut (depan, belakang, kiri, kanan, atas, 3/4) terhadap referensi dari sudut yang sama dan berhak menolak. Satu pekerja yang mengerjakan semua peran sendiri tidak diterima. Rincian dan gerbang `review` ada di [README worker](apps/alur-workflow/worker/README.md#wajib-multi-agen-aturan-pemilik).
 
+Untuk simulasi mekanisme, tugaskan `spesialis_kinematika_benturan` memetakan tiap mesh ke bagian diam/bergerak per kondisi operasi. Gunakan [register gerak dan pemeriksaan benturan](tools/gpt-production/MOTION-QA.md) hingga pengujian viewer.
+
 Untuk perpipaan, lorong cor dan animasi fluida, aktifkan agen lintas rakitan `spesialis_jalur_fluida` sesuai [petunjuk registrasi dan uji rute](tools/gpt-production/FLOW-ROUTING.md).
 
 ### Alat animasi (wajib dipakai untuk animasi gerak dan aliran)
@@ -29,7 +31,7 @@ Untuk perpipaan, lorong cor dan animasi fluida, aktifkan agen lintas rakitan `sp
 Skill repo ada di `.agents/skills/` (Codex memuatnya otomatis saat dibuka dari root repo; agen lain membaca SKILL.md-nya langsung):
 
 - **`animasi-aliran-mesin`** — air pendingin, air laut, oli, bahan bakar, udara dan gas buang di viewer three.js. Modul `scripts/flow-ribbons.js`, demo `scripts/demo.html`, perekam QA `scripts/capture_flow.py`, palet `references/palet-media.md` (keluarga warna ISO 14726).
-- **`blender-animasi-mesin`** — poros engkol, batang, piston, katup dan kamera tur di Blender. Rig kinematika `scripts/crank_rig.py`, strip frame `scripts/render_strip.py`.
+- **`blender-animasi-mesin`** — poros engkol, batang, piston, katup dan kamera tur di Blender. Rig kinematika `scripts/crank_rig.py`, strip frame `scripts/render_strip.py`. Angka gerak mengikuti register [MOTION-QA](tools/gpt-production/MOTION-QA.md).
 - **Blender MCP** — server `blender` di `.codex/config.toml` (`uvx mcp-for-blender`, mode aman, telemetri mati). Butuh Blender terbuka dengan add-on "MCP for Blender". Tool `look` menampilkan strip frame animasi; pakai untuk melihat hasil sebelum menyerahkan. Tanpa Blender GUI, pakai skrip headless di skill.
 
 Animasi tidak boleh diserahkan sebelum lembar frame (web) atau strip frame (Blender) dibuka dan dinilai. Rute aliran tetap berasal dari FLOW-ROUTING, bukan digambar demi estetika.

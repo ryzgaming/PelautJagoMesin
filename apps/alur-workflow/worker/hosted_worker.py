@@ -302,9 +302,9 @@ def prepare(root, packet):
     shared.update(sections)
     if claim.get("worker") == "codex" or str(claim.get("ai_model") or "").startswith("gpt-"):
         guide_root = Path(__file__).resolve().parents[3] / "tools/gpt-production"
-        guide = {name: (guide_root / name).read_text() for name in ("PROMPT-GPT.md", "ROLE-PROMPTS.md", "README.md", "SPECIALISTS.md", "specialists.json", "FLOW-ROUTING.md")}
+        guide = {name: (guide_root / name).read_text() for name in ("PROMPT-GPT.md", "ROLE-PROMPTS.md", "README.md", "SPECIALISTS.md", "specialists.json", "FLOW-ROUTING.md", "MOTION-QA.md")}
         profiles = [row["profile"] for row in json.loads(guide["specialists.json"]).values()]
-        for profile in ["referensi_visual", "pemodel_eksterior", "qa_visual_viewer", "spesialis_jalur_fluida", *profiles]:
+        for profile in ["referensi_visual", "pemodel_eksterior", "qa_visual_viewer", "spesialis_jalur_fluida", "spesialis_kinematika_benturan", *profiles]:
             relative = f".codex/agents/{profile}.toml"
             guide[relative] = (guide_root.parents[1] / relative).read_text()
         # Skill animasi ikut dikirim agar subagen tanpa akses skill repo tetap tahu alat dan lokasinya.

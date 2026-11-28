@@ -28,6 +28,8 @@ Siapkan review privat hanya bila gerbang terpenuhi. Jangan terbitkan ke katalog 
 - QA/review pemilik bukan persetujuan jual. Katalog memerlukan persetujuan pemilik yang mengacu hash/revisi yang sama dan hak penggunaan aset. Perubahan model membatalkan audit terkait.
 - Untuk antrean, ikuti claim/heartbeat/history/checkpoint/finish dari README worker; kredensial hanya koordinator. Jangan membuat automasi atau mengklaim order baru hanya karena membaca prompt ini.
 
+Untuk simulasi mekanisme, tugaskan `spesialis_kinematika_benturan` memetakan tiap mesh ke bagian diam/bergerak per kondisi operasi. Gunakan [register gerak dan pemeriksaan benturan](MOTION-QA.md) hingga pengujian viewer.
+
 Untuk perpipaan, lorong cor dan animasi fluida, aktifkan agen lintas rakitan `spesialis_jalur_fluida` sesuai [petunjuk registrasi dan uji rute](FLOW-ROUTING.md).
 
 Untuk animasi, pakai skill repo `.agents/skills/animasi-aliran-mesin` (aliran cairan/gas di viewer) dan `.agents/skills/blender-animasi-mesin` (mekanisme engkol, katup, kamera tur; Blender MCP bila tersedia). Isi SKILL.md keduanya juga ada di `production-guide.json`.

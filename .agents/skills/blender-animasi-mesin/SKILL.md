@@ -18,6 +18,15 @@ pernah melihat hasilnya. Skill ini menutup keduanya.
 | Render enam sudut | `tools/gpt-production/render_six.py` | Bentuk statis, bukan gerak |
 | Aliran cairan | `.agents/skills/animasi-aliran-mesin/` | Pita cairan di pipa (three.js) |
 
+## Hubungan dengan register gerak
+
+Sumber kebenaran gerak adalah `model/motion/register.json` dari `spesialis_kinematika_benturan`
+([MOTION-QA](../../../tools/gpt-production/MOTION-QA.md)). Angka di `rig.json` (sumbu, origin,
+stroke, panjang batang, `phase_deg`, timing katup) harus sama dengan hukum di register, dengan
+`basis` yang sama. GLB beranimasi dan strip frame adalah alat bantu visual dan pembuktian bentuk
+gerak; keputusan benturan tetap mengikuti sweep/probe MOTION-QA, dan viewer menerapkan register.
+Bila rig dan register berbeda, register yang diperbaiki lewat spesialis, bukan rig yang diakali.
+
 ## Pilih jalur kerja
 
 1. **Blender MCP tersedia** (cek dengan `get_addon_status`; perlu Blender terbuka dan add-on

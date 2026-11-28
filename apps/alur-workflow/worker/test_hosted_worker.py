@@ -86,6 +86,8 @@ class HostedWorkerTests(unittest.TestCase):
         data = json.loads(guide.read_text())
         self.assertIn("PROMPT-GPT.md", data)
         self.assertIn("QA", data["PROMPT-GPT.md"])
+        for profile in ("referensi_visual", "pemodel_eksterior", "qa_visual_viewer"):
+            self.assertIn("developer_instructions", data[f".codex/agents/{profile}.toml"])
         self.assertNotIn("not-for-workers", guide.read_text())
         for role in worker.ROLES:
             context = json.loads((folder / "roles" / role / "context.json").read_text())

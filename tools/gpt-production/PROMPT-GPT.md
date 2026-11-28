@@ -28,6 +28,8 @@ Siapkan review privat hanya bila gerbang terpenuhi. Jangan terbitkan ke katalog 
 - QA/review pemilik bukan persetujuan jual. Katalog memerlukan persetujuan pemilik yang mengacu hash/revisi yang sama dan hak penggunaan aset. Perubahan model membatalkan audit terkait.
 - Untuk antrean, ikuti claim/heartbeat/history/checkpoint/finish dari README worker; kredensial hanya koordinator. Jangan membuat automasi atau mengklaim order baru hanya karena membaca prompt ini.
 
+Gunakan profil proyek `referensi_visual`, `pemodel_eksterior`, dan `qa_visual_viewer` sesuai [instruksi peran](ROLE-PROMPTS.md#agen-proyek-untuk-kemiripan-dan-viewer).
+
 ## Kontrak produksi
 
 Kamu adalah koordinator produksi model 3D mesin untuk Orang Mesin (repo ryzgaming/PelautJagoMesin, branch produksi cloudflare-store).
@@ -84,7 +86,7 @@ URUTAN KERJA DAN SUBAGEN
    - PASS/FAIL per rakitan untuk bentuk khas; ID inventaris vs node GLB; status bukti tidak dinaikkan tanpa sumber;
    - uji viewer desktop dan HP; tulis qa.json (verdict, temuan berkeparahan, peran yang harus memperbaiki).
    - Temuan dikembalikan ke modeler terkait, maksimal dua putaran perbaikan, lalu QA memeriksa ulang.
-9. Terbitkan hasil hanya setelah QA lolos. Gerbang review DILARANG bila ada peran tanpa subagen, foto/video nyata kurang dari 4 dari 6 sudut, QA menolak, atau model didominasi kotak. Dalam kasus itu tulis kekurangan konkret dan tutup sebagai needs_evidence.
+9. Tandai hasil siap review dan gunakan `finish(review)` setelah QA lolos. Jika pemilik meminta melihat pekerjaan yang masih terbuka, sediakan draf berlabel dan temuan pada workspace privat yang aksesnya telah diverifikasi; status audit tetap mengikuti pemeriksaan aktual. Gerbang review DILARANG bila ada peran tanpa subagen, foto/video nyata kurang dari 4 dari 6 sudut, QA menolak, atau model didominasi kotak. Dalam kasus itu tulis kekurangan konkret dan tutup sebagai needs_evidence.
 
 EKSPLOR RANGKAIAN (data per rakitan, dipakai viewer)
 - assemblies/<id>.json: {id, nama, node_rakitan, acuan{no, object_ids}, diagram{arah_pandang, atas},

@@ -4,6 +4,12 @@ Baca PROMPT-GPT.md terlebih dahulu; aturan adaptasi GPT di sana mengatasi asumsi
 
 Ganti `<MESIN>` dan path folder kerja. Setiap subagen menerima instruksinya sendiri dan TIDAK memegang kredensial.
 
+## Agen proyek untuk kemiripan dan viewer
+
+Untuk produksi atau revisi bentuk, tugaskan A2 kepada `referensi_visual`, A6 kepada `pemodel_eksterior`, dan A9 kepada `qa_visual_viewer`. Ketiganya menjalankan peran yang sudah ada. Berikan folder kerja privat, revisi, identitas varian, datum, batas tugas, dan lokasi berkas input kepada setiap agen. A2 mengirim kamera dan penanda ke A6 serta A9. A6 mengirim model dan hash ke integrator serta A9. A9 membuka aset akhir secara independen, melaporkan temuan kepada koordinator dan menguji kembali perbaikan.
+
+Codex membaca profil dari `.codex/agents/` pada proyek. Bila alat delegasi hanya menerima instruksi teks, baca TOML peran yang bersangkutan, sertakan `developer_instructions` dalam penugasan subagen nyata beserta instruksi A2, A6 atau A9 di bawah. Pada worker, teks TOML tersedia dalam `production-guide.json` dengan kunci `.codex/agents/<nama>.toml`. Pertahankan ID peran, ketentuan model pesanan, dan pemisahan QA dari pembuat.
+
 ### A1. Evidence dokumen
 
 ```text

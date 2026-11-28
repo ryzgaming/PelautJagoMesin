@@ -88,11 +88,13 @@
   function create(THREE, options) {
     const opt = Object.assign({
       routes: null, scope: null, medium: {}, mobile: false, radius: 0.012,
-      radiusByMedium: {}, timeScale: 1, ratedRpm: 1000, showEstimated: true, palette: {},
+      radiusByMedium: {}, timeScale: 1, ratedRpm: 1000, showEstimated: true, palette: {}, style: null,
     }, options || {});
     if (!opt.routes || !opt.routes.links) throw new Error("OrangMesinFlow: routes.links wajib diisi (format routes.json).");
+    // Gaya bersama (references/gaya-efek.json → "media") lalu palette per viewer; nilai bawaan MEDIA.
+    const styleMedia = (opt.style && opt.style.media) || {};
     const media = {};
-    for (const k of Object.keys(MEDIA)) media[k] = Object.assign({}, MEDIA[k], opt.palette[k] || {});
+    for (const k of Object.keys(MEDIA)) media[k] = Object.assign({}, MEDIA[k], styleMedia[k] || {}, opt.palette[k] || {});
 
     const group = new THREE.Group();
     group.name = "orang-mesin-flow";

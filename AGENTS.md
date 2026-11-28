@@ -30,7 +30,7 @@ Untuk perpipaan, lorong cor dan animasi fluida, aktifkan agen lintas rakitan `sp
 
 Skill repo ada di `.agents/skills/` (Codex memuatnya otomatis saat dibuka dari root repo; agen lain membaca SKILL.md-nya langsung):
 
-- **`animasi-aliran-mesin`** — air pendingin, air laut, oli, bahan bakar, udara dan gas buang di viewer three.js. Modul `scripts/flow-ribbons.js`, demo `scripts/demo.html`, perekam QA `scripts/capture_flow.py`, palet `references/palet-media.md` (keluarga warna ISO 14726).
+- **`animasi-aliran-mesin`** — air pendingin, air laut, oli, bahan bakar, udara, gas buang dan **pembakaran** di viewer three.js. Modul `scripts/flow-ribbons.js` dan `scripts/combustion-glow.js`, gaya bersama `references/gaya-efek.json`, lab `scripts/lab.html`, demo `scripts/demo.html`, perekam QA `scripts/capture_flow.py`, palet `references/palet-media.md` (keluarga warna ISO 14726). **Codex dan Claude tidak mendesain efek fluida/pembakaran sendiri**; muat pustaka dan gaya ini, lalu sambungkan data mesin. Tampilan efek dipoles Gemini sesuai [GEMINI.md](GEMINI.md).
 - **`blender-animasi-mesin`** — poros engkol, batang, piston, katup dan kamera tur di Blender. Rig kinematika `scripts/crank_rig.py`, strip frame `scripts/render_strip.py`. Angka gerak mengikuti register [MOTION-QA](tools/gpt-production/MOTION-QA.md).
 - **Blender MCP** — server `blender` di `.codex/config.toml` (`uvx mcp-for-blender`, mode aman, telemetri mati). Butuh Blender terbuka dengan add-on "MCP for Blender". Tool `look` menampilkan strip frame animasi; pakai untuk melihat hasil sebelum menyerahkan. Tanpa Blender GUI, pakai skrip headless di skill.
 

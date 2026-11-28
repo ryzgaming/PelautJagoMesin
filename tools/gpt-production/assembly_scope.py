@@ -117,6 +117,10 @@ def inspect(root, revision, verified, qa_id):
             expected[key] = part
             if not part.get('name') or not part.get('location') or part.get('layer') not in ('inner', 'outer'):
                 errors.append('Missing name, locus or layer: ' + key)
+            shape = part.get('shape', {})
+            if (shape.get('basis') not in ('DOCUMENTED', 'OBSERVED', 'ESTIMATED', 'INFERRED', 'UNKNOWN')
+                    or not shape.get('description')):
+                errors.append('Missing description or evidence basis for expected shape: ' + key)
             refs = part.get('source_refs', [])
             if not refs or any(r.get('path') not in verified or not r.get('locator') for r in refs):
                 errors.append('Missing bound source or locator: ' + key)
@@ -152,6 +156,8 @@ def inspect(root, revision, verified, qa_id):
             if not row.get('reason') or part.get('feature') == 'heat_transfer_element':
                 errors.append('Unsupported part exclusion: ' + key)
         elif state == 'modeled':
+            if part.get('shape', {}).get('basis') == 'UNKNOWN':
+                statuses.append('UNVERIFIED')
             ids = row.get('mesh_ids', [])
             if not ids or not set(ids) <= available:
                 errors.append('Expected part has no matching GLB and inventory mesh: ' + key)

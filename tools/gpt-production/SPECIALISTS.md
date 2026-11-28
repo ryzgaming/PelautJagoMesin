@@ -21,12 +21,14 @@ Fragmen berikut memberi contoh struktur. Label, varian, geometri dan daftar komp
     {
       "id": "EXP-AC-SHELL", "name": "Rumah pendingin udara",
       "location": "Rakitan pendingin udara, sisi yang ditandai pada datum",
+      "shape": {"basis": "OBSERVED", "description": "Isi profil coran, bibir cover dan port yang terlihat pada gambar unit"},
       "layer": "outer", "feature": "housing", "covers": [],
       "source_refs": [{"path": "doc/sources.json", "locator": "ID sumber, katalog dan figure unit aktual"}]
     },
     {
       "id": "EXP-AC-CORE", "name": "Elemen pemindah panas",
       "location": "Di balik rumah pendingin udara", "layer": "inner",
+      "shape": {"basis": "UNKNOWN", "description": "Tipe bundle dan pola aliran masih perlu potongan varian ini"},
       "feature": "heat_transfer_element", "covers": ["EXP-AC-SHELL"],
       "source_refs": [{"path": "doc/sources.json", "locator": "ID sumber, figure, nomor posisi atau potongan"}]
     }
@@ -34,7 +36,7 @@ Fragmen berikut memberi contoh struktur. Label, varian, geometri dan daftar komp
 }
 ```
 
-Masukkan setiap rakitan dalam `assemblies` pada rencana. Tiap cooler fisik memiliki elemen penukar panas sendiri. Bentuk, jumlah tabung, bahan dan ukurannya tetap terpisah dari keberadaan elemen. Jika arsitektur belum jelas, pertahankan ketidakpastian. Setiap entri sumber memuat path bukti privat relatif ke folder order dan locator spesifik; QA mengikat hash bukti di `qa/review.json.artifacts`.
+Masukkan setiap rakitan dalam `assemblies` pada rencana. Kolom `shape` memisahkan uraian geometri dari dasar buktinya (DOCUMENTED, OBSERVED, ESTIMATED, INFERRED atau UNKNOWN). Gunakan UNKNOWN dan tulis fitur yang belum terbukti jika sumber hanya memastikan keberadaannya. Tiap cooler fisik memiliki elemen penukar panas sendiri. Bentuk, jumlah tabung, bahan dan ukurannya tetap terpisah dari keberadaan elemen. Jika arsitektur belum jelas, pertahankan ketidakpastian. Setiap entri sumber memuat path bukti privat relatif ke folder order dan locator spesifik; QA mengikat hash bukti di `qa/review.json.artifacts`.
 
 QA membuat `qa/assembly-inspection.json` berisi `revision`, `qa_agent_id`, `plan_sha256`, `model_sha256` (kunci `exterior` dan `internal`), serta objek `parts` dengan kunci ID harapan. Untuk setiap ID isi `status`, `reason`, `mesh_ids`. Status:
 

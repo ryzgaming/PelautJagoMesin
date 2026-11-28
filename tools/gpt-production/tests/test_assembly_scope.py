@@ -38,6 +38,7 @@ class AssemblyScopeTests(unittest.TestCase):
         self.plan['domains']['pendingin_penukar_panas'].update(
             applicability='active', reason='Fixture assembly', research_evidence=['doc/sources.json'])
         part = {'name': 'Shell', 'layer': 'outer', 'id': 'expected-shell', 'location': 'At cooler',
+                'shape': {'basis': 'OBSERVED', 'description': 'Synthetic shape'},
                 'source_refs': [{'path': 'doc/sources.json', 'locator': 'Test figure 1'}]}
         self.plan['assemblies'] = [{'id': 'ASM', 'domain': 'pendingin_penukar_panas', 'owner_agent_id': 'cooler-agent',
                                     'parts': [part, dict(part, name='Core', id='expected-core', layer='inner',
@@ -74,6 +75,10 @@ class AssemblyScopeTests(unittest.TestCase):
         errors, statuses = self.inspect()
         self.assertIn('FAIL', statuses)
         self.assertTrue(any('expected-core' in error for error in errors))
+
+    def test_existing_mesh_does_not_verify_an_unknown_core_shape(self):
+        self.plan['assemblies'][0]['parts'][1]['shape']['basis'] = 'UNKNOWN'
+        self.assertIn('UNVERIFIED', self.inspect()[1])
 
     def test_omitting_core_from_both_lists_still_fails(self):
         self.plan['assemblies'][0]['parts'].pop()

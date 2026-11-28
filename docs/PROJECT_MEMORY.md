@@ -2,6 +2,9 @@
 
 ## Keputusan aktif
 
+- **ADOPSI-AI-001 · 28 November 2026 · permintaan pemilik:** sediakan instruksi lintas AI/jenis mesin untuk menerapkan seluruh proses produksi. [Pintu masuk](../agensi/ADOPSI-AI.md) menggabungkan rujukan aktif, spesialis nyata, kelengkapan internal/BOM, jalur, gerak/audio, QA independen dan pemisahan model/UI/agensi. Contoh Yanmar tidak menjadi data teknik atau kelulusan untuk mesin lain. Instruksi tidak otomatis menjalankan agen atau menerbitkan order baru.
+
+
 - **REPO-ORG-001 · 28 November 2026 · keputusan pemilik:** tata repo menyeluruh agar model, UI, agen/skill, alat, aplikasi dan bukti mudah ditemukan. [Peta struktur](REPOSITORY.md) dan [indeks agensi](../agensi/README.md) menjadi pintu masuk. Sumber Alur dan tes dikelompokkan menurut fungsi; toolkit/docs serta workspace/design dipisahkan. Folder penemuan alat, URL deployment, sumber model dan arsip R06 tetap dipertahankan. Periksa struktur lewat `npm run check:repo`. [Audit independen](audit/repo-organization-2026-11-28.md): 276 tes dan build lokal lulus; geometri/arsip Yanmar serta rute publik tidak berubah.
 
 

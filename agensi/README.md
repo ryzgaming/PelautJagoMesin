@@ -2,6 +2,8 @@
 
 Folder ini adalah pintu masuk tim pembuat mesin dan perangkat kerjanya. [Registri JSON](registri.json) mencatat lokasi kanonis semua profil dan skill; tidak membuat salinan instruksi baru. Baca [aturan proyek](../AGENTS.md), lalu [prompt produksi](../tools/gpt-production/PROMPT-GPT.md).
 
+Untuk memakai sistem ini dengan AI berikutnya atau mesin lain, mulai dari **[instruksi adopsi AI](ADOPSI-AI.md)**. Dokumen tersebut menyediakan prompt siap ditempel, pemetaan jenis mesin, dan gerbang bukti/QA.
+
 ## Letak sumber aktif
 
 | Lokasi | Tanggung jawab |

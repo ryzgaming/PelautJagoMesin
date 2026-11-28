@@ -6,6 +6,7 @@ Website, aplikasi Alur, alat produksi, agen/skill, serta model mesin disimpan me
 
 | Yang ingin dikerjakan | Buka |
 |---|---|
+| Memulai produksi dengan AI berikutnya | [Instruksi adopsi dan prompt siap pakai](agensi/ADOPSI-AI.md) |
 | Model, master Blender, UI dan riwayat pembuatannya | [Produksi mesin](produksi/README.md) · [Daftar model](produksi/REGISTRY.json) |
 | Agen spesialis, skill aktif dan aturan kerja | [Agensi aktif](agensi/README.md) |
 | Prompt dan CLI produksi GPT | [Toolkit produksi](tools/gpt-production/README.md) |

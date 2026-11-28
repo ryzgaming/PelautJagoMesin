@@ -1,5 +1,7 @@
 # Panduan penyempurnaan simulator
 
+Untuk memulai mesin baru atau mengadopsi proyek dengan AI lain, baca [instruksi adopsi AI](agensi/ADOPSI-AI.md). Terapkan pemetaan jenis mesin, kelengkapan komponen dan gerbang QA-nya sebelum memakai contoh Yanmar sebagai acuan.
+
 ## Peta kerja repo
 
 Baca [peta repo](docs/REPOSITORY.md), [agensi aktif](agensi/README.md) dan [daftar model](produksi/REGISTRY.json). Sumber Alur dikelompokkan di `apps/alur-workflow/src/features/`; panduan toolkit ada di `tools/gpt-production/docs/`. Skill/agen tetap pada lokasi autodiscovery `.agents/`, `.codex/`, `.claude/`. Paket per mesin memisahkan model, UI dan arsip agensi. Jangan memperbarui arsip historis ketika mengedit konfigurasi aktif. Setelah memindahkan berkas, jalankan `npm run check:repo` dan tes yang terdampak.

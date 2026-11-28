@@ -22,3 +22,9 @@ Kata kunci pemetaan otomatis dari `scope.circuits[].medium`: sea/laut/raw → ai
 oli; fuel/bahan bakar/HFO/MDO/MGO/solar → bahan bakar; starting air/udara start → udara start;
 exhaust/gas buang → gas buang; charge/scavenge/intake/udara masuk/bilas → udara; fresh/jacket/
 coolant/cooling/tawar/HT/LT → air tawar. Nama lain wajib dipetakan eksplisit lewat opsi `medium`.
+
+Parameter optik opsional per media pada `gaya-efek.json` dan `MEDIA` adalah `bubbles`
+(kepadatan kilau gelembung), `viscosity` (panjang ekor gelombang visual), dan `rim`
+(kekuatan pantulan tepi). Nilai bawaan berlaku saat preset lama tidak memuat parameter ini.
+Air memakai dua lapis gelembung kecil, oli memakai ekor lebih panjang dengan gelembung jarang,
+dan gas memakai pita turbulen tembus pandang. Semua perubahan ini memengaruhi tampilan saja.

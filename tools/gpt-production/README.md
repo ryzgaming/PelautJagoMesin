@@ -6,7 +6,7 @@ Untuk paket unduhan mandiri, buka folder `toolkit-orang-mesin-gpt` dan jalankan 
 
 Profil agen Codex ada di `.codex/agents/` pada root repository dan root paket unduhan mandiri. Buka Codex dari root tersebut agar profil tersedia di tingkat proyek. Untuk memakai paket di proyek lain, salin ketiga file TOML ke `.codex/agents/` proyek tujuan. Nama, pemetaan peran, dan cara menjalankan pada runtime yang menerima prompt teks tersedia di [instruksi peran](ROLE-PROMPTS.md#agen-proyek-untuk-kemiripan-dan-viewer).
 
-Untuk perpipaan, lorong cor dan animasi fluida, aktifkan agen lintas rakitan `spesialis_jalur_fluida` sesuai [petunjuk registrasi dan uji rute](FLOW-ROUTING.md).
+Untuk perpipaan, lorong cor dan animasi fluida, aktifkan agen lintas rakitan `spesialis_jalur_fluida` sesuai [petunjuk registrasi dan uji rute](FLOW-ROUTING.md). Tampilan aliran dan gerak mesin memakai skill [animasi-aliran-mesin](../../.agents/skills/animasi-aliran-mesin/SKILL.md) dan [blender-animasi-mesin](../../.agents/skills/blender-animasi-mesin/SKILL.md); Blender MCP dikonfigurasi di `.codex/config.toml`.
 
 Pada produksi dan revisi model mesin, koordinator juga [menugaskan spesialis tiap rakitan](SPECIALISTS.md) sebelum memodelkan. Gunakan daftar dari `specialist-briefs`, teruskan subkomponen yang diharapkan kepada modeler, dan periksa komponen tersembunyi hingga dapat dipilih melalui viewer.
 

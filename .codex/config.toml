@@ -1,0 +1,19 @@
+# Konfigurasi Codex tingkat proyek (dibaca hanya bila proyek ini di-trust di Codex).
+# Blender MCP: Codex mengendalikan Blender yang sedang terbuka dan MELIHAT hasilnya (tool `look`,
+# termasuk strip frame animasi). Pemasangan sekali di komputer pekerja:
+#   Windows : irm https://www.mcp-for-blender.com/install.ps1 | iex
+#   mac/Linux: curl -LsSf https://www.mcp-for-blender.com/install.sh | sh
+# lalu buka Blender (add-on "MCP for Blender" aktif, server di port 9876). Panduan:
+# .agents/skills/blender-animasi-mesin/SKILL.md. Di lingkungan cloud tanpa Blender GUI server ini
+# boleh gagal start; gunakan skrip headless di skill yang sama.
+[mcp_servers.blender]
+command = "uvx"
+args = ["mcp-for-blender"]
+required = false
+startup_timeout_sec = 30
+tool_timeout_sec = 600
+
+[mcp_servers.blender.env]
+# Periksa skrip sebelum dijalankan dan blok kode berisiko; matikan telemetri pihak ketiga.
+BLENDER_MCP_SAFE_MODE = "1"
+DISABLE_TELEMETRY = "true"

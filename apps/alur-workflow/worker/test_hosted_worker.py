@@ -91,6 +91,8 @@ class HostedWorkerTests(unittest.TestCase):
         for profile in ["referensi_visual", "pemodel_eksterior", "qa_visual_viewer", "spesialis_jalur_fluida",
                         *(row["profile"] for row in specialists.values())]:
             self.assertIn("developer_instructions", data[f".codex/agents/{profile}.toml"])
+        for skill in ("animasi-aliran-mesin", "blender-animasi-mesin"):
+            self.assertIn("## Lokasi alat", data[f".agents/skills/{skill}/SKILL.md"])
         self.assertNotIn("not-for-workers", guide.read_text())
         for role in worker.ROLES:
             context = json.loads((folder / "roles" / role / "context.json").read_text())

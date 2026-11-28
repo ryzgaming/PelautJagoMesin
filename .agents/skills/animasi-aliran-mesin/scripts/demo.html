@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Uji animasi aliran — Orang Mesin</title>
+<style>
+  html,body{margin:0;height:100%;background:#12171c;color:#dfe7ec;font:14px/1.4 system-ui,sans-serif;overflow:hidden}
+  canvas{display:block;width:100%;height:100%}
+  .bar{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);display:flex;gap:6px;flex-wrap:wrap;justify-content:center;
+    padding:6px;border:1px solid #2a3540;border-radius:12px;background:#0d151bcc}
+  button{font:inherit;color:inherit;background:#18222b;border:1px solid #2a3540;border-radius:8px;padding:8px 12px;cursor:pointer}
+  button[aria-pressed=true]{border-color:#2fc4b2;color:#2fc4b2}
+  .legend{position:fixed;left:12px;top:12px;display:grid;gap:4px;padding:8px 10px;border:1px solid #2a3540;border-radius:10px;background:#0d151bcc;font-size:12px}
+  .legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+</style>
+</head>
+<body>
+<canvas id="c"></canvas>
+<div class="legend" id="legend"></div>
+<div class="bar">
+  <button id="start">Start</button><button id="pause">Jeda</button><button id="xray" aria-pressed="false">X-ray</button>
+  <button id="slow">Idle</button><button id="fast">Penuh</button>
+</div>
+<!--
+  Demo mandiri untuk skill animasi-aliran-mesin. Rute sintetis, BUKAN data mesin nyata.
+  ?three=<url> mengganti pustaka (default: three r128 milik repo). ?routes=<url>&scope=<url> memuat
+  routes.json/scope.json sungguhan dari folder produksi (disajikan lewat server lokal).
+-->
+<script>
+  const q = new URLSearchParams(location.search);
+  document.write('<script src="' + (q.get("three") || "../../../../dist/assets/three.min.js") + '"><\/script>');
+</script>
+<script src="flow-ribbons.js"></script>
+<script>
+(async function () {
+  const q = new URLSearchParams(location.search);
+  const canvas = document.getElementById("c");
+  const renderer = new THREE.WebGLRenderer({canvas, antialias: true, preserveDrawingBuffer: true});
+  renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+  const scene = new THREE.Scene();
+  scene.background = new THREE.Color("#12171c");
+  const camera = new THREE.PerspectiveCamera(40, 1, 0.01, 50);
+  camera.position.set(1.15, 0.75, 1.35); camera.lookAt(0, 0.15, 0);
+  scene.add(new THREE.HemisphereLight(0xdfe9f2, 0x1a1f24, 0.9));
+  const sun = new THREE.DirectionalLight(0xffffff, 0.8); sun.position.set(2, 3, 2); scene.add(sun);
+
+  // Blok contoh (Y-up, meter) dengan rumah yang bisa transparan.
+  const housing = new THREE.MeshStandardMaterial({color: 0x5f6b73, metalness: 0.5, roughness: 0.45, transparent: true, opacity: 1});
+  const block = new THREE.Mesh(new THREE.BoxGeometry(0.9, 0.45, 0.4), housing); block.position.y = 0.2; scene.add(block);
+  const pan = new THREE.Mesh(new THREE.BoxGeometry(0.86, 0.12, 0.36), housing); pan.position.y = -0.09; scene.add(pan);
+
+  let routes, scope;
+  if (q.get("routes")) {
+    routes = await (await fetch(q.get("routes"))).json();
+    scope = q.get("scope") ? await (await fetch(q.get("scope"))).json() : null;
+  } else {
+    const P = (...a) => a;
+    routes = {links: {
+      jacket: {geometry_basis: "DOCUMENTED", spans: [
+        {kind: "exposed", carrier: "pipe-in", passage: "jw-in", points: [P(0.75,0.05,0.25),P(0.55,0.05,0.25),P(0.47,0.12,0.22)]},
+        {kind: "hidden", carrier: "block", passage: "jw-gallery", points: [P(0.42,0.12,0.18),P(0.1,0.14,0.18),P(-0.2,0.16,0.18),P(-0.42,0.2,0.18)]},
+        {kind: "exposed", carrier: "pipe-out", passage: "jw-out", points: [P(-0.47,0.22,0.22),P(-0.6,0.36,0.24),P(-0.55,0.52,0.2),P(-0.2,0.55,0.1)]}]},
+      lube: {geometry_basis: "DOCUMENTED", spans: [
+        {kind: "hidden", carrier: "pan", passage: "lo-suction", points: [P(0.3,-0.12,0),P(0.1,-0.12,0),P(-0.1,-0.06,0)]},
+        {kind: "hidden", carrier: "block", passage: "lo-gallery", points: [P(-0.12,-0.02,0),P(-0.12,0.08,-0.05),P(0.35,0.08,-0.08)]},
+        {kind: "exposed", carrier: "lo-cooler", passage: "lo-ext", points: [P(0.45,0.08,-0.22),P(0.62,0.1,-0.3),P(0.62,0.3,-0.3),P(0.45,0.36,-0.22)]}]},
+      exhaust: {geometry_basis: "OBSERVED", spans: [
+        {kind: "exposed", carrier: "manifold", passage: "exh", points: [P(-0.35,0.47,-0.12),P(0,0.5,-0.24),P(0.35,0.5,-0.24),P(0.55,0.62,-0.1)]}]},
+      seawater: {geometry_basis: "INFERRED", status: "partial", spans: [
+        {kind: "exposed", carrier: "sw-pipe", passage: "sw", points: [P(0.75,-0.1,0.3),P(0.2,-0.18,0.32),P(-0.4,-0.16,0.3)]}]},
+    }};
+    scope = {links: {jacket: {circuit: "jw"}, lube: {circuit: "lo"}, exhaust: {circuit: "eg"}, seawater: {circuit: "sw"}},
+      circuits: {jw: {medium: "jacket water"}, lo: {medium: "lube oil"}, eg: {medium: "exhaust gas"}, sw: {medium: "sea water"}}};
+  }
+
+  const flow = OrangMesinFlow.create(THREE, {routes, scope, mobile: innerWidth < 760, ratedRpm: 1800, radius: 0.014});
+  scene.add(flow.group);
+  window.__flow = flow;
+  document.getElementById("legend").innerHTML = flow.links().map(l =>
+    `<span><i style="background:${flow.media[l.medium].color}"></i>${l.label}${l.estimated ? " · estimasi" : ""}</span>`).join("");
+
+  const $ = id => document.getElementById(id);
+  $("start").onclick = () => flow.start({fillSeconds: 2.5});
+  $("pause").onclick = () => { flow.running ? flow.pause() : flow.resume(); $("pause").textContent = flow.running ? "Jeda" : "Lanjut"; };
+  let xray = false;
+  $("xray").onclick = () => { xray = !xray; flow.setXray(xray); housing.opacity = xray ? 0.18 : 1; housing.depthWrite = !xray; $("xray").setAttribute("aria-pressed", xray); };
+  $("slow").onclick = () => flow.setRpm(600); $("fast").onclick = () => flow.setRpm(1800);
+  if (q.has("auto")) flow.start({fillSeconds: Number(q.get("auto")) || 0});
+  if (q.has("xray")) $("xray").click();
+
+  const clock = new THREE.Clock();
+  function resize() { const w = innerWidth, h = innerHeight; renderer.setSize(w, h, false); camera.aspect = w / h; camera.updateProjectionMatrix(); }
+  addEventListener("resize", resize); resize();
+  (function loop() { flow.update(clock.getDelta()); renderer.render(scene, camera); requestAnimationFrame(loop); })();
+  window.__ready = true;
+})();
+</script>
+</body>
+</html>

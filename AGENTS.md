@@ -24,6 +24,16 @@ Untuk produksi dengan GPT/Codex, baca [prompt produksi GPT](tools/gpt-production
 
 Untuk perpipaan, lorong cor dan animasi fluida, aktifkan agen lintas rakitan `spesialis_jalur_fluida` sesuai [petunjuk registrasi dan uji rute](tools/gpt-production/FLOW-ROUTING.md).
 
+### Alat animasi (wajib dipakai untuk animasi gerak dan aliran)
+
+Skill repo ada di `.agents/skills/` (Codex memuatnya otomatis saat dibuka dari root repo; agen lain membaca SKILL.md-nya langsung):
+
+- **`animasi-aliran-mesin`** — air pendingin, air laut, oli, bahan bakar, udara dan gas buang di viewer three.js. Modul `scripts/flow-ribbons.js`, demo `scripts/demo.html`, perekam QA `scripts/capture_flow.py`, palet `references/palet-media.md` (keluarga warna ISO 14726).
+- **`blender-animasi-mesin`** — poros engkol, batang, piston, katup dan kamera tur di Blender. Rig kinematika `scripts/crank_rig.py`, strip frame `scripts/render_strip.py`.
+- **Blender MCP** — server `blender` di `.codex/config.toml` (`uvx mcp-for-blender`, mode aman, telemetri mati). Butuh Blender terbuka dengan add-on "MCP for Blender". Tool `look` menampilkan strip frame animasi; pakai untuk melihat hasil sebelum menyerahkan. Tanpa Blender GUI, pakai skrip headless di skill.
+
+Animasi tidak boleh diserahkan sebelum lembar frame (web) atau strip frame (Blender) dibuka dan dinilai. Rute aliran tetap berasal dari FLOW-ROUTING, bukan digambar demi estetika.
+
 Pada produksi dan revisi model mesin, koordinator juga [menugaskan spesialis tiap rakitan](tools/gpt-production/SPECIALISTS.md) sebelum memodelkan. Gunakan daftar dari `specialist-briefs`, teruskan subkomponen yang diharapkan kepada modeler, dan periksa komponen tersembunyi hingga dapat dipilih melalui viewer.
 
 Untuk tugas pemodelan atau revisi bentuk mesin, gunakan agen proyek `referensi_visual` (foto), `pemodel_eksterior` (eksterior), dan `qa_visual_viewer` (QA independen). Ikuti [cara menjalankan agen](tools/gpt-production/ROLE-PROMPTS.md#agen-proyek-untuk-kemiripan-dan-viewer). Koordinator meneruskan foto dan penanda, model dan hash, lalu temuan QA di antara tiga peran ini.

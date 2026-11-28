@@ -23,14 +23,14 @@
   // Warna mengikuti keluarga warna ISO 14726 (penandaan pipa kapal), dicerahkan agar terbaca di
   // latar graphite. Gas buang memakai rona panas karena hitam/abu tidak terlihat; lihat references/.
   const MEDIA = {
-    fresh_water: {label: "Air tawar pendingin", color: "#3aa8ff", speed: 1.0, body: 0.34, density: 2.2, glow: false},
-    sea_water:   {label: "Air laut",            color: "#2fd88f", speed: 1.0, body: 0.32, density: 2.2, glow: false},
-    lube_oil:    {label: "Oli pelumas",         color: "#ffb02e", speed: 0.55, body: 0.55, density: 1.6, glow: false},
-    fuel:        {label: "Bahan bakar",         color: "#c8743a", speed: 0.8, body: 0.5, density: 2.6, glow: false},
-    charge_air:  {label: "Udara bilas/masuk",   color: "#b9dcf2", speed: 2.4, body: 0.08, density: 3.2, glow: true},
-    exhaust:     {label: "Gas buang",           color: "#ff6a3d", speed: 2.8, body: 0.1, density: 3.0, glow: true},
-    start_air:   {label: "Udara start",         color: "#c9ced6", speed: 3.0, body: 0.06, density: 3.6, glow: true},
-    unknown:     {label: "Media belum dikenal", color: "#9aa5ad", speed: 0.8, body: 0.2, density: 2.0, glow: false},
+    fresh_water: {label: "Air tawar pendingin", color: "#3aa8ff", speed: 1.0, body: 0.34, density: 2.2, bubbles: 0.78, viscosity: 0.08, rim: 0.55, glow: false},
+    sea_water:   {label: "Air laut",            color: "#2fd88f", speed: 1.0, body: 0.32, density: 2.2, bubbles: 0.66, viscosity: 0.12, rim: 0.5, glow: false},
+    lube_oil:    {label: "Oli pelumas",         color: "#ffb02e", speed: 0.55, body: 0.55, density: 1.6, bubbles: 0.04, viscosity: 0.92, rim: 0.34, glow: false},
+    fuel:        {label: "Bahan bakar",         color: "#c8743a", speed: 0.8, body: 0.5, density: 2.6, bubbles: 0.12, viscosity: 0.55, rim: 0.38, glow: false},
+    charge_air:  {label: "Udara bilas/masuk",   color: "#b9dcf2", speed: 2.4, body: 0.08, density: 3.2, bubbles: 0, viscosity: 0, rim: 0.16, glow: true},
+    exhaust:     {label: "Gas buang",           color: "#ff6a3d", speed: 2.8, body: 0.1, density: 3.0, bubbles: 0, viscosity: 0, rim: 0.12, glow: true},
+    start_air:   {label: "Udara start",         color: "#c9ced6", speed: 3.0, body: 0.06, density: 3.6, bubbles: 0, viscosity: 0, rim: 0.16, glow: true},
+    unknown:     {label: "Media belum dikenal", color: "#9aa5ad", speed: 0.8, body: 0.2, density: 2.0, bubbles: 0.1, viscosity: 0.3, rim: 0.35, glow: false},
   };
   const KEYWORDS = [
     ["sea_water", /sea|laut|raw water/i],
@@ -62,27 +62,54 @@
       gl_Position = projectionMatrix * mv;
     }`;
   const fragment = `
-    uniform vec3 uColor; uniform float uPhase, uDensity, uBody, uOpacity, uFill, uVisible, uEstimated, uBubbles;
+    uniform vec3 uColor;
+    uniform float uPhase, uDensity, uBody, uOpacity, uFill, uVisible, uEstimated;
+    uniform float uBubbles, uViscosity, uRim, uGas, uHeat;
     varying float vS; varying float vA; varying vec3 vN; varying vec3 vV;
     float hash(float n){ return fract(sin(n) * 43758.5453); }
+    // Periodic circumferential coordinates keep the TubeGeometry UV seam invisible.
+    float bubbles(float speed, float offset){
+      float x = (vS - uPhase * speed) * 31.0 + offset;
+      float cell = floor(x), f = fract(x);
+      float seed = hash(cell + offset * 17.0);
+      float angle = vA * 6.2831853 - seed * 6.2831853;
+      float axial = (f - 0.5) / (0.11 + 0.05 * seed);
+      float radial = sin(angle * 0.5) / 0.17;
+      float d = length(vec2(axial, radial));
+      float shell = smoothstep(0.32, 0.62, d) * (1.0 - smoothstep(0.78, 1.0, d));
+      return shell * smoothstep(0.28, 0.45, seed);
+    }
     void main(){
       if (vS > uFill || uVisible <= 0.001) discard;
       float x = (vS - uPhase) * uDensity;
-      float cell = floor(x), f = fract(x);
-      float j = hash(cell) * 0.3;
-      float tail = clamp((f - 0.1 - j) / 0.6, 0.0, 1.0);
-      float comet = tail * tail * (1.0 - smoothstep(0.72, 0.8, f));
-      float fres = pow(1.0 - abs(dot(normalize(vN), normalize(vV))), 2.0);
-      float front = 1.0 - smoothstep(0.0, 0.15, uFill - vS);
-      // Gelembung/serpih kecil yang ikut arus (cairan) memberi kesan volume dan kecepatan.
-      vec2 g = vec2((vS - uPhase * 1.15) * 14.0, vA * 7.0);
-      vec2 gi = floor(g), gf = fract(g) - 0.5;
-      float b = step(0.82, hash(gi.x * 17.0 + gi.y * 131.0)) * (1.0 - smoothstep(0.08, 0.22, length(gf)));
-      float body = uBody * (0.45 + 1.0 * fres);
-      float a = body + comet * 0.9 + front * 0.6 + b * uBubbles * 0.55;
+      float f = fract(x);
+      // Peak remains at .76, the same wave head followed by probe().
+      float tail = smoothstep(mix(0.29, 0.04, uViscosity), 0.76, f);
+      float comet = tail * (1.0 - smoothstep(0.76, 0.90, f));
+      float facing = abs(dot(normalize(vN), normalize(vV)));
+      float rim = pow(1.0 - facing, 2.2);
+      float angle = vA * 6.2831853;
+      float stream = pow(0.5 + 0.5 * sin(angle * 5.0 + sin(x * 3.0) * 0.35), 10.0);
+      float front = 1.0 - smoothstep(0.0, 0.10, uFill - vS);
+      float bubble = (bubbles(1.08, 0.0) + bubbles(0.91, 4.7) * 0.40) * uBubbles;
+      float shine = rim * uRim + stream * (0.055 + 0.10 * comet) + bubble * 0.34;
+      vec3 liquid = uColor * (0.43 + 0.33 * comet + 0.16 * rim);
+      liquid = mix(liquid, mix(uColor, vec3(1.0), 0.64), clamp(shine + front * 0.36, 0.0, 0.8));
+      float liquidAlpha = uBody * (0.72 + 0.32 * facing) + comet * 0.35
+                        + shine * 0.28 + front * 0.48;
+
+      float eddy = sin(x * 7.0 + angle * 3.0 + sin(x * 3.1 - angle) * 0.8);
+      float wisps = pow(0.5 + 0.5 * eddy, 3.0);
+      float plume = (0.10 + 0.74 * comet) * (0.22 + 0.78 * wisps);
+      float gasAlpha = (plume * 0.66 + front * 0.36) * pow(facing, 0.55);
+      vec3 hotTail = uColor * vec3(0.82, 0.22, 0.09);
+      vec3 gasColor = mix(uColor * 0.80, mix(hotTail, uColor * 1.12, comet), uHeat);
+      gasColor += uColor * wisps * 0.14;
+
+      float a = mix(liquidAlpha, gasAlpha, uGas);
+      vec3 col = mix(liquid, gasColor, uGas);
       if (uEstimated > 0.5) a *= step(0.5, fract(vS * 6.0)) * 0.6 + 0.15;
-      vec3 col = mix(uColor * (0.8 + 0.4 * comet), vec3(1.0), clamp(comet * 0.55 + fres * 0.2 + front * 0.45 + b * uBubbles * 0.5, 0.0, 1.0));
-      gl_FragColor = vec4(col, clamp(a, 0.0, 1.0) * uOpacity * uVisible);
+      gl_FragColor = vec4(col, clamp(a, 0.0, 0.94) * uOpacity * uVisible);
     }`;
 
   function create(THREE, options) {
@@ -116,7 +143,9 @@
         uniforms: {
           uColor: {value: new THREE.Color(m.color)}, uPhase: {value: 0}, uDensity: {value: m.density},
           uBody: {value: m.body}, uOpacity: {value: estimated ? 0.6 : 1}, uFill: {value: 1e9},
-          uVisible: hidden ? hiddenFade : {value: 1}, uEstimated: {value: estimated ? 1 : 0}, uBubbles: {value: m.glow ? 0 : 1},
+          uVisible: hidden ? hiddenFade : {value: 1}, uEstimated: {value: estimated ? 1 : 0}, uBubbles: {value: m.bubbles},
+          uViscosity: {value: m.viscosity}, uRim: {value: m.rim},
+          uGas: {value: m.glow ? 1 : 0}, uHeat: {value: key === "exhaust" ? 1 : 0},
         },
       });
       mat.userData = {key, hidden, estimated, phase: 0};

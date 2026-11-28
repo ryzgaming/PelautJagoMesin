@@ -95,6 +95,8 @@ three.js yang dipakai situs: `dist/assets/three.min.js` (r128, global `THREE`). 
 - Satu ShaderMaterial per media (bukan ribuan partikel CPU). Target ≥ 50 fps desktop, ≥ 30 fps HP.
 - Cairan: badan semi-transparan + kilau tepi + gelombang komet + gelembung. Gas: tanpa badan,
   gelombang tipis bercahaya (additive).
+- Preset optik `bubbles`, `viscosity`, dan `rim` membedakan gelembung, ekor gelombang, dan kilau tepi tiap media. Puncak gelombang tetap mengikuti posisi yang dilaporkan `probe()`.
+- Nyala memakai inti panas terbatas, tepian turbulen lembut, dan sisa bara merah. Semburan melunak di tepi dan memudar menjauh dari nozzle.
 - Kecepatan visual relatif: gas > air > bahan bakar > oli. Semua mengikuti rpm (`setRpm`).
 - Kontras di latar graphite Studio Gelap; jangan ubah tema workspace (lihat `docs/WORKSPACE_UI.md`).
 - Tidak ada efek yang menyiratkan data resmi (angka tekanan/debit) tanpa sumber.

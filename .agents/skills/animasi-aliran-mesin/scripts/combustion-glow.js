@@ -19,7 +19,7 @@
 
   const DEFAULT = {
     warna_inti: "#fff4cf", warna_api: "#ff9a2e", warna_tepi: "#ff4a1c", warna_semburan: "#d9ecff",
-    terang: 2.2, ukuran: 1.0, turbulensi: 0.6, naik_deg: 8, padam_deg: 45,
+    terang: 1.6, ukuran: 1.0, turbulensi: 0.6, naik_deg: 8, padam_deg: 45,
     semburan_mulai_deg: -14, semburan_selesai_deg: 4, cahaya: true, cahaya_jarak_bore: 3,
   };
 
@@ -49,7 +49,7 @@
       gl_Position = projectionMatrix * mv;
     }`;
   const flameFragment = `
-    uniform float uI, uTime, uTurb, uBright, uR;
+    uniform float uI, uTime, uTurb, uBright, uR, uHeat, uFlash;
     uniform vec3 uCore, uFlame, uEdge;
     varying vec3 vN; varying vec3 vV; varying vec3 vP;
     float h(vec3 p){ return fract(sin(dot(p, vec3(12.9898,78.233,37.719))) * 43758.5453); }
@@ -61,27 +61,50 @@
     void main(){
       if (uI < 0.002) discard;
       float facing = abs(dot(normalize(vN), normalize(vV)));
-      float core = pow(facing, 1.6);
-      vec3 q = vP / uR * 3.0;
-      float turb = n3(q + vec3(0.0, -uTime * 3.0, uTime)) * 0.65 + n3(q * 2.3 + uTime * 1.7) * 0.35;
-      float shape = clamp(core * (1.0 - uTurb * 0.55) + turb * uTurb * 0.75, 0.0, 1.0);
-      vec3 col = mix(uEdge, uFlame, smoothstep(0.15, 0.6, shape));
-      col = mix(col, uCore, smoothstep(0.55, 0.95, shape) * uI);
-      float a = uI * smoothstep(0.05, 0.5, shape);
-      gl_FragColor = vec4(col * uBright * (0.6 + 0.4 * uI), a);
+      vec3 p = vP / uR;
+      vec3 q = p * 3.2;
+      q.xz += vec2(sin(q.y + uTime * 1.3), cos(q.y - uTime)) * 0.22;
+      float turb = n3(q + vec3(0.0, -uTime * 2.8, uTime * 0.5)) * 0.68
+                 + n3(q * 2.1 + vec3(0.7, -uTime * 4.0, 1.3)) * 0.32;
+      float density = smoothstep(0.23, 0.72, turb + facing * 0.24);
+      // The sphere already fits the bore; radial masking would cut a dark equator.
+      float silhouette = smoothstep(0.0, 0.30, facing);
+      float flame = mix(0.68, density, clamp(uTurb, 0.0, 1.0));
+      float core = pow(facing, 1.6) * smoothstep(0.34, 0.78, turb) *
+                   (0.5 + 0.5 * smoothstep(-0.35, 0.7, p.y));
+      vec3 ember = uEdge * 0.42;
+      vec3 col = mix(ember, mix(uEdge, uFlame, flame), uHeat);
+      col = mix(col, uCore, clamp(core * uHeat * 0.78 + uFlash * core * 0.30, 0.0, 0.82));
+      float a = uI * silhouette * (0.24 + flame * 0.65);
+      gl_FragColor = vec4(col * uBright * (0.64 + 0.36 * uHeat), a);
     }`;
   const sprayFragment = `
-    uniform float uI, uTime; uniform vec3 uColor;
-    varying vec2 vUv;
-    float h(vec2 p){ return fract(sin(dot(p, vec2(12.9898,78.233))) * 43758.5453); }
+    uniform float uI, uTime, uIgnition; uniform vec3 uColor, uWarm;
+    varying vec2 vUv; varying vec3 vN; varying vec3 vV;
     void main(){
       if (uI < 0.002) discard;
-      float along = vUv.y;                         // 0 di ujung injektor (puncak kerucut)
-      float streak = step(0.55, h(vec2(floor(vUv.x * 24.0), floor((along - uTime * 6.0) * 10.0))));
-      float a = uI * (1.0 - along) * (0.35 + 0.65 * streak);
-      gl_FragColor = vec4(uColor, a);
+      float along = 1.0 - vUv.y; // ConeGeometry puts the nozzle apex at uv.y = 1.
+      float angle = vUv.x * 6.2831853;
+      float travel = along * 16.0 - uTime * 32.0;
+      float streak = pow(0.5 + 0.5 * sin(angle * 11.0 + sin(travel) * 0.7), 5.0);
+      float droplets = 0.52 + 0.48 * sin(travel * 2.7 + angle * 3.0);
+      float facing = abs(dot(normalize(vN), normalize(vV)));
+      float edge = smoothstep(0.0, 0.40, facing);
+      float tip = smoothstep(0.0, 0.045, along);
+      float end = 1.0 - smoothstep(0.52, 1.0, along);
+      float mist = 0.17 + streak * (0.22 + 0.27 * droplets);
+      float a = uI * tip * end * edge * mist;
+      vec3 col = mix(uColor, uWarm, uIgnition * smoothstep(0.12, 0.85, along) * 0.65);
+      gl_FragColor = vec4(col, a);
     }`;
-  const sprayVertex = `varying vec2 vUv; void main(){ vUv = uv; gl_Position = projectionMatrix * modelViewMatrix * vec4(position,1.0); }`;
+  const sprayVertex = `
+    varying vec2 vUv; varying vec3 vN; varying vec3 vV;
+    void main(){
+      vUv = uv;
+      vec4 mv = modelViewMatrix * vec4(position,1.0);
+      vN = normalize(normalMatrix * normal); vV = normalize(-mv.xyz);
+      gl_Position = projectionMatrix * mv;
+    }`;
 
   function create(THREE, options) {
     const opt = Object.assign({cylinders: [], firingOrder: null, cycleDeg: 720, ratedRpm: 1000, rpm: null,
@@ -111,7 +134,7 @@
       const axis = new THREE.Vector3().fromArray(c.axis || [0, 1, 0]).normalize();
       const pos = new THREE.Vector3().fromArray(c.position);
       const uniforms = {
-        uI: {value: 0}, uTime: {value: 0}, uTurb: {value: g.turbulensi}, uBright: {value: g.terang}, uR: {value: r},
+        uI: {value: 0}, uTime: {value: 0}, uHeat: {value: 0}, uFlash: {value: 0}, uTurb: {value: g.turbulensi}, uBright: {value: g.terang}, uR: {value: r},
         uCore: {value: new THREE.Color(g.warna_inti)}, uFlame: {value: new THREE.Color(g.warna_api)}, uEdge: {value: new THREE.Color(g.warna_tepi)},
       };
       const flame = new THREE.Mesh(new THREE.SphereGeometry(r, opt.mobile ? 16 : 28, opt.mobile ? 12 : 20),
@@ -126,7 +149,7 @@
       let spray = null;
       if (c.injector) {
         const tip = new THREE.Vector3().fromArray(c.injector), dir = pos.clone().sub(tip), len = dir.length();
-        const su = {uI: {value: 0}, uTime: {value: 0}, uColor: {value: new THREE.Color(g.warna_semburan)}};
+        const su = {uI: {value: 0}, uTime: {value: 0}, uColor: {value: new THREE.Color(g.warna_semburan)}, uWarm: {value: new THREE.Color(g.warna_inti)}, uIgnition: {value: 0}};
         spray = new THREE.Mesh(new THREE.ConeGeometry(r * 0.55, len, 18, 1, true),
           new THREE.ShaderMaterial({vertexShader: sprayVertex, fragmentShader: sprayFragment, uniforms: su,
             transparent: true, depthWrite: false, side: THREE.DoubleSide, blending: THREE.AdditiveBlending}));
@@ -149,6 +172,8 @@
         const s = signedAngle(crank, phase.get(p.id), opt.cycleDeg);
         const f = flameAt(s, g), sp = sprayAt(s, g);
         p.uniforms.uI.value = f; p.uniforms.uTime.value = clock;
+        p.uniforms.uHeat.value = Math.min(1, Math.max(0, 1 - Math.max(0, s - g.naik_deg) / (g.padam_deg * 2.0)));
+        p.uniforms.uFlash.value = s >= 0 && s < g.naik_deg ? Math.sin(Math.PI * s / g.naik_deg) : 0;
         p.flame.visible = f > 0.002;
         // Api tidak melebihi diameter bore. Dengan kinematics, api mengisi ruang antara kepala
         // silinder dan mahkota piston yang turun selama langkah usaha (rumus slider-crank).
@@ -161,7 +186,14 @@
         p.flame.scale.set(1, half / p.r, 1);
         p.flame.position.copy(p.pos).addScaledVector(p.axis, -shift);
         if (p.light) p.light.position.copy(p.flame.position);
-        if (p.spray) { p.spray.material.uniforms.uI.value = sp; p.spray.material.uniforms.uTime.value = clock; p.spray.visible = sp > 0.002; }
+        if (p.spray) {
+          const sprayUniforms = p.spray.material.uniforms;
+          sprayUniforms.uI.value = sp;
+          sprayUniforms.uTime.value = clock;
+          sprayUniforms.uIgnition.value = Math.max(0, Math.min(1,
+            (s - g.semburan_mulai_deg) / (g.semburan_selesai_deg - g.semburan_mulai_deg)));
+          p.spray.visible = sp > 0.002;
+        }
         if (p.light) p.light.intensity = f * g.terang * 1.5;
       }
     }

@@ -2,6 +2,8 @@ import hashlib
 import importlib.util
 import json
 from pathlib import Path
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 import tempfile
 import unittest
 
@@ -25,7 +27,12 @@ class ToolkitTests(unittest.TestCase):
         return t.check_review(self.root)
 
     def valid_contract_fixture(self):
-        # Not a GLB/model audit: intentionally synthetic bytes test hash and report contracts only.
+        # Pre-specialist packets remain resumable with their original contract.
+        job = json.loads((self.root / 'job.json').read_text())
+        job['schema_version'] = 1
+        t.write_json(self.root / 'job.json', job)
+        (self.root / t.assembly_scope.PLAN).unlink(missing_ok=True)
+        # Synthetic bytes test the legacy hash/report contract only.
         paths = ['model/exterior/exterior.glb', 'model/internal/internal.glb', 'review/index.html',
                  'model/datum.json', 'model/exterior/inventory.json', 'model/internal/inventory.json', 'doc/sources.json', 'qa/evidence.txt']
         paths += [f'qa/{v}.png' for v in t.VIEWS]
@@ -55,6 +62,15 @@ class ToolkitTests(unittest.TestCase):
         result = self.put(self.valid_contract_fixture())
         self.assertTrue(result['ready_for_private_review'], result)
         self.assertFalse(result['catalog_approved'])
+
+    def test_new_order_cannot_reuse_a_passing_legacy_report_without_specialist_scope(self):
+        report = self.valid_contract_fixture()
+        job = json.loads((self.root / 'job.json').read_text())
+        job['schema_version'] = 2
+        t.write_json(self.root / 'job.json', job)
+        result = self.put(report)
+        self.assertFalse(result['ready_for_private_review'])
+        self.assertTrue(any('assembly plan' in error for error in result['errors']))
 
     def test_historical_pass_with_missing_fields_is_rejected(self):
         self.assertFalse(self.put({'verdict': 'PASS'})['ready_for_private_review'])

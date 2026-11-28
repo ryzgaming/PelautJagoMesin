@@ -51,3 +51,14 @@ Chromium menguji keempat mesin pada viewport desktop, HP tegak dan HP mendatar, 
 Pada Eksplor rakitan, label nomor dan jumlah mengikuti metadata sumber mesin. Sebagai contoh, M4 pada Tanabe adalah posisi model, dan M78 pada MAN tidak mendapat penunjuk ketika mesh terkait tersembunyi. Pemeriksaan ini mencakup 398 baris inventaris bawaan. Uji premium menggunakan salinan simulator privat pada jalur akses lokal. Jalankan kembali [uji workspace](WORKSPACE_UI.md#pemeriksaan-penerimaan) setiap kali template atau arsip simulator berubah.
 
 Pada Alfa Laval, kamera bawaan Sistem membuat delapan kelompok komponen keluar dari kanvas HP dan sudut tersebut terbawa ke Pengoperasian. Saat pengguna membuka tampilan mesin, kamera kini memperhitungkan ukuran kanvas sesudah panel terbuka. [Perbandingan Pengoperasian pada empat mesin, 390×760](design/pengoperasian-empat-mesin.webp)
+
+
+## GPT-001 · 28 November 2026 · adopsi toolkit produksi
+
+Pemilik meminta prompt dan `toolkit-orang-mesin.tar.gz` diadaptasi untuk GPT. Kontrak aktif: [PROMPT-GPT](../tools/gpt-production/PROMPT-GPT.md), [peran](../tools/gpt-production/ROLE-PROMPTS.md), [alat dan batas verifikasi](../tools/gpt-production/README.md). Provenance SHA-256 lampiran disimpan di `tools/gpt-production/PROVENANCE.json`. Data/skrip contoh Caterpillar asli hanya disertakan pada paket unduhan privat, tidak pada web publik/repository.
+
+`hosted_worker.py prepare` menyertakan salinan panduan beserta SHA-256 ke context setiap peran untuk worker Codex atau pilihan GPT. Gunakan subfolder privat `production` di direktori attempt untuk `init`; jangan timpa folder lama saat resume. Tidak mengubah schema database, jadwal automasi, katalog, atau model mesin.
+
+Pelajaran dari inspeksi lampiran: build khusus 3512C memakai path Claude tetap; `make_qa2.py` mengandung angka/hash/PASS historis. Jangan menjadikannya pemeriksa generik. Target nominal 1% adalah kriteria edukasi, bukan toleransi OEM; sampling BVH bukan bukti bebas benturan sepanjang lintasan. INFERRED/ILLUSTRATIVE lokal dipetakan UNKNOWN + alasan pada RPC yang lebih sempit.
+
+Uji adaptasi: 9 tes kontrak toolkit dan 14 tes hosted worker lulus, termasuk penolakan hash basi, PASS tanpa bukti, QA oleh pembuat dan peran hilang. Blender 4.3.2 mengimpor GLB balok sintetis dan menghasilkan 12 PNG enam sudut pada 96×72/sampel 1; enam render netral dilihat. OpenImageDenoise tidak tersedia pada build ini; renderer mematikan denoising. Hasil ini tidak memvalidasi geometri Caterpillar/Yanmar, viewer HP, atau kualitas produksi mesin berikutnya. Pekerjaan berikut: jalankan order mesin nyata dengan sumber varian yang memadai, 13 subagen per peran, QA baru dan review pemilik.

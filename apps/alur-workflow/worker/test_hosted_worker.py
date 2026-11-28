@@ -78,6 +78,19 @@ class HostedWorkerTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "Opsi produksi"):
             worker.prepare(self.root, self.packet)
 
+    def test_codex_guide_is_delivered_to_all_roles_with_hash(self):
+        self.claim.update(worker="codex")
+        folder = worker.prepare(self.root, self.packet)
+        guide = folder / "production-guide.json"
+        digest = hashlib.sha256(guide.read_bytes()).hexdigest()
+        data = json.loads(guide.read_text())
+        self.assertIn("PROMPT-GPT.md", data)
+        self.assertIn("QA", data["PROMPT-GPT.md"])
+        self.assertNotIn("not-for-workers", guide.read_text())
+        for role in worker.ROLES:
+            context = json.loads((folder / "roles" / role / "context.json").read_text())
+            self.assertEqual(context["production_guide"], {"file": "../../production-guide.json", "sha256": digest})
+
     def brief_parts(self, brief, size=40):
         """Tiru read_flow_brief: teks brief dipotong per bagian, digest dihitung server."""
         text = json.dumps(brief, ensure_ascii=False)

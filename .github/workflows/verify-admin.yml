@@ -29,5 +29,7 @@ jobs:
         run: python3 -m unittest discover -s apps/alur-workflow/tests -p 'test_*.py'
       - name: Hosted agent memory tests
         run: python3 -m unittest discover -s apps/alur-workflow/worker
+      - name: GPT production toolkit contract tests
+        run: python3 -m unittest discover -s tools/gpt-production/tests
       - name: Build verification
         run: npm run build

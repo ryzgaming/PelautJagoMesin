@@ -8,6 +8,8 @@ from pathlib import Path
 import shutil
 import sys
 
+import assembly_scope
+
 ROLES = ('documents', 'photos', 'video', 'dimension', 'fuel', 'lubrication',
          'intake-exhaust', 'freshwater', 'seawater', 'exterior', 'internals', 'integrator', 'qa')
 VIEWS = ('depan', 'belakang', 'kiri', 'kanan', 'atas', 'tiga_perempat')
@@ -31,10 +33,11 @@ def initialize(root, brand, model, ai_model):
     for folder in ('doc', 'foto', 'video', 'model/exterior', 'model/internal', 'model/systems',
                    'model/assemblies', 'qa', 'review'):
         (root / folder).mkdir(parents=True, exist_ok=True)
-    spec = {'schema_version': 1, 'brand': brand, 'model': model, 'ai_model': ai_model,
+    spec = {'schema_version': 2, 'brand': brand, 'model': model, 'ai_model': ai_model,
             'revision': 'r01', 'purpose': 'educational', 'catalog_approval': None,
             'dimension_target_percent': 1, 'dimension_target_kind': 'educational_nominal_not_manufacturing'}
     write_json(root / 'job.json', spec)
+    write_json(root / assembly_scope.PLAN, assembly_scope.new_plan(spec['revision']))
     write_json(root / 'model/datum.json', {'unit': 'm', 'status': 'UNVERIFIED', 'axes': None,
                                           'origin': None, 'dimensions': {}, 'source_refs': []})
     write_json(root / 'doc/sources.json', {'sources': [], 'conflicts': [], 'gaps': []})
@@ -138,6 +141,13 @@ def check_review(root):
     findings = report.get('findings', [])
     require(isinstance(findings, list), 'Malformed findings')
     open_findings = [f for f in findings if not isinstance(f, dict) or f.get('state') != 'closed'] if isinstance(findings, list) else [None]
+    if job.get('schema_version', 1) >= 2 or (root / assembly_scope.PLAN).exists():
+        try:
+            coverage_errors, coverage_statuses = assembly_scope.inspect(root, job['revision'], verified, qa_id)
+            errors.extend(coverage_errors)
+            statuses.extend(coverage_statuses)
+        except (OSError, ValueError, TypeError, KeyError, AttributeError, IndexError) as exc:
+            errors.append(f'Invalid assembly evidence: {exc}')
     if 'FAIL' in statuses or any(isinstance(f, dict) and f.get('severity') in ('critical', 'major') for f in open_findings):
         verdict = 'FAIL'
     elif errors or open_findings or any(s not in ('PASS', 'N/A') for s in statuses):
@@ -158,12 +168,16 @@ def main():
     for field in ('brand', 'model', 'ai-model'):
         init.add_argument('--' + field, required=True)
     sub.add_parser('preflight')
+    briefs = sub.add_parser('specialist-briefs', help='List specialist tasks for actual delegation')
+    briefs.add_argument('--workspace', type=Path, required=True)
     gate = sub.add_parser('check-review')
     gate.add_argument('--workspace', type=Path, required=True)
     args = parser.parse_args()
     try:
         if args.command == 'init':
             result = initialize(args.workspace, args.brand, args.model, args.ai_model)
+        elif args.command == 'specialist-briefs':
+            result = list(assembly_scope.dispatch(args.workspace))
         elif args.command == 'preflight':
             result = preflight()
         else:

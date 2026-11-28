@@ -28,6 +28,8 @@ Siapkan review privat hanya bila gerbang terpenuhi. Jangan terbitkan ke katalog 
 - QA/review pemilik bukan persetujuan jual. Katalog memerlukan persetujuan pemilik yang mengacu hash/revisi yang sama dan hak penggunaan aset. Perubahan model membatalkan audit terkait.
 - Untuk antrean, ikuti claim/heartbeat/history/checkpoint/finish dari README worker; kredensial hanya koordinator. Jangan membuat automasi atau mengklaim order baru hanya karena membaca prompt ini.
 
+Pada produksi dan revisi model mesin, koordinator juga [menugaskan spesialis tiap rakitan](SPECIALISTS.md) sebelum memodelkan. Gunakan daftar dari `specialist-briefs`, teruskan subkomponen yang diharapkan kepada modeler, dan periksa komponen tersembunyi hingga dapat dipilih melalui viewer.
+
 Gunakan profil proyek `referensi_visual`, `pemodel_eksterior`, dan `qa_visual_viewer` sesuai [instruksi peran](ROLE-PROMPTS.md#agen-proyek-untuk-kemiripan-dan-viewer).
 
 ## Kontrak produksi

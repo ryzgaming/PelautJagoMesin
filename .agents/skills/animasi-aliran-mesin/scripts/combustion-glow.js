@@ -41,18 +41,24 @@
   }
 
   const flameVertex = `
-    varying vec3 vN; varying vec3 vV; varying vec3 vP;
+    varying vec3 vP; varying vec3 vRay;
     void main(){
       vP = position;
       vec4 mv = modelViewMatrix * vec4(position, 1.0);
-      vN = normalize(normalMatrix * normal); vV = normalize(-mv.xyz);
+      // Invert orthogonal TRS basis without GLSL3 inverse(); includes piston-driven Y scale.
+      vec3 bx = modelViewMatrix[0].xyz, by = modelViewMatrix[1].xyz, bz = modelViewMatrix[2].xyz;
+      vRay = vec3(dot(mv.xyz,bx)/dot(bx,bx), dot(mv.xyz,by)/dot(by,by), dot(mv.xyz,bz)/dot(bz,bz));
       gl_Position = projectionMatrix * mv;
     }`;
   const flameFragment = `
     uniform float uI, uTime, uTurb, uBright, uR, uHeat, uFlash;
     uniform vec3 uCore, uFlame, uEdge;
-    varying vec3 vN; varying vec3 vV; varying vec3 vP;
-    float h(vec3 p){ return fract(sin(dot(p, vec3(12.9898,78.233,37.719))) * 43758.5453); }
+    varying vec3 vP; varying vec3 vRay;
+    float h(vec3 p){
+      p = fract(p * 0.1031);
+      p += dot(p, p.yzx + 33.33);
+      return fract((p.x + p.y) * p.z);
+    }
     float n3(vec3 p){
       vec3 i = floor(p), f = fract(p); f = f*f*(3.0-2.0*f);
       return mix(mix(mix(h(i),h(i+vec3(1,0,0)),f.x), mix(h(i+vec3(0,1,0)),h(i+vec3(1,1,0)),f.x), f.y),
@@ -60,23 +66,29 @@
     }
     void main(){
       if (uI < 0.002) discard;
-      float facing = abs(dot(normalize(vN), normalize(vV)));
-      vec3 p = vP / uR;
-      vec3 q = p * 3.2;
-      q.xz += vec2(sin(q.y + uTime * 1.3), cos(q.y - uTime)) * 0.22;
-      float turb = n3(q + vec3(0.0, -uTime * 2.8, uTime * 0.5)) * 0.68
-                 + n3(q * 2.1 + vec3(0.7, -uTime * 4.0, 1.3)) * 0.32;
-      float density = smoothstep(0.23, 0.72, turb + facing * 0.24);
-      // The sphere already fits the bore; radial masking would cut a dark equator.
-      float silhouette = smoothstep(0.0, 0.30, facing);
-      float flame = mix(0.68, density, clamp(uTurb, 0.0, 1.0));
-      float core = pow(facing, 1.6) * smoothstep(0.34, 0.78, turb) *
-                   (0.5 + 0.5 * smoothstep(-0.35, 0.7, p.y));
-      vec3 ember = uEdge * 0.42;
-      vec3 col = mix(ember, mix(uEdge, uFlame, flame), uHeat);
-      col = mix(col, uCore, clamp(core * uHeat * 0.78 + uFlash * core * 0.30, 0.0, 0.82));
-      float a = uI * silhouette * (0.24 + flame * 0.65);
-      gl_FragColor = vec4(col * uBright * (0.64 + 0.36 * uHeat), a);
+      vec3 entry = vP / uR, ray = normalize(vRay);
+      float travel = max(0.0, -2.0 * dot(entry, ray));
+      vec3 emission = vec3(0.0); float opacity = 0.0;
+      // Fixed samples through the bounded ellipsoid; two on mobile, three on desktop.
+      for (int i = 0; i < VOLUME_SAMPLES; i++) {
+        vec3 p = entry + ray * travel * ((float(i) + 0.5) / float(VOLUME_SAMPLES));
+        vec3 q = p * 3.6;
+        q.xz += vec2(sin(q.y + uTime * 1.3), cos(q.y - uTime)) * 0.32;
+        float turb = n3(q + vec3(0.0, -uTime * 2.8, uTime * 0.5)) * 0.68
+                   + n3(q * 2.1 + vec3(0.7, -uTime * 4.0, 1.3)) * 0.32;
+        float edge = 1.0 - smoothstep(0.48, 1.0, dot(p,p));
+        float structure = smoothstep(0.25, 0.72, turb + uHeat * 0.10);
+        float density = edge * mix(0.68, structure, clamp(uTurb, 0.0, 1.0));
+        float hot = smoothstep(0.38, 0.78, turb) * (0.6 + 0.4 * smoothstep(-0.4,0.6,p.y));
+        float flash = exp(-dot(p.xz,p.xz)*7.0) * smoothstep(-0.1,0.6,p.y) * uFlash;
+        vec3 col = mix(uEdge * 0.28, mix(uEdge, uFlame, structure), uHeat);
+        col = mix(col, uCore, clamp(hot * uHeat * 0.78 + flash * 0.55, 0.0, 0.88));
+        float a = density * travel * (1.2 / float(VOLUME_SAMPLES)) * uI;
+        emission += (1.0-opacity) * col * a;
+        opacity += (1.0-opacity) * a;
+      }
+      if (opacity < 0.001) discard;
+      gl_FragColor = vec4(emission / opacity * uBright, opacity);
     }`;
   const sprayFragment = `
     uniform float uI, uTime, uIgnition; uniform vec3 uColor, uWarm;
@@ -86,13 +98,18 @@
       float along = 1.0 - vUv.y; // ConeGeometry puts the nozzle apex at uv.y = 1.
       float angle = vUv.x * 6.2831853;
       float travel = along * 16.0 - uTime * 32.0;
-      float streak = pow(0.5 + 0.5 * sin(angle * 11.0 + sin(travel) * 0.7), 5.0);
+      // Optical filaments, not a claim about the engine's nozzle-hole count.
+      float filament = 0.5 + 0.5 * sin(angle * 11.0 + sin(travel * 0.3) * along * 0.55);
+      float streak = pow(filament, 12.0);
+      float fine = pow(0.5 + 0.5 * sin(angle * 19.0 - travel * 0.22), 16.0);
       float droplets = 0.52 + 0.48 * sin(travel * 2.7 + angle * 3.0);
       float facing = abs(dot(normalize(vN), normalize(vV)));
       float edge = smoothstep(0.0, 0.40, facing);
       float tip = smoothstep(0.0, 0.045, along);
       float end = 1.0 - smoothstep(0.52, 1.0, along);
-      float mist = 0.17 + streak * (0.22 + 0.27 * droplets);
+      float breakup = smoothstep(0.16, 0.75, along);
+      float mist = 0.055 + streak * (0.60 + 0.28 * droplets) * (1.0-breakup*0.35)
+                  + breakup * (0.09 + fine * droplets * 0.24);
       float a = uI * tip * end * edge * mist;
       vec3 col = mix(uColor, uWarm, uIgnition * smoothstep(0.12, 0.85, along) * 0.65);
       gl_FragColor = vec4(col, a);
@@ -131,6 +148,7 @@
 
     for (const c of opt.cylinders) {
       const r = (c.bore_m || 0.1) * 0.5 * g.ukuran;
+      const halfHeight = Number.isFinite(c.half_height_m) && c.half_height_m > 0 ? c.half_height_m : 0.55 * r;
       const axis = new THREE.Vector3().fromArray(c.axis || [0, 1, 0]).normalize();
       const pos = new THREE.Vector3().fromArray(c.position);
       const uniforms = {
@@ -139,10 +157,11 @@
       };
       const flame = new THREE.Mesh(new THREE.SphereGeometry(r, opt.mobile ? 16 : 28, opt.mobile ? 12 : 20),
         new THREE.ShaderMaterial({vertexShader: flameVertex, fragmentShader: flameFragment, uniforms,
+          defines: {VOLUME_SAMPLES: opt.mobile ? 2 : 3},
           transparent: true, depthWrite: false, blending: THREE.AdditiveBlending}));
       flame.position.copy(pos);
       flame.quaternion.setFromUnitVectors(up, axis);
-      flame.scale.set(1, 0.55, 1);                       // ruang bakar pipih di sepanjang sumbu bore
+      flame.scale.set(1, halfHeight / r, 1);                       // ruang bakar pipih di sepanjang sumbu bore
       flame.renderOrder = 30; flame.name = "api:" + c.id; flame.visible = false;
       group.add(flame);
 
@@ -164,7 +183,7 @@
         light = new THREE.PointLight(new THREE.Color(g.warna_api), 0, (c.bore_m || 0.1) * g.cahaya_jarak_bore, 2);
         light.position.copy(pos); group.add(light);
       }
-      parts.push({id: c.id, flame, spray, light, uniforms, bore: c.bore_m || 0.1, r, axis, pos});
+      parts.push({id: c.id, flame, spray, light, uniforms, bore: c.bore_m || 0.1, r, halfHeight, axis, pos});
     }
 
     function apply() {
@@ -177,7 +196,7 @@
         p.flame.visible = f > 0.002;
         // Api tidak melebihi diameter bore. Dengan kinematics, api mengisi ruang antara kepala
         // silinder dan mahkota piston yang turun selama langkah usaha (rumus slider-crank).
-        let half = 0.55 * p.r, shift = 0;
+        let half = p.halfHeight, shift = 0;
         if (opt.kinematics && s > 0) {
           const kr = opt.kinematics.stroke_m / 2, kl = opt.kinematics.rod_length_m, a = s * Math.PI / 180;
           const drop = (kr + kl) - (kr * Math.cos(a) + Math.sqrt(kl * kl - Math.pow(kr * Math.sin(a), 2)));
@@ -205,7 +224,11 @@
       get running() { return running; }, get crankDeg() { return crank; },
       setRpm(value) { rpm = Math.max(0, value); },
       /** Ikuti sudut engkol dari sumber lain (klip Blender / register gerak). */
-      setCrank(deg) { crank = ((deg % opt.cycleDeg) + opt.cycleDeg) % opt.cycleDeg; apply(); },
+      setCrank(deg, visualDt) {
+        // Optional optical clock for engines driven by their authoritative crank animation.
+        if (running) clock += Math.min(Math.max(visualDt || 0, 0), 0.1);
+        crank = ((deg % opt.cycleDeg) + opt.cycleDeg) % opt.cycleDeg; apply();
+      },
       update(dt) {
         dt = Math.min(Math.max(dt || 0, 0), 0.1);
         if (!running) return;

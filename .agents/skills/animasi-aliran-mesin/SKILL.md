@@ -96,7 +96,10 @@ three.js yang dipakai situs: `dist/assets/three.min.js` (r128, global `THREE`). 
 - Cairan: badan semi-transparan + kilau tepi + gelombang komet + gelembung. Gas: tanpa badan,
   gelombang tipis bercahaya (additive).
 - Preset optik `bubbles`, `viscosity`, dan `rim` membedakan gelembung, ekor gelombang, dan kilau tepi tiap media. Puncak gelombang tetap mengikuti posisi yang dilaporkan `probe()`.
-- Nyala memakai inti panas terbatas, tepian turbulen lembut, dan sisa bara merah. Semburan melunak di tepi dan memudar menjauh dari nozzle.
+- Nyala mengintegrasikan dua sampel volume di HP dan tiga di desktop dalam ellipsoid bore, dengan inti panas terbatas dan sisa bara merah. Filamen semburan melunak menjadi kabut; jumlah filamen visual bukan spesifikasi lubang nozzle.
+- Ruang bakar terukur dapat memberi `cylinder.half_height_m` (setengah tinggi ruang pada TMA), sehingga optik mengikuti bowl yang dangkal; default tetap `0.55 × radius`.
+- Viewer yang mengendalikan engkol dapat memanggil `fire.setCrank(deg, visualDt)`; argumen kedua opsional memajukan noise hanya saat `running`, tanpa mengubah sudut yang diberikan. Gunakan `pause()` untuk membekukan waktu optik.
+- Rute terukur dapat memilih `link.polyline: true` (atau `span.polyline`) untuk mempertahankan titik sudut tanpa interpolasi Catmull–Rom. `span.radius_m` mengalahkan `link.radius_m`, lalu fallback radius media; input wajib mengikuti lumen yang diketahui. Opsi lama tetap berlaku.
 - Kecepatan visual relatif: gas > air > bahan bakar > oli. Semua mengikuti rpm (`setRpm`).
 - Kontras di latar graphite Studio Gelap; jangan ubah tema workspace (lihat `docs/WORKSPACE_UI.md`).
 - Tidak ada efek yang menyiratkan data resmi (angka tekanan/debit) tanpa sumber.

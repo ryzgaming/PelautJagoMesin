@@ -89,25 +89,35 @@
       float facing = abs(dot(normalize(vN), normalize(vV)));
       float rim = pow(1.0 - facing, 2.2);
       float angle = vA * 6.2831853;
-      float stream = pow(0.5 + 0.5 * sin(angle * 5.0 + sin(x * 3.0) * 0.35), 10.0);
       float front = 1.0 - smoothstep(0.0, 0.10, uFill - vS);
+      // Coherent material-level branch avoids calculating liquid bubbles for every gas pixel.
+      if (uGas > 0.5) {
+        float eddy = sin(x * 7.0 + angle * 3.0 + sin(x * 3.1 - angle) * 0.8);
+        float eddyBehind = sin(x * 4.7 - angle * 2.0 + sin(x * 2.3 + angle * 3.0) * 0.65);
+        float wisps = pow(0.5 + 0.5 * eddy, 4.0) * 0.66 + pow(0.5 + 0.5 * eddyBehind, 6.0) * 0.34;
+        float plume = (0.10 + 0.74 * comet) * (0.22 + 0.78 * wisps);
+        float gasAlpha = (plume * 0.66 + front * 0.36) * pow(facing, 0.55);
+        vec3 hotTail = uColor * vec3(0.82, 0.22, 0.09);
+        vec3 gasColor = mix(uColor * 0.80, mix(hotTail, uColor * 1.12, comet), uHeat);
+        gasColor += uColor * wisps * 0.14;
+
+        if (uEstimated > 0.5) gasAlpha *= step(0.5, fract(vS * 6.0)) * 0.6 + 0.15;
+        gl_FragColor = vec4(gasColor, clamp(gasAlpha, 0.0, 0.94) * uOpacity * uVisible);
+        return;
+      }
+      float stream = pow(0.5 + 0.5 * sin(angle * 5.0 + sin(x * 1.3) * 0.35), 14.0);
+      float refractLine = pow(0.5 + 0.5 * sin(angle * 2.0 + sin(x * 2.2) * 0.55), 18.0);
+      float inner = refractLine * pow(facing, 1.7) * (0.10 + 0.12 * comet);
       float bubble = (bubbles(1.08, 0.0) + bubbles(0.91, 4.7) * 0.40) * uBubbles;
-      float shine = rim * uRim + stream * (0.055 + 0.10 * comet) + bubble * 0.34;
-      vec3 liquid = uColor * (0.43 + 0.33 * comet + 0.16 * rim);
-      liquid = mix(liquid, mix(uColor, vec3(1.0), 0.64), clamp(shine + front * 0.36, 0.0, 0.8));
-      float liquidAlpha = uBody * (0.72 + 0.32 * facing) + comet * 0.35
+      float shine = rim * uRim + stream * (0.09 + 0.14 * comet) + bubble * 0.40 + inner;
+      vec3 absorbed = uColor * mix(vec3(0.38,0.57,0.72), vec3(0.66,0.60,0.42), uViscosity);
+      vec3 liquid = absorbed * (0.78 + 0.50 * comet) + uColor * rim * 0.12;
+      liquid = mix(liquid, mix(uColor, vec3(1.0), mix(0.68, 0.38, uViscosity)), clamp(shine + front * 0.36, 0.0, 0.8));
+      float liquidAlpha = uBody * (0.58 + 0.24 * facing + uViscosity * 0.35) + comet * 0.29
                         + shine * 0.28 + front * 0.48;
 
-      float eddy = sin(x * 7.0 + angle * 3.0 + sin(x * 3.1 - angle) * 0.8);
-      float wisps = pow(0.5 + 0.5 * eddy, 3.0);
-      float plume = (0.10 + 0.74 * comet) * (0.22 + 0.78 * wisps);
-      float gasAlpha = (plume * 0.66 + front * 0.36) * pow(facing, 0.55);
-      vec3 hotTail = uColor * vec3(0.82, 0.22, 0.09);
-      vec3 gasColor = mix(uColor * 0.80, mix(hotTail, uColor * 1.12, comet), uHeat);
-      gasColor += uColor * wisps * 0.14;
-
-      float a = mix(liquidAlpha, gasAlpha, uGas);
-      vec3 col = mix(liquid, gasColor, uGas);
+      float a = liquidAlpha;
+      vec3 col = liquid;
       if (uEstimated > 0.5) a *= step(0.5, fract(vS * 6.0)) * 0.6 + 0.15;
       gl_FragColor = vec4(col, clamp(a, 0.0, 0.94) * uOpacity * uVisible);
     }`;
@@ -165,13 +175,59 @@
       const entry = {id: linkId, key, estimated, curves: [], lengths: [], total: 0, meshes: []};
       for (const span of spans) {
         const pts = span.points.map(p => new THREE.Vector3(p[0], p[1], p[2]));
-        const curve = new THREE.CatmullRomCurve3(pts, false, "centripetal");
+        let curve = new THREE.CatmullRomCurve3(pts, false, "centripetal");
+        let ringDistances = null;
+        if (span.polyline === true || link.polyline === true) {
+          const segments = [], distances = [0];
+          for (let i = 1; i < pts.length; i++) {
+            const length = pts[i].distanceTo(pts[i - 1]);
+            if (length > 1e-9) {
+              segments.push({a: pts[i - 1], b: pts[i], length});
+              distances.push(distances[distances.length - 1] + length);
+            }
+          }
+          if (!segments.length) continue;
+          const total = distances[distances.length - 1];
+          curve = new THREE.Curve();
+          curve.getPoint = function(t, target) {
+            const d = Math.max(0, Math.min(1, t)) * total;
+            let i = 0; while (i < segments.length - 1 && d > distances[i + 1]) i++;
+            const seg = segments[i];
+            return (target || new THREE.Vector3()).copy(seg.a).lerp(seg.b, (d - distances[i]) / seg.length);
+          };
+          curve.getPointAt = curve.getPoint;
+          curve.getLength = () => total;
+          // Include every surveyed corner as a ring; uniform sampling could cut across elbows.
+          ringDistances = [0];
+          for (let i = 0; i < segments.length; i++) {
+            const count = Math.max(1, Math.ceil(segments[i].length * (opt.mobile ? 30 : 60)));
+            for (let j = 1; j <= count; j++) ringDistances.push(distances[i] + segments[i].length * j / count);
+          }
+        }
         const len = curve.getLength();
-        const seg = Math.max(8, Math.min(opt.mobile ? 160 : 320, Math.ceil(len * (opt.mobile ? 30 : 60))));
-        const geo = new THREE.TubeGeometry(curve, seg, radius, opt.mobile ? 8 : 12, false);
+        const seg = ringDistances ? ringDistances.length - 1 :
+          Math.max(8, Math.min(opt.mobile ? 160 : 320, Math.ceil(len * (opt.mobile ? 30 : 60))));
+        let tubeCurve = curve;
+        if (ringDistances) {
+          tubeCurve = new THREE.Curve();
+          tubeCurve.getPoint = function(t, target) {
+            const ring = Math.max(0, Math.min(seg, t * seg)), i = Math.min(seg - 1, Math.floor(ring));
+            const d = ringDistances[i] + (ringDistances[i + 1] - ringDistances[i]) * (ring - i);
+            return curve.getPointAt(d / len, target);
+          };
+          tubeCurve.getPointAt = tubeCurve.getPoint;
+          // Curve's finite-difference tangent operates on the same ring schedule.
+          tubeCurve.getTangentAt = tubeCurve.getTangent;
+        }
+        const spanRadius = Number.isFinite(span.radius_m) && span.radius_m > 0 ? span.radius_m :
+          Number.isFinite(link.radius_m) && link.radius_m > 0 ? link.radius_m : radius;
+        const geo = new THREE.TubeGeometry(tubeCurve, seg, spanRadius, opt.mobile ? 8 : 12, false);
         // Jarak sepanjang lintasan (meter) dihitung kumulatif agar gelombang menyambung antar span.
         const uv = geo.attributes.uv, s = new Float32Array(uv.count);
-        for (let i = 0; i < uv.count; i++) s[i] = entry.total + uv.getX(i) * len;
+        for (let i = 0; i < uv.count; i++) {
+          const d = ringDistances ? ringDistances[Math.round(uv.getX(i) * seg)] : uv.getX(i) * len;
+          s[i] = entry.total + d;
+        }
         geo.setAttribute("aS", new THREE.BufferAttribute(s, 1));
         const mesh = new THREE.Mesh(geo, material(key, span.kind === "hidden", estimated));
         mesh.name = "flow:" + linkId + ":" + (span.passage || span.carrier || entry.curves.length);

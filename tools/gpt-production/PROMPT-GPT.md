@@ -28,6 +28,8 @@ Siapkan review privat hanya bila gerbang terpenuhi. Jangan terbitkan ke katalog 
 - QA/review pemilik bukan persetujuan jual. Katalog memerlukan persetujuan pemilik yang mengacu hash/revisi yang sama dan hak penggunaan aset. Perubahan model membatalkan audit terkait.
 - Untuk antrean, ikuti claim/heartbeat/history/checkpoint/finish dari README worker; kredensial hanya koordinator. Jangan membuat automasi atau mengklaim order baru hanya karena membaca prompt ini.
 
+Untuk simulasi mekanisme, tugaskan `spesialis_kinematika_benturan` memetakan tiap mesh ke bagian diam/bergerak per kondisi operasi. Gunakan [register gerak dan pemeriksaan benturan](MOTION-QA.md) hingga pengujian viewer.
+
 Untuk perpipaan, lorong cor dan animasi fluida, aktifkan agen lintas rakitan `spesialis_jalur_fluida` sesuai [petunjuk registrasi dan uji rute](FLOW-ROUTING.md).
 
 Pada produksi dan revisi model mesin, koordinator juga [menugaskan spesialis tiap rakitan](SPECIALISTS.md) sebelum memodelkan. Gunakan daftar dari `specialist-briefs`, teruskan subkomponen yang diharapkan kepada modeler, dan periksa komponen tersembunyi hingga dapat dipilih melalui viewer.

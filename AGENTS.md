@@ -22,6 +22,8 @@ Untuk produksi dengan GPT/Codex, baca [prompt produksi GPT](tools/gpt-production
 5. Bandingkan hasil pada desktop dan ponsel. Periksa juga pemilihan komponen, mode bongkar, dan akses katalog saat WebGL atau pustaka 3D gagal.
 6. **Wajib multi-agen (keputusan pemilik):** setiap pembuatan mesin dikerjakan oleh subagen nyata per peran. Riset dokumen, foto, dan video berjalan paralel. Exterior dan Internal Modeler terpisah. QA independen yang tidak ikut membuat model memeriksa render enam sudut (depan, belakang, kiri, kanan, atas, 3/4) terhadap referensi dari sudut yang sama dan berhak menolak. Satu pekerja yang mengerjakan semua peran sendiri tidak diterima. Rincian dan gerbang `review` ada di [README worker](apps/alur-workflow/worker/README.md#wajib-multi-agen-aturan-pemilik).
 
+Untuk simulasi mekanisme, tugaskan `spesialis_kinematika_benturan` memetakan tiap mesh ke bagian diam/bergerak per kondisi operasi. Gunakan [register gerak dan pemeriksaan benturan](tools/gpt-production/MOTION-QA.md) hingga pengujian viewer.
+
 Untuk perpipaan, lorong cor dan animasi fluida, aktifkan agen lintas rakitan `spesialis_jalur_fluida` sesuai [petunjuk registrasi dan uji rute](tools/gpt-production/FLOW-ROUTING.md).
 
 Pada produksi dan revisi model mesin, koordinator juga [menugaskan spesialis tiap rakitan](tools/gpt-production/SPECIALISTS.md) sebelum memodelkan. Gunakan daftar dari `specialist-briefs`, teruskan subkomponen yang diharapkan kepada modeler, dan periksa komponen tersembunyi hingga dapat dipilih melalui viewer.
